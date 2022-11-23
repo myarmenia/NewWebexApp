@@ -1,0 +1,15 @@
+.header {
+  @apply w-full h-[80px] bg-white shadow-md flex justify-center  top-0 left-0 z-10;
+}
+.headerCotainer {
+  @apply w-[85%] flex items-center justify-between;
+}
+.LogoDiv {
+  @apply text-xl;
+}
+.navbar {
+  @apply flex items-center;
+}
+.customSelect {
+  @apply cursor-pointer;
+}
