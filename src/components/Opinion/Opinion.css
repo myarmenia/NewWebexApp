@@ -1,7 +1,7 @@
 .opinionContainer {
   width: 100%;
   height: auto;
-  background: linear-gradient(90deg, #53b7f2 0%, #97ffff 94.27%);
+  /* background: linear-gradient(90deg, #53b7f2 0%, #97ffff 94.27%); */
   padding-bottom: 100px;
 }
 .opinionTitle {

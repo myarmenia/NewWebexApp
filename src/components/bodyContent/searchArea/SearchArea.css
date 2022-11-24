@@ -1,0 +1,13 @@
+.searchArea {
+  @apply w-full flex justify-between mt-20 items-center;
+}
+.searchPart {
+  @apply flex flex-col gap-5 w-[433px];
+}
+/* .inputSearch { */
+  /* @apply outline-none border-none bg-white shadow-lg w-full h-[48px] rounded-2xl bg-no-repeat bg; */
+  /* background-image: url("../../../images/SearchArea/inputSearch.svg"); */
+/* } */
+.cards {
+  @apply relative;
+}
