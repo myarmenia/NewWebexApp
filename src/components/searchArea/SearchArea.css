@@ -1,0 +1,16 @@
+.search {
+  @apply w-full flex justify-between mt-20 mb-8 items-center;
+}
+.searchPart {
+  @apply flex flex-col gap-4 w-[433px];
+}
+.searchTitle {
+  @apply text-[#7A64FA] font-bold text-2xl leading-[178%];
+}
+.searchInput {
+  @apply mt-4 w-[90%] h-[48px] rounded-2xl px-4 bg-white outline-none border-none bg-[url("../../images/SearchArea/inputSearch.svg")] bg-no-repeat;
+  background-position: calc(100% - 20px) 50%;
+}
+.searchBoxes {
+  @apply h-[450px] w-[50%] relative
+}
