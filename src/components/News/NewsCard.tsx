@@ -1,5 +1,6 @@
 import React from "react";
 import "./News.css";
+import img1 from "./img/vector.png";
 
 export const NewsCard = () => {
   return (
@@ -15,7 +16,7 @@ export const NewsCard = () => {
           <div className="date">22/11/22</div>
           <a className="href" href="#">
             Ավելին
-            <img src="./img/vector.png" />
+            {/* <img src={img1} /> */}
           </a>
         </div>
       </div>
