@@ -1,7 +1,7 @@
 import React from "react";
 import { NewsCard } from "./NewsCard";
 import "./News.css";
-export const News = () => {
+export const News: React.FC = () => {
   return (
     <div className="newsContainer">
       <div className="newsTitle">Նորություններ</div>

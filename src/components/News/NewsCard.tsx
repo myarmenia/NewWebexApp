@@ -1,7 +1,8 @@
 import React from "react";
+import arrowImg from "./img/vector.png";
 import "./News.css";
 
-export const NewsCard = () => {
+export const NewsCard: React.FC = () => {
   return (
     <div className="newsCard">
       <div className="newsCardChild">
@@ -15,7 +16,7 @@ export const NewsCard = () => {
           <div className="date">22/11/22</div>
           <a className="href" href="#">
             Ավելին
-            <img src="./img/vector.png" />
+            <img src={arrowImg} />
           </a>
         </div>
       </div>

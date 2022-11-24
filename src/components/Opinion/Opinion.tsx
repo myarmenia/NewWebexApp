@@ -1,6 +1,6 @@
 import React from "react";
 import "./Opinion.css";
-export const Opinion = () => {
+export const Opinion: React.FC = () => {
   return (
     <div className="opinionContainer">
       <div className="opinionTitle">Ուսանողի կարծիքը</div>

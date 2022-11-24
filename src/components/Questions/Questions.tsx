@@ -1,7 +1,7 @@
 import React from "react";
 import { Accordion } from "./Accordion";
 import "./Questions.css";
-export const Questions = () => {
+export const Questions: React.FC = () => {
   return (
     <div className="questionsContainer">
       <div className="questionsTitle">Հաճախ տրվող հարցեր</div>

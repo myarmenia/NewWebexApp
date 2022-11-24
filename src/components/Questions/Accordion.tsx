@@ -1,6 +1,6 @@
 import React from "react";
 import "./Questions.css";
-export const Accordion = () => {
+export const Accordion: React.FC = () => {
   return (
     <section className="accordion">
       <article className="accordionChild">
