@@ -1,7 +1,7 @@
+import "./CustomSelect.css";
 import React, { useState } from "react";
 import { Options } from "./Options";
 import { DefaultOption } from "./DefaultOption";
-import "./CustomSelect.css";
 interface CustomSelectProps {
   select: {
     title: string;

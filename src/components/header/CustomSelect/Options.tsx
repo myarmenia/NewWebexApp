@@ -3,6 +3,8 @@ import React from "react";
 // import { IselectOptionsInitialState } from "../../../../models/Content";
 import { headerStore } from "../HeaderStore";
 import { Option } from "./Option";
+import "./CustomSelect.css";
+
 interface OptionsProps {
   selectedOption: (event: string) => void;
   state: boolean;
