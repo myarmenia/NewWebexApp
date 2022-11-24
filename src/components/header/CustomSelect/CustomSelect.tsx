@@ -7,22 +7,24 @@ interface CustomSelectProps {
     title: string;
     options: string[];
   };
+  className?: string;
 }
 
 export const CustomSelect: React.FC<CustomSelectProps> = ({
   select,
+  className,
 }: CustomSelectProps) => {
   const [state, setState] = useState<boolean>(false);
   const [name, setName] = useState<string>(select.title);
   const [rotateClass, setRotateClass] = useState(false);
-  const selectedOption = (event: string) => {
+  const selectedOption = (event: string): void => {
     setName(event);
     setState(!state);
   };
 
   return (
     <div
-      className="relative"
+      className={`customSelect ${className}`}
       onClick={() => {
         setState(!state);
         setRotateClass(!rotateClass);

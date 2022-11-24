@@ -1,8 +1,9 @@
 .newsContainer {
   width: 100%;
   height: auto;
-  background-color: rgb(183, 203, 203);
+  /* background-color: rgb(183, 203, 203); */
   padding-bottom: 100px;
+  /* background-image: url("../../images/News/beautiful-student-girl-learning-home-with-laptop\ 1.svg"); */
 }
 .newsTitle {
   display: flex;

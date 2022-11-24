@@ -15,7 +15,11 @@ export const Header: React.FC = () => {
         <div className="navbar">
           {headerStore.map((el, index) => {
             if (typeof el !== "string") {
-              return (
+              return el.title === "Աղբյուրներ" ? (
+                <NavItem key={index}>
+                  <CustomSelect select={el} className="!min-w-[117px]" />
+                </NavItem>
+              ) : (
                 <NavItem key={index}>
                   <CustomSelect select={el} />
                 </NavItem>

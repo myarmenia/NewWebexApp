@@ -1,12 +1,15 @@
+.customSelect{
+  @apply relative min-w-[143px] flex justify-end
+}
 .options {
-  @apply w-full absolute top-8 rounded-2xl bg-blue-500 overflow-hidden;
+  @apply w-full absolute top-8 rounded-2xl bg-slate-50 overflow-hidden shadow-md;
 }
 .defaultOption {
-  @apply flex gap-1 px-1 py-1 items-center justify-between border-[1px] border-white min-w-[115px] text-ellipsis overflow-hidden;
+  @apply w-full flex gap-1 px-1 py-1 items-center border-[1px] border-white text-ellipsis overflow-hidden;
 }
 .selectActive {
   @apply -mt-[1px] mb-[1px] shadow-[0_35px_60px_rgba(0,0,0,0.25)] rounded-xl;
 }
 .custopSelect_option {
-  @apply text-center bg-blue-500 transition-all py-3 px-3 text-ellipsis overflow-hidden mx-auto h-fit w-full hover:bg-white text-white hover:text-blue-500 whitespace-nowrap cursor-pointer;
+  @apply bg-slate-50 hover:shadow-md hover:bg-slate-100 text-center transition-all py-3 px-3 text-ellipsis overflow-hidden mx-auto h-fit w-full text-black whitespace-nowrap cursor-pointer;
 }

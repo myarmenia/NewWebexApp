@@ -1,4 +1,5 @@
 import React from "react";
+// import imgi from "https://freepngimg.com/thumb/man/22654-6-man-thumb.png";
 import "./Opinion.css";
 export const Opinion: React.FC = () => {
   return (
@@ -6,10 +7,7 @@ export const Opinion: React.FC = () => {
       <div className="opinionTitle">Ուսանողի կարծիքը</div>
       <div className="opinionContainerChild">
         <div className="studentQuotes">
-          <img
-            src="https://freepngimg.com/thumb/man/22654-6-man-thumb.png"
-            className="studentImg"
-          />
+          {/* <img src={imgi} className="studentImg" /> */}
           <div className="studentQuotesChild">
             <div className="symbol">66</div>
             <p className="opinionText">
