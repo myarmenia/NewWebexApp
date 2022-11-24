@@ -1,6 +1,6 @@
 import React from "react";
 // import imgi from "https://freepngimg.com/thumb/man/22654-6-man-thumb.png";
-import "./Opinion.css";
+import "./opinion.css";
 export const Opinion: React.FC = () => {
   return (
     <div className="opinionContainer">

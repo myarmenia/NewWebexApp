@@ -2,11 +2,11 @@ import React from "react";
 import "./App.css";
 import { BodyContent } from "./components/bodyContent/BodyContent";
 import Container from "./components/bodyContent/container/Container";
-import Footer from "./components/Footer/Footer";
+import Footer from "./components/footer/Footer";
 import { Header } from "./components/header/Header";
-import { News } from "./components/News/News";
-import { Opinion } from "./components/Opinion/Opinion";
-import { Questions } from "./components/Questions/Questions";
+import { News } from "./components/news/News";
+import { Opinion } from "./components/opinion/Opinion";
+import { Questions } from "./components/questions/Questions";
 
 function App() {
   return (
