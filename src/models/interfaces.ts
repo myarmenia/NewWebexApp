@@ -16,3 +16,10 @@ export interface IImages {
   position: string;
   image: string;
 }
+export interface LessonProps {
+  title: string;
+  keys: string[];
+  description: string;
+  price: string;
+  video: string;
+}

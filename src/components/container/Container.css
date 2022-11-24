@@ -3,5 +3,5 @@
   background: url("../../images/vivid-blurred-colorful-background.png");
 }
 .innerCont {
-  @apply w-[83%] flex flex-col gap-10;
+  @apply w-[83%] flex flex-col gap-10 items-center;
 }

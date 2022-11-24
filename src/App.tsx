@@ -9,6 +9,7 @@ import { News } from "./components/News/News";
 import { Opinion } from "./components/Opinion/Opinion";
 import { Questions } from "./components/Questions/Questions";
 import { SearchArea } from "./components/searchArea/SearchArea";
+import { Lessons } from "./components/popularLessons/Lessons";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <News />
       <Container>
         <Opinion />
+        <Lessons />
         <Questions />
       </Container>
       <Footer />

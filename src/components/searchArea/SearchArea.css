@@ -12,5 +12,19 @@
   background-position: calc(100% - 20px) 50%;
 }
 .searchBoxes {
-  @apply h-[450px] w-[50%] relative
+  @apply h-[450px] w-[50%] relative;
+}
+@media (max-width: 1100px) {
+  .search {
+    @apply flex-col gap-10;
+  }
+  .searchPart{
+    @apply w-[70%]
+  }
+  .searchInput{
+    @apply w-full
+  }
+  .searchBoxes{
+    @apply w-[83%]
+  }
 }

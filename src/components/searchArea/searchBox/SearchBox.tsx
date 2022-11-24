@@ -1,4 +1,5 @@
 import React from "react";
+import './searchBox.css'
 
 interface SearchBoxProps {
   url: string;
@@ -7,7 +8,7 @@ interface SearchBoxProps {
 
 export const SearchBox: React.FC<SearchBoxProps> = ({ url, className }) => {
   return (
-    <a href="#" className={`absolute ${className}`}>
+    <a href="#" className={`searchBox ${className}`}>
       <img src={url} alt="" />
     </a>
   );

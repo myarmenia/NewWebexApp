@@ -25,9 +25,13 @@ export const CustomSelect: React.FC<CustomSelectProps> = ({
   return (
     <div
       className={`customSelect ${className}`}
-      onClick={() => {
-        setState(!state);
-        setRotateClass(!rotateClass);
+      onPointerMove={() => {
+        setState(true);
+        setRotateClass(true);
+      }}
+      onPointerLeave={() => {
+        setState(false);
+        setRotateClass(false);
       }}
     >
       <DefaultOption title={name} rotateClass={rotateClass} state={state} />
