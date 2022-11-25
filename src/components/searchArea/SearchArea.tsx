@@ -8,6 +8,7 @@ import img4 from "../../images/SearchArea/Group (4).svg";
 import img5 from "../../images/SearchArea/Group (5).svg";
 import img6 from "../../images/SearchArea/Group (6).svg";
 import { IImages } from "../../models/interfaces";
+import searchBtn from "../../images/SearchArea/inputSearch.svg";
 
 const images: IImages[] = [
   { image: img1, position: "top-[34%]" },
@@ -29,7 +30,10 @@ export const SearchArea: React.FC = () => {
           Գտիր քեզ հետաքրքրող դասընթացը, Անցիր օնլայն դասընթաց, զարգացրու
           հմտություններդ “Webex”-ի հետ քեզ հետաքրքրող դասընթացը
         </p>
-        <input type="text" className="searchInput" />
+        <div className="relative">
+          <input type="text" className="searchInput" />
+          <img src={searchBtn} alt="" className="searchBtn" />
+        </div>
       </div>
       <div className="searchBoxes">
         {images.map(({ position, image }, index) => (

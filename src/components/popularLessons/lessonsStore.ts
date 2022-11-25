@@ -1,5 +1,4 @@
 import { LessonProps } from "../../models/interfaces";
-import video from "../../images/Lessons/Rectangle 92.svg";
 
 export const lessonsArr: LessonProps[] = [
   {
@@ -15,7 +14,7 @@ export const lessonsArr: LessonProps[] = [
     description:
       "Դասընթացի նկարագրությունը, Որպեսզի արդյունքի հասնելու համար, որն ավելի շատ համապատասխանի վերջնական արդյունքին, գրաֆիկական դիզայներները, դիզայներները կամ տպիչները գրի են առնում ",
     price: "65 000 դրամ",
-    video: video,
+    video: "https://youtu.be/B-ytMSuwbf8",
   },
   {
     title: "Գրաֆիկ դիզայնի դասընթաց սկսնակների համար",
@@ -30,7 +29,7 @@ export const lessonsArr: LessonProps[] = [
     description:
       "Դասընթացի նկարագրությունը, Որպեսզի արդյունքի հասնելու համար, որն ավելի շատ համապատասխանի վերջնական արդյունքին, գրաֆիկական դիզայներները, դիզայներները կամ տպիչները գրի են առնում ",
     price: "70 000 դրամ",
-    video: video,
+    video: "https://youtu.be/B-ytMSuwbf8",
   },
   {
     title: "Գրաֆիկ դիզայնի դասընթաց սկսնակների համար",
@@ -45,7 +44,7 @@ export const lessonsArr: LessonProps[] = [
     description:
       "Դասընթացի նկարագրությունը, Որպեսզի արդյունքի հասնելու համար, որն ավելի շատ համապատասխանի վերջնական արդյունքին, գրաֆիկական դիզայներները, դիզայներները կամ տպիչները գրի են առնում ",
     price: "100 000 դրամ",
-    video: video,
+    video: "https://youtu.be/B-ytMSuwbf8",
   },
   {
     title: "Գրաֆիկ դիզայնի դասընթաց սկսնակների համար",
@@ -60,6 +59,6 @@ export const lessonsArr: LessonProps[] = [
     description:
       "Դասընթացի նկարագրությունը, Որպեսզի արդյունքի հասնելու համար, որն ավելի շատ համապատասխանի վերջնական արդյունքին, գրաֆիկական դիզայներները, դիզայներները կամ տպիչները գրի են առնում ",
     price: "65 000 դրամ",
-    video: video,
+    video: "https://youtu.be/B-ytMSuwbf8",
   },
 ];

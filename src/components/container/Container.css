@@ -1,6 +1,8 @@
 .myContainer {
   @apply from-main-gradient flex items-center justify-center py-9 w-full;
-  background: url("../../images/vivid-blurred-colorful-background.png");
+  background: url("../../images/vivid-blurred-colorful-background.png")
+    no-repeat center;
+  background-size: cover;
 }
 .innerCont {
   @apply w-[83%] flex flex-col gap-10 items-center;

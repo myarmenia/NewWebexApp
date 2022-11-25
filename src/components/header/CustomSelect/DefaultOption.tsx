@@ -2,7 +2,6 @@ import React from "react";
 import chevDown from "../../../images/chevDown.svg";
 import "./CustomSelect.css";
 
-
 interface DefaultOptionProps {
   state: boolean;
   title: string;
@@ -15,7 +14,7 @@ export const DefaultOption: React.FC<DefaultOptionProps> = ({
   state,
 }: DefaultOptionProps) => {
   return (
-    <div className={`defaultOption ${state && "selectActive"}`}>
+    <div className="defaultOption">
       <div className="flex justify-center w-full">
         <button>{title}</button>
       </div>

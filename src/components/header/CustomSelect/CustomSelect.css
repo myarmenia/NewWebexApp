@@ -2,14 +2,17 @@
   @apply relative min-w-[143px] flex justify-end;
 }
 .options {
-  @apply w-full absolute top-8 rounded-2xl bg-slate-50 overflow-hidden;
+  @apply w-full absolute top-8 rounded-2xl bg-slate-50 overflow-hidden z-[2];
 }
 .defaultOption {
   @apply w-full flex gap-1 px-1 py-1 items-center border-[1px] border-white text-ellipsis overflow-hidden;
 }
-.selectActive {
-  @apply -mt-[1px] mb-[1px] shadow-[0_35px_60px_rgba(0,0,0,0.25)] rounded-xl;
-}
 .custopSelect_option {
   @apply bg-slate-50 hover:bg-slate-100 text-center transition-all py-3 px-3 text-ellipsis overflow-hidden mx-auto h-fit w-full text-black whitespace-nowrap cursor-pointer;
+}
+@media (max-width: 800px) {
+  .customSelect,
+  .defaultOption {
+    @apply border-none;
+  }
 }
