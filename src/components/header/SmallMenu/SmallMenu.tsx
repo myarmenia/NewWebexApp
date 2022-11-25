@@ -1,6 +1,6 @@
 import React from "react";
 import { Navbar } from "../navbar/Navbar";
-import "./SmallMenu.css";
+import "./smallMenu.css";
 
 interface SmallMEnuProps {
   animActive: boolean;

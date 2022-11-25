@@ -1,5 +1,5 @@
 .header {
-  @apply w-full h-[80px] bg-white flex justify-center fixed top-0 left-0 z-[3];
+  @apply w-full h-[80px] bg-white flex justify-center fixed top-0 left-0 z-[6];
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
 }
 .headerCotainer {

@@ -40,3 +40,14 @@
   -webkit-align-items: center;
   align-items: center;
 }
+
+/* ================================================ */
+
+@media (max-width: 500px) {
+  .lessonsContainer {
+    @apply gap-1;
+  }
+  .lessons {
+    @apply w-[110%];
+  }
+}

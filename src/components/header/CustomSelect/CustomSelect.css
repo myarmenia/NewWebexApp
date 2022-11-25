@@ -15,4 +15,10 @@
   .defaultOption {
     @apply border-none;
   }
+  .options {
+    @apply shadow-lg;
+  }
+  .custopSelect_option {
+    @apply hover:bg-[#0085ff80] hover:text-white;
+  }
 }
