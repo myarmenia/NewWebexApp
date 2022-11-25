@@ -8,8 +8,12 @@
   @apply text-[#7A64FA] font-bold text-2xl leading-[178%];
 }
 .searchInput {
-  @apply mt-4 w-[90%] h-[48px] rounded-2xl px-4 bg-white outline-none border-none bg-[url("../../images/SearchArea/inputSearch.svg")] bg-no-repeat;
-  background-position: calc(100% - 20px) 50%;
+  @apply mt-4 w-[90%] h-[48px] rounded-2xl px-4 bg-white outline-none border-none;
+  /* background-position: calc(100% - 20px) 50%; */
+}
+.searchBtn{
+  @apply absolute top-[65%] cursor-pointer p-1 -translate-y-1/2;
+  left:calc(100% - 35px)
 }
 .searchBoxes {
   @apply h-[450px] w-[50%] relative;

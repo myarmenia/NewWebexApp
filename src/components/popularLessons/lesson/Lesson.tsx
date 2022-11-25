@@ -1,7 +1,9 @@
 import React from "react";
 import "./lesson.css";
 import { LessonProps } from "../../../models/interfaces";
-// import video from "../../../images/Lessons/Rectangle 92.svg";
+
+// for video example
+import ReactPlayer from "react-player";
 
 export const Lesson: React.FC<LessonProps> = ({
   description,
@@ -13,13 +15,18 @@ export const Lesson: React.FC<LessonProps> = ({
   return (
     <div className="lesson">
       <div className="video">
-        {/* <source /> */}
-        <img src={video} alt="" className="w-full h-full bg-cover" />
+        {/* <ReactPlayer
+          url={video}
+          width="100%"
+          height="auto"
+          config={{
+            youtube: {
+              playerVars: { showinfo: 1 },
+            },
+          }}
+        /> */}
       </div>
-      <p className="lessonTitle">
-        {title}
-        {/* Գրաֆիկ դիզայնի դասընթաց սկսնակների համար */}
-      </p>
+      <p className="lessonTitle">{title}</p>
       <div className="keys">
         {keys.map((key, index) => (
           <div className="key" key={index}>
