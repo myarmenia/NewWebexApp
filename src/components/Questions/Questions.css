@@ -49,3 +49,11 @@
   content: "-";
   @apply text-[45px] content-['-'];
 }
+@media (max-width: 980px) {
+  .accordion {
+    @apply w-[100%];
+  }
+  .accordionTitle {
+    @apply text-base;
+  }
+}

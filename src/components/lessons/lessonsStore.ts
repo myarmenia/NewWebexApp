@@ -14,7 +14,7 @@ export const lessonsArr: LessonProps[] = [
     description:
       "Դասընթացի նկարագրությունը, Որպեսզի արդյունքի հասնելու համար, որն ավելի շատ համապատասխանի վերջնական արդյունքին, գրաֆիկական դիզայներները, դիզայներները կամ տպիչները գրի են առնում ",
     price: "65 000 դրամ",
-    video: "https://youtu.be/B-ytMSuwbf8",
+    video: "https://www.youtube.com/embed/2m8CuP45C2o",
   },
   {
     title: "Գրաֆիկ դիզայնի դասընթաց սկսնակների համար",
@@ -29,7 +29,7 @@ export const lessonsArr: LessonProps[] = [
     description:
       "Դասընթացի նկարագրությունը, Որպեսզի արդյունքի հասնելու համար, որն ավելի շատ համապատասխանի վերջնական արդյունքին, գրաֆիկական դիզայներները, դիզայներները կամ տպիչները գրի են առնում ",
     price: "70 000 դրամ",
-    video: "https://youtu.be/B-ytMSuwbf8",
+    video: "https://www.youtube.com/embed/LcmoLQEJeU4",
   },
   {
     title: "Գրաֆիկ դիզայնի դասընթաց սկսնակների համար",
@@ -44,7 +44,7 @@ export const lessonsArr: LessonProps[] = [
     description:
       "Դասընթացի նկարագրությունը, Որպեսզի արդյունքի հասնելու համար, որն ավելի շատ համապատասխանի վերջնական արդյունքին, գրաֆիկական դիզայներները, դիզայներները կամ տպիչները գրի են առնում ",
     price: "100 000 դրամ",
-    video: "https://youtu.be/B-ytMSuwbf8",
+    video: "https://www.youtube.com/embed/AqyGUltWd0U",
   },
   {
     title: "Գրաֆիկ դիզայնի դասընթաց սկսնակների համար",
@@ -59,6 +59,6 @@ export const lessonsArr: LessonProps[] = [
     description:
       "Դասընթացի նկարագրությունը, Որպեսզի արդյունքի հասնելու համար, որն ավելի շատ համապատասխանի վերջնական արդյունքին, գրաֆիկական դիզայներները, դիզայներները կամ տպիչները գրի են առնում ",
     price: "65 000 դրամ",
-    video: "https://youtu.be/B-ytMSuwbf8",
+    video: "https://www.youtube.com/embed/AqyGUltWd0U",
   },
 ];

@@ -40,3 +40,16 @@
 .arrow {
   @apply w-[20px] h-[5px];
 }
+@media (max-width: 1200px) {
+  .newsContainerChild {
+    @apply w-[95%];
+  }
+  .newsCard {
+    @apply w-[48%];
+  }
+}
+@media (max-width: 900px) {
+  .newsCard {
+    width: 100%;
+  }
+}

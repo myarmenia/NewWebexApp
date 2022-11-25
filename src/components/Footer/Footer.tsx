@@ -9,15 +9,15 @@ const Footer = () => {
           <div className="footerCardChild">
             <p className="contacts">Կոնտակնտեր</p>
             <div className="address">
-              <img src={place} />
+              <img src={place} className="icon" />
               Մ. Մաշտոց պող., Սարմենի 1 փ.
             </div>
             <div className="address">
-              <img src={place} />
+              <img src={place} className="icon"/>
               Էլ-հասցե: info@webex.am
             </div>
             <div className="address">
-              <img src={place} />
+              <img src={place} className="icon"/>
               Հեռ: +374 60 37 10 20
             </div>
           </div>
