@@ -1,7 +1,7 @@
 import React from "react";
-import arrowImg from "./img/vector.png";
+
 import "./news.css";
-import img1 from "./img/vector.png";
+import arrow from "../../images/newsImages/vector.png";
 interface CardProps {
   title: string;
   text: string;
@@ -17,7 +17,7 @@ export const NewsCard: React.FC<CardProps> = ({ title, text, date }) => {
           <div className="date">{date}</div>
           <a className="href" href="#">
             Ավելին
-            {/* <img src={img1} /> */}
+            <img src={arrow} className="arrow" />
           </a>
         </div>
       </div>

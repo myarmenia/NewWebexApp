@@ -10,16 +10,17 @@
 }
 
 .studentQuotes {
-  @apply w-[40%] min-h-[300px] flex justify-center rounded-[30px] relative;
+  @apply w-[50%] min-h-[300px] flex justify-center rounded-[30px] relative p-5;
   background: linear-gradient(
     178.39deg,
     rgba(255, 255, 255, 0.72) -23.65%,
     rgba(255, 255, 255, 0.32) 122.54%
   );
   box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 20px 20px;
 }
 .studentImg {
-  @apply w-[229.89px] h-[229.89px] absolute rounded-[30px] top-[10px] right-[90%];
+  @apply w-[229.89px] h-[252.89px] absolute rounded-[30px] top-[40px] right-[90%];
   filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.1));
 }
 .studentQuotesChild {

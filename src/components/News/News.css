@@ -1,19 +1,28 @@
 .newsContainer {
   @apply w-full h-auto pb-[100px];
+  background: url("../../images/newsImages/beautiful-student.png") no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 .newsTitle {
   @apply flex h-[150px] justify-center items-center font-bold text-2xl text-white;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .newsContainerChild {
-  @apply w-[70%] h-auto flex justify-between flex-wrap gap-5 my-0 mx-auto;
+  @apply w-[85%] h-auto flex justify-between flex-wrap gap-5 my-0 mx-auto;
 }
 .newsCard {
-  @apply w-[45%] min-h-[300px] flex flex-col items-center from-gradient-news  rounded-[30px];
+  @apply w-[49%] min-h-[300px] flex flex-col items-center  rounded-[30px];
   box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(
+    178.39deg,
+    rgba(255, 255, 255, 0.72) -23.65%,
+    rgba(255, 255, 255, 0.32) 122.54%
+  );
+  backdrop-filter: blur(5px);
 }
 .newsCardChild {
-  @apply w-[80%] min-h-[300px] flex flex-col justify-evenly from-gradient-news gap-5 rounded-[30px];
+  @apply w-[80%] min-h-[300px] flex flex-col justify-evenly  gap-5 rounded-[30px];
 }
 .cardTitle {
   @apply font-bold text-xl text-[#6b6b6b];
@@ -26,5 +35,8 @@
 }
 .date,
 .href {
-  @apply w-[80px] flex justify-between font-normal italic text-base text-[#6b6b6b];
+  @apply w-[80px] flex justify-between items-center font-normal italic text-base text-[#6b6b6b];
+}
+.arrow {
+  @apply w-[20px] h-[5px];
 }
