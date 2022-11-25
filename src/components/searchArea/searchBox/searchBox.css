@@ -1,0 +1,3 @@
+.searchBox {
+  @apply absolute bg-[#00000010] rounded-[100px] shadow-[0_7px_100px_23px_#3749602b] hover:scale-110 duration-200 animate-srch-anim;
+}

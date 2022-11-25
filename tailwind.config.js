@@ -2,13 +2,46 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
-    gradientColorStops: {
-      "main-gradient": "linear-gradient(90deg, #53B7F2 0%, #97FFFF 94.27%)",
-      "gradient-news":
-        "linear-gradient(178.39deg,rgba(255, 255, 255, 0.72) -23.65%,rgba(255, 255, 255, 0.32) 122.54)",
+    screens: {
+      "med-800": { raw: "(max-width: 800px)" },
+      "med-1100": { raw: "(max-width: 1100px)" },
+    },
+    extend: {
+      gradientColorStops: {
+        "main-gradient": "linear-gradient(90deg, #53B7F2 0%, #97FFFF 94.27%)",
+      },
+      boxShadow: {
+        "my-lg": "0px 4px 21px #00000040;",
+      },
+      animation: {
+        "srch-anim": "zoom 1s ease-in-out infinite",
+        "grow-down": "growDown 300ms ease-in-out forwards",
+        "grow-up": "growUp 300ms ease-in-out forwards",
+      },
+      keyframes: {
+        zoom: {
+          "0%, 100%": {
+            transform: "rotate(3deg)",
+          },
+          "50%": {
+            transform: "rotate(-3deg)",
+          },
+        },
+        growDown: {
+          "0%": { top: "-100%" },
+          "100%": { top: "80px" },
+        },
+        growUp: {
+          "0%": { top: "80px" },
+          "100%": { top: "-100%" },
+        },
+      },
     },
     backgroundImage: {},
   },
-  plugins: [],
+  plugins: [
+    {
+      tailwindcss: { config: "./tailwindcss-config.js" },
+    },
+  ],
 };

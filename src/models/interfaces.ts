@@ -6,3 +6,20 @@ export interface ISelect {
   options: string[];
 }
 export type INavItemsContent = string | ISelect;
+
+export interface FeatureBoxProps {
+  divUrl: string | any;
+  url: string;
+  title: string;
+}
+export interface IImages {
+  position: string;
+  image: string;
+}
+export interface LessonProps {
+  title: string;
+  keys: string[];
+  description: string;
+  price: string;
+  video: string;
+}

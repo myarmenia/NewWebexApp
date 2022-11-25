@@ -1,7 +1,0 @@
-.myContainer {
-  @apply from-main-gradient flex items-center justify-center py-9 w-full;
-  background: linear-gradient(90deg, #53b7f2 0%, #97ffff 94.27%);
-}
-.innerCont {
-  @apply w-[83%] flex flex-col gap-10;
-}

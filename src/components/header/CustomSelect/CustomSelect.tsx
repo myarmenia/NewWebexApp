@@ -1,7 +1,7 @@
+import "./CustomSelect.css";
 import React, { useState } from "react";
 import { Options } from "./Options";
 import { DefaultOption } from "./DefaultOption";
-import "./CustomSelect.css";
 interface CustomSelectProps {
   select: {
     title: string;
@@ -23,22 +23,28 @@ export const CustomSelect: React.FC<CustomSelectProps> = ({
   };
 
   return (
-    <div
-      className={`customSelect ${className}`}
-      onClick={() => {
-        setState(!state);
-        setRotateClass(!rotateClass);
-      }}
-    >
-      <DefaultOption title={name} rotateClass={rotateClass} state={state} />
-      {state && (
-        <Options
-          selectedOption={selectedOption}
-          setState={setState}
-          state={state}
-          options={select.options}
-        />
-      )}
+    <div className="flex justify-center">
+      <div
+        className={`customSelect ${className}`}
+        onPointerMove={() => {
+          setState(true);
+          setRotateClass(true);
+        }}
+        onPointerLeave={() => {
+          setState(false);
+          setRotateClass(false);
+        }}
+      >
+        <DefaultOption title={name} rotateClass={rotateClass} state={state} />
+        {state && (
+          <Options
+            selectedOption={selectedOption}
+            setState={setState}
+            state={state}
+            options={select.options}
+          />
+        )}
+      </div>
     </div>
   );
 };

@@ -1,5 +1,6 @@
 .header {
-  @apply w-full h-[80px] bg-white shadow-md flex justify-center fixed top-0 left-0 z-10;
+  @apply w-full h-[80px] bg-white flex justify-center fixed top-0 left-0 z-[3];
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
 }
 .headerCotainer {
   @apply w-[85%] flex items-center justify-between;
@@ -8,8 +9,27 @@
   @apply text-xl;
 }
 .navbar {
-  @apply flex items-center
+  @apply flex items-center;
 }
 .customSelect {
   @apply cursor-pointer;
+}
+#smMenu {
+  @apply origin-top flex animate-grow-down;
+}
+#smMenuClose {
+  @apply origin-top flex animate-grow-up;
+}
+@media (max-width: 800px) {
+  .navbar {
+    @apply hidden;
+  }
+  /* .headerCotainer {
+    @apply w-[92%]
+  } */
+}
+@media (max-width: 1200px) {
+  .headerCotainer {
+    @apply w-[92%];
+  }
 }
