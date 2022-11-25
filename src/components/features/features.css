@@ -7,3 +7,9 @@
 .featuresTitle {
   @apply text-[#7A64FA] leading-[131%] font-bold text-2xl w-[448px] text-center;
 }
+@media (max-width: 500px) {
+  .featuresTitle {
+    @apply w-full;
+    overflow-wrap: anywhere;
+  }
+}

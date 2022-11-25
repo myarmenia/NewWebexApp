@@ -15,7 +15,7 @@ export const Lesson: React.FC<LessonProps> = ({
   return (
     <div className="lesson">
       <div className="video">
-        <ReactPlayer
+        {/* <ReactPlayer
           url={video}
           width="100%"
           height="auto"
@@ -24,7 +24,7 @@ export const Lesson: React.FC<LessonProps> = ({
               playerVars: { showinfo: 1 },
             },
           }}
-        />
+        /> */}
       </div>
       <p className="lessonTitle">{title}</p>
       <div className="keys">

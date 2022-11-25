@@ -1,4 +1,4 @@
-import "./CustomSelect.css";
+import "./customSelect.css";
 import React, { useState } from "react";
 import { Options } from "./Options";
 import { DefaultOption } from "./DefaultOption";

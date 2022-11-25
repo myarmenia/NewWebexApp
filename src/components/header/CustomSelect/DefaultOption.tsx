@@ -1,6 +1,6 @@
 import React from "react";
 import chevDown from "../../../images/chevDown.svg";
-import "./CustomSelect.css";
+import "./customSelect.css";
 
 interface DefaultOptionProps {
   state: boolean;
