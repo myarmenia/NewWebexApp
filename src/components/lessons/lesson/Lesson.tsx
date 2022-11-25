@@ -15,7 +15,16 @@ export const Lesson: React.FC<LessonProps> = ({
   return (
     <div className="lesson">
       <div className="video">
-        <ReactPlayer
+        {/* <iframe
+          width="100%"
+          height="auto  "
+          src={video}
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe> */}
+        {/* <ReactPlayer
           url={video}
           width="100%"
           height="auto"
@@ -24,7 +33,7 @@ export const Lesson: React.FC<LessonProps> = ({
               playerVars: { showinfo: 1 },
             },
           }}
-        />
+        /> */}
       </div>
       <p className="lessonTitle">{title}</p>
       <div className="keys">
