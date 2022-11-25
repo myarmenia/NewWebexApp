@@ -4,6 +4,7 @@ import Container from "./components/container/Container";
 import { Features } from "./components/features/Features";
 import { InfoCont } from "./components/infoCont/InfoCont";
 import Footer from "./components/footer/Footer";
+
 import { Header } from "./components/header/Header";
 import { News } from "./components/news/News";
 import { Opinion } from "./components/opinion/Opinion";
