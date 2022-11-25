@@ -28,8 +28,8 @@ export const Questions: React.FC = () => {
     <div className="questionsContainer">
       <div className="questionsTitle">Հաճախ տրվող հարցեր</div>
       <div className="questionsContainerChild">
-        {accordionCard.map((props) => {
-          return <Accordion {...props} />;
+        {accordionCard.map((props, index) => {
+          return <Accordion {...props} key={index} />;
         })}
       </div>
     </div>

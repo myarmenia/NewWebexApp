@@ -33,8 +33,8 @@ export const News: React.FC = () => {
     <div className="newsContainer">
       <div className="newsTitle">Նորություններ</div>
       <div className="newsContainerChild">
-        {newsCard.map((props) => {
-          return <NewsCard {...props} />;
+        {newsCard.map((props, index) => {
+          return <NewsCard {...props} key={index} />;
         })}
       </div>
     </div>
