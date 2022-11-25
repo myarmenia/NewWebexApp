@@ -1,6 +1,5 @@
 import React from "react";
-import "./CustomSelect.css";
-
+import "./customSelect.css";
 
 interface OptionProps {
   selectedOption: (event: string) => void;

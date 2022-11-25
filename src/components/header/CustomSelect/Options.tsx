@@ -1,9 +1,6 @@
 import React from "react";
-// import { useSelector } from "react-redux";
-// import { IselectOptionsInitialState } from "../../../../models/Content";
-import { headerStore } from "../HeaderStore";
+import "./customSelect.css";
 import { Option } from "./Option";
-import "./CustomSelect.css";
 
 interface OptionsProps {
   selectedOption: (event: string) => void;

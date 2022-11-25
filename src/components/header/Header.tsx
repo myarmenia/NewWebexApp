@@ -3,9 +3,8 @@ import "./header.css";
 // import { CustomSelect } from "./CustomSelect/CustomSelect";
 // import { headerStore } from "./HeaderStore";
 // import { NavItem } from "./navItem/NavItem";
-import listImg from "../../images/Header/list.svg";
 import { Navbar } from "./navbar/Navbar";
-import { SmallMenu } from "./SmallMenu/SmallMenu";
+import { SmallMenu } from "./smallMenu/SmallMenu";
 import { ListImg } from "./listImg/ListImg";
 
 export const Header: React.FC = () => {

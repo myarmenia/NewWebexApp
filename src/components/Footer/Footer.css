@@ -21,12 +21,14 @@
   @apply flex font-normal text-base  text-[#6b6b6b];
 }
 .footerForm {
-  @apply w-[30%] h-auto flex  flex-col justify-center  rounded-[30px] mt-[50px];
+  @apply w-[35%] h-auto flex  flex-col justify-center  rounded-[30px] mt-[50px];
 }
 .footerFormChild {
   @apply w-[100%] min-h-[300px] flex flex-col  gap-[20px] mt-[20px];
+
   background: url("../news/img/Frame.png") no-repeat;
   background-size: contain;
+
   background-position-x: right;
   background-position-y: 60%;
 }

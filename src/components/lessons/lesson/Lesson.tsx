@@ -15,7 +15,8 @@ export const Lesson: React.FC<LessonProps> = ({
   return (
     <div className="lesson">
       <div className="video">
-        {/* <iframe
+
+         <iframe
           width="100%"
           height="auto  "
           src={video}
@@ -23,17 +24,8 @@ export const Lesson: React.FC<LessonProps> = ({
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
-        ></iframe> */}
-        {/* <ReactPlayer
-          url={video}
-          width="100%"
-          height="auto"
-          config={{
-            youtube: {
-              playerVars: { showinfo: 1 },
-            },
-          }}
-        /> */}
+        ></iframe> 
+
       </div>
       <p className="lessonTitle">{title}</p>
       <div className="keys">

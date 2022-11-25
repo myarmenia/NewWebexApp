@@ -1,6 +1,6 @@
 import React from "react";
 import { INavItem } from "../../../models/interfaces";
-import "./NavItem.css";
+import "./navItem.css";
 
 export const NavItem: React.FC<INavItem> = ({ children }) => {
   return (
