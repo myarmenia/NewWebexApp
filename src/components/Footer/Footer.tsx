@@ -1,6 +1,6 @@
 import React from "react";
-import "./Footer.css";
-import "../News/News.css";
+import "./footer.css";
+import place from "../../images/footerImages/place.png";
 const Footer = () => {
   return (
     <div className="footerContainer">
@@ -9,15 +9,15 @@ const Footer = () => {
           <div className="footerCardChild">
             <p className="contacts">Կոնտակնտեր</p>
             <div className="address">
-              <img src="" />
+              <img src={place} />
               Մ. Մաշտոց պող., Սարմենի 1 փ.
             </div>
             <div className="address">
-              <img src="" />
+              <img src={place} />
               Էլ-հասցե: info@webex.am
             </div>
             <div className="address">
-              <img src="" />
+              <img src={place} />
               Հեռ: +374 60 37 10 20
             </div>
           </div>
@@ -25,18 +25,9 @@ const Footer = () => {
         <div className="footerCard">
           <div className="footerCardChild">
             <p className="contacts">Մեր մյուս ռեսուրսները</p>
-            <div className="address">
-              <img src="" />
-              Մ. Մաշտոց պող., Սարմենի 1 փ.
-            </div>
-            <div className="address">
-              <img src="" />
-              Էլ-հասցե: info@webex.am
-            </div>
-            <div className="address">
-              <img src="" />
-              Հեռ: +374 60 37 10 20
-            </div>
+            <div className="address">Մ. Մաշտոց պող., Սարմենի 1 փ.</div>
+            <div className="address">Էլ-հասցե: info@webex.am</div>
+            <div className="address">Հեռ: +374 60 37 10 20</div>
           </div>
         </div>
         <div className="footerForm">

@@ -1,71 +1,36 @@
 .opinionContainer {
-  width: 100%;
-  height: auto;
-  /* background: linear-gradient(90deg, #53b7f2 0%, #97ffff 94.27%); */
-  padding-bottom: 100px;
+  @apply w-full h-auto pb-[100px];
 }
 .opinionTitle {
-  display: flex;
-  height: 150px;
-  justify-content: center;
-  align-items: center;
-  font-family: "Segoe UI";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 24px;
-  color: #7a64fa;
+  @apply flex h-[150px] justify-center items-center font-bold text-2xl text-[#7a64fa];
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .opinionContainerChild {
-  width: 100%;
-  height: auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  @apply w-[100%] h-auto flex justify-center flex-wrap;
 }
-/*  */
+
 .studentQuotes {
-  width: 40%;
-  display: flex;
-  justify-content: center;
-  min-height: 300px;
+  @apply w-[50%] min-h-[300px] flex justify-center rounded-[30px] relative p-5;
   background: linear-gradient(
     178.39deg,
     rgba(255, 255, 255, 0.72) -23.65%,
     rgba(255, 255, 255, 0.32) 122.54%
   );
   box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.1);
-  border-radius: 30px;
-  position: relative;
+  padding: 20px 20px;
 }
 .studentImg {
-  width: 229.89px;
-  height: 252.32px;
-  position: absolute;
+  @apply w-[229.89px] h-[252.89px] absolute rounded-[30px] top-[40px] right-[90%];
   filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.1));
-  border-radius: 30px;
-  right: 90%;
-  top: 10px;
 }
 .studentQuotesChild {
-  width: 70%;
-  min-height: 300px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+  @apply w-[70%] min-h-[300px] flex flex-col justify-evenly pb-[40px];
+  filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.1));
 }
 .symbol {
-  font-family: "Fanwood Text";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 48px;
-  line-height: 63px;
-  color: #6b6b6b;
+  @apply font-normal text-5xl text-[#6b6b6b];
 }
+
 .opinionText {
-  font-family: "Segoe UI";
-  font-style: italic;
-  font-weight: 400;
-  font-size: 16px;
-  color: #6b6b6b;
+  @apply font-normal text-base text-[#6b6b6b] italic;
 }

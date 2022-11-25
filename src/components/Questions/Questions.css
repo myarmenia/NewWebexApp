@@ -1,95 +1,51 @@
 .questionsContainer {
-  width: 100%;
-  height: auto;
-  /* background: linear-gradient(90deg, #53b7f2 0%, #97ffff 94.27%); */
-  padding-bottom: 100px;
+  @apply w-full h-auto pb-[100px];
 }
 .questionsTitle {
-  display: flex;
-  height: 150px;
-  justify-content: center;
-  align-items: center;
-  font-family: "Segoe UI";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 24px;
-  color: #7a64fa;
+  @apply flex h-[150px] justify-center items-center font-bold text-2xl text-[#7a64fa];
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .questionsContainerChild {
-  width: 100%;
-  height: auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
+  @apply w-[100%] h-auto flex justify-center flex-wrap gap-[30px];
 }
+
 /*accordion  */
 .accordion {
-  width: 80%;
-  display: flex;
-  background: rgba(255, 255, 255, 0.4);
+  @apply w-[80%]  flex justify-center flex-wrap gap-[30px]  rounded-[30px];
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.4);
 }
 .accordionTitle {
-  width: 90%;
-  font-family: "Segoe UI";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  color: #6b6b6b;
+  @apply w-[90%] min-h-[70px] flex items-center  text-xl font-normal text-[#6b6b6b];
 }
 .toggle {
-  width: 100%;
-  height: 80px;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+  @apply w-[90%] h-auto flex justify-between items-center;
 }
 .accordionChild {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: 0.3s;
+  @apply w-[100%] min-h-[80px] flex flex-col items-center  transition-all  duration-[800ms];
 }
 .accordionChild:has(.expand-btn:not(:checked)) {
-  height: 80px;
+  @apply transition-all duration-[600ms];
 }
 .accordionChild:has(.expand-btn:checked) {
-  height: auto;
-  padding-bottom: 50px;
+  @apply h-auto pb-[50px] transition-all duration-[600ms];
 }
 .text {
-  width: 95%;
-  height: auto;
-  font-family: "Segoe UI";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  color: #6b6b6b;
-  transition: all 0.7s;
+  @apply w-[90%] h-auto font-normal text-base text-[#6b6b6b];
 }
 .accordionChild:has(.expand-btn:not(:checked)) .text {
-  display: none;
+  @apply hidden;
 }
 .accordionChild:has(.expand-btn:checked) .text {
-  display: flex;
-  height: auto;
+  @apply flex h-auto;
 }
 .expand-btn {
-  appearance: none;
-  color: #cccccc;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  font-size: 40px;
+  @apply appearance-none flex justify-center items-center cursor-pointer  text-[#cccccc] text-4xl;
 }
 .expand-btn::before {
-  content: "+";
+  @apply content-['+'];
 }
 .expand-btn:checked:before {
   content: "-";
+  @apply text-[45px] content-['-'];
 }

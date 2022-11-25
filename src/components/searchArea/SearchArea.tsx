@@ -1,5 +1,5 @@
 import React from "react";
-import "./SearchArea.css";
+import "./searchArea.css";
 import { SearchBox } from "./searchBox/SearchBox";
 import img1 from "../../images/SearchArea/Group (1).svg";
 import img2 from "../../images/SearchArea/Group (2).svg";
