@@ -2,9 +2,6 @@ import React from "react";
 import "./lesson.css";
 import { LessonProps } from "../../../models/interfaces";
 
-// for video example
-import ReactPlayer from "react-player";
-
 export const Lesson: React.FC<LessonProps> = ({
   description,
   title,
