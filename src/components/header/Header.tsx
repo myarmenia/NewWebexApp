@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./header.css";
-// import { CustomSelect } from "./CustomSelect/CustomSelect";
-// import { headerStore } from "./HeaderStore";
-// import { NavItem } from "./navItem/NavItem";
 import { Navbar } from "./navbar/Navbar";
 import { SmallMenu } from "./smallMenu/SmallMenu";
 import { ListImg } from "./listImg/ListImg";
