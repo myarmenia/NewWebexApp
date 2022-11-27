@@ -49,7 +49,7 @@
 }
 @media (max-width: 600px) {
   .studentImg {
-    @apply w-[200px] h-[200px] right-auto -top-[40%];
+    @apply w-[200px] h-[200px] right-auto -top-[35%];
   }
 
   .opinionContainerChild {
@@ -59,7 +59,7 @@
     @apply pb-[185px];
   }
   .studentQuotes {
-    @apply top-[100px];
+    @apply top-[150px];
   }
 
   .studentQuotesChild {

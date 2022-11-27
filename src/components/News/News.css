@@ -12,7 +12,7 @@
   @apply w-[85%] h-auto flex justify-between flex-wrap gap-5 my-0 mx-auto;
 }
 .newsCard {
-  @apply w-[49%] min-h-[300px] flex flex-col items-center  rounded-[30px];
+  @apply w-[49%] min-h-[300px] flex flex-col items-center  rounded-[30px] p-[30px];
   box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.1);
   background: linear-gradient(
     178.39deg,
@@ -50,6 +50,11 @@
 }
 @media (max-width: 900px) {
   .newsCard {
-    width: 100%;
+    @apply w-[100%];
+  }
+}
+@media (max-width: 600px) {
+  .newsCardChild {
+    @apply w-[100%];
   }
 }
