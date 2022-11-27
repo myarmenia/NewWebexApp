@@ -1,5 +1,5 @@
 import React from "react";
-import { CustomSelect } from "../CustomSelect/CustomSelect";
+import { CustomSelect } from "../customSelect/CustomSelect";
 import { headerStore } from "../HeaderStore";
 import { NavItem } from "../navItem/NavItem";
 
@@ -7,7 +7,7 @@ export const Navbar: React.FC = () => {
   return (
     <>
       {headerStore.map((el, index) => {
-        if (typeof el !== "string") {
+        if (typeof el === "object") {
           return el.title === "Աղբյուրներ" ? (
             <NavItem key={index}>
               <CustomSelect select={el} className="!min-w-[117px]" />

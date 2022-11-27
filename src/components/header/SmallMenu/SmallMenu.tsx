@@ -7,8 +7,6 @@ interface SmallMEnuProps {
 }
 
 export const SmallMenu: React.FC<SmallMEnuProps> = ({ animActive }) => {
-  console.log(animActive);
-
   return (
     <div id={animActive ? "smMenu" : "smMenuClose"} className="smMenu1">
       <Navbar />
