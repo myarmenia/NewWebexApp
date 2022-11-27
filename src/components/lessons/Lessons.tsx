@@ -14,7 +14,6 @@ import { Navigation } from "swiper";
 export const Lessons: React.FC = () => {
   const [slidesPerView, setSlidesPerView] = useState<number>(3);
   useEffect(() => {
-    console.log(window.innerWidth);
     if (window.innerWidth <= 1100 && window.innerWidth > 700) {
       setSlidesPerView(2);
     } else if (window.innerWidth <= 700) {
