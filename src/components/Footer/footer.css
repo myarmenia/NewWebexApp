@@ -1,3 +1,4 @@
+
 .footerContainer {
   @apply w-full h-auto pb-[60px];
 }
@@ -25,12 +26,9 @@
 }
 .footerFormChild {
   @apply w-[100%] min-h-[300px] flex flex-col  gap-[20px] mt-[20px];
-
-  background: url("../News/img/Frame.png") no-repeat;
-  background-size: contain;
-
+  background: url("../../images/footerImages/Frame.png") no-repeat;
   background-position-x: right;
-  background-position-y: 60%;
+  background-position-y: 70%;
 }
 .connecting {
   @apply flex  h-[100px] items-center font-normal text-xl  text-[#6b6b6b];
@@ -65,6 +63,9 @@
   .footerContainerChild {
     @apply w-[95%];
   }
+  .footerFormChild {
+    background-size: contain;
+  }
 }
 @media (max-width: 950px) {
   .footerCard {
@@ -89,5 +90,8 @@
   }
   .footerForm {
     @apply w-[95%];
+  }
+  .footerFormChild {
+    background-size: unset;
   }
 }

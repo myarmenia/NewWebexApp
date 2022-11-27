@@ -1,5 +1,5 @@
 import React from "react";
-import { CustomSelect } from "../CustomSelect/CustomSelect";
+import { CustomSelect } from "../customSelect/CustomSelect";
 import { headerStore } from "../HeaderStore";
 import { NavItem } from "../navItem/NavItem";
 
