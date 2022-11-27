@@ -5,7 +5,7 @@ import { DefaultOption } from "./DefaultOption";
 import { ISelect } from "../../../models/interfaces";
 interface CustomSelectProps {
   select: ISelect;
-  className?: string; 
+  className?: string;
 }
 
 export const CustomSelect: React.FC<CustomSelectProps> = ({
@@ -13,34 +13,26 @@ export const CustomSelect: React.FC<CustomSelectProps> = ({
   className,
 }: CustomSelectProps) => {
   const [state, setState] = useState<boolean>(false);
-  const [name, setName] = useState<string>(select.title);
   const [rotateClass, setRotateClass] = useState<boolean>(false);
-  const selectedOption = (event: string): void => {
-    setName(event);
-    setState(!state);
+  const onPointer = (e: boolean): void => {
+    setState(e);
+    setRotateClass(e);
   };
 
   return (
     <div
       className="flex justify-center"
-      onPointerMove={() => {
-        setState(true);
-        setRotateClass(true);
-      }}
-      onPointerLeave={() => {
-        setState(false);
-        setRotateClass(false);
-      }}
+      onPointerMove={() => onPointer(true)}
+      onPointerLeave={() => onPointer(false)}
     >
       <div className={`customSelect ${className}`}>
-        <DefaultOption title={name} rotateClass={rotateClass} state={state} />
+        <DefaultOption
+          title={select.title}
+          rotateClass={rotateClass}
+          state={state}
+        />
         {state && (
-          <Options
-            selectedOption={selectedOption}
-            setState={setState}
-            state={state}
-            options={select.options}
-          />
+          <Options setState={setState} state={state} options={select.options} />
         )}
       </div>
     </div>
