@@ -12,9 +12,11 @@ export interface FeatureBoxProps {
   url: string;
   title: string;
 }
-export interface IImages {
-  position: string;
-  image: string;
+export interface SearchBoxProps {
+  url: string;
+  className: string;
+  alt?: string;
+  title?: string
 }
 export interface LessonProps {
   title: string;
