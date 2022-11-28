@@ -13,7 +13,7 @@
   @apply w-full flex gap-1 flex-wrap;
 }
 .key {
-  @apply py-1 px-3 rounded-[30px] text-white text-[8px] leading-[11px];
+  @apply py-[7px] px-[7px] rounded-[30px] text-white text-[10px] leading-[11px] font-bold;
   background: linear-gradient(90deg, #ff4d8d 0%, #ff88b1 94.27%);
 }
 .lessonDescription {
@@ -28,6 +28,6 @@
 }
 @media (max-width: 500px) {
   .lesson {
-    @apply px-4 py-5 gap-3
+    @apply px-4 py-5 gap-3;
   }
 }

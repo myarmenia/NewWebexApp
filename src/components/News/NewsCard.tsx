@@ -1,5 +1,4 @@
 import React from "react";
-
 import "./news.css";
 import arrow from "../../images/newsImages/vector.png";
 interface CardProps {
