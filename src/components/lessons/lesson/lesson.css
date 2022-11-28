@@ -13,7 +13,7 @@
   @apply w-full flex gap-1 flex-wrap;
 }
 .key {
-  @apply py-[7px] px-[7px] rounded-[30px] text-white text-[10px] leading-[11px] font-bold;
+  @apply py-[6px] px-[7px] rounded-[30px] text-white text-[9px] leading-[11px] font-semibold;
   background: linear-gradient(90deg, #ff4d8d 0%, #ff88b1 94.27%);
 }
 .lessonDescription {
