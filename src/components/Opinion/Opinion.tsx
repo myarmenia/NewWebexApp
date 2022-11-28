@@ -14,7 +14,7 @@ export const Opinion: React.FC = () => {
     <div className="opinionContainer">
       <div className="opinionTitle">Ուսանողի կարծիքը</div>
       <div className="opinionContainerChild">
-        <div className="mySwiper-button-prev">
+        <div className="mySwiper-button-prev2">
           <img src={chevron} alt="" />
         </div>
         <Swiper
@@ -27,8 +27,8 @@ export const Opinion: React.FC = () => {
             clickable: true,
           }}
           navigation={{
-            nextEl: ".mySwiper-button-next",
-            prevEl: ".mySwiper-button-prev",
+            nextEl: ".mySwiper-button-next2",
+            prevEl: ".mySwiper-button-prev2",
           }}
           modules={[Navigation]}
           className="mySwiper"
@@ -37,7 +37,7 @@ export const Opinion: React.FC = () => {
             <OpinionCard />
           </SwiperSlide>
         </Swiper>
-        <div className="mySwiper-button-next">
+        <div className="mySwiper-button-next2">
           <img src={chevron} alt="" className="rotate-180" />
         </div>
       </div>

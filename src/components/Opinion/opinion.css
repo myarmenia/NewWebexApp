@@ -40,8 +40,8 @@
   @apply font-normal text-base text-[#6b6b6b] italic text-left;
 }
 /* swiper */
-.mySwiper-button-prev,
-.mySwiper-button-next {
+.mySwiper-button-prev2,
+.mySwiper-button-next2 {
   @apply cursor-pointer;
 }
 
