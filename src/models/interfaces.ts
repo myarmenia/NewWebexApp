@@ -16,7 +16,7 @@ export interface SearchBoxProps {
   url: string;
   className: string;
   alt?: string;
-  title?: string
+  title?: string;
 }
 export interface LessonProps {
   title: string;
@@ -25,3 +25,11 @@ export interface LessonProps {
   price: string;
   video: string;
 }
+export type UserSubmitForm = {
+  gender: string;
+  username: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+  acceptTerms: boolean;
+};
