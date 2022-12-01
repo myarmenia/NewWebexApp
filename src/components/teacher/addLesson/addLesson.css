@@ -1,0 +1,11 @@
+.addLesson {
+  @apply absolute top-1/4 left-1/2 flex flex-col items-center gap-5;
+  transform: translate(-50%, -50%);
+}
+.message {
+  @apply text-[#6B6B6B] font-semibold text-sm;
+}
+.addLessonBtn {
+  @apply font-semibold text-xs text-white py-[9px] px-[30px] rounded-2xl;
+  background: linear-gradient(90deg, #7764fb 0%, #f364f3 100%);
+}

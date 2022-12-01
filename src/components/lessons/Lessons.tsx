@@ -9,7 +9,7 @@ import "swiper/css/bundle";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Navigation } from "swiper";
+import { Autoplay, Navigation } from "swiper";
 
 export const Lessons: React.FC = () => {
   const [slidesPerView, setSlidesPerView] = useState<number>(3);
@@ -36,11 +36,15 @@ export const Lessons: React.FC = () => {
           pagination={{
             clickable: true,
           }}
+          // autoplay={{
+          //   delay: 3000,
+          //   disableOnInteraction: false,
+          // }}
           navigation={{
             nextEl: ".mySwiper-button-next",
             prevEl: ".mySwiper-button-prev",
           }}
-          modules={[Navigation]}
+          modules={[Autoplay, Navigation]}
           className="mySwiper"
         >
           {lessonsArr.map((el, index) => (
