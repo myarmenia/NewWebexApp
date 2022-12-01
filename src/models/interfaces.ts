@@ -6,7 +6,6 @@ export interface ISelect {
   options: string[];
 }
 export type INavItemsContent = string | ISelect;
-
 export interface FeatureBoxProps {
   divUrl: string;
   staticImg: string;
@@ -34,3 +33,12 @@ export interface IteacherMenu {
 export interface ILessonCourses {
   lessonsCount: number;
 }
+export type UserSubmitForm = {
+  gender: string;
+  username: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+  acceptTerms: boolean;
+};
+

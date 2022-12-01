@@ -1,6 +1,8 @@
 import React from "react";
 import "./footer.css";
 import place from "../../images/footerImages/place.png";
+import sms from "../../images/footerImages/sms.png";
+import telephone from "../../images/footerImages/telephone.png";
 const Footer = () => {
   return (
     <div className="footerContainer">
@@ -13,11 +15,11 @@ const Footer = () => {
               Մ. Մաշտոց պող., Սարմենի 1 փ.
             </div>
             <div className="address">
-              <img src={place} className="icon"/>
+              <img src={sms} className="icon2" />
               Էլ-հասցե: info@webex.am
             </div>
             <div className="address">
-              <img src={place} className="icon"/>
+              <img src={telephone} className="icon2" />
               Հեռ: +374 60 37 10 20
             </div>
           </div>

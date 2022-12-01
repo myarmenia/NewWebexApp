@@ -11,12 +11,13 @@ import { Questions } from "./components/questions/Questions";
 import { SearchArea } from "./components/searchArea/SearchArea";
 import { Lessons } from "./components/lessons/Lessons";
 import { Teacher } from "./components/teacher/Teacher";
+import Regsitration from "./components/registration/Regsitration";
 
 function App() {
   return (
     <>
-      {/* <Header />
-      <Container>
+      <Header />
+      {/*  <Container>
         <SearchArea />
         <InfoCont />
         <Features />
@@ -27,8 +28,11 @@ function App() {
         <Lessons />
         <Questions />
       </Container>
-      <Footer /> */}
-      <Teacher />
+      <Footer /> 
+
+      <Teacher />*/}
+      
+      <Regsitration />
     </>
   );
 }
