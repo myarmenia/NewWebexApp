@@ -1,11 +1,8 @@
 import React from "react";
-import { NewsCard } from "./NewsCard";
 import "./news.css";
-interface CardProps {
-  title: string;
-  text: string;
-  date: string;
-}
+import { NewsCard } from "./NewsCard";
+import { CardProps } from "./NewsCard";
+
 const newsCard: CardProps[] = [
   {
     title: "Նորության վերնագիրը",
@@ -34,7 +31,7 @@ export const News: React.FC = () => {
       <div className="newsTitle">Նորություններ</div>
       <div className="newsContainerChild">
         {newsCard.map((props, index) => {
-          return <NewsCard {...props} key={index} />;
+          return <NewsCard {...props} key={index} delay={index} />;
         })}
       </div>
     </div>

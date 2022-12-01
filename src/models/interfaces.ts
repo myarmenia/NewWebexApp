@@ -8,15 +8,16 @@ export interface ISelect {
 export type INavItemsContent = string | ISelect;
 
 export interface FeatureBoxProps {
-  divUrl: string | any;
-  url: string;
+  divUrl: string;
+  staticImg: string;
   title: string;
 }
 export interface SearchBoxProps {
   url: string;
   className: string;
   alt?: string;
-  title?: string
+  title?: string;
+  animDelay?: number;
 }
 export interface LessonProps {
   title: string;
@@ -24,4 +25,12 @@ export interface LessonProps {
   description: string;
   price: string;
   video: string;
+}
+export interface IteacherMenu {
+  id?: number;
+  img: string;
+  title: string;
+}
+export interface ILessonCourses {
+  lessonsCount: number;
 }

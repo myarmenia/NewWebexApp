@@ -10,21 +10,25 @@ module.exports = {
       gradientColorStops: {
         "main-gradient": "linear-gradient(90deg, #53B7F2 0%, #97FFFF 94.27%)",
       },
-      boxShadow: {
-        "my-lg": "0px 4px 21px #00000040;",
-      },
       animation: {
-        "srch-anim": "zoom 1s ease-in-out infinite",
+        "srch-anim": "zoom 5s ease-in-out infinite",
         "grow-down": "growDown 300ms ease-in-out forwards",
         "grow-up": "growUp 300ms ease-in-out forwards",
       },
       keyframes: {
         zoom: {
           "0%, 100%": {
-            transform: "rotate(3deg)",
+            // transform: "rotate(0deg)",
+            transform: "rotate(-30deg)",
           },
+          // "33%": {
+          //   transform: "rotate(-30deg)",
+          // },
+          // "67%": {
+          //   transform: "rotate(30deg)",
+          // },
           "50%": {
-            transform: "rotate(-3deg)",
+            transform: "rotate(30deg)",
           },
         },
         growDown: {
