@@ -21,7 +21,7 @@ const Regsitration = () => {
   const validationSchema = Yup.object().shape({
     gender: Yup.string()
       .oneOf(["Դասավանդող", "Ուսանող"])
-      .required("Սեռը պարտադիր է")
+      .required("Նշելը պարտադիր է")
       .nullable(),
     username: Yup.string()
       .required("Անունը պարտադիր է")
@@ -94,18 +94,23 @@ const Regsitration = () => {
             placholder="Կրկնել գաղտնաբառը"
           />
           <div className="form-group-checkbox2">
-            <input
-              type="checkbox"
-              {...register("acceptTerms")}
-              className={`form-check-input ${
-                errors.acceptTerms ? "is-invalid" : ""
-              }`}
-            />
-            <label htmlFor="acceptTerms" className="form-check-label">
-              Ես համաձայն եմ Օգտագործման համաձայնագրի հետ
-            </label>
+            <div className="form-group-checkboxChild2">
+              <input
+                type="checkbox"
+                {...register("acceptTerms")}
+                className={`form-check-input ${
+                  errors.acceptTerms ? "is-invalid" : ""
+                }`}
+              />
+              <label htmlFor="acceptTerms" className="form-check-label">
+                Ես համաձայն եմ Օգտագործման համաձայնագրի հետ
+              </label>
+            </div>
+            <div className="invalid-feedback">
+              {errors.acceptTerms?.message}
+            </div>
           </div>
-          <div className="invalid-feedback">{errors.acceptTerms?.message}</div>
+
           <div className="form-group-button">
             <button type="submit" className="btn">
               Գրանցվել
