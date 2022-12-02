@@ -7,6 +7,8 @@ import { FinishExam } from "./finishExam/FinishExam";
 import downloadImg from "../../../../images/Teacher/NewLesson/download.svg";
 import { CustomNmbInp } from "./customNmbInp/CustomNmbInp";
 import { TxtWinput } from "./txtWinput/TxtWinput";
+import { DifferentCourses } from "./differentCourses/DifferentCourses";
+import { Phases } from "./phases/Phases";
 
 export const LessonCntBody: React.FC = () => {
   const [selectVals, setselectVals] = useState<ISelect>({
@@ -82,21 +84,7 @@ export const LessonCntBody: React.FC = () => {
             </div>
 
             {isDifferent ? (
-              <div className="differentCourses">
-                {Array.from(
-                  { length: lessonsCount },
-                  (v: unknown, k: number) => k
-                ).map((el, index) => {
-                  return (
-                    <div className="flex flex-col gap-1" key={index}>
-                      <span className="text-[#6B6B6B] text-[10px]">
-                        Փուլ {index + 1}
-                      </span>
-                      <CustomNmbInp min={1} max={100} defaultValue={12} />
-                    </div>
-                  );
-                })}
-              </div>
+              <DifferentCourses lessonsCount={lessonsCount} />
             ) : (
               <CustomNmbInp min={1} max={100} defaultValue={12} />
             )}
@@ -109,6 +97,7 @@ export const LessonCntBody: React.FC = () => {
               className="lessonInp timeInp"
             />
           </TxtWinput>
+          <Phases lessonsCount={lessonsCount} />
         </div>
       </form>
     </div>

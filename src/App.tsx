@@ -16,8 +16,8 @@ import Regsitration from "./components/registration/Regsitration";
 function App() {
   return (
     <>
-      <Header />
-      {/*  <Container>
+      {/*<Header />
+        <Container>
         <SearchArea />
         <InfoCont />
         <Features />
@@ -28,11 +28,11 @@ function App() {
         <Lessons />
         <Questions />
       </Container>
-      <Footer /> 
+      <Footer /> */}
 
-      <Teacher />*/}
-      
-      <Regsitration />
+      <Teacher />
+
+      {/* <Regsitration /> */}
     </>
   );
 }

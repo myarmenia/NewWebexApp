@@ -1,6 +1,7 @@
 .registration {
-  @apply w-auto h-[100vh] flex justify-center;
+  @apply w-auto flex justify-center mt-20;
   background: url("../../images/vivid-blurred-colorful-background.png");
+  height: calc(100vh - 80px);
 }
 .registrationChild {
   @apply w-[100%] h-[100%] flex flex-col justify-center items-center;

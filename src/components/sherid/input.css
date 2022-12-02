@@ -2,22 +2,19 @@
   @apply mt-[50px];
 }
 .form-group {
-  @apply w-[60%] h-[60px] flex   flex-col;
+  @apply w-[60%] h-[60px] flex  flex-col;
   position: relative;
 }
 .form-group img {
-  position: absolute;
-  top: 24%;
-  left: 2%;
+  @apply absolute top-[24%] left-[2%];
 }
 input[type="text"],
 input[type="password"],
 input[type="email"] {
-  @apply w-[100%] h-[40px] flex  justify-center flex-col items-start pl-[40px] pr-[20px] gap-[10px] rounded-[15px] font-normal text-xs;
-  box-sizing: border-box;
+  @apply box-border outline-none bg-white w-[100%] h-10 flex 
+  justify-center flex-col items-start pl-10 pr-5 gap-[10px] 
+  rounded-2xl font-normal text-xs;
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
-  outline: none;
-  background-color: rgba(255, 255, 255, 0.6);
 }
 
 input[type="text"]::placeholder,

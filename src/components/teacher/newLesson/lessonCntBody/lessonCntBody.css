@@ -46,7 +46,13 @@
   @apply w-full h-full absolute left-[10px] cursor-pointer;
   background: none;
 }
-.differentCourses {
-  @apply grid grid-cols-3 gap-1;
-  column-gap: 24px;
+.timeInp::-webkit-datetime-edit-ampm-field {
+  display: none;
+}
+.timeInp::-webkit-clear-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
 }
