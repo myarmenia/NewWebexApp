@@ -5,3 +5,19 @@
 * {
   box-sizing: border-box;
 }
+/* ---------------- SCROLL_BAR STARTS ---------------- */
+::-webkit-scrollbar {
+  width: 3px;
+  height: 2px;
+}
+::-webkit-scrollbar-track {
+  background: #caced8;
+}
+::-webkit-scrollbar-thumb {
+  background: #949494;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #949494;
+}
+/* ---------------- SCROLL_BAR ENDS ---------------- */

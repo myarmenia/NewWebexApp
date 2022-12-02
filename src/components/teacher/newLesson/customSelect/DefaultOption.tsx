@@ -1,30 +1,34 @@
 import React from "react";
 import chevDown from "../../../../images/chevDown.svg";
-import "./customSelect.css";
 
 interface DefaultOptionProps {
+  setState: React.Dispatch<React.SetStateAction<boolean>>;
   state: boolean;
-  title: string;
-  rotateClass: boolean;
-  toggleSelect: (e: boolean) => void;
+  register?: {
+    name: string;
+  };
 }
-
 export const DefaultOption: React.FC<DefaultOptionProps> = ({
-  title,
-  rotateClass,
+  setState,
   state,
-  toggleSelect,
-}: DefaultOptionProps) => {
+  register,
+}) => {
   return (
-    <div className="defaultOption" onClick={() => toggleSelect(!state)}>
+    <div className="defaultOption" onClick={() => setState(!state)}>
       <div className="flex text-[#6B6B6B] w-full text-xs">
-        <div>{title}</div>
+        <input
+          type="text"
+          placeholder="Ընտրել կատեգորիան*"
+          disabled
+          className="myInput"
+          {...register}
+        />
       </div>
       <img
         src={chevDown}
         alt=""
         className={`scale-75 duration-300 h-fit ${
-          rotateClass ? "rotate-180" : "rotate-0"
+          state ? "rotate-180" : "rotate-0"
         }`}
       />
     </div>

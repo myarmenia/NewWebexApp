@@ -1,8 +1,15 @@
 import React from "react";
 import "./ageDiv.css";
 import { CustomNmbInp } from "../customNmbInp/CustomNmbInp";
+import { UseFormSetValue } from "react-hook-form";
+import { TeacherSubmitForm } from "../validationSchema";
 
-export const AgeDiv: React.FC = () => {
+interface AgeDivProps {
+  register?: { name: string }[];
+  setValue?: UseFormSetValue<TeacherSubmitForm>;
+}
+
+export const AgeDiv: React.FC<AgeDivProps> = ({ register, setValue }) => {
   return (
     <div className="ageDiv">
       <div className="noAgeLimit">
@@ -13,9 +20,21 @@ export const AgeDiv: React.FC = () => {
         </div>
       </div>
       <div className="ageLimits">
-        <CustomNmbInp min={16} max={100} defaultValue={16} />
+        <CustomNmbInp
+          min={16}
+          max={100}
+          defaultValue={16}
+          register={register?.[0]}
+          setValue={setValue}
+        />
         <hr className="w-[10px] bg-[#CCCCCC] h-[1.5px] rounded border-none" />
-        <CustomNmbInp min={16} max={100} defaultValue={100} />
+        <CustomNmbInp
+          min={16}
+          max={100}
+          defaultValue={100}
+          register={register?.[0]}
+          setValue={setValue}
+        />
       </div>
     </div>
   );

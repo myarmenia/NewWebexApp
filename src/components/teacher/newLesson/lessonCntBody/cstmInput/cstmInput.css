@@ -1,0 +1,4 @@
+.errorMessage {
+  @apply w-full text-[red] text-center leading-3 absolute left-1/2 top-10 text-xs;
+  transform: translate(-50%, 0);
+}

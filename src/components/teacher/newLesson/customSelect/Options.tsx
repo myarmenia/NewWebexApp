@@ -1,45 +1,50 @@
 import React, { SetStateAction, useState } from "react";
-import "./customSelect.css";
 import { Option } from "./Option";
-import acceptImg from "../../../../images/Teacher/NewLesson/accept.svg";
 import { ISelect } from "../../../../models/interfaces";
 import { OptionInput } from "./OptionInput";
+import { UseFormSetValue } from "react-hook-form";
+import { Selects, TeacherSubmitForm } from "../lessonCntBody/validationSchema";
 
 interface OptionsProps {
   state: boolean;
   setState: React.Dispatch<SetStateAction<boolean>>;
   select: ISelect;
   isInput?: boolean;
-  setName: React.Dispatch<SetStateAction<string>>;
   setselectVals?: React.Dispatch<SetStateAction<ISelect>>;
+  setValue?: UseFormSetValue<TeacherSubmitForm>;
+  selectName?: Selects;
 }
 
 export const Options: React.FC<OptionsProps> = ({
   state,
   setState,
   select,
-  setName,
-  setselectVals,
   isInput,
-}: OptionsProps) => {
+  setselectVals,
+  setValue,
+  selectName,
+}) => {
   const [newCategory, setNewCategory] = useState<string>("");
   return (
     <div className="options">
-      {select.options.map((option, id) => (
-        <Option
-          option={option}
-          key={id}
-          state={state}
-          setState={setState}
-          setName={setName}
-        />
-      ))}
+      <div className="optionsContainer">
+        {select.options.map((option, id) => (
+          <Option
+            key={id}
+            setValue={setValue}
+            option={option}
+            setState={setState}
+            state={state}
+            selectName={selectName}
+          />
+        ))}
+      </div>
       {isInput && (
         <OptionInput
-          newCategory={newCategory}
+          select={select}
           setNewCategory={setNewCategory}
           setselectVals={setselectVals}
-          select={select}
+          newCategory={newCategory}
         />
       )}
     </div>

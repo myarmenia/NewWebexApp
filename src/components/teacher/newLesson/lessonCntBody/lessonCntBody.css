@@ -2,7 +2,7 @@
   @apply w-full;
 }
 .LessonCntBody > form {
-  @apply flex gap-[58px];
+  @apply flex gap-5 flex-col;
 }
 .LessonCntBody_box {
   @apply flex flex-col gap-5 w-[400px] min-w-[320px];
@@ -11,7 +11,7 @@
   @apply w-auto;
 }
 .lessonInp {
-  @apply py-3 px-[17px] bg-white rounded-2xl outline-none h-10;
+  @apply py-3 px-[17px] bg-white rounded-2xl outline-none h-10 text-base;
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
 }
 .lessonInp::placeholder {
@@ -56,3 +56,4 @@
   -ms-appearance: none;
   appearance: none;
 }
+

@@ -17,8 +17,8 @@ import Entry from "./components/entry/Entry";
 function App() {
   return (
     <>
-      {/* <Header />
-       <Container>
+       {/* <Header /> */}
+       {/*<Container>
         <SearchArea />
         <InfoCont />
         <Features />
@@ -31,7 +31,7 @@ function App() {
       </Container>
       <Footer />  */}
 
-      {/* <Teacher /> */}
+      <Teacher />
 
       {/* <Regsitration /> */}
       {/* <Entry /> */}

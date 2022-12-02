@@ -1,24 +1,28 @@
 import React, { SetStateAction } from "react";
-import "./customSelect.css";
-
+import { UseFormSetValue } from "react-hook-form";
+// import { TeacherSubmitForm } from "../../../../models/interfaces";
+import { Selects, TeacherSubmitForm } from "../lessonCntBody/validationSchema";
 interface OptionProps {
   option: string;
   state: boolean;
   setState: React.Dispatch<SetStateAction<boolean>>;
-  setName: React.Dispatch<SetStateAction<string>>;
+  setValue?: UseFormSetValue<TeacherSubmitForm>;
+  selectName?: Selects;
 }
+
 export const Option: React.FC<OptionProps> = ({
   option,
   state,
   setState,
-  setName,
-}: OptionProps) => {
+  setValue,
+  selectName,
+}) => {
   return (
     <div
       className="custopSelect_option"
       onClick={() => {
         setState(!state);
-        setName(option);
+        selectName && setValue?.(selectName, option, { shouldValidate: true });
       }}
     >
       {option}

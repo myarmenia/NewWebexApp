@@ -3,11 +3,20 @@ import React, { SetStateAction, useState } from "react";
 import { Options } from "./Options";
 import { DefaultOption } from "./DefaultOption";
 import { ISelect } from "../../../../models/interfaces";
+import { UseFormSetValue } from "react-hook-form";
+import { Selects, TeacherSubmitForm } from "../lessonCntBody/validationSchema";
+
 interface CustomSelectProps {
   select: ISelect;
   className?: string;
   isInput?: boolean;
   setselectVals?: React.Dispatch<SetStateAction<ISelect>>;
+  setValue?: UseFormSetValue<TeacherSubmitForm>;
+  register?: {
+    name: string;
+  };
+  error?: string;
+  selectName?: Selects;
 }
 
 export const CustomSelect: React.FC<CustomSelectProps> = ({
@@ -15,36 +24,29 @@ export const CustomSelect: React.FC<CustomSelectProps> = ({
   className,
   isInput,
   setselectVals,
+  setValue,
+  register,
+  error,
+  selectName,
 }) => {
   const [state, setState] = useState<boolean>(false);
-  const [rotateClass, setRotateClass] = useState<boolean>(false);
-  const [name, setName] = useState<string>(select.title);
-
-  const toggleSelect = (e: boolean): void => {
-    setState(e);
-    setRotateClass(e);
-  };
-
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center h-10">
       <div className={`customSelect ${className}`}>
-        <DefaultOption
-          title={name}
-          rotateClass={rotateClass}
-          state={state}
-          toggleSelect={toggleSelect}
-        />
+        <DefaultOption setState={setState} state={state} register={register} />
+
         {state && (
           <Options
+            select={select}
             setState={setState}
             state={state}
-            // options={select.options}
-            setName={setName}
-            select={select}
-            isInput={isInput}
+            selectName={selectName}
+            setValue={setValue}
             setselectVals={setselectVals}
+            isInput={isInput}
           />
         )}
+        <p className="errorMessage">{error && error}</p>
       </div>
     </div>
   );

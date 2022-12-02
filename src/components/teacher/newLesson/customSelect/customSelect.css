@@ -1,18 +1,24 @@
 .customSelect {
-  @apply relative min-w-[143px] flex justify-end w-full cursor-pointer;
+  @apply relative min-w-[143px] flex flex-col gap-1 w-full cursor-pointer;
 }
 .options {
   @apply w-full absolute top-11 rounded-2xl bg-slate-50 overflow-hidden z-[2];
-  background: rgba(255, 255, 255, 0.6);
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
+}
+.optionsContainer {
+  @apply max-h-[200px] overflow-y-auto bg-[#ffffff69];
+  backdrop-filter: blur(11px);
+  -webkit-backdrop-filter: blur(3px);
 }
 .defaultOption {
   @apply w-full flex gap-1 items-center border-[1px] border-white text-ellipsis overflow-hidden py-3 px-[17px] bg-white rounded-2xl;
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
 }
+.myInput {
+  @apply border-none bg-inherit text-base placeholder:text-[#9C9C9C] placeholder:text-xs;
+}
 .custopSelect_option {
-  @apply bg-slate-50 hover:bg-slate-200 transition-all py-3 px-4 pb-2 text-ellipsis overflow-hidden mx-auto h-fit w-full text-[#9C9C9C] whitespace-nowrap cursor-pointer;
+  @apply hover:bg-slate-200 transition-all py-3 px-4 pb-2 text-ellipsis overflow-hidden mx-auto h-11 w-full text-[#9C9C9C] whitespace-nowrap cursor-pointer;
 }
 .addCategoryInp {
   @apply w-full px-4 py-3 border-[#CCCCCC] border rounded-2xl outline-none h-10;
@@ -20,6 +26,9 @@
 .addImg {
   @apply absolute top-[53%] left-auto right-[13px];
   transform: translate(0, -50%);
+}
+.errorMessage {
+  @apply text-[red] text-center leading-3;
 }
 @media (max-width: 800px) {
   .customSelect,

@@ -21,3 +21,6 @@
   @apply left-auto right-[12px];
   transform: translate(0, -50%) rotate(180deg);
 }
+.inpNumber {
+  @apply leading-[16.5px] text-[#9C9C9C] text-xs;
+}
