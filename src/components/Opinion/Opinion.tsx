@@ -7,7 +7,7 @@ import "swiper/css/bundle";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Navigation } from "swiper";
+import { Autoplay, Navigation } from "swiper";
 import chevron from "../../images/Lessons/leftChevron.svg";
 export const Opinion: React.FC = () => {
   return (
@@ -23,6 +23,10 @@ export const Opinion: React.FC = () => {
           slidesPerGroup={1}
           loop={true}
           loopFillGroupWithBlank={true}
+          autoplay={{
+            delay: 4000,
+            disableOnInteraction: false,
+          }}
           pagination={{
             clickable: true,
           }}
@@ -30,7 +34,7 @@ export const Opinion: React.FC = () => {
             nextEl: ".mySwiper-button-next2",
             prevEl: ".mySwiper-button-prev2",
           }}
-          modules={[Navigation]}
+          modules={[Autoplay, Navigation]}
           className="mySwiper"
         >
           <SwiperSlide>

@@ -1,0 +1,23 @@
+.customNmbInp {
+  @apply relative;
+}
+.CustomNmbInput {
+  @apply w-[85px] flex justify-center;
+}
+.CustomNmbInput > input {
+  @apply w-5 h-full bg-white;
+  appearance: none;
+  margin: 0;
+}
+.arrowLeft,
+.arrowRight {
+  @apply absolute hover:opacity-75 top-[52%] cursor-pointer;
+  transform: translate(0, -50%);
+}
+.arrowLeft {
+  @apply left-[12px];
+}
+.arrowRight {
+  @apply left-auto right-[12px];
+  transform: translate(0, -50%) rotate(180deg);
+}

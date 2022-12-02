@@ -37,7 +37,7 @@ export const SearchArea: React.FC = () => {
       </div>
       <div className="searchBoxes">
         {images.map((el, index) => (
-          <SearchBox {...el} key={index} />
+          <SearchBox {...el} key={index} animDelay={index} />
         ))}
       </div>
     </div>

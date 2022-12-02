@@ -1,0 +1,8 @@
+.contentBody {
+  @apply w-4/5 mt-20 ml-auto flex justify-center;
+  min-height: calc(100vh - 80px);
+}
+.contentBodyContainer {
+  @apply w-[96.5%] h-full mt-[17px] relative;
+  min-height: calc(100vh - 97px);
+}
