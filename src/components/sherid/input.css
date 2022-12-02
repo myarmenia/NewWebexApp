@@ -2,7 +2,7 @@
   @apply mt-[50px];
 }
 .form-group {
-  @apply w-[60%] h-[60px] flex  flex-col;
+  @apply w-[55%] h-[60px] flex   flex-col;
   position: relative;
 }
 .form-group img {
@@ -25,6 +25,7 @@ input[type="email"]::placeholder {
 
 .invalid-feedback {
   @apply font-normal text-xs text-[red];
+  width: max-content;
 }
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
@@ -32,13 +33,23 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   transition: background-color 9000000s ease-in-out 0s;
 }
-@media (max-width: 1240px) {
+@media (max-width: 1250px) {
   .form-group {
-    @apply w-[80%];
+    @apply w-[65%];
   }
 }
 @media (max-width: 900px) {
   .form-group {
-    @apply w-[90%];
+    @apply w-[75%];
+  }
+}
+@media (max-width: 760px) {
+  .form-group {
+    @apply w-[85%];
+  }
+}
+@media (max-width: 600px) {
+  .registration-form {
+    @apply w-[60%];
   }
 }
