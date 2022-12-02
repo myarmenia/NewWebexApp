@@ -11,6 +11,7 @@ import { Questions } from "./components/questions/Questions";
 import { SearchArea } from "./components/searchArea/SearchArea";
 import { Lessons } from "./components/lessons/Lessons";
 import Regsitration from "./components/registration/Regsitration";
+import Entry from "./components/entry/Entry";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
       </Container>
       <Footer /> */}
       <Regsitration />
+      {/* <Entry /> */}
     </>
   );
 }
