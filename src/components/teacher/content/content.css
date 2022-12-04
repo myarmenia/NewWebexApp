@@ -6,3 +6,17 @@
   @apply w-[96.5%] h-full mt-[17px] relative;
   min-height: calc(100vh - 97px);
 }
+@media (max-width: 1200px) {
+  .contentBody {
+    /* @apply w-[92%]; */
+    width: calc(100% - 105px);
+  }
+}
+@media (max-width: 1060px) {
+  /* .lessonContainer {
+    @apply flex-wrap;
+  } */
+  .contentBody {
+    @apply w-full;
+  }
+}

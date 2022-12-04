@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 import "./lessonCntBody.css";
-import { CustomSelect } from "../customSelect/CustomSelect";
 import { ISelect } from "../../../../models/interfaces";
 import { AgeDiv } from "./ageDiv/AgeDiv";
 import { FinishExam } from "./finishExam/FinishExam";
 import downloadImg from "../../../../images/Teacher/NewLesson/download.svg";
 import { CustomNmbInp } from "./customNmbInp/CustomNmbInp";
 import { TxtWinput } from "./txtWinput/TxtWinput";
+import { DifferentCourses } from "./differentCourses/DifferentCourses";
+import { Phases } from "./phases/Phases";
+import { FormProvider, useFieldArray, useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { CustomSelect } from "../customSelect/CustomSelect";
+import { nLessCreate_L_Schema, TeacherSubmitForm } from "./validationSchema";
+import { CstmInput } from "./cstmInput/CstmInput";
 
 export const LessonCntBody: React.FC = () => {
   const [selectVals, setselectVals] = useState<ISelect>({
@@ -18,99 +24,165 @@ export const LessonCntBody: React.FC = () => {
     options: ["aaa", "bbb"],
   };
   const [isDifferent, setIsDifferent] = useState<boolean>(false);
-  const [lessonsCount, setLessonCount] = useState<number>(3);
+
+  const methods = useForm<TeacherSubmitForm>({
+    resolver: yupResolver(nLessCreate_L_Schema),
+    defaultValues: {
+      stages: [
+        { stage: 0, count: 2, stageDescription: "" },
+        { stage: 1, count: 2, stageDescription: "" },
+        { stage: 2, count: 2, stageDescription: "" },
+      ],
+    },
+  });
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    watch,
+    control,
+  } = methods;
+  const fieldArray = useFieldArray<TeacherSubmitForm, "stages", "id">({
+    control,
+    name: "stages",
+  });
+  const { fields, append, remove } = fieldArray;
+
+  function setStageLessonsNull(): void {
+    !watch("areStagesDifferent") &&
+      fields.map((field) => {
+        console.log(field.count);
+
+        return {
+          ...field,
+          count: null,
+        };
+      });
+  }
+  setStageLessonsNull();
+  const onSubmit = (data: TeacherSubmitForm) => {
+    console.log(data);
+  };
 
   return (
-    <div className="LessonCntBody">
-      <form action="">
-        <div className="LessonCntBody_box">
-          <input
-            className="lessonInp"
-            type="text"
-            placeholder="Դասընթացի վերնագիրը*"
-          />
-          <CustomSelect select={selectVals} setselectVals={setselectVals} />
-          <CustomSelect select={dificultyLevels} />
-          <textarea
-            className="lessonTextarea lessonInp"
-            placeholder="lorem isup*"
-          ></textarea>
-          <AgeDiv />
-          <FinishExam text="Վերջնական քննություն" />
-          <FinishExam text="Հավաստագիր" />
-          <div className="flex gap-5 items-center">
-            <input
-              className="lessonInp w-[40%]"
-              type="text"
-              placeholder="Դասընթացի արժեքը*"
-            />
-            <span className="text-[#6B6B6B] text-xs">Դրամ</span>
-          </div>
-          <button className="flex gap-[13px] items-center w-fit" type="button">
-            <img src={downloadImg} alt="" />
-            <span className="text-[#6B6B6B] text-xs">Բեռնել շապիկի նկարը</span>
-          </button>
-          <button className="addLessonBtn">Առաջ</button>
-        </div>
-        <div className="bg-[#BEBFE4] mt-5 h-[450px] w-[1px]" />
-        <div className="LessonCntBody_box2 LessonCntBody_box">
-          <TxtWinput text="Դասընթացի փուլերի քանակը">
-            <CustomNmbInp
-              min={2}
-              max={100}
-              lessonsCount={lessonsCount}
-              setLessonCount={setLessonCount}
-            />
-          </TxtWinput>
-          <div
-            className={`flex justify-between ${
-              isDifferent ? "w-[497px]" : "w-[279px]"
-            }`}
-          >
-            <div className="txtWcheckbox">
-              <span className="text-[#6B6B6B] text-xs">
-                Մի փուլի դասերի քանակը
-              </span>
-              <div className="flex gap-2">
-                <input
-                  type="checkbox"
-                  className="customCheckbox"
-                  onClick={() => setIsDifferent(!isDifferent)}
+    <FormProvider {...methods}>
+      <div className="LessonCntBody">
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div className="lessonContainer">
+            <div className="LessonCntBody_box">
+              <CstmInput
+                placeholder="Դասընթացի վերնագիրը*"
+                type="text"
+                regName="title"
+              />
+              <CustomSelect
+                select={selectVals}
+                // setselectVals={setselectVals}
+                {...{ setselectVals }}
+                isInput={true}
+                regName="select"
+              />
+              <CustomSelect select={dificultyLevels} regName="select1" />
+              <textarea
+                className="lessonTextarea lessonInp"
+                placeholder="lorem isup*"
+                {...register("describtion")}
+              ></textarea>
+              <AgeDiv />
+              <FinishExam text="Վերջնական քննություն" regName="isExam" />
+              <FinishExam text="Հավաստագիր" regName="certificate" />
+              <div className="flex gap-5 items-center">
+                <CstmInput
+                  placeholder="Դասընթացի արժեքը*"
+                  type="number"
+                  regName="cost"
                 />
-                <span>Փուլերը տարբերվում են</span>
+                <span className="text-[#6B6B6B] text-xs">Դրամ</span>
               </div>
+              <button
+                className="flex gap-[13px] items-center w-fit"
+                type="button"
+              >
+                <img src={downloadImg} alt="" />
+                <span className="text-[#6B6B6B] text-xs">
+                  Բեռնել շապիկի նկարը
+                </span>
+              </button>
             </div>
-
-            {isDifferent ? (
-              <div className="differentCourses">
-                {Array.from(
-                  { length: lessonsCount },
-                  (v: unknown, k: number) => k
-                ).map((el, index) => {
-                  return (
-                    <div className="flex flex-col gap-1" key={index}>
-                      <span className="text-[#6B6B6B] text-[10px]">
-                        Փուլ {index + 1}
-                      </span>
-                      <CustomNmbInp min={1} max={100} defaultValue={12} />
+            <div className="hrMain" />
+            <div className="LessonCntBody_box2 LessonCntBody_box">
+              <div className="stagesContainer">
+                <TxtWinput text="Դասընթացի փուլերի քանակը">
+                  <CustomNmbInp
+                    defaultValue={3}
+                    regName="stagesCount"
+                    {...{ remove, append }}
+                  />
+                </TxtWinput>
+                <div
+                  className={`stageBox ${
+                    isDifferent ? "w-[497px]" : "w-[279px]"
+                  }`}
+                >
+                  <div className="txtWcheckbox">
+                    <span className="text-[#6B6B6B] text-xs">
+                      Մի փուլի դասերի քանակը
+                    </span>
+                    <div className="flex gap-2">
+                      <input
+                        type="checkbox"
+                        className="customCheckbox"
+                        onClick={() => setIsDifferent(!isDifferent)}
+                        {...register("areStagesDifferent")}
+                      />
+                      <span>Փուլերը տարբերվում են</span>
                     </div>
-                  );
-                })}
+                  </div>
+
+                  {isDifferent ? (
+                    <DifferentCourses {...{ fields }} />
+                  ) : (
+                    <CustomNmbInp defaultValue={12} regName={"stageLessons"} />
+                  )}
+                </div>
+                <TxtWinput text="Մի դասի տևողությունը ">
+                  <input
+                    type="time"
+                    defaultValue={"02:00:00"}
+                    step="1"
+                    className="lessonInp timeInp"
+                    {...register("lessonTime")}
+                  />
+                </TxtWinput>
               </div>
-            ) : (
-              <CustomNmbInp min={1} max={100} defaultValue={12} />
-            )}
+              <Phases {...{ fields }} />
+            </div>
           </div>
-          <TxtWinput text="Մի դասի տևողությունը ">
-            <input
-              type="time"
-              defaultValue={"02:00:00"}
-              step="1"
-              className="lessonInp timeInp"
-            />
-          </TxtWinput>
-        </div>
-      </form>
-    </div>
+          <div className="nextBtnCont">
+            <button type="submit" className="addLessonBtn ">
+              Առաջ
+            </button>
+            <button
+              type="button"
+              className="addLessonBtn"
+              onClick={() => {
+                console.log(watch("areStagesDifferent"), watch("stages"));
+              }}
+            >
+              watch stages
+            </button>
+            <button
+              type="button"
+              className="addLessonBtn"
+              onClick={() => {
+                console.log(watch());
+              }}
+            >
+              watch
+            </button>
+          </div>
+        </form>
+      </div>
+    </FormProvider>
   );
 };

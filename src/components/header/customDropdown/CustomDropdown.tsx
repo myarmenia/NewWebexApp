@@ -1,17 +1,17 @@
-import "./customSelect.css";
+import "./customDropdown.css";
 import React, { useState } from "react";
-import { Options } from "./Options";
-import { DefaultOption } from "./DefaultOption";
+import { Items } from "./Items";
+import { DropdownTitle } from "./DropdownTitle";
 import { ISelect } from "../../../models/interfaces";
-interface CustomSelectProps {
+interface CustomDropdownProps {
   select: ISelect;
   className?: string;
 }
 
-export const CustomSelect: React.FC<CustomSelectProps> = ({
+export const CustomDropdown: React.FC<CustomDropdownProps> = ({
   select,
   className,
-}: CustomSelectProps) => {
+}) => {
   const [state, setState] = useState<boolean>(false);
   const [rotateClass, setRotateClass] = useState<boolean>(false);
   const onPointer = (e: boolean): void => {
@@ -26,13 +26,13 @@ export const CustomSelect: React.FC<CustomSelectProps> = ({
       onPointerLeave={() => onPointer(false)}
     >
       <div className={`customSelect ${className}`}>
-        <DefaultOption
+        <DropdownTitle
           title={select.title}
           rotateClass={rotateClass}
           state={state}
         />
         {state && (
-          <Options setState={setState} state={state} options={select.options} />
+          <Items setState={setState} state={state} options={select.options} />
         )}
       </div>
     </div>

@@ -1,22 +1,22 @@
 import React from "react";
 import "./customSelect.css";
-import { Option } from "./Option";
+import { Item } from "./Item";
 
-interface OptionsProps {
+interface ItemsProps {
   state: boolean;
   setState: (state: boolean) => void;
   options: string[];
 }
 
-export const Options: React.FC<OptionsProps> = ({
+export const Items: React.FC<ItemsProps> = ({
   state,
   setState,
   options,
-}: OptionsProps) => {
+}) => {
   return (
     <div className="options">
       {options.map((option, id) => (
-        <Option
+        <Item
           option={option}
           key={id}
           state={state}

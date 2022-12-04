@@ -5,9 +5,7 @@
   @apply w-[85px] flex justify-center;
 }
 .CustomNmbInput > input {
-  @apply w-5 h-full bg-white;
-  appearance: none;
-  margin: 0;
+  @apply w-5 h-full bg-white text-center appearance-none m-0;
 }
 .arrowLeft,
 .arrowRight {
@@ -20,4 +18,7 @@
 .arrowRight {
   @apply left-auto right-[12px];
   transform: translate(0, -50%) rotate(180deg);
+}
+.inpNumber {
+  @apply leading-[16.5px] text-[#9C9C9C] text-xs;
 }

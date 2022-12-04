@@ -1,18 +1,17 @@
 import React from "react";
 import chevDown from "../../../images/chevDown.svg";
-import "./customSelect.css";
 
-interface DefaultOptionProps {
+interface DropdownTitleProps {
   state: boolean;
   title: string;
   rotateClass: boolean;
 }
 
-export const DefaultOption: React.FC<DefaultOptionProps> = ({
+export const DropdownTitle: React.FC<DropdownTitleProps> = ({
   title,
   rotateClass,
   state,
-}: DefaultOptionProps) => {
+}) => {
   return (
     <div className="defaultOption">
       <div className="flex justify-center w-full">

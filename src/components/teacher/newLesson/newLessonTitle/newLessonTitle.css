@@ -15,3 +15,9 @@
   @apply scale-125 w-[11%] h-[2.4px] rounded absolute left-[14px] -top-[1px] right-auto;
   background: linear-gradient(90deg, #7764fb 0%, #f364f3 100%);
 }
+
+/* @media (max-width: 1060px) {
+  .newLessonTitle {
+    @apply w-[80%] mx-auto;
+  }
+} */
