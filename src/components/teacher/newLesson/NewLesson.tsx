@@ -1,6 +1,6 @@
 import React from "react";
-import { LessonCntBody } from "./lessonCntBody/LessonCntBody";
 import "./newLesson.css";
+import { LessonCntBody } from "./lessonCntBody/LessonCntBody";
 import { NewLessonTitle } from "./newLessonTitle/NewLessonTitle";
 
 export const NewLesson: React.FC = () => {

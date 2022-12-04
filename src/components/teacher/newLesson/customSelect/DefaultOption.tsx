@@ -1,18 +1,19 @@
 import React from "react";
+import { useFormContext } from "react-hook-form";
 import chevDown from "../../../../images/chevDown.svg";
+import { Selects } from "../lessonCntBody/validationSchema";
 
 interface DefaultOptionProps {
   setState: React.Dispatch<React.SetStateAction<boolean>>;
   state: boolean;
-  register?: {
-    name: string;
-  };
+  regName?: Selects;
 }
 export const DefaultOption: React.FC<DefaultOptionProps> = ({
   setState,
   state,
-  register,
+  regName,
 }) => {
+  const { register } = useFormContext();
   return (
     <div className="defaultOption" onClick={() => setState(!state)}>
       <div className="flex text-[#6B6B6B] w-full text-xs">
@@ -21,7 +22,7 @@ export const DefaultOption: React.FC<DefaultOptionProps> = ({
           placeholder="Ընտրել կատեգորիան*"
           disabled
           className="myInput"
-          {...register}
+          {...register(regName!)}
         />
       </div>
       <img

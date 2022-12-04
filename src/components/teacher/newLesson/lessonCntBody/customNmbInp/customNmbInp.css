@@ -5,9 +5,7 @@
   @apply w-[85px] flex justify-center;
 }
 .CustomNmbInput > input {
-  @apply w-5 h-full bg-white;
-  appearance: none;
-  margin: 0;
+  @apply w-5 h-full bg-white text-center appearance-none m-0;
 }
 .arrowLeft,
 .arrowRight {

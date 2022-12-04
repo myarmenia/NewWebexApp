@@ -1,5 +1,5 @@
 import React from "react";
-import { CustomSelect } from "../customSelect/CustomSelect";
+import { CustomDropdown } from "../customDropdown/CustomDropdown";
 import { headerStore } from "../HeaderStore";
 import { NavItem } from "../navItem/NavItem";
 
@@ -10,11 +10,11 @@ export const Navbar: React.FC = () => {
         if (typeof el === "object") {
           return el.title === "Աղբյուրներ" ? (
             <NavItem key={index}>
-              <CustomSelect select={el} className="!min-w-[117px]" />
+              <CustomDropdown select={el} className="!min-w-[117px]" />
             </NavItem>
           ) : (
             <NavItem key={index}>
-              <CustomSelect select={el} />
+              <CustomDropdown select={el} />
             </NavItem>
           );
         } else {

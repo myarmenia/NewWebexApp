@@ -3,20 +3,15 @@ import React, { SetStateAction, useState } from "react";
 import { Options } from "./Options";
 import { DefaultOption } from "./DefaultOption";
 import { ISelect } from "../../../../models/interfaces";
-import { UseFormSetValue } from "react-hook-form";
-import { Selects, TeacherSubmitForm } from "../lessonCntBody/validationSchema";
+import { useFormContext } from "react-hook-form";
+import { Selects } from "../lessonCntBody/validationSchema";
 
 interface CustomSelectProps {
   select: ISelect;
   className?: string;
   isInput?: boolean;
   setselectVals?: React.Dispatch<SetStateAction<ISelect>>;
-  setValue?: UseFormSetValue<TeacherSubmitForm>;
-  register?: {
-    name: string;
-  };
-  error?: string;
-  selectName?: Selects;
+  regName?: Selects;
 }
 
 export const CustomSelect: React.FC<CustomSelectProps> = ({
@@ -24,29 +19,29 @@ export const CustomSelect: React.FC<CustomSelectProps> = ({
   className,
   isInput,
   setselectVals,
-  setValue,
-  register,
-  error,
-  selectName,
+  regName,
 }) => {
   const [state, setState] = useState<boolean>(false);
+  const {
+    formState: { errors },
+  } = useFormContext();
   return (
     <div className="flex justify-center h-10">
       <div className={`customSelect ${className}`}>
-        <DefaultOption setState={setState} state={state} register={register} />
-
+        <DefaultOption setState={setState} state={state} regName={regName} />
         {state && (
           <Options
             select={select}
             setState={setState}
             state={state}
-            selectName={selectName}
-            setValue={setValue}
+            regName={regName}
             setselectVals={setselectVals}
             isInput={isInput}
           />
         )}
-        <p className="errorMessage">{error && error}</p>
+        <p className="errorMessage">
+          <>{errors[regName!]?.message}</>
+        </p>
       </div>
     </div>
   );

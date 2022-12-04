@@ -2,8 +2,7 @@ import React, { SetStateAction, useState } from "react";
 import { Option } from "./Option";
 import { ISelect } from "../../../../models/interfaces";
 import { OptionInput } from "./OptionInput";
-import { UseFormSetValue } from "react-hook-form";
-import { Selects, TeacherSubmitForm } from "../lessonCntBody/validationSchema";
+import { Selects } from "../lessonCntBody/validationSchema";
 
 interface OptionsProps {
   state: boolean;
@@ -11,8 +10,7 @@ interface OptionsProps {
   select: ISelect;
   isInput?: boolean;
   setselectVals?: React.Dispatch<SetStateAction<ISelect>>;
-  setValue?: UseFormSetValue<TeacherSubmitForm>;
-  selectName?: Selects;
+  regName?: Selects;
 }
 
 export const Options: React.FC<OptionsProps> = ({
@@ -21,8 +19,7 @@ export const Options: React.FC<OptionsProps> = ({
   select,
   isInput,
   setselectVals,
-  setValue,
-  selectName,
+  regName,
 }) => {
   const [newCategory, setNewCategory] = useState<string>("");
   return (
@@ -31,11 +28,10 @@ export const Options: React.FC<OptionsProps> = ({
         {select.options.map((option, id) => (
           <Option
             key={id}
-            setValue={setValue}
             option={option}
             setState={setState}
             state={state}
-            selectName={selectName}
+            regName={regName}
           />
         ))}
       </div>

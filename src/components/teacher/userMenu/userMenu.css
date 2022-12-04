@@ -14,3 +14,21 @@
 .menuSpan {
   @apply text-sm text-[#6B6B6B];
 }
+
+@media (max-width: 1200px) {
+  .menu {
+    /* @apply w-[8%]; */
+    @apply w-[100px];
+  }
+  .menuSpan {
+    @apply hidden;
+  }
+  .menuLi img {
+    @apply w-8 h-8;
+  }
+}
+@media (max-width: 1060px) {
+  .menu {
+    @apply hidden;
+  }
+}

@@ -2,7 +2,7 @@
   @apply flex flex-col gap-4;
 }
 .phasesCont {
-  @apply flex flex-col gap-5 w-[400px];
+  @apply flex flex-col gap-5 w-[400px] max-h-[170px] overflow-y-auto pb-2 pr-1;
 }
 .phasesTitle {
   @apply font-semibold text-sm text-[#6B6B6B];

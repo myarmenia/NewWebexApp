@@ -1,72 +1,81 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./customNmbInp.css";
 import arrow from "../../../../../images/Teacher/NewLesson/Polygon 3.svg";
-import { UseFormSetValue } from "react-hook-form";
-import { Selects, TeacherSubmitForm } from "../validationSchema";
+import { FieldArrayMethodProps, useFormContext } from "react-hook-form";
+import { Selects } from "../validationSchema";
 
 interface CustomNmbInpProps {
-  defaultValue?: number;
-  min: number;
-  max: number;
-  lessonsCount?: number;
-  setLessonCount?: React.Dispatch<React.SetStateAction<number>>;
-  register?: {
-    name: string;
-  };
-  setValue?: UseFormSetValue<TeacherSubmitForm>;
-  inpNumName?: Selects;
+  defaultValue: number;
+  regName: Selects;
+  append?: (
+    value:
+      | {
+          stageDescription: string;
+          count: number;
+          stage: number;
+        }
+      | {
+          stageDescription: string;
+          count: number;
+          stage: number;
+        }[],
+    options?: FieldArrayMethodProps | undefined
+  ) => void;
+  remove?: (index?: number | number[] | undefined) => void;
 }
 
 export const CustomNmbInp: React.FC<CustomNmbInpProps> = ({
-  min,
-  max,
   defaultValue,
-  lessonsCount,
-  setLessonCount,
-  register,
-  setValue,
-  inpNumName,
+  regName,
+  append,
+  remove,
 }) => {
-  const [age, setAge] = useState<number>(lessonsCount || defaultValue!);
+  const {
+    register,
+    setValue,
+    watch,
+    formState: { errors },
+  } = useFormContext();
+
+  const [age, setAge] = useState<number>(defaultValue);
   const increase = () => {
-    // if (age < max) {
-    //   if (lessonsCount) {
-    //     lessonsCount < max && setLessonCount?.((prev) => prev + 1);
-    //   } else {
-    //     setAge((prev) => prev + 1);
-    //   }
-    setAge((prev) => prev + 1);
-    inpNumName && setValue?.(inpNumName, age);
-    // }
+    if (age > 1) {
+      setAge((prev) => prev + 1);
+      append?.({
+        stage: watch("stagesCount"),
+        count: 2,
+        stageDescription: "",
+      });
+    }
   };
   const decrease = () => {
-    // if (age > min) {
-    //   if (lessonsCount) {
-    //     lessonsCount > min && setLessonCount?.((prev) => prev - 1);
-    //   } else {
-    //     setAge((prev) => prev - 1);
-    //   }
-    setAge((prev) => prev - 1);
-    inpNumName && setValue?.(inpNumName, age);
-
-    // }
+    if (age > 1) {
+      setAge((prev) => prev - 1);
+      remove?.(watch("stagesCount") - 1);
+    }
   };
+  useEffect(() => {
+    setValue(regName, age);
+  }, [age]);
 
   return (
-    <div className="customNmbInp">
-      <div className="lessonInp CustomNmbInput">
-        {/* <span className="leading-[16.5px] text-[#9C9C9C] text-xs">
-          {lessonsCount || age}
-        </span> */}
-        <input
-          type="number"
-          // value={lessonsCount || age}
-          {...register}
-          className="inpNumber"
-        />
+    <div className="relative">
+      <div className="customNmbInp">
+        <div className="lessonInp CustomNmbInput">
+          <input
+            type="number"
+            className="inpNumber"
+            disabled
+            defaultValue={age}
+            {...register(regName)}
+          />
+        </div>
+        <img src={arrow} alt="" className="arrowLeft" onClick={decrease} />
+        <img src={arrow} alt="" className="arrowRight" onClick={increase} />
       </div>
-      <img src={arrow} alt="" className="arrowLeft" onClick={decrease} />
-      <img src={arrow} alt="" className="arrowRight" onClick={increase} />
+      <p className="errorMessage">
+        <>{errors[regName]?.message}</>
+      </p>
     </div>
   );
 };

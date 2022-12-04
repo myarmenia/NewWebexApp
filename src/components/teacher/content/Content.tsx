@@ -1,5 +1,4 @@
 import React, { ReactNode } from "react";
-import { AddLesson } from "../addLesson/AddLesson";
 import "./content.css";
 interface ContentProps {
   children: ReactNode;
