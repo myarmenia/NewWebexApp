@@ -49,6 +49,7 @@ export const nLessCreate_L_Schema = Yup.object().shape({
     .required("Նշելը պարտադիր է")
     .nullable(),
   stages: Yup.array().of(Yup.object()),
+  requiredKnowledges: Yup.array().of(Yup.object()),
 });
 
 // ==============================
@@ -69,7 +70,9 @@ export type Selects =
   | "areStagesDifferent"
   | "stageLessons"
   | "isExam"
-  | "certificate";
+  | "certificate"
+  | "requiredKnowledges"
+  | `requiredKnowledges.${number}.knowledge`;
 
 export interface TeacherSubmitForm {
   title: string;
@@ -78,17 +81,20 @@ export interface TeacherSubmitForm {
   describtion: string;
   cost: number;
   isAgeLimit: boolean;
-  minAgeLimit: number;
-  maxAgeLimit: number;
+  minAgeLimit?: number;
+  maxAgeLimit?: number;
   stagesCount: number;
   areStagesDifferent: boolean;
-  stageLessons: number;
+  stageLessons?: number;
   lessonTime: string;
   isExam: string;
   certificate: string;
   stages: {
     stageDescription: string;
-    count: number;
+    count?: number | null;
     stage: number;
+  }[];
+  requiredKnowledges: {
+    knowledge: string;
   }[];
 }

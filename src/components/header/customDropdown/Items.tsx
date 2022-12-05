@@ -1,5 +1,4 @@
 import React from "react";
-import "./customSelect.css";
 import { Item } from "./Item";
 
 interface ItemsProps {

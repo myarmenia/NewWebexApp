@@ -62,7 +62,17 @@
 .stageBox {
   @apply flex justify-between;
 }
-
+.stageBox_closed {
+  @apply w-[279px];
+}
+.stageBox_opened {
+  @apply w-[497px];
+}
+@media (max-width: 1350px) {
+  .stageBox_opened {
+    @apply w-[388px];
+  }
+}
 @media (max-width: 1060px) {
   /* .hrMain {
     @apply hidden;
