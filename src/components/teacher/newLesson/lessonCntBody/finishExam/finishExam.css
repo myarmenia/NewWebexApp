@@ -2,7 +2,7 @@
   @apply flex justify-between items-center;
 }
 .radioCont {
-  @apply flex gap-6 items-center;
+  @apply flex gap-6 items-center relative;
 }
 .radioBox {
   @apply flex items-center gap-2;

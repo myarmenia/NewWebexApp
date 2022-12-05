@@ -1,6 +1,7 @@
 .registration {
-  @apply w-auto h-[100vh] flex justify-center;
+  @apply w-auto flex justify-center mt-20;
   background: url("../../images/vivid-blurred-colorful-background.png");
+  height: calc(100vh - 80px);
 }
 .registrationChild {
   @apply w-[100%] h-[100%] flex flex-col justify-center items-center;
@@ -90,13 +91,8 @@ input[type="radio"]:checked {
   text-decoration: underline;
 }
 .social {
-  @apply w-[10%] h-[80px] flex  justify-center items-center  gap-[15px];
+  @apply h-[80px] flex  justify-center items-center  gap-[15px];
 }
-/* .social a {
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-} */
 .social img {
   width: 32px;
   height: 32px;
@@ -160,5 +156,11 @@ input[type="radio"]:checked {
   }
   .form-group-checkbox {
     width: 70%;
+  }
+}
+@media (max-height: 690px) {
+  .registration {
+    @apply mt-[30px];
+    height: calc(100vh - 30px);
   }
 }

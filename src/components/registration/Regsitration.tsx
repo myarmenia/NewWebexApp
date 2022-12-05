@@ -9,9 +9,9 @@ import emailIcon from "../../images/registration/mail.png";
 import passwordIcon from "../../images/registration/password.png";
 import facebook from "../../images/registration/facebook.png";
 import gmail from "../../images/registration/gmail.png";
-import { CustomSelect } from "../header/customSelect/CustomSelect";
+// import { CustomSelect } from "../header/customSelect/CustomSelect";
 import Select from "../sherid/Select";
-import { Option } from "../header/customSelect/Option";
+// import { Option } from "../header/customSelect/Option";
 interface UserSubmitForm {
   checkbox: string;
   select: string;
@@ -134,12 +134,12 @@ const Regsitration = () => {
           <p>Արդեն գրացնվա՞ծ եք</p> <a href="">Մուտք</a>
         </div>
         <div className="social ">
-          {/* <a href=""> */}
-          <img src={facebook} />
-          {/* </a> */}
-          {/* <a href=""> */}
-          <img src={gmail} />
-          {/* </a> */}
+          <a href="#">
+            <img src={facebook} />
+          </a>
+          <a href="#">
+            <img src={gmail} />
+          </a>
         </div>
       </div>
     </div>

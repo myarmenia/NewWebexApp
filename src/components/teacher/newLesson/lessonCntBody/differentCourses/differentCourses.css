@@ -1,0 +1,9 @@
+.differentCourses {
+  @apply grid grid-cols-3 gap-1;
+  column-gap: 24px;
+}
+@media (max-width: 1060px){
+  .differentCourses{
+    @apply grid-cols-1
+  }
+}

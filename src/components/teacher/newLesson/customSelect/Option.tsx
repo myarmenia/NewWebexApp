@@ -1,24 +1,26 @@
 import React, { SetStateAction } from "react";
-import "./customSelect.css";
-
+import { useFormContext } from "react-hook-form";
+import { Selects } from "../lessonCntBody/validationSchema";
 interface OptionProps {
   option: string;
   state: boolean;
   setState: React.Dispatch<SetStateAction<boolean>>;
-  setName: React.Dispatch<SetStateAction<string>>;
+  regName?: Selects;
 }
+
 export const Option: React.FC<OptionProps> = ({
   option,
   state,
   setState,
-  setName,
-}: OptionProps) => {
+  regName,
+}) => {
+  const { setValue } = useFormContext();
   return (
     <div
       className="custopSelect_option"
       onClick={() => {
         setState(!state);
-        setName(option);
+        regName && setValue(regName, option, { shouldValidate: true });
       }}
     >
       {option}

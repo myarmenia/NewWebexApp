@@ -5,6 +5,7 @@ module.exports = {
     screens: {
       "med-800": { raw: "(max-width: 800px)" },
       "med-1100": { raw: "(max-width: 1100px)" },
+      "med-1060": { raw: "(max-width: 1060px)" },
     },
     extend: {
       gradientColorStops: {
