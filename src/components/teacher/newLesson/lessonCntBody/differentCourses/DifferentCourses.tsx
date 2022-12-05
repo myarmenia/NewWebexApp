@@ -17,7 +17,7 @@ export const DifferentCourses: React.FC<DifferentCoursesProps> = ({
         return (
           <div className="flex flex-col gap-1" key={field.id}>
             <span className="text-[#6B6B6B] text-[10px]">Փուլ {index + 1}</span>
-            <CustomNmbInp defaultValue={2} regName={`stages.${index}.count`} />
+            <CustomNmbInp defaultValue={12} regName={`stages.${index}.count`} />
           </div>
         );
       })}

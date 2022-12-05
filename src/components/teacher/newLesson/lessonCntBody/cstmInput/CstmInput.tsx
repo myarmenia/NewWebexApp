@@ -8,12 +8,15 @@ interface CstmInputProps {
   placeholder: string;
   regName: Selects;
   className?: string;
+  // onKeyDown?: (e: KeyboardEvent) => void;
+  onKeyDown?: (e: KeyboardEvent) => void;
 }
 export const CstmInput: React.FC<CstmInputProps> = ({
   type,
   placeholder,
   regName,
   className,
+  onKeyDown,
 }) => {
   const {
     register,
@@ -22,6 +25,7 @@ export const CstmInput: React.FC<CstmInputProps> = ({
   return (
     <div className="flex flex-col relative">
       <input
+        onKeyDown={() => onKeyDown}
         className={"lessonInp " + className}
         type={type}
         placeholder={placeholder}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./lessonCntBody.css";
 import { ISelect } from "../../../../models/interfaces";
 import { AgeDiv } from "./ageDiv/AgeDiv";
@@ -13,8 +13,11 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { CustomSelect } from "../customSelect/CustomSelect";
 import { nLessCreate_L_Schema, TeacherSubmitForm } from "./validationSchema";
 import { CstmInput } from "./cstmInput/CstmInput";
+import closeImg from "../../../../images/Teacher/NewLesson/X.svg";
 
 export const LessonCntBody: React.FC = () => {
+  const [reqKnowledges, setReqKnowledges] = useState<string[]>([]);
+
   const [selectVals, setselectVals] = useState<ISelect>({
     title: "Ընտրել կատեգորիան*",
     options: ["aaa", "bbbb", "cccc"],
@@ -40,6 +43,7 @@ export const LessonCntBody: React.FC = () => {
     handleSubmit,
     formState: { errors },
     watch,
+    setValue,
     control,
   } = methods;
   const fieldArray = useFieldArray<TeacherSubmitForm, "stages", "id">({
@@ -48,22 +52,33 @@ export const LessonCntBody: React.FC = () => {
   });
   const { fields, append, remove } = fieldArray;
 
-  function setStageLessonsNull(): void {
-    !watch("areStagesDifferent") &&
-      fields.map((field) => {
-        console.log(field.count);
-
-        return {
-          ...field,
-          count: null,
-        };
-      });
-  }
-  setStageLessonsNull();
-  const onSubmit = (data: TeacherSubmitForm) => {
-    console.log(data);
+  // useEffect(() => {
+  const keyDownHandler = (e: KeyboardEvent) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      // myFunction();
+      // setReqKnowledges([...reqKnowledges, watch("requiredKnowledge")]);
+      setReqKnowledges([...reqKnowledges, watch("requiredKnowledge")]);
+      setValue("requiredKnowledge", "");
+      console.log(reqKnowledges);
+    }
   };
+  // document.addEventListener("keydown", keyDownHandler);
+  // }, []);
 
+  const onSubmit = (data: TeacherSubmitForm) => {
+    let valus={}
+    if(!data.areStagesDifferent){
+      valus = {
+        ...data,
+        stages: data.stages.map((el) => ({ ...el, count: null })),
+      };
+    }else{
+      valus = data
+    }
+    
+    console.log(valus, "porc");
+  };
   return (
     <FormProvider {...methods}>
       <div className="LessonCntBody">
@@ -77,12 +92,47 @@ export const LessonCntBody: React.FC = () => {
               />
               <CustomSelect
                 select={selectVals}
-                // setselectVals={setselectVals}
                 {...{ setselectVals }}
                 isInput={true}
                 regName="select"
               />
               <CustomSelect select={dificultyLevels} regName="select1" />
+              <div className="flex flex-col gap-5">
+                <CstmInput
+                  type="text"
+                  placeholder="Ավելացնել պահանջվող նախնական գիտելիքները"
+                  regName="requiredKnowledge"
+                  onKeyDown={keyDownHandler}
+                />
+                {!!reqKnowledges.length && (
+                  <div className="flex gap-2">
+                    {reqKnowledges.map((el, i) => {
+                      return (
+                        <div
+                          key={i}
+                          className="flex justify-between items-center gap-[10px] bg-[#7764FB] text-xs text-white opacity-80 px-[18px] py-[5px] rounded-[30px]"
+                        >
+                          <span className="leading-3">{el}</span>
+                          <img className="h-2" src={closeImg} alt="" />
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+                {/* <div className="flex gap-2">
+                  {reqKnowledges.map((el, i) => {
+                    return (
+                      <div
+                        key={i}
+                        className="flex justify-between items-center gap-[10px] bg-[#7764FB] text-xs text-white opacity-80 px-[18px] py-[5px] rounded-[30px]"
+                      >
+                        <span className="leading-3">{el}</span>
+                        <img className="h-2" src={closeImg} alt="" />
+                      </div>
+                    );
+                  })}
+                </div> */}
+              </div>
               <textarea
                 className="lessonTextarea lessonInp"
                 placeholder="lorem isup*"
@@ -161,15 +211,6 @@ export const LessonCntBody: React.FC = () => {
           <div className="nextBtnCont">
             <button type="submit" className="addLessonBtn ">
               Առաջ
-            </button>
-            <button
-              type="button"
-              className="addLessonBtn"
-              onClick={() => {
-                console.log(watch("areStagesDifferent"), watch("stages"));
-              }}
-            >
-              watch stages
             </button>
             <button
               type="button"
