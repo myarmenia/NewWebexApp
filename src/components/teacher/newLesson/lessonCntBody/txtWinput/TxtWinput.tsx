@@ -8,8 +8,8 @@ interface TxtWinputProps {
 
 export const TxtWinput: React.FC<TxtWinputProps> = ({ text, children }) => {
   return (
-    <div className="stageBox items-center w-[279px]">
-      <span className="text-[#6B6B6B] text-xs">{text}</span>
+    <div className="txtWinput">
+      <span className="txtWinput_text">{text}</span>
       {children}
     </div>
   );

@@ -14,6 +14,12 @@
 .menuSpan {
   @apply text-sm text-[#6B6B6B];
 }
+.activeMenuItem {
+  background: linear-gradient(90deg, #7764fb 0%, #f364f3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 
 @media (max-width: 1200px) {
   .menu {

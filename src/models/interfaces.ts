@@ -27,8 +27,12 @@ export interface LessonProps {
 }
 export interface IteacherMenu {
   id?: number;
+  isClicked: boolean;
   img: string;
   title: string;
+}
+export interface MenuImage {
+  bgColor?: string;
 }
 export interface ILessonCourses {
   lessonsCount: number;
@@ -41,4 +45,3 @@ export type UserSubmitForm = {
   confirmPassword: string;
   acceptTerms: boolean;
 };
-
