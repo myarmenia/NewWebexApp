@@ -8,20 +8,11 @@ interface ItemsProps {
   options: string[];
 }
 
-export const Items: React.FC<ItemsProps> = ({
-  state,
-  setState,
-  options,
-}) => {
+export const Items: React.FC<ItemsProps> = ({ state, setState, options }) => {
   return (
     <div className="options">
       {options.map((option, id) => (
-        <Item
-          option={option}
-          key={id}
-          state={state}
-          setState={setState}
-        />
+        <Item option={option} key={id} state={state} setState={setState} />
       ))}
     </div>
   );

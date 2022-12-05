@@ -8,6 +8,20 @@
 .form-group img {
   @apply absolute top-[24%] left-[2%];
 }
+select {
+  @apply w-[55%] h-[40px] flex  justify-center flex-col items-start pl-[40px] pr-[20px] gap-[10px] rounded-[15px] font-normal text-xs;
+  box-sizing: border-box;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 40px;
+}
+
+option {
+  border-radius: 40px;
+  border: none;
+  outline: none;
+}
 input[type="text"],
 input[type="password"],
 input[type="email"] {
