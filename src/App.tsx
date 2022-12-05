@@ -13,12 +13,13 @@ import { Lessons } from "./components/lessons/Lessons";
 import { Teacher } from "./components/teacher/Teacher";
 import Regsitration from "./components/registration/Regsitration";
 import Entry from "./components/entry/Entry";
+import Tariffs from "./components/tariffs/Tariffs";
 
 function App() {
   return (
     <>
-      {/* <Header />
-       <Container>
+      <Header />
+      {/*<Container>
         <SearchArea />
         <InfoCont />
         <Features />
@@ -30,8 +31,8 @@ function App() {
         <Questions />
       </Container>
       <Footer />  */}
-
-      {/* <Teacher /> */}
+      {/* <Tariffs /> */}
+      <Teacher />
 
       {/* <Regsitration /> */}
       {/* <Entry /> */}

@@ -112,7 +112,11 @@ input[type="radio"]:checked {
   .form-group-checkbox2 {
     @apply w-[60%];
   }
+  .form-group-checkboxChild {
+    @apply w-[95%] justify-evenly;
+  }
 }
+
 @media (max-width: 900px) {
   .registration-form {
     @apply w-[60%];
@@ -122,6 +126,9 @@ input[type="radio"]:checked {
   }
   .form-group-checkbox2 {
     @apply w-[75%];
+  }
+  .form-group-checkboxChild {
+    @apply w-[100%] justify-between;
   }
 }
 @media (max-width: 760px) {

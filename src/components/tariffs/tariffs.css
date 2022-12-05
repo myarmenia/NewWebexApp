@@ -1,0 +1,110 @@
+.tariff {
+  @apply w-auto h-[100vh] flex justify-center;
+  background: url("../../images/vivid-blurred-colorful-background.png");
+}
+.tariffChild {
+  @apply w-[100%] h-[100%] flex flex-col justify-center items-center;
+}
+.tariffTitle {
+  @apply w-[30%] h-[auto] flex justify-center items-center text-2xl font-bold text-center;
+  background: linear-gradient(90deg, #7764fb 0%, #f364f3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.tariffChoose,
+.choose-month-year {
+  @apply w-[30%] h-[auto] flex justify-center items-center text-base font-normal text-center text-[#6b6b6b] mt-[20px];
+}
+.choose-month-year {
+  @apply gap-[20px];
+}
+.choose-month {
+  @apply font-normal  text-[#6b6b6b] text-xs;
+}
+.choose-year {
+  @apply h-[50px] flex flex-col font-normal  text-[#6b6b6b] text-xs;
+}
+.discount {
+  @apply w-[55px] h-[16px] flex justify-center items-center  rounded-[2px] text-[10px] font-normal text-[#ffffff];
+  background: linear-gradient(90deg, #ff4d8d 0%, #ff88b1 94.27%);
+}
+/*siwtch input  */
+.switch-input {
+  @apply h-[40px] flex items-center;
+}
+
+.switch {
+  @apply w-[40.98px] h-[16px]  relative inline-block;
+}
+.switch input {
+  @apply w-[0px] h-[0px] opacity-0;
+}
+.slider {
+  @apply absolute cursor-pointer top-0 left-0 right-0 bottom-0 rounded-[34px];
+  background: #bebfe4;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.slider:before {
+  @apply absolute w-[20.19px] h-[20.19px] left-[2px] bottom-[-2px] rounded-[50%];
+  content: "";
+  background: linear-gradient(90deg, #7764fb 0%, #f364f3 100%);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+input:checked + .slider:before {
+  -webkit-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  transform: translateX(20px);
+}
+/* tariff card  css*/
+.tariffContainer {
+  @apply w-full h-auto flex justify-center gap-[20px] mt-[50px];
+}
+.tariffCard {
+  @apply w-[14%] h-[auto] flex flex-col justify-between  px-[29px] py-[41px] rounded-[30px];
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 30px;
+}
+.card-header {
+  @apply h-[50px] flex items-end gap-[12px];
+}
+.card-img {
+  @apply w-[31.24px] h-[31.24px] rounded-[50%];
+  border: 1px solid;
+}
+.card-name-whose {
+  @apply h-[40px] flex flex-col justify-between;
+}
+.card-name {
+  @apply font-semibold text-base text-[#898bce];
+}
+.card-whose {
+  @apply font-semibold text-[10px] text-[#898bce];
+}
+.price {
+  @apply text-[32px] text-center font-normal mt-[30px] text-[#6b6b6b];
+}
+.attemptButton {
+  @apply h-[34px] mt-[30px] rounded-[15px] text-xs font-semibold text-[white];
+  background: linear-gradient(90deg, #7764fb 0%, #f364f3 100%);
+}
+.includes {
+  @apply mt-[30px] mb-[20px]   text-xs font-bold;
+  background: linear-gradient(90deg, #7764fb 0%, #f364f3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+/* tariff card css*/
+/* tariff includes css*/
+.tariff-includes {
+  @apply w-[75%] h-[30px] flex gap-[8px] items-center justify-center;
+}
+.tariff-includes p {
+  @apply font-normal text-[10px] text-[#6b6b6b];
+}
+/* tariff includes css*/
