@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { IteacherMenu } from "../../../../models/interfaces";
 
-export const MenuLi: React.FC<IteacherMenu> = ({ title, img }) => {
+interface MenuLiProps extends IteacherMenu {
+  chooseMenuItem: (id: number) => void;
+}
+
+export const MenuLi: React.FC<MenuLiProps> = ({
+  title,
+  img,
+  id,
+  isClicked,
+  chooseMenuItem,
+}) => {
   return (
-    <li className="menuLi">
+    <li
+      className={`menuLi ${isClicked ? "activeMenuItem" : ""}`}
+      onClick={() => chooseMenuItem(id!)}
+    >
       <a className="menuA" href="#">
         <img src={img} alt="" />
         <span className="menuSpan">{title}</span>

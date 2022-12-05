@@ -2,11 +2,10 @@ import React, { useEffect, useState } from "react";
 import "./customNmbInp.css";
 import arrow from "../../../../../images/Teacher/NewLesson/Polygon 3.svg";
 import { FieldArrayMethodProps, useFormContext } from "react-hook-form";
-import { Selects } from "../validationSchema";
 
 interface CustomNmbInpProps {
   defaultValue: number;
-  regName: Selects;
+  regName: string;
   append?: (
     value:
       | {

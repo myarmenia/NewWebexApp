@@ -1,6 +1,6 @@
 import React from "react";
-import { FieldArrayWithId, UseFieldArrayReturn } from "react-hook-form";
 import closeImg from "../../../../../images/Teacher/NewLesson/X.svg";
+import { UseFieldArrayReturn } from "react-hook-form";
 import { TeacherSubmitForm } from "../validationSchema";
 
 interface KnwItemProps {
@@ -19,8 +19,8 @@ export const KnwItem: React.FC<KnwItemProps> = ({
   i,
 }) => {
   return (
-    <div className="flex justify-between items-center gap-[10px] bg-[#7764FB] text-xs text-white opacity-80 px-[18px] py-[5px] rounded-[30px]">
-      <span className="leading-3">{knowledge}</span>
+    <div className="knowledge">
+      <span className="knowledgeText">{knowledge}</span>
       <img
         className="h-2"
         src={closeImg}

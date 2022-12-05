@@ -55,24 +55,26 @@ export const nLessCreate_L_Schema = Yup.object().shape({
 // ==============================
 
 export type Selects =
-  | `stages.${number}.count`
-  | `stages.${number}.stage`
-  | `stages.${number}.stageDescription`
-  | "title"
-  | "select"
-  | "select1"
-  | "describtion"
-  | "cost"
-  | "isAgeLimit"
-  | "minAgeLimit"
-  | "maxAgeLimit"
-  | "stagesCount"
-  | "areStagesDifferent"
-  | "stageLessons"
-  | "isExam"
-  | "certificate"
-  | "requiredKnowledges"
-  | `requiredKnowledges.${number}.knowledge`;
+  // | `${string}`
+  // | `stages.${number}.count`
+  // | `stages.${number}.stage`
+  // | `stages.${number}.stageDescription`
+  // | "title"
+  // | "select"
+  // | "select1"
+  // | "describtion"
+  // | "cost"
+  // | "isAgeLimit"
+  // | "minAgeLimit"
+  // | "maxAgeLimit"
+  // | "stagesCount"
+  // | "areStagesDifferent"
+  // | "stageLessons"
+  // | "isExam"
+  // | "certificate"
+  // | "requiredKnowledges"
+  // | `requiredKnowledges.${number}.knowledge`
+  string;
 
 export interface TeacherSubmitForm {
   title: string;

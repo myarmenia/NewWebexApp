@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import "./cstmInput.css";
-import { useFormContext, FieldArrayMethodProps } from "react-hook-form";
-import { Selects } from "../validationSchema";
+import { useFormContext } from "react-hook-form";
 
 interface CstmInputProps {
   type: "text" | "number";
   placeholder: string;
-  regName?: Selects;
+  regName?: string;
   className?: string;
 }
 export const CstmInput: React.FC<CstmInputProps> = ({
