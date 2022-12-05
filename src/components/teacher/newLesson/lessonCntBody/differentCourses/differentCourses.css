@@ -7,3 +7,8 @@
     @apply grid-cols-1
   }
 }
+@media (max-width: 1350px){
+.differentCourses{
+  @apply grid-cols-2
+}
+}

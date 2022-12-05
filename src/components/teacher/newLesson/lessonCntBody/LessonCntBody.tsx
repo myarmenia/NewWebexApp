@@ -14,10 +14,11 @@ import { CustomSelect } from "../customSelect/CustomSelect";
 import { nLessCreate_L_Schema, TeacherSubmitForm } from "./validationSchema";
 import { CstmInput } from "./cstmInput/CstmInput";
 import closeImg from "../../../../images/Teacher/NewLesson/X.svg";
+import { Knowledges } from "./knowledges/Knowledges";
+
+// type ArrValidType<T> = TeacherSubmitForm & T & "id";
 
 export const LessonCntBody: React.FC = () => {
-  const [reqKnowledges, setReqKnowledges] = useState<string[]>([]);
-
   const [selectVals, setselectVals] = useState<ISelect>({
     title: "Ընտրել կատեգորիան*",
     options: ["aaa", "bbbb", "cccc"],
@@ -36,6 +37,11 @@ export const LessonCntBody: React.FC = () => {
         { stage: 1, count: 2, stageDescription: "" },
         { stage: 2, count: 2, stageDescription: "" },
       ],
+      requiredKnowledges: [
+        // {
+        //   knowledge: "React.js",
+        // },
+      ],
     },
   });
   const {
@@ -46,38 +52,51 @@ export const LessonCntBody: React.FC = () => {
     setValue,
     control,
   } = methods;
-  const fieldArray = useFieldArray<TeacherSubmitForm, "stages", "id">({
+  const fieldArray = useFieldArray({
     control,
     name: "stages",
   });
+  const reqKnowledges = useFieldArray({
+    control,
+    name: "requiredKnowledges",
+  });
   const { fields, append, remove } = fieldArray;
 
-  // useEffect(() => {
-  const keyDownHandler = (e: KeyboardEvent) => {
+  const keyDownHandler = (
+    e: React.KeyboardEvent<HTMLInputElement>,
+    value: string,
+    setVal: React.Dispatch<React.SetStateAction<string>>
+  ) => {
     if (e.key === "Enter") {
       e.preventDefault();
-      // myFunction();
-      // setReqKnowledges([...reqKnowledges, watch("requiredKnowledge")]);
-      setReqKnowledges([...reqKnowledges, watch("requiredKnowledge")]);
-      setValue("requiredKnowledge", "");
-      console.log(reqKnowledges);
+      setVal("");
+      reqKnowledges.append({ knowledge: value });
     }
   };
-  // document.addEventListener("keydown", keyDownHandler);
-  // }, []);
-
   const onSubmit = (data: TeacherSubmitForm) => {
-    let valus={}
-    if(!data.areStagesDifferent){
-      valus = {
+    let values = {};
+    if (!data.areStagesDifferent) {
+      values = {
         ...data,
-        stages: data.stages.map((el) => ({ ...el, count: null })),
+        stages: data.stages.map((el) => {
+          let elem = { ...el };
+          delete elem.count;
+          return elem;
+        }),
       };
-    }else{
-      valus = data
+    } else {
+      delete data.stageLessons;
+      values = { ...data };
     }
-    
-    console.log(valus, "porc");
+    if (data.isAgeLimit) {
+      delete data.minAgeLimit;
+      delete data.maxAgeLimit;
+      values = { ...data };
+    } else {
+      values = data;
+    }
+
+    console.log(values, "porc");
   };
   return (
     <FormProvider {...methods}>
@@ -97,42 +116,7 @@ export const LessonCntBody: React.FC = () => {
                 regName="select"
               />
               <CustomSelect select={dificultyLevels} regName="select1" />
-              <div className="flex flex-col gap-5">
-                <CstmInput
-                  type="text"
-                  placeholder="Ավելացնել պահանջվող նախնական գիտելիքները"
-                  regName="requiredKnowledge"
-                  onKeyDown={keyDownHandler}
-                />
-                {!!reqKnowledges.length && (
-                  <div className="flex gap-2">
-                    {reqKnowledges.map((el, i) => {
-                      return (
-                        <div
-                          key={i}
-                          className="flex justify-between items-center gap-[10px] bg-[#7764FB] text-xs text-white opacity-80 px-[18px] py-[5px] rounded-[30px]"
-                        >
-                          <span className="leading-3">{el}</span>
-                          <img className="h-2" src={closeImg} alt="" />
-                        </div>
-                      );
-                    })}
-                  </div>
-                )}
-                {/* <div className="flex gap-2">
-                  {reqKnowledges.map((el, i) => {
-                    return (
-                      <div
-                        key={i}
-                        className="flex justify-between items-center gap-[10px] bg-[#7764FB] text-xs text-white opacity-80 px-[18px] py-[5px] rounded-[30px]"
-                      >
-                        <span className="leading-3">{el}</span>
-                        <img className="h-2" src={closeImg} alt="" />
-                      </div>
-                    );
-                  })}
-                </div> */}
-              </div>
+              <Knowledges {...{ reqKnowledges }} />
               <textarea
                 className="lessonTextarea lessonInp"
                 placeholder="lorem isup*"
@@ -171,7 +155,7 @@ export const LessonCntBody: React.FC = () => {
                 </TxtWinput>
                 <div
                   className={`stageBox ${
-                    isDifferent ? "w-[497px]" : "w-[279px]"
+                    isDifferent ? "stageBox_opened" : "stageBox_closed"
                   }`}
                 >
                   <div className="txtWcheckbox">
