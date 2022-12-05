@@ -9,8 +9,12 @@ import emailIcon from "../../images/registration/mail.png";
 import passwordIcon from "../../images/registration/password.png";
 import facebook from "../../images/registration/facebook.png";
 import gmail from "../../images/registration/gmail.png";
+// import { CustomSelect } from "../header/customSelect/CustomSelect";
+import Select from "../sherid/Select";
+// import { Option } from "../header/customSelect/Option";
 interface UserSubmitForm {
-  gender: string;
+  checkbox: string;
+  select: string;
   username: string;
   email: string;
   password: string;
@@ -19,10 +23,11 @@ interface UserSubmitForm {
 }
 const Regsitration = () => {
   const validationSchema = Yup.object().shape({
-    gender: Yup.string()
+    checkbox: Yup.string()
       .oneOf(["Դասավանդող", "Ուսանող"])
       .required("Նշելը պարտադիր է")
       .nullable(),
+    select: Yup.string().required("Նշելը պարտադիր է"),
     username: Yup.string()
       .required("Անունը պարտադիր է")
       .min(4, "Անունը պետք է լինի առնվազն 4 նիշ")
@@ -58,13 +63,21 @@ const Regsitration = () => {
         <form onSubmit={handleSubmit(onSubmit)} className="registration-form">
           <div className="form-group-checkbox">
             <div className="form-group-checkboxChild">
-              <input type="radio" value="Դասավանդող" {...register("gender")} />
+              <input
+                type="radio"
+                value="Դասավանդող"
+                {...register("checkbox")}
+                className="teacher"
+              />
               <label className="radio-label">Դասավանդող</label>
-              <input value="Ուսանող" type="radio" {...register("gender")} />
+              <input value="Ուսանող" type="radio" {...register("checkbox")} />
               <label className="radio-label">Ուսանող</label>
             </div>
-            <div className="invalid-feedback">{errors.gender?.message}</div>
+            <div className="invalid-feedback">{errors.checkbox?.message}</div>
           </div>
+
+          <Select register={{ ...register("select") }} />
+
           <Input
             register={{ ...register("username") }}
             type="text"
