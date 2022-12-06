@@ -1,25 +1,25 @@
-.customSelect {
+.customDropdown {
   @apply relative min-w-[143px] flex justify-end;
 }
-.options {
+.dropItems {
   @apply w-full absolute top-8 rounded-2xl bg-slate-50 overflow-hidden z-[2];
 }
-.defaultOption {
+.dropdownTitle {
   @apply w-full flex gap-1 px-1 py-1 items-center border-[1px] border-white text-ellipsis overflow-hidden;
 }
-.custopSelect_option {
+.dropItem {
   @apply bg-slate-50 hover:bg-slate-100 text-center transition-all py-3 px-3 text-ellipsis overflow-hidden mx-auto h-fit w-full text-black whitespace-nowrap cursor-pointer;
 }
 @media (max-width: 800px) {
   .customSelect,
-  .defaultOption {
+  .dropdownTitle {
     @apply border-none;
   }
-  .options {
+  /* .dropItems { */
     /* @apply shadow-lg; */
-    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
-  }
-  .custopSelect_option {
+    /* box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1); */
+  /* } */
+  .dropItem {
     @apply hover:bg-[#0085ff80] hover:text-white;
   }
 }

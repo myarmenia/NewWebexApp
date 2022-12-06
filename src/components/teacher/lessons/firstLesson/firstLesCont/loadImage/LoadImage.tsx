@@ -1,18 +1,19 @@
 import React from "react";
+import "./loadImage.css";
 
 interface LoadImageProps {
-  title: string;
-  formats: string[];
+  formats?: string[];
 }
 
-export const LoadImage: React.FC<LoadImageProps> = ({ title, formats }) => {
+export const LoadImage: React.FC<LoadImageProps> = ({ formats }) => {
   return (
-    <div className="loadImageCont">
-      <div className="loadImgBox">
-        <span>{title}</span>
-        
-      </div>
-      <div className="loadImgBox"></div>
+    <div className="loadImageDiv">
+      <input
+        className="loadImageInput"
+        type="file"
+        accept="image/png, image/jpeg"
+      />
+      <span className="text-[#6B6B6B] text-[10px]">Բեռնել նկար</span>
     </div>
   );
 };

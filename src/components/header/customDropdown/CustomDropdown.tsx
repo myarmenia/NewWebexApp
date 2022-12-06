@@ -25,7 +25,7 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
       onPointerMove={() => onPointer(true)}
       onPointerLeave={() => onPointer(false)}
     >
-      <div className={`customSelect ${className}`}>
+      <div className={`customDropdown ${className}`}>
         <DropdownTitle
           title={select.title}
           rotateClass={rotateClass}

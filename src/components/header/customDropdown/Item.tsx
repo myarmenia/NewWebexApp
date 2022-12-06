@@ -12,7 +12,7 @@ export const Item: React.FC<ItemProps> = ({
 }) => {
   return (
     <div
-      className="custopSelect_option"
+      className="dropItem"
       onClick={() => {
         setState(!state);
       }}

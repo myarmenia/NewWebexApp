@@ -16,7 +16,7 @@
   height: calc(100% - 36px)
 }
 .LessonCntBody_boxContent {
-  @apply flex flex-col gap-5 justify-between w-full;
+  @apply flex flex-col gap-5 justify-between w-full mb-[10px];
 }
 .lessonTextarea {
   @apply h-[187px] overflow-y-auto  resize-none;

@@ -8,6 +8,8 @@ import { firstLessonSchema, IFirstLessonSchema } from "../firstLesSchema";
 import { ContTitle } from "./contTitle/ContTitle";
 import { LessonTitle } from "./LessonTitle";
 import acceptImg from "../../../../../images/Teacher/NewLesson/acceptPurple.svg";
+import { AttachFile } from "./attachFile/AttachFile";
+import { LoadImage } from "./loadImage/LoadImage";
 
 export const FirstLesCont: React.FC = () => {
   const methods = useForm<IFirstLessonSchema>({
@@ -54,7 +56,8 @@ export const FirstLesCont: React.FC = () => {
                       {...register("contents")}
                     ></textarea>
                     <div className="flex justify-between">
-                      
+                      <AttachFile title="Հավելյալ նյութերը" />
+                      <LoadImage />
                     </div>
                   </div>
                   <div className="saveBox">
@@ -79,6 +82,10 @@ export const FirstLesCont: React.FC = () => {
                       placeholder="Բովանդակություն"
                       {...register("contentsHomework")}
                     ></textarea>
+                    <div className="flex justify-between">
+                      <AttachFile title="Տնային աշխատանքի նյութերը" />
+                      <LoadImage />
+                    </div>
                   </div>
                   <div className="saveBox">
                     <img src={acceptImg} alt="" />

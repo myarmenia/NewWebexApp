@@ -18,7 +18,7 @@ import Tariffs from "./components/tariffs/Tariffs";
 function App() {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       {/*<Container>
         <SearchArea />
         <InfoCont />
@@ -32,9 +32,9 @@ function App() {
       </Container>
       <Footer />  */}
       {/* <Tariffs /> */}
-      {/* <Teacher /> */}
+      <Teacher />
 
-      <Regsitration />
+      {/* <Regsitration /> */}
       {/* <Entry /> */}
     </>
   );
