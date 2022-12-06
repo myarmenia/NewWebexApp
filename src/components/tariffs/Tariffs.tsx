@@ -1,6 +1,7 @@
 import React from "react";
 import TariffCard from "./TariffCard";
 import "./tariffs.css";
+import arrowImg from "../../images/Tarifs/arrowright.png";
 const Tariffs: React.FC = () => {
   return (
     <div className="tariff">
@@ -19,12 +20,11 @@ const Tariffs: React.FC = () => {
           </div>
           <div className="choose-year">
             <div className="discount">20% զեղչ</div>
+            <img src={arrowImg} className="arrowImg" />
             Տարեկան
           </div>
         </div>
         <div className="tariffContainer">
-          <TariffCard />
-          <TariffCard />
           <TariffCard />
           <TariffCard />
           <TariffCard />

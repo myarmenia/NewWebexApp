@@ -5,7 +5,7 @@ import { Features } from "./components/features/Features";
 import { InfoCont } from "./components/infoCont/InfoCont";
 import Footer from "./components/footer/Footer";
 import { Header } from "./components/header/Header";
-import { News } from "./components/news/News";
+import { News } from "./components/News/News";
 import { Opinion } from "./components/opinion/Opinion";
 import { Questions } from "./components/questions/Questions";
 import { SearchArea } from "./components/searchArea/SearchArea";
@@ -18,7 +18,7 @@ import Tariffs from "./components/tariffs/Tariffs";
 function App() {
   return (
     <>
-      {/* <Header /> */}
+      <Header />
       {/*<Container>
         <SearchArea />
         <InfoCont />
@@ -32,9 +32,9 @@ function App() {
       </Container>
       <Footer />  */}
       {/* <Tariffs /> */}
-      {/* <Teacher /> */}
+      <Teacher />
 
-      <Regsitration />
+      {/* <Regsitration /> */}
       {/* <Entry /> */}
     </>
   );

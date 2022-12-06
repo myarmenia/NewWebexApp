@@ -29,6 +29,11 @@
 }
 .errorMessage {
   @apply text-[red] text-center leading-3 whitespace-nowrap;
+  position: absolute;
+  left: 50%;
+  bottom: -0.75rem;
+  width: 100%;
+  transform: translate(-50%, 0);
 }
 @media (max-width: 800px) {
   .customSelect,

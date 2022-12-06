@@ -92,20 +92,25 @@ const Regsitration = () => {
                 <div className="invalid-feedback">
                   {errors.checkbox?.message}
                 </div>
-              </div>{" "}
+              </div>
+
               {isOpenDropdown === "Դասավանդող" ? (
-                <CustomSelect
-                  regName="select"
-                  className="registration_select"
-                  select={{
-                    title: "sada",
-                    options: ["asdsad", "asdads", "adsd"],
-                  }}
-                />
+                <div className="form-group2">
+                  <CustomSelect
+                    regName="select"
+                    className="registration_select"
+                    select={{
+                      title: "sada",
+                      options: ["asdsad", "asdads", "adsd"],
+                    }}
+                  />
+                </div>
               ) : null}
+
               <Input
                 register={{ ...register("username") }}
                 type="text"
+                className="name"
                 url={userIcon}
                 error={errors.username?.message}
                 placholder="Անուն"
@@ -113,6 +118,7 @@ const Regsitration = () => {
               <Input
                 register={{ ...register("email") }}
                 type="email"
+                className="email"
                 url={emailIcon}
                 error={errors.email?.message}
                 placholder="Էլ․ փոստ"
@@ -120,6 +126,7 @@ const Regsitration = () => {
               <Input
                 register={{ ...register("password") }}
                 type="password"
+                className="password"
                 url={passwordIcon}
                 error={errors.password?.message}
                 placholder="Գաղտնաբառ"
@@ -127,6 +134,7 @@ const Regsitration = () => {
               <Input
                 register={{ ...register("confirmPassword") }}
                 type="password"
+                className="password"
                 url={passwordIcon}
                 error={errors.confirmPassword?.message}
                 placholder="Կրկնել գաղտնաբառը"

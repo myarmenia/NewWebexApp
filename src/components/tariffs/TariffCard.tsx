@@ -17,7 +17,6 @@ const TariffCard: React.FC = () => {
       <TariffIncludes />
       <TariffIncludes />
       <TariffIncludes />
-      <TariffIncludes />
     </div>
   );
 };
