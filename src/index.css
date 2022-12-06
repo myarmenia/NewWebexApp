@@ -38,3 +38,11 @@
   content: "";
 }
 /* --------------- custom checkbox ------------ */
+
+.textPurple {
+  background: linear-gradient(90deg, #7764fb 0%, #f364f3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}

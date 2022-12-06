@@ -7,6 +7,9 @@ module.exports = {
       "med-1100": { raw: "(max-width: 1100px)" },
       "med-1060": { raw: "(max-width: 1060px)" },
     },
+    boxShadow: {
+      my1: "2px 4px 10px rgba(0, 0, 0, 0.1)",
+    },
     extend: {
       gradientColorStops: {
         "main-gradient": "linear-gradient(90deg, #53B7F2 0%, #97FFFF 94.27%)",
@@ -19,15 +22,8 @@ module.exports = {
       keyframes: {
         zoom: {
           "0%, 100%": {
-            // transform: "rotate(0deg)",
             transform: "rotate(-30deg)",
           },
-          // "33%": {
-          //   transform: "rotate(-30deg)",
-          // },
-          // "67%": {
-          //   transform: "rotate(30deg)",
-          // },
           "50%": {
             transform: "rotate(30deg)",
           },

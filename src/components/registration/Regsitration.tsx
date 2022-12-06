@@ -11,6 +11,7 @@ import facebook from "../../images/registration/facebook.png";
 import gmail from "../../images/registration/gmail.png";
 // import { CustomSelect } from "../header/customSelect/CustomSelect";
 import Select from "../sherid/Select";
+import { CustomSelect } from "../teacher/lesComponents/customSelect/CustomSelect";
 // import { Option } from "../header/customSelect/Option";
 interface UserSubmitForm {
   checkbox: string;
@@ -76,8 +77,11 @@ const Regsitration = () => {
             <div className="invalid-feedback">{errors.checkbox?.message}</div>
           </div>
 
-          <Select register={{ ...register("select") }} />
-
+          {/* <Select register={{ ...register("select") }} /> */}
+          <CustomSelect
+            select={{ title: "adsfadf", options: ["dsf", "asdf"] }}
+            regName="select"
+          />
           <Input
             register={{ ...register("username") }}
             type="text"
