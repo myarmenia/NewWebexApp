@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { IPaginationItem } from "../../../../../models/interfaces";
 import "./pagination.css";
+import { IPaginationItem } from "../../../../../models/interfaces";
 import { PagItem } from "./PagItem";
 
 interface PaginationProps {
@@ -28,8 +28,7 @@ export const Pagination: React.FC<PaginationProps> = ({ currentitems }) => {
           <PagItem
             key={el.id}
             item={index + 1}
-            itemsLength={items.length}
-            isFirst={index + 1 === 1 && true}
+            isFirst={index === 0 && true}
             {...{ itemClickHandler, el }}
           />
         );

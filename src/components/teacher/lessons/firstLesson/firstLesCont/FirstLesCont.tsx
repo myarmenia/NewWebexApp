@@ -7,7 +7,6 @@ import { SubmitBtn } from "../../../lesComponents/submitBtn/SubmitBtn";
 import { firstLessonSchema, IFirstLessonSchema } from "../firstLesSchema";
 import { ContTitle } from "./contTitle/ContTitle";
 import { LessonTitle } from "./LessonTitle";
-import acceptImg from "../../../../../images/Teacher/NewLesson/acceptPurple.svg";
 import { AttachFile } from "./attachFile/AttachFile";
 import { LoadImage } from "./loadImage/LoadImage";
 import { SaveDataDiv } from "./SaveDataDiv";
@@ -20,13 +19,17 @@ export const FirstLesCont: React.FC = () => {
     register,
     handleSubmit,
     formState: { errors },
-    watch,
-    setValue,
-    control,
   } = methods;
 
   const onSubmit = (data: IFirstLessonSchema) => {
     console.log(data);
+    // fetch("https://fakestoreapi.com/products", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(data),
+    // }).then(() => console.log("posted"));
   };
   return (
     <FormProvider {...methods}>
@@ -48,7 +51,7 @@ export const FirstLesCont: React.FC = () => {
                     <CstmInput
                       type="text"
                       placeholder="Տեսանյութ (կցել youtube-ի հղումը)"
-                      regName="lessonTitle"
+                      regName="videoInp"
                       className="shadow-my1"
                     />
                     <textarea
@@ -98,10 +101,3 @@ export const FirstLesCont: React.FC = () => {
     </FormProvider>
   );
 };
-{
-  /* <FormProvider {...methods}>
-<div className="LessonCntBody">
-  <form onSubmit={handleSubmit(onSubmit)}>
-    <div className="lessonContainer">
-      <div className="LessonCntBody_box"> */
-}

@@ -1,7 +1,6 @@
 import React from "react";
 import { INavItemsContent } from "../../../models/interfaces";
 import { CustomDropdown } from "../customDropdown/CustomDropdown";
-import { headerStore } from "../HeaderStore";
 import { NavItem } from "../navItem/NavItem";
 
 interface NavbarProps {

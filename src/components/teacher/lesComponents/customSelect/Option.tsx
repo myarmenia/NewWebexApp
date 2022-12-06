@@ -1,11 +1,11 @@
 import React, { SetStateAction } from "react";
 import { useFormContext } from "react-hook-form";
-import { Selects } from "../../lessons/newLesson/lessonCntBody/validationSchema";
+
 interface OptionProps {
   option: string;
   state: boolean;
   setState: React.Dispatch<SetStateAction<boolean>>;
-  regName?: Selects;
+  regName?: string;
 }
 
 export const Option: React.FC<OptionProps> = ({

@@ -1,12 +1,11 @@
 import React from "react";
 import { useFormContext } from "react-hook-form";
 import chevDown from "../../../../images/chevDown.svg";
-import { Selects } from "../../lessons/newLesson/lessonCntBody/validationSchema";
 
 interface DefaultOptionProps {
   setState: React.Dispatch<React.SetStateAction<boolean>>;
   state: boolean;
-  regName?: Selects;
+  regName?: string;
 }
 export const DefaultOption: React.FC<DefaultOptionProps> = ({
   setState,

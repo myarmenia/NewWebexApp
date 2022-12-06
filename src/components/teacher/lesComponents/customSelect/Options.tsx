@@ -2,7 +2,6 @@ import React, { SetStateAction, useState } from "react";
 import { Option } from "./Option";
 import { ISelect } from "../../../../models/interfaces";
 import { OptionInput } from "./OptionInput";
-import { Selects } from "../../lessons/newLesson/lessonCntBody/validationSchema";
 
 interface OptionsProps {
   state: boolean;
@@ -10,7 +9,7 @@ interface OptionsProps {
   select: ISelect;
   isInput?: boolean;
   setselectVals?: React.Dispatch<SetStateAction<ISelect>>;
-  regName?: Selects;
+  regName?: string;
 }
 
 export const Options: React.FC<OptionsProps> = ({
