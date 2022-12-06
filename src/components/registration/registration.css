@@ -79,7 +79,6 @@ input[type="radio"] {
 input[type="radio"]:checked {
   accent-color: #7764fb;
 }
-
 .entry {
   @apply w-[100%] h-[60px] flex  justify-center items-center  gap-[10px];
 }
