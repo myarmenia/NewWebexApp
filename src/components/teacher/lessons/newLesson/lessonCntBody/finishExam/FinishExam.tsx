@@ -1,11 +1,10 @@
 import React from "react";
 import "./finishExam.css";
 import { useFormContext } from "react-hook-form";
-import { Selects } from "../validationSchema";
 
 interface FinishExamProps {
   text: string;
-  regName: Selects;
+  regName: string;
 }
 
 export const FinishExam: React.FC<FinishExamProps> = ({ text, regName }) => {

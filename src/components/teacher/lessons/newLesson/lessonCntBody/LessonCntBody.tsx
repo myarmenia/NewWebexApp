@@ -16,8 +16,6 @@ import { Knowledges } from "./knowledges/Knowledges";
 import { CustomNmbInp } from "../../../lesComponents/customNmbInp/CustomNmbInp";
 import { SubmitBtn } from "../../../lesComponents/submitBtn/SubmitBtn";
 
-// type ArrValidType<T> = TeacherSubmitForm & T & "id";
-
 export const LessonCntBody: React.FC = () => {
   const [selectVals, setselectVals] = useState<ISelect>({
     title: "Ընտրել կատեգորիան*",

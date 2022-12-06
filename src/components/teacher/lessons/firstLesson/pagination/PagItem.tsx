@@ -1,12 +1,10 @@
 import React from "react";
-import { IPaginationItem } from "../../../../../models/interfaces";
 import "./pagination.css";
+import { IPaginationItem } from "../../../../../models/interfaces";
 
 interface PagItemProps {
   el: IPaginationItem;
   item: number;
-  itemsLength: number;
-  isActive?: boolean;
   isFirst?: boolean;
   itemClickHandler: (id: number, completedCount: number) => void;
 }
@@ -14,14 +12,11 @@ interface PagItemProps {
 export const PagItem: React.FC<PagItemProps> = ({
   el,
   item,
-  itemsLength,
   isFirst,
   itemClickHandler,
 }) => {
-  const itemWidth: string = isFirst ? 13 + "px" : 100 + "%";
-
   return (
-    <div className="pagItem" style={{ width: `${itemWidth}` }}>
+    <div className={`pagItem w-[${isFirst ? "13px" : "100%"}]`}>
       {!isFirst && (
         <div
           className={`pagLine ${

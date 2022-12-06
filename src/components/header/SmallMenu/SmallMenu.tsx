@@ -1,6 +1,6 @@
 import React from "react";
-import { Navbar } from "../navbar/Navbar";
 import "./smallMenu.css";
+import { Navbar } from "../navbar/Navbar";
 import { headerStore } from "../HeaderStore";
 
 interface SmallMEnuProps {

@@ -9,7 +9,6 @@ export const AttachFile: React.FC<AttachFile> = ({ title }) => {
   const [file, setFile] = useState<string | any>("");
   const onFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFile(URL.createObjectURL(event.target.files![0]));
-    console.log(URL.createObjectURL(event.target.files![0]));
   };
   return (
     <div className="attachFile">

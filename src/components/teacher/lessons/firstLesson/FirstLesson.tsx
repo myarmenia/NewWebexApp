@@ -13,6 +13,7 @@ export const FirstLesson: React.FC = () => {
         : ind === 1
         ? { id: Math.random(), isActive: true, isCompleted: false }
         : { id: Math.random(), isActive: false, isCompleted: false }
+    // ({ id: Math.random(), isActive: false, isCompleted: false })
   );
 
   return (

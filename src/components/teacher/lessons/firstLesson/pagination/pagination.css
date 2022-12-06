@@ -7,12 +7,15 @@
 .pagLine {
   @apply bg-[#BEBFE4] h-1 w-full;
 }
+/* .pagNumberBox {
+  @apply w-full;
+} */
 .pagNumber {
-  @apply cursor-pointer duration-100 flex justify-center items-center w-[13px] h-[13px] bg-[#BEBFE4] text-white text-[8px] font-bold rounded-full absolute top-[50%] left-auto right-0;
+  @apply z-[1] cursor-pointer duration-100 flex justify-center items-center w-[13px] h-[13px] bg-[#BEBFE4] text-white text-[8px] font-bold rounded-full absolute top-[50%] left-auto right-0;
   transform: translate(0, -50%);
 }
 .pagActive {
-  @apply text-xs font-bold w-[22px] h-[22px];
+  @apply text-xs font-bold w-[22px] h-[22px] -right-[6px];
   background: linear-gradient(90deg, #7764fb 0%, #f364f3 100%);
 }
 .pagCompleted {
