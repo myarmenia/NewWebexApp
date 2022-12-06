@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./lessonCntBody.css";
 import { ISelect } from "../../../../models/interfaces";
 import { AgeDiv } from "./ageDiv/AgeDiv";
@@ -13,6 +13,10 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { CustomSelect } from "../customSelect/CustomSelect";
 import { nLessCreate_L_Schema, TeacherSubmitForm } from "./validationSchema";
 import { CstmInput } from "./cstmInput/CstmInput";
+import closeImg from "../../../../images/Teacher/NewLesson/X.svg";
+import { Knowledges } from "./knowledges/Knowledges";
+
+// type ArrValidType<T> = TeacherSubmitForm & T & "id";
 
 export const LessonCntBody: React.FC = () => {
   const [selectVals, setselectVals] = useState<ISelect>({
@@ -33,6 +37,11 @@ export const LessonCntBody: React.FC = () => {
         { stage: 1, count: 2, stageDescription: "" },
         { stage: 2, count: 2, stageDescription: "" },
       ],
+      requiredKnowledges: [
+        // {
+        //   knowledge: "React.js",
+        // },
+      ],
     },
   });
   const {
@@ -40,30 +49,55 @@ export const LessonCntBody: React.FC = () => {
     handleSubmit,
     formState: { errors },
     watch,
+    setValue,
     control,
   } = methods;
-  const fieldArray = useFieldArray<TeacherSubmitForm, "stages", "id">({
+  const fieldArray = useFieldArray({
     control,
     name: "stages",
   });
+  const reqKnowledges = useFieldArray({
+    control,
+    name: "requiredKnowledges",
+  });
   const { fields, append, remove } = fieldArray;
 
-  function setStageLessonsNull(): void {
-    !watch("areStagesDifferent") &&
-      fields.map((field) => {
-        console.log(field.count);
-
-        return {
-          ...field,
-          count: null,
-        };
-      });
-  }
-  setStageLessonsNull();
-  const onSubmit = (data: TeacherSubmitForm) => {
-    console.log(data);
+  const keyDownHandler = (
+    e: React.KeyboardEvent<HTMLInputElement>,
+    value: string,
+    setVal: React.Dispatch<React.SetStateAction<string>>
+  ) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      setVal("");
+      reqKnowledges.append({ knowledge: value });
+    }
   };
+  const onSubmit = (data: TeacherSubmitForm) => {
+    let values = {};
+    if (!data.areStagesDifferent) {
+      values = {
+        ...data,
+        stages: data.stages.map((el) => {
+          let elem = { ...el };
+          delete elem.count;
+          return elem;
+        }),
+      };
+    } else {
+      delete data.stageLessons;
+      values = { ...data };
+    }
+    if (data.isAgeLimit) {
+      delete data.minAgeLimit;
+      delete data.maxAgeLimit;
+      values = { ...data };
+    } else {
+      values = data;
+    }
 
+    console.log(values, "porc");
+  };
   return (
     <FormProvider {...methods}>
       <div className="LessonCntBody">
@@ -77,12 +111,12 @@ export const LessonCntBody: React.FC = () => {
               />
               <CustomSelect
                 select={selectVals}
-                // setselectVals={setselectVals}
                 {...{ setselectVals }}
                 isInput={true}
                 regName="select"
               />
               <CustomSelect select={dificultyLevels} regName="select1" />
+              <Knowledges {...{ reqKnowledges }} />
               <textarea
                 className="lessonTextarea lessonInp"
                 placeholder="lorem isup*"
@@ -121,7 +155,7 @@ export const LessonCntBody: React.FC = () => {
                 </TxtWinput>
                 <div
                   className={`stageBox ${
-                    isDifferent ? "w-[497px]" : "w-[279px]"
+                    isDifferent ? "stageBox_opened" : "stageBox_closed"
                   }`}
                 >
                   <div className="txtWcheckbox">
@@ -161,15 +195,6 @@ export const LessonCntBody: React.FC = () => {
           <div className="nextBtnCont">
             <button type="submit" className="addLessonBtn ">
               Առաջ
-            </button>
-            <button
-              type="button"
-              className="addLessonBtn"
-              onClick={() => {
-                console.log(watch("areStagesDifferent"), watch("stages"));
-              }}
-            >
-              watch stages
             </button>
             <button
               type="button"

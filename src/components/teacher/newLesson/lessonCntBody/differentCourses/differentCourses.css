@@ -1,9 +1,14 @@
 .differentCourses {
-  @apply grid grid-cols-3 gap-1;
+  @apply grid grid-cols-3 gap-1 max-h-[200px] overflow-y-auto overflow-x-hidden pb-[11px];
   column-gap: 24px;
 }
-@media (max-width: 1060px){
-  .differentCourses{
-    @apply grid-cols-1
+@media (max-width: 1060px) {
+  .differentCourses {
+    @apply grid-cols-1;
+  }
+}
+@media (max-width: 1350px) {
+  .differentCourses {
+    @apply grid-cols-2;
   }
 }

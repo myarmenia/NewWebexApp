@@ -1,5 +1,4 @@
 import React from "react";
-// import "./customSelect.tsx";
 import { Item } from "./Item";
 
 interface ItemsProps {

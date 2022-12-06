@@ -1,0 +1,15 @@
+.knowledges {
+  @apply flex flex-col gap-5;
+}
+.knowledgeInputSection {
+  @apply flex flex-col relative;
+}
+.knowledgesContaniner {
+  @apply flex gap-2 flex-wrap;
+}
+.knowledge {
+  @apply flex justify-between items-center gap-[10px] bg-[#7764FB] text-xs text-white opacity-80 px-[18px] py-[5px] rounded-[30px];
+}
+.knowledgeText {
+  @apply leading-3;
+}

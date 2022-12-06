@@ -49,27 +49,32 @@ export const nLessCreate_L_Schema = Yup.object().shape({
     .required("Նշելը պարտադիր է")
     .nullable(),
   stages: Yup.array().of(Yup.object()),
+  requiredKnowledges: Yup.array().of(Yup.object()),
 });
 
 // ==============================
 
 export type Selects =
-  | `stages.${number}.count`
-  | `stages.${number}.stage`
-  | `stages.${number}.stageDescription`
-  | "title"
-  | "select"
-  | "select1"
-  | "describtion"
-  | "cost"
-  | "isAgeLimit"
-  | "minAgeLimit"
-  | "maxAgeLimit"
-  | "stagesCount"
-  | "areStagesDifferent"
-  | "stageLessons"
-  | "isExam"
-  | "certificate";
+  // | `${string}`
+  // | `stages.${number}.count`
+  // | `stages.${number}.stage`
+  // | `stages.${number}.stageDescription`
+  // | "title"
+  // | "select"
+  // | "select1"
+  // | "describtion"
+  // | "cost"
+  // | "isAgeLimit"
+  // | "minAgeLimit"
+  // | "maxAgeLimit"
+  // | "stagesCount"
+  // | "areStagesDifferent"
+  // | "stageLessons"
+  // | "isExam"
+  // | "certificate"
+  // | "requiredKnowledges"
+  // | `requiredKnowledges.${number}.knowledge`
+  string;
 
 export interface TeacherSubmitForm {
   title: string;
@@ -78,17 +83,20 @@ export interface TeacherSubmitForm {
   describtion: string;
   cost: number;
   isAgeLimit: boolean;
-  minAgeLimit: number;
-  maxAgeLimit: number;
+  minAgeLimit?: number;
+  maxAgeLimit?: number;
   stagesCount: number;
   areStagesDifferent: boolean;
-  stageLessons: number;
+  stageLessons?: number;
   lessonTime: string;
   isExam: string;
   certificate: string;
   stages: {
     stageDescription: string;
-    count: number;
+    count?: number | null;
     stage: number;
+  }[];
+  requiredKnowledges: {
+    knowledge: string;
   }[];
 }

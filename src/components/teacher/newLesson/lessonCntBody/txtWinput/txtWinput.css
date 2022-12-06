@@ -1,3 +1,9 @@
-.stageBox{
-    @apply h-fit
+.txtWinput {
+  @apply flex justify-between items-center w-[279px];
+}
+.txtWinput_text {
+  @apply text-[#6B6B6B] text-xs;
+}
+.stageBox {
+  @apply h-fit;
 }
