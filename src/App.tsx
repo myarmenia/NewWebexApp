@@ -32,9 +32,9 @@ function App() {
       </Container>
       <Footer />  */}
       {/* <Tariffs /> */}
-      {/* <Teacher /> */}
+      <Teacher />
 
-      <Regsitration />
+      {/* <Regsitration /> */}
       {/* <Entry /> */}
     </>
   );
