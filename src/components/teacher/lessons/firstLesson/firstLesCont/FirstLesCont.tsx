@@ -10,6 +10,7 @@ import { LessonTitle } from "./LessonTitle";
 import acceptImg from "../../../../../images/Teacher/NewLesson/acceptPurple.svg";
 import { AttachFile } from "./attachFile/AttachFile";
 import { LoadImage } from "./loadImage/LoadImage";
+import { SaveDataDiv } from "./SaveDataDiv";
 
 export const FirstLesCont: React.FC = () => {
   const methods = useForm<IFirstLessonSchema>({
@@ -60,10 +61,7 @@ export const FirstLesCont: React.FC = () => {
                       <LoadImage />
                     </div>
                   </div>
-                  <div className="saveBox">
-                    <img src={acceptImg} alt="" />
-                    <span className="textPurple textUnderline">Պահպանել</span>
-                  </div>
+                  <SaveDataDiv />
                 </div>
               </div>
               <div className="hrMain" />
@@ -87,10 +85,7 @@ export const FirstLesCont: React.FC = () => {
                       <LoadImage />
                     </div>
                   </div>
-                  <div className="saveBox">
-                    <img src={acceptImg} alt="" />
-                    <span className="textPurple textUnderline">Պահպանել</span>
-                  </div>
+                  <SaveDataDiv />
                 </div>
               </div>
             </div>

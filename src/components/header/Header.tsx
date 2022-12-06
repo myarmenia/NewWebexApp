@@ -3,6 +3,7 @@ import "./header.css";
 import { Navbar } from "./navbar/Navbar";
 import { SmallMenu } from "./smallMenu/SmallMenu";
 import { ListImg } from "./listImg/ListImg";
+import { headerStore } from "./HeaderStore";
 
 export const Header: React.FC = () => {
   const [mediaState, setMediaState] = useState<boolean>(false);
@@ -29,7 +30,7 @@ export const Header: React.FC = () => {
             />
           ) : (
             <div className="flex items-center">
-              <Navbar />
+              <Navbar navbarItems={headerStore} />
             </div>
           )}
         </div>
