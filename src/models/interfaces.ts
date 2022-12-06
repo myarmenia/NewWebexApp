@@ -45,3 +45,8 @@ export type UserSubmitForm = {
   confirmPassword: string;
   acceptTerms: boolean;
 };
+export interface IPaginationItem {
+  id: number;
+  isActive: boolean;
+  isCompleted: boolean;
+}

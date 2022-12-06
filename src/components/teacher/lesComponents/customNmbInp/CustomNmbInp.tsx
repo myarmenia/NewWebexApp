@@ -45,6 +45,10 @@ export const CustomNmbInp: React.FC<CustomNmbInpProps> = ({
         count: 2,
         stageDescription: "",
       });
+      if(append){
+        console.log(watch("stages"));
+        
+      }
     }
   };
   const decrease = () => {
