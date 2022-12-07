@@ -15,19 +15,18 @@ export const PagItem: React.FC<PagItemProps> = ({
   isFirst,
   itemClickHandler,
 }) => {
+  const { mainDiv, line, lesson, first } = {
+    mainDiv: isFirst ? "w-[13px]" : "w-[100%]",
+    line: el.isActive || el.isCompleted ? "pagLineActive" : "",
+    lesson: el.isActive ? "pagActive" : el.isCompleted ? "pagCompleted" : "",
+    first: isFirst ? "firstItem" : "",
+  };
+
   return (
-    <div className={`pagItem w-[${isFirst ? "13px" : "100%"}]`}>
-      {!isFirst && (
-        <div
-          className={`pagLine ${
-            el.isActive || el.isCompleted ? "pagLineActive" : ""
-          }`}
-        />
-      )}
+    <div className={`pagItem ${mainDiv}`}>
+      {!isFirst && <div className={`pagLine ${line}`} />}
       <div
-        className={`pagNumber ${
-          el.isActive ? "pagActive" : el.isCompleted ? "pagCompleted" : ""
-        } ${isFirst ? "firstItem" : ""}`}
+        className={`pagNumber ${lesson} ${first}`}
         onClick={() => itemClickHandler(el.id, item)}
       >
         <span>{item}</span>

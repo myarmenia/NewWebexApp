@@ -1,0 +1,20 @@
+.lessonBox {
+  @apply flex gap-4 items-start justify-around rounded-md border border-white py-[5.5px] pr-[6px] pl-1;
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+}
+.lessonBox_number {
+  @apply text-sm whitespace-nowrap;
+}
+.lessonBox_body {
+  @apply flex flex-col justify-between gap-2;
+}
+.lessonBox_title {
+  @apply text-[#6B6B6B] text-sm leading-[19px] font-semibold;
+}
+.lessonBox_homework {
+  @apply font-semibold text-[#898BCE] text-xs cursor-pointer hover:text-[#c7b0ed];
+}

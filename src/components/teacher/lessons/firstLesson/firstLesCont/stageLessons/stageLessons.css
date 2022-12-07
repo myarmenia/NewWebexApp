@@ -1,0 +1,18 @@
+.stageLessons {
+  @apply grid grid-cols-2 relative;
+  row-gap: 10px;
+  column-gap: 23px;
+}
+.stageLessonsHr {
+  @apply bg-[#BEBFE4] rounded-xl w-[1px] absolute left-1/2 top-[29px];
+  height: calc(100% - 79px);
+  transform: translate(-50%, 0);
+}
+@media (max-width: 768px) {
+  .stageLessonsHr {
+    @apply hidden;
+  }
+  .stageLessons {
+    @apply grid-cols-1;
+  }
+}
