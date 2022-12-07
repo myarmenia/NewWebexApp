@@ -17,8 +17,8 @@ export const Teacher: React.FC = () => {
         {/* <LessonTitle title="Նոր դասընթաց" /> */}
 
         {/* <AddLesson /> */}
-        <NewLesson />
-        {/* <FirstLesson /> */}
+        {/* <NewLesson /> */}
+        <FirstLesson />
       </Content>
     </div>
   );

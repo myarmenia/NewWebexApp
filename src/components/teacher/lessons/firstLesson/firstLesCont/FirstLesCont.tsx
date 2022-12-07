@@ -19,6 +19,7 @@ export const FirstLesCont: React.FC = () => {
     register,
     handleSubmit,
     formState: { errors },
+    watch,
   } = methods;
 
   const onSubmit = (data: IFirstLessonSchema) => {
@@ -60,8 +61,11 @@ export const FirstLesCont: React.FC = () => {
                       {...register("contents")}
                     ></textarea>
                     <div className="flex justify-between">
-                      <AttachFile title="Հավելյալ նյութերը" />
-                      <LoadImage />
+                      <AttachFile
+                        regName="lessonFile"
+                        title="Հավելյալ նյութերը"
+                      />
+                      <LoadImage regName="lessonImage_url" />
                     </div>
                   </div>
                   <SaveDataDiv />
@@ -84,8 +88,11 @@ export const FirstLesCont: React.FC = () => {
                       {...register("contentsHomework")}
                     ></textarea>
                     <div className="flex justify-between">
-                      <AttachFile title="Տնային աշխատանքի նյութերը" />
-                      <LoadImage />
+                      <AttachFile
+                        regName="homeworkFile"
+                        title="Տնային աշխատանքի նյութերը"
+                      />
+                      <LoadImage regName="homeworkImage_url" />
                     </div>
                   </div>
                   <SaveDataDiv />
@@ -95,6 +102,15 @@ export const FirstLesCont: React.FC = () => {
           </div>
           <div className="nextBtnCont">
             <SubmitBtn title="Հաջորդ դասը" />
+            <button
+              type="button"
+              className="addLessonBtn"
+              onClick={() => {
+                console.log(watch());
+              }}
+            >
+              watch
+            </button>
           </div>
         </div>
       </form>

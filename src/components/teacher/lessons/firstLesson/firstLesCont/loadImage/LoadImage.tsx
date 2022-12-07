@@ -1,14 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useFormContext } from "react-hook-form";
 import "./loadImage.css";
 
-interface LoadImageProps {}
+interface LoadImageProps {
+  regName?: string;
+}
 
-export const LoadImage: React.FC<LoadImageProps> = ({}) => {
+export const LoadImage: React.FC<LoadImageProps> = ({ regName }) => {
   const [file, setFile] = useState<string | any>("");
   const onFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFile(URL.createObjectURL(event.target.files![0]));
   };
-
+  const { register, setValue } = useFormContext();
+  useEffect(() => {
+    regName && setValue(regName, file);
+  }, [file]);
   return (
     <div
       className={`loadImageDiv ${file ? `h-[87px] w-[117px]` : ""}`}
