@@ -1,7 +1,9 @@
 .stageLessons {
   @apply grid grid-cols-2 relative;
+  /* @apply flex flex-col flex-wrap relative; */
   row-gap: 10px;
   column-gap: 23px;
+  height: 50%
 }
 .stageLessonsHr {
   @apply bg-[#BEBFE4] rounded-xl w-[1px] absolute left-1/2 top-[29px];

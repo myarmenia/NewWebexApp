@@ -5,13 +5,13 @@ import { FormProvider, useForm } from "react-hook-form";
 import { CstmInput } from "../../../lesComponents/cstmInput/CstmInput";
 import { SubmitBtn } from "../../../lesComponents/submitBtn/SubmitBtn";
 import { firstLessonSchema, IFirstLessonSchema } from "../firstLesSchema";
-import { ContTitle } from "./contTitle/ContTitle";
-import { LessonTitle } from "./LessonTitle";
+import { BoxTitle } from "./BoxTitle";
 import { AttachFile } from "./attachFile/AttachFile";
-import { LoadImage } from "./loadImage/LoadImage";
+import { LoadImage } from "../../../lesComponents/loadImage/LoadImage";
 import { SaveDataDiv } from "./SaveDataDiv";
 import { StageBody } from "./stageBody/StageBody";
 import { StageLessons } from "./stageLessons/StageLessons";
+import { CntTitle } from "../../../lesComponents/contTitle/CntTitle";
 
 export const FirstLesCont: React.FC = () => {
   const methods = useForm<IFirstLessonSchema>({
@@ -39,7 +39,7 @@ export const FirstLesCont: React.FC = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="lessonCont">
           <div className="firstLesCont">
-            <ContTitle title="ՓՈՒԼ 1" />
+            <CntTitle title="ՓՈՒԼ 1" />
             {/* <StageBody /> */}
             <StageLessons />
           </div>

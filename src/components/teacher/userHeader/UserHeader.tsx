@@ -6,8 +6,9 @@ import teacherImg from "../../../images/Teacher/Header/Rectangle 83.svg";
 import exitImg from "../../../images/Teacher/Header/Group 1498.svg";
 import { INavItemsContent } from "../../../models/interfaces";
 import { Navbar } from "../../header/navbar/Navbar";
+import { SMNavbar } from "./smNavbar/SMNavbar";
 
-const UserHeaderStore: INavItemsContent[] = [
+export const UserHeaderStore: INavItemsContent[] = [
   "Գլխավոր",
   "Հարթակ",
   "Սակագներ",
@@ -25,9 +26,10 @@ export const UserHeader: React.FC = () => {
         </div>
       </div>
       <nav className="userCont">
-        <div className="flex items-center mr-3">
+        <div className="userNavbar">
           <Navbar navbarItems={UserHeaderStore} />
         </div>
+        {/* <SMNavbar /> */}
         <div className="icons">
           <img src={searchImg} id="searchBtn" className="cursor-pointer" />
           <div id="notificationImage">

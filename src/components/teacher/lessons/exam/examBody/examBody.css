@@ -1,16 +1,18 @@
 .lessonCont {
   @apply flex flex-col gap-7;
 }
+.examCont {
+  @apply bg-[#ffffffbf] rounded-2xl px-[29px] py-[24px];
+  filter: drop-shadow(2px 4px 10px rgba(0, 0, 0, 0.1));
+}
+.lessonCont {
+  @apply flex flex-col gap-7;
+}
 .firstLesCont {
   @apply bg-[#ffffffbf] rounded-2xl px-[29px] py-[24px];
   filter: drop-shadow(2px 4px 10px rgba(0, 0, 0, 0.1));
 }
-.lessonContainer {
-  @apply flex justify-between mx-auto w-[98%];
-}
-.lessonContainer1 {
-  @apply w-[40%];
-}
+
 .LessonCntBody_box {
   @apply flex flex-col gap-5 w-full justify-between;
   height: calc(100% - 36px);
@@ -35,15 +37,4 @@
 .addLessonBtn {
   @apply font-semibold text-xs text-white py-[9px] px-[30px] rounded-2xl w-fit min-w-[193px];
   background: linear-gradient(90deg, #7764fb 0%, #f364f3 100%);
-}
-@media (max-width: 670px) {
-  .lessonContainer {
-    @apply flex-col gap-10;
-  }
-  .lessonContainer1 {
-    @apply w-full;
-  }
-  .hrMain {
-    @apply w-full h-[1px];
-  }
 }

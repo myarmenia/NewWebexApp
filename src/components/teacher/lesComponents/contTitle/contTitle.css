@@ -1,5 +1,5 @@
 .contTitle {
-  @apply flex flex-col gap-[14px] mb-3 ;
+  @apply flex flex-col gap-[14px] mb-5 ;
 }
 .contTitle_text {
   @apply text-[#6B6B6B] text-base;

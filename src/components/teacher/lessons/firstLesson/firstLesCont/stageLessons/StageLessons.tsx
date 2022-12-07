@@ -8,17 +8,24 @@ interface ILessons {
 }
 
 export const StageLessons: React.FC = () => {
-  const lessonsArr: ILessons[] = Array.from({ length: 12 }).map((el, ind) => ({
-    title: `«Գրաֆիկ դիզայն» մասնագիտություն, մասնագիտության կարեւորությունն ու արդիականությունը`,
-    id: Math.random(),
-  }));
+  const lessonsCount = 12;
+  const lessonsArr: ILessons[] = Array.from({ length: lessonsCount }).map(
+    (el, ind) => ({
+      title: `«Գրաֆիկ դիզայն» մասնագիտություն, մասնագիտության կարեւորությունն ու արդիականությունը`,
+      id: Math.random(),
+    })
+  );
+//   console.log(85 * Math.round(lessonsCount / 2));
 
   return (
-    <div className="stageLessons">
+    <div
+      className="stageLessons"
+    //   style={{ height: 85 * Math.round(lessonsCount / 2) + "px" }}
+    >
       {lessonsArr.map((el, index) => {
         return <LessonBox {...el} lessonNumber={index + 1} key={el.id} />;
       })}
-      <hr className="stageLessonsHr"/>
+      <hr className="stageLessonsHr" />
     </div>
   );
 };
