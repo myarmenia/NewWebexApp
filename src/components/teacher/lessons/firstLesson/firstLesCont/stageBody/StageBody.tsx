@@ -1,9 +1,11 @@
 import React from "react";
 import { useFormContext } from "react-hook-form";
+// import { ContTitle } from "../../../../lesComponents/contTitle/ContTitle";
 import { CstmInput } from "../../../../lesComponents/cstmInput/CstmInput";
+import { CstmTextarea } from "../../../../lesComponents/cstmTextarea/CstmTextarea";
 import { AttachFile } from "../attachFile/AttachFile";
-import { LessonTitle } from "../LessonTitle";
-import { LoadImage } from "../loadImage/LoadImage";
+import { BoxTitle } from "../BoxTitle";
+import { LoadImage } from "../../../../lesComponents/loadImage/LoadImage";
 import { SaveDataDiv } from "../SaveDataDiv";
 
 export const StageBody: React.FC = () => {
@@ -11,7 +13,7 @@ export const StageBody: React.FC = () => {
   return (
     <div className="lessonContainer">
       <div className="lessonContainer1">
-        <LessonTitle title="Դաս 1" />
+        <BoxTitle title="Դաս 1" />
         <div className="LessonCntBody_box">
           <div className="LessonCntBody_boxContent">
             <CstmInput
@@ -26,11 +28,11 @@ export const StageBody: React.FC = () => {
               regName="videoInp"
               className="shadow-my1"
             />
-            <textarea
-              className="lessonTextarea lessonInp"
+            <CstmTextarea
+              regName="contents"
               placeholder="Բովանդակություն"
-              {...register("contents")}
-            ></textarea>
+              className="lessonInp"
+            />
             <div className="flex justify-between">
               <AttachFile regName="lessonFile" title="Հավելյալ նյութերը" />
               <LoadImage regName="lessonImage_url" />
@@ -41,7 +43,7 @@ export const StageBody: React.FC = () => {
       </div>
       <div className="hrMain" />
       <div className="lessonContainer1">
-        <LessonTitle title="Տնային հանձնարարություն" />
+        <BoxTitle title="Տնային հանձնարարություն" />
         <div className="LessonCntBody_box">
           <div className="LessonCntBody_boxContent">
             <CstmInput
@@ -50,11 +52,11 @@ export const StageBody: React.FC = () => {
               regName="videoInpHomework"
               className="shadow-my1"
             />
-            <textarea
-              className="lessonTextarea lessonInp"
+            <CstmTextarea
+              regName="contentsHomework"
+              className="lessonInp"
               placeholder="Բովանդակություն"
-              {...register("contentsHomework")}
-            ></textarea>
+            />
             <div className="flex justify-between">
               <AttachFile
                 regName="homeworkFile"

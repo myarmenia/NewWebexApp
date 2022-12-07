@@ -4,9 +4,15 @@ import "./loadImage.css";
 
 interface LoadImageProps {
   regName?: string;
+
+  className?: {
+    div: string;
+    img: string;
+    text: string;
+  };
 }
 
-export const LoadImage: React.FC<LoadImageProps> = ({ regName }) => {
+export const LoadImage: React.FC<LoadImageProps> = ({ regName, className }) => {
   const [file, setFile] = useState<string | any>("");
   const onFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFile(URL.createObjectURL(event.target.files![0]));
@@ -17,18 +23,22 @@ export const LoadImage: React.FC<LoadImageProps> = ({ regName }) => {
   }, [file]);
   return (
     <div
-      className={`loadImageDiv ${file ? `h-[87px] w-[117px]` : ""}`}
+      className={`loadImageDiv ${file ? `h-[87px] w-[117px]` : ""} ${
+        className?.div
+      }`}
       style={{ backgroundImage: `url(${file})` }}
     >
       {!file && (
         <>
           <input
-            className="loadImageInput"
+            className={`${className?.img} loadImageInput`}
             type="file"
             accept="image/png, image/jpeg"
             onChange={onFileUpload}
           />
-          <span className="text-[#6B6B6B] text-[10px]">Բեռնել նկար</span>
+          <span className={`text-[#6B6B6B] text-[10px] ${className?.text}`}>
+            Բեռնել նկար
+          </span>
         </>
       )}
     </div>

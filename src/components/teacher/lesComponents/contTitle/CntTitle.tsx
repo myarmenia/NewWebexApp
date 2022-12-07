@@ -4,7 +4,7 @@ interface ContTitleProps {
   title: string;
 }
 
-export const ContTitle: React.FC<ContTitleProps> = ({ title }) => {
+export const CntTitle: React.FC<ContTitleProps> = ({ title }) => {
   return (
     <div className="contTitle">
       <span className="contTitle_text">{title}</span>

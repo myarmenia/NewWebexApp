@@ -15,6 +15,7 @@ import { CstmInput } from "../../../lesComponents/cstmInput/CstmInput";
 import { Knowledges } from "./knowledges/Knowledges";
 import { CustomNmbInp } from "../../../lesComponents/customNmbInp/CustomNmbInp";
 import { SubmitBtn } from "../../../lesComponents/submitBtn/SubmitBtn";
+import { CstmTextarea } from "../../../lesComponents/cstmTextarea/CstmTextarea";
 
 export const LessonCntBody: React.FC = () => {
   const [selectVals, setselectVals] = useState<ISelect>({
@@ -104,11 +105,11 @@ export const LessonCntBody: React.FC = () => {
               />
               <CustomSelect select={dificultyLevels} regName="select1" />
               <Knowledges {...{ reqKnowledges }} />
-              <textarea
-                className="lessonTextarea lessonInp"
-                placeholder="lorem isup*"
-                {...register("describtion")}
-              ></textarea>
+              <CstmTextarea
+                regName="describtion"
+                className="lessonInp h-[202px]"
+                placeholder="loremadfdsf"
+              />
               <AgeDiv />
               <FinishExam text="Վերջնական քննություն" regName="isExam" />
               <FinishExam text="Հավաստագիր" regName="certificate" />

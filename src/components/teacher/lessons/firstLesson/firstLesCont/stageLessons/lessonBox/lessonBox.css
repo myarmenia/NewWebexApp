@@ -5,6 +5,7 @@
     #ffffff 0%,
     rgba(255, 255, 255, 0.2) 100%
   );
+  /* width: calc(50% - 11.5px); */
 }
 .lessonBox_number {
   @apply text-sm whitespace-nowrap;
