@@ -10,6 +10,8 @@ import { LessonTitle } from "./LessonTitle";
 import { AttachFile } from "./attachFile/AttachFile";
 import { LoadImage } from "./loadImage/LoadImage";
 import { SaveDataDiv } from "./SaveDataDiv";
+import { StageBody } from "./stageBody/StageBody";
+import { StageLessons } from "./stageLessons/StageLessons";
 
 export const FirstLesCont: React.FC = () => {
   const methods = useForm<IFirstLessonSchema>({
@@ -38,67 +40,8 @@ export const FirstLesCont: React.FC = () => {
         <div className="lessonCont">
           <div className="firstLesCont">
             <ContTitle title="ՓՈՒԼ 1" />
-            <div className="lessonContainer">
-              <div className="lessonContainer1">
-                <LessonTitle title="Դաս 1" />
-                <div className="LessonCntBody_box">
-                  <div className="LessonCntBody_boxContent">
-                    <CstmInput
-                      type="text"
-                      placeholder="Դասի վերնագիրը*"
-                      regName="lessonTitle"
-                      className="shadow-my1"
-                    />
-                    <CstmInput
-                      type="text"
-                      placeholder="Տեսանյութ (կցել youtube-ի հղումը)"
-                      regName="videoInp"
-                      className="shadow-my1"
-                    />
-                    <textarea
-                      className="lessonTextarea lessonInp"
-                      placeholder="Բովանդակություն"
-                      {...register("contents")}
-                    ></textarea>
-                    <div className="flex justify-between">
-                      <AttachFile
-                        regName="lessonFile"
-                        title="Հավելյալ նյութերը"
-                      />
-                      <LoadImage regName="lessonImage_url" />
-                    </div>
-                  </div>
-                  <SaveDataDiv />
-                </div>
-              </div>
-              <div className="hrMain" />
-              <div className="lessonContainer1">
-                <LessonTitle title="Տնային հանձնարարություն" />
-                <div className="LessonCntBody_box">
-                  <div className="LessonCntBody_boxContent">
-                    <CstmInput
-                      type="text"
-                      placeholder="Տեսանյութ (կցել youtube-ի հղումը)"
-                      regName="videoInpHomework"
-                      className="shadow-my1"
-                    />
-                    <textarea
-                      className="lessonTextarea lessonInp"
-                      placeholder="Բովանդակություն"
-                      {...register("contentsHomework")}
-                    ></textarea>
-                    <div className="flex justify-between">
-                      <AttachFile
-                        regName="homeworkFile"
-                        title="Տնային աշխատանքի նյութերը"
-                      />
-                      <LoadImage regName="homeworkImage_url" />
-                    </div>
-                  </div>
-                  <SaveDataDiv />
-                </div>
-              </div>
-            </div>
+            {/* <StageBody /> */}
+            <StageLessons />
           </div>
           <div className="nextBtnCont">
             <SubmitBtn title="Հաջորդ դասը" />
