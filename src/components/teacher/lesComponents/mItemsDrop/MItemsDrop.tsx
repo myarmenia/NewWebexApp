@@ -33,12 +33,18 @@ export const MItemsDrop: FC<MItemsDropProps> = ({
         />
       </div>
       {isClicked && (
-        <div className="flex flex-col gap-2 w-fit ml-9">
+        <div className="sumItems">
           {toSubPaths?.map((el) => (
             <Link
               key={Math.random()}
               to={el.path}
-              className="subMenuSpan textPurple"
+              className={`subMenuSpan ${el.isClicked ? "textPurple" : ""}`}
+              onClick={() => {
+                toSubPaths.forEach((item) => {
+                  item.isClicked = false;
+                });
+                el.isClicked = true;
+              }}
             >
               {el.title}
             </Link>
