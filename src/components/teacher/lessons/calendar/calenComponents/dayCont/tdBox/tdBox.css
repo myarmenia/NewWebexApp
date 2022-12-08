@@ -1,0 +1,19 @@
+.tdBox1 {
+  @apply w-[135px] h-[120px] gap-2 relative border border-[#bebfe4] border-b-0;
+}
+.CalendarCont2NumberBox {
+  @apply w-[23.75px] h-[23.3px] bg-[#bebfe4] flex items-center justify-center text-xs text-white absolute top-0 left-0;
+}
+.eventBox {
+  @apply flex flex-col gap-[5px] items-center mt-[27px] h-[87px] overflow-y-auto pb-[5px];
+}
+.CalendarEventBox {
+  @apply rounded-md w-[87%] p-[3px] font-bold text-[8px] text-white flex justify-around cursor-pointer;
+  background: linear-gradient(90deg, #7764fb 0%, #f364f3 100%);
+}
+
+@media (min-height: 910px) {
+  .eventBox {
+    @apply w-[74%];
+  }
+}

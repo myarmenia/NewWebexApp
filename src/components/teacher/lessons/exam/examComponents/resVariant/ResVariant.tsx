@@ -33,6 +33,7 @@ export const ResVariant: React.FC<ResVariantProps> = ({
       />
       <input
         type="checkbox"
+        className="customCheckbox !h-[14px] !w-[17px] before:h-[11.5px]"
         {...register(`questionBox.${i}.responseVariants.${ind}.isVariantTrue`)}
       />
       <img

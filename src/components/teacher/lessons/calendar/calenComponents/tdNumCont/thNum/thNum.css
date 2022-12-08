@@ -1,0 +1,3 @@
+.thNumeric {
+  @apply text-[8px] text-[#6B6B6B] font-semibold;
+}
