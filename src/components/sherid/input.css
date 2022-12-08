@@ -1,8 +1,9 @@
 .registration-form {
   @apply mt-[50px];
+  gap: 10px;
 }
 .form-group {
-  @apply w-[55%] h-[60px] flex   flex-col;
+  @apply w-[55%]  h-[55px]  flex  flex-col;
   position: relative;
 }
 .form-group img {
@@ -22,7 +23,7 @@ option {
   border: none;
   outline: none;
 }
-input[type="text"],
+.name,
 input[type="password"],
 input[type="email"] {
   @apply box-border outline-none bg-white w-[100%] h-10 flex 
@@ -31,7 +32,7 @@ input[type="email"] {
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-input[type="text"]::placeholder,
+.name::placeholder,
 input[type="password"]::placeholder,
 input[type="email"]::placeholder {
   @apply font-normal text-xs text-[#9c9c9c];
