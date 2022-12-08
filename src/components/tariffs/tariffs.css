@@ -22,8 +22,16 @@
 .choose-month {
   @apply font-normal  text-[#6b6b6b] text-xs;
 }
+
 .choose-year {
-  @apply h-[50px] flex flex-col font-normal  text-[#6b6b6b] text-xs;
+  @apply h-[50px] flex flex-col font-normal  text-[#6b6b6b] text-xs relative;
+}
+.arrowImg {
+  width: 9.94px;
+  height: 20.34px;
+  position: absolute;
+  right: -25%;
+  top: 10%;
 }
 .discount {
   @apply w-[55px] h-[16px] flex justify-center items-center  rounded-[2px] text-[10px] font-normal text-[#ffffff];
@@ -63,7 +71,7 @@ input:checked + .slider:before {
   @apply w-full h-auto flex justify-center gap-[20px] mt-[50px];
 }
 .tariffCard {
-  @apply w-[14%] h-[auto] flex flex-col justify-between  px-[29px] py-[41px] rounded-[30px];
+  @apply w-[20%] h-[auto] flex flex-col justify-between  px-[29px] py-[41px] rounded-[30px];
   box-sizing: border-box;
   background: rgba(255, 255, 255, 0.4);
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
@@ -102,9 +110,31 @@ input:checked + .slider:before {
 /* tariff card css*/
 /* tariff includes css*/
 .tariff-includes {
-  @apply w-[75%] h-[30px] flex gap-[8px] items-center justify-center;
+  @apply w-[100%] h-[30px] flex gap-[8px] items-center;
 }
 .tariff-includes p {
   @apply font-normal text-[10px] text-[#6b6b6b];
 }
 /* tariff includes css*/
+@media (max-width: 1220px) {
+  .tariffCard {
+    width: 25%;
+  }
+}
+@media (max-width: 980px) {
+  .tariffCard {
+    width: 40%;
+  }
+  .tariffContainer {
+    flex-wrap: wrap;
+  }
+  .tariffContainer {
+    width: 95%;
+    justify-content: start;
+  }
+}
+@media (max-width: 650px) {
+  .tariffCard {
+    width: 100%;
+  }
+}

@@ -7,6 +7,7 @@ import { AddLesson } from "./addLesson/AddLesson";
 import { NewLesson } from "./lessons/newLesson/NewLesson";
 import { LessonTitle } from "./lessonTitle/LessonTitle";
 import { FirstLesson } from "./lessons/firstLesson/FirstLesson";
+import CreateGraffic from "./userComponents/CreateGraffic";
 import { Exam } from "./lessons/exam/Exam";
 import { Calendar } from "./lessons/calendar/Calendar";
 
@@ -21,8 +22,13 @@ export const Teacher: React.FC = () => {
         {/* <AddLesson /> */}
         {/* <NewLesson /> */}
         {/* <FirstLesson /> */}
+
         {/* <Exam /> */}
         <Calendar />
+
+        {/*<CreateGraffic /> */}
+        
+
       </Content>
     </div>
   );

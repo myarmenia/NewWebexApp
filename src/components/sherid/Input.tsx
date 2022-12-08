@@ -3,10 +3,11 @@ import "./input.css";
 interface InputProps {
   type: string;
   error?: string;
+  className?: string;
   placholder?: string;
-  url: string;
-  register?: {
-    name: string;
+  url?: string;
+  register: {
+    name?: string;
     value?: string;
     error?: string;
   };
@@ -19,9 +20,8 @@ const Input: React.FC<InputProps> = (props) => {
         {...props?.register}
         type={props.type}
         placeholder={props.placholder}
-        className={`form-control ${props?.error ? "is-invalid" : ""}`}
+        className={props.className}
       />
-
       <div className="invalid-feedback">{props?.error}</div>
     </div>
   );

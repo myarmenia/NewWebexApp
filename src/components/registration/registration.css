@@ -16,6 +16,10 @@
 .registration-form {
   @apply w-[50%] h-auto flex flex-col justify-center items-center;
 }
+.form-group2 {
+  @apply w-[55%] h-[55px] flex  flex-col;
+}
+
 .form-group-checkbox {
   @apply w-[40%] h-[50px] flex flex-col   mb-[20px];
 }
@@ -85,6 +89,7 @@ input[type="radio"]:checked {
 .entry p {
   @apply text-xs font-normal text-[#6b6b6b];
 }
+
 .entry a {
   @apply text-xs font-normal text-[#f364f3];
   text-decoration: underline;
@@ -109,6 +114,8 @@ input[type="radio"]:checked {
   }
   .form-group-checkboxChild {
     @apply w-[95%] justify-evenly;
+  } .form-group2 {
+    @apply w-[65%];
   }
 }
 
@@ -124,11 +131,15 @@ input[type="radio"]:checked {
   }
   .form-group-checkboxChild {
     @apply w-[100%] justify-between;
+  } .form-group2 {
+    @apply w-[75%];
   }
 }
 @media (max-width: 760px) {
   .form-group-checkbox2 {
     width: 80%;
+  }  .form-group2 {
+    @apply w-[85%];
   }
 }
 @media (max-width: 672px) {
@@ -143,6 +154,9 @@ input[type="radio"]:checked {
     font-size: 14px;
   }
   .form-group {
+    @apply h-[50px];
+  }
+  .form-group2 {
     @apply h-[50px];
   }
   .btn {
