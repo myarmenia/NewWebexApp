@@ -21,7 +21,19 @@ export const ResVariant: React.FC<ResVariantProps> = ({
   ind,
   i,
 }) => {
-  const { register, watch } = useFormContext();
+  const { register, watch, setValue } = useFormContext();
+  const removeVariant = (e: React.MouseEvent<HTMLImageElement>) => {
+    e.preventDefault();
+    const newObj = watch(`questionBox.${i}.responseVariants`).filter(
+      (el: { variant: string }, ix: number) => {
+        return ix !== ind;
+      }
+    );
+    questions.update(i, {
+      ...field,
+      responseVariants: newObj,
+    });
+  };
 
   return (
     <div className="flex justify-between gap-[31px] items-center" key={ind}>
@@ -40,17 +52,7 @@ export const ResVariant: React.FC<ResVariantProps> = ({
         src={removeVariantImg}
         alt=""
         className="w-[19px] h-[19px] cursor-pointer"
-        onClick={() => {
-          const newObj = watch(`questionBox.${i}.responseVariants`).filter(
-            (el: { variant: string }, ix: number) => {
-              return ix !== ind;
-            }
-          );
-          questions.update(i, {
-            ...field,
-            responseVariants: newObj,
-          });
-        }}
+        onClick={removeVariant}
       />
     </div>
   );

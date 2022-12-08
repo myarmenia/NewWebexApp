@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { IteacherMenu } from "../../../../models/interfaces";
 
 interface MenuLiProps extends IteacherMenu {
@@ -8,19 +9,23 @@ interface MenuLiProps extends IteacherMenu {
 export const MenuLi: React.FC<MenuLiProps> = ({
   title,
   img,
+  activeImg,
   id,
   isClicked,
   chooseMenuItem,
+  to,
 }) => {
   return (
     <li
       className={`menuLi ${isClicked ? "activeMenuItem" : ""}`}
       onClick={() => chooseMenuItem(id!)}
     >
-      <a className="menuA" href="#">
-        <img src={img} alt="" />
+      <Link to={to!} className="menuA">
+        {/* <a className="menuA" href="#"> */}
+        <img src={isClicked ? activeImg : img} alt="" />
         <span className="menuSpan">{title}</span>
-      </a>
+        {/* </a> */}
+      </Link>
     </li>
   );
 };

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { MouseEvent } from "react";
 import "./questionBox.css";
 import { CstmTextarea } from "../../../../lesComponents/cstmTextarea/CstmTextarea";
 import { LoadImage } from "../../../../lesComponents/loadImage/LoadImage";
@@ -19,6 +19,19 @@ export const QuestionBox: React.FC<QuestionBoxProps> = ({
   questions,
   i,
 }) => {
+  const addVariant = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    questions.update(i, {
+      ...field,
+      responseVariants: [
+        ...field.responseVariants,
+        {
+          variant: "",
+          isVariantTrue: false,
+        },
+      ],
+    });
+  };
   return (
     <div className="questionBox">
       {i > 0 && <div className="overLine" />}
@@ -57,12 +70,8 @@ export const QuestionBox: React.FC<QuestionBoxProps> = ({
         </div>
         <button
           className="flex items-center gap-2"
-          onClick={() => {
-            field.responseVariants.push({
-              variant: "",
-              isVariantTrue: false,
-            });
-          }}
+          onClick={addVariant}
+          type="button"
         >
           <img src={addVariantImg} alt="" />
           <span className="text-[#6B6B6B] text-xs">ավելացնել տարբերակ</span>
