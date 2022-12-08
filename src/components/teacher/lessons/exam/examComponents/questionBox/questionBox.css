@@ -1,0 +1,12 @@
+.questionBox {
+  @apply flex flex-col gap-[17px];
+}
+.questionPart {
+  @apply flex flex-col gap-3;
+}
+.questionTitle {
+  @apply text-[#6B6B6B] text-sm;
+}
+.overLine {
+  @apply h-[1px] bg-[#BEBFE4] -mt-[5px];
+}

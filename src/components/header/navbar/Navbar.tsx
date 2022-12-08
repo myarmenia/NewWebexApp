@@ -1,12 +1,16 @@
 import React from "react";
+import { INavItemsContent } from "../../../models/interfaces";
 import { CustomDropdown } from "../customDropdown/CustomDropdown";
-import { headerStore } from "../HeaderStore";
 import { NavItem } from "../navItem/NavItem";
 
-export const Navbar: React.FC = () => {
+interface NavbarProps {
+  navbarItems: INavItemsContent[];
+}
+
+export const Navbar: React.FC<NavbarProps> = ({ navbarItems }) => {
   return (
     <>
-      {headerStore.map((el, index) => {
+      {navbarItems.map((el, index) => {
         if (typeof el === "object") {
           return el.title === "Աղբյուրներ" ? (
             <NavItem key={index}>

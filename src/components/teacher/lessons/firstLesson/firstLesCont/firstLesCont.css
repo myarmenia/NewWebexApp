@@ -12,14 +12,11 @@
   @apply w-[40%];
 }
 .LessonCntBody_box {
-  @apply flex flex-col gap-5 w-full min-w-[320px] justify-between;
-  height: calc(100% - 36px)
+  @apply flex flex-col gap-5 w-full justify-between;
+  height: calc(100% - 36px);
 }
 .LessonCntBody_boxContent {
   @apply flex flex-col gap-5 justify-between w-full mb-[10px];
-}
-.lessonTextarea {
-  @apply h-[187px] overflow-y-auto  resize-none;
 }
 .nextBtnCont {
   @apply flex gap-4 justify-end;
@@ -35,6 +32,18 @@
 .hrMain {
   @apply bg-[#BEBFE4] mt-5 h-[400px] w-[1px];
 }
-.saveBox {
-  @apply flex gap-1;
+.addLessonBtn {
+  @apply font-semibold text-xs text-white py-[9px] px-[30px] rounded-2xl w-fit min-w-[193px];
+  background: linear-gradient(90deg, #7764fb 0%, #f364f3 100%);
+}
+@media (max-width: 670px) {
+  .lessonContainer {
+    @apply flex-col gap-10;
+  }
+  .lessonContainer1 {
+    @apply w-full;
+  }
+  .hrMain {
+    @apply w-full h-[1px];
+  }
 }

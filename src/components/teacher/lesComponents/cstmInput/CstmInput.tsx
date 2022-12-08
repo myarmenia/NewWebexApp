@@ -18,9 +18,10 @@ export const CstmInput: React.FC<CstmInputProps> = ({
     register,
     formState: { errors },
   } = useFormContext();
+
   const RealName = regName ? { ...register(regName) } : null;
   return (
-    <div className="flex flex-col relative">
+    <div className="flex flex-col relative w-full">
       <input
         {...RealName}
         className={"lessonInp " + className}

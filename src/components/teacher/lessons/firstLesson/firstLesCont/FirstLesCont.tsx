@@ -5,11 +5,13 @@ import { FormProvider, useForm } from "react-hook-form";
 import { CstmInput } from "../../../lesComponents/cstmInput/CstmInput";
 import { SubmitBtn } from "../../../lesComponents/submitBtn/SubmitBtn";
 import { firstLessonSchema, IFirstLessonSchema } from "../firstLesSchema";
-import { ContTitle } from "./contTitle/ContTitle";
-import { LessonTitle } from "./LessonTitle";
-import acceptImg from "../../../../../images/Teacher/NewLesson/acceptPurple.svg";
+import { BoxTitle } from "./BoxTitle";
 import { AttachFile } from "./attachFile/AttachFile";
-import { LoadImage } from "./loadImage/LoadImage";
+import { LoadImage } from "../../../lesComponents/loadImage/LoadImage";
+import { SaveDataDiv } from "./SaveDataDiv";
+import { StageBody } from "./stageBody/StageBody";
+import { StageLessons } from "./stageLessons/StageLessons";
+import { CntTitle } from "../../../lesComponents/contTitle/CntTitle";
 
 export const FirstLesCont: React.FC = () => {
   const methods = useForm<IFirstLessonSchema>({
@@ -20,93 +22,41 @@ export const FirstLesCont: React.FC = () => {
     handleSubmit,
     formState: { errors },
     watch,
-    setValue,
-    control,
   } = methods;
 
   const onSubmit = (data: IFirstLessonSchema) => {
     console.log(data);
+    // fetch("https://fakestoreapi.com/products", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(data),
+    // }).then(() => console.log("posted"));
   };
   return (
     <FormProvider {...methods}>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="lessonCont">
           <div className="firstLesCont">
-            <ContTitle title="ՓՈՒԼ 1" />
-            <div className="lessonContainer">
-              <div className="lessonContainer1">
-                <LessonTitle title="Դաս 1" />
-                <div className="LessonCntBody_box">
-                  <div className="LessonCntBody_boxContent">
-                    <CstmInput
-                      type="text"
-                      placeholder="Դասի վերնագիրը*"
-                      regName="lessonTitle"
-                      className="shadow-my1"
-                    />
-                    <CstmInput
-                      type="text"
-                      placeholder="Տեսանյութ (կցել youtube-ի հղումը)"
-                      regName="lessonTitle"
-                      className="shadow-my1"
-                    />
-                    <textarea
-                      className="lessonTextarea lessonInp"
-                      placeholder="Բովանդակություն"
-                      {...register("contents")}
-                    ></textarea>
-                    <div className="flex justify-between">
-                      <AttachFile title="Հավելյալ նյութերը" />
-                      <LoadImage />
-                    </div>
-                  </div>
-                  <div className="saveBox">
-                    <img src={acceptImg} alt="" />
-                    <span className="textPurple textUnderline">Պահպանել</span>
-                  </div>
-                </div>
-              </div>
-              <div className="hrMain" />
-              <div className="lessonContainer1">
-                <LessonTitle title="Տնային հանձնարարություն" />
-                <div className="LessonCntBody_box">
-                  <div className="LessonCntBody_boxContent">
-                    <CstmInput
-                      type="text"
-                      placeholder="Տեսանյութ (կցել youtube-ի հղումը)"
-                      regName="videoInpHomework"
-                      className="shadow-my1"
-                    />
-                    <textarea
-                      className="lessonTextarea lessonInp"
-                      placeholder="Բովանդակություն"
-                      {...register("contentsHomework")}
-                    ></textarea>
-                    <div className="flex justify-between">
-                      <AttachFile title="Տնային աշխատանքի նյութերը" />
-                      <LoadImage />
-                    </div>
-                  </div>
-                  <div className="saveBox">
-                    <img src={acceptImg} alt="" />
-                    <span className="textPurple textUnderline">Պահպանել</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <CntTitle title="ՓՈՒԼ 1" />
+            {/* <StageBody /> */}
+            <StageLessons />
           </div>
           <div className="nextBtnCont">
             <SubmitBtn title="Հաջորդ դասը" />
+            <button
+              type="button"
+              className="addLessonBtn"
+              onClick={() => {
+                console.log(watch());
+              }}
+            >
+              watch
+            </button>
           </div>
         </div>
       </form>
     </FormProvider>
   );
 };
-{
-  /* <FormProvider {...methods}>
-<div className="LessonCntBody">
-  <form onSubmit={handleSubmit(onSubmit)}>
-    <div className="lessonContainer">
-      <div className="LessonCntBody_box"> */
-}

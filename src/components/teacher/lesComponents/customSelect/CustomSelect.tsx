@@ -4,14 +4,13 @@ import { Options } from "./Options";
 import { DefaultOption } from "./DefaultOption";
 import { ISelect } from "../../../../models/interfaces";
 import { useFormContext } from "react-hook-form";
-import { Selects } from "../../lessons/newLesson/lessonCntBody/validationSchema";
 
 interface CustomSelectProps {
   select: ISelect;
   className?: string;
   isInput?: boolean;
   setselectVals?: React.Dispatch<SetStateAction<ISelect>>;
-  regName?: Selects;
+  regName?: string;
 }
 
 export const CustomSelect: React.FC<CustomSelectProps> = ({

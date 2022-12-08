@@ -22,15 +22,12 @@ export const Knowledges: React.FC<KnowledgesProps> = ({ reqKnowledges }) => {
     watch,
     formState: { errors },
   } = useFormContext();
-  const keyDownHandler = (
-    e: React.KeyboardEvent<HTMLInputElement>,
-    value: string,
-    setVal: React.Dispatch<React.SetStateAction<string>>
-  ) => {
+
+  const keyDownHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       e.preventDefault();
+      reqKnowledges.append({ knowledge: val });
       setVal("");
-      reqKnowledges.append({ knowledge: value });
     }
   };
 
@@ -43,9 +40,7 @@ export const Knowledges: React.FC<KnowledgesProps> = ({ reqKnowledges }) => {
           placeholder="Ավելացնել պահանջվող նախնական գիտելիքները"
           value={val}
           onChange={onChange}
-          onKeyDown={(e) => {
-            keyDownHandler(e, val, setVal);
-          }}
+          onKeyDown={keyDownHandler}
         />
         {/* for error */}
         {/* <p className="errorMessage">

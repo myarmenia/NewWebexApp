@@ -8,6 +8,7 @@ import { NewLesson } from "./lessons/newLesson/NewLesson";
 import { LessonTitle } from "./lessonTitle/LessonTitle";
 import { FirstLesson } from "./lessons/firstLesson/FirstLesson";
 import CreateGraffic from "./userComponents/CreateGraffic";
+import { Exam } from "./lessons/exam/Exam";
 
 export const Teacher: React.FC = () => {
   return (
@@ -21,6 +22,7 @@ export const Teacher: React.FC = () => {
         {/* <NewLesson /> */}
         {/* <FirstLesson /> */}
         <CreateGraffic />
+        {/* <Exam /> */}
       </Content>
     </div>
   );

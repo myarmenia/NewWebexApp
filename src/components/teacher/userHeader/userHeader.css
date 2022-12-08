@@ -29,3 +29,12 @@
 .icons > p {
   @apply h-[16.76px] font-normal text-xs leading-5;
 }
+.userNavbar {
+  @apply flex items-center mr-3;
+}
+
+@media (max-width: 1000px) {
+  .userNavbar {
+    @apply hidden;
+  }
+}
