@@ -5,9 +5,9 @@ interface InputProps {
   error?: string;
   className?: string;
   placholder?: string;
-  url: string;
-  register?: {
-    name: string;
+  url?: string;
+  register: {
+    name?: string;
     value?: string;
     error?: string;
   };

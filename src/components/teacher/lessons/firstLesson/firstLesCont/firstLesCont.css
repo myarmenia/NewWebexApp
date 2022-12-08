@@ -1,0 +1,40 @@
+.lessonCont {
+  @apply flex flex-col gap-7;
+}
+.firstLesCont {
+  @apply bg-[#ffffffbf] rounded-2xl px-[29px] py-[24px];
+  filter: drop-shadow(2px 4px 10px rgba(0, 0, 0, 0.1));
+}
+.lessonContainer {
+  @apply flex justify-between mx-auto w-[98%];
+}
+.lessonContainer1 {
+  @apply w-[40%];
+}
+.LessonCntBody_box {
+  @apply flex flex-col gap-5 w-full min-w-[320px] justify-between;
+  height: calc(100% - 36px)
+}
+.LessonCntBody_boxContent {
+  @apply flex flex-col gap-5 justify-between w-full mb-[10px];
+}
+.lessonTextarea {
+  @apply h-[187px] overflow-y-auto  resize-none;
+}
+.nextBtnCont {
+  @apply flex gap-4 justify-end;
+}
+.textUnderline {
+  @apply text-xs font-semibold relative;
+}
+.textUnderline::after {
+  @apply w-full h-[1px] absolute bg-[red] left-0 bottom-[1.3px] top-auto;
+  content: "";
+  background: linear-gradient(90deg, #7764fb 0%, #f364f3 100%);
+}
+.hrMain {
+  @apply bg-[#BEBFE4] mt-5 h-[400px] w-[1px];
+}
+.saveBox {
+  @apply flex gap-1;
+}

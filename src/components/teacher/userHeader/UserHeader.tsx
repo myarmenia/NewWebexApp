@@ -15,6 +15,7 @@ export const UserHeader: React.FC = () => {
         </div>
       </div>
       <nav className="userCont">
+        
         <div className="icons">
           <img src={searchImg} id="searchBtn" className="cursor-pointer" />
           <div id="notificationImage">

@@ -10,9 +10,9 @@ import passwordIcon from "../../images/registration/password.png";
 import facebook from "../../images/registration/facebook.png";
 import gmail from "../../images/registration/gmail.png";
 // import { CustomSelect } from "../header/customSelect/CustomSelect";
-import Select from "../sherid/Select";
-import { CustomSelect } from "../teacher/newLesson/customSelect/CustomSelect";
+
 import { ISelect } from "../../models/interfaces";
+import { CustomSelect } from "../teacher/lesComponents/customSelect/CustomSelect";
 // import { Option } from "../header/customSelect/Option";
 interface UserSubmitForm {
   checkbox: string;
@@ -61,8 +61,6 @@ const Regsitration = () => {
   };
   const isOpenDropdown = watch("checkbox");
 
-  let title = ["sdasd", "asdds", "sadsa"];
-  let option = ["sdasd", "asdds", "sadsa"];
   return (
     <>
       <FormProvider {...methods}>

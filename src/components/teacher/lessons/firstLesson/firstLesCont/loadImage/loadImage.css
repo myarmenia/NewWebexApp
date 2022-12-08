@@ -1,0 +1,8 @@
+.loadImageInput {
+  @apply w-6 h-[28px] bg-contain;
+  background: url("../../../../../../images/Teacher/FirstLesson/loadImg.svg")
+    no-repeat;
+}
+.loadImageDiv {
+  @apply bg-[#bebfe48f] rounded-md pb-[15px] px-7 pt-[21px] flex gap-2 flex-col justify-between items-center;
+}

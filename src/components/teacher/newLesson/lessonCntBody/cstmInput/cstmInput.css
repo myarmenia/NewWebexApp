@@ -1,4 +1,0 @@
-.errorMessage {
-  @apply whitespace-nowrap w-full text-[red] text-center leading-3 absolute left-1/2 -bottom-3 text-xs;
-  transform: translate(-50%, 0);
-}

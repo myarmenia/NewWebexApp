@@ -13,7 +13,7 @@ export const DropdownTitle: React.FC<DropdownTitleProps> = ({
   state,
 }) => {
   return (
-    <div className="defaultOption">
+    <div className="dropdownTitle">
       <div className="flex justify-center w-full">
         <button>{title}</button>
       </div>
