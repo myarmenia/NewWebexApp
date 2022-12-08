@@ -35,6 +35,7 @@ export interface IteacherMenu {
   toSubPaths?: {
     title: string;
     path: string;
+    isClicked: boolean;
   }[];
 }
 export interface MenuImage {

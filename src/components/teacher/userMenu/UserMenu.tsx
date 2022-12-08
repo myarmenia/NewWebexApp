@@ -47,8 +47,12 @@ export const UserMenu: React.FC = () => {
       activeImg: activeImg3,
       title: "Դասավանդման գրաֆիկ",
       toSubPaths: [
-        { path: "createGraffic", title: "Դասավանդման գրաֆիկ" },
-        { path: "calendar", title: "Դասընթացների օրացույց" },
+        {
+          path: "createGraffic",
+          title: "Դասավանդման գրաֆիկ",
+          isClicked: false,
+        },
+        { path: "calendar", title: "Դասընթացների օրացույց", isClicked: false },
       ],
     },
     {
