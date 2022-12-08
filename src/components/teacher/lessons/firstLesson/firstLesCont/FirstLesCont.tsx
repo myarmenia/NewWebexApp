@@ -44,7 +44,7 @@ export const FirstLesCont: React.FC = () => {
             <StageLessons />
           </div>
           <div className="nextBtnCont">
-            <SubmitBtn title="Հաջորդ դասը" />
+            <SubmitBtn title="Հաջորդ դասը" type="submit"/>
             <button
               type="button"
               className="addLessonBtn"

@@ -34,10 +34,6 @@ export const Calendar: FC = () => {
     }
     datesWeek.push(some);
   }
-
-  console.log(datesWeek[2][0]);
-
-
   return (
     <div className="calendar">
       <LessonTitle title="Դասավանդման գրաֆիկ" />

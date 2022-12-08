@@ -3,11 +3,12 @@ import "./submitBtn.css";
 
 interface SubmitBtnProps {
   title: string;
+  type: "button" | "submit" | "reset";
 }
 
-export const SubmitBtn: React.FC<SubmitBtnProps> = ({ title }) => {
+export const SubmitBtn: React.FC<SubmitBtnProps> = ({ title, type }) => {
   return (
-    <button type="submit" className="addLessonBtn ">
+    <button type={type} className="addLessonBtn ">
       {title}
     </button>
   );

@@ -29,7 +29,13 @@ export interface IteacherMenu {
   id?: number;
   isClicked: boolean;
   img: string;
+  activeImg: string;
   title: string;
+  to?: string;
+  toSubPaths?: {
+    title: string;
+    path: string;
+  }[];
 }
 export interface MenuImage {
   bgColor?: string;

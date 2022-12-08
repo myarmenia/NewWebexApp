@@ -1,0 +1,6 @@
+.mItemsDrop {
+  @apply w-auto whitespace-nowrap list-none relative flex flex-col gap-3;
+}
+.subMenuSpan {
+  @apply text-xs font-semibold;
+}

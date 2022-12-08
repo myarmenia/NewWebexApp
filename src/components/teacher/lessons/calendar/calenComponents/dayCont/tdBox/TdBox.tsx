@@ -11,8 +11,6 @@ export const TdBox: FC<TdBoxProps> = ({
   currentDayEvents,
   className,
 }) => {
-  currentDayEvents && console.log(currentDayEvents);
-
   return (
     <td className={`tdBox1 ${className}`}>
       <div className="CalendarCont2NumberBox">{dayNumber}</div>
@@ -27,10 +25,3 @@ export const TdBox: FC<TdBoxProps> = ({
     </td>
   );
 };
-{
-  /* <div className="CalendarEventBox">
-          <img src="" />
-          <div>Название” игры</div>
-          <div>20:00</div>
-        </div> */
-}

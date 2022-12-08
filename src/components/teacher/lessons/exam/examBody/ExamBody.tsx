@@ -38,7 +38,11 @@ export const ExamBody: React.FC = () => {
             <ExamCnt {...{ questions }} />
           </div>
           <div className="nextBtnCont">
-            <SubmitBtn title="Հաջորդ դասը" />
+            <SubmitBtn title="Նախորդ էջ" type="button" />
+            <div className="flex gap-7 items-center">
+              <span className="textPurple textUnderline">Բաց թողնել</span>
+              <SubmitBtn title="Ստեղծել թեստը" type="submit" />
+            </div>
           </div>
         </div>
       </form>
