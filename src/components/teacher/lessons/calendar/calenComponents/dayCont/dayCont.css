@@ -1,0 +1,33 @@
+#CalendarBody_DayContainer {
+  width: 83%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.CaledarHead {
+  @apply flex items-center h-[112px] w-full justify-center;
+}
+#CalendarBody_DayContainerHead {
+  @apply flex  gap-[23px] w-[97%] items-center justify-between;
+}
+#CalendarBody_DayContainerContent {
+  width: 100%;
+}
+
+#CalendarHeadBox2 {
+  position: relative;
+}
+.CalendarHeadFilterBtn {
+  @apply border-[1.35px] border-white py-[5px] px-[11px] text-[#9c9c9c] bg-white w-[82px] flex justify-between items-center rounded-[30px] cursor-pointer text-sm gap-2;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+}
+.th2 {
+  font-weight: 600;
+  font-size: 14px;
+  color: #6b6b6b;
+  border-top: 2px solid #bebfe4;
+  border-bottom: 2px solid #bebfe4;
+  padding: 3px 0;
+  width: 135px;
+}
