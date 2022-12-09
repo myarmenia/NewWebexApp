@@ -18,6 +18,16 @@ export const MItemsDrop: FC<MItemsDropProps> = ({
   title,
   chooseMenuItem,
 }) => {
+  const toggleSubMenu = (el: {
+    title: string;
+    path: string;
+    isClicked: boolean;
+  }) => {
+    toSubPaths?.forEach((item) => {
+      item.isClicked = false;
+    });
+    el.isClicked = true;
+  };
   return (
     <li
       className={`mItemsDrop ${isClicked ? "activeMenuItem" : ""}`}
@@ -39,12 +49,7 @@ export const MItemsDrop: FC<MItemsDropProps> = ({
               key={Math.random()}
               to={el.path}
               className={`subMenuSpan ${el.isClicked ? "textPurple" : ""}`}
-              onClick={() => {
-                toSubPaths.forEach((item) => {
-                  item.isClicked = false;
-                });
-                el.isClicked = true;
-              }}
+              onClick={() => toggleSubMenu(el)}
             >
               {el.title}
             </Link>

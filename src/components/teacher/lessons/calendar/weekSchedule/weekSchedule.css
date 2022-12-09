@@ -1,0 +1,22 @@
+.weekSchedule {
+  @apply w-full mb-[5px];
+}
+.weekSchTable {
+  @apply w-full bg-[#f7fcff9e] rounded-[15px];
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+}
+.weekSchTh,
+.weekSchTd {
+  @apply py-[9px] px-6 border border-[#BEBFE4] text-[#6B6B6B] relative;
+}
+.weekSchTh {
+  @apply border-b-[3px] border-t-0 font-semibold;
+}
+.weekSchTd:first-child,
+.weekSchTh:first-child {
+  @apply border-l-0;
+}
+.weekSchTd:last-child,
+.weekSchTh:last-child {
+  @apply border-r-0;
+}

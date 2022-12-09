@@ -1,9 +1,5 @@
 #CalendarBody_DayContainer {
-  width: 83%;
-  height: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @apply w-[83%] h-auto flex flex-col items-center;
 }
 .CaledarHead {
   @apply flex items-center h-[112px] w-full justify-center;
@@ -12,22 +8,28 @@
   @apply flex  gap-[23px] w-[97%] items-center justify-between;
 }
 #CalendarBody_DayContainerContent {
-  width: 100%;
+  @apply w-full;
 }
 
 #CalendarHeadBox2 {
-  position: relative;
+  @apply relative;
 }
 .CalendarHeadFilterBtn {
   @apply border-[1.35px] border-white py-[5px] px-[11px] text-[#9c9c9c] bg-white w-[82px] flex justify-between items-center rounded-[30px] cursor-pointer text-sm gap-2;
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
 }
-.th2 {
-  font-weight: 600;
-  font-size: 14px;
-  color: #6b6b6b;
-  border-top: 2px solid #bebfe4;
-  border-bottom: 2px solid #bebfe4;
-  padding: 3px 0;
-  width: 135px;
+
+@media (max-width: 860px) {
+  #CalendarBody_DayContainer {
+    @apply w-auto;
+    gap: max(3vw, 11px);
+  }
+  #CalendarBody_DayContainerHead {
+    @apply h-[39px] self-center m-0;
+  }
+  .CalendarHeadFilterBtn,
+  #month {
+    font-size: max(3.5vw, 22px);
+    @apply w-full;
+  }
 }

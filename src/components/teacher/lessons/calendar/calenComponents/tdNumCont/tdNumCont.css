@@ -19,3 +19,8 @@
 #month {
   @apply capitalize text-base font-semibold text-[#CCCCCC];
 }
+@media (max-width: 860px) {
+  #CalendarBody_NumericContainer {
+    @apply w-auto;
+  }
+}

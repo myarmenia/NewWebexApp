@@ -11,6 +11,7 @@ import CreateGraffic from "./userComponents/CreateGraffic";
 import { Exam } from "./lessons/exam/Exam";
 import { Calendar } from "./lessons/calendar/Calendar";
 import { Route, Routes } from "react-router";
+import { WeekSchedule } from "./lessons/calendar/weekSchedule/WeekSchedule";
 
 export const Teacher: React.FC = () => {
   return (
@@ -25,17 +26,18 @@ export const Teacher: React.FC = () => {
         {/* <FirstLesson /> */}
 
         {/* <Exam /> */}
-        {/* <Calendar /> */}
+        <Calendar />
 
         {/* <CreateGraffic /> */}
-        <Routes>
+        {/* <WeekSchedule /> */}
+        {/* <Routes>
           <Route path="/" element={<AddLesson />}></Route>
           <Route index path="newLesson" element={<NewLesson />}></Route>
           <Route index path="createGraffic" element={<CreateGraffic />}></Route>
           <Route path="calendar" element={<Calendar />}></Route>
-        </Routes>
-          {/* <Route path="firstLesson" element={<FirstLesson />}></Route> */}
-          {/* <Route path="exam" element={<Exam />}></Route> */}
+        </Routes> */}
+        {/* <Route path="firstLesson" element={<FirstLesson />}></Route> */}
+        {/* <Route path="exam" element={<Exam />}></Route> */}
       </Content>
     </div>
   );
