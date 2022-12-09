@@ -1,0 +1,3 @@
+.th2 {
+  @apply text-[#6b6b6b] font-semibold text-sm border-t-2 border-b-2 border-[#bebfe4] py-[3px] w-[135px];
+}

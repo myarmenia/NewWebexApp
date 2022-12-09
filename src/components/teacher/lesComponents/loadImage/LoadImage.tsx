@@ -4,7 +4,6 @@ import "./loadImage.css";
 
 interface LoadImageProps {
   regName?: string;
-
   className?: {
     div: string;
     img: string;
