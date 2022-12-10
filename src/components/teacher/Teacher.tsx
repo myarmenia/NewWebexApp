@@ -3,13 +3,16 @@ import "./teacher.css";
 import { UserHeader } from "./userHeader/UserHeader";
 import { UserMenu } from "./userMenu/UserMenu";
 import { Content } from "./content/Content";
-import { AddLesson } from "./addLesson/AddLesson";
+import { AddLesson } from "./lessons/addLesson/AddLesson";
 import { NewLesson } from "./lessons/newLesson/NewLesson";
 import { LessonTitle } from "./lessonTitle/LessonTitle";
 import { FirstLesson } from "./lessons/firstLesson/FirstLesson";
 import CreateGraffic from "./userComponents/CreateGraffic";
 import { Exam } from "./lessons/exam/Exam";
 import EditGraffic from "./userComponents/editGraffic/EditGraffic";
+import { Calendar } from "./lessons/calendar/Calendar";
+import { Route, Routes } from "react-router";
+import { WeekSchedule } from "./lessons/calendar/weekSchedule/WeekSchedule";
 
 export const Teacher: React.FC = () => {
   return (
@@ -24,7 +27,20 @@ export const Teacher: React.FC = () => {
         {/* <FirstLesson /> */}
         <CreateGraffic />
         {/* <EditGraffic /> */}
+
         {/* <Exam /> */}
+        <Calendar />
+
+        {/* <CreateGraffic /> */}
+        {/* <WeekSchedule /> */}
+        {/* <Routes>
+          <Route path="/" element={<AddLesson />}></Route>
+          <Route index path="newLesson" element={<NewLesson />}></Route>
+          <Route index path="createGraffic" element={<CreateGraffic />}></Route>
+          <Route path="calendar" element={<Calendar />}></Route>
+        </Routes> */}
+        {/* <Route path="firstLesson" element={<FirstLesson />}></Route> */}
+        {/* <Route path="exam" element={<Exam />}></Route> */}
       </Content>
     </div>
   );

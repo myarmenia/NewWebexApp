@@ -1,0 +1,39 @@
+#CalendarBody {
+  @apply bg-[#f7fcff9e] flex rounded-[15px] my-[15px];
+  box-shadow: 0px 0px 6px #8080801a;
+}
+#CalendarBodyContainer {
+  @apply w-full h-full flex rounded-[15px];
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+}
+.fullHR {
+  @apply bg-[#BEBFE4] w-[2px];
+}
+#table2 {
+  @apply w-full border-collapse h-[inherit];
+}
+
+@media (max-width: 860px) {
+  #CalendarBodyContainer {
+    @apply flex-col;
+  }
+  #CalendarBody_NumericContainer {
+    @apply w-auto;
+  }
+}
+@media (max-width: 600px) {
+  #CalendarHeadBox2 {
+    @apply h-[inherit];
+  }
+  #monthBox {
+    @apply h-fit m-0 mx-2;
+  }
+}
+@media (max-width: 420px) {
+  #CalendarBody_DayContainerHead {
+    @apply flex flex-wrap gap-[15px] items-center justify-center h-20;
+  }
+  #monthBox {
+    @apply w-full;
+  }
+}

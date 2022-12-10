@@ -29,7 +29,14 @@ export interface IteacherMenu {
   id?: number;
   isClicked: boolean;
   img: string;
+  activeImg: string;
   title: string;
+  to?: string;
+  toSubPaths?: {
+    title: string;
+    path: string;
+    isClicked: boolean;
+  }[];
 }
 export interface MenuImage {
   bgColor?: string;
@@ -49,4 +56,26 @@ export interface IPaginationItem {
   id: number;
   isActive: boolean;
   isCompleted: boolean;
+}
+export interface IDateDay {
+  dayNumber: number;
+  isActive?: boolean;
+  notCurrentMonth?: boolean;
+  currentDayEvents?: {
+    evName?: string;
+    time: string;
+  }[];
+}
+export interface IWeekEvent {
+  title: string;
+  lessonDuration?: number;
+  weekday?: number; // weekday must be from 1 to 7 => {weekday === row}
+  evTime?: number; // evTime must be from 1 to 17 => {evTime === col}
+}
+export interface ICalendarReducer {
+  calendarList: {
+    dates: IDateDay[];
+    datesWeek: IDateDay[][];
+    currentDate: Date;
+  };
 }

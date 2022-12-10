@@ -181,8 +181,8 @@ export const LessonCntBody: React.FC = () => {
             </div>
           </div>
           <div className="nextBtnCont">
-            <SubmitBtn title="Առաջ" />
-            <button
+            <SubmitBtn title="Առաջ" type="submit" />
+            {/* <button
               type="button"
               className="addLessonBtn"
               onClick={() => {
@@ -190,7 +190,7 @@ export const LessonCntBody: React.FC = () => {
               }}
             >
               watch
-            </button>
+            </button> */}
           </div>
         </form>
       </div>

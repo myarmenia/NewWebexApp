@@ -1,0 +1,11 @@
+.mItemsDrop {
+  @apply cursor-pointer w-auto whitespace-nowrap list-none relative flex flex-col gap-3;
+}
+.sumItems {
+  @apply flex flex-col gap-2 w-fit ml-9;
+  -webkit-text-fill-color: #6b6b6b;
+}
+.subMenuSpan {
+  @apply text-xs font-semibold text-[#6B6B6B];
+  color: #6b6b6b;
+}

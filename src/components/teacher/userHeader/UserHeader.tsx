@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./userHeader.css";
 import searchImg from "../../../images/Teacher/Header/searchImg.svg";
 import notifImg from "../../../images/Teacher/Header/Notification.svg";
@@ -17,6 +17,7 @@ export const UserHeaderStore: INavItemsContent[] = [
 ];
 
 export const UserHeader: React.FC = () => {
+  const [isPanelActive, setIsPanelActive] = useState<boolean>(false);
   return (
     <div className="header">
       <div id="logoDiv">
@@ -35,9 +36,29 @@ export const UserHeader: React.FC = () => {
           <div id="notificationImage">
             <img src={notifImg} className="cursor-pointer" />
           </div>
-          <p className="personName">Lorem, ipsum</p>
+          <div
+            className="relative cursor-pointer"
+            onPointerMove={() => setIsPanelActive(true)}
+            onPointerLeave={() => setIsPanelActive(false)}
+          >
+            <p className="personName">Lorem, ipsum</p>
+            {isPanelActive && (
+              <div className="panel">
+                <div>
+                  <p className="panelTitle">
+                    Ղեկավարման վահանակ
+                  </p>
+                  <div className="exitHEadBox">
+                    <img id="exit" src={exitImg} className="cursor-pointer" />
+                    <span className="text-xs text-[#9C9C9C] whitespace-nowrap">
+                      Դուրս գալ
+                    </span>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
           <img id="personImage" src={teacherImg} className="cursor-pointer" />
-          <img id="exit" src={exitImg} className="cursor-pointer" />
         </div>
       </nav>
     </div>

@@ -21,7 +21,7 @@
   @apply flex flex-col gap-5 justify-between w-full mb-[10px];
 }
 .nextBtnCont {
-  @apply flex gap-4 justify-end;
+  @apply flex gap-4 justify-between;
 }
 .textUnderline {
   @apply text-xs font-semibold relative;
