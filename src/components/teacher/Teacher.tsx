@@ -9,6 +9,7 @@ import { LessonTitle } from "./lessonTitle/LessonTitle";
 import { FirstLesson } from "./lessons/firstLesson/FirstLesson";
 import CreateGraffic from "./userComponents/CreateGraffic";
 import { Exam } from "./lessons/exam/Exam";
+import EditGraffic from "./userComponents/editGraffic/EditGraffic";
 import { Calendar } from "./lessons/calendar/Calendar";
 import { Route, Routes } from "react-router";
 import { WeekSchedule } from "./lessons/calendar/weekSchedule/WeekSchedule";
@@ -24,6 +25,8 @@ export const Teacher: React.FC = () => {
         {/* <AddLesson /> */}
         {/* <NewLesson /> */}
         {/* <FirstLesson /> */}
+        <CreateGraffic />
+        {/* <EditGraffic /> */}
 
         {/* <Exam /> */}
         <Calendar />
