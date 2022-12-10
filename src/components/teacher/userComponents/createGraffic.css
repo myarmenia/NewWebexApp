@@ -18,16 +18,12 @@
   color: #6b6b6b;
 }
 .time {
-  box-sizing: border-box;
-  gap: 10px;
-  width: 85px;
-  height: 40px;
+  @apply w-[85px] px-[20px] h-[40px] text-[#9c9c9c];
   background: rgba(255, 255, 255, 0.6);
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
   border-radius: 15px;
   font-weight: 400;
   font-size: 12px;
-  color: #9c9c9c;
 }
 .time::-webkit-calendar-picker-indicator {
   background: none;
@@ -41,15 +37,16 @@
   display: flex;
 }
 .grafficInputChild {
-  width: 16%;
-  height: 40px;
-  gap: 20px;
-  align-items: center;
+  width: 20%;
+  height: 80px;
+  column-gap: 15px;
   display: flex;
+  flex-wrap: wrap;
 }
 .gic {
   width: 8.62px;
   height: 0px;
+  margin-top: 10%;
   border: 1px solid #cccccc;
 }
 .buttonContainer {
@@ -62,11 +59,12 @@
   font-weight: 400;
   font-size: 12px;
   line-height: 16px;
-  /* identical to box height */
-
-  /* Filled gray 6B */
-
   color: #6b6b6b;
+}
+.errorMessage {
+  font-size: 12px;
+  color: red;
+  height: 20px;
 }
 .save {
   width: 193px;
@@ -79,4 +77,7 @@
 }
 .form-group {
   height: 40px !important;
+}
+.componentGraffic {
+  width: 100%;
 }
