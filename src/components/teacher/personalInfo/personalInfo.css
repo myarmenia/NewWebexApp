@@ -1,0 +1,12 @@
+.personalInfo {
+  @apply w-full h-auto flex flex-col gap-[57px];
+}
+.personalInfoChild {
+  @apply flex;
+}
+.infoChild {
+  @apply w-[35%] h-auto flex flex-col gap-[15px];
+}
+.infoChild2 {
+  @apply w-[40%] h-auto;
+}

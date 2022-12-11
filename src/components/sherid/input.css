@@ -27,7 +27,7 @@ option {
 input[type="password"],
 input[type="email"] {
   @apply box-border outline-none bg-white w-[100%] h-10 flex 
-  justify-center flex-col items-start pl-10 pr-5 gap-[10px] 
+  justify-center flex-col items-start pl-[30px] pr-5 gap-[10px] 
   rounded-2xl font-normal text-xs;
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
 }

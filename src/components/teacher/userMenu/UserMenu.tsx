@@ -48,7 +48,7 @@ export const UserMenu: React.FC = () => {
       title: "Դասավանդման գրաֆիկ",
       toSubPaths: [
         {
-          path: "createGraffic",
+          path: "editGraffic",
           title: "Դասավանդման գրաֆիկ",
           isClicked: false,
         },

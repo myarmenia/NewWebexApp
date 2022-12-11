@@ -13,6 +13,7 @@ import EditGraffic from "./userComponents/editGraffic/EditGraffic";
 import { Calendar } from "./lessons/calendar/Calendar";
 import { Route, Routes } from "react-router";
 import { WeekSchedule } from "./lessons/calendar/weekSchedule/WeekSchedule";
+import PersonalInfo from "./personalInfo/PersonalInfo";
 
 export const Teacher: React.FC = () => {
   return (
@@ -25,18 +26,18 @@ export const Teacher: React.FC = () => {
         {/* <AddLesson /> */}
         {/* <NewLesson /> */}
         {/* <FirstLesson /> */}
-        <CreateGraffic />
+        {/* <CreateGraffic /> */}
         {/* <EditGraffic /> */}
 
         {/* <Exam /> */}
-        <Calendar />
-
+        {/* <Calendar /> */}
+        <PersonalInfo />
         {/* <CreateGraffic /> */}
         {/* <WeekSchedule /> */}
         {/* <Routes>
           <Route path="/" element={<AddLesson />}></Route>
           <Route index path="newLesson" element={<NewLesson />}></Route>
-          <Route index path="createGraffic" element={<CreateGraffic />}></Route>
+          <Route index path="EditGraffic" element={<EditGraffic />}></Route>
           <Route path="calendar" element={<Calendar />}></Route>
         </Routes> */}
         {/* <Route path="firstLesson" element={<FirstLesson />}></Route> */}

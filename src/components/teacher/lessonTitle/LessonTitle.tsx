@@ -1,6 +1,8 @@
 import React from "react";
 import "./lessonTitle.css";
 import editImg from "../../../images/Teacher/NewLesson/pencil 1.svg";
+import CreateGraffic from "../userComponents/CreateGraffic";
+import { Link } from "react-router-dom";
 interface LessonTitleProps {
   title: string;
   editIsActive?: boolean;

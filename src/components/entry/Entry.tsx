@@ -44,14 +44,14 @@ const Entry = () => {
             type="email"
             url={emailIcon}
             error={errors.email?.message}
-            placholder="Էլ․ փոստ"
+            placeholder="Էլ․ փոստ"
           />
           <Input
             register={{ ...register("password") }}
             type="password"
             url={passwordIcon}
             error={errors.password?.message}
-            placholder="Գաղտնաբառ"
+            placeholder="Գաղտնաբառ"
           />
           <div className="recover">
             <a href="">Վերականգնել գաղտնաբառը</a>

@@ -4,9 +4,10 @@ interface InputProps {
   type: string;
   error?: string;
   className?: string;
-  placholder?: string;
+  placeholder?: string;
   url?: string;
-  register: {
+  title?: string;
+  register?: {
     name?: string;
     value?: string;
     error?: string;
@@ -15,14 +16,14 @@ interface InputProps {
 const Input: React.FC<InputProps> = (props) => {
   return (
     <div className="form-group">
-      <img src={props.url} />
+      {props.url && <img src={props.url} />}
       <input
         {...props?.register}
         type={props.type}
-        placeholder={props.placholder}
+        placeholder={props.placeholder}
         className={props.className}
       />
-      <div className="invalid-feedback">{props?.error}</div>
+      {props?.error && <div className="invalid-feedback">{props?.error}</div>}
     </div>
   );
 };

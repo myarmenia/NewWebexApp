@@ -9,8 +9,6 @@ import emailIcon from "../../images/registration/mail.png";
 import passwordIcon from "../../images/registration/password.png";
 import facebook from "../../images/registration/facebook.png";
 import gmail from "../../images/registration/gmail.png";
-// import { CustomSelect } from "../header/customSelect/CustomSelect";
-
 import { ISelect } from "../../models/interfaces";
 import { CustomSelect } from "../teacher/lesComponents/customSelect/CustomSelect";
 // import { Option } from "../header/customSelect/Option";
@@ -111,7 +109,7 @@ const Regsitration = () => {
                 className="name"
                 url={userIcon}
                 error={errors.username?.message}
-                placholder="Անուն"
+                placeholder="Անուն"
               />
               <Input
                 register={{ ...register("email") }}
@@ -119,7 +117,7 @@ const Regsitration = () => {
                 className="email"
                 url={emailIcon}
                 error={errors.email?.message}
-                placholder="Էլ․ փոստ"
+                placeholder="Էլ․ փոստ"
               />
               <Input
                 register={{ ...register("password") }}
@@ -127,7 +125,7 @@ const Regsitration = () => {
                 className="password"
                 url={passwordIcon}
                 error={errors.password?.message}
-                placholder="Գաղտնաբառ"
+                placeholder="Գաղտնաբառ"
               />
               <Input
                 register={{ ...register("confirmPassword") }}
@@ -135,7 +133,7 @@ const Regsitration = () => {
                 className="password"
                 url={passwordIcon}
                 error={errors.confirmPassword?.message}
-                placholder="Կրկնել գաղտնաբառը"
+                placeholder="Կրկնել գաղտնաբառը"
               />
               <div className="form-group-checkbox2">
                 <div className="form-group-checkboxChild2">
