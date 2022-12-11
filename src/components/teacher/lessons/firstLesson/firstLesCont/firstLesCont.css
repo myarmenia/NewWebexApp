@@ -2,8 +2,11 @@
   @apply flex flex-col gap-7;
 }
 .firstLesCont {
-  @apply bg-[#ffffffbf] rounded-2xl px-[29px] py-[24px];
+  @apply rounded-2xl px-[29px] py-[24px] relative;
   filter: drop-shadow(2px 4px 10px rgba(0, 0, 0, 0.1));
+}
+.firstLesCont div {
+  position: inherit;
 }
 .lessonContainer {
   @apply flex justify-between mx-auto w-[98%];

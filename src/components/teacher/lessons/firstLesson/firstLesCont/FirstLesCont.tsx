@@ -39,21 +39,13 @@ export const FirstLesCont: React.FC = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="lessonCont">
           <div className="firstLesCont">
+            <div className="my_background_04" />
             <CntTitle title="ՓՈՒԼ 1" />
-            {/* <StageBody /> */}
-            <StageLessons />
+            <StageBody />
+            {/* <StageLessons /> */}
           </div>
           <div className="nextBtnCont">
-            <SubmitBtn title="Հաջորդ դասը" type="submit"/>
-            <button
-              type="button"
-              className="addLessonBtn"
-              onClick={() => {
-                console.log(watch());
-              }}
-            >
-              watch
-            </button>
+            <SubmitBtn title="Հաջորդ դասը" type="submit" />
           </div>
         </div>
       </form>

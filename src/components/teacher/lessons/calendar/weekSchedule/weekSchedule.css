@@ -2,7 +2,8 @@
   @apply w-full mb-[5px];
 }
 .weekSchTable {
-  @apply w-full bg-[#f7fcff9e] rounded-[15px];
+  @apply w-full rounded-[15px];
+  position: inherit;
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
 }
 .weekSchTh,

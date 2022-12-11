@@ -15,15 +15,9 @@ export const LesStageBox: FC<LesStageBoxProps> = ({
   stageLessons,
 }) => {
   const [isShown, setIsShown] = useState<boolean>(stageNumber <= 2);
-  const animLessons = isShown
-    ? {
-        height: `${stageLessons.length * 109 + 21}px`,
-        diplay: "flex",
-      }
-    : {
-        height: "0",
-        diplay: "none",
-      };
+  const animLessons: { height: string } = isShown
+    ? { height: `${stageLessons.length * 109 + 21}px` }
+    : { height: "0" };
 
   return (
     <div className="lesStageBox">

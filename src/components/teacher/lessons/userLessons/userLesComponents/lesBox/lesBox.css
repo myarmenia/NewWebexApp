@@ -26,7 +26,7 @@
   @apply text-lg text-[#6B6B6B] font-bold;
 }
 .seeMoreBtn {
-  @apply w-[114px] py-[5px] rounded-[10px];
+  @apply w-[114px] py-[5px] rounded-[10px] min-w-fit;
 }
 .editLessonBox {
   @apply flex items-center gap-[6px];
