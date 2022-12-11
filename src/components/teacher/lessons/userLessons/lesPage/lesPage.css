@@ -1,0 +1,7 @@
+.lesPage {
+  @apply relative;
+}
+.lesPage_container {
+  @apply flex flex-col z-[1] mb-[10px];
+  position: inherit;
+}

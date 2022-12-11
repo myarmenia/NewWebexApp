@@ -24,6 +24,7 @@ export const Calendar: FC = () => {
     <div className="calendar">
       <LessonTitle title="Դասավանդման գրաֆիկ" />
       <div id="CalendarBody">
+        <div className="my_background_04"/>
         <div id="CalendarBodyContainer">
           <TdNumCont />
           <div className="fullHR" />

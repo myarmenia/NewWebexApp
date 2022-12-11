@@ -23,7 +23,7 @@ export interface LessonProps {
   keys: string[];
   description: string;
   price: string;
-  video: string;
+  video?: string;
 }
 export interface IteacherMenu {
   id?: number;
@@ -78,4 +78,8 @@ export interface ICalendarReducer {
     datesWeek: IDateDay[][];
     currentDate: Date;
   };
+}
+export interface IStageLesson {
+  lessonNumber?: number;
+  title: string;
 }

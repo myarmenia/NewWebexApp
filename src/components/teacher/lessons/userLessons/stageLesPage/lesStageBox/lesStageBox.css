@@ -1,0 +1,14 @@
+.lesStageBox {
+  @apply w-full rounded-[20px] px-5 py-[11px] pb-[3px] relative overflow-y-hidden;
+  box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.1);
+}
+.stageBox_container {
+  /* @apply ; */
+  position: inherit;
+}
+.lesStageBoxHead {
+  @apply flex items-center justify-between text-[#6B6B6B] text-xs mb-2;
+}
+.lesStageLessons {
+  @apply relative flex flex-col gap-[18px] transition-all duration-300 max-h-[525px] overflow-y-auto;
+}
