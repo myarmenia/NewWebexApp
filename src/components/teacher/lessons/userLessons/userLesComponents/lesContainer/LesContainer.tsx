@@ -3,8 +3,12 @@ import "./lesContainer.css";
 
 interface LesContainerProps {
   children: ReactNode;
+  className?: string;
 }
 
-export const LesContainer: FC<LesContainerProps> = ({ children }) => {
-  return <div className="lesContainer">{children}</div>;
+export const LesContainer: FC<LesContainerProps> = ({
+  children,
+  className,
+}) => {
+  return <div className={"lesContainer " + className}>{children}</div>;
 };

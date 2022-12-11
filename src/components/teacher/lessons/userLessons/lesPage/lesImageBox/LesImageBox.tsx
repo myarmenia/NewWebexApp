@@ -18,12 +18,12 @@ export const LesImageBox: FC<LesImageBoxProps> = ({
         <span className="lesInfoItem">
           <span className="text-lg">{stageCount}</span> Փուլ
         </span>
-        <hr className="bg-white h-5 w-[1px]" />
+        <hr className="imageBox_hr" />
         <span className="lesInfoItem">
           <span className="text-lg">{stageLessons} </span>
           դաս (ընդհանուր {stageLessons * stageCount})
         </span>
-        <hr className="bg-white h-5 w-[1px]" />
+        <hr className="imageBox_hr" />
         <span className="lesInfoItem">
           <span className="text-lg">{lessonTime} </span>
           ժամ դասի տևողությունը

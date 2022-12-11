@@ -3,10 +3,11 @@ import "./userHeader.css";
 import searchImg from "../../../images/Teacher/Header/searchImg.svg";
 import notifImg from "../../../images/Teacher/Header/Notification.svg";
 import teacherImg from "../../../images/Teacher/Header/Rectangle 83.svg";
-import exitImg from "../../../images/Teacher/Header/Group 1498.svg";
 import { INavItemsContent } from "../../../models/interfaces";
 import { Navbar } from "../../header/navbar/Navbar";
 import { SMNavbar } from "./smNavbar/SMNavbar";
+import chevDown from "../../../images/chevDown.svg";
+import { UserPanel } from "./userPanel/UserPanel";
 
 export const UserHeaderStore: INavItemsContent[] = [
   "Գլխավոր",
@@ -41,22 +42,11 @@ export const UserHeader: React.FC = () => {
             onPointerMove={() => setIsPanelActive(true)}
             onPointerLeave={() => setIsPanelActive(false)}
           >
-            <p className="personName">Lorem, ipsum</p>
-            {isPanelActive && (
-              <div className="panel">
-                <div>
-                  <p className="panelTitle">
-                    Ղեկավարման վահանակ
-                  </p>
-                  <div className="exitHEadBox">
-                    <img id="exit" src={exitImg} className="cursor-pointer" />
-                    <span className="text-xs text-[#9C9C9C] whitespace-nowrap">
-                      Դուրս գալ
-                    </span>
-                  </div>
-                </div>
-              </div>
-            )}
+            <div className="flex items-center gap-1">
+              <p className="personName">Անուն Ազգանուն</p>
+              <img src={chevDown} alt="" className="w-3 h-3" />
+            </div>
+            {isPanelActive && <UserPanel />}
           </div>
           <img id="personImage" src={teacherImg} className="cursor-pointer" />
         </div>
