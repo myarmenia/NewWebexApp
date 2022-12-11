@@ -1,0 +1,6 @@
+.lesStgLesson {
+  @apply flex flex-col gap-[9px] duration-200;
+}
+.homeWorkAncor {
+  @apply text-[#898BCE] font-semibold text-xs;
+}

@@ -5,7 +5,7 @@
   @apply text-[#7A64FA] font-bold text-base;
 }
 .lesPage_editBox {
-  @apply flex items-center gap-[6px];
+  @apply flex items-center gap-[6px] cursor-pointer;
 }
 .lesPage_editText {
   @apply text-xs text-[#6B6B6B];

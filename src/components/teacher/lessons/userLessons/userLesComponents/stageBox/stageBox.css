@@ -1,34 +1,10 @@
 .stageBox {
-  @apply bg-white rounded-[20px] px-7 py-4;
+  @apply bg-white rounded-[20px] px-7 py-4 relative overflow-y-hidden;
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
 }
 .stageBoxHead {
   @apply flex items-center justify-between text-[#6B6B6B] text-xl;
 }
 .stageLessons {
-  @apply relative mt-5 flex flex-col gap-[19px];
-  top: attr(data-height)px;
-}
-.showLessons {
-  animation: showLessons 300ms ease-out;
-}
-.hideLessons {
-  animation: hideLessons 300ms ease-out;
-}
-
-@keyframes showLessons {
-  0% {
-    top: attr(--data-height);
-  }
-  100% {
-    @apply top-0;
-  }
-}
-@keyframes hideLessons {
-  0% {
-    @apply top-0;
-  }
-  100% {
-    @apply -top-full;
-  }
+  @apply relative flex flex-col gap-[19px] transition-all duration-300;
 }

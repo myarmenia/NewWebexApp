@@ -5,21 +5,18 @@ import {
   StageBoxProps,
 } from "../../userLesComponents/stageBox/StageBox";
 
+const stageLessons: IStageLesson[] = Array.from({
+  length: 12,
+}).map(() => ({
+  title:
+    "«Գրաֆիկ դիզայն» մասնագիտություն, մասնագիտության  կարեւորությունն ու արդիականությունը",
+}));
+export const stagesArr: StageBoxProps[] = [
+  { stageLessons: stageLessons },
+  { stageLessons: stageLessons },
+  { stageLessons: stageLessons },
+];
 export const LesStages: FC = () => {
-  const [stageLessons, setStageLessons] = useState<IStageLesson[]>(
-    Array.from({
-      length: 10,
-    }).map(() => ({
-      title:
-        "«Գրաֆիկ դիզայն» մասնագիտություն, մասնագիտության  կարեւորությունն ու արդիականությունը",
-      isShown: false,
-    }))
-  );
-  const [stagesArr, setStagesArr] = useState<StageBoxProps[]>([
-    { stageLessons: stageLessons },
-    { stageLessons: stageLessons },
-    { stageLessons: stageLessons },
-  ]);
   return (
     <div className="flex flex-col gap-3">
       {stagesArr.map(({ stageLessons }, i) => (

@@ -82,5 +82,4 @@ export interface ICalendarReducer {
 export interface IStageLesson {
   lessonNumber?: number;
   title: string;
-  isShown?: boolean;
 }
