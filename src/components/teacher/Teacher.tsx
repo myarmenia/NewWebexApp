@@ -32,15 +32,17 @@ export const Teacher: React.FC = () => {
         {/* <Exam /> */}
         {/* <Calendar /> */}
         {/* <WeekSchedule /> */}
-        <UserLessons />
+        {/* <UserLessons /> */}
 
         {/* <CreateGraffic /> */}
-        {/* <Routes>
-          <Route path="/" element={<AddLesson />}></Route>
-          <Route index path="newLesson" element={<NewLesson />}></Route>
-          <Route index path="createGraffic" element={<CreateGraffic />}></Route>
+        <Routes>
+          {/* <Route index path="/" element={<FirstLesson />}></Route> */}
+          {/* <Route index path="/" element={<WeekSchedule />}></Route> */}
+          <Route index path="/" element={<UserLessons />}></Route>
+          <Route path="newLesson" element={<NewLesson />}></Route>
+          <Route path="createGraffic" element={<CreateGraffic />}></Route>
           <Route path="calendar" element={<Calendar />}></Route>
-        </Routes> */}
+        </Routes>
         {/* <Route path="firstLesson" element={<FirstLesson />}></Route> */}
         {/* <Route path="exam" element={<Exam />}></Route> */}
       </Content>

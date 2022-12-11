@@ -1,6 +1,6 @@
 .header {
-  @apply w-full h-[80px] flex items-center fixed top-0 z-[4];
-  /* box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1); */
+  @apply w-full h-[80px] flex items-center fixed top-0 z-[4] bg-white border-b border-[#BEBFE4];
+  box-shadow: none;
 }
 /* #logoImgDiv {
    background: url("../Pictures/Question.svg") center no-repeat; 
@@ -8,11 +8,9 @@
 #logoDiv {
   @apply w-[20%] flex justify-center items-center;
 }
-.header {
-  @apply bg-white border-b border-[#BEBFE4];
-}
 .userCont {
   @apply w-[80%] h-[80px] flex justify-end items-center;
+  box-shadow: 11px 5px 10px rgb(0 0 0 / 5%);
 }
 .icons {
   @apply h-[80px] flex justify-between items-center gap-6 mr-[3%];

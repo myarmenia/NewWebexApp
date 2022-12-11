@@ -8,10 +8,13 @@ export const WeekSchedule: FC = () => {
   return (
     <div className="weekSchedule">
       <LessonTitle title="Դասավանդման գրաֆիկ" />
-      <table className="weekSchTable">
-        <WkThead />
-        <WkTbody />
-      </table>
+      <div className="relative">
+        <div className="my_background_04" />
+        <table className="weekSchTable">
+          <WkThead />
+          <WkTbody />
+        </table>
+      </div>
     </div>
   );
 };
