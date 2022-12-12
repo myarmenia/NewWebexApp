@@ -9,7 +9,7 @@
 }
 .loadFileInput {
   @apply w-[10px] h-[18px] bg-contain cursor-pointer;
-  background: url("../../../../../../images/Teacher/FirstLesson/downloadFile.svg")
+  background: url("../../../../images/Teacher/FirstLesson/downloadFile.svg")
     no-repeat;
 }
 .allowedFileFormat {

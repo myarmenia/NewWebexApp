@@ -23,7 +23,7 @@ export const AgeDiv: React.FC<AgeDivProps> = ({}) => {
       <div className="ageLimits">
         <CustomNmbInp defaultValue={16} regName="minAgeLimit" />
         <hr className="w-[10px] bg-[#CCCCCC] h-[1.5px] rounded border-none" />
-        <CustomNmbInp defaultValue={99} regName="maxAgeLimit" />
+        <CustomNmbInp defaultValue={99} regName="maxAgeLimit"/>
       </div>
     </div>
   );

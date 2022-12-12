@@ -6,7 +6,7 @@ import { CstmInput } from "../../../lesComponents/cstmInput/CstmInput";
 import { SubmitBtn } from "../../../lesComponents/submitBtn/SubmitBtn";
 import { firstLessonSchema, IFirstLessonSchema } from "../firstLesSchema";
 import { BoxTitle } from "./BoxTitle";
-import { AttachFile } from "./attachFile/AttachFile";
+import { AttachFile } from "../../../lesComponents/attachFile/AttachFile";
 import { LoadImage } from "../../../lesComponents/loadImage/LoadImage";
 import { SaveDataDiv } from "./SaveDataDiv";
 import { StageBody } from "./stageBody/StageBody";

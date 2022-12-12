@@ -48,7 +48,15 @@ export const nLessCreate_L_Schema = Yup.object().shape({
     .oneOf(["Այո", "Ոչ"])
     .required("Նշելը պարտադիր է")
     .nullable(),
-  stages: Yup.array().of(Yup.object()),
+  stages: Yup.array().of(
+    Yup.object({
+      stageDescription: Yup.string()
+        .min(4, "some aafdsadf")
+        .required("required"),
+      count: Yup.number().lessThan(2, "less than 2").required("dfadf"),
+      stage: Yup.number(),
+    })
+  ),
   requiredKnowledges: Yup.array().of(Yup.object()),
 });
 

@@ -3,7 +3,7 @@ import { useFormContext } from "react-hook-form";
 // import { ContTitle } from "../../../../lesComponents/contTitle/ContTitle";
 import { CstmInput } from "../../../../lesComponents/cstmInput/CstmInput";
 import { CstmTextarea } from "../../../../lesComponents/cstmTextarea/CstmTextarea";
-import { AttachFile } from "../attachFile/AttachFile";
+import { AttachFile } from "../../../../lesComponents/attachFile/AttachFile";
 import { BoxTitle } from "../BoxTitle";
 import { LoadImage } from "../../../../lesComponents/loadImage/LoadImage";
 import { SaveDataDiv } from "../SaveDataDiv";
