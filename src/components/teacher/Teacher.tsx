@@ -16,6 +16,7 @@ import { WeekSchedule } from "./lessons/calendar/weekSchedule/WeekSchedule";
 import PersonalInfo from "./personalInfo/PersonalInfo";
 import { UserLessons } from "./lessons/userLessons/UserLessons";
 import { EditMyLessons } from "./lessons/userLessons/editMyLessons/EditMyLessons";
+import { Students } from "./lessons/students/Students";
 
 export const Teacher: React.FC = () => {
   const location = useLocation();
@@ -31,33 +32,32 @@ export const Teacher: React.FC = () => {
         {/* <AddLesson /> */}
         {/* <NewLesson /> */}
         {/* <FirstLesson /> */}
+
         {/* <CreateGraffic /> */}
         {/* <EditGraffic /> */}
 
         {/* <Exam /> */}
         {/* <Calendar /> */}
-        <PersonalInfo />
-        {/* <CreateGraffic /> */}
         {/* <WeekSchedule /> */}
-        {/* <Routes>
-          <Route path="/" element={<AddLesson />}></Route>
-          <Route index path="newLesson" element={<NewLesson />}></Route>
-          <Route index path="EditGraffic" element={<EditGraffic />}></Route>
+
+        {/* <PersonalInfo /> */}
+        
         {/* <WeekSchedule /> */}
         {/* <UserLessons /> */}
+        <Students />
 
         {/* <CreateGraffic /> */}
         {/* <Route index path="/" element={<WeekSchedule />}></Route> */}
 
         {/* <Route index path="/" element={<FirstLesson />}></Route> */}
-        <Routes>
+        {/* <Routes>
           <Route path="/">
             <Route index element={<UserLessons />}></Route>
             <Route path="/newLesson" element={<NewLesson />}></Route>
             <Route path="/createGraffic" element={<CreateGraffic />}></Route>
             <Route path="/calendar" element={<Calendar />}></Route>
           </Route>
-        </Routes>
+        </Routes> */}
         {/* <Route path="firstLesson" element={<FirstLesson />}></Route> */}
         {/* <Route path="exam" element={<Exam />}></Route> */}
       </Content>

@@ -1,0 +1,21 @@
+.theadTr {
+  @apply bg-[#ffffffd1] rounded-[10px] text-xs font-semibold h-8;
+  position: inherit;
+}
+.theadTr > th:first-child {
+  @apply rounded-l-[10px];
+}
+.theadTr > th:first-child::before {
+  @apply hidden;
+}
+.theadTr > th:last-child {
+  @apply rounded-r-[10px];
+}
+.theadTr > th {
+  @apply text-[#6B6B6B] relative text-start px-5;
+}
+.theadTr > th::before {
+  @apply absolute left-0 h-[13px] w-[1px] top-1/2 bg-[#BEBFE4];
+  content: "";
+  transform: translate(0, -50%);
+}

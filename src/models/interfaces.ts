@@ -83,3 +83,15 @@ export interface IStageLesson {
   lessonNumber?: number;
   title: string;
 }
+export interface IStudentTd {
+  [key: string]: string | number | string[] | Date | Object | undefined;
+  image?: string;
+  name: string;
+  phoneNumber: string;
+  lessons: {
+    title: string;
+    date: string | Date;
+    progres: number;
+    homework: string;
+  }[];
+}
