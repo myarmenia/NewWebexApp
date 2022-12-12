@@ -11,12 +11,17 @@ import CreateGraffic from "./userComponents/CreateGraffic";
 import { Exam } from "./lessons/exam/Exam";
 import EditGraffic from "./userComponents/editGraffic/EditGraffic";
 import { Calendar } from "./lessons/calendar/Calendar";
-import { Route, Routes } from "react-router";
+import { Route, Routes, useLocation } from "react-router";
 import { WeekSchedule } from "./lessons/calendar/weekSchedule/WeekSchedule";
 import PersonalInfo from "./personalInfo/PersonalInfo";
 import { UserLessons } from "./lessons/userLessons/UserLessons";
+import { EditMyLessons } from "./lessons/userLessons/editMyLessons/EditMyLessons";
+import { Students } from "./lessons/students/Students";
 
 export const Teacher: React.FC = () => {
+  const location = useLocation();
+  // console.log(location);
+
   return (
     <div className="content">
       <UserHeader />
@@ -27,30 +32,32 @@ export const Teacher: React.FC = () => {
         {/* <AddLesson /> */}
         {/* <NewLesson /> */}
         {/* <FirstLesson /> */}
+
         {/* <CreateGraffic /> */}
         {/* <EditGraffic /> */}
 
         {/* <Exam /> */}
         {/* <Calendar /> */}
-        <PersonalInfo />
-        {/* <CreateGraffic /> */}
         {/* <WeekSchedule /> */}
-        {/* <Routes>
-          <Route path="/" element={<AddLesson />}></Route>
-          <Route index path="newLesson" element={<NewLesson />}></Route>
-          <Route index path="EditGraffic" element={<EditGraffic />}></Route>
+
+        {/* <PersonalInfo /> */}
+        
         {/* <WeekSchedule /> */}
         {/* <UserLessons /> */}
+        <Students />
 
         {/* <CreateGraffic /> */}
-        <Routes>
-          {/* <Route index path="/" element={<FirstLesson />}></Route> */}
-          {/* <Route index path="/" element={<WeekSchedule />}></Route> */}
-          <Route index path="/" element={<UserLessons />}></Route>
-          <Route path="new_lesson" element={<NewLesson />}></Route>
-          <Route path="create_graffic" element={<CreateGraffic />}></Route>
-          <Route path="calendar" element={<Calendar />}></Route>
-        </Routes>
+        {/* <Route index path="/" element={<WeekSchedule />}></Route> */}
+
+        {/* <Route index path="/" element={<FirstLesson />}></Route> */}
+        {/* <Routes>
+          <Route path="/">
+            <Route index element={<UserLessons />}></Route>
+            <Route path="/newLesson" element={<NewLesson />}></Route>
+            <Route path="/createGraffic" element={<CreateGraffic />}></Route>
+            <Route path="/calendar" element={<Calendar />}></Route>
+          </Route>
+        </Routes> */}
         {/* <Route path="firstLesson" element={<FirstLesson />}></Route> */}
         {/* <Route path="exam" element={<Exam />}></Route> */}
       </Content>

@@ -6,6 +6,7 @@ import { FieldArrayMethodProps, useFormContext } from "react-hook-form";
 interface CustomNmbInpProps {
   defaultValue: number;
   regName: string;
+  error?: string;
   append?: (
     value:
       | {
@@ -28,6 +29,7 @@ export const CustomNmbInp: React.FC<CustomNmbInpProps> = ({
   regName,
   append,
   remove,
+  error,
 }) => {
   const {
     register,
@@ -45,10 +47,6 @@ export const CustomNmbInp: React.FC<CustomNmbInpProps> = ({
         count: 2,
         stageDescription: "",
       });
-      if(append){
-        console.log(watch("stages"));
-        
-      }
     }
   };
   const decrease = () => {
@@ -77,7 +75,7 @@ export const CustomNmbInp: React.FC<CustomNmbInpProps> = ({
         <img src={arrow} alt="" className="arrowRight" onClick={increase} />
       </div>
       <p className="errorMessage">
-        <>{errors[regName]?.message}</>
+        {error || errors[regName]?.message?.toString()}
       </p>
     </div>
   );

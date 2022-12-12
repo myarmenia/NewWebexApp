@@ -20,11 +20,9 @@ export const MenuLi: React.FC<MenuLiProps> = ({
       className={`menuLi ${isClicked ? "activeMenuItem" : ""}`}
       onClick={() => chooseMenuItem(id!)}
     >
-      <Link to={to!} className="menuA">
-        {/* <a className="menuA" href="#"> */}
+      <Link to={to!} className="menuA" state={{ id: id }}>
         <img src={isClicked ? activeImg : img} alt="" />
         <span className="menuSpan">{title}</span>
-        {/* </a> */}
       </Link>
     </li>
   );

@@ -39,8 +39,8 @@ export const UserHeader: React.FC = () => {
           </div>
           <div
             className="relative cursor-pointer"
-            onPointerMove={() => setIsPanelActive(true)}
-            onPointerLeave={() => setIsPanelActive(false)}
+            onMouseEnter={() => setIsPanelActive(true)}
+            onMouseLeave={() => setIsPanelActive(false)}
           >
             <div className="flex items-center gap-1">
               <p className="personName">Անուն Ազգանուն</p>

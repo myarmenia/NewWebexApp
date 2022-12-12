@@ -49,6 +49,9 @@
 .stagesContainer {
   @apply flex gap-6 flex-col;
 }
+.stageBox1 {
+  @apply flex justify-between;
+}
 .stageBox_closed {
   @apply w-[279px];
 }

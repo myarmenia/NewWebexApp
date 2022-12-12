@@ -48,6 +48,7 @@ export const MItemsDrop: FC<MItemsDropProps> = ({
             <Link
               key={Math.random()}
               to={el.path}
+              state={{ id: id }}
               className={`subMenuSpan ${el.isClicked ? "textPurple" : ""}`}
               onClick={() => toggleSubMenu(el)}
             >
