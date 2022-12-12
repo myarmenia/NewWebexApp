@@ -47,6 +47,7 @@
   /* text-fill-color: transparent; */
 }
 
+.my_background_08,
 .my_background_06,
 .my_background_04 {
   @apply z-0 w-full h-full bg-white opacity-60 rounded-[15px] !absolute top-0 left-0;
@@ -54,4 +55,7 @@
 }
 .my_background_04 {
   @apply opacity-40;
+}
+.my_background_08 {
+  @apply opacity-80;
 }
