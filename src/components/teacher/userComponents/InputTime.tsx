@@ -73,23 +73,25 @@ const InputTime: React.FC<InputProps> = ({
                   placeholder={placholder}
                   {...register(`${regName}.${index}.end`)}
                 />
-
                 {watch(regName)[index].end < watch(regName)[index].start &&
                 watch(regName)[index].end != "" &&
                 watch(regName)[index].start != "" ? (
-                  <div className="errorMessage">Դաշտը սխալ է լրացված</div>
+                  <div className="errorMessageGraffic">
+                    Դաշտը սխալ է լրացված
+                  </div>
                 ) : (watch(regName).length >= 2 &&
                     watch(regName)[index].end == "") ||
                   (watch(regName).length >= 2 &&
                     watch(regName)[index].start == "") ? (
-                  <div className="errorMessage">Դաշտերը պետք է լրացնել</div>
+                  <div className="errorMessageGraffic">
+                    Դաշտերը պետք է լրացնել
+                  </div>
                 ) : null}
               </>
             </div>
           );
         })}
       </div>
-
       <div className="buttonContainer">
         <button
           className="add"
