@@ -1,0 +1,9 @@
+.smMenu1 {
+  @apply border-t py-3 w-full flex flex-col items-center justify-center text-lg text-white fixed top-[80px] left-0 bg-white z-[5];
+}
+@media (max-width: 800px) {
+  .smMenu1 {
+    /* @apply shadow-lg; */
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+}
