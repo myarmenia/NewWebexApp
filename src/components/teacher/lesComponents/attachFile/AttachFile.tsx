@@ -18,7 +18,7 @@ export const AttachFile: React.FC<AttachFile> = ({ title, regName }) => {
   }, [file]);
   return (
     <div className="attachFile">
-      <span className="attachFileTitle">{title}</span>
+      {title && <span className="attachFileTitle">{title}</span>}
       <div className="flex gap-3">
         <input
           className="loadFileInput"

@@ -1,5 +1,5 @@
-.userLessons {
-}
+/* .userLessons {
+} */
 .userLessonsSection {
     @apply grid grid-cols-4 gap-[11px] mb-[10px]
 }

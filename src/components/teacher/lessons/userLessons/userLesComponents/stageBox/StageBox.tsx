@@ -19,12 +19,8 @@ export const StageBox: FC<StageBoxProps> = ({ stageNumber, stageLessons }) => {
   const animLessons = isShown
     ? {
         height: `${stageLessons.length * 43 + 21}px`,
-        diplay: "flex",
       }
-    : {
-        height: "0",
-        diplay: "none",
-      };
+    : { height: "0" };
 
   return (
     <div className="stageBox">

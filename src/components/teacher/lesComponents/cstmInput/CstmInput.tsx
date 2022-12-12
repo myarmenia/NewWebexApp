@@ -7,12 +7,16 @@ interface CstmInputProps {
   placeholder: string;
   regName?: string;
   className?: string;
+  error?: string;
+  value?: string | number;
 }
 export const CstmInput: React.FC<CstmInputProps> = ({
   type,
   placeholder,
   regName,
   className,
+  error,
+  value,
 }) => {
   const {
     register,
@@ -27,9 +31,10 @@ export const CstmInput: React.FC<CstmInputProps> = ({
         className={"lessonInp " + className}
         type={type}
         placeholder={placeholder}
+        defaultValue={value && value}
       />
       <p className="errorMessage">
-        <>{errors[regName!]?.message}</>
+        {error || errors[regName!]?.message?.toString()}
       </p>
     </div>
   );

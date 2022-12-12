@@ -40,7 +40,7 @@ export const weekScheduleTime: string[] = [
 export const weekSheduleEvents: IWeekEvent[] = [
   {
     title: "Դասընթացի վերնագիրը",
-    lessonDuration: 2,
+    lessonDuration: 4,
     weekday: 1,
     evTime: 8,
   },

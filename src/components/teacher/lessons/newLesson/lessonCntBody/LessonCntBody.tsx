@@ -86,6 +86,8 @@ export const LessonCntBody: React.FC = () => {
 
     console.log(values, "porc");
   };
+
+  
   return (
     <FormProvider {...methods}>
       <div className="LessonCntBody">
@@ -142,7 +144,7 @@ export const LessonCntBody: React.FC = () => {
                   />
                 </TxtWinput>
                 <div
-                  className={`stageBox ${
+                  className={`stageBox stageBox1 ${
                     isDifferent ? "stageBox_opened" : "stageBox_closed"
                   }`}
                 >
