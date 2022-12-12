@@ -14,7 +14,6 @@ export const NewsCard: React.FC<CardProps> = ({ title, text, date, delay }) => {
       className="newsCard"
       data-aos="zoom-out-right"
       data-aos-duration={delay1 + ""}
-
     >
       <div className="newsCardChild">
         <p className="cardTitle">{title}</p>

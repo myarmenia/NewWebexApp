@@ -1,12 +1,18 @@
 import React from "react";
+import { useFormContext } from "react-hook-form";
 import Input from "../Input";
 import "./addImg.css";
-const AddImg = () => {
+const AddImg: React.FC = () => {
+  const {
+    register,
+    watch,
+    formState: { errors },
+  } = useFormContext();
   return (
     <div className="addImgCustom">
       <div className="addImgChild">
         <div className="addImgInp">
-          <input type="file" className="imgDownload" />
+          <input type="file" className="imgDownload" {...register(`img`)} />
           <div className="addImgText">Ավելացնել նկար</div>
         </div>
         <div className="infoImg">

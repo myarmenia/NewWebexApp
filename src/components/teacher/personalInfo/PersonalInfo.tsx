@@ -1,80 +1,120 @@
 import React from "react";
 import AddImg from "../../sherid/addImg/AddImg";
-import Input from "../../sherid/Input";
-import { CustomSelect } from "../lesComponents/customSelect/CustomSelect";
 import { LessonTitle } from "../lessonTitle/LessonTitle";
-import * as Yup from "yup";
-import "./personalInfo.css";
-import { ISelect } from "../../../models/interfaces";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useForm, useWatch, Control, FormProvider } from "react-hook-form";
+import {
+  useForm,
+  useWatch,
+  Control,
+  FormProvider,
+  useFieldArray,
+} from "react-hook-form";
+// import { InputChild } from "./inputChild/InputChild";
+import { PersonalSubmitForm, validationSchema } from "./InterfacePerson";
+import "./personalInfo.css";
+import Inp from "./inputChild/Inp";
+import { Inp2 } from "./inputChild/Inp2";
+import { Inp3 } from "./inputChild/Inp3";
+import Inp4 from "./inputChild/Inp4";
+import Inp5 from "./inputChild/Inp5";
+import Sertificat from "./inputChild/Sertificat";
 
-import { InputChild } from "./inputChild/InputChild";
-
-interface UserSubmitForm {
-  checkbox: string;
-  select: ISelect;
-  username: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-  acceptTerms: boolean;
-}
-const validationSchema = Yup.object().shape({
-  checkbox: Yup.string()
-    .oneOf(["Դասավանդող", "Ուսանող"])
-    .required("Նշելը պարտադիր է")
-    .nullable(),
-  select: Yup.string().required("Նշելը պարտադիր է"),
-  username: Yup.string()
-    .required("Անունը պարտադիր է")
-    .min(4, "Անունը պետք է լինի առնվազն 4 նիշ")
-    .max(20, "Անունը չպետք է գերազանցի 20 նիշը"),
-  email: Yup.string()
-    .required("Էլ․ հասցեն պարտադիր է")
-    .email("Էլ․ հասցեն անվավեր է"),
-  password: Yup.string()
-    .required("Գաղտնաբառը պարտադիր է")
-    .min(8, "Գաղտնաբառը պետք է լինի առնվազն 8 նիշ")
-    .max(15, "Գաղտնաբառը չպետք է գերազանցի 15 նիշը"),
-  confirmPassword: Yup.string()
-    .required("Գաղտնաբառ հաստատելը պարտադիր է")
-    .oneOf([Yup.ref("password"), null], "Հաստատված գաղտնաբառը սխալ է"),
-  acceptTerms: Yup.bool().oneOf([true], "Պայմաններ ընդունելը  պարտադիր է"),
-});
 const PersonalInfo = () => {
-  const methods = useForm<UserSubmitForm>({
+  const methods = useForm<PersonalSubmitForm>({
     resolver: yupResolver(validationSchema),
+    defaultValues: {
+      img: "",
+      adress: "",
+      tel: "",
+      workattempt: [
+        {
+          select: "",
+          company: "",
+          position: "",
+          acceptTerms: false,
+          start: "",
+          end: "",
+          description: "",
+        },
+      ],
+      education: [
+        {
+          select2: "",
+          statement: "",
+          faculty: "",
+          profession: "",
+          start: "",
+          end: "",
+        },
+      ],
+      languages: [{}],
+      additionaledu: [
+        {
+          name: "",
+          company: "",
+          profession: "",
+          start: "",
+          end: "",
+        },
+      ],
+      sertificat: "",
+    },
   });
-  const {
-    register,
-    handleSubmit,
-    reset,
-    watch,
-    formState: { errors },
-  } = methods;
-  const onSubmit = (data: UserSubmitForm) => {
-    console.log(data);
-  };
-  const isOpenDropdown = watch("checkbox");
+  const { handleSubmit, control, register, watch } = methods;
+  const workattempt = useFieldArray({
+    control,
+    name: "workattempt",
+  });
+  const education = useFieldArray({
+    control,
+    name: "education",
+  });
+  const languages = useFieldArray({
+    control,
+    name: "languages",
+  });
+  const additionaledu = useFieldArray({
+    control,
+    name: "additionaledu",
+  });
 
+  const onSubmit = (data: PersonalSubmitForm) => {
+    console.log(data, "data");
+    console.log(watch());
+  };
+  console.log(watch());
   return (
     <>
       <LessonTitle title="Անձնական տվյալներ" />
       <FormProvider {...methods}>
-        <div className="personalInfo">
+        <form className="personalInfo" onSubmit={handleSubmit(onSubmit)}>
           <AddImg />
           <div className="personalInfoChild">
-            <div className="infoChild">
-              <div className="infoName">Անձնական տվյալներ</div>
-              <input type="text" className="name" placeholder="Հասցե" />
-              <input type="text" className="name" placeholder="Հեռախոս" />
-              <InputChild isActive={true} />
-              <InputChild isActive={false} />
+            <div className="inputChild">
+              <Inp />
+              <Inp2
+                selectName="select"
+                option={["chka", "sadd", "asd", "klka"]}
+                regName="workattempt"
+                fieldArray={workattempt}
+              />
+              <Inp3
+                selectName="select2"
+                option={["asas", "sadd", "asd", "klka"]}
+                regName="education"
+                fieldArray={education}
+              />
             </div>
-            <div className="infoChild2"></div>
+            <div className="inputChild2">
+              <Inp4 regName="languages" fieldArray={languages} />
+              <Inp5 regName="additionaledu" fieldArray={additionaledu} />
+              <Sertificat />
+            </div>
           </div>
-        </div>
+          <div className="buttonSave">
+            <button type="submit">Պահպանել</button>
+          </div>
+        </form>
       </FormProvider>
     </>
   );

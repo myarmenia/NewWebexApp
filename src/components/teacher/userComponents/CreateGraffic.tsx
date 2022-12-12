@@ -21,59 +21,19 @@ export interface UserSubmitForm2 {
   saturday?: YupProps[];
   sunday?: YupProps[];
 }
+const SchemaChild = Yup.array().of(
+  Yup.object().shape({
+    start: Yup.string(),
+    end: Yup.string(),
+  })
+);
 const Schema = Yup.object().shape({
-  monday: Yup.array().of(
-    Yup.object().shape({
-      start: Yup.string(),
-      end: Yup.string(),
-      // .min(Yup.ref("start"), "petq e lini avel"),
-    })
-  ),
-  tuesday: Yup.array().of(
-    Yup.object().shape({
-      start: Yup.string(),
-      end: Yup.string(),
-      // .min(Yup.ref("start"), "petq e lini avel")
-    })
-  ),
-  wednesday: Yup.array().of(
-    Yup.object().shape({
-      start: Yup.string(),
-      end: Yup.string(),
-      // .min(Yup.ref("start"), "petq e lini avel")
-    })
-  ),
-  thursday: Yup.array().of(
-    Yup.object().shape({
-      start: Yup.string(),
-      end: Yup.string(),
-      // .min(Yup.ref("start"), "petq e lini avel")
-    })
-  ),
-  friday: Yup.array().of(
-    Yup.object().shape({
-      start: Yup.string(),
-      end: Yup.string(),
-      // .min(Yup.ref("start"), "petq e lini avel")
-      //
-    })
-  ),
-  saturday: Yup.array().of(
-    Yup.object().shape({
-      start: Yup.string(),
-      end: Yup.string(),
-      // .min(Yup.ref("start"), "petq e lini avel")
-      //
-    })
-  ),
-  sunday: Yup.array().of(
-    Yup.object().shape({
-      start: Yup.string(),
-      end: Yup.string(),
-      // .min(Yup.ref("start"), "petq e lini avel")
-      //
-    })
-  ),
+  monday: SchemaChild,
+  wednesday: SchemaChild,
+  thursday: SchemaChild,
+  friday: SchemaChild,
+  saturday: SchemaChild,
+  sunday: SchemaChild,
 });
 const CreateGraffic: React.FC = () => {
   const methods = useForm<UserSubmitForm2>({
@@ -88,15 +48,7 @@ const CreateGraffic: React.FC = () => {
       sunday: [{ start: "", end: "" }],
     },
   });
-  const {
-    handleSubmit,
-    control,
-    register,
-    watch,
-    formState: { errors },
-  } = methods;
-
-  // console.log(errors.monday[0]?.message, "monday");
+  const { handleSubmit, control, register, watch } = methods;
   const monday = useFieldArray({
     control,
     name: "monday",
@@ -125,12 +77,12 @@ const CreateGraffic: React.FC = () => {
     control,
     name: "sunday",
   });
-  console.log(watch("monday")?.length, "fil");
   const onSubmit = (data: UserSubmitForm2) => console.log(data, "data");
   return (
     <FormProvider {...methods}>
       <LessonTitle title="Կազմել դասավանդման գրաֆիկ" />
-      <div className="createGraffic">
+      <div className="createGraffic ">
+        <div className="my_background_04" />
         <form className="grafficChild" onSubmit={handleSubmit(onSubmit)}>
           <InputTime
             day="Երկուշաբթի"
@@ -138,7 +90,6 @@ const CreateGraffic: React.FC = () => {
             fieldArray={monday}
             count={watch("monday")?.length || 1}
           />
-
           <InputTime
             day="Երեքշաբթի"
             regName="tuesday"
