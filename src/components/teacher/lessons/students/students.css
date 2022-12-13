@@ -1,5 +1,6 @@
-/* .students {
-} */
+.students {
+  @apply mb-3
+}
 .filterSection {
   @apply flex items-center justify-end gap-2;
 }

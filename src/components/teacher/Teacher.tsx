@@ -17,6 +17,8 @@ import PersonalInfo from "./personalInfo/PersonalInfo";
 import { UserLessons } from "./lessons/userLessons/UserLessons";
 import { EditMyLessons } from "./lessons/userLessons/editMyLessons/EditMyLessons";
 import { Students } from "./lessons/students/Students";
+import { Wallet } from "./lessons/wallet/Wallet";
+import { Feedback } from "./lessons/feedback/Feedback";
 
 export const Teacher: React.FC = () => {
   const location = useLocation();
@@ -41,10 +43,12 @@ export const Teacher: React.FC = () => {
         {/* <WeekSchedule /> */}
 
         {/* <PersonalInfo /> */}
-        
+
         {/* <WeekSchedule /> */}
         {/* <UserLessons /> */}
-        <Students />
+        {/* <Students /> */}
+        {/* <Wallet /> */}
+        <Feedback />
 
         {/* <CreateGraffic /> */}
         {/* <Route index path="/" element={<WeekSchedule />}></Route> */}

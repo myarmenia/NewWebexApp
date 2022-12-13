@@ -1,0 +1,21 @@
+.transactionHistory_theadTr {
+  @apply bg-[#ffffffd1] rounded-[10px] text-xs font-semibold h-8;
+  position: inherit;
+}
+.transactionHistory_theadTr > th:first-child {
+  @apply rounded-l-[10px];
+}
+.transactionHistory_theadTr > th:first-child::before {
+  @apply hidden;
+}
+.transactionHistory_theadTr > th:last-child {
+  @apply rounded-r-[10px];
+}
+.transactionHistory_theadTr > th {
+  @apply text-[#6B6B6B] relative px-5 text-center;
+}
+.transactionHistory_theadTr > th::before {
+  @apply absolute left-0 h-[13px] w-[1px] top-1/2 bg-[#BEBFE4];
+  content: "";
+  transform: translate(0, -50%);
+}
