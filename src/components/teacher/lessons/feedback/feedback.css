@@ -1,0 +1,18 @@
+.feedback {
+  @apply text-[#575757];
+}
+
+/* --------- menu size -------  */
+.menu {
+  @apply w-[100px];
+}
+.menuSpan {
+  @apply hidden;
+}
+.menuLi img {
+  @apply w-8 h-8;
+}
+.contentBody {
+  width: calc(100% - 105px);
+}
+/* --------- menu size -------  */
