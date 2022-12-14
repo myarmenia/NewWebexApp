@@ -19,6 +19,8 @@ import { EditMyLessons } from "./lessons/userLessons/editMyLessons/EditMyLessons
 import { Students } from "./lessons/students/Students";
 import { ControlPanel } from "./controlPanel/ControlPanel";
 import { Discount } from "./discount/Discount";
+import { Wallet } from "./lessons/wallet/Wallet";
+import { Feedback } from "./lessons/feedback/Feedback";
 
 export const Teacher: React.FC = () => {
   const location = useLocation();
@@ -48,6 +50,12 @@ export const Teacher: React.FC = () => {
         {/* <WeekSchedule /> */}
         {/* <UserLessons /> */}
         {/* <Students /> */}
+
+        {/* <WeekSchedule /> */}
+        {/* <UserLessons /> */}
+        {/* <Students /> */}
+        {/* <Wallet /> */}
+        <Feedback />
 
         {/* <CreateGraffic /> */}
         {/* <Route index path="/" element={<WeekSchedule />}></Route> */}

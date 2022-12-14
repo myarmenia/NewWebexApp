@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import { IStageLesson } from "../../../../../../models/interfaces";
 import {
   StageBox,
@@ -11,6 +11,7 @@ const stageLessons: IStageLesson[] = Array.from({
   title:
     "«Գրաֆիկ դիզայն» մասնագիտություն, մասնագիտության  կարեւորությունն ու արդիականությունը",
 }));
+
 export const stagesArr: StageBoxProps[] = [
   { stageLessons: stageLessons },
   { stageLessons: stageLessons },

@@ -1,0 +1,42 @@
+.feedbackCont {
+  @apply flex gap-[25px];
+}
+
+.messageSection {
+  /* @apply ;  */
+  width: calc(75% - 25px);
+}
+.sendMessageBox {
+  @apply relative;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+}
+.sendMessageInput {
+  @apply bg-[#ffffff5c] rounded-[15px] h-10 w-full px-5 py-2 outline-none;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+}
+.sendMessageImg {
+  @apply right-2 top-1/2 absolute cursor-pointer;
+  transform: translate(0, -50%);
+}
+.cont01 {
+  @apply flex flex-col gap-5;
+  position: inherit;
+}
+.conts02 {
+  @apply relative flex gap-5;
+}
+
+.messageCont {
+  @apply flex gap-5;
+}
+.messageCont_cont {
+  @apply flex flex-col gap-3 w-[65%];
+}
+.messageCont_lessons {
+  @apply bg-[#ffffff5c] px-6 py-[10px] rounded-[15px];
+  width: calc(35% - 20px);
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+}
+.messageCont_lessons_cont {
+  @apply flex flex-col gap-[18px] transition-all duration-300 max-h-[477px] overflow-y-auto;
+}

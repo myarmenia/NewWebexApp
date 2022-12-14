@@ -1,0 +1,30 @@
+.walletCont {
+  @apply w-[81%] text-[#6B6B6B] flex flex-col gap-10 mb-3;
+}
+.walletCont_header {
+  @apply flex justify-between;
+}
+.balanceBox {
+  @apply flex flex-col gap-3;
+}
+.attachedCards_cont {
+  @apply flex flex-col gap-5;
+}
+.attachedCards {
+  @apply grid grid-cols-3 gap-[18px];
+}
+.addCardBox {
+  @apply bg-white rounded-[10px] h-[168px] flex justify-center items-center;
+}
+
+
+
+.transactionHistory table {
+  @apply w-full border-spacing-y-3 border-separate;
+}
+.transactionHistory thead tr {
+  filter: drop-shadow(2px 4px 10px rgba(0, 0, 0, 0.1));
+}
+.transactionHistory tbody {
+  @apply border-spacing-y-3 border-separate;
+}
