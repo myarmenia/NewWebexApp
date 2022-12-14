@@ -1,0 +1,103 @@
+.panelContainer {
+  @apply w-[220px] h-[190px] pt-[12px] px-[18px] relative rounded-[15px];
+}
+
+.title {
+  @apply w-full h-[25px] font-normal text-sm;
+  letter-spacing: 0.01em;
+  border-bottom: 1px solid #bebfe4;
+  position: inherit;
+}
+.panelData {
+  @apply w-full h-[80px] flex items-center justify-between;
+  position: inherit;
+}
+.panelData2 {
+  @apply w-full h-[60px] flex items-center justify-between;
+  position: inherit;
+}
+.stars {
+  @apply w-[62%] h-auto flex gap-[5px] flex-wrap relative;
+}
+.star {
+  @apply w-[16px] h-[16px];
+}
+.count {
+  @apply flex justify-center absolute mt-[18px] font-normal text-[10px] text-[#5f6338];
+  letter-spacing: 0.01em;
+}
+.panelDataText {
+  @apply w-full font-normal text-xs text-[#5f6368] h-auto;
+  letter-spacing: 0.01em;
+  position: inherit;
+  text-align: right;
+  word-break: break-all;
+}
+.panelDataImg {
+  @apply w-[36px] h-[36px];
+}
+.firstPanel {
+  @apply w-full h-[auto];
+  position: inherit;
+}
+.firstPanelChild {
+  @apply w-full h-[86px] flex items-center justify-between;
+}
+.firstPanelImg {
+  @apply w-[32px] h-[32px];
+}
+.number {
+  @apply text-[48px] font-semibold;
+  background: linear-gradient(90deg, #7764fb 0%, #f364f3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.firstPanelChild2 {
+  @apply w-full h-[50px] flex items-center justify-between relative;
+}
+.number2 {
+  @apply w-[33px] h-[33px] flex justify-center items-center rounded-[7px];
+  background: #ffffff;
+  filter: drop-shadow(2px 4px 10px rgba(0, 0, 0, 0.1));
+}
+.number2 span {
+  font-weight: 600;
+  font-size: 16px;
+  background: linear-gradient(90deg, #7764fb 0%, #f364f3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.firstPanelText {
+  @apply w-[70%] h-auto font-normal text-xs text-[#5f6368] absolute ml-[30%];
+  letter-spacing: 0.01em;
+  text-align: right;
+  word-break: break-all;
+}
+.secondPanel {
+  @apply w-full h-[auto];
+  position: inherit;
+}
+.secondPanelChild {
+  @apply w-full h-[40px] flex items-end justify-between;
+}
+.secondPanelChild2 {
+  @apply w-full h-[70px] flex;
+}
+.secondPanelChild3 {
+  @apply w-full h-[20px] flex;
+}
+.secondPanelImg {
+  @apply w-[16px] h-[16px];
+}
+.firstPanelText2 {
+  @apply w-full h-auto font-normal text-xs text-[#5f6368];
+  letter-spacing: 0.01em;
+  word-break: break-all;
+}
+.secondPanelDate {
+  @apply font-normal text-xs text-[#5f6368];
+  letter-spacing: 0.01em;
+  color: #5f6368;
+}
