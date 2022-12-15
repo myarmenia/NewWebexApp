@@ -3,6 +3,7 @@ import "./lesBox.css";
 import { SubmitBtn } from "../../../../lesComponents/submitBtn/SubmitBtn";
 import editImg from "../../../../../../images/Teacher/UserLessons/editGray.svg";
 import { LessonProps } from "../../../../../../models/interfaces";
+import { Link } from "react-router-dom";
 
 export interface LesBoxProps extends LessonProps {
   studentsCount: number;
@@ -47,7 +48,9 @@ export const LesBox: FC<LesBoxProps> = ({
           <span className="editLesson">Խմբագրել</span>
           <img src={editImg} alt="" className="cursor-pointer" />
         </div>
-        <SubmitBtn type="button" title="Ավելին" className="seeMoreBtn" />
+        <Link to={"lesson"}>
+          <SubmitBtn type="button" title="Ավելին" className="seeMoreBtn" />
+        </Link>
       </div>
     </div>
   );

@@ -42,11 +42,11 @@ export const Teacher: React.FC = () => {
 
         {/* <Exam /> */}
         {/* <Calendar /> */}
-        {/* <WeekSchedule /> */}
 
         {/* <PersonalInfo /> */}
         {/* <ControlPanel /> */}
-        <Discount />
+        {/* <Discount /> */}
+
         {/* <WeekSchedule /> */}
         {/* <UserLessons /> */}
         {/* <Students /> */}
@@ -55,22 +55,37 @@ export const Teacher: React.FC = () => {
         {/* <UserLessons /> */}
         {/* <Students /> */}
         {/* <Wallet /> */}
-        <Feedback />
+        {/* <Feedback /> */}
 
         {/* <CreateGraffic /> */}
         {/* <Route index path="/" element={<WeekSchedule />}></Route> */}
 
         {/* <Route index path="/" element={<FirstLesson />}></Route> */}
-        {/* <Routes>
-          <Route path="/">
-            <Route index element={<UserLessons />}></Route>
-            <Route path="/newLesson" element={<NewLesson />}></Route>
-            <Route path="/createGraffic" element={<CreateGraffic />}></Route>
-            <Route path="/calendar" element={<Calendar />}></Route>
+        <Routes>
+          {/* <Route path="/">
+            <Route index element={<UserLessons />} />
+          </Route> */}
+          <Route path="/" element={<AddLesson />} />
+          <Route path="new_lesson">
+            <Route index element={<NewLesson />} />
+            <Route path="lesson_graffic" element={<FirstLesson />} />
+            {/* <Route path="/calendar" element={<Calendar />} /> */}
           </Route>
-        </Routes> */}
-        {/* <Route path="firstLesson" element={<FirstLesson />}></Route> */}
-        {/* <Route path="exam" element={<Exam />}></Route> */}
+          <Route path="create_graffic">
+            <Route index element={<CreateGraffic />} />
+            <Route path="edit_graffic" element={<EditGraffic />} />
+          </Route>
+          <Route path="calendar">
+            <Route index element={<Calendar />} />
+            <Route path="week_schedule" element={<WeekSchedule />} />
+          </Route>
+          <Route path="personal_info" element={<PersonalInfo />} />
+          <Route path="students" element={<Students />} />
+          <Route path="wallet" element={<Wallet />} />
+          <Route path="panel" element={<ControlPanel />} />
+          {/* <Route path="feedback" element={<Feedback />} /> */}
+          <Route path="discount" element={<Discount />} />
+        </Routes>
       </Content>
     </div>
   );

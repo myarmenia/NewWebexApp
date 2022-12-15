@@ -21,7 +21,7 @@
 .LessonCntBody_boxContent {
   @apply flex flex-col gap-5 justify-between w-full mb-[10px];
 }
-.nextBtnCont {
+.nextBtnCont1 {
   @apply flex gap-4 justify-end;
 }
 .textUnderline {
