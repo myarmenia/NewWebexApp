@@ -27,7 +27,6 @@ export interface LessonProps {
 }
 export interface IteacherMenu {
   id?: number;
-  isClicked: boolean;
   img: string;
   activeImg: string;
   title: string;
