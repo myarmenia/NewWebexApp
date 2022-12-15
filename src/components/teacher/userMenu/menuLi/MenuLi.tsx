@@ -1,29 +1,25 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+import { useLocation, NavLink } from "react-router-dom";
 import { IteacherMenu } from "../../../../models/interfaces";
 
-interface MenuLiProps extends IteacherMenu {
-  chooseMenuItem: (id: number) => void;
-}
+interface MenuLiProps extends IteacherMenu {}
 
 export const MenuLi: React.FC<MenuLiProps> = ({
   title,
   img,
   activeImg,
-  id,
-  isClicked,
-  chooseMenuItem,
   to,
 }) => {
+  const location = useLocation();
   return (
-    <li
-      className={`menuLi ${isClicked ? "activeMenuItem" : ""}`}
-      onClick={() => chooseMenuItem(id!)}
+    <NavLink
+      to={to!}
+      className={({ isActive }) => (isActive ? "activeMenuItem" : "menuLi")}
     >
-      <Link to={to!} className="menuA" state={{ id: id }}>
-        <img src={isClicked ? activeImg : img} alt="" />
+      <div className="menuA">
+        <img src={location.pathname === "/" + to ? activeImg : img} alt="" />
         <span className="menuSpan">{title}</span>
-      </Link>
-    </li>
+      </div>
+    </NavLink>
   );
 };

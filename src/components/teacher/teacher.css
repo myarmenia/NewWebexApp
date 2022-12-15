@@ -12,5 +12,9 @@
   @apply text-[#9C9C9C] text-xs;
 }
 /* * { */
-  /* @apply text-[#6B6B6B]; */
+/* @apply text-[#6B6B6B]; */
 /* } */
+
+.activeNavItem {
+  @apply text-[red];
+}
