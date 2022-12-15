@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import { Route, Routes } from "react-router";
 import { lessonsArr } from "../../../lessons/lessonsStore";
 import { LessonTitle } from "../../lessonTitle/LessonTitle";
 import { EditMyLessons } from "./editMyLessons/EditMyLessons";
@@ -30,6 +31,43 @@ export const UserLessons: FC = () => {
         isAddLessonBtn={true}
         className="w-full justify-between"
       />
+      <Routes>
+        <Route path="/" element={<Lessons {...{ lessonsArr }} />} />
+        <Route
+          path="lesson"
+          element={
+            <LesPage
+              title="Գրաֆիկ դիզայնի դասընթաց սկսնակների համար"
+              stageCount={3}
+              stageLessons={12}
+              lessonTime={2}
+              studentsCount={3}
+              keys={[
+                "Արվեստ և դիզայն",
+                "Սկսնակների համար",
+                "Հավաստագիր",
+                "16+",
+              ]}
+              description="Դասընթացի նկարագրությունը, Որպեսզի արդյունքի հասնելու համար, որն ավելի շատ համապատասխանի վերջնական արդյունքին, գրաֆիկական դիզայներները, Հակառակ ընդհանուր պատկերացմանը՝ Լորեմ Իպսումը այդքան էլ պատահական հավաքված տեքստ չէ։ Այս տեքստի արմատները հասնում են մ.թ.ա. 45 թ. դասական լատինական գրականություն. այն 2000 տարեկան է։ Ռիչարդ ՄքՔլինտոքը՝ Վիրջինիայի Համպդեն-Սիդնեյ քոլեջում լատիներենի մի դասախոս՝ ուսումնասիրելով ։ "
+              price="65 000"
+            />
+          }
+        />
+        <Route
+          path="lesson_content"
+          element={
+            <EditMyLessons
+              title="Գրաֆիկ դիզայնի դասընթաց սկսնակների համար"
+              inp1=""
+              inp2=""
+              inp3=""
+              inp4=""
+              lesItems={extItems}
+              homeItmes={extItems}
+            />
+          }
+        />
+      </Routes>
       {/* <Lessons {...{ lessonsArr }} /> */}
       {/* <LesPage
         title="Գրաֆիկ դիզայնի դասընթաց սկսնակների համար"
@@ -42,7 +80,7 @@ export const UserLessons: FC = () => {
         price="65 000"
       /> */}
       {/* <StageLesPage /> */}
-      <EditMyLessons
+      {/* <EditMyLessons
         title="Գրաֆիկ դիզայնի դասընթաց սկսնակների համար"
         inp1=""
         inp2=""
@@ -50,7 +88,7 @@ export const UserLessons: FC = () => {
         inp4=""
         lesItems={extItems}
         homeItmes={extItems}
-      />
+      /> */}
     </div>
   );
 };

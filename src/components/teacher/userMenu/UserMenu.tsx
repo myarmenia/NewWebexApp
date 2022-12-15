@@ -31,6 +31,7 @@ export const UserMenu: React.FC = () => {
       img: img1,
       activeImg: activeImg1,
       title: "Անձնական տվյալներ",
+      to: "personal_info",
     },
     {
       id: Math.random(),
@@ -38,7 +39,7 @@ export const UserMenu: React.FC = () => {
       img: img2,
       activeImg: activeImg2,
       title: "Իմ դասընթացները",
-      to: "newLesson",
+      to: "new_lesson",
     },
     {
       id: Math.random(),
@@ -48,7 +49,7 @@ export const UserMenu: React.FC = () => {
       title: "Դասավանդման գրաֆիկ",
       toSubPaths: [
         {
-          path: "editGraffic",
+          path: "create_graffic",
           title: "Դասավանդման գրաֆիկ",
           isClicked: false,
         },
@@ -61,6 +62,7 @@ export const UserMenu: React.FC = () => {
       img: img4,
       activeImg: activeImg4,
       title: "Ուսանողներ",
+      to: "students",
     },
     {
       id: Math.random(),
@@ -68,6 +70,7 @@ export const UserMenu: React.FC = () => {
       img: img5,
       activeImg: activeImg5,
       title: "Դրամապանակ",
+      to: "wallet",
     },
     {
       id: Math.random(),
@@ -75,6 +78,7 @@ export const UserMenu: React.FC = () => {
       img: img9,
       activeImg: activeImg6,
       title: "Զեղչեր պրոմո",
+      to: "discount",
     },
     {
       id: Math.random(),
@@ -82,6 +86,7 @@ export const UserMenu: React.FC = () => {
       img: img7,
       activeImg: activeImg7,
       title: "Նամակագրություն",
+      to: "feedback",
     },
     {
       id: Math.random(),
@@ -89,6 +94,7 @@ export const UserMenu: React.FC = () => {
       img: img8,
       activeImg: activeImg8,
       title: "Աջակցության կենտրոն",
+      to: "panel",
     },
   ]);
 

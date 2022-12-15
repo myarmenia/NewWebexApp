@@ -16,6 +16,7 @@ import { Knowledges } from "./knowledges/Knowledges";
 import { CustomNmbInp } from "../../../lesComponents/customNmbInp/CustomNmbInp";
 import { SubmitBtn } from "../../../lesComponents/submitBtn/SubmitBtn";
 import { CstmTextarea } from "../../../lesComponents/cstmTextarea/CstmTextarea";
+import { Link } from "react-router-dom";
 
 export const LessonCntBody: React.FC = () => {
   const [selectVals, setselectVals] = useState<ISelect>({
@@ -87,7 +88,6 @@ export const LessonCntBody: React.FC = () => {
     console.log(values, "porc");
   };
 
-  
   return (
     <FormProvider {...methods}>
       <div className="LessonCntBody">
@@ -183,7 +183,9 @@ export const LessonCntBody: React.FC = () => {
             </div>
           </div>
           <div className="nextBtnCont">
-            <SubmitBtn title="Առաջ" type="submit" />
+            <Link to={"lesson_graffic"}>
+              <SubmitBtn title="Առաջ" type="submit" />
+            </Link>
             {/* <button
               type="button"
               className="addLessonBtn"
