@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 export interface LesBoxProps extends LessonProps {
   studentsCount: number;
+  id?: number;
 }
 
 export const LesBox: FC<LesBoxProps> = ({
@@ -15,6 +16,7 @@ export const LesBox: FC<LesBoxProps> = ({
   description,
   studentsCount,
   price,
+  id,
 }) => {
   return (
     <div className="lesBox">
@@ -48,7 +50,7 @@ export const LesBox: FC<LesBoxProps> = ({
           <span className="editLesson">Խմբագրել</span>
           <img src={editImg} alt="" className="cursor-pointer" />
         </div>
-        <Link to={"lesson"}>
+        <Link to={`lesson/${id}`}>
           <SubmitBtn type="button" title="Ավելին" className="seeMoreBtn" />
         </Link>
       </div>

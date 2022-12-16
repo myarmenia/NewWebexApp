@@ -7,7 +7,7 @@
   @apply w-full h-[122px];
 }
 .lesBox_title {
-  @apply font-bold text-base leading-5 text-[#6B6B6B] text-start;
+  @apply font-bold text-base leading-5 text-[#6B6B6B] text-start whitespace-nowrap text-ellipsis overflow-x-hidden;
 }
 .keys {
   @apply w-full flex gap-1 flex-wrap;

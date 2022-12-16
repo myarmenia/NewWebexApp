@@ -7,6 +7,7 @@ import { LesBoxProps } from "../userLesComponents/lesBox/LesBox";
 import { LesCases } from "./lesCases/LesCases";
 import { LesStages } from "./lesStages/LesStages";
 import { LoaderFunctionArgs, useLoaderData } from "react-router";
+import { ILessonLoaderData } from "../../../../../models/interfaces";
 
 interface LesPageProps extends LesBoxProps {
   stageCount: number;
@@ -15,7 +16,7 @@ interface LesPageProps extends LesBoxProps {
 }
 
 export const LesPage: FC<LesPageProps> = ({
-  title,
+  // title,
   stageCount,
   stageLessons,
   lessonTime,
@@ -24,13 +25,16 @@ export const LesPage: FC<LesPageProps> = ({
   keys,
   price,
 }) => {
+  console.log("LesPage");
+
+  const { title } = useLoaderData() as ILessonLoaderData;
 
   return (
     <div className="lesPage">
       <div className="my_background_06" />
       <div className="lesPage_container">
         <LesContainer>
-          <LesPTitle {...{ title }} />
+          <LesPTitle title={title} />
         </LesContainer>
         <LesImageBox {...{ stageCount, stageLessons, lessonTime }} />
         <LesContainer>
@@ -45,7 +49,9 @@ export const LesPage: FC<LesPageProps> = ({
 export const lessonPageProvider = async ({ params }: LoaderFunctionArgs) => {
   const res = await fetch(
     // `https://jsonplaceholder.typicode.com/posts/${params.id}?userId=1`
-    `https://jsonplaceholder.typicode.com/posts/1?userId=1`
+    `https://jsonplaceholder.typicode.com/posts/${params.id}?userId=1`
   );
-  return res.json();
+
+  const { title } = await res.json();
+  return { title };
 };
