@@ -9,3 +9,11 @@
   @apply text-xs font-semibold text-[#6B6B6B];
   color: #6b6b6b;
 }
+.arrowDownMenu {
+  @apply w-4 h-3 duration-200;
+}
+@media (max-width: 1300px) {
+  .arrowDownMenu {
+    @apply hidden;
+  }
+}

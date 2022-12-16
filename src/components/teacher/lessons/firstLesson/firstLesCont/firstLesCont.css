@@ -39,7 +39,20 @@
   @apply font-semibold text-xs text-white py-[9px] px-[30px] rounded-2xl w-fit min-w-[193px];
   background: linear-gradient(90deg, #7764fb 0%, #f364f3 100%);
 }
-@media (max-width: 670px) {
+@media (max-width: 1300px) {
+  .lessonContainer1 {
+    @apply w-[45%];
+  }
+  .lessonContainer {
+    @apply gap-0;
+  }
+}
+@media (max-width: 830px) {
+  .LessonCntBody_box {
+    @apply min-w-0;
+  }
+}
+@media (max-width: 700px) {
   .lessonContainer {
     @apply flex-col gap-10;
   }

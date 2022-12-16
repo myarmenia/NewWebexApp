@@ -29,3 +29,9 @@
 .firstItem {
   @apply left-0 z-[1];
 }
+
+@media (max-width: 700px) {
+  .pagination {
+    @apply hidden;
+  }
+}

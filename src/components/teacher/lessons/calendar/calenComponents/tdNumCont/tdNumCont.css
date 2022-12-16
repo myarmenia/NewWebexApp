@@ -21,6 +21,9 @@
 }
 @media (max-width: 860px) {
   #CalendarBody_NumericContainer {
+    @apply w-auto border-b border-[#898BCE];
+  }
+  #monthBox {
     @apply w-auto;
   }
 }

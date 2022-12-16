@@ -1,6 +1,5 @@
 import React from "react";
-import { useFormContext } from "react-hook-form";
-// import { ContTitle } from "../../../../lesComponents/contTitle/ContTitle";
+import "./stageBody.css";
 import { CstmInput } from "../../../../lesComponents/cstmInput/CstmInput";
 import { CstmTextarea } from "../../../../lesComponents/cstmTextarea/CstmTextarea";
 import { AttachFile } from "../../../../lesComponents/attachFile/AttachFile";
@@ -9,9 +8,8 @@ import { LoadImage } from "../../../../lesComponents/loadImage/LoadImage";
 import { SaveDataDiv } from "../SaveDataDiv";
 
 export const StageBody: React.FC = () => {
-  const { register } = useFormContext();
   return (
-    <div className="lessonContainer">
+    <div className="lessonContainer firstLesson_Container">
       <div className="lessonContainer1">
         <BoxTitle title="Դաս 1" />
         <div className="LessonCntBody_box">
@@ -33,7 +31,7 @@ export const StageBody: React.FC = () => {
               placeholder="Բովանդակություն"
               className="lessonInp"
             />
-            <div className="flex justify-between">
+            <div className="flex justify-between gap-3">
               <AttachFile regName="lessonFile" title="Հավելյալ նյութերը" />
               <LoadImage regName="lessonImage_url" />
             </div>
@@ -41,7 +39,7 @@ export const StageBody: React.FC = () => {
           <SaveDataDiv />
         </div>
       </div>
-      <div className="hrMain" />
+      <div className="hrMain !m-0" />
       <div className="lessonContainer1">
         <BoxTitle title="Տնային հանձնարարություն" />
         <div className="LessonCntBody_box">
@@ -57,7 +55,7 @@ export const StageBody: React.FC = () => {
               className="lessonInp"
               placeholder="Բովանդակություն"
             />
-            <div className="flex justify-between">
+            <div className="flex justify-between gap-3">
               <AttachFile
                 regName="homeworkFile"
                 title="Տնային աշխատանքի նյութերը"

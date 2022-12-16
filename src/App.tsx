@@ -14,8 +14,7 @@ import { Teacher } from "./components/teacher/Teacher";
 import Regsitration from "./components/registration/Regsitration";
 import Entry from "./components/entry/Entry";
 import Tariffs from "./components/tariffs/Tariffs";
-import { Route, Routes } from "react-router";
-
+// import { Route, Routes } from "react-router";
 function App() {
   return (
     <>

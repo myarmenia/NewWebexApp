@@ -6,6 +6,7 @@ import { LesImageBox } from "./lesImageBox/LesImageBox";
 import { LesBoxProps } from "../userLesComponents/lesBox/LesBox";
 import { LesCases } from "./lesCases/LesCases";
 import { LesStages } from "./lesStages/LesStages";
+import { LoaderFunctionArgs, useLoaderData } from "react-router";
 
 interface LesPageProps extends LesBoxProps {
   stageCount: number;
@@ -23,6 +24,7 @@ export const LesPage: FC<LesPageProps> = ({
   keys,
   price,
 }) => {
+
   return (
     <div className="lesPage">
       <div className="my_background_06" />
@@ -38,4 +40,12 @@ export const LesPage: FC<LesPageProps> = ({
       </div>
     </div>
   );
+};
+
+export const lessonPageProvider = async ({ params }: LoaderFunctionArgs) => {
+  const res = await fetch(
+    // `https://jsonplaceholder.typicode.com/posts/${params.id}?userId=1`
+    `https://jsonplaceholder.typicode.com/posts/1?userId=1`
+  );
+  return res.json();
 };

@@ -62,7 +62,7 @@
 .icon2 {
   @apply w-[19px]  h-[16px];
 }
-@media (max-width: 1200px) {
+@media (max-width: 1300px) {
   .footerContainerChild {
     @apply w-[95%];
   }

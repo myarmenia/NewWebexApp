@@ -3,8 +3,9 @@ import "./calendar.css";
 import { LessonTitle } from "../../lessonTitle/LessonTitle";
 import { TdNumCont } from "./calenComponents/tdNumCont/TdNumCont";
 import { DayCont } from "./calenComponents/dayCont/DayCont";
-import { ICalendarReducer } from "../../../../models/interfaces";
+import { ICalendarReducer, IDataExample } from "../../../../models/interfaces";
 import { useDispatch, useSelector } from "react-redux";
+import { useLoaderData } from "react-router";
 import {
   createDates,
   createDatesWeek,
@@ -20,11 +21,13 @@ export const Calendar: FC = () => {
     dispatch(createDatesWeek());
   }, [currentDate.getMonth()]);
 
+  const { user } = useLoaderData() as IDataExample;
+  console.log(user, "works");
   return (
     <div className="calendar">
       <LessonTitle title="Դասավանդման գրաֆիկ" />
       <div id="CalendarBody">
-        <div className="my_background_04"/>
+        <div className="my_background_04" />
         <div id="CalendarBodyContainer">
           <TdNumCont />
           <div className="fullHR" />
@@ -33,4 +36,12 @@ export const Calendar: FC = () => {
       </div>
     </div>
   );
+};
+
+export const calendarLoader = async () => {
+  const res = await fetch(
+    "https://jsonplaceholder.typicode.com/posts?userId=1"
+  );
+  const user = await res.json();
+  return { user };
 };

@@ -40,7 +40,7 @@
 .arrow {
   @apply w-[20px] h-[5px];
 }
-@media (max-width: 1200px) {
+@media (max-width: 1300px) {
   .newsContainerChild {
     @apply w-[95%];
   }
