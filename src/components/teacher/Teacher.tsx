@@ -34,6 +34,15 @@ import {
   LesPage,
   lessonPageProvider,
 } from "./lessons/userLessons/lesPage/LesPage";
+import {
+  Lessons,
+  lessonsLoader,
+} from "./lessons/userLessons/lessonsPage/Lessons";
+import { lessonsArr } from "../lessons/lessonsStore";
+import {
+  StageLesPage,
+  // stageLesPageLoader,
+} from "./lessons/userLessons/stageLesPage/StageLesPage";
 
 export const Teacher: React.FC = () => {
   // console.log(location);
@@ -42,8 +51,9 @@ export const Teacher: React.FC = () => {
       <Route path="/" element={<Loyaut />}>
         <Route index element={<AddLesson />} />
         <Route path="my_lesson" element={<UserLessons />}>
+          <Route index element={<Lessons />} loader={lessonsLoader} />
           <Route
-            index
+            path="lesson/:id"
             element={
               <LesPage
                 title="Գրաֆիկ դիզայնի դասընթաց սկսնակների համար"
@@ -62,6 +72,11 @@ export const Teacher: React.FC = () => {
               />
             }
             loader={lessonPageProvider}
+          />
+          <Route
+            path="stage-lesson"
+            element={<StageLesPage />}
+            // loader={stageLesPageLoader}
           />
         </Route>
         {/* <Route path="new_lesson">

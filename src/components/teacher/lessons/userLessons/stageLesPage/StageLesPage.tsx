@@ -1,4 +1,6 @@
 import React, { FC } from "react";
+import { LoaderFunctionArgs, useLoaderData } from "react-router";
+import { ILessonLoaderData } from "../../../../../models/interfaces";
 import { stagesArr } from "../lesPage/lesStages/LesStages";
 import { LesContainer } from "../userLesComponents/lesContainer/LesContainer";
 import { LesPTitle } from "../userLesComponents/lesPTitle/LesPTitle";
@@ -26,6 +28,8 @@ const lesWorkAndHomeWork: LesWorkBoxProps[] = [
 ];
 
 export const StageLesPage: FC = () => {
+  console.log("StageLesPage");
+
   return (
     <div className="stageLesPage">
       <div className="lessonContent">
@@ -60,3 +64,12 @@ export const StageLesPage: FC = () => {
     </div>
   );
 };
+
+// export const stageLesPageLoader = async ({ params }: LoaderFunctionArgs) => {
+//   const res = await fetch(
+//     `https://jsonplaceholder.typicode.com/posts/${params.id}?userId=1`
+//   );
+
+//   const { title } = await res.json();
+//   return { title };
+// };
