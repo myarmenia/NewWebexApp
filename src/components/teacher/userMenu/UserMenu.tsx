@@ -37,7 +37,8 @@ export const UserMenu: React.FC = () => {
       img: img2,
       activeImg: activeImg2,
       title: "Իմ դասընթացները",
-      to: "new_lesson",
+      // to: "new_lesson",
+      to: "my_lesson",
     },
     {
       id: Math.random(),

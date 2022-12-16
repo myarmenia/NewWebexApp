@@ -94,3 +94,11 @@ export interface IStudentTd {
     homework: string;
   }[];
 }
+export interface IDataExample {
+  user: {
+    userId: number;
+    id: number;
+    title: string;
+    body: string;
+  };
+}

@@ -28,7 +28,7 @@
     @apply w-[92%]
   } */
 }
-@media (max-width: 1200px) {
+@media (max-width: 1300px) {
   .headerCotainer {
     @apply w-[92%];
   }

@@ -5,5 +5,5 @@
   @apply text-base whitespace-nowrap;
 }
 .lessonTitle {
-  @apply font-semibold text-base text-ellipsis whitespace-nowrap overflow-x-hidden;
+  @apply cursor-pointer font-semibold text-base text-ellipsis whitespace-nowrap overflow-x-hidden hover:opacity-90;
 }

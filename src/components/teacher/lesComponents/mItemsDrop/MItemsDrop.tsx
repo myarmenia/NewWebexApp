@@ -29,7 +29,7 @@ export const MItemsDrop: FC<MItemsDropProps> = ({
         <img
           src={thisPathState ? chevDownPurple : chevDown}
           alt=""
-          className={`w-4 h-3 duration-200 ${dropSubMenu ? "rotate-180" : ""}`}
+          className={`arrowDownMenu ${dropSubMenu ? "rotate-180" : ""}`}
         />
       </div>
       {dropSubMenu && (

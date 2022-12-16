@@ -34,7 +34,7 @@ export const LessonTitle: React.FC<LessonTitleProps> = ({
         )}
       </div>
       <div className="underline">
-        <hr className="purpleUnderline" />
+        <div className="purpleUnderline" />
       </div>
     </div>
   );
