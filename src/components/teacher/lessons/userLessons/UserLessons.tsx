@@ -11,7 +11,7 @@ import { lessonsArr } from "../../../lessons/lessonsStore";
 import { LessonTitle } from "../../lessonTitle/LessonTitle";
 import { EditMyLessons } from "./editMyLessons/EditMyLessons";
 import { IExtraMats } from "./editMyLessons/editSchema";
-import { LesPage, lessonPageProvider } from "./lesPage/LesPage";
+import { LesPage, lessonPageLoader } from "./lesPage/LesPage";
 import { Lessons } from "./lessonsPage/Lessons";
 import { StageLesPage } from "./stageLesPage/StageLesPage";
 import "./userLessons.css";
@@ -55,7 +55,7 @@ export const UserLessons: FC = () => {
   //             price="65 000"
   //           />
   //         }
-  //         loader={lessonPageProvider}
+  //         loader={lessonPageLoader}
   //       />
   //     </Route>
   //   )

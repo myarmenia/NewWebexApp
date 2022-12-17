@@ -3,7 +3,7 @@
   transform: translate(-50%, -50%);
 }
 .message {
-  @apply text-[#6B6B6B] font-semibold text-sm;
+  @apply text-[#6B6B6B] font-semibold text-sm text-center;
 }
 .addLessonBtn {
   @apply font-semibold text-xs text-white py-[9px] px-[30px] rounded-2xl;

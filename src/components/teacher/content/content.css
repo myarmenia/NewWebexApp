@@ -20,3 +20,8 @@
     @apply w-full;
   }
 }
+@media (max-width: 650px) {
+  .contentBodyContainer {
+    @apply w-[94.5%];
+  }
+}

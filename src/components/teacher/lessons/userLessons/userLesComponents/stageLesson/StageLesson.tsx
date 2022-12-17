@@ -7,12 +7,10 @@ import {
 import "./stageLesson.css";
 
 export const StageLesson: FC<IStageLesson> = ({ lessonNumber, title }) => {
-  const { paramsId } = useLoaderData() as ILessonLoaderData;
-
   return (
     <div className="stageLesson textPurple">
       <span className="lessonNumber">Դաս {lessonNumber}:</span>
-      <Link to={`../stage/${paramsId}/lesson`} className="overflow-x-hidden">
+      <Link to={`lesson/${lessonNumber}`} className="overflow-x-hidden">
         <p className="lessonTitle">{title}</p>
       </Link>
     </div>

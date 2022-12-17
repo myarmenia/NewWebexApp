@@ -1,8 +1,5 @@
 import React, { useState } from "react";
 import "./teacher.css";
-import { UserHeader } from "./userHeader/UserHeader";
-import { UserMenu } from "./userMenu/UserMenu";
-import { Content } from "./content/Content";
 import { AddLesson } from "./lessons/addLesson/AddLesson";
 import { NewLesson } from "./lessons/newLesson/NewLesson";
 import { LessonTitle } from "./lessonTitle/LessonTitle";
@@ -11,7 +8,7 @@ import CreateGraffic from "./userComponents/CreateGraffic";
 import { Exam } from "./lessons/exam/Exam";
 import EditGraffic from "./userComponents/editGraffic/EditGraffic";
 import { Calendar, calendarLoader } from "./lessons/calendar/Calendar";
-import { json, Routes, useLocation } from "react-router";
+import { json, Outlet, Routes, useLocation } from "react-router";
 import { WeekSchedule } from "./lessons/calendar/weekSchedule/WeekSchedule";
 import PersonalInfo from "./personalInfo/PersonalInfo";
 import { UserLessons } from "./lessons/userLessons/UserLessons";
@@ -33,7 +30,7 @@ import {
 import { Loyaut } from "./loyaut/Loyaut";
 import {
   LesPage,
-  lessonPageProvider,
+  lessonPageLoader,
 } from "./lessons/userLessons/lesPage/LesPage";
 import {
   Lessons,
@@ -46,7 +43,6 @@ import {
 } from "./lessons/userLessons/stageLesPage/StageLesPage";
 
 export const Teacher: React.FC = () => {
-  // console.log(location);
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Loyaut />}>
@@ -57,30 +53,32 @@ export const Teacher: React.FC = () => {
         </Route>
         <Route path="my_lesson" element={<UserLessons />}>
           <Route index element={<Lessons />} loader={lessonsLoader} />
-          <Route
-            path="stage/:id"
-            element={
-              <LesPage
-                stageCount={3}
-                stageLessons={12}
-                lessonTime={2}
-                studentsCount={3}
-                keys={[
-                  "Արվեստ և դիզայն",
-                  "Սկսնակների համար",
-                  "Հավաստագիր",
-                  "16+",
-                ]}
-                price="65 000"
-              />
-            }
-            loader={lessonPageProvider}
-          ></Route>
-          <Route
-            path="stage/:id/lesson"
-            element={<StageLesPage />}
-            loader={stageLesPageLoader}
-          />
+          <Route path="stage/:id" element={<Outlet />}>
+            <Route
+              index
+              element={
+                <LesPage
+                  stageCount={3}
+                  stageLessons={12}
+                  lessonTime={2}
+                  studentsCount={3}
+                  keys={[
+                    "Արվեստ և դիզայն",
+                    "Սկսնակների համար",
+                    "Հավաստագիր",
+                    "16+",
+                  ]}
+                  price="65 000"
+                />
+              }
+              loader={lessonPageLoader}
+            />
+            <Route
+              path="lesson/:les"
+              element={<StageLesPage />}
+              loader={lessonPageLoader}
+            />
+          </Route>
         </Route>
 
         <Route path="create_graffic">

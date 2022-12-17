@@ -2,6 +2,7 @@ import React, { FC, Fragment } from "react";
 import { useLoaderData } from "react-router";
 import {
   ILessonLoaderData,
+  ILessonLoaderObj,
   LessonProps,
 } from "../../../../../models/interfaces";
 import { LesBox, LesBoxProps } from "../userLesComponents/lesBox/LesBox";
@@ -12,7 +13,7 @@ interface UserLessons {
 }
 
 export const Lessons: FC = () => {
-  const lessonsArr = useLoaderData() as ILessonLoaderData[];
+  const lessonsArr = useLoaderData() as ILessonLoaderObj[];
   return (
     <div className="userLessonsSection">
       {lessonsArr.map(({ title, body, id }) => (

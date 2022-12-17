@@ -7,7 +7,7 @@ export const TdName: FC<Pick<IStudentTd, "name">> = ({ name }) => {
     <td className="stdTd">
       <div className="stdudentName">
         {/* <img src="" alt="" /> place for student image */}
-        <div className="bg-[#898BCE] rounded-full w-[26px] h-[26px]" />
+        <div className="bg-[#898BCE] rounded-full w-[26px] h-[26px] shrink-0" />
         <span>{name}</span>
         <img src={toStudentsPageImg} alt="" />
       </div>

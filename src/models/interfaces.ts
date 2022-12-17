@@ -95,13 +95,19 @@ export interface IStudentTd {
   }[];
 }
 export interface IDataExample {
-  user: ILessonLoaderData;
+  user: ILessonLoaderObj;
 }
 
-export interface ILessonLoaderData {
+export interface ILessonLoaderObj {
   userId: number;
   id: number;
   title: string;
   body: string;
-  paramsId?: number;
+}
+
+export interface ILessonLoaderData {
+  obj: ILessonLoaderObj;
+  lessonsObj: ILessonLoaderObj[];
+  paramsId: number;
+  paramsLes: number;
 }
