@@ -29,6 +29,7 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
+
 import { Loyaut } from "./loyaut/Loyaut";
 import {
   LesPage,
@@ -41,7 +42,7 @@ import {
 import { lessonsArr } from "../lessons/lessonsStore";
 import {
   StageLesPage,
-  // stageLesPageLoader,
+  stageLesPageLoader,
 } from "./lessons/userLessons/stageLesPage/StageLesPage";
 
 export const Teacher: React.FC = () => {
@@ -50,13 +51,16 @@ export const Teacher: React.FC = () => {
     createRoutesFromElements(
       <Route path="/" element={<Loyaut />}>
         <Route index element={<AddLesson />} />
+        <Route path="new_lesson">
+          <Route index element={<NewLesson />} />
+          <Route path="lesson_graffic" element={<FirstLesson />} />
+        </Route>
         <Route path="my_lesson" element={<UserLessons />}>
           <Route index element={<Lessons />} loader={lessonsLoader} />
           <Route
-            path="lesson/:id"
+            path="stage/:id"
             element={
               <LesPage
-                title="Գրաֆիկ դիզայնի դասընթաց սկսնակների համար"
                 stageCount={3}
                 stageLessons={12}
                 lessonTime={2}
@@ -67,22 +71,18 @@ export const Teacher: React.FC = () => {
                   "Հավաստագիր",
                   "16+",
                 ]}
-                description="Դասընթացի նկարագրությունը, Որպեսզի արդյունքի հասնելու համար, որն ավելի շատ համապատասխանի վերջնական արդյունքին, գրաֆիկական դիզայներները, Հակառակ ընդհանուր պատկերացմանը՝ Լորեմ Իպսումը այդքան էլ պատահական հավաքված տեքստ չէ։ Այս տեքստի արմատները հասնում են մ.թ.ա. 45 թ. դասական լատինական գրականություն. այն 2000 տարեկան է։ Ռիչարդ ՄքՔլինտոքը՝ Վիրջինիայի Համպդեն-Սիդնեյ քոլեջում լատիներենի մի դասախոս՝ ուսումնասիրելով ։ "
                 price="65 000"
               />
             }
             loader={lessonPageProvider}
-          />
+          ></Route>
           <Route
-            path="stage-lesson"
+            path="stage/:id/lesson"
             element={<StageLesPage />}
-            // loader={stageLesPageLoader}
+            loader={stageLesPageLoader}
           />
         </Route>
-        {/* <Route path="new_lesson">
-          <Route index element={<NewLesson />} />
-          <Route path="lesson_graffic" element={<FirstLesson />} />
-        </Route> */}
+
         <Route path="create_graffic">
           <Route index element={<CreateGraffic />} />
           <Route path="edit_graffic" element={<EditGraffic />} />

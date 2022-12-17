@@ -18,3 +18,13 @@
 .lesWorkHomeWork_container {
   @apply w-[97%] p-0 gap-10;
 }
+
+@media (max-width: 850px) {
+  .stageLesPage {
+    @apply flex-col;
+  }
+  .lessonContent,
+  .stagesContainer {
+    @apply w-full;
+  }
+}

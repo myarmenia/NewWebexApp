@@ -16,18 +16,14 @@ interface LesPageProps extends LesBoxProps {
 }
 
 export const LesPage: FC<LesPageProps> = ({
-  // title,
   stageCount,
   stageLessons,
   lessonTime,
   studentsCount,
-  description,
   keys,
   price,
 }) => {
-  console.log("LesPage");
-
-  const { title } = useLoaderData() as ILessonLoaderData;
+  const { title, body } = useLoaderData() as ILessonLoaderData;
 
   return (
     <div className="lesPage">
@@ -38,7 +34,10 @@ export const LesPage: FC<LesPageProps> = ({
         </LesContainer>
         <LesImageBox {...{ stageCount, stageLessons, lessonTime }} />
         <LesContainer>
-          <LesCases {...{ studentsCount, title, description, price, keys }} />
+          <LesCases
+            {...{ studentsCount, title, price, keys }}
+            description={body}
+          />
           <LesStages />
         </LesContainer>
       </div>
@@ -48,10 +47,10 @@ export const LesPage: FC<LesPageProps> = ({
 
 export const lessonPageProvider = async ({ params }: LoaderFunctionArgs) => {
   const res = await fetch(
-    // `https://jsonplaceholder.typicode.com/posts/${params.id}?userId=1`
     `https://jsonplaceholder.typicode.com/posts/${params.id}?userId=1`
   );
+  const paramsId = params.id;
 
-  const { title } = await res.json();
-  return { title };
+  const { title, body } = await res.json();
+  return { title, body, paramsId };
 };

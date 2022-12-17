@@ -50,7 +50,7 @@
   @apply flex gap-6 flex-col;
 }
 .stageBox1 {
-  @apply flex justify-between;
+  @apply flex justify-between rounded-[20px] py-4 relative overflow-y-hidden;
 }
 .stageBox_closed {
   @apply w-[279px];

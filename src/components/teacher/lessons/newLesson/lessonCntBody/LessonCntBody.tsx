@@ -144,7 +144,7 @@ export const LessonCntBody: React.FC = () => {
                   />
                 </TxtWinput>
                 <div
-                  className={`stageBox stageBox1 ${
+                  className={`stageBox1 ${
                     isDifferent ? "stageBox_opened" : "stageBox_closed"
                   }`}
                 >
@@ -183,7 +183,7 @@ export const LessonCntBody: React.FC = () => {
             </div>
           </div>
           <div className="nextBtnCont">
-            <Link to={"lesson_graffic"}>
+            <Link to="lesson_graffic">
               <SubmitBtn title="Առաջ" type="submit" />
             </Link>
             {/* <button
