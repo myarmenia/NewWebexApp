@@ -19,9 +19,9 @@ export interface SearchBoxProps {
   animDelay?: number;
 }
 export interface LessonProps {
-  title: string;
+  title?: string;
   keys: string[];
-  description: string;
+  description?: string;
   price: string;
   video?: string;
 }
@@ -103,4 +103,5 @@ export interface ILessonLoaderData {
   id: number;
   title: string;
   body: string;
+  paramsId?: number;
 }

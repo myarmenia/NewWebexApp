@@ -50,7 +50,7 @@ export const LesBox: FC<LesBoxProps> = ({
           <span className="editLesson">Խմբագրել</span>
           <img src={editImg} alt="" className="cursor-pointer" />
         </div>
-        <Link to={`lesson/${id}`}>
+        <Link to={`stage/${id}`}>
           <SubmitBtn type="button" title="Ավելին" className="seeMoreBtn" />
         </Link>
       </div>

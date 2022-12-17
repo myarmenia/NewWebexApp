@@ -1,13 +1,12 @@
 import React, { FC } from "react";
+import "./stageLesPage.css";
 import { LoaderFunctionArgs, useLoaderData } from "react-router";
 import { ILessonLoaderData } from "../../../../../models/interfaces";
 import { stagesArr } from "../lesPage/lesStages/LesStages";
 import { LesContainer } from "../userLesComponents/lesContainer/LesContainer";
 import { LesPTitle } from "../userLesComponents/lesPTitle/LesPTitle";
-import { ExtraMaterials } from "./extraMaterials/ExtraMaterials";
 import { LesStageBox } from "./lesStageBox/LesStageBox";
 import { LesWorkBox, LesWorkBoxProps } from "./lesWorkBox/LesWorkBox";
-import "./stageLesPage.css";
 
 const lesWorkAndHomeWork: LesWorkBoxProps[] = [
   {
@@ -28,15 +27,14 @@ const lesWorkAndHomeWork: LesWorkBoxProps[] = [
 ];
 
 export const StageLesPage: FC = () => {
-  console.log("StageLesPage");
-
+  const { title } = useLoaderData() as ILessonLoaderData;
   return (
     <div className="stageLesPage">
       <div className="lessonContent">
         <div className="my_background_06" />
         <LesContainer className="lesCont">
           <LesPTitle
-            title="Գրաֆիկ դիզայնի դասընթաց սկսնակների համար"
+            title={title}
             className={{ title: "!text-[#6B6B6B] !font-normal" }}
           />
           <hr className="stageLesPage_hr" />
@@ -65,11 +63,11 @@ export const StageLesPage: FC = () => {
   );
 };
 
-// export const stageLesPageLoader = async ({ params }: LoaderFunctionArgs) => {
-//   const res = await fetch(
-//     `https://jsonplaceholder.typicode.com/posts/${params.id}?userId=1`
-//   );
+export const stageLesPageLoader = async ({ params }: LoaderFunctionArgs) => {
+  const res = await fetch(
+    `https://jsonplaceholder.typicode.com/posts/${params.id}?userId=1`
+  );
 
-//   const { title } = await res.json();
-//   return { title };
-// };
+  const { title } = await res.json();
+  return { title };
+};

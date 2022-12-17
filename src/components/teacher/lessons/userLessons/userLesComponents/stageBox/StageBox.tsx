@@ -30,7 +30,7 @@ export const StageBox: FC<StageBoxProps> = ({ stageNumber, stageLessons }) => {
           src={isShown ? minusImg : plusImg}
           alt=""
           onClick={toggleLessons}
-          className="cursor-pointer"
+          className="cursor-pointer h-5 w-5"
         />
       </div>
       <div className="stageLessons" style={animLessons}>

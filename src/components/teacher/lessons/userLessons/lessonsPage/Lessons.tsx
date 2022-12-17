@@ -12,20 +12,9 @@ interface UserLessons {
 }
 
 export const Lessons: FC = () => {
-  console.log("Lessons");
-
   const lessonsArr = useLoaderData() as ILessonLoaderData[];
   return (
     <div className="userLessonsSection">
-      {/* {lessonsArr.map((el) => (
-        <Fragment key={Math.random()}>
-          <LesBox {...el} studentsCount={3} />
-          <LesBox {...el} studentsCount={3} />
-        </Fragment>
-      ))} */}
-
-      {/* ----------------------------- */}
-
       {lessonsArr.map(({ title, body, id }) => (
         <Fragment key={Math.random()}>
           <LesBox
