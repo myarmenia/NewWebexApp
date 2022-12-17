@@ -1,7 +1,10 @@
 import React, { FC } from "react";
 import "./stageLesPage.css";
 import { LoaderFunctionArgs, useLoaderData } from "react-router";
-import { ILessonLoaderData } from "../../../../../models/interfaces";
+import {
+  ILessonLoaderData,
+  ILessonLoaderObj,
+} from "../../../../../models/interfaces";
 import { stagesArr } from "../lesPage/lesStages/LesStages";
 import { LesContainer } from "../userLesComponents/lesContainer/LesContainer";
 import { LesPTitle } from "../userLesComponents/lesPTitle/LesPTitle";
@@ -27,7 +30,11 @@ const lesWorkAndHomeWork: LesWorkBoxProps[] = [
 ];
 
 export const StageLesPage: FC = () => {
-  const { title } = useLoaderData() as ILessonLoaderData;
+  const { obj, lessonsObj, paramsId, paramsLes } =
+    useLoaderData() as ILessonLoaderData;
+  const { title, id } = obj;
+  const { body } = lessonsObj[paramsLes-1];
+
   return (
     <div className="stageLesPage">
       <div className="lessonContent">
@@ -39,14 +46,32 @@ export const StageLesPage: FC = () => {
           />
           <hr className="stageLesPage_hr" />
           <LesContainer className="lesWorkHomeWork_container ">
-            {lesWorkAndHomeWork.map(
-              ({ title, description, extMats, lesNumber, className }) => (
-                <LesWorkBox
-                  {...{ title, description, lesNumber, extMats, className }}
-                  key={Math.random()}
-                />
-              )
-            )}
+            {/* {lessonsObj.map(({ title, body, id }) => (
+              <LesWorkBox
+                title={body}
+                description={body}
+                lesNumber={id}
+                extMats={["png", "pptx", "docx"]}
+                // {...{  lesNumber, extMats, className }}
+                key={Math.random()}
+              />
+            ))} */}
+            <LesWorkBox
+              title={body}
+              description={body}
+              lesNumber={id}
+              extMats={["png", "pptx", "docx"]}
+              // {...{  lesNumber, extMats, className }}
+              key={Math.random()}
+            />
+            <LesWorkBox
+              title={body}
+              description={body}
+              lesNumber={id}
+              extMats={["png", "pptx", "docx"]}
+              // {...{  lesNumber, extMats, className }}
+              key={Math.random()}
+            />
           </LesContainer>
         </LesContainer>
       </div>
@@ -67,7 +92,12 @@ export const stageLesPageLoader = async ({ params }: LoaderFunctionArgs) => {
   const res = await fetch(
     `https://jsonplaceholder.typicode.com/posts/${params.id}?userId=1`
   );
-
-  const { title } = await res.json();
-  return { title };
+  const lessons = await fetch(
+    `https://jsonplaceholder.typicode.com/posts?userId=1`
+  );
+  const paramsId = params.id;
+  const paramsLes = params.les;
+  const obj = await res.json();
+  const lessonsObj = await lessons.json();
+  return { obj, lessonsObj, paramsId, paramsLes };
 };

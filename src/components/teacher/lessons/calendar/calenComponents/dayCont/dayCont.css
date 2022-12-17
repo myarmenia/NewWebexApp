@@ -25,11 +25,21 @@
     gap: max(3vw, 11px);
   }
   #CalendarBody_DayContainerHead {
-    @apply h-[39px] self-center m-0 justify-evenly;
+    @apply h-[39px] self-center m-0 justify-center relative;
   }
   .CalendarHeadFilterBtn,
   #month {
     font-size: max(3.5vw, 22px);
     @apply w-full;
+  }
+  .CalendarHeadFilterBtn {
+    @apply text-xl;
+  }
+  .CaledarHead {
+    @apply h-auto mt-4;
+  }
+  #CalendarHeadBox2 {
+    @apply absolute top-1/2 left-auto right-0;
+    transform: translateY(-50%);
   }
 }

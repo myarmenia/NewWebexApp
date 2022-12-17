@@ -3,7 +3,11 @@ import "./stageBox.css";
 import plusImg from "../../../../../../images/Teacher/UserLessons/plusImg.svg";
 import minusImg from "../../../../../../images/Teacher/UserLessons/minusImg.svg";
 import { StageLesson } from "../stageLesson/StageLesson";
-import { IStageLesson } from "../../../../../../models/interfaces";
+import {
+  ILessonLoaderData,
+  IStageLesson,
+} from "../../../../../../models/interfaces";
+import { useLoaderData } from "react-router";
 
 export interface StageBoxProps {
   stageNumber?: number;
@@ -11,6 +15,8 @@ export interface StageBoxProps {
 }
 
 export const StageBox: FC<StageBoxProps> = ({ stageNumber, stageLessons }) => {
+  const { obj, lessonsObj, paramsId } = useLoaderData() as ILessonLoaderData;
+
   const [isShown, setIsShown] = useState<boolean>(stageNumber === 2);
 
   const toggleLessons = (e: MouseEvent<HTMLImageElement>) => {
@@ -18,7 +24,7 @@ export const StageBox: FC<StageBoxProps> = ({ stageNumber, stageLessons }) => {
   };
   const animLessons = isShown
     ? {
-        height: `${stageLessons.length * 43 + 21}px`,
+        height: `${lessonsObj.length * 43 + 21}px`,
       }
     : { height: "0" };
 
@@ -35,10 +41,11 @@ export const StageBox: FC<StageBoxProps> = ({ stageNumber, stageLessons }) => {
       </div>
       <div className="stageLessons" style={animLessons}>
         <hr className="w-full bg-[#CCCCCC] h-[1px] mt-5" />
-        {stageLessons.map(({ title }, i) => (
+        {lessonsObj.map(({ title, body, id }, i) => (
           <StageLesson
-            {...{ title }}
-            lessonNumber={i + 1}
+            // {...{ title }}
+            title={body}
+            lessonNumber={id}
             key={Math.random()}
           />
         ))}

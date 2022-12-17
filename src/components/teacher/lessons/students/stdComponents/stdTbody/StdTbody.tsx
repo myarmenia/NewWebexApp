@@ -23,8 +23,8 @@ export const StdTbody: FC = () => {
               })),
             } as IStudentTd)
         )
-        .map(({ name, lessons, phoneNumber }, i) => (
-          <StdTbodyTr key={Math.random()} {...{ name, lessons, phoneNumber }} />
+        .map(({ name, lessons, phoneNumber }) => (
+          <StdTbodyTr {...{ name, lessons, phoneNumber }} key={Math.random()} />
         ))}
     </tbody>
   );
