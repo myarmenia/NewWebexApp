@@ -20,6 +20,12 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #949494;
 }
+.scrollbar_hidden::-webkit-scrollbar,
+.scrollbar_hidden::-webkit-scrollbar-track,
+.scrollbar_hidden::-webkit-scrollbar-thumb,
+.scrollbar_hidden::-webkit-scrollbar-thumb:hover {
+  visibility: hidden;
+}
 /* ---------------- SCROLL_BAR ENDS ---------------- */
 
 /* --------------- custom checkbox ------------ */

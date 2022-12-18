@@ -22,7 +22,6 @@ export const Calendar: FC = () => {
   }, [currentDate.getMonth()]);
 
   const { user } = useLoaderData() as IDataExample;
-  console.log(user, "works");
   return (
     <div className="calendar">
       <LessonTitle title="Դասավանդման գրաֆիկ" />

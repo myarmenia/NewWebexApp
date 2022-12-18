@@ -14,33 +14,40 @@ import { Teacher } from "./components/teacher/Teacher";
 import Regsitration from "./components/registration/Regsitration";
 import Entry from "./components/entry/Entry";
 import Tariffs from "./components/tariffs/Tariffs";
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  Routes,
+} from "react-router-dom";
 // import { Route, Routes } from "react-router";
 function App() {
+  // const router = createBrowserRouter(
+  //   createRoutesFromElements(<Route path="/" element={<Teacher />} />)
+  // );
+
   return (
-    <>
-      <Header />
-      {/*<Container>
-        <SearchArea />
-        <InfoCont />
-        <Features />
-      </Container>
-      <News />
-      <Container>
-        <Opinion />
-        <Lessons />
-        <Questions />
-      </Container>
-      <Footer />  */}
-      {/* <Tariffs /> */}
-      <Teacher />
+    // <Routes>
+    //   <Route element={<Teacher />} />
+    // </Routes>
+    <Teacher />
+    // <Header />
+    //  <Container>
+    //     <SearchArea />
+    //     <InfoCont />
+    //     <Features />
+    //   </Container>
+    //   <News />
+    //   <Container>
+    //     <Opinion />
+    //     <Lessons />
+    //     <Questions />
+    //   </Container>
+    //   <Footer />
+    //  <Tariffs />
 
-      {/* <Regsitration /> */}
-      {/* <Entry /> */}
-
-      {/* <Routes>
-        <Route></Route>
-      </Routes> */}
-    </>
+    //   <Regsitration />
+    //   <Entry />
   );
 }
 

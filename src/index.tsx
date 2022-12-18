@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Routes } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./redux/index";
 
@@ -12,11 +12,12 @@ import {
   createRoutesFromElements,
   Route,
   RouterProvider,
+  Outlet,
 } from "react-router-dom";
 
-// const router = createBrowserRouter(
-//   createRoutesFromElements(<Route path="/" element={<App />} />)
-// );
+const router = createBrowserRouter(
+  createRoutesFromElements(<Route path="/*" element={<App />} />)
+);
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -25,7 +26,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <Provider store={store}>
     {/* <BrowserRouter> */}
-      <App />
+    <App />
     {/* </BrowserRouter> */}
     {/* <RouterProvider router={router} /> */}
   </Provider>

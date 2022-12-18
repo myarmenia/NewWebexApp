@@ -1,6 +1,6 @@
 import { IWeekEvent } from "../../../../../models/interfaces";
 
-export const weekDays: string[] = [
+export const weekDays: readonly string[] = [
   "Կիրակի",
   "Երկուշաբթի",
   "Երեքշաբթի",
@@ -9,7 +9,7 @@ export const weekDays: string[] = [
   "Ուրբաթ",
   "Շաբաթ",
 ];
-export const weekDayNames: string[] = [
+export const weekDayNames: readonly string[] = [
   "Կիր",
   "Երկ",
   "Երք",
@@ -18,7 +18,7 @@ export const weekDayNames: string[] = [
   "Ուրբ",
   "Շբթ",
 ];
-export const weekScheduleTime: string[] = [
+export const weekScheduleTime: readonly string[] = [
   "08:00",
   "09:00",
   "10:00",
@@ -36,6 +36,20 @@ export const weekScheduleTime: string[] = [
   "22:00",
   "23:00",
   "00:00",
+];
+export const months: readonly string[] = [
+  "Հունվար",
+  "Փետրվար",
+  "Մարտ",
+  "Ապրիլ",
+  "Մայիս",
+  "Հունիս",
+  "Հուլիս",
+  "Օգոստոս",
+  "Սեպտեմբեր",
+  "Հոկտեմբեր",
+  "Նոյեմբեր",
+  "Դեկտեմբեր",
 ];
 export const weekSheduleEvents: IWeekEvent[] = [
   {

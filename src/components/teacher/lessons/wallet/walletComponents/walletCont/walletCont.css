@@ -24,6 +24,11 @@
   @apply border-spacing-y-3 border-separate;
 }
 
+@media (max-width: 1400px) {
+  .walletCont {
+    @apply w-[87%];
+  }
+}
 @media (max-width: 1250px) {
   .walletCont {
     @apply w-full;
@@ -34,7 +39,7 @@
     @apply grid-cols-2;
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 610px) {
   .walletCont_header {
     @apply flex-col gap-5;
   }

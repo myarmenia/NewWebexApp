@@ -10,6 +10,7 @@ import {
 } from "../../../../../../redux/reducers/calendarList";
 import { ToggleMonth } from "./toggleMonth/ToggleMonth";
 import { ICalendarReducer } from "../../../../../../models/interfaces";
+import { months } from "../../calStore/calStore";
 
 interface DayContProps {
   // currentDate: Date;
@@ -20,10 +21,9 @@ export const DayCont: FC<DayContProps> = ({}) => {
     (state: ICalendarReducer) => state.calendarList
   );
   const dispatch = useDispatch();
-
-  const toMonth = `${currentDate.toLocaleString("ru-RU", {
-    month: "long",
-  })} ${currentDate.toLocaleString("ru-RU", { year: "numeric" })}`;
+  const toMonth = `${
+    months[currentDate.getMonth()]
+  } ${currentDate.toLocaleString("en-US", { year: "numeric" })}`;
   return (
     <div id="CalendarBody_DayContainer">
       <div className="CaledarHead">

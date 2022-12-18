@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import "./stageLesPage.css";
+import editImg from "../../../../../images/Teacher/UserLessons/editGray.svg";
 import { LoaderFunctionArgs, useLoaderData } from "react-router";
 import {
   ILessonLoaderData,
@@ -10,6 +11,7 @@ import { LesContainer } from "../userLesComponents/lesContainer/LesContainer";
 import { LesPTitle } from "../userLesComponents/lesPTitle/LesPTitle";
 import { LesStageBox } from "./lesStageBox/LesStageBox";
 import { LesWorkBox, LesWorkBoxProps } from "./lesWorkBox/LesWorkBox";
+import { Link } from "react-router-dom";
 
 const lesWorkAndHomeWork: LesWorkBoxProps[] = [
   {
@@ -33,17 +35,28 @@ export const StageLesPage: FC = () => {
   const { obj, lessonsObj, paramsId, paramsLes } =
     useLoaderData() as ILessonLoaderData;
   const { title, id } = obj;
-  const { body } = lessonsObj[paramsLes-1];
+  const { body } = lessonsObj[paramsLes - 1];
 
   return (
     <div className="stageLesPage">
       <div className="lessonContent">
         <div className="my_background_06" />
         <LesContainer className="lesCont">
-          <LesPTitle
+          {/* <LesPTitle
             title={title}
             className={{ title: "!text-[#6B6B6B] !font-normal" }}
-          />
+          /> */}
+          <Link to="edit">
+            <div className="lesPage_titleBox ">
+              <h5 className="lesPage_title !text-[#6B6B6B] !font-normal">
+                {title}
+              </h5>
+              <div className="lesPage_editBox">
+                <span className="lesPage_editText">Խմբագրել</span>
+                <img src={editImg} alt="" />
+              </div>
+            </div>
+          </Link>
           <hr className="stageLesPage_hr" />
           <LesContainer className="lesWorkHomeWork_container ">
             {/* {lessonsObj.map(({ title, body, id }) => (

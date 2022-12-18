@@ -32,7 +32,7 @@ export const LesBox: FC<LesBoxProps> = ({
         allowFullScreen
       ></iframe>  */}
       </div>
-      <p className="lesBox_title">{title}</p>
+      <p className="lesBox_title overflow-hidden">{title}</p>
       <div className="keys">
         {keys.map((key, index) => (
           <div className="key" key={index}>
