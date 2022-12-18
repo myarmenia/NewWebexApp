@@ -16,22 +16,21 @@ import { Lessons } from "./lessonsPage/Lessons";
 import { StageLesPage } from "./stageLesPage/StageLesPage";
 import "./userLessons.css";
 
+export const extItems: IExtraMats[] = [
+  {
+    type: "img",
+    url: "",
+  },
+  {
+    type: "png",
+    url: "",
+  },
+  {
+    type: "pptx",
+    url: "",
+  },
+];
 export const UserLessons: FC = () => {
-  const extItems: IExtraMats[] = [
-    {
-      name: "img",
-      url: "",
-    },
-    {
-      name: "png",
-      url: "",
-    },
-    {
-      name: "pptx",
-      url: "",
-    },
-  ];
-
   // const router = createBrowserRouter(
   //   createRoutesFromElements(
   //     <Route>

@@ -25,8 +25,10 @@ export const LesWorkBox: FC<LesWorkBoxProps> = ({
   return (
     <LesContainer className="lessonWork">
       <p className={"lessonWork_title " + className?.title}>
-        <span className="font-normal">{lesNumber && `Դաս ${lesNumber}:`}</span>
-        {title}
+        <span className="font-normal mr-2 float-left">
+          {lesNumber && `Դաս ${lesNumber}:`}
+        </span>
+        <span>{title}</span>
       </p>
       {/* <iframe
                   width="100%"

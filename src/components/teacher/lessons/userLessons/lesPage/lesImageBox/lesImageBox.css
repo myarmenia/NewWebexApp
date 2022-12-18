@@ -33,7 +33,7 @@
     @apply flex-col items-end gap-3;
   }
   .lesPage_title {
-    @apply self-start;
+    @apply self-start first-letter:capitalize;
   }
 }
 /* @media (max-width: 400px) {

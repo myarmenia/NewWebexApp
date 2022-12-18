@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import "./teacher.css";
 import { AddLesson } from "./lessons/addLesson/AddLesson";
 import { NewLesson } from "./lessons/newLesson/NewLesson";
@@ -11,8 +11,11 @@ import { Calendar, calendarLoader } from "./lessons/calendar/Calendar";
 import { json, Outlet, Routes, useLocation } from "react-router";
 import { WeekSchedule } from "./lessons/calendar/weekSchedule/WeekSchedule";
 import PersonalInfo from "./personalInfo/PersonalInfo";
-import { UserLessons } from "./lessons/userLessons/UserLessons";
-import { EditMyLessons } from "./lessons/userLessons/editMyLessons/EditMyLessons";
+import { extItems, UserLessons } from "./lessons/userLessons/UserLessons";
+import {
+  EditMyLessons,
+  editStageLesPageLoader,
+} from "./lessons/userLessons/editMyLessons/EditMyLessons";
 import { Students } from "./lessons/students/Students";
 import { ControlPanel } from "./controlPanel/ControlPanel";
 import { Discount } from "./discount/Discount";
@@ -73,11 +76,27 @@ export const Teacher: React.FC = () => {
               }
               loader={lessonPageLoader}
             />
-            <Route
-              path="lesson/:les"
-              element={<StageLesPage />}
-              loader={lessonPageLoader}
-            />
+            <Route path="lesson/:les">
+              <Route
+                index
+                element={<StageLesPage />}
+                loader={lessonPageLoader}
+              />
+              <Route
+                path="edit"
+                element={
+                  <EditMyLessons
+                    inp1=""
+                    inp2=""
+                    inp3=""
+                    inp4=""
+                    lesItems={extItems}
+                    homeItmes={extItems}
+                  />
+                }
+                loader={lessonPageLoader}
+              />
+            </Route>
           </Route>
         </Route>
 

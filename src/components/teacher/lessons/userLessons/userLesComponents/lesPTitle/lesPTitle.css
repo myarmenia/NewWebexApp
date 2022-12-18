@@ -2,7 +2,7 @@
   @apply flex items-center justify-between;
 }
 .lesPage_title {
-  @apply text-[#7A64FA] font-bold text-base;
+  @apply text-[#7A64FA] font-bold text-base first-letter:capitalize;
 }
 .lesPage_editBox {
   @apply flex items-center gap-[6px] cursor-pointer;

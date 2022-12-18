@@ -10,8 +10,8 @@ export const editSchema = yup.object().shape({
       url: yup.string(),
     })
   ),
-  homeW_videoSource: yup.string().required("dfasd"),
-  homeW_description: yup.string().required("dfdsfadsasd"),
+  homeW_videoSource: yup.string(),
+  homeW_description: yup.string(),
   homeW_extraMaterials: yup.array(
     yup.object().shape({
       name: yup.string(),
@@ -31,6 +31,6 @@ export interface IEditSchema {
 }
 
 export interface IExtraMats {
-  name: string;
+  type: string;
   url: string;
 }

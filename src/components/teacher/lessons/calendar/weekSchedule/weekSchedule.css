@@ -1,5 +1,5 @@
 .weekSchedule {
-  @apply w-full mb-[5px];
+  @apply w-full mb-3;
 }
 .weekSchedule_container {
   @apply relative overflow-x-auto rounded-[15px];

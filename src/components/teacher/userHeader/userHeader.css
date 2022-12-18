@@ -16,7 +16,7 @@
   @apply h-[80px] flex justify-between items-center gap-6 mr-[3%];
 }
 #notificationImage {
-  @apply flex relative;
+  @apply flex relative shrink-0;
 }
 #notificationImage::after {
   @apply absolute top-0 -right-[1px] w-2 h-2 bg-cover content-none;
