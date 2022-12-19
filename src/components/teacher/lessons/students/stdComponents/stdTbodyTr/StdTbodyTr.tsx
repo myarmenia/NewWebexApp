@@ -7,11 +7,17 @@ import { TdDate } from "./tds/TdDate";
 import { TdProgres } from "./tds/TdProgres";
 import { TdFeedBack } from "./tds/TdFeedBack";
 
-export const StdTbodyTr: FC<IStudentTd> = ({ name, phoneNumber, lessons }) => {
+export const StdTbodyTr: FC<IStudentTd> = ({
+  image,
+  name,
+  phoneNumber,
+  lessons,
+}) => {
   return (
     <tr className="stdTbodyTr">
-      <TdName {...{ name }} />
-      <td className="stdTd">{phoneNumber}</td>
+      <TdName {...{ name, image }} />
+      {/* ----- td for phoneNumber below */}
+      <TdLes lessons={[{ ...lessons[0], title: phoneNumber }]} />
       <TdLes {...{ lessons }} />
       <TdDate {...{ lessons }} />
       <TdProgres {...{ lessons }} />

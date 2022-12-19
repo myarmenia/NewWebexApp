@@ -9,7 +9,7 @@ export const StdTbody: FC = () => {
         .map(
           () =>
             ({
-              image: "",
+              image: "smile.png",
               name: "Անուն Ազգանուն",
               phoneNumber: "+374 90 888 888",
               lessons: Array.from({
@@ -23,8 +23,11 @@ export const StdTbody: FC = () => {
               })),
             } as IStudentTd)
         )
-        .map(({ name, lessons, phoneNumber }) => (
-          <StdTbodyTr {...{ name, lessons, phoneNumber }} key={Math.random()} />
+        .map(({ name, lessons, phoneNumber, image }) => (
+          <StdTbodyTr
+            {...{ image, name, lessons, phoneNumber }}
+            key={Math.random()}
+          />
         ))}
     </tbody>
   );

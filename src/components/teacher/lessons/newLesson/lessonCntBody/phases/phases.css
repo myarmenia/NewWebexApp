@@ -7,3 +7,10 @@
 .phasesTitle {
   @apply font-semibold text-sm text-[#6B6B6B];
 }
+
+@media (max-width: 870px) {
+  .phasesCont{
+    @apply w-auto min-w-[290px]
+  }
+
+}

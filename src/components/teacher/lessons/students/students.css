@@ -22,3 +22,9 @@
 .stdTbody {
   @apply border-spacing-y-3 border-separate;
 }
+
+@media (max-width: 350px) {
+  .filterSection {
+    @apply flex-wrap items-end;
+  }
+}

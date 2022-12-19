@@ -92,7 +92,7 @@ export const LessonCntBody: React.FC = () => {
     <FormProvider {...methods}>
       <div className="LessonCntBody">
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="lessonContainer">
+          <div className="lessonContainer newLesCont">
             <div className="LessonCntBody_box">
               <CstmInput
                 placeholder="Դասընթացի վերնագիրը*"
