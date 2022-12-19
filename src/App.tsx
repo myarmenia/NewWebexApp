@@ -18,20 +18,26 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
   Route,
+  RouterProvider,
   Routes,
 } from "react-router-dom";
+import { Loyaut } from "./components/teacher/loyaut/Loyaut";
 // import { Route, Routes } from "react-router";
 function App() {
-  // const router = createBrowserRouter(
-  //   createRoutesFromElements(<Route path="/" element={<Teacher />} />)
-  // );
+  const router = createBrowserRouter(
+    createRoutesFromElements(<Route path="/" element={<Teacher />} />)
+  );
 
   return (
+    // <Route path="/" element={<Teacher />} />
+    // <RouterProvider router={router} />
+
+    <Teacher />
     // <Routes>
     //   <Route element={<Teacher />} />
     // </Routes>
-    
-    <Teacher />
+
+    // <Teacher />
     // <Header />
     //  <Container>
     //     <SearchArea />

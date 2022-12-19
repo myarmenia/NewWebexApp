@@ -3,7 +3,7 @@ import "./firstLesCont.css";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FormProvider, useForm } from "react-hook-form";
 import { CstmInput } from "../../../lesComponents/cstmInput/CstmInput";
-import { SubmitBtn } from "../../../lesComponents/submitBtn/SubmitBtn";
+import { CustomBtn } from "../../../lesComponents/customBtn/CustomBtn";
 import { firstLessonSchema, IFirstLessonSchema } from "../firstLesSchema";
 import { BoxTitle } from "./BoxTitle";
 import { AttachFile } from "../../../lesComponents/attachFile/AttachFile";
@@ -50,7 +50,7 @@ export const FirstLesCont: React.FC = () => {
             {/* <StageLessons /> */}
           </div>
           <div className="nextBtnCont1">
-            <SubmitBtn title="Հաջորդ դասը" type="submit" />
+            <CustomBtn title="Հաջորդ դասը" type="submit" />
           </div>
         </div>
       </form>

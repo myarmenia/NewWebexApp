@@ -9,7 +9,7 @@ import deleteMaterial from "../../../../../images/Teacher/Exam/Group 1555.svg";
 import { FormProvider, useForm, useFieldArray } from "react-hook-form";
 import { editSchema, IEditSchema, IExtraMats } from "./editSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { SubmitBtn } from "../../../lesComponents/submitBtn/SubmitBtn";
+import { CustomBtn } from "../../../lesComponents/customBtn/CustomBtn";
 import { AttachFile } from "../../../lesComponents/attachFile/AttachFile";
 import { LoaderFunctionArgs, useLoaderData } from "react-router";
 import { ILessonLoaderData } from "../../../../../models/interfaces";
@@ -115,20 +115,4 @@ export const EditMyLessons: FC<EditMyLessonsProps> = ({
       </form>
     </FormProvider>
   );
-};
-
-export const editStageLesPageLoader = async ({
-  params,
-}: LoaderFunctionArgs) => {
-  const res = await fetch(
-    `https://jsonplaceholder.typicode.com/posts/${params.id}?userId=1`
-  );
-  const lessons = await fetch(
-    `https://jsonplaceholder.typicode.com/posts?userId=1`
-  );
-  const paramsId = params.id;
-  const paramsLes = params.les;
-  const obj = await res.json();
-  const lessonsObj = await lessons.json();
-  return { obj, lessonsObj, paramsId, paramsLes };
 };

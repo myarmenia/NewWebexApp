@@ -3,7 +3,7 @@ import { LessonTitle } from "../lessonTitle/LessonTitle";
 import { DiscountCard } from "./DiscountCard";
 import "./discount.css";
 import { ModalDiscount } from "./ModalDiscount";
-import { SubmitBtn } from "../lesComponents/submitBtn/SubmitBtn";
+import { CustomBtn } from "../lesComponents/customBtn/CustomBtn";
 export const Discount = () => {
   return (
     <div className="discount_mainCont">
@@ -36,7 +36,7 @@ export const Discount = () => {
                     <td>Զեղչ</td>
                     <td>20%</td>
                     <td>
-                      <SubmitBtn
+                      <CustomBtn
                         className="!w-fit !min-w-min"
                         title="Դադարեցնել"
                         type="button"
@@ -49,7 +49,7 @@ export const Discount = () => {
                     <td>Զեղչ</td>
                     <td>20%</td>
                     <td className="text-center">
-                      <SubmitBtn
+                      <CustomBtn
                         className="!w-fit !min-w-min"
                         title="Դադարեցնել"
                         type="button"
@@ -82,7 +82,7 @@ export const Discount = () => {
                     <td>Պրոմո</td>
                     <td></td>
                     <td className="text-center">
-                      <SubmitBtn
+                      <CustomBtn
                         className="!w-fit !min-w-min whitespace-nowrap"
                         title="Հանել պրոմոյից"
                         type="button"
