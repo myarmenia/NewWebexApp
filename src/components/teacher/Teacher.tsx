@@ -49,6 +49,7 @@ export const Teacher: React.FC = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Loyaut />}>
+        {/* <Route index element={<Exam />} /> */}
         <Route index element={<AddLesson />} />
         <Route path="new_lesson">
           <Route index element={<NewLesson />} />
@@ -99,7 +100,6 @@ export const Teacher: React.FC = () => {
             </Route>
           </Route>
         </Route>
-
         <Route path="create_graffic">
           <Route index element={<CreateGraffic />} />
           <Route path="edit_graffic" element={<EditGraffic />} />

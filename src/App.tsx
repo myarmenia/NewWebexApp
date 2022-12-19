@@ -30,6 +30,7 @@ function App() {
     // <Routes>
     //   <Route element={<Teacher />} />
     // </Routes>
+    
     <Teacher />
     // <Header />
     //  <Container>

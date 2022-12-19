@@ -13,7 +13,7 @@ export const CalTbody: FC<CalTbodyProps> = ({}) => {
     <tbody>
       {datesWeek.map((el, ind) => {
         return (
-          <tr key={Math.random()}>
+          <tr className="dayCont_tr" key={Math.random()}>
             {el.map(({ dayNumber, notCurrentMonth, currentDayEvents }, i) => {
               return (
                 <TdBox

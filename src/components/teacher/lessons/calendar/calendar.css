@@ -21,6 +21,9 @@
   #CalendarBody_NumericContainer {
     @apply w-auto;
   }
+  #CalendarBody_DayContainerContent{
+    @apply overflow-x-auto
+  }
 }
 @media (max-width: 610px) {
   #CalendarHeadBox2 {

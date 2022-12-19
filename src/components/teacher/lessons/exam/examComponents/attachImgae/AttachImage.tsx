@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import "./attachImage.css";
 import { useFormContext } from "react-hook-form";
 
-interface AttachImage {
+interface AttachImageProps {
   regName?: string;
   formatTitle?: string;
   formats?: string[];
 }
 
-export const AttachImage: React.FC<AttachImage> = ({
+export const AttachImage: React.FC<AttachImageProps> = ({
   regName,
   formatTitle,
   formats,
@@ -24,7 +24,7 @@ export const AttachImage: React.FC<AttachImage> = ({
   return (
     <div className="attachImage">
       <input
-        className="loadImageInput"
+        className="attachImageInput"
         type="file"
         accept={formats?.join(", ")}
         onChange={onFileUpload}

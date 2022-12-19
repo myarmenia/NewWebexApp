@@ -7,7 +7,7 @@ export const AddLesson: React.FC = () => {
     <div className="addLesson">
       <p className="message">Դուք դեռ չունեք դասընթաց, ավելացրեք նորը</p>
       <NavLink className="addLessonBtn" to="new_lesson">
-        Ավելացնել դասընթաց
+        Ավելացնել դասընթաց 	
       </NavLink>
       {/* <button className="addLessonBtn"></button> */}
     </div>
