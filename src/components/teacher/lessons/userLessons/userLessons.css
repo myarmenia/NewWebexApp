@@ -1,7 +1,6 @@
 .userLessonsSection {
   @apply grid grid-cols-4 gap-[11px] mb-[10px];
 }
-
 @media (max-width: 1190px) {
   .userLessonsSection {
     @apply grid-cols-3;

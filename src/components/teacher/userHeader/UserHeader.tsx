@@ -20,7 +20,7 @@ export const UserHeaderStore: INavItemsContent[] = [
 export const UserHeader: React.FC = () => {
   const [isPanelActive, setIsPanelActive] = useState<boolean>(false);
   return (
-    <div className="header">
+    <header className="header">
       <div id="logoDiv">
         <div id="logoImgDiv">
           {/* <img id="logo" src="" /> */}
@@ -51,6 +51,6 @@ export const UserHeader: React.FC = () => {
           <img id="personImage" src={teacherImg} className="cursor-pointer" />
         </div>
       </nav>
-    </div>
+    </header>
   );
 };

@@ -14,7 +14,7 @@ import { nLessCreate_L_Schema, TeacherSubmitForm } from "./validationSchema";
 import { CstmInput } from "../../../lesComponents/cstmInput/CstmInput";
 import { Knowledges } from "./knowledges/Knowledges";
 import { CustomNmbInp } from "../../../lesComponents/customNmbInp/CustomNmbInp";
-import { SubmitBtn } from "../../../lesComponents/submitBtn/SubmitBtn";
+import { CustomBtn } from "../../../lesComponents/customBtn/CustomBtn";
 import { CstmTextarea } from "../../../lesComponents/cstmTextarea/CstmTextarea";
 import { Link } from "react-router-dom";
 
@@ -184,7 +184,7 @@ export const LessonCntBody: React.FC = () => {
           </div>
           <div className="nextBtnCont">
             <Link to="lesson_graffic">
-              <SubmitBtn title="Առաջ" type="submit" />
+              <CustomBtn title="Առաջ" type="submit" />
             </Link>
             {/* <button
               type="button"

@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import "./lesBox.css";
-import { SubmitBtn } from "../../../../lesComponents/submitBtn/SubmitBtn";
+import { CustomBtn } from "../../../../lesComponents/customBtn/CustomBtn";
 import editImg from "../../../../../../images/Teacher/UserLessons/editGray.svg";
 import { LessonProps } from "../../../../../../models/interfaces";
 import { Link } from "react-router-dom";
@@ -51,7 +51,7 @@ export const LesBox: FC<LesBoxProps> = ({
           <img src={editImg} alt="" className="cursor-pointer" />
         </div>
         <Link to={`stage/${id}`}>
-          <SubmitBtn type="button" title="Ավելին" className="seeMoreBtn" />
+          <CustomBtn type="button" title="Ավելին" className="seeMoreBtn" />
         </Link>
       </div>
     </div>

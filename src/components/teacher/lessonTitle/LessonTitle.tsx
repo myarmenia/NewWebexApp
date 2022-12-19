@@ -3,7 +3,7 @@ import "./lessonTitle.css";
 import editImg from "../../../images/Teacher/NewLesson/pencil 1.svg";
 import CreateGraffic from "../userComponents/CreateGraffic";
 import { Link } from "react-router-dom";
-import { SubmitBtn } from "../lesComponents/submitBtn/SubmitBtn";
+import { CustomBtn } from "../lesComponents/customBtn/CustomBtn";
 
 interface LessonTitleProps {
   title: string;
@@ -26,7 +26,7 @@ export const LessonTitle: React.FC<LessonTitleProps> = ({
           <img src={editImg} className="w-4 h-4 cursor-pointer" />
         )}
         {isAddLessonBtn && (
-          <SubmitBtn
+          <CustomBtn
             type="button"
             title="+ Ավելացնել դասընթաց"
             className="whitespace-nowrap"
