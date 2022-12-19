@@ -75,7 +75,7 @@ export const EditMyLessons: FC<EditMyLessonsProps> = ({
                   placeholder=""
                   defaultValue={body}
                   regName="title"
-                  className="editP_input !h-auto"
+                  className="editP_input min-h-[200px]"
                 />
                 <CstmInput
                   type="text"
