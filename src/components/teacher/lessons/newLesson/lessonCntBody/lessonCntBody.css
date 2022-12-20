@@ -19,10 +19,6 @@
 .LessonCntBody_box2 {
   @apply w-auto;
 }
-.addLessonBtn {
-  @apply font-semibold text-xs text-white py-[9px] px-[30px] rounded-2xl w-fit min-w-[193px];
-  background: linear-gradient(90deg, #7764fb 0%, #f364f3 100%);
-}
 .txtWcheckbox {
   @apply flex flex-col gap-[7px];
 }

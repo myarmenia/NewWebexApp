@@ -15,7 +15,7 @@ import { Students } from "./lessons/students/Students";
 import { ControlPanel } from "./controlPanel/ControlPanel";
 import { Discount } from "./discount/Discount";
 import { Wallet } from "./lessons/wallet/Wallet";
-import { Feedback } from "./lessons/feedback/Feedback";
+import { Feedback, feedbackLoader } from "./lessons/feedback/Feedback";
 
 // lessons for user
 import { extItems, UserLessons } from "./lessons/userLessons/UserLessons";
@@ -38,6 +38,9 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import { Loyaut } from "./loyaut/Loyaut";
+import { MesTask } from "./lessons/feedback/feedbackComponents/mesContent/mesTask/MesTask";
+import { MesHomeWork } from "./lessons/feedback/feedbackComponents/mesContent/mesHomeWork/MesHomeWork";
+import { MesMessages } from "./lessons/feedback/feedbackComponents/mesContent/mesMessages/MesMessages";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Loyaut />}>
@@ -101,6 +104,16 @@ const router = createBrowserRouter(
       <Route path="wallet" element={<Wallet />} />
       <Route path="panel" element={<ControlPanel />} />
       <Route path="discount" element={<Discount />} />
+      {/* <Route path="feedback/*" element={<Feedback />} loader={feedbackLoader} /> */}
+      <Route path="feedback" element={<Feedback />} loader={feedbackLoader}>
+        <Route index element={<MesTask />} loader={feedbackLoader} />
+        <Route
+          path="homework"
+          element={<MesHomeWork />}
+          loader={feedbackLoader}
+        />
+        <Route path="chat" element={<MesMessages />} loader={feedbackLoader} />
+      </Route>
     </Route>
   )
 );
