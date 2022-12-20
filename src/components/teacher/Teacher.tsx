@@ -104,15 +104,21 @@ const router = createBrowserRouter(
       <Route path="wallet" element={<Wallet />} />
       <Route path="panel" element={<ControlPanel />} />
       <Route path="discount" element={<Discount />} />
-      {/* <Route path="feedback/*" element={<Feedback />} loader={feedbackLoader} /> */}
       <Route path="feedback" element={<Feedback />} loader={feedbackLoader}>
         <Route index element={<MesTask />} loader={feedbackLoader} />
-        <Route
-          path="homework"
-          element={<MesHomeWork />}
-          loader={feedbackLoader}
-        />
-        <Route path="chat" element={<MesMessages />} loader={feedbackLoader} />
+        <Route path="lesson/:id" element={<Outlet />} loader={feedbackLoader}>
+          <Route index element={<MesTask />} loader={feedbackLoader} />
+          <Route
+            path="homework"
+            element={<MesHomeWork />}
+            loader={feedbackLoader}
+          />
+          <Route
+            path="chat"
+            element={<MesMessages />}
+            loader={feedbackLoader}
+          />
+        </Route>
       </Route>
     </Route>
   )

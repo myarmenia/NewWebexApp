@@ -9,10 +9,8 @@
   } */
 .stdudentName {
   @apply flex items-center gap-[10px];
-  position: inherit;
 }
 .stdTbodyTr > td {
-  position: inherit;
 }
 .stdTd {
   @apply text-xs text-[#6B6B6B] py-1 px-5;

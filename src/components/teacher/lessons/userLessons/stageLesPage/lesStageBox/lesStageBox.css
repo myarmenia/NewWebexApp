@@ -3,7 +3,6 @@
   box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.1);
 }
 .stageBox_container {
-  position: inherit;
 }
 .lesStageBoxHead {
   @apply mr-4 flex items-center justify-between text-[#6B6B6B] text-xs mb-2;

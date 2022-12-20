@@ -1,6 +1,5 @@
 .transactionHistory_theadTr {
   @apply bg-[#ffffffd1] rounded-[10px] text-xs font-semibold h-8;
-  position: inherit;
 }
 .transactionHistory_theadTr > th:first-child {
   @apply rounded-l-[10px];
