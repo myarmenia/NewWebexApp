@@ -7,15 +7,12 @@
   @apply w-full h-[25px] font-normal text-sm;
   letter-spacing: 0.01em;
   border-bottom: 1px solid #bebfe4;
-  position: inherit;
 }
 .panelData {
   @apply w-full h-[80px] flex items-center justify-between;
-  position: inherit;
 }
 .panelData2 {
   @apply w-full h-[60px] flex items-center justify-between;
-  position: inherit;
 }
 .stars {
   @apply w-[62%] h-auto flex gap-[5px] flex-wrap relative;
@@ -30,7 +27,7 @@
 .panelDataText {
   @apply w-full font-normal text-xs text-[#5f6368] h-auto;
   letter-spacing: 0.01em;
-  position: inherit;
+
   text-align: right;
   word-break: break-all;
 }
@@ -39,7 +36,6 @@
 }
 .firstPanel {
   @apply w-full h-[auto];
-  position: inherit;
 }
 .firstPanelChild {
   @apply w-full h-[86px] flex items-center justify-between;
@@ -78,7 +74,6 @@
 }
 .secondPanel {
   @apply w-full h-[auto];
-  position: inherit;
 }
 .secondPanelChild {
   @apply w-full h-[40px] flex items-end justify-between;

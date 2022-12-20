@@ -4,7 +4,7 @@
 }
 #CalendarBodyContainer {
   @apply w-full h-full flex rounded-[15px];
-  position: inherit;
+
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
 }
 .fullHR {
@@ -21,8 +21,8 @@
   #CalendarBody_NumericContainer {
     @apply w-auto;
   }
-  #CalendarBody_DayContainerContent{
-    @apply overflow-x-auto
+  #CalendarBody_DayContainerContent {
+    @apply overflow-x-auto;
   }
 }
 @media (max-width: 610px) {

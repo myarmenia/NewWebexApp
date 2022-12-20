@@ -68,5 +68,5 @@
 
 button:hover {
   filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.1));
-  @apply duration-200
+  @apply transition-all -translate-y-[1px] duration-300;
 }

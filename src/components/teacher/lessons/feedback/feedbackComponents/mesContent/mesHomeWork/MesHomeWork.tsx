@@ -5,8 +5,12 @@ import { LesContainer } from "../../../../userLessons/userLesComponents/lesConta
 import { CustomBtn } from "../../../../../lesComponents/customBtn/CustomBtn";
 import fileImg from "../../../../../../../images/Teacher/FirstLesson/loadImg.svg";
 import { StudentsWork } from "./StudentsWork";
+import { useLoaderData } from "react-router";
+import { IOtherLessonLoaderData } from "../../../../../../../models/interfaces";
 
 export const MesHomeWork: FC = () => {
+  const { data, paramsId } = useLoaderData() as IOtherLessonLoaderData;
+  const { body } = data[paramsId - 1];
   return (
     <div className="messageCont_cont mesHomeWork_container">
       <div className="bg-white rounded-[15px]">
@@ -14,11 +18,7 @@ export const MesHomeWork: FC = () => {
           <p className="hover:opacity-75 border-b border-[#BEBFE4] text-[10px] font-semibold pb-4">
             Տնային աշխատանք
           </p>
-          <p className="text-xs">
-            Հակառակ ընդհանուր պատկերացմանը՝ Լորեմ Իպսումը այդքան էլ պատահական
-            հավաքված տեքստ չէ։ Այս տեքստի արմատները հասնում են մ.թ.ա. 45 թ.
-            դասական լատինական գրական։
-          </p>
+          <p className="text-xs">{body}</p>
           <div className="w-[30%] h-[1px] bg-[#BEBFE4]" />
           <ExtraMaterials items={["png", "img", "docx"]} />
         </LesContainer>

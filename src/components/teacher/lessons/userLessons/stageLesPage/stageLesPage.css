@@ -1,6 +1,5 @@
 .stageLesPage {
   @apply flex gap-[28px] relative text-[#6B6B6B] mb-3 duration-300;
-  position: inherit;
 }
 .lessonContent {
   @apply bg-[#F8EFFF] w-[69%] h-fit;
@@ -8,7 +7,6 @@
 }
 .lesCont {
   @apply w-[90%];
-  position: inherit;
 }
 .stagesContainer {
   @apply w-[28%] relative flex flex-col gap-8;

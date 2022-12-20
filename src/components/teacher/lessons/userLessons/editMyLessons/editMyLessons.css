@@ -4,7 +4,6 @@
 }
 .editMyLessons_container {
   @apply !w-[90%] !pb-[40px] !gap-[15px];
-  position: inherit;
 }
 .editMyLessons_titleBox {
   @apply flex justify-between items-center border-b border-[#BEBFE4] pb-5;
