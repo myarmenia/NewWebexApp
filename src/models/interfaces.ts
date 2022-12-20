@@ -19,15 +19,14 @@ export interface SearchBoxProps {
   animDelay?: number;
 }
 export interface LessonProps {
-  title: string;
+  title?: string;
   keys: string[];
-  description: string;
+  description?: string;
   price: string;
   video?: string;
 }
 export interface IteacherMenu {
   id?: number;
-  isClicked: boolean;
   img: string;
   activeImg: string;
   title: string;
@@ -94,4 +93,21 @@ export interface IStudentTd {
     progres: number;
     homework: string;
   }[];
+}
+export interface IDataExample {
+  user: ILessonLoaderObj;
+}
+
+export interface ILessonLoaderObj {
+  userId: number;
+  id: number;
+  title: string;
+  body: string;
+}
+
+export interface ILessonLoaderData {
+  obj: ILessonLoaderObj;
+  lessonsObj: ILessonLoaderObj[];
+  paramsId: number;
+  paramsLes: number;
 }

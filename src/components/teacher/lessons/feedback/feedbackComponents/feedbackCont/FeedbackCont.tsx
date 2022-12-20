@@ -26,8 +26,7 @@ export const FeedbackCont: FC = () => {
         </p>
         <div className="messageCont">
           <div className="messageCont_cont">
-            <div className="relative">
-              <div className="my_background_08" />
+            <div className="bg-[#F8EFFF]">
               <LesContainer className="cont01">
                 <p className="border-b border-[#BEBFE4] text-[10px] font-semibold pb-4">
                   <span className="font-normal">Դաս 1։</span> «Գրաֆիկ դիզայն»

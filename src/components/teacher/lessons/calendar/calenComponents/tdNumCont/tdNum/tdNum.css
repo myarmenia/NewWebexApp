@@ -12,4 +12,12 @@
   .tdNumeric {
     font-size: max(2.3vw, 13px);
   }
+  .activeDay {
+    @apply w-8 h-8 font-semibold text-lg;
+  }
+}
+@media (max-width: 660px) {
+  .activeDay {
+    @apply w-6 h-6 font-semibold text-sm;
+  }
 }

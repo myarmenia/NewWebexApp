@@ -1,5 +1,6 @@
 .editMyLessons {
-  @apply relative w-[63%] text-[#6B6B6B] mb-3;
+  @apply bg-[#F8EFFF] w-[63%] text-[#6B6B6B] mb-3;
+  box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.1);
 }
 .editMyLessons_container {
   @apply !w-[90%] !pb-[40px] !gap-[15px];
@@ -18,10 +19,10 @@
   @apply flex flex-col gap-5;
 }
 .inputContainer {
-  @apply flex flex-col gap-[53px];
+  @apply flex flex-col gap-[53px] min-w-[54%] w-fit;
 }
 .editP_input {
-  @apply w-[54%];
+  @apply min-w-[54%];
 }
 .extraMat {
   @apply flex gap-[2px] text-xs;

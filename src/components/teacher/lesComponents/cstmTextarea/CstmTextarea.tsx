@@ -6,23 +6,33 @@ interface CstmTextareaProps {
   regName?: string;
   placeholder?: string;
   className?: string;
-  value?: string;
+  defaultValue?: string;
 }
 
 export const CstmTextarea: React.FC<CstmTextareaProps> = ({
   regName,
   placeholder,
   className,
-  value,
+  defaultValue,
 }) => {
-  const { register } = useFormContext();
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
   const name = regName ? { ...register(regName) } : null;
+
   return (
-    <textarea
-      className={`${className} lessonTextarea lessonInp`}
-      placeholder={placeholder}
-      {...name}
-      defaultValue={value}
-    ></textarea>
+    <div className="flex flex-col relative w-full">
+      <textarea
+        wrap="off"
+        className={`${className} scrollbar_hidden lessonTextarea lessonInp`}
+        placeholder={placeholder}
+        {...name}
+        defaultValue={defaultValue?.toString()}
+      >
+        {/* {defaultValue} */}
+      </textarea>
+      <p className="errorMessage">{errors[regName!]?.message?.toString()}</p>
+    </div>
   );
 };

@@ -5,7 +5,7 @@
   @apply flex flex-col gap-6 mt-9;
 }
 .menuLi {
-  @apply w-auto gap-4 whitespace-nowrap list-none relative;
+  @apply w-auto gap-4 whitespace-nowrap list-none relative hover:opacity-75 duration-200;
 }
 .menuA {
   @apply list-none font-bold text-base decoration-0 w-auto gap-[15px] flex whitespace-nowrap justify-start items-center h-auto;
@@ -21,7 +21,7 @@
   background-clip: text;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1300px) {
   .menu {
     /* @apply w-[8%]; */
     @apply w-[100px];
@@ -31,6 +31,9 @@
   }
   .menuLi img {
     @apply w-8 h-8;
+  }
+  .menuA img {
+    @apply bg-cover w-8 h-8;
   }
 }
 @media (max-width: 1060px) {

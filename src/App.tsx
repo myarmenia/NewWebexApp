@@ -5,7 +5,7 @@ import { Features } from "./components/features/Features";
 import { InfoCont } from "./components/infoCont/InfoCont";
 import Footer from "./components/footer/Footer";
 import { Header } from "./components/header/Header";
-import { News } from "./components/News/News";
+import { News } from "./components/news/News";
 import { Opinion } from "./components/opinion/Opinion";
 import { Questions } from "./components/questions/Questions";
 import { SearchArea } from "./components/searchArea/SearchArea";
@@ -14,34 +14,44 @@ import { Teacher } from "./components/teacher/Teacher";
 import Regsitration from "./components/registration/Regsitration";
 import Entry from "./components/entry/Entry";
 import Tariffs from "./components/tariffs/Tariffs";
-import { Route, Routes } from "react-router";
-
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from "react-router-dom";
 function App() {
+  const router = createBrowserRouter(
+    createRoutesFromElements(<Route path="/" element={<Teacher />} />)
+  );
+
   return (
-    <>
-      <Header />
-      {/*<Container>
-        <SearchArea />
-        <InfoCont />
-        <Features />
-      </Container>
-      <News />
-      <Container>
-        <Opinion />
-        <Lessons />
-        <Questions />
-      </Container>
-      <Footer />  */}
-      {/* <Tariffs /> */}
-      <Teacher />
+    // <Route path="/" element={<Teacher />} />
+    // <RouterProvider router={router} />
 
-      {/* <Regsitration /> */}
-      {/* <Entry /> */}
+    <Teacher />
+    // <Routes>
+    //   <Route element={<Teacher />} />
+    // </Routes>
 
-      {/* <Routes>
-        <Route></Route>
-      </Routes> */}
-    </>
+    // <Teacher />
+    // <Header />
+    //  <Container>
+    //     <SearchArea />
+    //     <InfoCont />
+    //     <Features />
+    //   </Container>
+    //   <News />
+    //   <Container>
+    //     <Opinion />
+    //     <Lessons />
+    //     <Questions />
+    //   </Container>
+    //   <Footer />
+    //  <Tariffs />
+
+    //   <Regsitration />
+    //   <Entry />
   );
 }
 

@@ -3,7 +3,8 @@
   position: inherit;
 }
 .lessonContent {
-  @apply relative w-[69%] h-fit;
+  @apply bg-[#F8EFFF] w-[69%] h-fit;
+  box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.1);
 }
 .lesCont {
   @apply w-[90%];
@@ -17,4 +18,14 @@
 }
 .lesWorkHomeWork_container {
   @apply w-[97%] p-0 gap-10;
+}
+
+@media (max-width: 850px) {
+  .stageLesPage {
+    @apply flex-col;
+  }
+  .lessonContent,
+  .stagesContainer {
+    @apply w-full;
+  }
 }

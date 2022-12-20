@@ -79,14 +79,16 @@ export const WalletCont: FC<WalletContProps> = ({ balance }) => {
       <div className="transactionHistory">
         <div>
           <p className="font-semibold text-sm mb-1">Գործարքների պատմություն</p>
-          {transactionHistory ? (
-            <table className="w-full">
-              <WalThead />
-              <WalTbody />
-            </table>
-          ) : (
-            <span className="text-xs">Դուք դեռ չունեք կատարած գործարք</span>
-          )}
+          <div className="table_history">
+            {transactionHistory ? (
+              <table className="w-full">
+                <WalThead />
+                <WalTbody />
+              </table>
+            ) : (
+              <span className="text-xs">Դուք դեռ չունեք կատարած գործարք</span>
+            )}
+          </div>
         </div>
       </div>
     </div>

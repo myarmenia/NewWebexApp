@@ -2,7 +2,7 @@
   @apply flex flex-col gap-7;
 }
 .firstLesCont {
-  @apply rounded-2xl px-[29px] py-[24px] relative;
+  @apply rounded-2xl px-[29px] py-[24px] bg-[#F8EFFF];
   filter: drop-shadow(2px 4px 10px rgba(0, 0, 0, 0.1));
 }
 .firstLesCont div {
@@ -21,7 +21,7 @@
 .LessonCntBody_boxContent {
   @apply flex flex-col gap-5 justify-between w-full mb-[10px];
 }
-.nextBtnCont {
+.nextBtnCont1 {
   @apply flex gap-4 justify-end;
 }
 .textUnderline {
@@ -39,7 +39,20 @@
   @apply font-semibold text-xs text-white py-[9px] px-[30px] rounded-2xl w-fit min-w-[193px];
   background: linear-gradient(90deg, #7764fb 0%, #f364f3 100%);
 }
-@media (max-width: 670px) {
+@media (max-width: 1300px) {
+  .lessonContainer1 {
+    @apply w-[45%];
+  }
+  .lessonContainer {
+    @apply gap-0;
+  }
+}
+@media (max-width: 830px) {
+  .LessonCntBody_box {
+    @apply min-w-0;
+  }
+}
+@media (max-width: 700px) {
   .lessonContainer {
     @apply flex-col gap-10;
   }

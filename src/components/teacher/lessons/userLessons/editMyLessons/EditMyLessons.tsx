@@ -9,11 +9,14 @@ import deleteMaterial from "../../../../../images/Teacher/Exam/Group 1555.svg";
 import { FormProvider, useForm, useFieldArray } from "react-hook-form";
 import { editSchema, IEditSchema, IExtraMats } from "./editSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { SubmitBtn } from "../../../lesComponents/submitBtn/SubmitBtn";
+import { CustomBtn } from "../../../lesComponents/customBtn/CustomBtn";
 import { AttachFile } from "../../../lesComponents/attachFile/AttachFile";
+import { LoaderFunctionArgs, useLoaderData } from "react-router";
+import { ILessonLoaderData } from "../../../../../models/interfaces";
+import { ExtraMats } from "./editMyLessons_copns/ExtraMats";
 
 interface EditMyLessonsProps {
-  title: string;
+  title?: string;
   inp1: string;
   inp2: string;
   inp3: string;
@@ -23,7 +26,7 @@ interface EditMyLessonsProps {
 }
 
 export const EditMyLessons: FC<EditMyLessonsProps> = ({
-  title,
+  // title,
   inp1,
   inp2,
   inp3,
@@ -31,17 +34,15 @@ export const EditMyLessons: FC<EditMyLessonsProps> = ({
   lesItems,
   homeItmes,
 }) => {
+  const { obj, lessonsObj, paramsLes } = useLoaderData() as ILessonLoaderData;
+  const { title } = obj;
+  const { body } = lessonsObj[paramsLes - 1];
+
   const methods = useForm<IEditSchema>({
     resolver: yupResolver(editSchema),
   });
 
-  const {
-    register,
-    formState: { errors },
-    handleSubmit,
-    setValue,
-    control,
-  } = methods;
+  const { handleSubmit, setValue, control } = methods;
 
   const lesExtraMats = useFieldArray({ control, name: "extraMaterials" });
   const homeExtraMats = useFieldArray({
@@ -59,101 +60,53 @@ export const EditMyLessons: FC<EditMyLessonsProps> = ({
     <FormProvider {...methods}>
       <form action="" onSubmit={handleSubmit(onSubmit)}>
         <div className="editMyLessons">
-          <div className="my_background_06" />
           <LesContainer className="editMyLessons_container">
             <div className="editMyLessons_titleBox">
               <div className="editMyLessons_title">{title}</div>
-              <div className="saveChanges">
+              <button className="saveChanges">
                 <span className="text-xs">Պահպանել</span>
                 <img src={saveImg} alt="" className="h-[15px]" />
-              </div>
+              </button>
             </div>
             <div className="inputContainer">
               <div className="lesSection">
-                <CstmInput
-                  type="text"
+                <CstmTextarea
                   placeholder=""
-                  value={inp1}
+                  defaultValue={body}
                   regName="title"
-                  className="editP_input"
+                  className="editP_input min-h-[200px]"
                 />
                 <CstmInput
                   type="text"
                   placeholder=""
-                  value={inp2}
+                  defaultValue={inp2}
                   regName="videoSource"
                   className="editP_input"
                 />
                 <CstmTextarea
                   placeholder=""
-                  value={inp3}
+                  defaultValue={inp3}
                   regName="description"
                   className="editP_input"
                 />
-                <div className="extraMaterials">
-                  <p className="text-xs font-semibold">Հավելյալ նյութերը</p>
-                  <div className="extMatItems">
-                    {lesExtraMats.fields.map((field, i) => (
-                      <div
-                        className="flex w-[90px] justify-between items-start"
-                        key={field.id}
-                      >
-                        <div className="extraMat">
-                          <img src={fileImg} alt="" />
-                          <span>
-                            {i + 1}.{field.name}
-                          </span>
-                        </div>
-                        <img
-                          src={deleteMaterial}
-                          alt=""
-                          onClick={() => lesExtraMats.remove(i)}
-                        />
-                      </div>
-                    ))}
-                  </div>
-                  <AttachFile title="" />
-                </div>
+                <ExtraMats extraMats={lesExtraMats} />
               </div>
               <div className="homeSection">
                 <p className="homeTitle">Տնային աշխատանք</p>
                 <CstmInput
                   type="text"
                   placeholder=""
-                  value={inp4}
+                  defaultValue={inp4}
                   className="editP_input"
                   regName="homeW_videoSource"
                 />
                 <CstmTextarea
                   placeholder=""
-                  value={inp4}
+                  defaultValue={inp4}
                   className="editP_input"
                   regName="homeW_description"
                 />
-                <div className="extraMaterials">
-                  <p className="text-xs font-semibold">Հավելյալ նյութերը</p>
-                  <div className="extMatItems">
-                    {homeExtraMats.fields.map((field, i) => (
-                      <div
-                        className="flex w-[90px] justify-between items-start"
-                        key={field.id}
-                      >
-                        <div className="extraMat">
-                          <img src={fileImg} alt="" />
-                          <span>
-                            {i + 1}.{field.name}
-                          </span>
-                        </div>
-                        <img
-                          src={deleteMaterial}
-                          alt=""
-                          onClick={() => lesExtraMats.remove(i)}
-                        />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <AttachFile title=""/>
+                <ExtraMats homeExtraMats={homeExtraMats} />
               </div>
             </div>
           </LesContainer>

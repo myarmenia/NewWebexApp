@@ -20,15 +20,21 @@
 }
 
 @media (max-width: 561px) {
-  .lesInfoBox {
-    @apply  flex-col gap-0;
+  .lesInfoItem {
+    @apply py-0.5  last:pb-2;
   }
-}
-@media (max-width: 400px) {
-  .lesPage_titleBox {
-    @apply flex-col;
+  .lesInfoBox {
+    @apply flex-col gap-0;
   }
   .imageBox_hr {
     @apply h-[1px] w-[90%];
   }
+  .lesPage_titleBox {
+    @apply flex-col items-end gap-3;
+  }
+  .lesPage_title {
+    @apply self-start first-letter:capitalize;
+  }
 }
+/* @media (max-width: 400px) {
+} */

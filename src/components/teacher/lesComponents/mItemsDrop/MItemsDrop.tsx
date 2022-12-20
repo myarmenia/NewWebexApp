@@ -1,59 +1,49 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import "./mItemsDrop.css";
-import { Link } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { IteacherMenu } from "../../../../models/interfaces";
 import chevDown from "../../../../images/chevDown.svg";
 import chevDownPurple from "../../../../images/chevDownPurple.svg";
 
-interface MItemsDropProps extends IteacherMenu {
-  chooseMenuItem: (id: number) => void;
-}
+interface MItemsDropProps extends IteacherMenu {}
 
 export const MItemsDrop: FC<MItemsDropProps> = ({
-  id,
   toSubPaths,
-  isClicked,
   activeImg,
   img,
   title,
-  chooseMenuItem,
 }) => {
-  const toggleSubMenu = (el: {
-    title: string;
-    path: string;
-    isClicked: boolean;
-  }) => {
-    toSubPaths?.forEach((item) => {
-      item.isClicked = false;
-    });
-    el.isClicked = true;
-  };
+  const location = useLocation();
+  const [dropSubMenu, setDropSubMenu] = useState<boolean>(false);
+  const thisPathState = toSubPaths?.some(
+    (el) => `/${el.path}` === location.pathname
+  );
   return (
     <li
-      className={`mItemsDrop ${isClicked ? "activeMenuItem" : ""}`}
-      onClick={() => chooseMenuItem(id!)}
+      className={`mItemsDrop ${thisPathState ? "activeMenuItem" : ""}`}
+      onClick={() => setDropSubMenu((prev) => !prev)}
     >
       <div className="menuA">
-        <img src={isClicked ? activeImg : img} alt="" />
+        <img src={thisPathState ? activeImg : img} alt="" />
         <p className="menuSpan">{title}</p>
         <img
-          src={isClicked ? chevDownPurple : chevDown}
+          src={thisPathState ? chevDownPurple : chevDown}
           alt=""
-          className={`w-4 h-3 duration-200 ${isClicked ? "rotate-180" : ""}`}
+          className={`arrowDownMenu ${dropSubMenu ? "rotate-180" : ""}`}
         />
       </div>
-      {isClicked && (
+      {dropSubMenu && (
         <div className="sumItems">
           {toSubPaths?.map((el) => (
-            <Link
+            <NavLink
               key={Math.random()}
               to={el.path}
-              state={{ id: id }}
-              className={`subMenuSpan ${el.isClicked ? "textPurple" : ""}`}
-              onClick={() => toggleSubMenu(el)}
+              className={({ isActive }) =>
+                isActive ? "subMenuSpan textPurple" : "subMenuSpan"
+              }
             >
               {el.title}
-            </Link>
+            </NavLink>
           ))}
         </div>
       )}

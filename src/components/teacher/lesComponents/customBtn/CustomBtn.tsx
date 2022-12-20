@@ -1,5 +1,5 @@
 import React from "react";
-import "./submitBtn.css";
+import "./customBtn.css";
 
 interface SubmitBtnProps {
   title: string;
@@ -7,7 +7,7 @@ interface SubmitBtnProps {
   className?: string;
 }
 
-export const SubmitBtn: React.FC<SubmitBtnProps> = ({
+export const CustomBtn: React.FC<SubmitBtnProps> = ({
   title,
   type,
   className,

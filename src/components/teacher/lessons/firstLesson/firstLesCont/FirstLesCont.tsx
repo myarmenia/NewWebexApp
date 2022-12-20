@@ -3,7 +3,7 @@ import "./firstLesCont.css";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FormProvider, useForm } from "react-hook-form";
 import { CstmInput } from "../../../lesComponents/cstmInput/CstmInput";
-import { SubmitBtn } from "../../../lesComponents/submitBtn/SubmitBtn";
+import { CustomBtn } from "../../../lesComponents/customBtn/CustomBtn";
 import { firstLessonSchema, IFirstLessonSchema } from "../firstLesSchema";
 import { BoxTitle } from "./BoxTitle";
 import { AttachFile } from "../../../lesComponents/attachFile/AttachFile";
@@ -12,6 +12,7 @@ import { SaveDataDiv } from "./SaveDataDiv";
 import { StageBody } from "./stageBody/StageBody";
 import { StageLessons } from "./stageLessons/StageLessons";
 import { CntTitle } from "../../../lesComponents/contTitle/CntTitle";
+import { Route, Routes } from "react-router";
 
 export const FirstLesCont: React.FC = () => {
   const methods = useForm<IFirstLessonSchema>({
@@ -39,13 +40,16 @@ export const FirstLesCont: React.FC = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="lessonCont">
           <div className="firstLesCont">
-            <div className="my_background_04" />
             <CntTitle title="ՓՈՒԼ 1" />
-            <StageBody />
+            <Routes>
+              <Route path="/" element={<StageBody />} />
+              <Route path="all_stages" element={<StageLessons />} />
+            </Routes>
+            {/* <StageBody /> */}
             {/* <StageLessons /> */}
           </div>
-          <div className="nextBtnCont">
-            <SubmitBtn title="Հաջորդ դասը" type="submit" />
+          <div className="nextBtnCont1">
+            <CustomBtn title="Հաջորդ դասը" type="submit" />
           </div>
         </div>
       </form>

@@ -14,8 +14,9 @@ import { nLessCreate_L_Schema, TeacherSubmitForm } from "./validationSchema";
 import { CstmInput } from "../../../lesComponents/cstmInput/CstmInput";
 import { Knowledges } from "./knowledges/Knowledges";
 import { CustomNmbInp } from "../../../lesComponents/customNmbInp/CustomNmbInp";
-import { SubmitBtn } from "../../../lesComponents/submitBtn/SubmitBtn";
+import { CustomBtn } from "../../../lesComponents/customBtn/CustomBtn";
 import { CstmTextarea } from "../../../lesComponents/cstmTextarea/CstmTextarea";
+import { Link } from "react-router-dom";
 
 export const LessonCntBody: React.FC = () => {
   const [selectVals, setselectVals] = useState<ISelect>({
@@ -87,12 +88,11 @@ export const LessonCntBody: React.FC = () => {
     console.log(values, "porc");
   };
 
-  
   return (
     <FormProvider {...methods}>
       <div className="LessonCntBody">
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="lessonContainer">
+          <div className="lessonContainer newLesCont">
             <div className="LessonCntBody_box">
               <CstmInput
                 placeholder="Դասընթացի վերնագիրը*"
@@ -144,7 +144,7 @@ export const LessonCntBody: React.FC = () => {
                   />
                 </TxtWinput>
                 <div
-                  className={`stageBox stageBox1 ${
+                  className={`stageBox1 ${
                     isDifferent ? "stageBox_opened" : "stageBox_closed"
                   }`}
                 >
@@ -183,7 +183,9 @@ export const LessonCntBody: React.FC = () => {
             </div>
           </div>
           <div className="nextBtnCont">
-            <SubmitBtn title="Առաջ" type="submit" />
+            <Link to="lesson_graffic">
+              <CustomBtn title="Առաջ" type="submit" />
+            </Link>
             {/* <button
               type="button"
               className="addLessonBtn"

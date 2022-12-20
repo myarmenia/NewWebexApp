@@ -8,6 +8,7 @@ import * as Yup from "yup";
 import Input from "../../sherid/Input";
 import { isErrored } from "stream";
 import { format } from "path";
+import { Link } from "react-router-dom";
 interface YupProps {
   start: string;
   end: string;
@@ -82,7 +83,6 @@ const CreateGraffic: React.FC = () => {
     <FormProvider {...methods}>
       <LessonTitle title="Կազմել դասավանդման գրաֆիկ" />
       <div className="createGraffic ">
-        <div className="my_background_04" />
         <form className="grafficChild" onSubmit={handleSubmit(onSubmit)}>
           <InputTime
             day="Երկուշաբթի"
@@ -126,9 +126,11 @@ const CreateGraffic: React.FC = () => {
             fieldArray={sunday}
             count={watch("sunday")?.length || 1}
           />
-          <button type="submit" className="save">
-            Պահպանել
-          </button>
+          <Link to={"edit_graffic"}>
+            <button type="submit" className="save">
+              Պահպանել
+            </button>
+          </Link>
         </form>
       </div>
     </FormProvider>

@@ -14,13 +14,16 @@
   @apply w-2 h-[14px] cursor-pointer;
 }
 #monthBox {
-  @apply flex gap-[25px] items-center w-[180px];
+  @apply flex gap-[25px] items-center w-[200px];
 }
 #month {
   @apply capitalize text-base font-semibold text-[#CCCCCC];
 }
 @media (max-width: 860px) {
   #CalendarBody_NumericContainer {
+    @apply w-auto border-b border-[#898BCE];
+  }
+  #monthBox {
     @apply w-auto;
   }
 }

@@ -15,13 +15,12 @@ export const LesStageBox: FC<LesStageBoxProps> = ({
   stageLessons,
 }) => {
   const [isShown, setIsShown] = useState<boolean>(stageNumber <= 2);
-  const animLessons: { height: string } = isShown
-    ? { height: `${stageLessons.length * 109 + 21}px` }
-    : { height: "0" };
+  const animLessons: { height: string; paddingBottom: string } = isShown
+    ? { height: `${stageLessons.length * 109 + 21}px`, paddingBottom: "16px" }
+    : { height: "0", paddingBottom: "0" };
 
   return (
     <div className="lesStageBox">
-      <div className="my_background_04" />
       <div className="stageBox_container">
         <div className="lesStageBoxHead">
           <span className="LesStageNumber">Փուլ {stageNumber}</span>

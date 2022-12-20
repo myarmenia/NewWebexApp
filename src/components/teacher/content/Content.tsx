@@ -6,8 +6,8 @@ interface ContentProps {
 
 export const Content: React.FC<ContentProps> = ({ children }) => {
   return (
-    <div className="contentBody">
+    <main className="contentBody">
       <div className="contentBodyContainer">{children}</div>
-    </div>
+    </main>
   );
 };

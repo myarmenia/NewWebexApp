@@ -1,7 +1,7 @@
 .navItem {
   @apply h-full text-[#6B6B6B] px-5 hover:text-slate-400;
 }
-@media (max-width: 1200px) {
+@media (max-width: 1300px) {
   .navItem {
     @apply px-2;
   }

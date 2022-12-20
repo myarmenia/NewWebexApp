@@ -6,7 +6,8 @@ import "./firstLesson.css";
 import { Pagination } from "./pagination/Pagination";
 
 export const FirstLesson: React.FC = () => {
-  const paginationItems: IPaginationItem[] = Array.from({ length: 12 }).map(
+  const count = 15;
+  const paginationItems: IPaginationItem[] = Array.from({ length: count }).map(
     (el, ind) =>
       ind === 0
         ? { id: Math.random(), isActive: false, isCompleted: true }

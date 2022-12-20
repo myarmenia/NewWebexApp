@@ -8,8 +8,8 @@ import { StdTbody } from "./stdComponents/stdTbody/StdTbody";
 export const Students: FC = () => {
   return (
     <div className="students">
-      <LessonTitle title="Իմ դասընթացները" className="w-full justify-between" />
-      <div className="flex flex-col gap-3">
+      <LessonTitle title="Ուսանողներ" className="w-full justify-between" />
+      <div className="students_container">
         <div className="filterSection">
           <div className="filterBox">Ավարտած</div>
           <div className="filterBox">Սովորող</div>

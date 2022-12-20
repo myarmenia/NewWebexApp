@@ -2,13 +2,13 @@
   visibility: hidden;
 }
 .attachFile {
-  @apply text-[#6B6B6B] flex flex-col gap-2;
+  @apply text-[#6B6B6B] flex flex-col gap-2 cursor-pointer;
 }
 .attachFileTitle {
   @apply text-[10px];
 }
 .loadFileInput {
-  @apply w-[10px] h-[18px] bg-contain cursor-pointer;
+  @apply w-[10px] h-[18px] shrink-0 bg-contain cursor-pointer;
   background: url("../../../../images/Teacher/FirstLesson/downloadFile.svg")
     no-repeat;
 }

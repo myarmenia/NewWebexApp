@@ -28,9 +28,10 @@
 
 .messageCont {
   @apply flex gap-5;
+  min-height: calc(100vh - 255px);
 }
 .messageCont_cont {
-  @apply flex flex-col gap-3 w-[65%];
+  @apply flex flex-col gap-3 w-[65%] justify-between;
 }
 .messageCont_lessons {
   @apply bg-[#ffffff5c] px-6 py-[10px] rounded-[15px];
@@ -38,5 +39,6 @@
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
 }
 .messageCont_lessons_cont {
-  @apply flex flex-col gap-[18px] transition-all duration-300 max-h-[477px] overflow-y-auto;
+  @apply flex flex-col gap-[18px] transition-all duration-300 overflow-y-auto;
+  max-height: calc(100vh - 333px);
 }

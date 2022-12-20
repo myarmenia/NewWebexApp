@@ -1,11 +1,13 @@
 import React, { FC } from "react";
 import "./lesBox.css";
-import { SubmitBtn } from "../../../../lesComponents/submitBtn/SubmitBtn";
+import { CustomBtn } from "../../../../lesComponents/customBtn/CustomBtn";
 import editImg from "../../../../../../images/Teacher/UserLessons/editGray.svg";
 import { LessonProps } from "../../../../../../models/interfaces";
+import { Link } from "react-router-dom";
 
 export interface LesBoxProps extends LessonProps {
   studentsCount: number;
+  id?: number;
 }
 
 export const LesBox: FC<LesBoxProps> = ({
@@ -14,6 +16,7 @@ export const LesBox: FC<LesBoxProps> = ({
   description,
   studentsCount,
   price,
+  id,
 }) => {
   return (
     <div className="lesBox">
@@ -29,7 +32,7 @@ export const LesBox: FC<LesBoxProps> = ({
         allowFullScreen
       ></iframe>  */}
       </div>
-      <p className="lesBox_title">{title}</p>
+      <p className="lesBox_title overflow-hidden">{title}</p>
       <div className="keys">
         {keys.map((key, index) => (
           <div className="key" key={index}>
@@ -47,7 +50,9 @@ export const LesBox: FC<LesBoxProps> = ({
           <span className="editLesson">Խմբագրել</span>
           <img src={editImg} alt="" className="cursor-pointer" />
         </div>
-        <SubmitBtn type="button" title="Ավելին" className="seeMoreBtn" />
+        <Link to={`stage/${id}`}>
+          <CustomBtn type="button" title="Ավելին" className="seeMoreBtn" />
+        </Link>
       </div>
     </div>
   );

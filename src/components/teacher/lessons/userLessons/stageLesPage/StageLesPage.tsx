@@ -1,11 +1,17 @@
 import React, { FC } from "react";
+import "./stageLesPage.css";
+import editImg from "../../../../../images/Teacher/UserLessons/editGray.svg";
+import { LoaderFunctionArgs, useLoaderData } from "react-router";
+import {
+  ILessonLoaderData,
+  ILessonLoaderObj,
+} from "../../../../../models/interfaces";
 import { stagesArr } from "../lesPage/lesStages/LesStages";
 import { LesContainer } from "../userLesComponents/lesContainer/LesContainer";
 import { LesPTitle } from "../userLesComponents/lesPTitle/LesPTitle";
-import { ExtraMaterials } from "./extraMaterials/ExtraMaterials";
 import { LesStageBox } from "./lesStageBox/LesStageBox";
 import { LesWorkBox, LesWorkBoxProps } from "./lesWorkBox/LesWorkBox";
-import "./stageLesPage.css";
+import { Link } from "react-router-dom";
 
 const lesWorkAndHomeWork: LesWorkBoxProps[] = [
   {
@@ -26,25 +32,58 @@ const lesWorkAndHomeWork: LesWorkBoxProps[] = [
 ];
 
 export const StageLesPage: FC = () => {
+  const { obj, lessonsObj, paramsId, paramsLes } =
+    useLoaderData() as ILessonLoaderData;
+  const { title, id } = obj;
+  const { body } = lessonsObj[paramsLes - 1];
+
   return (
     <div className="stageLesPage">
       <div className="lessonContent">
-        <div className="my_background_06" />
         <LesContainer className="lesCont">
-          <LesPTitle
-            title="Գրաֆիկ դիզայնի դասընթաց սկսնակների համար"
+          {/* <LesPTitle
+            title={title}
             className={{ title: "!text-[#6B6B6B] !font-normal" }}
-          />
+          /> */}
+          <Link to="edit">
+            <div className="lesPage_titleBox ">
+              <h5 className="lesPage_title !text-[#6B6B6B] !font-normal">
+                {title}
+              </h5>
+              <div className="lesPage_editBox">
+                <span className="lesPage_editText">Խմբագրել</span>
+                <img src={editImg} alt="" />
+              </div>
+            </div>
+          </Link>
           <hr className="stageLesPage_hr" />
           <LesContainer className="lesWorkHomeWork_container ">
-            {lesWorkAndHomeWork.map(
-              ({ title, description, extMats, lesNumber, className }) => (
-                <LesWorkBox
-                  {...{ title, description, lesNumber, extMats, className }}
-                  key={Math.random()}
-                />
-              )
-            )}
+            {/* {lessonsObj.map(({ title, body, id }) => (
+              <LesWorkBox
+                title={body}
+                description={body}
+                lesNumber={id}
+                extMats={["png", "pptx", "docx"]}
+                // {...{  lesNumber, extMats, className }}
+                key={Math.random()}
+              />
+            ))} */}
+            <LesWorkBox
+              title={body}
+              description={body}
+              lesNumber={id}
+              extMats={["png", "pptx", "docx"]}
+              // {...{  lesNumber, extMats, className }}
+              key={Math.random()}
+            />
+            <LesWorkBox
+              title={body}
+              description={body}
+              lesNumber={id}
+              extMats={["png", "pptx", "docx"]}
+              // {...{  lesNumber, extMats, className }}
+              key={Math.random()}
+            />
           </LesContainer>
         </LesContainer>
       </div>
@@ -59,4 +98,18 @@ export const StageLesPage: FC = () => {
       </div>
     </div>
   );
+};
+
+export const stageLesPageLoader = async ({ params }: LoaderFunctionArgs) => {
+  const res = await fetch(
+    `https://jsonplaceholder.typicode.com/posts/${params.id}?userId=1`
+  );
+  const lessons = await fetch(
+    `https://jsonplaceholder.typicode.com/posts?userId=1`
+  );
+  const paramsId = params.id;
+  const paramsLes = params.les;
+  const obj = await res.json();
+  const lessonsObj = await lessons.json();
+  return { obj, lessonsObj, paramsId, paramsLes };
 };

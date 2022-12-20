@@ -35,7 +35,9 @@ export const LoadImage: React.FC<LoadImageProps> = ({ regName, className }) => {
             accept="image/png, image/jpeg"
             onChange={onFileUpload}
           />
-          <span className={`text-[#6B6B6B] text-[10px] ${className?.text}`}>
+          <span
+            className={`text-[#6B6B6B] text-[10px] whitespace-nowrap ${className?.text}`}
+          >
             Բեռնել նկար
           </span>
         </>

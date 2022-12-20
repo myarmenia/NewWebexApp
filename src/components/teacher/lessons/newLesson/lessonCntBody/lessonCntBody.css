@@ -50,7 +50,7 @@
   @apply flex gap-6 flex-col;
 }
 .stageBox1 {
-  @apply flex justify-between;
+  @apply flex justify-between rounded-[20px] py-4 relative overflow-y-hidden;
 }
 .stageBox_closed {
   @apply w-[279px];
@@ -59,6 +59,9 @@
   @apply w-[497px];
 }
 @media (max-width: 1350px) {
+  .newLesCont {
+    @apply !gap-[58px];
+  }
   .stageBox_opened {
     @apply w-[388px];
   }
@@ -83,4 +86,17 @@
   .stageBox{
     @apply w-[279px]
   } */
+}
+@media (max-width: 960px) {
+  .newLesCont {
+    @apply !gap-7;
+  }
+}
+@media (max-width: 870px) {
+  .newLesCont {
+    @apply flex-col;
+  }
+  .newLesCont > .LessonCntBody_box {
+    @apply w-[80%] min-w-[290px];
+  }
 }

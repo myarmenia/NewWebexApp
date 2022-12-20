@@ -1,5 +1,5 @@
 #CalendarBody {
-  @apply flex rounded-[15px] my-[15px] relative;
+  @apply flex rounded-[15px] my-[15px] bg-[#F8EFFF];
   box-shadow: 0px 0px 6px #8080801a;
 }
 #CalendarBodyContainer {
@@ -21,8 +21,11 @@
   #CalendarBody_NumericContainer {
     @apply w-auto;
   }
+  #CalendarBody_DayContainerContent{
+    @apply overflow-x-auto
+  }
 }
-@media (max-width: 600px) {
+@media (max-width: 610px) {
   #CalendarHeadBox2 {
     @apply h-[inherit];
   }

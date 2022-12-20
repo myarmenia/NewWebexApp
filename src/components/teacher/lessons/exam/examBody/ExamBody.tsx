@@ -3,7 +3,7 @@ import "./examBody.css";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FormProvider, useFieldArray, useForm } from "react-hook-form";
 import { CntTitle } from "../../../lesComponents/contTitle/CntTitle";
-import { SubmitBtn } from "../../../lesComponents/submitBtn/SubmitBtn";
+import { CustomBtn } from "../../../lesComponents/customBtn/CustomBtn";
 import { examSchema, IExamSchema } from "../examSchema";
 import { ExamCnt } from "./examCnt/ExamCnt";
 
@@ -38,10 +38,10 @@ export const ExamBody: React.FC = () => {
             <ExamCnt {...{ questions }} />
           </div>
           <div className="nextBtnCont">
-            <SubmitBtn title="Նախորդ էջ" type="button" />
+            <CustomBtn title="Նախորդ էջ" type="button" />
             <div className="flex gap-7 items-center">
               <span className="textPurple textUnderline">Բաց թողնել</span>
-              <SubmitBtn title="Ստեղծել թեստը" type="submit" />
+              <CustomBtn title="Ստեղծել թեստը" type="submit" />
             </div>
           </div>
         </div>

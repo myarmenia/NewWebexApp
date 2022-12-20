@@ -17,14 +17,43 @@
   @apply bg-white rounded-[10px] h-[168px] flex justify-center items-center;
 }
 
-
-
+.table_history {
+  filter: drop-shadow(2px 4px 10px rgba(0, 0, 0, 0.1));
+}
 .transactionHistory table {
   @apply w-full border-spacing-y-3 border-separate;
 }
-.transactionHistory thead tr {
-  filter: drop-shadow(2px 4px 10px rgba(0, 0, 0, 0.1));
-}
 .transactionHistory tbody {
   @apply border-spacing-y-3 border-separate;
+}
+
+@media (max-width: 1400px) {
+  .walletCont {
+    @apply w-[87%];
+  }
+}
+@media (max-width: 1250px) {
+  .walletCont {
+    @apply w-full;
+  }
+}
+@media (max-width: 825px) {
+  .attachedCards {
+    @apply grid-cols-2;
+  }
+}
+@media (max-width: 610px) {
+  .walletCont_header {
+    @apply flex-col gap-5;
+  }
+  .tariffPlanBox {
+    @apply self-end;
+  }
+  .attachedCards {
+    @apply grid-cols-1;
+  }
+  .table_history {
+    @apply overflow-x-auto;
+    filter: drop-shadow(0px 8px 15px rgba(0, 0, 0, 0.2));
+  }
 }
