@@ -1,6 +1,7 @@
 import React from "react";
 import "./createGraffic.css";
 import buttonImg from "../../../images/createGraffic/buttonimg.svg";
+import deleteIcon from "../../../images/createGraffic/delete.svg";
 import {
   FieldErrorsImpl,
   UseFieldArrayReturn,
@@ -42,6 +43,7 @@ const InputTime: React.FC<InputProps> = ({
   const {
     register,
     watch,
+
     formState: { errors },
   } = useFormContext();
   // {Array.isArray(watch(regName)) ? (
@@ -51,7 +53,7 @@ const InputTime: React.FC<InputProps> = ({
   //                 </div>
   //               ) : null}
   // console.log(watch());
-
+  // console.log(fieldArray.remove());
   return (
     <div className="graffics">
       <p className="grafficsDay">{day}</p>
@@ -73,6 +75,12 @@ const InputTime: React.FC<InputProps> = ({
                   placeholder={placholder}
                   {...register(`${regName}.${index}.end`)}
                 />
+                <button
+                  className="removeInput"
+                  onClick={() => fieldArray.remove(index)}
+                >
+                  <img src={deleteIcon} />
+                </button>
                 {watch(regName)[index].end < watch(regName)[index].start &&
                 watch(regName)[index].end != "" &&
                 watch(regName)[index].start != "" ? (

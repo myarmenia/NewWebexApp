@@ -2,11 +2,12 @@ import React from "react";
 import { LessonTitle } from "../lessonTitle/LessonTitle";
 import { DiscountCard } from "./DiscountCard";
 import "./discount.css";
-import { ModalDiscount } from "./ModalDiscount";
+import { ModalDiscount } from "./modal/DiscountModal";
 import { CustomBtn } from "../lesComponents/customBtn/CustomBtn";
 export const Discount = () => {
   return (
     <div className="discount_mainCont">
+      <ModalDiscount />
       <LessonTitle title="Զեղչ և պրոմո" />
       <div className="discount_cont">
         <div className="discount">

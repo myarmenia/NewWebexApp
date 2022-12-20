@@ -22,8 +22,6 @@
   border: 1px solid #bebfe4;
   border-style: dashed;
 }
-.form-group {
-}
 .addImgText {
   @apply w-[60%] text-[#6b6b6b] mt-[-60px] mx-auto text-center text-xs font-normal;
 }

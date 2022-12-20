@@ -13,7 +13,7 @@
 .day {
   @apply font-bold text-sm text-[#6b6b6b];
 }
-.time {
+.editTime {
   @apply flex gap-[5px] text-xs text-[#6b6b6b] font-normal items-center;
 }
 .gic {
