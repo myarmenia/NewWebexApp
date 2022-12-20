@@ -4,7 +4,13 @@
 
 /* --------- menu size -------  */
 .menu {
-  @apply w-[100px];
+  @apply !w-[100px];
+}
+.arrowDownMenu {
+  @apply hidden;
+}
+.menuA img {
+  @apply h-8 w-8 bg-cover;
 }
 .menuSpan {
   @apply hidden;
@@ -13,6 +19,6 @@
   @apply w-8 h-8;
 }
 .contentBody {
-  width: calc(100% - 105px);
+  width: calc(100% - 105px) !important;
 }
 /* --------- menu size -------  */

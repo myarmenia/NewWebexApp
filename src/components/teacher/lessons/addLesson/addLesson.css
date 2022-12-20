@@ -5,7 +5,3 @@
 .message {
   @apply text-[#6B6B6B] font-semibold text-sm text-center;
 }
-.addLessonBtn {
-  @apply font-semibold text-xs text-white py-[9px] px-[30px] rounded-2xl;
-  background: linear-gradient(90deg, #7764fb 0%, #f364f3 100%);
-}
