@@ -1,8 +1,6 @@
 .createGraffic {
-  @apply h-[100%] rounded-[15px] py-[26px] px-[37px];
-  background: #ffffff12;
-  position: relative;
-  /* backdrop-filter: blur(3px); */
+  @apply h-[100%] rounded-[15px] py-[26px] px-[37px] bg-[#F8EFFF] mb-3;
+  box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.1);
 }
 .grafficChild {
   @apply w-[100%] flex flex-col gap-[50px];

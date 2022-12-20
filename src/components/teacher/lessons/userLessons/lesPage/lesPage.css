@@ -1,5 +1,6 @@
 .lesPage {
-  @apply relative;
+  @apply bg-[#F8EFFF] rounded-[15px];
+  box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.1);
 }
 .lesPage_container {
   @apply flex flex-col z-[1] mb-[10px];

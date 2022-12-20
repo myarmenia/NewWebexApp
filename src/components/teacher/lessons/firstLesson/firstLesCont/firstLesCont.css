@@ -2,7 +2,7 @@
   @apply flex flex-col gap-7;
 }
 .firstLesCont {
-  @apply rounded-2xl px-[29px] py-[24px] relative;
+  @apply rounded-2xl px-[29px] py-[24px] bg-[#F8EFFF];
   filter: drop-shadow(2px 4px 10px rgba(0, 0, 0, 0.1));
 }
 .firstLesCont div {

@@ -40,7 +40,6 @@ export const StageLesPage: FC = () => {
   return (
     <div className="stageLesPage">
       <div className="lessonContent">
-        <div className="my_background_06" />
         <LesContainer className="lesCont">
           {/* <LesPTitle
             title={title}

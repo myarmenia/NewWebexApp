@@ -9,7 +9,6 @@ export const WeekSchedule: FC = () => {
     <div className="weekSchedule">
       <LessonTitle title="Դասավանդման գրաֆիկ" />
       <div className="weekSchedule_container">
-        {/* <div className="my_background_04" /> */}
         <table className="weekSchTable">
           <WkThead />
           <WkTbody />

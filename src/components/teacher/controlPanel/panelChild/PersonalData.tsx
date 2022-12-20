@@ -8,7 +8,6 @@ interface PanelDataProps {
 const PersonalData: React.FC<PanelDataProps> = ({ title }) => {
   return (
     <div className="panelContainer">
-      <div className="my_background_04" />
       <div className="title">{title}</div>
       <div className="panelData">
         <img src={user} className="panelDataImg" />

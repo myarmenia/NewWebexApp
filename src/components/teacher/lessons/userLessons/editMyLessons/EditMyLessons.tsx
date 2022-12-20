@@ -60,7 +60,6 @@ export const EditMyLessons: FC<EditMyLessonsProps> = ({
     <FormProvider {...methods}>
       <form action="" onSubmit={handleSubmit(onSubmit)}>
         <div className="editMyLessons">
-          <div className="my_background_06" />
           <LesContainer className="editMyLessons_container">
             <div className="editMyLessons_titleBox">
               <div className="editMyLessons_title">{title}</div>
