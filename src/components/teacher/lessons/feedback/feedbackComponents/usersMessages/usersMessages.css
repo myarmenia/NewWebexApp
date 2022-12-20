@@ -1,6 +1,6 @@
 .feedbackMessages {
-  @apply pr-3 max-h-[620px] overflow-y-auto border-b-2 w-1/4 text-[#575757];
-  min-height: calc(100vh - 175px);
+  @apply min-h-[554px] pr-3 overflow-y-auto border-b-2 w-1/4 text-[#575757];
+  max-height: calc(100vh - 175px);
 }
 .userOnline {
   @apply w-[10px] h-[10px] rounded-full;

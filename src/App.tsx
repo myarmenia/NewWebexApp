@@ -19,6 +19,7 @@ import {
   createRoutesFromElements,
   Route,
   RouterProvider,
+  Routes,
 } from "react-router-dom";
 function App() {
   const router = createBrowserRouter(
@@ -26,9 +27,9 @@ function App() {
   );
 
   return (
-    // <Route path="/" element={<Teacher />} />
     // <RouterProvider router={router} />
-
+    // <Routes>
+    // </Routes>
     <Teacher />
     // <Routes>
     //   <Route element={<Teacher />} />
