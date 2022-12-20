@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./discount.css";
 import discount from "../../../images/discount/discount.svg";
 import promo from "../../../images/discount/promo.svg";
-import { ModalDiscount } from "./ModalDiscount";
+import { ModalDiscount } from "./modal/DiscountModal";
 interface DiscountCardProps {
   isActive: boolean;
 }
