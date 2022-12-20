@@ -31,7 +31,6 @@ export const LesPage: FC<LesPageProps> = ({
 
   return (
     <div className="lesPage">
-      <div className="my_background_06" />
       <div className="lesPage_container">
         <LesContainer>
           <LesPTitle title={title} />

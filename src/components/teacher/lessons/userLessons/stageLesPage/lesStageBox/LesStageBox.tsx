@@ -21,7 +21,6 @@ export const LesStageBox: FC<LesStageBoxProps> = ({
 
   return (
     <div className="lesStageBox">
-      <div className="my_background_04" />
       <div className="stageBox_container">
         <div className="lesStageBoxHead">
           <span className="LesStageNumber">Փուլ {stageNumber}</span>

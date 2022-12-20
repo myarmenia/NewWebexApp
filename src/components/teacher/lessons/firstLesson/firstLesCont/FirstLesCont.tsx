@@ -40,7 +40,6 @@ export const FirstLesCont: React.FC = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="lessonCont">
           <div className="firstLesCont">
-            <div className="my_background_04" />
             <CntTitle title="ՓՈՒԼ 1" />
             <Routes>
               <Route path="/" element={<StageBody />} />

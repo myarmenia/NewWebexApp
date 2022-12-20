@@ -19,10 +19,7 @@ import {
   createRoutesFromElements,
   Route,
   RouterProvider,
-  Routes,
 } from "react-router-dom";
-import { Loyaut } from "./components/teacher/loyaut/Loyaut";
-// import { Route, Routes } from "react-router";
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(<Route path="/" element={<Teacher />} />)

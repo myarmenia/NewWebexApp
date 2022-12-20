@@ -20,7 +20,6 @@ export const PanelChild: React.FC<PanelChildProps> = ({
 }) => {
   return (
     <div className="panelContainer">
-      <div className="my_background_04" />
       <div className="title">{title}</div>
       {isActiv ? (
         <FirstPanel url={url} num={num} count={count} text={text} />

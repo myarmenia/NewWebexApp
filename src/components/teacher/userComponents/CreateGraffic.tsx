@@ -83,7 +83,6 @@ const CreateGraffic: React.FC = () => {
     <FormProvider {...methods}>
       <LessonTitle title="Կազմել դասավանդման գրաֆիկ" />
       <div className="createGraffic ">
-        <div className="my_background_04" />
         <form className="grafficChild" onSubmit={handleSubmit(onSubmit)}>
           <InputTime
             day="Երկուշաբթի"
