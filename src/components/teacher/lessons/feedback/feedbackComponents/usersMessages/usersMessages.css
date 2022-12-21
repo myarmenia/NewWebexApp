@@ -7,17 +7,17 @@
   background: linear-gradient(90deg, #7764fb 0%, #f364f3 100%);
 }
 .chatContainer {
-  @apply flex py-4 justify-between w-full cursor-pointer border-b border-[#BEBFE4];
+  @apply flex gap-2 py-4 justify-between w-full cursor-pointer border-b border-[#BEBFE4];
 }
 .chatDescriptionBox {
-  @apply flex flex-col gap-2;
+  @apply flex flex-col gap-2 max-w-[80%] whitespace-nowrap overflow-x-hidden text-ellipsis;
 }
 .chatDescription1 {
-  @apply text-sm font-semibold whitespace-nowrap;
+  @apply text-sm font-semibold whitespace-nowrap overflow-x-hidden text-ellipsis;
 }
 .chatDescription2 {
   @apply text-ellipsis whitespace-nowrap overflow-x-hidden font-semibold text-[10px];
 }
 .chatImg {
-  @apply w-[38px] h-[38px] bg-gray-600 rounded-full border-none outline-none;
+  @apply w-[38px] h-[38px] bg-gray-600 rounded-full border-none outline-none shrink-0;
 }

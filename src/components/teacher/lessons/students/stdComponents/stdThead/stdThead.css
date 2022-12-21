@@ -1,6 +1,5 @@
 .theadTr {
   @apply bg-[#ffffffd1] rounded-[10px] text-xs font-semibold h-8;
-  position: inherit;
 }
 .theadTr > th {
   @apply text-[#6B6B6B] relative text-start px-5 

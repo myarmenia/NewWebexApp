@@ -4,6 +4,7 @@ import { useLoaderData } from "react-router";
 import { IStageLesson } from "../../../../../../models/interfaces";
 import { LesStgLesson } from "../../../userLessons/stageLesPage/lesStageBox/lesStgLesson/LesStgLesson";
 import "./messToLesson.css";
+import { LesMessage } from "../lesMessage/LesMessage";
 
 interface MessToLessonProps {
   stageLessons: IStageLesson[];
@@ -23,7 +24,7 @@ export const MessToLesson: FC<MessToLessonProps> = ({ stageLessons }) => {
             {i !== stageLessons.length - 1 && i !== 0 && (
               <hr className="bg-[#BEBFE4] w-full h-[1px]" />
             )}
-            <LesStgLesson {...{ title }} lessonNumber={i + 1} />
+            <LesMessage {...{ title }} lessonNumber={i + 1} />
           </Fragment>
         ))}
       </div>

@@ -7,28 +7,18 @@ import { IOtherLessonLoaderData } from "../../../../../../../models/interfaces";
 
 export const MesTask: FC = () => {
   const mainData = useLoaderData() as IOtherLessonLoaderData;
-  const { data } = mainData;
+  const { data, paramsId = 1 } = mainData;
+  const { title, body } = data[paramsId - 1];
+
   return (
     <div className="messageCont_cont">
       <div className="bg-white h-full rounded-[15px]">
         <LesContainer className="cont01">
           <p className="border-b border-[#BEBFE4] text-[10px] font-semibold pb-4">
-            <span className="font-normal">Դաս 1։</span> «Գրաֆիկ դիզայն»
-            մասնագիտություն, մասնագիտության կարեւորությունն ու արդիականությունը
+            <span className="font-normal">Դաս {paramsId}։</span> {title}
           </p>
           <div className="bg-[gray] w-[217px] h-[96px]" />
-          <p className="text-xs ">
-            Հակառակ ընդհանուր պատկերացմանը՝ Լորեմ Իպսումը այդքան էլ պատահական
-            հավաքված տեքստ չէ։ Այս տեքստի արմատները հասնում են մ.թ.ա. 45 թ.
-            դասական լատինական գրականություն. այն 2000 տարեկան է։ Ռիչարդ
-            ՄքՔլինտոքը՝ Վիրջինիայի Համպդեն-Սիդնեյ քոլեջում լատիներենի մի
-            դասախոս՝ ուսումնասիրելով Lorem Ipsum տեքստի ամենատարօրինակ բառերից
-            մեկը՝ «consectetur»-ը, և այն որոնելով դասական գրականության մեջ՝
-            բացահայտեց դրա իսկական աղբյուրը։ Ռիչարդ ՄքՔլինտոքը՝ Վիրջինիայի
-            Համպդեն-Սիդնեյ քոլեջում լատիներենի մի դասախոս՝ ուսումնասիրելով Lorem
-            Ipsum տեքստի ամենատարօրինակ բառերից մեկը՝ «consectetur»-ը, և այն
-            որոնելով դասական գրականության մեջ՝ բացահայտեց դրա իսկական աղբյուրը։
-          </p>
+          <p className="text-xs">{body}</p>
           <div className="w-[30%] h-[1px] bg-[#BEBFE4]" />
           <ExtraMaterials items={["png", "img", "docx"]} />
           <Link to={"homework"} className="toHomeWork_link">

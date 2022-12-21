@@ -14,10 +14,12 @@ export const MenuLi: React.FC<MenuLiProps> = ({
   return (
     <NavLink
       to={to!}
-      className={({ isActive }) => (isActive ? "activeMenuItem" : "menuLi")}
+      className={({ isActive }) =>
+        isActive ? "activeMenuItem menuLi" : "menuLi"
+      }
     >
       <div className="menuA">
-        <img src={location.pathname === "/" + to ? activeImg : img} alt="" />
+        <img src={location.pathname.includes(to!) ? activeImg : img} alt="" />
         <span className="menuSpan">{title}</span>
       </div>
     </NavLink>
