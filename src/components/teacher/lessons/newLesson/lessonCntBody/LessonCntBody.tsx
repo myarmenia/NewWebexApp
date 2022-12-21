@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./lessonCntBody.css";
 import { AgeDiv } from "./ageDiv/AgeDiv";
 import { FinishExam } from "./finishExam/FinishExam";
@@ -15,7 +15,7 @@ import { Knowledges } from "./knowledges/Knowledges";
 import { CustomNmbInp } from "../../../lesComponents/customNmbInp/CustomNmbInp";
 import { CustomBtn } from "../../../lesComponents/customBtn/CustomBtn";
 import { CstmTextarea } from "../../../lesComponents/cstmTextarea/CstmTextarea";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const LessonCntBody: React.FC = () => {
   const navigate = useNavigate();
@@ -52,7 +52,7 @@ export const LessonCntBody: React.FC = () => {
     control,
     name: "requiredKnowledges",
   });
-  const { fields, append, remove } = fieldArray;
+  const { fields } = fieldArray;
 
   const onSubmit = (data: TeacherSubmitForm) => {
     let values = {};
@@ -140,7 +140,7 @@ export const LessonCntBody: React.FC = () => {
                   <CustomNmbInp
                     defaultValue={3}
                     regName="stagesCount"
-                    {...{ remove, append }}
+                    {...{ fieldArray }}
                   />
                 </TxtWinput>
                 <div
@@ -183,9 +183,7 @@ export const LessonCntBody: React.FC = () => {
             </div>
           </div>
           <div className="nextBtnCont">
-            {/* <Link to="lesson_graffic"> */}
             <CustomBtn title="Առաջ" type="submit" />
-            {/* </Link> */}
             {/* <button
               type="button"
               className="addLessonBtn"

@@ -28,10 +28,8 @@ export const CstmTextarea: React.FC<CstmTextareaProps> = ({
         className={`${className} scrollbar_hidden lessonTextarea lessonInp`}
         placeholder={placeholder}
         {...name}
-        defaultValue={defaultValue?.toString()}
-      >
-        {/* {defaultValue} */}
-      </textarea>
+        defaultValue={defaultValue}
+      />
       <p className="errorMessage">{errors[regName!]?.message?.toString()}</p>
     </div>
   );

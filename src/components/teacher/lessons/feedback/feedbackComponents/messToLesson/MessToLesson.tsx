@@ -1,16 +1,13 @@
 import React, { FC, Fragment } from "react";
+import "./messToLesson.css";
 import { IOtherLessonLoaderData } from "../../../../../../models/interfaces";
 import { useLoaderData } from "react-router";
-import { IStageLesson } from "../../../../../../models/interfaces";
-import { LesStgLesson } from "../../../userLessons/stageLesPage/lesStageBox/lesStgLesson/LesStgLesson";
-import "./messToLesson.css";
 import { LesMessage } from "../lesMessage/LesMessage";
 
 interface MessToLessonProps {}
 
 export const MessToLesson: FC<MessToLessonProps> = ({}) => {
-  const mainData = useLoaderData() as IOtherLessonLoaderData;
-  const { data } = mainData;
+  const { data } = useLoaderData() as IOtherLessonLoaderData;
   return (
     <div className="messageCont_lessons">
       <div className="mr-[18px] text-xs text-[#5F6368] border-b border-[#BEBFE4] py-3 mb-2">

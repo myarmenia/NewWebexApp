@@ -1,5 +1,5 @@
 .differentCourses {
-  @apply grid grid-cols-3 gap-1 max-h-[200px] overflow-y-auto overflow-x-hidden pb-[11px];
+  @apply grid grid-cols-3 gap-1 max-h-[200px] overflow-y-auto pr-1 overflow-x-hidden pb-[11px];
   column-gap: 24px;
 }
 @media (max-width: 1060px) {

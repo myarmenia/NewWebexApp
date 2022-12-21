@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { FC } from "react";
 import "./userMenu.css";
 import { MenuLi } from "./menuLi/MenuLi";
 
@@ -23,73 +23,73 @@ import activeImg7 from "../../../images/Teacher/Menu/activeImgs/Group 1673.svg";
 import activeImg8 from "../../../images/Teacher/Menu/activeImgs/Group 1674.svg";
 import { MItemsDrop } from "../lesComponents/mItemsDrop/MItemsDrop";
 
-export const UserMenu: React.FC = () => {
-  const [menuItems, setMenuItems] = useState<IteacherMenu[]>([
-    {
-      id: Math.random(),
-      img: img1,
-      activeImg: activeImg1,
-      title: "Անձնական տվյալներ",
-      to: "personal_info",
-    },
-    {
-      id: Math.random(),
-      img: img2,
-      activeImg: activeImg2,
-      title: "Իմ դասընթացները",
-      // to: "new_lesson",
-      to: "my_lesson",
-    },
-    {
-      id: Math.random(),
-      img: img3,
-      activeImg: activeImg3,
-      title: "Դասավանդման գրաֆիկ",
-      toSubPaths: [
-        {
-          path: "create_graffic",
-          title: "Դասավանդման գրաֆիկ",
-          isClicked: false,
-        },
-        { path: "calendar", title: "Դասընթացների օրացույց", isClicked: false },
-      ],
-    },
-    {
-      id: Math.random(),
-      img: img4,
-      activeImg: activeImg4,
-      title: "Ուսանողներ",
-      to: "students",
-    },
-    {
-      id: Math.random(),
-      img: img5,
-      activeImg: activeImg5,
-      title: "Դրամապանակ",
-      to: "wallet",
-    },
-    {
-      id: Math.random(),
-      img: img9,
-      activeImg: activeImg6,
-      title: "Զեղչեր պրոմո",
-      to: "discount",
-    },
-    {
-      id: Math.random(),
-      img: img7,
-      activeImg: activeImg7,
-      title: "Նամակագրություն",
-      to: "feedback/lesson/1/task",
-    },
-    {
-      id: Math.random(),
-      img: img8,
-      activeImg: activeImg8,
-      title: "Աջակցության կենտրոն",
-      to: "panel",
-    },
-  ]);
+const menuItems: IteacherMenu[] = [
+  {
+    id: Math.random(),
+    img: img1,
+    activeImg: activeImg1,
+    title: "Անձնական տվյալներ",
+    to: "personal_info",
+  },
+  {
+    id: Math.random(),
+    img: img2,
+    activeImg: activeImg2,
+    title: "Իմ դասընթացները",
+    to: "my_lesson",
+  },
+  {
+    id: Math.random(),
+    img: img3,
+    activeImg: activeImg3,
+    title: "Դասավանդման գրաֆիկ",
+    toSubPaths: [
+      {
+        path: "create_graffic",
+        title: "Դասավանդման գրաֆիկ",
+        isClicked: false,
+      },
+      { path: "calendar", title: "Դասընթացների օրացույց", isClicked: false },
+    ],
+  },
+  {
+    id: Math.random(),
+    img: img4,
+    activeImg: activeImg4,
+    title: "Ուսանողներ",
+    to: "students",
+  },
+  {
+    id: Math.random(),
+    img: img5,
+    activeImg: activeImg5,
+    title: "Դրամապանակ",
+    to: "wallet",
+  },
+  {
+    id: Math.random(),
+    img: img9,
+    activeImg: activeImg6,
+    title: "Զեղչեր պրոմո",
+    to: "discount",
+  },
+  {
+    id: Math.random(),
+    img: img7,
+    activeImg: activeImg7,
+    title: "Նամակագրություն",
+    to: "feedback/student/1/lesson/1/task",
+  },
+  {
+    id: Math.random(),
+    img: img8,
+    activeImg: activeImg8,
+    title: "Աջակցության կենտրոն",
+    to: "panel",
+  },
+];
+
+export const UserMenu: FC = () => {
   return (
     <nav className="menu">
       <ul id="menuUl">

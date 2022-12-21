@@ -21,7 +21,6 @@ export const Calendar: FC = () => {
     dispatch(createDatesWeek());
   }, [currentDate.getMonth()]);
 
-  const { user } = useLoaderData() as IDataExample;
   return (
     <div className="calendar">
       <LessonTitle title="Դասավանդման գրաֆիկ" />

@@ -1,35 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import "./customNmbInp.css";
 import arrow from "../../../../images/Teacher/NewLesson/Polygon 3.svg";
-import { FieldArrayMethodProps, useFormContext } from "react-hook-form";
+import {
+  FieldArrayMethodProps,
+  UseFieldArrayReturn,
+  useFormContext,
+} from "react-hook-form";
+import { TeacherSubmitForm } from "../../lessons/newLesson/lessonCntBody/validationSchema";
 
 interface CustomNmbInpProps {
   defaultValue: number;
   regName: string;
   error?: string;
-  append?: (
-    value:
-      | {
-          stageDescription: string;
-          count: number;
-          stage: number;
-        }
-      | {
-          stageDescription: string;
-          count: number;
-          stage: number;
-        }[],
-    options?: FieldArrayMethodProps | undefined
-  ) => void;
-  remove?: (index?: number | number[] | undefined) => void;
+  fieldArray?: UseFieldArrayReturn<TeacherSubmitForm, "stages", "id">;
 }
 
 export const CustomNmbInp: React.FC<CustomNmbInpProps> = ({
   defaultValue,
   regName,
-  append,
-  remove,
   error,
+  fieldArray,
 }) => {
   const {
     register,
@@ -40,9 +30,9 @@ export const CustomNmbInp: React.FC<CustomNmbInpProps> = ({
 
   const [age, setAge] = useState<number>(defaultValue);
   const increase = () => {
-    if (age > 1) {
+    if (age >= 1) {
       setAge((prev) => prev + 1);
-      append?.({
+      fieldArray?.append?.({
         stage: watch("stagesCount"),
         count: 2,
         stageDescription: "",
@@ -52,13 +42,24 @@ export const CustomNmbInp: React.FC<CustomNmbInpProps> = ({
   const decrease = () => {
     if (age > 1) {
       setAge((prev) => prev - 1);
-      remove?.(watch("stagesCount") - 1);
+      fieldArray?.remove?.(watch("stagesCount") - 1);
     }
   };
   useEffect(() => {
     setValue(regName, age);
   }, [age]);
 
+  const errorMessage = useCallback(() => {
+    if (error) {
+      return <p className="errorMessage">{error}</p>;
+    } else if (regName) {
+      return (
+        <p className="errorMessage">{errors[regName]?.message!.toString()}</p>
+      );
+    } else {
+      return;
+    }
+  }, [error, errors]);
   return (
     <div className="relative">
       <div className="customNmbInp">
@@ -74,9 +75,7 @@ export const CustomNmbInp: React.FC<CustomNmbInpProps> = ({
         <img src={arrow} alt="" className="arrowLeft" onClick={decrease} />
         <img src={arrow} alt="" className="arrowRight" onClick={increase} />
       </div>
-      <p className="errorMessage">
-        {error || errors[regName]?.message?.toString()}
-      </p>
+      {errorMessage()}
     </div>
   );
 };
