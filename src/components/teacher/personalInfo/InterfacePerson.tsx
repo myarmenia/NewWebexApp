@@ -1,5 +1,4 @@
 import * as Yup from "yup";
-import { ISelect } from "../../../models/interfaces";
 import { UseFieldArrayReturn, useFormContext } from "react-hook-form";
 export interface inputChildProps {
   isActive?: boolean;

@@ -1,6 +1,14 @@
-import React, { FC } from "react";
-import { LoaderFunctionArgs, Outlet } from "react-router";
-import { ILessonLoaderObj } from "../../../../models/interfaces";
+import React, { FC, useEffect } from "react";
+import {
+  LoaderFunctionArgs,
+  Outlet,
+  useLoaderData,
+  useLocation,
+} from "react-router";
+import {
+  ILessonLoaderObj,
+  IOtherLessonLoaderData,
+} from "../../../../models/interfaces";
 import { LessonTitle } from "../../lessonTitle/LessonTitle";
 import "./feedback.css";
 import { FeedbackCont } from "./feedbackComponents/feedbackCont/FeedbackCont";
@@ -21,10 +29,6 @@ export const feedbackLoader = async ({ params }: LoaderFunctionArgs) => {
     "https://jsonplaceholder.typicode.com/posts?userId=1"
   );
   const paramsId = params.id;
-  console.log(params, "loader", paramsId);
-
   const data = await res.json();
-  const { title } = data as ILessonLoaderObj;
-
-  return { data, title, paramsId };
+  return { data, paramsId };
 };

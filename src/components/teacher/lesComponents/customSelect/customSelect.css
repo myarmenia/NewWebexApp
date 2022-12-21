@@ -15,7 +15,7 @@
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
 }
 .myInput {
-  @apply border-none bg-inherit text-base placeholder:text-[#9C9C9C] placeholder:text-xs;
+  @apply w-full border-none bg-inherit text-base placeholder:text-[#9C9C9C] placeholder:text-xs;
 }
 .custopSelect_option {
   @apply hover:bg-slate-200 transition-all py-3 px-4 pb-2 text-ellipsis overflow-hidden mx-auto h-11 w-full text-[#9C9C9C] whitespace-nowrap cursor-pointer;

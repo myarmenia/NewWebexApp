@@ -1,5 +1,5 @@
 .feedbackCont {
-  @apply flex gap-[25px] pb-2;
+  @apply flex gap-[25px];
 }
 .messageSection {
   /* @apply ;  */

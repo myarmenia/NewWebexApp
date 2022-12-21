@@ -3,17 +3,7 @@ import "./feedbackCont.css";
 import { UsersMessages } from "../usersMessages/UsersMessages";
 import { IStageLesson } from "../../../../../../models/interfaces";
 import { MessToLesson } from "../messToLesson/MessToLesson";
-import { MesTask } from "../mesContent/mesTask/MesTask";
-import {
-  Outlet,
-  Route,
-  Routes,
-  useHref,
-  useLocation,
-  useMatches,
-} from "react-router";
-import { MesHomeWork } from "../mesContent/mesHomeWork/MesHomeWork";
-import { MesMessages } from "../mesContent/mesMessages/MesMessages";
+import { useLocation } from "react-router";
 import { ChatNav } from "./ChatNav";
 
 const stageLessons: IStageLesson[] = Array.from({
@@ -25,17 +15,21 @@ const stageLessons: IStageLesson[] = Array.from({
 
 export const FeedbackCont: FC<{ children?: any }> = ({ children }) => {
   const location = useLocation();
+  const { pathname } = location;
+
+  const isNavBarShown: boolean =
+    pathname.includes("homework") || pathname.includes("chat");
   return (
     <div className="feedbackCont">
       <UsersMessages />
       <div className="messageSection">
         <div className="messageCont_title">
           <p>Ուսանողի Անուն Ազգանուն</p>
-          {location.pathname !== "/feedback" && <ChatNav />}
+          {isNavBarShown && <ChatNav />}
         </div>
         <div className="messageCont">
           {children}
-          <MessToLesson {...{ stageLessons }} />
+          <MessToLesson />
         </div>
       </div>
     </div>

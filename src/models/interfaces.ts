@@ -113,7 +113,6 @@ export interface ILessonLoaderData {
 }
 export interface IOtherLessonLoaderData {
   data: ILessonLoaderObj[];
-  title?: string;
   paramsId: number;
   // lessonsObj: ILessonLoaderObj[];
   // paramsId: number;

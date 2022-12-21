@@ -1,11 +1,11 @@
 import React, { FC } from "react";
-import "./mesTask.css";
+import "./lesTask.css";
 import { ExtraMaterials } from "../../../../userLessons/stageLesPage/extraMaterials/ExtraMaterials";
 import { LesContainer } from "../../../../userLessons/userLesComponents/lesContainer/LesContainer";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, LoaderFunctionArgs, useLoaderData } from "react-router-dom";
 import { IOtherLessonLoaderData } from "../../../../../../../models/interfaces";
 
-export const MesTask: FC = () => {
+export const LesTask: FC = () => {
   const mainData = useLoaderData() as IOtherLessonLoaderData;
   const { data, paramsId = 1 } = mainData;
   const { title, body } = data[paramsId - 1];

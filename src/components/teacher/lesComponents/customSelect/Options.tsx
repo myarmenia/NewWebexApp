@@ -1,47 +1,30 @@
 import React, { SetStateAction, useState } from "react";
 import { Option } from "./Option";
-import { ISelect } from "../../../../models/interfaces";
 import { OptionInput } from "./OptionInput";
 
 interface OptionsProps {
-  state: boolean;
-  setState: React.Dispatch<SetStateAction<boolean>>;
-  select: ISelect;
+  toggleOptions: () => void;
+  options: string[];
   isInput?: boolean;
-  setselectVals?: React.Dispatch<SetStateAction<ISelect>>;
+  setOptions?: React.Dispatch<SetStateAction<string[]>>;
   regName?: string;
 }
 
 export const Options: React.FC<OptionsProps> = ({
-  state,
-  setState,
-  select,
+  toggleOptions,
+  options,
   isInput,
-  setselectVals,
+  setOptions,
   regName,
 }) => {
-  const [newCategory, setNewCategory] = useState<string>("");
   return (
     <div className="options">
       <div className="optionsContainer">
-        {select.options.map((option, id) => (
-          <Option
-            key={id}
-            option={option}
-            setState={setState}
-            state={state}
-            regName={regName}
-          />
+        {options.map((option, id) => (
+          <Option key={id} {...{ option, toggleOptions, regName }} />
         ))}
       </div>
-      {isInput && (
-        <OptionInput
-          select={select}
-          setNewCategory={setNewCategory}
-          setselectVals={setselectVals}
-          newCategory={newCategory}
-        />
-      )}
+      {isInput && <OptionInput {...{ options, setOptions }} />}
     </div>
   );
 };
