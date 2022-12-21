@@ -18,22 +18,10 @@ export const FirstLesCont: React.FC = () => {
   const methods = useForm<IFirstLessonSchema>({
     resolver: yupResolver(firstLessonSchema),
   });
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    watch,
-  } = methods;
+  const { handleSubmit } = methods;
 
   const onSubmit = (data: IFirstLessonSchema) => {
     console.log(data);
-    // fetch("https://fakestoreapi.com/products", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(data),
-    // }).then(() => console.log("posted"));
   };
   return (
     <FormProvider {...methods}>

@@ -14,6 +14,8 @@ export const Phases: React.FC<PhasesProps> = ({ fields }) => {
     formState: { errors },
   } = useFormContext();
 
+  console.log(errors);
+
   return (
     <div className="phases">
       <p className="phasesTitle">Վերնագրել դասընթացի փուլերը</p>
@@ -27,6 +29,7 @@ export const Phases: React.FC<PhasesProps> = ({ fields }) => {
               regName={`stages.${index}.stageDescription`}
               error={
                 Array.isArray(errors.stages) &&
+                errors.stages[index].stageDescription &&
                 errors.stages[index].stageDescription.message
               }
             />

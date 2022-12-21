@@ -53,7 +53,7 @@ export const nLessCreate_L_Schema = Yup.object().shape({
       stageDescription: Yup.string()
         .min(4, "some aafdsadf")
         .required("required"),
-      count: Yup.number().lessThan(2, "less than 2").required("dfadf"),
+      count: Yup.number().moreThan(2, "more than 2").required("dfadf"),
       stage: Yup.number(),
     })
   ),

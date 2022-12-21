@@ -91,10 +91,10 @@ const calendarList = createSlice({
           if (!elem.notCurrentMonth) {
             if (elem.dayNumber === payload) {
               return (elem.isActive = true);
-            } else {
-              return (elem.isActive = false);
             }
+            return (elem.isActive = false);
           }
+          return elem;
         })
       );
     },

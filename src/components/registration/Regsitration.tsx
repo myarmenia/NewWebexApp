@@ -9,12 +9,11 @@ import emailIcon from "../../images/registration/mail.png";
 import passwordIcon from "../../images/registration/password.png";
 import facebook from "../../images/registration/facebook.png";
 import gmail from "../../images/registration/gmail.png";
-import { ISelect } from "../../models/interfaces";
 import { CustomSelect } from "../teacher/lesComponents/customSelect/CustomSelect";
 // import { Option } from "../header/customSelect/Option";
 interface UserSubmitForm {
   checkbox: string;
-  select: ISelect;
+  select: string[];
   username: string;
   email: string;
   password: string;
@@ -93,12 +92,10 @@ const Regsitration = () => {
               {isOpenDropdown === "Դասավանդող" ? (
                 <div className="form-group2">
                   <CustomSelect
+                    placeholder="selecti placehodery"
                     regName="select"
                     className="registration_select"
-                    select={{
-                      title: "sada",
-                      options: ["asdsad", "asdads", "adsd"],
-                    }}
+                    options={["asdsad", "asdads", "adsd"]}
                   />
                 </div>
               ) : null}

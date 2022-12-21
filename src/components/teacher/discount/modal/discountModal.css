@@ -1,8 +1,5 @@
 .modal {
-  @apply w-full h-[100vh] top-0 left-0 fixed;
-  z-index: 10;
-  background: #9c9c9c73;
-  /* mix-blend-mode: multiply; */
+  @apply z-10 w-full h-[100vh] top-0 left-0 fixed bg-[#090e249e];
 }
 .modalChild {
   @apply w-[50%] h-auto rounded-[15px] mt-[80px] my-[200px] mx-auto py-[25px] px-[30px];

@@ -29,12 +29,10 @@ export const Inp2: React.FC<inputChildProps> = ({
               {...register(`${regName}.${index}.company`)}
             />
             <CustomSelect
+              placeholder="adfsd"
               regName={selectName}
               className="registration_select"
-              select={{
-                title: "sada",
-                options: option,
-              }}
+              options={option}
             />
             <input
               type="text"

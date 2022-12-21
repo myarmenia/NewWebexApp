@@ -1,12 +1,6 @@
 import React from "react";
 import "./cstmInput.css";
-import { FieldErrorsImpl, useFormContext } from "react-hook-form";
-
-type MyKey = Partial<
-  FieldErrorsImpl<{
-    [x: string]: any;
-  }>
->;
+import { useFormContext } from "react-hook-form";
 
 interface CstmInputProps {
   type: "text" | "number";
@@ -38,9 +32,11 @@ export const CstmInput: React.FC<CstmInputProps> = ({
         placeholder={placeholder}
         defaultValue={defaultValue && defaultValue}
       />
-      <p className="errorMessage">
-        {error || errors[regName!]?.message?.toString()}
-      </p>
+      {regName && (
+        <p className="errorMessage">
+          {error || errors[regName!]?.message?.toString()}
+        </p>
+      )}
     </div>
   );
 };

@@ -1,30 +1,28 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import "./lesMessage.css";
-import {
-  IOtherLessonLoaderData,
-  IStageLesson,
-} from "../../../../../../models/interfaces";
-import { Link, NavLink, useLoaderData } from "react-router-dom";
+import { IStageLesson } from "../../../../../../models/interfaces";
+import { NavLink } from "react-router-dom";
 
 export const LesMessage: FC<IStageLesson> = ({ title, lessonNumber }) => {
-  const { paramsId } = useLoaderData() as IOtherLessonLoaderData;
-  console.log();
-
   return (
     <div className="lesStgLesson">
       <NavLink
-        to={`lesson/${lessonNumber}`}
+        to={`lesson/${lessonNumber}/task`}
         className={({ isActive }) =>
           isActive ? "activeLes lesson_message" : "lesson_message"
         }
-        state={true}
       >
         <span className="font-normal">Դաս {lessonNumber}:</span> {title}
       </NavLink>
 
-      <Link to={`lesson/${lessonNumber}/homework`} className="homeWorkAncor">
+      <NavLink
+        to={`lesson/${lessonNumber}/homework`}
+        className={({ isActive }) =>
+          isActive ? "activeLes homeWorkAncor" : "homeWorkAncor"
+        }
+      >
         Տնային աշխատանք
-      </Link>
+      </NavLink>
     </div>
   );
 };

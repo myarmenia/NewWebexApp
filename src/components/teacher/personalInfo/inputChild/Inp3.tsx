@@ -24,12 +24,10 @@ export const Inp3: React.FC<inputChildProps> = ({
         return (
           <div className="inputChild2" key={id}>
             <CustomSelect
+              placeholder="adsfdsf"
               regName={selectName}
               className="registration_select"
-              select={{
-                title: "sada",
-                options: option,
-              }}
+              options={option}
             />
 
             <input

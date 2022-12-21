@@ -6,11 +6,9 @@ import { LesStgLesson } from "../../../userLessons/stageLesPage/lesStageBox/lesS
 import "./messToLesson.css";
 import { LesMessage } from "../lesMessage/LesMessage";
 
-interface MessToLessonProps {
-  stageLessons: IStageLesson[];
-}
+interface MessToLessonProps {}
 
-export const MessToLesson: FC<MessToLessonProps> = ({ stageLessons }) => {
+export const MessToLesson: FC<MessToLessonProps> = ({}) => {
   const mainData = useLoaderData() as IOtherLessonLoaderData;
   const { data } = mainData;
   return (
@@ -21,7 +19,7 @@ export const MessToLesson: FC<MessToLessonProps> = ({ stageLessons }) => {
       <div className="messageCont_lessons_cont">
         {data.map(({ title }, i) => (
           <Fragment key={Math.random()}>
-            {i !== stageLessons.length - 1 && i !== 0 && (
+            {i !== data.length - 1 && i !== 0 && (
               <hr className="bg-[#BEBFE4] w-full h-[1px]" />
             )}
             <LesMessage {...{ title }} lessonNumber={i + 1} />

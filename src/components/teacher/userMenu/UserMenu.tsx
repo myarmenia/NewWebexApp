@@ -80,7 +80,7 @@ export const UserMenu: React.FC = () => {
       img: img7,
       activeImg: activeImg7,
       title: "Նամակագրություն",
-      to: "feedback",
+      to: "feedback/lesson/1/task",
     },
     {
       id: Math.random(),

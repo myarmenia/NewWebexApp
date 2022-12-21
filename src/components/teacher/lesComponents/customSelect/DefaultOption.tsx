@@ -1,36 +1,30 @@
 import React from "react";
 import { useFormContext } from "react-hook-form";
-import chevDown from "../../../../images/chevDown.svg";
+import chevDown from "../../../../images/customSelectArrow.svg";
 
 interface DefaultOptionProps {
-  setState: React.Dispatch<React.SetStateAction<boolean>>;
-  state: boolean;
+  toggleOptions: () => void;
   regName?: string;
+  placeholder?: string;
 }
 export const DefaultOption: React.FC<DefaultOptionProps> = ({
-  setState,
-  state,
+  toggleOptions,
   regName,
+  placeholder,
 }) => {
   const { register } = useFormContext();
   return (
-    <div className="defaultOption" onClick={() => setState(!state)}>
+    <div className="defaultOption" onClick={() => toggleOptions()}>
       <div className="flex text-[#6B6B6B] w-full text-xs">
         <input
           type="text"
-          placeholder="Ընտրել կատեգորիան*"
+          placeholder={placeholder}
           disabled
           className="myInput"
           {...register(regName!)}
         />
       </div>
-      <img
-        src={chevDown}
-        alt=""
-        className={`scale-75 duration-300 h-fit ${
-          state ? "rotate-180" : "rotate-0"
-        }`}
-      />
+      <img src={chevDown} alt="" className="w-3"/>
     </div>
   );
 };
