@@ -77,12 +77,14 @@ export interface TeacherSubmitForm {
   lessonTime: string;
   isExam: string;
   certificate: string;
-  stages: {
-    stageDescription: string;
-    count?: number | null;
-    stage: number;
-  }[];
+  stages: ITeacherStages[];
   requiredKnowledges: {
     knowledge: string;
   }[];
+}
+
+export interface ITeacherStages {
+  stageDescription: string;
+  count?: number | null;
+  stage: number;
 }

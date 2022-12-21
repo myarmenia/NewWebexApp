@@ -1,22 +1,33 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
+import { useLoaderData, useLocation } from "react-router";
+import { Link } from "react-router-dom";
+import { IOtherLessonLoaderData } from "../../../../../../models/interfaces";
 import "./usersMessages.css";
 
 export const UsersMessages: FC = () => {
+  const { students } = useLoaderData() as IOtherLessonLoaderData;
+
   return (
     <div className="feedbackMessages">
-      {Array.from({ length: 20 }).map((el, i) => (
-        <div className="chatContainer" key={Math.random()}>
-          <img className="chatImg" src="" />
-          <div className="chatDescriptionBox">
-            <div className="flex items-center gap-2">
-              <p className="chatDescription1">Ուսանողի Անուն Ազգանուն</p>
-              <div className="userOnline" />
+      {students.map((el, i) => {
+        return (
+          <Link
+            to={`../student/${el.id}/lesson/1/task`}
+            className="chatContainer"
+            key={Math.random()}
+          >
+            <img className="chatImg" src="" />
+            <div className="chatDescriptionBox">
+              <div className="flex items-center gap-2">
+                <p className="chatDescription1">{el.name}</p>
+                <div className="userOnline" />
+              </div>
+              <p className="chatDescription2">{el.username}</p>
             </div>
-            <p className="chatDescription2">Վերջին նամակի առաջին տողը....</p>
-          </div>
-          <span className="chatTime">11:10</span>
-        </div>
-      ))}
+            <span className="chatTime">11:10</span>
+          </Link>
+        );
+      })}
     </div>
   );
 };

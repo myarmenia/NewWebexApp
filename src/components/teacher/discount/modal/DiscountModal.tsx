@@ -13,6 +13,7 @@ export const discountModal = Yup.object().shape({
 });
 interface IDiscountModal {
   select: string;
+  titleSelect: string;
 }
 
 export const ModalDiscount: FC = () => {
@@ -43,9 +44,21 @@ export const ModalDiscount: FC = () => {
                 />
               </div>
               <div className="modalInpTitle">Դասընթացներ</div>
-              <div className="modalInp">
+              <CustomSelect
+                placeholder="Դասընթացի վերնագիրը"
+                regName="titleSelect"
+                // className="registration_select"
+                options={[
+                  "Դասընթացի վերնագիրը",
+                  "Դասընթացի վերնագիրը",
+                  "Դասընթացի վերնագիրը",
+                  "Դասընթացի վերնագիրը",
+                  "Դասընթացի վերնագիրը",
+                ]}
+              />
+              {/* <div className="modalInp">
                 <input className="modal-inp1" placeholder="Արժեք" />
-              </div>
+              </div> */}
             </div>
             <div className="modalInputChild2">
               <div className="modalInpTitle">Ժամանակահատված</div>

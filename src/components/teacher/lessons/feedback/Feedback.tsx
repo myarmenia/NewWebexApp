@@ -1,19 +1,13 @@
-import React, { FC, useEffect } from "react";
-import {
-  LoaderFunctionArgs,
-  Outlet,
-  useLoaderData,
-  useLocation,
-} from "react-router";
-import {
-  ILessonLoaderObj,
-  IOtherLessonLoaderData,
-} from "../../../../models/interfaces";
+import React, { FC } from "react";
+import { LoaderFunctionArgs, Outlet } from "react-router";
+
 import { LessonTitle } from "../../lessonTitle/LessonTitle";
 import "./feedback.css";
 import { FeedbackCont } from "./feedbackComponents/feedbackCont/FeedbackCont";
 
 export const Feedback: FC = () => {
+  console.log("again");
+
   return (
     <div className="feedback">
       <LessonTitle title="Նամակագրություն" className="mb-0" />
@@ -24,11 +18,22 @@ export const Feedback: FC = () => {
   );
 };
 
-export const feedbackLoader = async ({ params }: LoaderFunctionArgs) => {
+export const feedbackLessonLoader = async ({ params }: LoaderFunctionArgs) => {
   const res = await fetch(
     "https://jsonplaceholder.typicode.com/posts?userId=1"
   );
-  const paramsId = params.id;
   const data = await res.json();
-  return { data, paramsId };
+  return { data, params };
+};
+
+export const feedback_studentsLoader = async ({
+  params,
+}: LoaderFunctionArgs) => {
+  const res = await fetch(
+    "https://jsonplaceholder.typicode.com/posts?userId=1"
+  );
+  const res1 = await fetch("https://jsonplaceholder.typicode.com/users");
+  const data = await res.json();
+  const students = await res1.json();
+  return { data, students, params };
 };

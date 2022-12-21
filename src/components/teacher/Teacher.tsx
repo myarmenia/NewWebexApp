@@ -15,7 +15,11 @@ import { Students } from "./lessons/students/Students";
 import { ControlPanel } from "./controlPanel/ControlPanel";
 import { Discount } from "./discount/Discount";
 import { Wallet } from "./lessons/wallet/Wallet";
-import { Feedback, feedbackLoader } from "./lessons/feedback/Feedback";
+import {
+  Feedback,
+  feedbackLessonLoader,
+  feedback_studentsLoader,
+} from "./lessons/feedback/Feedback";
 
 // lessons for user
 import { extItems, UserLessons } from "./lessons/userLessons/UserLessons";
@@ -104,38 +108,30 @@ const router = createBrowserRouter(
       <Route path="wallet" element={<Wallet />} />
       <Route path="panel" element={<ControlPanel />} />
       <Route path="discount" element={<Discount />} />
-      <Route path="feedback" element={<Feedback />} loader={feedbackLoader}>
-        {/* <Route index element={<LesTask />} loader={feedbackLoader} /> */}
-        {/* <Route path="lesson/:id">
-          <Route index element={<LesTask />} loader={feedbackLoader} />
-          <Route
-            path="homework"
-            element={<MesHomeWork />}
-            loader={feedbackLoader}
-          />
-          <Route
-            path="chat"
-            element={<MesMessages />}
-            loader={feedbackLoader}
-          />
-        </Route> */}
-        {/* <Route path="lesson"> */}
+      <Route path="feedback">
         <Route
-          path="lesson/:id/task"
-          element={<LesTask />}
-          loader={feedbackLoader}
-        />
-        <Route
-          path="lesson/:id/homework"
-          element={<MesHomeWork />}
-          loader={feedbackLoader}
-        />
-        <Route
-          path="lesson/:id/chat"
-          element={<MesMessages />}
-          loader={feedbackLoader}
-        />
-        {/* </Route> */}
+          path="student/:stdId"
+          element={<Feedback />}
+          loader={feedback_studentsLoader}
+        >
+          <Route path="lesson/:id" loader={feedbackLessonLoader}>
+            <Route
+              path="task"
+              element={<LesTask />}
+              loader={feedbackLessonLoader}
+            />
+            <Route
+              path="homework"
+              element={<MesHomeWork />}
+              loader={feedbackLessonLoader}
+            />
+            <Route
+              path="chat"
+              element={<MesMessages />}
+              loader={feedbackLessonLoader}
+            />
+          </Route>
+        </Route>
       </Route>
     </Route>
   )
