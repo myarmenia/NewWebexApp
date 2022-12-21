@@ -10,78 +10,46 @@
   @apply w-[100%] flex flex-col gap-[20px];
 }
 .grafficsDay {
-  font-family: "Segoe UI";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 19px;
-  color: #6b6b6b;
+  @apply text-[#6b6b6b] font-bold text-sm;
 }
 .time {
-  @apply w-[85px] px-[20px] h-[40px] text-[#9c9c9c];
+  @apply w-[85px] px-[20px] h-[40px] rounded-[15px] text-[#9c9c9c] font-normal text-xs;
   background: rgba(255, 255, 255, 0.6);
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 15px;
-  font-weight: 400;
-  font-size: 12px;
 }
 .time::-webkit-calendar-picker-indicator {
   background: none;
 }
 .grafficInput {
-  width: 100%;
-  height: auto;
-  flex-wrap: wrap;
-  gap: 20px;
-  align-items: center;
-  display: flex;
+  @apply w-full h-auto flex flex-wrap gap-[20px] items-center;
 }
 .grafficInputChild {
-  width: 20%;
-  height: 80px;
+  @apply w-[300px] h-[80px]  flex flex-wrap;
   column-gap: 15px;
-  display: flex;
-  flex-wrap: wrap;
 }
 .gic {
-  width: 8.62px;
-  height: 0px;
-  margin-top: 10%;
+  @apply w-[8.62px] h-[0px] mt-[10%];
   border: 1px solid #cccccc;
 }
 .buttonContainer {
-  display: flex;
-  gap: 10px;
+  @apply flex gap-[10px];
 }
 .removeInput {
-  width: 50px;
-  height: 40px;
+  @apply w-[50px] h-[40px];
 }
 .addText {
-  font-family: "Segoe UI";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 16px;
-  color: #6b6b6b;
+  @apply text-xs font-normal text-[#6b6b6b];
 }
 .errorMessageGraffic {
-  font-size: 12px;
-  color: red;
-  height: 20px;
+  @apply text-xs h-[20px] text-[red];
 }
 .save {
-  width: 193px;
-  height: 34px;
+  @apply w-[193px] h-[34px] rounded-[15px] font-semibold text-xs text-[#ffffff];
   background: linear-gradient(90deg, #7764fb 0%, #f364f3 100%);
-  border-radius: 15px;
-  font-weight: 600;
-  font-size: 12px;
-  color: #ffffff;
 }
 .form-group {
   height: 40px !important;
 }
 .componentGraffic {
-  width: 100%;
+  @apply w-full;
 }

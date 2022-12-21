@@ -2,7 +2,10 @@ import React from "react";
 import { CustomSelect } from "../../lesComponents/customSelect/CustomSelect";
 import "./discountModal.css";
 import ModalCard from "./ModalCard";
-export const ModalDiscount = () => {
+interface ModalProps {
+  modalActiveClick: React.MouseEventHandler<HTMLButtonElement>;
+}
+export const ModalDiscount: React.FC<ModalProps> = ({ modalActiveClick }) => {
   return (
     <div className="modal">
       <div className="modalChild">
@@ -12,14 +15,14 @@ export const ModalDiscount = () => {
             <div className="modalInpTitle">Զեղչի քանակ</div>
             <div className="modalInp">
               <input className="modal-inp1" placeholder="Արժեք" />
-              <CustomSelect
+              {/* <CustomSelect
                 regName="select"
                 className="registration_select"
                 select={{
                   title: "sada",
                   options: ["asdsad", "asdads", "adsd"],
                 }}
-              />
+              /> */}
             </div>
             <div className="modalInpTitle">Դասընթացներ</div>
             <div className="modalInp">
@@ -45,9 +48,8 @@ export const ModalDiscount = () => {
           <ModalCard />
           <ModalCard />
         </div>
-
         <div className="modalButton">
-          <button>Չեղարկել</button>
+          <button onClick={modalActiveClick}>Չեղարկել</button>
           <button>Հաստատել</button>
         </div>
       </div>
