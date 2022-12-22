@@ -7,8 +7,6 @@ export const TdName: FC<Pick<IStudentTd, "name" | "image">> = ({
   name,
   image,
 }) => {
-  console.log(image);
-
   return (
     <td className="stdTd">
       <div className="stdudentName">

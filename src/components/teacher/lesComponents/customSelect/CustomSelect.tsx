@@ -22,9 +22,7 @@ export const CustomSelect: React.FC<CustomSelectProps> = ({
   placeholder,
 }) => {
   const [state, setState] = useState<boolean>(false);
-  const {
-    formState: { errors },
-  } = useFormContext();
+  const formMethods = useFormContext();
   const toggleOptions = () => {
     setState((prev) => !prev);
   };
@@ -38,7 +36,9 @@ export const CustomSelect: React.FC<CustomSelectProps> = ({
           />
         )}
         {regName && (
-          <p className="errorMessage">{errors[regName]?.message?.toString()}</p>
+          <p className="errorMessage">
+            {formMethods.formState.errors[regName]?.message?.toString()}
+          </p>
         )}
       </div>
     </div>

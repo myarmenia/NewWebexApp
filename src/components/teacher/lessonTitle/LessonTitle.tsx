@@ -9,6 +9,7 @@ interface LessonTitleProps {
   editIsActive?: boolean;
   isAddLessonBtn?: boolean;
   className?: string;
+  classNameParent?: string;
 }
 
 export const LessonTitle: React.FC<LessonTitleProps> = ({
@@ -16,13 +17,14 @@ export const LessonTitle: React.FC<LessonTitleProps> = ({
   editIsActive,
   isAddLessonBtn,
   className,
+  classNameParent,
 }) => {
   return (
-    <div className="newLessonTitle">
+    <div className={"newLessonTitle " + classNameParent}>
       <div className={"flex gap-3 items-center " + className}>
         <div className="lessonTitle">{title} </div>
         {editIsActive && (
-          <img src={editImg} className="w-4 h-4 cursor-pointer" alt=""/>
+          <img src={editImg} className="w-4 h-4 cursor-pointer" alt="" />
         )}
         {isAddLessonBtn && (
           // <Link to={"../new_lesson"}>

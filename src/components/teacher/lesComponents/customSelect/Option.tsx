@@ -12,13 +12,14 @@ export const Option: React.FC<OptionProps> = ({
   option,
   regName,
 }) => {
-  const { setValue } = useFormContext();
+  const formMethods = useFormContext();
   return (
     <div
       className="custopSelect_option"
       onClick={() => {
         toggleOptions();
-        regName && setValue(regName, option, { shouldValidate: true });
+        regName &&
+          formMethods?.setValue(regName, option, { shouldValidate: true });
       }}
     >
       {option}

@@ -4,7 +4,11 @@ import { CstmTextarea } from "../../../../lesComponents/cstmTextarea/CstmTextare
 import { LoadImage } from "../../../../lesComponents/loadImage/LoadImage";
 import trashbinImg from "../../../../../../images/Teacher/Exam/delete.svg";
 import addVariantImg from "../../../../../../images/Teacher/Exam/Group 1552.svg";
-import { FieldArrayWithId, UseFieldArrayReturn } from "react-hook-form";
+import {
+  FieldArrayWithId,
+  UseFieldArrayReturn,
+  useFormContext,
+} from "react-hook-form";
 import { IExamSchema } from "../../examSchema";
 import { ResVariant } from "../resVariant/ResVariant";
 
@@ -19,10 +23,12 @@ export const QuestionBox: React.FC<QuestionBoxProps> = ({
   questions,
   i,
 }) => {
+  const { watch } = useFormContext();
   const addVariant = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     questions.update(i, {
       ...field,
+      examQuestion: watch("questionBox")[i].examQuestion,
       responseVariants: [
         ...field.responseVariants,
         {

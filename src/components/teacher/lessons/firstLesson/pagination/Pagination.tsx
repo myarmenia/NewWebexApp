@@ -12,11 +12,6 @@ export const Pagination: React.FC<PaginationProps> = ({ currentitems }) => {
   const navigate = useNavigate();
   const [items, setItems] = useState<IPaginationItem[]>(currentitems || []);
   const itemClickHandler = (id: number, completedCount: number) => {
-    console.log(completedCount, currentitems?.length);
-    if (completedCount === currentitems?.length) {
-      navigate("/exam");
-    }
-
     setItems(
       items.map((el, index) => {
         if (el.id === id) {
@@ -27,6 +22,9 @@ export const Pagination: React.FC<PaginationProps> = ({ currentitems }) => {
         return { ...el, isActive: false, isCompleted: false };
       })
     );
+    if (completedCount === currentitems?.length) {
+      navigate("/exam");
+    }
   };
 
   // passing to next or previous lesson by pagination

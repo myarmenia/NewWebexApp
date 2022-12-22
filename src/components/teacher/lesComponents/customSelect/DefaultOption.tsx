@@ -12,7 +12,7 @@ export const DefaultOption: React.FC<DefaultOptionProps> = ({
   regName,
   placeholder,
 }) => {
-  const { register } = useFormContext();
+  const formMethods = useFormContext();
   return (
     <div className="defaultOption" onClick={() => toggleOptions()}>
       <div className="flex text-[#6B6B6B] w-full text-xs">
@@ -21,10 +21,10 @@ export const DefaultOption: React.FC<DefaultOptionProps> = ({
           placeholder={placeholder}
           disabled
           className="myInput"
-          {...register(regName!)}
+          {...formMethods?.register(regName!)}
         />
       </div>
-      <img src={chevDown} alt="" className="w-3"/>
+      <img src={chevDown} alt="" className="w-3" />
     </div>
   );
 };

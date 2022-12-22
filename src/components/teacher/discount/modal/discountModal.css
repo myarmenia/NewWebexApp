@@ -2,12 +2,12 @@
   @apply z-10 w-full h-[100vh] top-0 left-0 fixed bg-[#090e249e];
 }
 .modalChild {
-  @apply w-[50%] h-auto rounded-[15px] mt-[80px] my-[200px] mx-auto py-[25px] px-[30px];
-  background: #ffffffe0;
+  @apply absolute bg-[#ffffffe0] w-[50%] h-auto rounded-[15px] top-[100%] left-1/2 py-[25px] px-[30px];
+  transform: translate(-50%, -50%);
+  top: min(calc(100% - 470px), 50%);
 }
 .modalTitle {
   @apply h-[40px] text-sm font-semibold text-[#7a64fa];
-
   border-bottom: 1px solid #bebfe4;
 }
 .modalInput {
