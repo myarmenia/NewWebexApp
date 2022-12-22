@@ -1,13 +1,10 @@
 import React, { FC } from "react";
 import { LoaderFunctionArgs, Outlet } from "react-router";
-
 import { LessonTitle } from "../../lessonTitle/LessonTitle";
 import "./feedback.css";
 import { FeedbackCont } from "./feedbackComponents/feedbackCont/FeedbackCont";
 
 export const Feedback: FC = () => {
-  console.log("again");
-
   return (
     <div className="feedback">
       <LessonTitle title="Նամակագրություն" className="mb-0" />

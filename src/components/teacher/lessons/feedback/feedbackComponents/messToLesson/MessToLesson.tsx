@@ -1,13 +1,21 @@
 import React, { FC, Fragment } from "react";
 import "./messToLesson.css";
 import { IOtherLessonLoaderData } from "../../../../../../models/interfaces";
-import { useLoaderData } from "react-router";
+import { useLoaderData, useParams } from "react-router";
 import { LesMessage } from "../lesMessage/LesMessage";
+import { useSelector } from "react-redux";
+import { lessonsSelectorFN } from "../../../../../../redux/reducers/main";
 
 interface MessToLessonProps {}
 
 export const MessToLesson: FC<MessToLessonProps> = ({}) => {
+  // ----- Loader data ------
   const { data } = useLoaderData() as IOtherLessonLoaderData;
+
+  // const {
+  //   feedbackArr: { messages },
+  // } = useSelector(lessonsSelectorFN);
+
   return (
     <div className="messageCont_lessons">
       <div className="mr-[18px] text-xs text-[#5F6368] border-b border-[#BEBFE4] py-3 mb-2">

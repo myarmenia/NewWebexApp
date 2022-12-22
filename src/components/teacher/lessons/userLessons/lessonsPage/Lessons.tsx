@@ -1,11 +1,13 @@
-import React, { FC, Fragment } from "react";
+import React, { FC, Fragment, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useLoaderData } from "react-router";
 import {
   ILessonLoaderData,
   ILessonLoaderObj,
   LessonProps,
 } from "../../../../../models/interfaces";
-import { LesBox, LesBoxProps } from "../userLesComponents/lesBox/LesBox";
+import { LesBox } from "../userLesComponents/lesBox/LesBox";
+import { lessonsSelectorFN } from "../../../../../redux/reducers/main";
 
 interface UserLessons {
   // lessonsArr: LessonProps[] | LesBoxProps[];
@@ -13,7 +15,11 @@ interface UserLessons {
 }
 
 export const Lessons: FC = () => {
+  // ----- Loader data ------
   const lessonsArr = useLoaderData() as ILessonLoaderObj[];
+  
+  // const dispatch = useDispatch();
+  // const { lessonsArr } = useSelector(lessonsSelectorFN);
   return (
     <div className="userLessonsSection">
       {lessonsArr.map(({ title, body, id }) => (

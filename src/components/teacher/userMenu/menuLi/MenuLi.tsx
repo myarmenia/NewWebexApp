@@ -10,16 +10,20 @@ export const MenuLi: React.FC<MenuLiProps> = ({
   activeImg,
   to,
 }) => {
-  const location = useLocation();
+  const { pathname } = useLocation();
+  const isPathsEqual = pathname.split("/")[1] === to?.split("/")[0];
   return (
     <NavLink
       to={to!}
       className={({ isActive }) =>
-        isActive ? "activeMenuItem menuLi" : "menuLi"
+        isPathsEqual || isActive ? "activeMenuItem menuLi" : "menuLi"
       }
     >
       <div className="menuA">
-        <img src={location.pathname.includes(to!) ? activeImg : img} alt="" />
+        <img
+          src={pathname.includes(to!) || isPathsEqual ? activeImg : img}
+          alt=""
+        />
         <span className="menuSpan">{title}</span>
       </div>
     </NavLink>

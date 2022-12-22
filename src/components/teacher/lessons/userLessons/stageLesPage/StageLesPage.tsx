@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import "./stageLesPage.css";
 import editImg from "../../../../../images/Teacher/UserLessons/editGray.svg";
-import { LoaderFunctionArgs, useLoaderData } from "react-router";
+import { LoaderFunctionArgs, useLoaderData, useParams } from "react-router";
 import {
   ILessonLoaderData,
   ILessonLoaderObj,
@@ -12,6 +12,8 @@ import { LesPTitle } from "../userLesComponents/lesPTitle/LesPTitle";
 import { LesStageBox } from "./lesStageBox/LesStageBox";
 import { LesWorkBox, LesWorkBoxProps } from "./lesWorkBox/LesWorkBox";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { lessonsSelectorFN } from "../../../../../redux/reducers/main";
 
 const lesWorkAndHomeWork: LesWorkBoxProps[] = [
   {
@@ -32,19 +34,21 @@ const lesWorkAndHomeWork: LesWorkBoxProps[] = [
 ];
 
 export const StageLesPage: FC = () => {
+  // ----- Loader data ------
   const { obj, lessonsObj, paramsId, paramsLes } =
     useLoaderData() as ILessonLoaderData;
   const { title, id } = obj;
   const { body } = lessonsObj[paramsLes - 1];
 
+  // const params = useParams();
+  // const { lessonsArr } = useSelector(lessonsSelectorFN);
+  // const currentObj = lessonsArr[+params.les! - 1];
+  // const { title, body, id } = currentObj;
+
   return (
     <div className="stageLesPage">
       <div className="lessonContent">
         <LesContainer className="lesCont">
-          {/* <LesPTitle
-            title={title}
-            className={{ title: "!text-[#6B6B6B] !font-normal" }}
-          /> */}
           <Link to="edit">
             <div className="lesPage_titleBox ">
               <h5 className="lesPage_title !text-[#6B6B6B] !font-normal">
@@ -73,7 +77,6 @@ export const StageLesPage: FC = () => {
               description={body}
               lesNumber={id}
               extMats={["png", "pptx", "docx"]}
-              // {...{  lesNumber, extMats, className }}
               key={Math.random()}
             />
             <LesWorkBox
@@ -81,7 +84,6 @@ export const StageLesPage: FC = () => {
               description={body}
               lesNumber={id}
               extMats={["png", "pptx", "docx"]}
-              // {...{  lesNumber, extMats, className }}
               key={Math.random()}
             />
           </LesContainer>

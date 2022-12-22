@@ -15,6 +15,7 @@
   @apply text-sm text-[#6B6B6B];
 }
 .activeMenuItem {
+  @apply hover:!opacity-100;
   background: linear-gradient(90deg, #7764fb 0%, #f364f3 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

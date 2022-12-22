@@ -6,12 +6,18 @@ import { LesImageBox } from "./lesImageBox/LesImageBox";
 import { LesBoxProps } from "../userLesComponents/lesBox/LesBox";
 import { LesCases } from "./lesCases/LesCases";
 import { LesStages } from "./lesStages/LesStages";
-import { LoaderFunctionArgs, useLoaderData } from "react-router";
+import {
+  LoaderFunctionArgs,
+  Params,
+  useLoaderData,
+  useParams,
+} from "react-router";
 import {
   ILessonLoaderObj,
   ILessonLoaderData,
 } from "../../../../../models/interfaces";
-
+import { useSelector } from "react-redux";
+import { lessonsSelectorFN } from "../../../../../redux/reducers/main";
 interface LesPageProps extends LesBoxProps {
   stageCount: number;
   stageLessons: number;
@@ -26,24 +32,30 @@ export const LesPage: FC<LesPageProps> = ({
   keys,
   price,
 }) => {
+  // ----- Loader data ------
   const { obj, lessonsObj, paramsId } = useLoaderData() as ILessonLoaderData;
   const { title, body } = obj;
 
+  // const params = useParams();
+  // const { lessonsArr } = useSelector(lessonsSelectorFN);
+  // const currentObj = lessonsArr[+params.id! - 1];
+  // const { title, body } = currentObj;
+
   return (
     <div className="lesPage">
-      <div className="lesPage_container">
-        <LesContainer>
-          <LesPTitle title={title} />
-        </LesContainer>
-        <LesImageBox {...{ stageCount, stageLessons, lessonTime }} />
-        <LesContainer>
-          <LesCases
-            {...{ studentsCount, title, price, keys }}
-            description={body}
-          />
-          <LesStages />
-        </LesContainer>
-      </div>
+        <div className="lesPage_container">
+          <LesContainer>
+            <LesPTitle {...{ title }} />
+          </LesContainer>
+          <LesImageBox {...{ stageCount, stageLessons, lessonTime }} />
+          <LesContainer>
+            <LesCases
+              {...{ studentsCount, title, price, keys }}
+              description={body}
+            />
+            <LesStages />
+          </LesContainer>
+        </div>
     </div>
   );
 };
