@@ -16,7 +16,9 @@ import { ControlPanel } from "./controlPanel/ControlPanel";
 import { Discount } from "./discount/Discount";
 import { Wallet } from "./lessons/wallet/Wallet";
 import {
-  Feedback, feedbackLessonLoader, feedback_studentsLoader,
+  Feedback,
+  feedbackLessonLoader,
+  feedback_studentsLoader,
   // feedbackLessonLoader,
   // feedback_studentsLoader,
 } from "./lessons/feedback/Feedback";
@@ -24,11 +26,13 @@ import {
 // lessons for user
 import { extItems, UserLessons } from "./lessons/userLessons/UserLessons";
 import {
-  Lessons, lessonsLoader,
+  Lessons,
+  lessonsLoader,
   // lessonsLoader,
 } from "./lessons/userLessons/lessonsPage/Lessons";
 import {
-  LesPage, lessonPageLoader,
+  LesPage,
+  lessonPageLoader,
   // lessonPageLoader,
 } from "./lessons/userLessons/lesPage/LesPage";
 import { StageLesPage } from "./lessons/userLessons/stageLesPage/StageLesPage";
@@ -59,7 +63,7 @@ const router = createBrowserRouter(
       <Route index element={<AddLesson />} />
       <Route path="new_lesson/*">
         <Route index element={<NewLesson />} />
-        <Route path="lesson_graffic" element={<FirstLesson />} />
+        <Route path="lesson_graffic/*" element={<FirstLesson />} />
       </Route>
       <Route path="my_lesson" element={<UserLessons />}>
         <Route index element={<Lessons />} loader={lessonsLoader} />
@@ -84,11 +88,7 @@ const router = createBrowserRouter(
             loader={lessonPageLoader}
           />
           <Route path="lesson/:les">
-            <Route
-              index
-              element={<StageLesPage />}
-              loader={lessonPageLoader}
-            />
+            <Route index element={<StageLesPage />} loader={lessonPageLoader} />
             <Route
               path="edit"
               element={
@@ -106,7 +106,7 @@ const router = createBrowserRouter(
           </Route>
         </Route>
       </Route>
-      <Route path="exam" element={<Exam />}/>
+      <Route path="exam" element={<Exam />} />
       <Route path="create_graffic">
         <Route index element={<CreateGraffic />} />
         <Route path="edit_graffic" element={<EditGraffic />} />
@@ -126,10 +126,7 @@ const router = createBrowserRouter(
           element={<Feedback />}
           loader={feedback_studentsLoader}
         >
-          <Route
-            path="lesson/:id"
-             loader={feedbackLessonLoader}
-          >
+          <Route path="lesson/:id" loader={feedbackLessonLoader}>
             <Route
               path="task"
               element={<LesTask />}
@@ -163,6 +160,6 @@ export const Teacher: FC = () => {
   return (
     // <Loading loadingState={mainSelector.feedbackArr.students}>
     <RouterProvider router={router} />
-    //  </Loading> 
+    //  </Loading>
   );
 };

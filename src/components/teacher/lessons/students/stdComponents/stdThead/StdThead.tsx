@@ -1,16 +1,17 @@
 import React, { FC } from "react";
 import "./stdThead.css";
 
-export const StdThead: FC = () => {
+interface StdTheadProps {
+  items: string[];
+}
+
+export const StdThead: FC<StdTheadProps> = ({ items }) => {
   return (
     <thead className="relative">
       <tr className="theadTr">
-        <th>Ուսանողի Անուն</th>
-        <th>Հեռախոս</th>
-        <th>Դասընթացի անվանումը</th>
-        <th>Ուսուցման ամսաթիվը</th>
-        <th>Առաջընթացը</th>
-        <th>Տնայիններ</th>
+        {items.map((el, i) => (
+          <th key={i}>{el}</th>
+        ))}
       </tr>
     </thead>
   );

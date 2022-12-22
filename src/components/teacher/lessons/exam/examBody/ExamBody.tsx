@@ -41,6 +41,13 @@ export const ExamBody: React.FC = () => {
             <CustomBtn title="Նախորդ էջ" type="button" />
             <div className="flex gap-7 items-center">
               <span className="textPurple textUnderline">Բաց թողնել</span>
+              <button
+                type="button"
+                onClick={() => console.log(watch())}
+                className="bg-[red] px-5 py-2 text-white"
+              >
+                watch
+              </button>
               <CustomBtn title="Ստեղծել թեստը" type="submit" />
             </div>
           </div>

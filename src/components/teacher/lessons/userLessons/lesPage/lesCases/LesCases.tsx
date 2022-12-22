@@ -14,7 +14,10 @@ export const LesCases: FC<LesCasesProps> = ({
   return (
     <div className="lesCases">
       <span className="studentsCount">{studentsCount} ուսանող</span>
-      <p className="lesBox_price !text-[36px]">{price} դրամ</p>
+      <div className="flex justify-between items-center">
+        <p className="lesBox_price !text-[36px]">{price} դրամ</p>
+        <span className="text-[32px]">6 &#9734;</span>
+      </div>
       <div className="keys">
         {keys.map((key, index) => (
           <div className="key" key={index}>
