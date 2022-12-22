@@ -1,4 +1,4 @@
-import React, { FC, Fragment, useState } from "react";
+import React, { FC, Fragment, useEffect, useState } from "react";
 import "./teacher.css";
 //  pages
 import { AddLesson } from "./lessons/addLesson/AddLesson";
@@ -16,20 +16,20 @@ import { ControlPanel } from "./controlPanel/ControlPanel";
 import { Discount } from "./discount/Discount";
 import { Wallet } from "./lessons/wallet/Wallet";
 import {
-  Feedback,
-  feedbackLessonLoader,
-  feedback_studentsLoader,
+  Feedback, feedbackLessonLoader, feedback_studentsLoader,
+  // feedbackLessonLoader,
+  // feedback_studentsLoader,
 } from "./lessons/feedback/Feedback";
 
 // lessons for user
 import { extItems, UserLessons } from "./lessons/userLessons/UserLessons";
 import {
-  Lessons,
-  lessonsLoader,
+  Lessons, lessonsLoader,
+  // lessonsLoader,
 } from "./lessons/userLessons/lessonsPage/Lessons";
 import {
-  LesPage,
-  lessonPageLoader,
+  LesPage, lessonPageLoader,
+  // lessonPageLoader,
 } from "./lessons/userLessons/lesPage/LesPage";
 import { StageLesPage } from "./lessons/userLessons/stageLesPage/StageLesPage";
 
@@ -45,6 +45,13 @@ import { Loyaut } from "./loyaut/Loyaut";
 import { LesTask } from "./lessons/feedback/feedbackComponents/mesContent/lesTask/LesTask";
 import { MesHomeWork } from "./lessons/feedback/feedbackComponents/mesContent/mesHomeWork/MesHomeWork";
 import { MesMessages } from "./lessons/feedback/feedbackComponents/mesContent/mesMessages/MesMessages";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getFeedbackMessages,
+  getFeedbackStudents,
+  getLessons,
+  lessonsSelectorFN,
+} from "../../redux/reducers/main";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Loyaut />}>
@@ -56,7 +63,7 @@ const router = createBrowserRouter(
       </Route>
       <Route path="my_lesson" element={<UserLessons />}>
         <Route index element={<Lessons />} loader={lessonsLoader} />
-        <Route path="stage/:id" element={<Outlet />}>
+        <Route path="stage/:id">
           <Route
             index
             element={
@@ -77,7 +84,11 @@ const router = createBrowserRouter(
             loader={lessonPageLoader}
           />
           <Route path="lesson/:les">
-            <Route index element={<StageLesPage />} loader={lessonPageLoader} />
+            <Route
+              index
+              element={<StageLesPage />}
+              loader={lessonPageLoader}
+            />
             <Route
               path="edit"
               element={
@@ -95,6 +106,7 @@ const router = createBrowserRouter(
           </Route>
         </Route>
       </Route>
+      <Route path="exam" element={<Exam />}/>
       <Route path="create_graffic">
         <Route index element={<CreateGraffic />} />
         <Route path="edit_graffic" element={<EditGraffic />} />
@@ -114,7 +126,10 @@ const router = createBrowserRouter(
           element={<Feedback />}
           loader={feedback_studentsLoader}
         >
-          <Route path="lesson/:id" loader={feedbackLessonLoader}>
+          <Route
+            path="lesson/:id"
+             loader={feedbackLessonLoader}
+          >
             <Route
               path="task"
               element={<LesTask />}
@@ -137,5 +152,17 @@ const router = createBrowserRouter(
   )
 );
 export const Teacher: FC = () => {
-  return <RouterProvider router={router} />;
+  // const mainSelector = useSelector(lessonsSelectorFN);
+  // const { feedbackArr, lessonsArr } = mainSelector;
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   getLessons("posts?userId=1")(dispatch);
+  //   getFeedbackMessages("posts?userId=1")(dispatch);
+  //   getFeedbackStudents("users")(dispatch);
+  // }, []);
+  return (
+    // <Loading loadingState={mainSelector.feedbackArr.students}>
+    <RouterProvider router={router} />
+    //  </Loading> 
+  );
 };

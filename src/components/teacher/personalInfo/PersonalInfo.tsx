@@ -18,6 +18,7 @@ import { Inp3 } from "./inputChild/Inp3";
 import Inp4 from "./inputChild/Inp4";
 import Inp5 from "./inputChild/Inp5";
 import Sertificat from "./inputChild/Sertificat";
+import { CstmTextarea } from "../lesComponents/cstmTextarea/CstmTextarea";
 
 const PersonalInfo = () => {
   const methods = useForm<PersonalSubmitForm>({
@@ -92,20 +93,24 @@ const PersonalInfo = () => {
           <div className="personalInfoChild">
             <div className="inputChild">
               <Inp />
+              <div className="flex flex-col gap-3">
+                <p className="font-semibold text-[#6B6B6B] text-sm">Իմ մասին</p>
+                <CstmTextarea placeholder="Նկարագիր" className="!h-[287px]" />
+              </div>
               <Inp2
                 selectName="select"
                 option={["chka", "sadd", "asd", "klka"]}
                 regName="workattempt"
                 fieldArray={workattempt}
               />
+            </div>
+            <div className="inputChild2">
               <Inp3
                 selectName="select2"
                 option={["asas", "sadd", "asd", "klka"]}
                 regName="education"
                 fieldArray={education}
               />
-            </div>
-            <div className="inputChild2">
               <Inp4 regName="languages" fieldArray={languages} />
               <Inp5 regName="additionaledu" fieldArray={additionaledu} />
               <Sertificat />

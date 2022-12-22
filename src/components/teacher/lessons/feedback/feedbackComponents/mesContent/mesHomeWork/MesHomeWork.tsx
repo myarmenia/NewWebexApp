@@ -4,12 +4,22 @@ import { ExtraMaterials } from "../../../../userLessons/stageLesPage/extraMateri
 import { LesContainer } from "../../../../userLessons/userLesComponents/lesContainer/LesContainer";
 import { CustomBtn } from "../../../../../lesComponents/customBtn/CustomBtn";
 import { StudentsWork } from "./StudentsWork";
-import { useLoaderData } from "react-router";
+import { useLoaderData, useParams } from "react-router";
 import { IOtherLessonLoaderData } from "../../../../../../../models/interfaces";
+import { useSelector } from "react-redux";
+import { lessonsSelectorFN } from "../../../../../../../redux/reducers/main";
 
 export const MesHomeWork: FC = () => {
   const { data, params } = useLoaderData() as IOtherLessonLoaderData;
   const { body } = data[params.id - 1];
+  
+  // const params = useParams();
+  // const {
+  //   feedbackArr: { messages },
+  // } = useSelector(lessonsSelectorFN);
+  // const currentObj = messages[+params.id! - 1];
+  // const { body } = currentObj;
+
   return (
     <div className="messageCont_cont mesHomeWork_container">
       <div className="bg-white rounded-[15px]">

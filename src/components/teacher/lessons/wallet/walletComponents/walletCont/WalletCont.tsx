@@ -5,6 +5,7 @@ import editPenImg from "../../../../../../images/Teacher/UserLessons/editGray.sv
 import { AttachedCard } from "../attachedCard/AttachedCard";
 import { WalTbody } from "../walTbody/WalTbody";
 import { WalThead } from "../walThead/WalThead";
+import { CustomBtn } from "../../../../lesComponents/customBtn/CustomBtn";
 
 interface WalletContProps {
   balance: number;
@@ -12,13 +13,11 @@ interface WalletContProps {
 
 export const WalletCont: FC<WalletContProps> = ({ balance }) => {
   const [transactionHistory, setTransactionHistory] = useState<boolean>(true);
-  const [tarifPlanName, setTarifPlanState] = useState<string>(
-    "Սակագնային պլանի անվանումը"
-  );
+  const [tarifPlanName, setTarifPlanState] = useState<string>();
   return (
     <div className="walletCont">
       <div className="walletCont_header">
-        <div className="balanceBox">
+        {/* <div className="balanceBox">
           <div>
             <p className="font-semibold text-sm mb-1">
               Անձնական հաշվի մնացորդը
@@ -34,24 +33,25 @@ export const WalletCont: FC<WalletContProps> = ({ balance }) => {
               <span className="text-sm">Համալրել</span>
             </div>
           </div>
-        </div>
-        <div className="tariffPlanBox">
-          <div className="flex items-center gap-4">
-            <p className="font-semibold text-sm mb-1">
-              Անձնական հաշվի մնացորդը
-            </p>
-            <img src={editPenImg} alt="" className="cursor-pointer" />
+        </div> */}
+        <div className="flex flex-col gap-9">
+          <div className="tariffPlanBox">
+            <div className="flex items-center gap-4">
+              <p className="font-semibold text-sm mb-1">Սակագնային պլան</p>
+              <img src={editPenImg} alt="" className="cursor-pointer" />
+            </div>
+            {tarifPlanName ? (
+              <span className="text-xl font-semibold">{tarifPlanName}</span>
+            ) : (
+              <span className="text-xs">
+                Դուք դեռ չունեք ընտրած սակագնային պլան
+              </span>
+            )}
           </div>
-          {tarifPlanName ? (
-            <span className="text-xl font-semibold">{tarifPlanName}</span>
-          ) : (
-            <span className="text-xs">
-              Դուք դեռ չունեք ընտրած սակագնային պլան
-            </span>
-          )}
+          <CustomBtn type="button" title="Վճարել" className="payBtn" />
         </div>
       </div>
-      <div className="attachedCards_cont">
+      {/* <div className="attachedCards_cont">
         <p className="text-sm font-semibold">Կցված քարտեր</p>
         <div className="attachedCards">
           <div className="addCardBox">
@@ -75,7 +75,7 @@ export const WalletCont: FC<WalletContProps> = ({ balance }) => {
             cardDate={"12 / 24"}
           />
         </div>
-      </div>
+      </div> */}
       <div className="transactionHistory">
         <div>
           <p className="font-semibold text-sm mb-1">Գործարքների պատմություն</p>

@@ -1,9 +1,5 @@
 import React, { FC } from "react";
-import { useLoaderData } from "react-router";
-import {
-  ILessonLoaderData,
-  IStageLesson,
-} from "../../../../../../models/interfaces";
+import { IStageLesson } from "../../../../../../models/interfaces";
 import {
   StageBox,
   StageBoxProps,

@@ -5,9 +5,12 @@ import minusImg from "../../../../../../images/Teacher/UserLessons/minusImg.svg"
 import { StageLesson } from "../stageLesson/StageLesson";
 import {
   ILessonLoaderData,
+  ILessonLoaderObj,
   IStageLesson,
 } from "../../../../../../models/interfaces";
-import { useLoaderData } from "react-router";
+import { useLoaderData, useParams } from "react-router";
+import { useSelector } from "react-redux";
+import { lessonsSelectorFN } from "../../../../../../redux/reducers/main";
 
 export interface StageBoxProps {
   stageNumber?: number;
@@ -17,8 +20,9 @@ export interface StageBoxProps {
 export const StageBox: FC<StageBoxProps> = ({ stageNumber, stageLessons }) => {
   const { obj, lessonsObj, paramsId } = useLoaderData() as ILessonLoaderData;
 
-  const [isShown, setIsShown] = useState<boolean>(stageNumber === 2);
+  // const { lessonsArr } = useSelector(lessonsSelectorFN);
 
+  const [isShown, setIsShown] = useState<boolean>(stageNumber === 2);
   const toggleLessons = (e: MouseEvent<HTMLImageElement>) => {
     setIsShown((prev) => !prev);
   };
@@ -42,12 +46,7 @@ export const StageBox: FC<StageBoxProps> = ({ stageNumber, stageLessons }) => {
       <div className="stageLessons" style={animLessons}>
         <hr className="w-full bg-[#CCCCCC] h-[1px] mt-5" />
         {lessonsObj.map(({ title, body, id }, i) => (
-          <StageLesson
-            // {...{ title }}
-            title={body}
-            lessonNumber={id}
-            key={Math.random()}
-          />
+          <StageLesson title={body} lessonNumber={id} key={Math.random()} />
         ))}
       </div>
     </div>
