@@ -1,58 +1,91 @@
-import React from "react";
+import { yupResolver } from "@hookform/resolvers/yup";
+import React, { FC } from "react";
+import { FormProvider, useForm } from "react-hook-form";
 import { CustomSelect } from "../../lesComponents/customSelect/CustomSelect";
 import "./discountModal.css";
 import ModalCard from "./ModalCard";
-interface ModalProps {
-  modalActiveClick: React.MouseEventHandler<HTMLButtonElement>;
+
+import * as Yup from "yup";
+
+// Yup
+export const discountModal = Yup.object().shape({
+  select: Yup.string().default("Տեսակ"),
+});
+interface IDiscountModal {
+  select: string;
+  titleSelect: string;
 }
-export const ModalDiscount: React.FC<ModalProps> = ({ modalActiveClick }) => {
+
+export const ModalDiscount: FC = () => {
+  const methods = useForm<IDiscountModal>({
+    resolver: yupResolver(discountModal),
+  });
+  const { handleSubmit } = methods;
+
+  const onSubmit = (data: IDiscountModal) => {
+    console.log(data);
+  };
+
   return (
-    <div className="modal">
-      <div className="modalChild">
-        <div className="modalTitle">Ակտիվացնել Զեղչ</div>
-        <div className="modalInput">
-          <div className="modalInputChild">
-            <div className="modalInpTitle">Զեղչի քանակ</div>
-            <div className="modalInp">
-              <input className="modal-inp1" placeholder="Արժեք" />
-              {/* <CustomSelect
-                regName="select"
-                className="registration_select"
-                select={{
-                  title: "sada",
-                  options: ["asdsad", "asdads", "adsd"],
-                }}
-              /> */}
+    <FormProvider {...methods}>
+      <div className="modal">
+        <form className="modalChild" onSubmit={handleSubmit(onSubmit)}>
+          <div className="modalTitle">Ակտիվացնել Զեղչ</div>
+          <div className="modalInput">
+            <div className="modalInputChild">
+              <div className="modalInpTitle">Զեղչի քանակ</div>
+              <div className="modalInp">
+                <input className="modal-inp1" placeholder="Արժեք" />
+                <CustomSelect
+                  placeholder="Տեսակ"
+                  regName="select"
+                  className="registration_select"
+                  options={["Տոկոս %", "Դրամ"]}
+                />
+              </div>
+              <div className="modalInpTitle">Դասընթացներ</div>
+              <CustomSelect
+                placeholder="Դասընթացի վերնագիրը"
+                regName="titleSelect"
+                // className="registration_select"
+                options={[
+                  "Դասընթացի վերնագիրը",
+                  "Դասընթացի վերնագիրը",
+                  "Դասընթացի վերնագիրը",
+                  "Դասընթացի վերնագիրը",
+                  "Դասընթացի վերնագիրը",
+                ]}
+              />
+              {/* <div className="modalInp">
+                <input className="modal-inp1" placeholder="Արժեք" />
+              </div> */}
             </div>
-            <div className="modalInpTitle">Դասընթացներ</div>
-            <div className="modalInp">
-              <input className="modal-inp1" placeholder="Արժեք" />
+            <div className="modalInputChild2">
+              <div className="modalInpTitle">Ժամանակահատված</div>
+              <div className="date">
+                <input type="date" className="dateInp" />
+                <div className="gic"></div>
+                <input type="date" className="dateInp" />
+              </div>
+              <div className="modalCheckbox">
+                <input type="checkbox" className="modalCheck" />
+                <div className="checkboxText">Անժամկետ</div>
+              </div>
             </div>
           </div>
-          <div className="modalInputChild2">
-            <div className="modalInpTitle">Ժամանակահատված</div>
-            <div className="date">
-              <input type="date" className="dateInp" />
-              <div className="gic"></div>
-              <input type="date" className="dateInp" />
-            </div>
-            <div className="modalCheckbox">
-              <input type="checkbox" className="modalCheck" />
-              <div className="checkboxText">Անժամկետ</div>
-            </div>
+          <div className="modalCard">
+            <ModalCard />
+            <ModalCard />
+            <ModalCard />
+            <ModalCard />
           </div>
-        </div>
-        <div className="modalCard">
-          <ModalCard />
-          <ModalCard />
-          <ModalCard />
-          <ModalCard />
-        </div>
-        <div className="modalButton">
-          <button onClick={modalActiveClick}>Չեղարկել</button>
-          <button>Հաստատել</button>
-        </div>
+
+          <div className="modalButton">
+            <button>Չեղարկել</button>
+            <button>Հաստատել</button>
+          </div>
+        </form>
       </div>
-    </div>
+    </FormProvider>
   );
 };

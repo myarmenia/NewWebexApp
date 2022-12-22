@@ -2,16 +2,14 @@ import React, { SetStateAction } from "react";
 import { useFormContext } from "react-hook-form";
 
 interface OptionProps {
-  option: string;
-  state: boolean;
-  setState: React.Dispatch<SetStateAction<boolean>>;
+  toggleOptions: () => void;
   regName?: string;
+  option: string;
 }
 
 export const Option: React.FC<OptionProps> = ({
+  toggleOptions,
   option,
-  state,
-  setState,
   regName,
 }) => {
   const { setValue } = useFormContext();
@@ -19,7 +17,7 @@ export const Option: React.FC<OptionProps> = ({
     <div
       className="custopSelect_option"
       onClick={() => {
-        setState(!state);
+        toggleOptions();
         regName && setValue(regName, option, { shouldValidate: true });
       }}
     >

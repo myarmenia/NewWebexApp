@@ -111,10 +111,36 @@ export interface ILessonLoaderData {
   paramsId: number;
   paramsLes: number;
 }
+export interface IStudentLoaderData {
+  id: number;
+  name: string;
+  username: string;
+  email: string;
+  address: {
+    street: string;
+    suite: string;
+    city: string;
+    zipcode: string;
+    geo: {
+      lat: string;
+      lng: string;
+    };
+  };
+  phone: string;
+  website: string;
+  company: {
+    name: string;
+    catchPhrase: string;
+    bs: string;
+  };
+}
 export interface IOtherLessonLoaderData {
   data: ILessonLoaderObj[];
-  title?: string;
-  paramsId: number;
+  params: {
+    id: number;
+    stdId: number;
+  };
+  students: IStudentLoaderData[];
   // lessonsObj: ILessonLoaderObj[];
   // paramsId: number;
   // paramsLes: number;

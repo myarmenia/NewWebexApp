@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./lessonCntBody.css";
-import { ISelect } from "../../../../../models/interfaces";
 import { AgeDiv } from "./ageDiv/AgeDiv";
 import { FinishExam } from "./finishExam/FinishExam";
 import downloadImg from "../../../../../images/Teacher/NewLesson/download.svg";
@@ -16,17 +15,17 @@ import { Knowledges } from "./knowledges/Knowledges";
 import { CustomNmbInp } from "../../../lesComponents/customNmbInp/CustomNmbInp";
 import { CustomBtn } from "../../../lesComponents/customBtn/CustomBtn";
 import { CstmTextarea } from "../../../lesComponents/cstmTextarea/CstmTextarea";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const LessonCntBody: React.FC = () => {
-  const [selectVals, setselectVals] = useState<ISelect>({
-    title: "Ընտրել կատեգորիան*",
-    options: ["aaa", "bbbb", "cccc"],
-  });
-  const dificultyLevels: ISelect = {
-    title: "Ընտրել մակարդակը*",
-    options: ["aaa", "bbb"],
-  };
+  const navigate = useNavigate();
+  const [selectOptions, setOptions] = useState<string[]>([
+    "aaa",
+    "bbbb",
+    "cccc",
+  ]);
+  const dificultyLevels: string[] = ["aaa", "bbb"];
+
   const [isDifferent, setIsDifferent] = useState<boolean>(false);
 
   const methods = useForm<TeacherSubmitForm>({
@@ -44,14 +43,7 @@ export const LessonCntBody: React.FC = () => {
       ],
     },
   });
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    watch,
-    setValue,
-    control,
-  } = methods;
+  const { register, handleSubmit, control } = methods;
   const fieldArray = useFieldArray({
     control,
     name: "stages",
@@ -60,7 +52,7 @@ export const LessonCntBody: React.FC = () => {
     control,
     name: "requiredKnowledges",
   });
-  const { fields, append, remove } = fieldArray;
+  const { fields } = fieldArray;
 
   const onSubmit = (data: TeacherSubmitForm) => {
     let values = {};
@@ -86,6 +78,9 @@ export const LessonCntBody: React.FC = () => {
     }
 
     console.log(values, "porc");
+    if (values) {
+      navigate("lesson_graffic");
+    }
   };
 
   return (
@@ -100,12 +95,17 @@ export const LessonCntBody: React.FC = () => {
                 regName="title"
               />
               <CustomSelect
-                select={selectVals}
-                {...{ setselectVals }}
+                placeholder="Ընտրել կատեգորիան*"
+                options={selectOptions}
+                {...{ setOptions }}
                 isInput={true}
                 regName="select"
               />
-              <CustomSelect select={dificultyLevels} regName="select1" />
+              <CustomSelect
+                placeholder="Ընտրել մակարդակը*"
+                options={dificultyLevels}
+                regName="select1"
+              />
               <Knowledges {...{ reqKnowledges }} />
               <CstmTextarea
                 regName="describtion"
@@ -140,7 +140,7 @@ export const LessonCntBody: React.FC = () => {
                   <CustomNmbInp
                     defaultValue={3}
                     regName="stagesCount"
-                    {...{ remove, append }}
+                    {...{ fieldArray }}
                   />
                 </TxtWinput>
                 <div
@@ -183,9 +183,7 @@ export const LessonCntBody: React.FC = () => {
             </div>
           </div>
           <div className="nextBtnCont">
-            <Link to="lesson_graffic">
-              <CustomBtn title="Առաջ" type="submit" />
-            </Link>
+            <CustomBtn title="Առաջ" type="submit" />
             {/* <button
               type="button"
               className="addLessonBtn"

@@ -2,45 +2,44 @@ import "./customSelect.css";
 import React, { SetStateAction, useState } from "react";
 import { Options } from "./Options";
 import { DefaultOption } from "./DefaultOption";
-import { ISelect } from "../../../../models/interfaces";
 import { useFormContext } from "react-hook-form";
 
 interface CustomSelectProps {
-  select: ISelect;
+  options: string[];
   className?: string;
   isInput?: boolean;
-  setselectVals?: React.Dispatch<SetStateAction<ISelect>>;
+  setOptions?: React.Dispatch<SetStateAction<string[]>>;
   regName?: string;
+  placeholder: string;
 }
 
 export const CustomSelect: React.FC<CustomSelectProps> = ({
-  select,
+  options,
   className,
   isInput,
-  setselectVals,
+  setOptions,
   regName,
+  placeholder,
 }) => {
   const [state, setState] = useState<boolean>(false);
   const {
     formState: { errors },
   } = useFormContext();
+  const toggleOptions = () => {
+    setState((prev) => !prev);
+  };
   return (
     <div className="flex justify-center h-10">
       <div className={`customSelect ${className}`}>
-        <DefaultOption setState={setState} state={state} regName={regName} />
+        <DefaultOption {...{ toggleOptions, regName, placeholder }} />
         {state && (
           <Options
-            select={select}
-            setState={setState}
-            state={state}
-            regName={regName}
-            setselectVals={setselectVals}
-            isInput={isInput}
+            {...{ options, toggleOptions, regName, setOptions, isInput }}
           />
         )}
-        <p className="errorMessage">
-          <>{errors[regName!]?.message}</>
-        </p>
+        {regName && (
+          <p className="errorMessage">{errors[regName]?.message?.toString()}</p>
+        )}
       </div>
     </div>
   );

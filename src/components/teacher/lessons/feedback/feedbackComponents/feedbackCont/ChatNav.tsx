@@ -1,12 +1,11 @@
 import React, { FC } from "react";
-import { NavLink, useLoaderData } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import chatImg from "../../../../../../images/Teacher/Students/Group 1696.svg";
-import { IOtherLessonLoaderData } from "../../../../../../models/interfaces";
 
 export const ChatNav: FC = () => {
-  const { data, paramsId = 1 } = useLoaderData() as IOtherLessonLoaderData;
-  console.log(paramsId);
-
+  const location = useLocation();
+  const paramsId = location.pathname.split("/")[5];
+  
   return (
     <div className="flex items-center gap-[17px]">
       <NavLink

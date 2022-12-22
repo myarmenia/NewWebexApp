@@ -3,14 +3,13 @@ import "./mesHomeWork.css";
 import { ExtraMaterials } from "../../../../userLessons/stageLesPage/extraMaterials/ExtraMaterials";
 import { LesContainer } from "../../../../userLessons/userLesComponents/lesContainer/LesContainer";
 import { CustomBtn } from "../../../../../lesComponents/customBtn/CustomBtn";
-import fileImg from "../../../../../../../images/Teacher/FirstLesson/loadImg.svg";
 import { StudentsWork } from "./StudentsWork";
 import { useLoaderData } from "react-router";
 import { IOtherLessonLoaderData } from "../../../../../../../models/interfaces";
 
 export const MesHomeWork: FC = () => {
-  const { data, paramsId } = useLoaderData() as IOtherLessonLoaderData;
-  const { body } = data[paramsId - 1];
+  const { data, params } = useLoaderData() as IOtherLessonLoaderData;
+  const { body } = data[params.id - 1];
   return (
     <div className="messageCont_cont mesHomeWork_container">
       <div className="bg-white rounded-[15px]">

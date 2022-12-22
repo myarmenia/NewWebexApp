@@ -1,5 +1,5 @@
 .feedback {
-  @apply text-[#575757];
+  @apply text-[#575757] pb-[10px];
 }
 
 /* --------- menu size -------  */
@@ -22,3 +22,9 @@
   width: calc(100% - 105px) !important;
 }
 /* --------- menu size -------  */
+
+@media (max-width: 1060px) {
+  .contentBody {
+    @apply !w-full
+  }
+}

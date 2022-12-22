@@ -5,7 +5,7 @@
   @apply text-[#898BCE] font-semibold text-xs w-fit hover:opacity-75;
 }
 .activeLes {
-  @apply p-2 rounded-[10px];
+  @apply px-2 py-1 rounded-[10px];
   background-color: rgb(255 255 255 / 0.6);
-  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+  filter: drop-shadow(2px 4px 10px rgba(0, 0, 0, 0.1));
 }
