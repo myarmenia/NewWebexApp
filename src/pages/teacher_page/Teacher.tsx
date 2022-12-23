@@ -50,7 +50,7 @@ import { LesTask } from "./lessons/feedback/feedbackComponents/mesContent/lesTas
 import { MesHomeWork } from "./lessons/feedback/feedbackComponents/mesContent/mesHomeWork/MesHomeWork";
 import { MesMessages } from "./lessons/feedback/feedbackComponents/mesContent/mesMessages/MesMessages";
 import { useDispatch, useSelector } from "react-redux";
-import StudentLessons from "../../components/student/studentLessons/StudentLessons";
+import StudentLessons from "../student_page/studentLessons/StudentLessons";
 
 const router = createBrowserRouter(
   createRoutesFromElements(

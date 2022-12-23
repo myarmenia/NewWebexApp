@@ -1,7 +1,5 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import React from "react";
-import AddImg from "../../sherid/addImg/AddImg";
-import { LessonTitle } from "../../teacher/lessonTitle/LessonTitle";
 import * as Yup from "yup";
 import {
   FormProvider,
@@ -12,7 +10,8 @@ import {
 } from "react-hook-form";
 import buttonImg from "../../../images/createGraffic/buttonimg.svg";
 import "./studentData.css";
-import { CstmInput } from "../../teacher/lesComponents/cstmInput/CstmInput";
+import { LessonTitle } from "../../../components/screenComponents/lessonTitle/LessonTitle";
+import AddImg from "../../../components/teacherComponents/sherid/addImg/AddImg";
 interface ILanguageProps {
   name: string;
 }

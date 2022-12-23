@@ -1,5 +1,6 @@
 import React from "react";
-import { LessonTitle } from "../../teacher/lessonTitle/LessonTitle";
+import { LessonTitle } from "../../../components/screenComponents/lessonTitle/LessonTitle";
+// import { LessonTitle } from "../../screenComponents/lessonTitle/LessonTitle";
 import StudentLesCard from "./StudentLesCard";
 import "./studentLessons.css";
 const StudentLessons = () => {

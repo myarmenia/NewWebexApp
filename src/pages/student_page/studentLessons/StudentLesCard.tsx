@@ -1,9 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { LessonProps } from "../../../models/interfaces";
-import { CustomBtn } from "../../teacher/lesComponents/customBtn/CustomBtn";
-
 import editImg from "../../../images/Teacher/UserLessons/editGray.svg";
+import { CustomBtn } from "../../../components/teacherComponents/customBtn/CustomBtn";
 export interface LesBoxProps extends LessonProps {
   studentsCount: number;
   id?: number;
@@ -41,7 +40,7 @@ const StudentLesCard: React.FC<LesBoxProps> = ({
       <p className="student-lesBox_description">{description}</p>
       <div className="count-star">
         <p className="student-lesBox_price">{price}</p>
-        <div className="star">6 &#x2B50;</div>
+        <div className="student-star">6 &#x2B50;</div>
       </div>
       <div className="flex ">
         <span className="student-studentsCount">
