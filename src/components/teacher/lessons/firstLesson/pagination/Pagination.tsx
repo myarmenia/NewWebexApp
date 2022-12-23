@@ -2,12 +2,14 @@ import React, { useEffect, useState } from "react";
 import "./pagination.css";
 import { IPaginationItem } from "../../../../../models/interfaces";
 import { PagItem } from "./PagItem";
+import { useNavigate } from "react-router";
 
 interface PaginationProps {
   currentitems?: IPaginationItem[];
 }
 
 export const Pagination: React.FC<PaginationProps> = ({ currentitems }) => {
+  const navigate = useNavigate();
   const [items, setItems] = useState<IPaginationItem[]>(currentitems || []);
   const itemClickHandler = (id: number, completedCount: number) => {
     setItems(
@@ -20,6 +22,9 @@ export const Pagination: React.FC<PaginationProps> = ({ currentitems }) => {
         return { ...el, isActive: false, isCompleted: false };
       })
     );
+    if (completedCount === currentitems?.length) {
+      navigate("/exam");
+    }
   };
 
   // passing to next or previous lesson by pagination

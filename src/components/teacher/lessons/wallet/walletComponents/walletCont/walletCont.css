@@ -1,5 +1,7 @@
 .walletCont {
-  @apply w-[81%] text-[#6B6B6B] flex flex-col gap-10 mb-3;
+  @apply w-[81%] text-[#6B6B6B] flex flex-col mb-3
+   /* gap-10 */
+   gap-[144px];
 }
 .walletCont_header {
   @apply flex justify-between;
@@ -25,6 +27,10 @@
 }
 .transactionHistory tbody {
   @apply border-spacing-y-3 border-separate;
+}
+.payBtn {
+  @apply bg-[#898BCE];
+  background-image: none;
 }
 
 @media (max-width: 1400px) {

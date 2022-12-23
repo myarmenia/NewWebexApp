@@ -1,6 +1,11 @@
 import React, { FC } from "react";
 import { IStudentTd } from "../../../../../../models/interfaces";
 import { StdTbodyTr } from "../stdTbodyTr/StdTbodyTr";
+import { TdDate } from "../stdTbodyTr/tds/TdDate";
+import { TdFeedBack } from "../stdTbodyTr/tds/TdFeedBack";
+import { TdLes } from "../stdTbodyTr/tds/TdLes";
+import { TdName } from "../stdTbodyTr/tds/TdName";
+import { TdProgres } from "../stdTbodyTr/tds/TdProgres";
 
 export const StdTbody: FC = () => {
   return (
@@ -24,10 +29,14 @@ export const StdTbody: FC = () => {
             } as IStudentTd)
         )
         .map(({ name, lessons, phoneNumber, image }) => (
-          <StdTbodyTr
-            {...{ image, name, lessons, phoneNumber }}
-            key={Math.random()}
-          />
+          <StdTbodyTr key={Math.random()}>
+            <TdName {...{ name, image }} />
+            <TdLes lessons={[{ ...lessons[0], title: phoneNumber }]} />
+            <TdLes {...{ lessons }} />
+            <TdDate {...{ lessons }} />
+            <TdProgres {...{ lessons }} />
+            <TdFeedBack {...{ lessons }} />
+          </StdTbodyTr>
         ))}
     </tbody>
   );

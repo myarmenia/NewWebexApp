@@ -1,4 +1,4 @@
-import React, { ReactNode, useCallback, useEffect } from "react";
+import React, { useMemo } from "react";
 import "./cstmInput.css";
 import { useFormContext } from "react-hook-form";
 
@@ -22,9 +22,9 @@ export const CstmInput: React.FC<CstmInputProps> = ({
     register,
     formState: { errors },
   } = useFormContext();
-  const RealName = regName ? { ...register(regName) } : null;
+  const RealName = regName ? register(regName) : null;
 
-  const errorMessage = useCallback(() => {
+  const errorMessage = useMemo(() => {
     if (error) {
       return <p className="errorMessage">{error}</p>;
     } else if (regName) {
@@ -44,7 +44,7 @@ export const CstmInput: React.FC<CstmInputProps> = ({
         placeholder={placeholder}
         defaultValue={defaultValue}
       />
-      {errorMessage()}
+      {errorMessage}
     </div>
   );
 };

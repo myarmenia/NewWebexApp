@@ -5,6 +5,7 @@ import chatImg from "../../../../../../images/Teacher/Students/Group 1696.svg";
 export const ChatNav: FC = () => {
   const location = useLocation();
   const paramsId = location.pathname.split("/")[5];
+  console.log("easdfd");
   
   return (
     <div className="flex items-center gap-[17px]">

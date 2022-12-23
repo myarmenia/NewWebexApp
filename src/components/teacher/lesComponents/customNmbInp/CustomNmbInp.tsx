@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import "./customNmbInp.css";
 import arrow from "../../../../images/Teacher/NewLesson/Polygon 3.svg";
 import {
@@ -49,7 +49,7 @@ export const CustomNmbInp: React.FC<CustomNmbInpProps> = ({
     setValue(regName, age);
   }, [age]);
 
-  const errorMessage = useCallback(() => {
+  const errorMessage = useMemo(() => {
     if (error) {
       return <p className="errorMessage">{error}</p>;
     } else if (regName) {
@@ -75,7 +75,7 @@ export const CustomNmbInp: React.FC<CustomNmbInpProps> = ({
         <img src={arrow} alt="" className="arrowLeft" onClick={decrease} />
         <img src={arrow} alt="" className="arrowRight" onClick={increase} />
       </div>
-      {errorMessage()}
+      {errorMessage}
     </div>
   );
 };

@@ -6,6 +6,7 @@ import "./discountModal.css";
 import ModalCard from "./ModalCard";
 
 import * as Yup from "yup";
+import { ModalContainer } from "../../../modalContainer/ModalContainer";
 
 // Yup
 interface ModalDiscountProps {
@@ -13,6 +14,7 @@ interface ModalDiscountProps {
 }
 export const discountModal = Yup.object().shape({
   select: Yup.string().default("Տեսակ"),
+  titleSelect: Yup.string().default("title"),
 });
 interface IDiscountModal {
   select: string;
@@ -31,8 +33,10 @@ export const ModalDiscount: FC<ModalDiscountProps> = () => {
 
   return (
     <FormProvider {...methods}>
-      <div className="modal">
-        <form className="modalChild" onSubmit={handleSubmit(onSubmit)}>
+      {/* <div className="modal">
+        <form className="modalChild" onSubmit={handleSubmit(onSubmit)}> */}
+      <ModalContainer>
+        <form onSubmit={handleSubmit(onSubmit)} action="">
           <div className="modalTitle">Ակտիվացնել Զեղչ</div>
           <div className="modalInput">
             <div className="modalInputChild">
@@ -50,7 +54,6 @@ export const ModalDiscount: FC<ModalDiscountProps> = () => {
               <CustomSelect
                 placeholder="Դասընթացի վերնագիրը"
                 regName="titleSelect"
-                // className="registration_select"
                 options={[
                   "Դասընթացի վերնագիրը",
                   "Դասընթացի վերնագիրը",
@@ -59,9 +62,6 @@ export const ModalDiscount: FC<ModalDiscountProps> = () => {
                   "Դասընթացի վերնագիրը",
                 ]}
               />
-              {/* <div className="modalInp">
-                <input className="modal-inp1" placeholder="Արժեք" />
-              </div> */}
             </div>
             <div className="modalInputChild2">
               <div className="modalInpTitle">Ժամանակահատված</div>
@@ -87,7 +87,8 @@ export const ModalDiscount: FC<ModalDiscountProps> = () => {
             <button>Հաստատել</button>
           </div>
         </form>
-      </div>
+      </ModalContainer>
+      {/* </div> */}
     </FormProvider>
   );
 };

@@ -11,9 +11,11 @@ import { editSchema, IEditSchema, IExtraMats } from "./editSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { CustomBtn } from "../../../lesComponents/customBtn/CustomBtn";
 import { AttachFile } from "../../../lesComponents/attachFile/AttachFile";
-import { LoaderFunctionArgs, useLoaderData } from "react-router";
+import { LoaderFunctionArgs, useLoaderData, useParams } from "react-router";
 import { ILessonLoaderData } from "../../../../../models/interfaces";
 import { ExtraMats } from "./editMyLessons_copns/ExtraMats";
+import { useSelector } from "react-redux";
+import { lessonsSelectorFN } from "../../../../../redux/reducers/main";
 
 interface EditMyLessonsProps {
   title?: string;
@@ -34,9 +36,17 @@ export const EditMyLessons: FC<EditMyLessonsProps> = ({
   lesItems,
   homeItmes,
 }) => {
+  // ------ Loader data -----
   const { obj, lessonsObj, paramsLes } = useLoaderData() as ILessonLoaderData;
   const { title } = obj;
   const { body } = lessonsObj[paramsLes - 1];
+
+  // const params = useParams();
+  // const {
+  //   feedbackArr: { messages },
+  // } = useSelector(lessonsSelectorFN);
+  // const currentObj = messages[+params.id! - 1];
+  // const { title, body } = currentObj;
 
   const methods = useForm<IEditSchema>({
     resolver: yupResolver(editSchema),

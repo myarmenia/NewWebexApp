@@ -3,7 +3,7 @@
 }
 
 /* --------- menu size -------  */
-.menu {
+/* .menu {
   @apply !w-[100px];
 }
 .arrowDownMenu {
@@ -20,7 +20,7 @@
 }
 .contentBody {
   width: calc(100% - 105px) !important;
-}
+} */
 /* --------- menu size -------  */
 
 @media (max-width: 1060px) {

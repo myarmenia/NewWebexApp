@@ -21,7 +21,7 @@ import activeImg5 from "../../../images/Teacher/Menu/activeImgs/Դրամապան
 import activeImg6 from "../../../images/Teacher/Menu/activeImgs/Group 1711.svg";
 import activeImg7 from "../../../images/Teacher/Menu/activeImgs/Group 1673.svg";
 import activeImg8 from "../../../images/Teacher/Menu/activeImgs/Group 1674.svg";
-import { MItemsDrop } from "../lesComponents/mItemsDrop/MItemsDrop";
+import { MItemsDrop } from "./mItemsDrop/MItemsDrop";
 
 const menuItems: IteacherMenu[] = [
   {

@@ -7,7 +7,7 @@ export const TdProgres: FC<Pick<IStudentTd, "lessons">> = ({ lessons }) => {
       <div className="flex flex-col gap-[11px]">
         {lessons.map((elem, ind) => (
           <div
-            className="w-full h-3 flex bg-[#D9D9D9] relative"
+            className="w-full h-3 flex bg-[#D9D9D9] relative rounded-[30px] overflow-hidden"
             key={Math.random()}
           >
             <div
