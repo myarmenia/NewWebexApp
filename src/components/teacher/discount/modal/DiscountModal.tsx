@@ -8,6 +8,9 @@ import ModalCard from "./ModalCard";
 import * as Yup from "yup";
 
 // Yup
+interface ModalDiscountProps {
+  modalActiveClick: () => void;
+}
 export const discountModal = Yup.object().shape({
   select: Yup.string().default("Տեսակ"),
 });
@@ -16,7 +19,7 @@ interface IDiscountModal {
   titleSelect: string;
 }
 
-export const ModalDiscount: FC = () => {
+export const ModalDiscount: FC<ModalDiscountProps> = () => {
   const methods = useForm<IDiscountModal>({
     resolver: yupResolver(discountModal),
   });
@@ -79,7 +82,6 @@ export const ModalDiscount: FC = () => {
             <ModalCard />
             <ModalCard />
           </div>
-
           <div className="modalButton">
             <button>Չեղարկել</button>
             <button>Հաստատել</button>
