@@ -56,11 +56,14 @@ import {
   getLessons,
   lessonsSelectorFN,
 } from "../../redux/reducers/main";
+import { StudentData } from "../student/studentData/StudentData";
+import StudentLessons from "../student/studentLessons/StudentLessons";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Loyaut />}>
       {/* <Route index element={<Exam />} /> */}
-      <Route index element={<AddLesson />} />
+      <Route index element={<StudentLessons />} />
+      {/* <Route index element={<AddLesson />} /> */}
       <Route path="new_lesson/*">
         <Route index element={<NewLesson />} />
         <Route path="lesson_graffic/*" element={<FirstLesson />} />

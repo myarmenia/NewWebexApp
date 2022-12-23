@@ -1,0 +1,54 @@
+.studentLessons {
+  margin-bottom: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 11px;
+}
+.student-lesBox {
+  @apply px-[23px] py-[22px] flex flex-col gap-[11px] rounded-[30px] justify-between;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0px 4px 5px 6px rgb(0 0 0 / 2%);
+}
+.count-star {
+  @apply flex justify-between;
+}
+.star {
+  @apply flex gap-[5px] w-[40px] h-[30px] items-center text-base text-[#6b6b6b];
+}
+.student-lesBox_video {
+  @apply w-full h-[122px];
+}
+.student-lesBox_title {
+  @apply font-bold text-base leading-5 text-[#6B6B6B] text-start;
+}
+.student-keys {
+  @apply w-full flex gap-1 flex-wrap;
+}
+.student-key {
+  @apply py-1 px-[7px] rounded-[30px] text-white text-[9px] leading-[11px] font-semibold;
+  background: rgba(119, 100, 251, 0.8);
+}
+.student-lesBox_description {
+  @apply w-full text-[#6B6B6B] text-[10px] leading-[13px] text-start;
+}
+.student-studentsCount {
+  @apply text-[#898BCE] text-xs font-semibold underline cursor-pointer hover:text-[#a9abdb];
+}
+.student-lesBox_price {
+  @apply text-lg text-[#6B6B6B] font-bold;
+}
+.student-seeMoreBtn {
+  @apply w-full h-[32px] py-[5px] rounded-[24px] min-w-fit;
+}
+.student-editLessonBox {
+  @apply flex items-center gap-[6px];
+}
+.student-editLesson {
+  @apply text-[#6B6B6B] text-xs;
+}
+
+@media (max-width: 500px) {
+  .student-lesson {
+    @apply px-4 py-5 gap-3;
+  }
+}
