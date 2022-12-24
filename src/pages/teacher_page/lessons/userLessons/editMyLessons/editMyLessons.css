@@ -1,0 +1,43 @@
+.editMyLessons {
+  @apply bg-[#F8EFFF] w-[63%] text-[#6B6B6B] mb-3;
+  box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.1);
+}
+.editMyLessons_container {
+  @apply !w-[90%] !pb-[40px] !gap-[15px];
+}
+.editMyLessons_titleBox {
+  @apply flex justify-between items-center border-b border-[#BEBFE4] pb-5;
+}
+.editMyLessons_title {
+  @apply text-base;
+}
+.saveChanges {
+  @apply flex items-center gap-2;
+}
+.lesSection {
+  @apply flex flex-col gap-5;
+}
+.inputContainer {
+  @apply flex flex-col gap-[53px] min-w-[54%] w-fit;
+}
+.editP_input {
+  @apply min-w-[54%];
+}
+.extraMat {
+  @apply flex gap-[2px] text-xs;
+}
+.extraMat + img {
+  @apply w-[18px] h-[18px];
+}
+.extMatItems {
+  @apply flex flex-col gap-[5px];
+}
+.extraMaterials {
+  @apply flex flex-col gap-[14px];
+}
+.homeSection {
+  @apply flex flex-col gap-5;
+}
+.homeTitle {
+  @apply text-[#898BCE] font-semibold text-xs;
+}

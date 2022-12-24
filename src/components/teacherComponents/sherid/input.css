@@ -1,0 +1,70 @@
+.registration-form {
+  @apply mt-[50px];
+  gap: 10px;
+}
+.form-group {
+  @apply w-[55%]  h-[55px]  flex  flex-col;
+  position: relative;
+}
+.form-group img {
+  @apply absolute top-[24%] left-[2%];
+}
+select {
+  @apply w-[55%] h-[40px] flex  justify-center flex-col items-start pl-[40px] pr-[20px] gap-[10px] rounded-[15px] font-normal text-xs;
+  box-sizing: border-box;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 40px;
+}
+
+option {
+  border-radius: 40px;
+  border: none;
+  outline: none;
+}
+.name,
+input[type="password"],
+input[type="email"] {
+  @apply box-border outline-none bg-white w-[100%] h-10 flex 
+  justify-center flex-col items-start pl-[30px] pr-5 gap-[10px] 
+  rounded-2xl font-normal text-xs;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.name::placeholder,
+input[type="password"]::placeholder,
+input[type="email"]::placeholder {
+  @apply font-normal text-xs text-[#9c9c9c];
+}
+
+.invalid-feedback {
+  @apply font-normal text-xs text-[red];
+  width: max-content;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 9000000s ease-in-out 0s;
+}
+@media (max-width: 1300px) {
+  .form-group {
+    @apply w-[65%];
+  }
+}
+@media (max-width: 900px) {
+  .form-group {
+    @apply w-[75%];
+  }
+}
+@media (max-width: 760px) {
+  .form-group {
+    @apply w-[85%];
+  }
+}
+@media (max-width: 600px) {
+  .registration-form {
+    @apply w-[60%];
+  }
+}

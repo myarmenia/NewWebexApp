@@ -1,0 +1,6 @@
+.messageCont_cont {
+  @apply flex flex-col gap-3 w-[65%] justify-between;
+}
+.toHomeWork_link {
+  @apply text-[#898BCE] font-semibold text-xs hover:opacity-75;
+}

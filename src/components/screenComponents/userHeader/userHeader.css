@@ -1,0 +1,38 @@
+.header {
+  @apply w-full h-[80px] flex items-center fixed top-0 z-[4] bg-white border-b border-[#BEBFE4];
+  box-shadow: none;
+}
+/* #logoImgDiv {
+   background: url("../Pictures/Question.svg") center no-repeat; 
+} */
+#logoDiv {
+  @apply w-[20%] flex justify-center items-center;
+}
+.userCont {
+  @apply w-[80%] h-[80px] flex justify-end items-center;
+  box-shadow: 11px 5px 10px rgb(0 0 0 / 5%);
+}
+.icons {
+  @apply h-[80px] flex justify-between items-center gap-6 mr-[3%];
+}
+#notificationImage {
+  @apply flex relative shrink-0;
+}
+#notificationImage::after {
+  @apply absolute top-0 -right-[1px] w-2 h-2 bg-cover content-none;
+}
+#menuImage {
+  @apply w-[22px] hidden;
+}
+.icons > p {
+  @apply h-[16.76px] font-normal text-xs leading-5;
+}
+.userNavbar {
+  @apply flex items-center mr-3;
+}
+
+@media (max-width: 1000px) {
+  .userNavbar {
+    @apply hidden;
+  }
+}

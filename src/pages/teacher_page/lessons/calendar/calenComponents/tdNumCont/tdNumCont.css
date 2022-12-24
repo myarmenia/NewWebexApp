@@ -1,0 +1,29 @@
+#tableNumber {
+  @apply w-full border-collapse;
+}
+#CalendarBody_NumericContainer {
+  @apply w-[17%] h-full flex flex-col gap-[18px] py-4 px-[5px];
+}
+#CalendarNumbers {
+  @apply overflow-x-auto;
+}
+#ArrowBox {
+  @apply flex gap-[17px];
+}
+.arrow {
+  @apply w-2 h-[14px] cursor-pointer;
+}
+#monthBox {
+  @apply flex gap-[25px] items-center w-[200px];
+}
+#month {
+  @apply capitalize text-base font-semibold text-[#CCCCCC];
+}
+@media (max-width: 860px) {
+  #CalendarBody_NumericContainer {
+    @apply w-auto border-b border-[#898BCE];
+  }
+  #monthBox {
+    @apply w-auto;
+  }
+}

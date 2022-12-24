@@ -1,0 +1,12 @@
+.ageDiv {
+  @apply flex items-center justify-between w-full;
+}
+.noAgeLimit {
+  @apply flex flex-col gap-[7px];
+}
+.customCheckbox + span {
+  @apply text-[10px] text-[#6B6B6B];
+}
+.ageLimits {
+  @apply flex gap-2 items-center;
+}

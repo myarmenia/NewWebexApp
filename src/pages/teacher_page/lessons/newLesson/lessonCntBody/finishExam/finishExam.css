@@ -1,0 +1,42 @@
+.finishExam {
+  @apply flex justify-between items-center;
+}
+.radioCont {
+  @apply flex gap-6 items-center relative;
+}
+.radioBox {
+  @apply flex items-center gap-2;
+}
+.radioBox span {
+  @apply text-xs text-[#6B6B6B];
+}
+.radioBox input {
+  @apply w-[12px] h-[12px] appearance-none border-[#CCCCCC] border rounded-full relative bg-white;
+}
+.radioBox input::after {
+  @apply hidden;
+}
+.radioBox input:checked {
+  @apply border-[#7764FB];
+}
+.radioBox input:checked:after {
+  @apply w-2 h-2 rounded-full top-[1px] left-[1px] absolute inline-block visible border-none;
+  content: "";
+  background: linear-gradient(90deg, #7764fb 0%, #f364f3 100%);
+}
+
+/* ============================ */
+
+/* input[type="radio"]:checked:after {
+  /* width: 10px;
+  height: 10px;
+  border-radius: 15px;
+  top: 1px;
+  left: 1px; */
+/* position: relative; */
+/* background-color: #fdb737; */
+/* content: "";
+  display: inline-block;
+  visibility: visible;
+  border: 1px solid #fdb737;
+} */

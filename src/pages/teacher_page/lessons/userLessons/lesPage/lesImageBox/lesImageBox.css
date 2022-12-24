@@ -1,0 +1,40 @@
+.imageBox {
+  background: url("../../../../../../assets/teacher_images/userLessons/image\ 58.svg")
+    no-repeat;
+  @apply relative bg-cover h-[288px];
+}
+.lesInfoBox {
+  @apply px-8 absolute right-[10px] top-5 left-auto bottom-auto flex items-center gap-6;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  backdrop-filter: blur(7.5px);
+}
+.lesInfoBox_bg {
+  @apply absolute top-0 left-0 bg-white opacity-40 rounded-[15px] w-full h-full;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+.lesInfoItem {
+  @apply py-2 text-white font-bold text-xs;
+}
+.imageBox_hr {
+  @apply bg-white h-5 w-[1px];
+}
+
+@media (max-width: 561px) {
+  .lesInfoItem {
+    @apply py-0.5  last:pb-2;
+  }
+  .lesInfoBox {
+    @apply flex-col gap-0;
+  }
+  .imageBox_hr {
+    @apply h-[1px] w-[90%];
+  }
+  .lesPage_titleBox {
+    @apply flex-col items-end gap-3;
+  }
+  .lesPage_title {
+    @apply self-start first-letter:capitalize;
+  }
+}
+/* @media (max-width: 400px) {
+} */

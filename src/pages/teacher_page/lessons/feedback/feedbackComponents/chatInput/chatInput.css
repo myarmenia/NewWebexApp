@@ -1,0 +1,12 @@
+.chatInputDiv {
+  @apply relative rounded-[15px];
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+}
+.chatInput {
+  @apply rounded-[15px] h-10 w-full px-5 py-2 outline-none;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+}
+.chatInput_img {
+  @apply right-2 top-1/2 absolute cursor-pointer;
+  transform: translate(0, -50%);
+}

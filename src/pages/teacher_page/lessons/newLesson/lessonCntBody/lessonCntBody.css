@@ -1,0 +1,98 @@
+.LessonCntBody {
+  @apply w-full;
+}
+.LessonCntBody > form {
+  @apply flex gap-5 flex-col;
+}
+.lessonContainer {
+  @apply flex gap-[58px];
+}
+.LessonCntBody_box {
+  @apply flex flex-col gap-5 w-[400px] min-w-[320px];
+}
+.hrMain {
+  @apply bg-[#BEBFE4] mt-5 h-[450px] w-[1px];
+}
+.nextBtnCont {
+  @apply flex gap-4;
+}
+.LessonCntBody_box2 {
+  @apply w-auto;
+}
+.txtWcheckbox {
+  @apply flex flex-col gap-[7px];
+}
+.customCheckbox + span {
+  @apply text-[10px] text-[#6B6B6B];
+}
+.timeInp {
+  @apply text-[#9C9C9C] text-xs relative w-[85px];
+}
+.timeInp::-webkit-calendar-picker-indicator {
+  @apply w-full h-full absolute left-[10px] cursor-pointer;
+  background: none;
+}
+.timeInp::-webkit-datetime-edit-ampm-field {
+  display: none;
+}
+.timeInp::-webkit-clear-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+}
+.stagesContainer {
+  @apply flex gap-6 flex-col;
+}
+.stageBox1 {
+  @apply flex justify-between rounded-[20px] py-4 relative overflow-y-hidden;
+}
+.stageBox_closed {
+  @apply w-[279px];
+}
+.stageBox_opened {
+  @apply w-[497px];
+}
+@media (max-width: 1350px) {
+  .newLesCont {
+    @apply !gap-[58px];
+  }
+  .stageBox_opened {
+    @apply w-[388px];
+  }
+}
+@media (max-width: 1060px) {
+  /* .hrMain {
+    @apply hidden;
+  } */
+  .lessonContainer {
+    /* @apply gap-5 justify-center; */
+    @apply justify-evenly;
+  }
+  .nextBtnCont {
+    @apply justify-center;
+  }
+  /*.LessonCntBody_box {
+    @apply w-[80%];
+  }
+  .LessonCntBody_box2 {
+    @apply flex-row flex-wrap justify-between;
+  }
+  .stageBox{
+    @apply w-[279px]
+  } */
+}
+@media (max-width: 960px) {
+  .newLesCont {
+    @apply !gap-7;
+  }
+}
+@media (max-width: 870px) {
+  .newLesCont {
+    @apply flex-col;
+  }
+  .newLesCont > .LessonCntBody_box {
+    @apply w-[80%] min-w-[290px];
+  }
+}

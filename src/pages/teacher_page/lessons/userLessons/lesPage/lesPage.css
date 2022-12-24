@@ -1,0 +1,15 @@
+.lesPage {
+  @apply bg-[#F8EFFF] rounded-[15px];
+  box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.1);
+}
+.lesPage_container {
+  @apply flex flex-col z-[1] mb-[10px];
+}
+
+.lesPage_commentsContainer {
+  @apply flex items-center w-[104%] self-center;
+}
+.lesPage_comment {
+  @apply bg-white py-4 px-6 text-sm rounded-[30px] m-[17px] italic;
+  box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.1);
+}
