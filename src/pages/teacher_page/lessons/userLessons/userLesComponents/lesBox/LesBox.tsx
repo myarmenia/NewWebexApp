@@ -1,22 +1,28 @@
 import React, { FC } from "react";
 import "./lesBox.css";
 import editImg from "../../../../../../assets/teacher_images/userLessons/editGray.svg";
+import trashbinImg from "../../../../../../assets/teacher_images/userLessons/trashbin_2linesIN.svg";
+import starImg from "../../../../../../assets/teacher_images/userLessons/starImg.svg";
+
 import { LessonProps } from "../../../../../../models/interfaces";
 import { Link } from "react-router-dom";
 import { CustomBtn } from "../../../../../../components/teacherComponents/customBtn/CustomBtn";
 
 export interface LesBoxProps extends LessonProps {
-  studentsCount: number;
-  id?: number;
+  studentsCount?: number;
+  commentsCount?: number;
+  isCourseActive: boolean;
 }
 
 export const LesBox: FC<LesBoxProps> = ({
   title,
   keys,
+  price,
   description,
   studentsCount,
-  price,
-  id,
+  commentsCount,
+  isCourseActive,
+  to,
 }) => {
   return (
     <div className="lesBox">
@@ -32,25 +38,41 @@ export const LesBox: FC<LesBoxProps> = ({
         allowFullScreen
       ></iframe>  */}
       </div>
-      <p className="lesBox_title overflow-hidden">{title}</p>
-      <div className="keys">
-        {keys.map((key, index) => (
-          <div className="key" key={index}>
-            {key}
+      <div className="lesBox_body">
+        <p className="lesBox_title overflow-hidden">{title}</p>
+        <div className="keys">
+          {keys.map((key, index) => (
+            <div className="key" key={index}>
+              {key}
+            </div>
+          ))}
+        </div>
+        <p className="lesBox_description">{description}</p>
+        {studentsCount && (
+          <div className="flex justify-between items-center">
+            <span className="studentsCount">{studentsCount} ուսանող</span>
+            <span className="studentsCount">Կարծիքներ ({commentsCount})</span>
           </div>
-        ))}
-      </div>
-      <p className="lesBox_description">{description}</p>
-      <div className="flex flex-col">
-        <span className="studentsCount">{studentsCount} ուսանող</span>
-        <p className="lesBox_price">{price}</p>
+        )}
+        <div className="flex justify-between text-base">
+          <p className="lesBox_price">{price} դրամ</p>
+          <span className="flex items-center gap-1 text-[#6B6B6B]">
+            6
+            <img src={starImg} alt="" className="w-5 h-5" />
+          </span>
+        </div>
       </div>
       <div className="btnSection">
-        <div className="editLessonBox">
-          <span className="editLesson">Խմբագրել</span>
-          <img src={editImg} alt="" className="cursor-pointer" />
-        </div>
-        <Link to={`stage/${id}`}>
+        {isCourseActive ? (
+          <img src={trashbinImg} alt="" className="cursor-pointer" />
+        ) : (
+          <div className="editLessonBox">
+            <span className="editLesson">Խմբագրել</span>
+            <img src={editImg} alt="" />
+          </div>
+        )}
+
+        <Link to={to!}>
           <CustomBtn type="button" title="Ավելին" className="seeMoreBtn" />
         </Link>
       </div>

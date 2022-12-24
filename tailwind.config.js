@@ -10,6 +10,9 @@ module.exports = {
     boxShadow: {
       my1: "2px 4px 10px rgba(0, 0, 0, 0.1)",
     },
+    textColor: {
+      gray: "#6B6B6B",
+    },
     extend: {
       gradientColorStops: {
         "main-gradient": "linear-gradient(90deg, #53B7F2 0%, #97FFFF 94.27%)",

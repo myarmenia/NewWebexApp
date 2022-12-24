@@ -7,14 +7,19 @@ import { LesBoxProps } from "../userLesComponents/lesBox/LesBox";
 import { LesCases } from "./lesCases/LesCases";
 import { LesStages } from "./lesStages/LesStages";
 import { LoaderFunctionArgs, useLoaderData } from "react-router";
-import { ILessonLoaderData } from "../../../../../models/interfaces";
+import {
+  ILessonLoaderData,
+  LessonProps,
+} from "../../../../../models/interfaces";
 import { LesComments } from "./lesComments/LesComments";
 import { CustomBtn } from "../../../../../components/teacherComponents/customBtn/CustomBtn";
 
-interface LesPageProps extends LesBoxProps {
+export interface LesPageProps extends LessonProps {
   stageCount: number;
   stageLessons: number;
   lessonTime: 2;
+  studentsCount?: number;
+  isCourseActive: boolean;
 }
 
 export const LesPage: FC<LesPageProps> = ({
@@ -26,7 +31,7 @@ export const LesPage: FC<LesPageProps> = ({
   price,
 }) => {
   // ----- Loader data ------
-  const { obj, lessonsObj, paramsId } = useLoaderData() as ILessonLoaderData;
+  const { obj } = useLoaderData() as ILessonLoaderData;
   const { title, body } = obj;
 
   // const params = useParams();

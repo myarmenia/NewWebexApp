@@ -1,9 +1,10 @@
 import React, { FC } from "react";
 import "./lesCases.css";
 import "../../userLesComponents/lesBox/lesBox.css";
-import { LesBoxProps } from "../../userLesComponents/lesBox/LesBox";
+import { LesPageProps } from "../LesPage";
+import { LessonProps } from "../../../../../../models/interfaces";
 
-interface LesCasesProps extends LesBoxProps {}
+interface LesCasesProps extends LessonProps {}
 
 export const LesCases: FC<LesCasesProps> = ({
   studentsCount,

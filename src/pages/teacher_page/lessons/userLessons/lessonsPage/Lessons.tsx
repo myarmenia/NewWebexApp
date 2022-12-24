@@ -1,4 +1,5 @@
 import React, { FC, Fragment } from "react";
+import "./lessons.css";
 import { useLoaderData } from "react-router";
 import { LessonTitle } from "../../../../../components/screenComponents/lessonTitle/LessonTitle";
 import {
@@ -14,7 +15,8 @@ interface UserLessons {
 
 export const Lessons: FC = () => {
   // ----- Loader data ------
-  const lessonsArr = useLoaderData() as ILessonLoaderObj[];
+  // const lessonsArr = useLoaderData() as ILessonLoaderObj[];
+  const lessonsArr = [] as ILessonLoaderObj[];
 
   // const dispatch = useDispatch();
   // const { lessonsArr } = useSelector(lessonsSelectorFN);
@@ -26,51 +28,67 @@ export const Lessons: FC = () => {
           isAddLessonBtn={true}
           className="w-full justify-between"
         />
-        <div className="userLessonsSection">
-          {lessonsArr.map(({ title, body, id }) => (
-            <Fragment key={Math.random()}>
-              <LesBox
-                {...{ title, id }}
-                keys={[
-                  "Արվեստ և դիզայն",
-                  "Սկսնակների համար",
-                  "Հավաստագիր",
-                  "16+",
-                  "Ավարտական քննություն",
-                  "165 ժամ",
-                ]}
-                price="65 000"
-                description={body}
-                studentsCount={3}
-              />
-              {/* <LesBox {...el} studentsCount={3} /> */}
-            </Fragment>
-          ))}
-        </div>
+        {lessonsArr.length ? (
+          <div className="userLessonsSection_unpublished">
+            {lessonsArr.map(({ title, body, id }) => (
+              <Fragment key={Math.random()}>
+                <LesBox
+                  {...{ title, id }}
+                  keys={[
+                    "Արվեստ և դիզայն",
+                    "Սկսնակների համար",
+                    "Հավաստագիր",
+                    "16+",
+                    "Ավարտական քննություն",
+                    "165 ժամ",
+                  ]}
+                  price="65 000"
+                  description={body}
+                  to={`stage/${id}`}
+                  isCourseActive={false}
+                />
+                {/* <LesBox {...el} studentsCount={3} /> */}
+              </Fragment>
+            ))}
+          </div>
+        ) : (
+          <p className="text-base text-gray">
+            Դուք դեռ չունեք չհրապարակված դասընթաց, ավելացրեք նորը
+          </p>
+        )}
       </div>
       <div>
         <LessonTitle title="Ակտիվ դաընթացներ" />
-        <div className="userLessonsSection">
-          {lessonsArr.map(({ title, body, id }) => (
-            <Fragment key={Math.random()}>
-              <LesBox
-                {...{ title, id }}
-                keys={[
-                  "Արվեստ և դիզայն",
-                  "Սկսնակների համար",
-                  "Հավաստագիր",
-                  "16+",
-                  "Ավարտական քննություն",
-                  "165 ժամ",
-                ]}
-                price="65 000"
-                description={body}
-                studentsCount={3}
-              />
-              {/* <LesBox {...el} studentsCount={3} /> */}
-            </Fragment>
-          ))}
-        </div>
+        {lessonsArr.length ? (
+          <div className="userLessonsSection_active">
+            {lessonsArr.map(({ title, body, id }) => (
+              <Fragment key={Math.random()}>
+                <LesBox
+                  {...{ title, id }}
+                  keys={[
+                    "Արվեստ և դիզայն",
+                    "Սկսնակների համար",
+                    "Հավաստագիր",
+                    "16+",
+                    "Ավարտական քննություն",
+                    "165 ժամ",
+                  ]}
+                  price="65 000"
+                  description={body}
+                  studentsCount={3}
+                  commentsCount={9}
+                  to={`stage/${id}`}
+                  isCourseActive={true}
+                />
+                {/* <LesBox {...el} studentsCount={3} /> */}
+              </Fragment>
+            ))}
+          </div>
+        ) : (
+          <p className="text-base text-gray">
+            Դուք դեռ չունեք հրապարակված դասընթաց, ավելացրեք նորը
+          </p>
+        )}
       </div>
     </div>
   );
