@@ -1,0 +1,6 @@
+.lessonWork {
+  @apply w-full gap-[14px] p-0;
+}
+.lessonWork_title {
+  @apply font-semibold text-sm first-letter:capitalize inline;
+}

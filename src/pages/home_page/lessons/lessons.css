@@ -1,0 +1,52 @@
+.lessons {
+  @apply flex flex-col items-center gap-9 w-[103%];
+}
+.lessonsTitle {
+  @apply text-[#7A64FA] leading-[131%] font-bold text-2xl;
+}
+.lessonsContainer {
+  @apply w-full h-full flex items-center gap-[17px];
+}
+.mySwiper-button-prev,
+.mySwiper-button-next {
+  @apply cursor-pointer;
+}
+
+/* =============================================== */
+.mySwiper {
+  width: 95%;
+  height: 100%;
+  padding: 20px 10px !important;
+  /* box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.1); */
+}
+.swiper-slide {
+  /* box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.1); */
+  border-radius: 30px;
+  text-align: center;
+  font-size: 18px;
+  background: none;
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+/* ================================================ */
+
+@media (max-width: 500px) {
+  .lessonsContainer {
+    @apply gap-1;
+  }
+  .lessons {
+    @apply w-[110%];
+  }
+}

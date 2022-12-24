@@ -1,0 +1,20 @@
+.feedbackCont {
+  @apply flex gap-[25px];
+}
+.messageSection {
+  /* @apply ;  */
+  width: calc(75% - 25px);
+}
+.cont01 {
+  @apply flex flex-col gap-5;
+}
+.conts02 {
+  @apply relative flex gap-5;
+}
+.messageCont {
+  @apply flex gap-5;
+  min-height: calc(100vh - 260px);
+}
+.messageCont_title {
+  @apply h-[61px] flex justify-between py-3 pt-5 mb-6 border-b border-[#BEBFE4] w-full font-semibold text-sm;
+}
