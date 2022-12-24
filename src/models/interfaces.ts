@@ -24,6 +24,8 @@ export interface LessonProps {
   description?: string;
   price: string;
   video?: string;
+  to?: string;
+  studentsCount?: number;
 }
 export interface IteacherMenu {
   id?: number;

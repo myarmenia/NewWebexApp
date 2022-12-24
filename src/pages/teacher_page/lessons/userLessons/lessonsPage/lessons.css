@@ -1,0 +1,22 @@
+.userLessonsSection_unpublished,
+.userLessonsSection_active {
+  @apply grid grid-cols-4 gap-[11px] mb-[10px];
+}
+@media (max-width: 1190px) {
+  .userLessonsSection_unpublished,
+  .userLessonsSection_active {
+    @apply grid-cols-3;
+  }
+}
+@media (max-width: 815px) {
+  .userLessonsSection_unpublished,
+  .userLessonsSection_active {
+    @apply grid-cols-2;
+  }
+}
+@media (max-width: 540px) {
+  .userLessonsSection_unpublished,
+  .userLessonsSection_active {
+    @apply grid-cols-1 gap-5;
+  }
+}
