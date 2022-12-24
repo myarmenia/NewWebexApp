@@ -1,9 +1,0 @@
-.controlPanel {
-  @apply w-full h-[auto] flex gap-[23px] flex-wrap;
-}
-.controlPanel2 {
-  @apply w-full h-[auto] flex gap-[23px] flex-wrap mt-[40px];
-}
-.grafficLesson {
-  @apply font-semibold text-sm text-[#7a64fa] mt-[95px];
-}

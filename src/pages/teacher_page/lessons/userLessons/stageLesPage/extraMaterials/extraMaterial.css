@@ -1,9 +1,0 @@
-.extraMaterials{
-    @apply flex flex-col gap-[10px]
-}
-.extMatItems{
-    @apply flex flex-col gap-1 ml-1
-}
-.extraMat{
-    @apply flex gap-[5px] text-xs
-}
