@@ -1,8 +1,0 @@
-.smNavbar {
-  @apply hidden;
-}
-@media (max-width: 1000px) {
-  .smNavbar {
-    @apply flex flex-col gap-4
-  }
-}

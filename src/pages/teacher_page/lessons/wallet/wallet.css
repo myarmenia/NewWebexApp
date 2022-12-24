@@ -1,5 +1,0 @@
-@media (max-width: 610px) {
-  .wallet {
-    @apply w-[95%] mx-auto;
-  }
-}
