@@ -5,6 +5,7 @@ const rootReducer = combineReducers({
   calendarList: calendarList,
 });
 
+
 export const store = configureStore({
   reducer: rootReducer,
   middleware: (getDefaultMiddleware) =>
