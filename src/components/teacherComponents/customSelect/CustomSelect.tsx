@@ -1,23 +1,19 @@
 import "./customSelect.css";
-import React, { SetStateAction, useState } from "react";
+import React, { FC, useState } from "react";
 import { Options } from "./Options";
 import { DefaultOption } from "./DefaultOption";
 import { useFormContext } from "react-hook-form";
+import { ICustomSelect } from "../../../models/interfaces";
 
-interface CustomSelectProps {
-  options: string[];
-  className?: string;
-  isInput?: boolean;
-  setOptions?: React.Dispatch<SetStateAction<string[]>>;
-  regName?: string;
-  placeholder: string;
-}
+type CustomSelectProps = Pick<
+  ICustomSelect,
+  "options" | "className" | "regName" | "placeholder" | "isMutable"
+>;
 
-export const CustomSelect: React.FC<CustomSelectProps> = ({
+export const CustomSelect: FC<CustomSelectProps> = ({
   options,
   className,
-  isInput,
-  setOptions,
+  isMutable,
   regName,
   placeholder,
 }) => {
@@ -31,9 +27,7 @@ export const CustomSelect: React.FC<CustomSelectProps> = ({
       <div className={`customSelect ${className}`}>
         <DefaultOption {...{ toggleOptions, regName, placeholder }} />
         {state && (
-          <Options
-            {...{ options, toggleOptions, regName, setOptions, isInput }}
-          />
+          <Options {...{ options, toggleOptions, regName, isMutable }} />
         )}
         {regName && (
           <p className="errorMessage">

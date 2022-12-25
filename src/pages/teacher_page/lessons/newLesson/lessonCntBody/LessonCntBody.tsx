@@ -97,9 +97,11 @@ export const LessonCntBody: React.FC = () => {
               <CustomSelect
                 placeholder="Ընտրել կատեգորիան*"
                 options={selectOptions}
-                {...{ setOptions }}
-                isInput={true}
                 regName="select"
+                isMutable={{
+                  isInput: true,
+                  setOptions,
+                }}
               />
               <CustomSelect
                 placeholder="Ընտրել մակարդակը*"
