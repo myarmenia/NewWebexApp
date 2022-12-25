@@ -9,7 +9,7 @@ module.exports = {
         "med-1060": { raw: "(max-width: 1060px)" },
       },
       boxShadow: {
-        my1: "2px 4px 10px rgba(0, 0, 0, 0.1)",
+        light: "2px 4px 10px rgba(0, 0, 0, 0.1)",
       },
       textColor: {
         gray: "#6B6B6B",
@@ -18,7 +18,7 @@ module.exports = {
         "main-gradient": "linear-gradient(90deg, #53B7F2 0%, #97FFFF 94.27%)",
       },
       backgroundImage: {
-        "gradientPurple": "linear-gradient(90deg, #7764fb 0%, #f364f3 100%)",
+        gradientPurple: "linear-gradient(90deg, #7764fb 0%, #f364f3 100%)",
       },
       animation: {
         "srch-anim": "zoom 5s ease-in-out infinite",

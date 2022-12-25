@@ -8,6 +8,7 @@ import { LesContainer } from "../userLesComponents/lesContainer/LesContainer";
 import { LesStageBox } from "./lesStageBox/LesStageBox";
 import { LesWorkBox, LesWorkBoxProps } from "./lesWorkBox/LesWorkBox";
 import { Link } from "react-router-dom";
+import { LessonTitle } from "../../../../../components/screenComponents/lessonTitle/LessonTitle";
 
 const lesWorkAndHomeWork: LesWorkBoxProps[] = [
   {
@@ -39,21 +40,25 @@ export const StageLesPage: FC = () => {
   // const { title, body, id } = currentObj;
 
   return (
-    <div className="stageLesPage">
-      <div className="lessonContent">
-        <LesContainer className="lesCont">
-          <Link to="edit">
-            <div className="lesPage_titleBox ">
-              <h5 className="lesPage_title !text-gray !font-normal">{title}</h5>
-              <div className="lesPage_editBox">
-                <span className="lesPage_editText">Խմբագրել</span>
-                <img src={editImg} alt="" />
+    <>
+      <LessonTitle title="Իմ դասընթացները" className="w-full justify-between" />
+      <div className="stageLesPage">
+        <div className="lessonContent">
+          <LesContainer className="lesCont">
+            <Link to="edit">
+              <div className="lesPage_titleBox ">
+                <h5 className="lesPage_title !text-gray !font-normal">
+                  {title}
+                </h5>
+                <div className="lesPage_editBox">
+                  <span className="lesPage_editText">Խմբագրել</span>
+                  <img src={editImg} alt="" />
+                </div>
               </div>
-            </div>
-          </Link>
-          <hr className="stageLesPage_hr" />
-          <LesContainer className="lesWorkHomeWork_container ">
-            {/* {lessonsObj.map(({ title, body, id }) => (
+            </Link>
+            <hr className="stageLesPage_hr" />
+            <LesContainer className="lesWorkHomeWork_container ">
+              {/* {lessonsObj.map(({ title, body, id }) => (
               <LesWorkBox
                 title={body}
                 description={body}
@@ -63,33 +68,34 @@ export const StageLesPage: FC = () => {
                 key={Math.random()}
               />
             ))} */}
-            <LesWorkBox
-              title={body}
-              description={body}
-              lesNumber={id}
-              extMats={["png", "pptx", "docx"]}
-              key={Math.random()}
-            />
-            <LesWorkBox
-              title={body}
-              description={body}
-              lesNumber={id}
-              extMats={["png", "pptx", "docx"]}
-              key={Math.random()}
-            />
+              <LesWorkBox
+                title={body}
+                description={body}
+                lesNumber={id}
+                extMats={["png", "pptx", "docx"]}
+                key={Math.random()}
+              />
+              <LesWorkBox
+                title={body}
+                description={body}
+                lesNumber={id}
+                extMats={["png", "pptx", "docx"]}
+                key={Math.random()}
+              />
+            </LesContainer>
           </LesContainer>
-        </LesContainer>
+        </div>
+        <div className="stagesContainer">
+          {stagesArr.map(({ stageLessons }, i) => (
+            <LesStageBox
+              {...{ stageLessons }}
+              stageNumber={i + 1}
+              key={Math.random()}
+            />
+          ))}
+        </div>
       </div>
-      <div className="stagesContainer">
-        {stagesArr.map(({ stageLessons }, i) => (
-          <LesStageBox
-            {...{ stageLessons }}
-            stageNumber={i + 1}
-            key={Math.random()}
-          />
-        ))}
-      </div>
-    </div>
+    </>
   );
 };
 

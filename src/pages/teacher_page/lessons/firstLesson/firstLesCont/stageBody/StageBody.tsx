@@ -18,13 +18,13 @@ export const StageBody: React.FC = () => {
               type="text"
               placeholder="Դասի վերնագիրը*"
               regName="lessonTitle"
-              className="shadow-my1"
+              className="shadow-light"
             />
             <CstmInput
               type="text"
               placeholder="Տեսանյութ (կցել youtube-ի հղումը)"
               regName="videoInp"
-              className="shadow-my1"
+              className="shadow-light"
             />
             <CstmTextarea
               regName="contents"
@@ -48,7 +48,7 @@ export const StageBody: React.FC = () => {
               type="text"
               placeholder="Տեսանյութ (կցել youtube-ի հղումը)"
               regName="videoInpHomework"
-              className="shadow-my1"
+              className="shadow-light"
             />
             <CstmTextarea
               regName="contentsHomework"
