@@ -2,20 +2,23 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    screens: {
-      "med-800": { raw: "(max-width: 800px)" },
-      "med-1100": { raw: "(max-width: 1100px)" },
-      "med-1060": { raw: "(max-width: 1060px)" },
-    },
-    boxShadow: {
-      my1: "2px 4px 10px rgba(0, 0, 0, 0.1)",
-    },
-    textColor: {
-      gray: "#6B6B6B",
-    },
     extend: {
+      screens: {
+        "med-800": { raw: "(max-width: 800px)" },
+        "med-1100": { raw: "(max-width: 1100px)" },
+        "med-1060": { raw: "(max-width: 1060px)" },
+      },
+      boxShadow: {
+        my1: "2px 4px 10px rgba(0, 0, 0, 0.1)",
+      },
+      textColor: {
+        gray: "#6B6B6B",
+      },
       gradientColorStops: {
         "main-gradient": "linear-gradient(90deg, #53B7F2 0%, #97FFFF 94.27%)",
+      },
+      backgroundImage: {
+        "gradientPurple": "linear-gradient(90deg, #7764fb 0%, #f364f3 100%)",
       },
       animation: {
         "srch-anim": "zoom 5s ease-in-out infinite",

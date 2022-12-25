@@ -8,7 +8,7 @@ export const StageLesson: FC<IStageLesson> = ({ lessonNumber, title }) => {
     <div className="stageLesson textPurple">
       <span className="lessonNumber">Դաս {lessonNumber}:</span>
       <Link to={`lesson/${lessonNumber}`} className="overflow-x-hidden">
-        <p className="lessonTitle">{title}</p>
+        <p className="stageLessonTitle textPurple">{title}</p>
       </Link>
     </div>
   );

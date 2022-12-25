@@ -1,5 +1,5 @@
 .walletCont {
-  @apply w-[81%] text-[#6B6B6B] flex flex-col mb-3
+  @apply w-[81%] text-gray flex flex-col mb-3
    /* gap-10 */
    gap-[144px];
 }

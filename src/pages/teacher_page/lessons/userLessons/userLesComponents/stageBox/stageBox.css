@@ -3,7 +3,7 @@
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
 }
 .stageBoxHead {
-  @apply flex items-center justify-between text-[#6B6B6B] text-xl;
+  @apply flex items-center justify-between text-gray text-xl;
 }
 .stageLessons {
   @apply relative flex flex-col gap-[19px] transition-all duration-300;

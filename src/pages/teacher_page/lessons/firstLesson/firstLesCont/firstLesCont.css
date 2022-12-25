@@ -1,3 +1,4 @@
+@tailwind components;
 .lessonCont {
   @apply flex flex-col gap-7;
 }
@@ -5,8 +6,8 @@
   @apply rounded-2xl px-[29px] py-[24px] bg-[#F8EFFF];
   filter: drop-shadow(2px 4px 10px rgba(0, 0, 0, 0.1));
 }
-.firstLesCont div {
-}
+/* .firstLesCont div {
+} */
 .lessonContainer {
   @apply flex justify-between mx-auto w-[98%];
 }
@@ -27,9 +28,8 @@
   @apply text-xs font-semibold relative;
 }
 .textUnderline::after {
-  @apply w-full h-[1px] absolute bg-[red] left-0 bottom-[1.3px] top-auto;
+  @apply bg-gradientPurple w-full h-[1px] absolute bg-[red] left-0 bottom-[1.3px] top-auto;
   content: "";
-  background: linear-gradient(90deg, #7764fb 0%, #f364f3 100%);
 }
 .hrMain {
   @apply bg-[#BEBFE4] mt-5 h-[400px] w-[1px];

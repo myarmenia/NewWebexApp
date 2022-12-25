@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import "./students.css";
 import trashbinImg from "../../../../assets/teacher_images/exam/delete.svg";
-import { StdThead } from "./stdComponents/stdThead/StdThead";
+import { CstmThead } from "../../../../components/teacherComponents/cstmThead/CstmThead";
 import { StdTbody } from "./stdComponents/stdTbody/StdTbody";
 import { StdTbodyTr } from "./stdComponents/stdTbodyTr/StdTbodyTr";
 import { TdName } from "./stdComponents/stdTbodyTr/tds/TdName";
@@ -22,7 +22,7 @@ export const Students: FC = () => {
         />
         <div className="tableSection">
           <table>
-            <StdThead
+            <CstmThead
               items={[
                 "Ուսանողի Անուն",
                 "Հեռախոս",
@@ -89,7 +89,7 @@ export const Students: FC = () => {
           </div>
           <div className="tableSection">
             <table>
-              <StdThead
+              <CstmThead
                 items={[
                   "Ուսանողի Անուն",
                   "Հեռախոս",

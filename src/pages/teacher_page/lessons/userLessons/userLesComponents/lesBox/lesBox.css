@@ -6,11 +6,8 @@
 .lesBox_video {
   @apply w-full h-[122px];
 }
-.lesBox_body {
-  @apply flex flex-col gap-[10px];
-}
 .lesBox_title {
-  @apply font-bold text-base leading-5 text-[#6B6B6B] text-start;
+  @apply font-bold text-base leading-5 text-gray text-start;
 }
 .keys {
   @apply w-full flex gap-1 flex-wrap;
@@ -20,13 +17,13 @@
   background: rgba(119, 100, 251, 0.8);
 }
 .lesBox_description {
-  @apply w-full text-[#6B6B6B] text-[10px] leading-[13px] text-start;
+  @apply w-full text-gray text-[10px] leading-[13px] text-start;
 }
 .studentsCount {
   @apply text-[#898BCE] text-xs font-semibold underline cursor-pointer hover:text-[#a9abdb];
 }
 .lesBox_price {
-  @apply text-lg leading-6 text-[#6B6B6B] font-bold;
+  @apply text-lg leading-6 text-gray font-bold;
 }
 .seeMoreBtn {
   @apply w-[114px] h-6 py-[5px] rounded-[10px] min-w-fit leading-[10px];
@@ -35,10 +32,10 @@
   @apply flex items-center gap-[6px] cursor-pointer;
 }
 .editLesson {
-  @apply text-[#6B6B6B] text-xs;
+  @apply text-gray text-xs;
 }
 .btnSection {
-  @apply flex justify-between items-center mt-2;
+  @apply flex justify-between items-center;
 }
 
 @media (max-width: 500px) {

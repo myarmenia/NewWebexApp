@@ -2,7 +2,6 @@ import React from "react";
 import "./lessonTitle.css";
 import editImg from "../../../assets/teacher_images/newLesson/pencil 1.svg";
 import { CustomBtn } from "../../teacherComponents/customBtn/CustomBtn";
-// import CreateGraffic from "../userComponents/CreateGraffic";
 
 interface LessonTitleProps {
   title: string;

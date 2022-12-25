@@ -1,5 +1,5 @@
 .tdNum {
-  @apply text-center py-[5px] px-[7px] text-[10px] text-[#6b6b6b] cursor-pointer relative;
+  @apply text-center py-[5px] px-[7px] text-[10px] text-gray cursor-pointer relative;
 }
 .activeDay {
   @apply flex items-center justify-center text-[8px] text-white rounded-[50px] bg-[#898bce] w-4 h-4 z-0 absolute top-[50%] left-1/2;

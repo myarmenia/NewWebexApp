@@ -1,5 +1,5 @@
 .thNumeric {
-  @apply text-[8px] text-[#6B6B6B] font-semibold;
+  @apply text-[8px] text-gray font-semibold;
 }
 
 @media (max-width: 860px) {

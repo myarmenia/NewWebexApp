@@ -15,10 +15,10 @@
   @apply w-[100%] min-h-[300px] flex flex-col  gap-[20px];
 }
 .contacts {
-  @apply font-normal text-xl mb-[35px] text-[#6b6b6b];
+  @apply font-normal text-xl mb-[35px] text-gray;
 }
 .address {
-  @apply flex font-normal text-base  text-[#6b6b6b] items-center gap-[10px];
+  @apply flex font-normal text-base  text-gray items-center gap-[10px];
 }
 .footerForm {
   @apply w-[35%] h-auto flex  flex-col justify-center  rounded-[30px] mt-[50px];
@@ -30,7 +30,7 @@
   background-position-y: 70%;
 }
 .connecting {
-  @apply flex  h-[100px] items-center font-normal text-xl  text-[#6b6b6b];
+  @apply flex  h-[100px] items-center font-normal text-xl  text-gray;
 }
 .addressForm {
   @apply flex  h-auto flex-col justify-evenly gap-[20px];
@@ -50,9 +50,7 @@
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
 }
 .send {
-  @apply w-[149px]  h-[40px]  rounded-[15px] text-[#ffffff] font-semibold text-sm;
-  background: linear-gradient(90deg, #7764fb 0%, #f364f3 100%);
-
+  @apply bg-gradientPurple w-[149px]  h-[40px]  rounded-[15px] text-[#ffffff] font-semibold text-sm;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .icon {

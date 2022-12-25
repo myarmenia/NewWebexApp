@@ -11,6 +11,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { CustomBtn } from "../../../../../../components/teacherComponents/customBtn/CustomBtn";
 import { ModalContainer } from "../../../../../../components/modalContainer/ModalContainer";
 import { CustomSelect } from "../../../../../../components/teacherComponents/customSelect/CustomSelect";
+import { CstmThead } from "../../../../../../components/teacherComponents/cstmThead/CstmThead";
 
 interface WalletContProps {
   balance: number;
@@ -107,7 +108,16 @@ export const WalletCont: FC<WalletContProps> = ({ balance }) => {
             <div className="table_history">
               {transactionHistory ? (
                 <table className="w-full">
-                  <WalThead />
+                  {/* <WalThead /> */}
+                  <CstmThead
+                    thClassName="!text-center"
+                    items={[
+                      "Ամսաթիվ",
+                      "Գումար",
+                      "Գործարքի տեսակը",
+                      "Հաշվի մնացորդը",
+                    ]}
+                  />
                   <WalTbody />
                 </table>
               ) : (
@@ -132,7 +142,7 @@ export const WalletCont: FC<WalletContProps> = ({ balance }) => {
                 className="w-[75%] flex flex-col gap-12"
               >
                 <div className="flex flex-col gap-4">
-                  <span className="text-[#6B6B6B] text-sm font-semibold">
+                  <span className="text-gray text-sm font-semibold">
                     Ընտրել սակագնային պլանը
                   </span>
                   <CustomSelect

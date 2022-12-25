@@ -20,7 +20,7 @@
   @apply z-[1];
 }
 .featureBoxTitle {
-  @apply text-[#6B6B6B] text-base;
+  @apply text-gray text-base;
 }
 
 @keyframes rotate360 {

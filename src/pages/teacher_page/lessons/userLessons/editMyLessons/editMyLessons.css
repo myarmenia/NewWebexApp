@@ -1,5 +1,5 @@
 .editMyLessons {
-  @apply bg-[#F8EFFF] w-[63%] text-[#6B6B6B] mb-3;
+  @apply bg-[#F8EFFF] w-[63%] text-gray mb-3;
   box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.1);
 }
 .editMyLessons_container {

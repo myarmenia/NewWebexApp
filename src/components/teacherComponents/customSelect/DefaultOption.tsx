@@ -15,7 +15,7 @@ export const DefaultOption: React.FC<DefaultOptionProps> = ({
   const formMethods = useFormContext();
   return (
     <div className="defaultOption" onClick={() => toggleOptions()}>
-      <div className="flex text-[#6B6B6B] w-full text-xs">
+      <div className="flex text-gray w-full text-xs">
         <input
           type="text"
           placeholder={placeholder}

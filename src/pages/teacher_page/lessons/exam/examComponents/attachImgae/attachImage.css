@@ -2,7 +2,7 @@
   visibility: hidden;
 }
 .attachImage {
-  @apply text-[#6B6B6B] flex gap-3 items-center;
+  @apply text-gray flex gap-3 items-center;
 }
 .attachImageInput {
   @apply w-[10px] h-[18px] bg-contain cursor-pointer;

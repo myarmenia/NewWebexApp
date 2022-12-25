@@ -121,16 +121,14 @@ export const LessonCntBody: React.FC = () => {
                   type="number"
                   regName="cost"
                 />
-                <span className="text-[#6B6B6B] text-xs">Դրամ</span>
+                <span className="text-gray text-xs">Դրամ</span>
               </div>
               <button
                 className="flex gap-[13px] items-center w-fit"
                 type="button"
               >
                 <img src={downloadImg} alt="" />
-                <span className="text-[#6B6B6B] text-xs">
-                  Բեռնել շապիկի նկարը
-                </span>
+                <span className="text-gray text-xs">Բեռնել շապիկի նկարը</span>
               </button>
             </div>
             <div className="hrMain" />
@@ -149,7 +147,7 @@ export const LessonCntBody: React.FC = () => {
                   }`}
                 >
                   <div className="txtWcheckbox">
-                    <span className="text-[#6B6B6B] text-xs">
+                    <span className="text-gray text-xs">
                       Մի փուլի դասերի քանակը
                     </span>
                     <div className="flex gap-2">

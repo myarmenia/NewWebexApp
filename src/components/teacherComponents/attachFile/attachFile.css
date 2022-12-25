@@ -2,7 +2,7 @@
   visibility: hidden;
 }
 .attachFile {
-  @apply text-[#6B6B6B] flex flex-col gap-2 cursor-pointer;
+  @apply text-gray flex flex-col gap-2 cursor-pointer;
 }
 .attachFileTitle {
   @apply text-[10px];
