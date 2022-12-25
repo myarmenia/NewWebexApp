@@ -1,3 +1,4 @@
+@tailwind components;
 .pagination {
   @apply w-[99%] flex items-center my-[30px] mx-auto;
 }
@@ -15,16 +16,13 @@
   transform: translate(0, -50%);
 }
 .pagActive {
-  @apply text-xs font-bold w-[22px] h-[22px] -right-[6px];
-  background: linear-gradient(90deg, #7764fb 0%, #f364f3 100%);
+  @apply bg-gradientPurple text-xs font-bold w-[22px] h-[22px] -right-[6px];
 }
 .pagCompleted {
-  @apply w-[13px] h-[13px];
-  background: linear-gradient(90deg, #7764fb 0%, #f364f3 100%);
+  @apply bg-gradientPurple w-[13px] h-[13px];
 }
 .pagLineActive {
-  @apply h-1 w-full;
-  background: linear-gradient(90deg, #7764fb 0%, #f364f3 100%);
+  @apply bg-gradientPurple h-1 w-full;
 }
 .firstItem {
   @apply left-0 z-[1];

@@ -3,5 +3,5 @@
   transform: translate(-50%, -50%);
 }
 .message {
-  @apply text-[#6B6B6B] font-semibold text-sm text-center;
+  @apply text-gray font-semibold text-sm text-center;
 }

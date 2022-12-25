@@ -11,7 +11,7 @@
   @apply rounded-r-[10px];
 }
 .transactionHistory_theadTr > th {
-  @apply text-[#6B6B6B] relative px-5 text-center;
+  @apply text-gray relative px-5 text-center;
 }
 .transactionHistory_theadTr > th::before {
   @apply absolute left-0 h-[13px] w-[1px] top-1/2 bg-[#BEBFE4];

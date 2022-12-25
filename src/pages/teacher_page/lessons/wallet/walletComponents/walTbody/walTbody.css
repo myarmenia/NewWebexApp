@@ -2,7 +2,7 @@
   @apply relative bg-[#ffffff87] rounded-[10px];
 }
 .transactionHistory_tr > td {
-  @apply text-xs text-[#6B6B6B] py-5 px-5 text-center;
+  @apply text-xs text-gray py-5 px-5 text-center;
 }
 .transactionHistory_tr > td:first-child {
   @apply rounded-l-[10px];

@@ -13,10 +13,10 @@
 .stdTbodyTr > td {
 }
 .stdTd {
-  @apply text-xs text-[#6B6B6B] py-1 px-5;
+  @apply text-xs text-gray py-1 px-5;
 }
 .stdTd span {
-  @apply text-[#6B6B6B];
+  @apply text-gray;
 }
 .stdTd:first-child {
   @apply rounded-l-[10px];

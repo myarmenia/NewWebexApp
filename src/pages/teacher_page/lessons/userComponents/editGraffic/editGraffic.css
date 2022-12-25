@@ -11,10 +11,10 @@
   @apply min-w-[20%] h-[62px] flex flex-col justify-between;
 }
 .day {
-  @apply font-bold text-sm text-[#6b6b6b];
+  @apply font-bold text-sm text-gray;
 }
 .editTime {
-  @apply flex gap-[5px] text-xs text-[#6b6b6b] font-normal items-center;
+  @apply flex gap-[5px] text-xs text-gray font-normal items-center;
 }
 .gic {
   width: 3.62px;

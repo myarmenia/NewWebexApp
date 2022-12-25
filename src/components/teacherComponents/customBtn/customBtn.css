@@ -1,4 +1,6 @@
-.addLessonBtn {
-  @apply font-semibold text-xs text-white py-[9px] px-[30px] rounded-2xl w-fit min-w-[193px];
-  background: linear-gradient(90deg, #7764fb 0%, #f364f3 100%);
+@tailwind components;
+@layer components {
+  .addLessonBtn {
+    @apply bg-gradientPurple font-semibold text-xs text-white py-[9px] px-[30px] rounded-2xl w-fit min-w-[193px];
+  }
 }

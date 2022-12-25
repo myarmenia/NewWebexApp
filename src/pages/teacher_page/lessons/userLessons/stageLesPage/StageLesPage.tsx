@@ -44,9 +44,7 @@ export const StageLesPage: FC = () => {
         <LesContainer className="lesCont">
           <Link to="edit">
             <div className="lesPage_titleBox ">
-              <h5 className="lesPage_title !text-[#6B6B6B] !font-normal">
-                {title}
-              </h5>
+              <h5 className="lesPage_title !text-gray !font-normal">{title}</h5>
               <div className="lesPage_editBox">
                 <span className="lesPage_editText">Խմբագրել</span>
                 <img src={editImg} alt="" />

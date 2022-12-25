@@ -12,7 +12,7 @@
 }
 .weekSchTh,
 .weekSchTd {
-  @apply py-[9px] px-6 border border-[#BEBFE4] text-[#6B6B6B] relative
+  @apply py-[9px] px-6 border border-[#BEBFE4] text-gray relative
   last:border-r-0
   first:border-l-0 first:text-center;
 }

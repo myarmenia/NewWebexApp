@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 export const LesStgLesson: FC<IStageLesson> = ({ title, lessonNumber }) => {
   const [isActive, setIsActive] = useState(lessonNumber === 1);
+
   return (
     <div className="lesStgLesson">
       <p

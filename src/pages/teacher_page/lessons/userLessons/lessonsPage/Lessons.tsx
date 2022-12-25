@@ -15,8 +15,8 @@ interface UserLessons {
 
 export const Lessons: FC = () => {
   // ----- Loader data ------
-  // const lessonsArr = useLoaderData() as ILessonLoaderObj[];
-  const lessonsArr = [] as ILessonLoaderObj[];
+  const lessonsArr = useLoaderData() as ILessonLoaderObj[];
+  // const lessonsArr = [] as ILessonLoaderObj[];
 
   // const dispatch = useDispatch();
   // const { lessonsArr } = useSelector(lessonsSelectorFN);

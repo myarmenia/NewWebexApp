@@ -88,7 +88,7 @@ const PersonalInfo = () => {
             <div className="inputChild">
               <Inp />
               <div className="flex flex-col gap-3">
-                <p className="font-semibold text-[#6B6B6B] text-sm">Իմ մասին</p>
+                <p className="font-semibold text-gray text-sm">Իմ մասին</p>
                 <CstmTextarea placeholder="Նկարագիր" className="!h-[287px]" />
               </div>
               <Inp2

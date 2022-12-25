@@ -5,5 +5,5 @@ interface BoxTitleProps {
 }
 
 export const BoxTitle: React.FC<BoxTitleProps> = ({ title }) => {
-  return <div className="text-[#6B6B6B] text-base mb-3">{title}</div>;
+  return <div className="text-gray text-base mb-3">{title}</div>;
 };

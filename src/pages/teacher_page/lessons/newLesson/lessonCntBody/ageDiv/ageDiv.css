@@ -5,7 +5,7 @@
   @apply flex flex-col gap-[7px];
 }
 .customCheckbox + span {
-  @apply text-[10px] text-[#6B6B6B];
+  @apply text-[10px] text-gray;
 }
 .ageLimits {
   @apply flex gap-2 items-center;

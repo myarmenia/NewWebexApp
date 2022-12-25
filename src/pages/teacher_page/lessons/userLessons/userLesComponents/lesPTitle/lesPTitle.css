@@ -8,5 +8,5 @@
   @apply flex items-center gap-[6px] cursor-pointer;
 }
 .lesPage_editText {
-  @apply text-xs text-[#6B6B6B];
+  @apply text-xs text-gray;
 }

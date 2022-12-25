@@ -1,3 +1,4 @@
+@tailwind components;
 .tdBox1 {
   @apply w-[135px] h-[120px] gap-2 relative border border-[#bebfe4] border-b-0;
 }
@@ -7,7 +8,8 @@
 .eventBox {
   @apply flex flex-col gap-1 items-center mt-[27px] h-[87px] overflow-y-auto;
 }
-.CalendarEventBox {
-  @apply rounded-[5px] w-[95%] p-[3px] font-bold text-[8px] text-white flex justify-around cursor-pointer;
-  background: linear-gradient(90deg, #7764fb 0%, #f364f3 100%);
+@layer components {
+  .CalendarEventBox {
+    @apply bg-gradientPurple rounded-[5px] w-[95%] p-[3px] font-bold text-[8px] text-white flex justify-around cursor-pointer;
+  }
 }

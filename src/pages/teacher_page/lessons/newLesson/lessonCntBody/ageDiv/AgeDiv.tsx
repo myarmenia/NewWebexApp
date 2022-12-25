@@ -10,7 +10,7 @@ export const AgeDiv: React.FC<AgeDivProps> = ({}) => {
   return (
     <div className="ageDiv">
       <div className="noAgeLimit">
-        <span className="text-[#6B6B6B] text-xs">Տարիքային սահմանափակում</span>
+        <span className="text-gray text-xs">Տարիքային սահմանափակում</span>
         <div className="flex gap-2">
           <input
             type="checkbox"

@@ -48,7 +48,7 @@
   @apply flex flex-col gap-[120px];
 }
 .discount_tableCont {
-  @apply flex flex-col gap-[59px] text-[#6B6B6B];
+  @apply flex flex-col gap-[59px] text-gray;
 }
 
 .discount_activeTable,
@@ -66,7 +66,7 @@
   @apply bg-[#ffffffd1] rounded-[10px] text-xs font-semibold h-8 relative;
 }
 .discount_theadTr th {
-  @apply text-[#6B6B6B] relative px-5 text-start
+  @apply text-gray relative px-5 text-start
   first:rounded-l-[10px] first:before:hidden last:rounded-r-[10px];
 }
 .discount_theadTr > th::before {
@@ -79,11 +79,10 @@
   @apply relative bg-[#ffffff87] rounded-[10px];
 }
 .discount_tbodyTr > td {
-  @apply text-xs text-[#6B6B6B] py-3 px-5  
+  @apply text-xs text-gray py-3 px-5  
   first:rounded-l-[10px]
   last:rounded-r-[10px];
 }
 .discount_tbodyTr_date {
   @apply whitespace-nowrap;
 }
-
