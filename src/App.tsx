@@ -31,9 +31,6 @@ function App() {
     // <Routes>
     // </Routes>
     <Teacher />
-    // <Routes>
-    //   <Route element={<Teacher />} />
-    // </Routes>
 
     // <Teacher />
     // <Header />

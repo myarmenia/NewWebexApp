@@ -1,15 +1,10 @@
-import React, { Dispatch, SetStateAction, useRef } from "react";
+import React, { FC, useRef } from "react";
 import acceptImg from "../../../assets/teacher_images/newLesson/accept.svg";
+import { ICustomSelect } from "../../../models/interfaces";
 
-interface OptionInputProps {
-  options: string[];
-  setOptions?: Dispatch<SetStateAction<string[]>>;
-}
+type OptionInputProps = Pick<ICustomSelect, "setOptions" | "options">;
 
-export const OptionInput: React.FC<OptionInputProps> = ({
-  options,
-  setOptions,
-}) => {
+export const OptionInput: FC<OptionInputProps> = ({ options, setOptions }) => {
   const inpRef = useRef<HTMLInputElement>(null);
   return (
     <div className="relative m-3 mt-2">

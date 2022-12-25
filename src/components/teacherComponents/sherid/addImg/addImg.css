@@ -34,7 +34,7 @@
   border-style: dashed;
 }
 .addImgText {
-  @apply w-[60%] text-[#6b6b6b] mt-[-60px] mx-auto text-center text-xs font-normal;
+  @apply w-[60%] text-gray mt-[-60px] mx-auto text-center text-xs font-normal;
 }
 .infoImg {
   @apply w-[60%] h-[135px] flex justify-center flex-col gap-[13px];
@@ -42,7 +42,7 @@
 .infoName,
 .infoTeacher,
 .infoMail {
-  @apply font-normal text-[#6b6b6b];
+  @apply font-normal text-gray;
 }
 .infoName {
   @apply text-xl;

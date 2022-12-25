@@ -5,7 +5,7 @@
   -webkit-backdrop-filter: blur(10px); */
 }
 .wkEventBox > p {
-  @apply text-[#6B6B6B] font-bold text-[9px];
+  @apply text-gray font-bold text-[9px];
 }
 tbody > tr:last-child > td {
   @apply border-b-0;

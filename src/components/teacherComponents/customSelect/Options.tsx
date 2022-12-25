@@ -1,30 +1,36 @@
-import React, { SetStateAction, useState } from "react";
+import React, { FC } from "react";
+import { ICustomSelect } from "../../../models/interfaces";
 import { Option } from "./Option";
 import { OptionInput } from "./OptionInput";
 
-interface OptionsProps {
-  toggleOptions: () => void;
-  options: string[];
-  isInput?: boolean;
-  setOptions?: React.Dispatch<SetStateAction<string[]>>;
-  regName?: string;
-}
+type OptionsProps = Pick<
+  ICustomSelect,
+  "toggleOptions" | "isMutable" | "regName" | "options"
+>;
 
-export const Options: React.FC<OptionsProps> = ({
+export const Options: FC<OptionsProps> = ({
   toggleOptions,
   options,
-  isInput,
-  setOptions,
+  isMutable,
   regName,
 }) => {
+  const removeOption = (currentId: number) => {
+    isMutable?.setOptions(options.filter((option, id) => id !== currentId));
+  };
   return (
     <div className="options">
       <div className="optionsContainer">
-        {options.map((option, id) => (
-          <Option key={id} {...{ option, toggleOptions, regName }} />
+        {options.map((option, optionId) => (
+          <Option
+            key={optionId}
+            {...{ option, toggleOptions, regName, optionId }}
+            removeOption={isMutable && removeOption}
+          />
         ))}
       </div>
-      {isInput && <OptionInput {...{ options, setOptions }} />}
+      {isMutable?.isInput && (
+        <OptionInput {...{ options }} setOptions={isMutable?.setOptions} />
+      )}
     </div>
   );
 };

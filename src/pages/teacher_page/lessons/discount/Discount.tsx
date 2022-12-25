@@ -7,6 +7,7 @@ import { CustomBtn } from "../../../../components/teacherComponents/customBtn/Cu
 export const Discount = () => {
   return (
     <div className="discount_mainCont">
+      <ModalDiscount />
       <LessonTitle title="Զեղչ և պրոմո" />
       <div className="discount_cont">
         <div className="discount">

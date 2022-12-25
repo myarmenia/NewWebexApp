@@ -33,11 +33,11 @@
   filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.1));
 }
 .symbol {
-  @apply font-normal text-5xl text-[#6b6b6b] text-left;
+  @apply font-normal text-5xl text-gray text-left;
 }
 
 .opinionText {
-  @apply font-normal text-base text-[#6b6b6b] italic text-left;
+  @apply font-normal text-base text-gray italic text-left;
 }
 /* swiper */
 .mySwiper-button-prev2,

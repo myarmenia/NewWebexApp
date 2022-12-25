@@ -14,7 +14,7 @@ export const FinishExam: React.FC<FinishExamProps> = ({ text, regName }) => {
   } = useFormContext();
   return (
     <div className="finishExam">
-      <span className="text-[#6B6B6B] text-xs">{text}</span>
+      <span className="text-gray text-xs">{text}</span>
       <div className="radioCont">
         <div className="radioBox">
           <input type="radio" {...register(regName)} value={"Այո"} />

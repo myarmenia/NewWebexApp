@@ -80,7 +80,7 @@ export const QuestionBox: React.FC<QuestionBoxProps> = ({
           type="button"
         >
           <img src={addVariantImg} alt="" />
-          <span className="text-[#6B6B6B] text-xs">ավելացնել տարբերակ</span>
+          <span className="text-gray text-xs">ավելացնել տարբերակ</span>
         </button>
       </div>
     </div>

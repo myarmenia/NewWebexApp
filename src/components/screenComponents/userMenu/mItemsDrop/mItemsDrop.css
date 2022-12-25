@@ -6,7 +6,7 @@
   -webkit-text-fill-color: #6b6b6b;
 }
 .subMenuSpan {
-  @apply text-xs font-semibold text-[#6B6B6B];
+  @apply text-xs font-semibold text-gray;
   color: #6b6b6b;
 }
 .arrowDownMenu {

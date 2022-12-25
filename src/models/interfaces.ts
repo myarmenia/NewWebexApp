@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from "react";
+
 export interface INavItem {
   children: string | React.ReactNode;
 }
@@ -5,6 +7,22 @@ export interface ISelect {
   title: string;
   options: string[];
 }
+export interface ICustomSelect {
+  option: string;
+  optionId: number;
+  options: string[];
+  setOptions?: Dispatch<SetStateAction<string[]>>;
+  toggleOptions: () => void;
+  className?: string;
+  regName?: string;
+  placeholder: string;
+  isMutable?: {
+    setOptions: Dispatch<SetStateAction<string[]>>;
+    isInput: boolean;
+  };
+  removeOption?: (currentId: number) => void;
+}
+
 export type INavItemsContent = string | ISelect;
 export interface FeatureBoxProps {
   divUrl: string;
@@ -24,6 +42,8 @@ export interface LessonProps {
   description?: string;
   price: string;
   video?: string;
+  to?: string;
+  studentsCount?: number;
 }
 export interface IteacherMenu {
   id?: number;

@@ -2,7 +2,7 @@
   @apply bg-[#ffffffd1] rounded-[10px] text-xs font-semibold h-8;
 }
 .theadTr > th {
-  @apply text-[#6B6B6B] relative text-start px-5 
+  @apply text-gray relative text-start px-5 
   first:rounded-l-[10px] first:before:hidden
   last:rounded-r-[10px];
 }

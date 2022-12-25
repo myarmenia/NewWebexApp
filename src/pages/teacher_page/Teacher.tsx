@@ -69,6 +69,7 @@ const router = createBrowserRouter(
             index
             element={
               <LesPage
+                isCourseActive={true}
                 stageCount={3}
                 stageLessons={12}
                 lessonTime={2}

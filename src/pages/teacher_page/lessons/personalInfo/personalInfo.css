@@ -1,8 +1,9 @@
+@tailwind components;
 .personalInfo {
   @apply w-full h-auto flex flex-col gap-[57px] pb-[20px];
 }
 .personalInfoChild {
-  @apply w-full flex h-auto gap-[140px] flex-wrap;
+  @apply w-full flex h-auto gap-[140px];
 }
 .infoChild {
   @apply h-auto flex flex-col gap-[20px];
@@ -14,6 +15,8 @@
   @apply w-[100%] h-auto flex;
 }
 .buttonSave button {
-  @apply w-[193px] h-[34px] rounded-[15px] font-semibold text-xs text-[#ffffff];
-  background: linear-gradient(90deg, #7764fb 0%, #f364f3 100%);
+  @apply bg-gradientPurple w-[193px] h-[34px] rounded-[15px];
+  font-weight: 600;
+  font-size: 12px;
+  color: #ffffff;
 }

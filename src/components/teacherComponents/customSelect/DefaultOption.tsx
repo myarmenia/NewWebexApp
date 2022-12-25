@@ -1,13 +1,14 @@
-import React from "react";
-import { useFormContext } from "react-hook-form";
+import React, { FC } from "react";
 import chevDown from "../../../assets/general_images/customSelectArrow.svg";
+import { useFormContext } from "react-hook-form";
+import { ICustomSelect } from "../../../models/interfaces";
 
-interface DefaultOptionProps {
-  toggleOptions: () => void;
-  regName?: string;
-  placeholder?: string;
-}
-export const DefaultOption: React.FC<DefaultOptionProps> = ({
+type DefaultOptionProps = Pick<
+  ICustomSelect,
+  "toggleOptions" | "regName" | "placeholder"
+>;
+
+export const DefaultOption: FC<DefaultOptionProps> = ({
   toggleOptions,
   regName,
   placeholder,
@@ -15,7 +16,7 @@ export const DefaultOption: React.FC<DefaultOptionProps> = ({
   const formMethods = useFormContext();
   return (
     <div className="defaultOption" onClick={() => toggleOptions()}>
-      <div className="flex text-[#6B6B6B] w-full text-xs">
+      <div className="flex text-gray w-full text-xs">
         <input
           type="text"
           placeholder={placeholder}

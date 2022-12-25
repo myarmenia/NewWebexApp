@@ -1,18 +1,18 @@
+@tailwind components;
 .weekSchedule {
   @apply w-full mb-3;
 }
-.weekSchedule_container {
-  @apply bg-[#F8EFFF] overflow-x-auto rounded-[15px];
-  box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.1);
-}
-.weekSchTable {
-  @apply w-full rounded-[15px];
-
-  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+@layer components {
+  .weekSchedule_container {
+    @apply shadow-light bg-[#F8EFFF] overflow-x-auto rounded-[15px];
+  }
+  .weekSchTable {
+    @apply shadow-light w-full rounded-[15px];
+  }
 }
 .weekSchTh,
 .weekSchTd {
-  @apply py-[9px] px-6 border border-[#BEBFE4] text-[#6B6B6B] relative
+  @apply py-[9px] px-6 border border-[#BEBFE4] text-gray relative
   last:border-r-0
   first:border-l-0 first:text-center;
 }

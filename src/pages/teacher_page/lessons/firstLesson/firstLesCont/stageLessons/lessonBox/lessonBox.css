@@ -14,7 +14,7 @@
   @apply flex flex-col justify-between gap-2;
 }
 .lessonBox_title {
-  @apply text-[#6B6B6B] text-sm leading-[19px] font-semibold;
+  @apply text-gray text-sm leading-[19px] font-semibold;
 }
 .lessonBox_homework {
   @apply font-semibold text-[#898BCE] text-xs cursor-pointer hover:text-[#c7b0ed];

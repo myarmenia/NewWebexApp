@@ -7,14 +7,20 @@ import { LesBoxProps } from "../userLesComponents/lesBox/LesBox";
 import { LesCases } from "./lesCases/LesCases";
 import { LesStages } from "./lesStages/LesStages";
 import { LoaderFunctionArgs, useLoaderData } from "react-router";
-import { ILessonLoaderData } from "../../../../../models/interfaces";
+import {
+  ILessonLoaderData,
+  LessonProps,
+} from "../../../../../models/interfaces";
 import { LesComments } from "./lesComments/LesComments";
 import { CustomBtn } from "../../../../../components/teacherComponents/customBtn/CustomBtn";
+import { LessonTitle } from "../../../../../components/screenComponents/lessonTitle/LessonTitle";
 
-interface LesPageProps extends LesBoxProps {
+export interface LesPageProps extends LessonProps {
   stageCount: number;
   stageLessons: number;
   lessonTime: 2;
+  studentsCount?: number;
+  isCourseActive: boolean;
 }
 
 export const LesPage: FC<LesPageProps> = ({
@@ -26,7 +32,7 @@ export const LesPage: FC<LesPageProps> = ({
   price,
 }) => {
   // ----- Loader data ------
-  const { obj, lessonsObj, paramsId } = useLoaderData() as ILessonLoaderData;
+  const { obj } = useLoaderData() as ILessonLoaderData;
   const { title, body } = obj;
 
   // const params = useParams();
@@ -35,24 +41,27 @@ export const LesPage: FC<LesPageProps> = ({
   // const { title, body } = currentObj;
 
   return (
-    <div className="lesPage">
-      <div className="lesPage_container">
-        <LesContainer>
-          <LesPTitle {...{ title }} />
-        </LesContainer>
-        <LesImageBox {...{ stageCount, stageLessons, lessonTime }} />
-        <LesContainer>
-          <LesCases
-            {...{ studentsCount, title, price, keys }}
-            description={body}
-          />
-          <LesStages />
-          <LesComments />
-          {/* or button */}
-          {/* <CustomBtn type="button" title="Հրապարակել" className="!mt-5" /> */}
-        </LesContainer>
+    <>
+      <LessonTitle title="Իմ դասընթացները" className="w-full justify-between" />
+      <div className="lesPage">
+        <div className="lesPage_container">
+          <LesContainer>
+            <LesPTitle {...{ title }} />
+          </LesContainer>
+          <LesImageBox {...{ stageCount, stageLessons, lessonTime }} />
+          <LesContainer>
+            <LesCases
+              {...{ studentsCount, title, price, keys }}
+              description={body}
+            />
+            <LesStages />
+            <LesComments />
+            {/* or button */}
+            {/* <CustomBtn type="button" title="Հրապարակել" className="!mt-5" /> */}
+          </LesContainer>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -4,6 +4,6 @@
 .lessonNumber {
   @apply text-base whitespace-nowrap;
 }
-.lessonTitle {
-  @apply cursor-pointer font-semibold text-base text-ellipsis whitespace-nowrap overflow-x-hidden hover:opacity-90;
+.stageLessonTitle {
+  @apply cursor-pointer font-semibold text-base text-ellipsis whitespace-nowrap overflow-x-hidden hover:opacity-95;
 }

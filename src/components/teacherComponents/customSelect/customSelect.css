@@ -1,24 +1,29 @@
+@tailwind components;
 .customSelect {
   @apply relative min-w-[143px] flex flex-col gap-1 w-full cursor-pointer;
 }
-.options {
-  @apply w-full absolute top-11 rounded-2xl bg-slate-50 overflow-hidden z-[2];
-  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+@layer components {
+  .options {
+    @apply shadow-light backdrop-blur-md bg-[rgba(255,255,255,0.4)] w-full absolute top-11 rounded-2xl overflow-hidden z-[2];
+  }
 }
 .optionsContainer {
   @apply max-h-[200px] overflow-y-auto bg-[#ffffff69];
-  backdrop-filter: blur(11px);
-  -webkit-backdrop-filter: blur(3px);
 }
 .defaultOption {
   @apply w-full flex gap-1 items-center border-[1px] border-white text-ellipsis overflow-hidden py-3 px-[17px] bg-white rounded-2xl;
-  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+  @apply shadow-light;
 }
 .myInput {
   @apply w-full border-none bg-inherit text-base placeholder:text-[#9C9C9C] placeholder:text-xs;
 }
 .custopSelect_option {
-  @apply hover:bg-slate-200 transition-all py-3 px-4 pb-2 text-ellipsis overflow-hidden mx-auto h-11 w-full text-[#9C9C9C] whitespace-nowrap cursor-pointer;
+  @apply flex justify-between items-center hover:bg-slate-200 
+  transition-all mx-auto h-11 w-full text-[#9C9C9C]
+  cursor-pointer overflow-y-hidden;
+}
+.custopSelect_option_text {
+  @apply py-3 px-4 w-full text-ellipsis overflow-hidden whitespace-nowrap;
 }
 .addCategoryInp {
   @apply w-full px-4 py-3 border-[#CCCCCC] border rounded-2xl outline-none h-10;
@@ -36,10 +41,7 @@
   .defaultOption {
     @apply border-none;
   }
-  .options {
-    /* @apply shadow-lg; */
-    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
-  }
+
   .custopSelect_option {
     @apply hover:bg-[#0085ff80] hover:text-white;
   }

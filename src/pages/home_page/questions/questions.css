@@ -12,11 +12,11 @@
 /*accordion  */
 .accordion {
   @apply w-[80%]  flex justify-center flex-wrap gap-[30px]  rounded-[30px];
-  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+  @apply shadow-light
   background: rgba(255, 255, 255, 0.4);
 }
 .accordionTitle {
-  @apply w-[90%] min-h-[70px] flex items-center  text-xl font-normal text-[#6b6b6b];
+  @apply w-[90%] min-h-[70px] flex items-center  text-xl font-normal text-gray;
 }
 .toggle {
   @apply w-[90%] h-auto flex justify-between items-center;
@@ -31,7 +31,7 @@
   @apply h-auto pb-[50px] transition-all duration-[600ms];
 }
 .text {
-  @apply w-[90%] h-auto font-normal text-base text-[#6b6b6b];
+  @apply w-[90%] h-auto font-normal text-base text-gray;
 }
 .accordionChild:has(.expand-btn:not(:checked)) .text {
   @apply hidden;

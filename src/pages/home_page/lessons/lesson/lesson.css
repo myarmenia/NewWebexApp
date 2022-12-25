@@ -7,7 +7,7 @@
   @apply w-full h-[162px];
 }
 .lessonTitle {
-  @apply font-bold text-lg text-[#6B6B6B] text-start whitespace-nowrap text-ellipsis overflow-x-hidden;
+  @apply font-bold text-lg text-gray text-start whitespace-nowrap text-ellipsis overflow-x-hidden;
 }
 .keys {
   @apply w-full flex gap-1 flex-wrap;
@@ -17,14 +17,13 @@
   background: linear-gradient(90deg, #ff4d8d 0%, #ff88b1 94.27%);
 }
 .lessonDescription {
-  @apply w-full text-[#6B6B6B] text-[12px] leading-[13px] text-start;
+  @apply w-full text-gray text-[12px] leading-[13px] text-start;
 }
 .lessonPrice {
-  @apply text-2xl text-[#6B6B6B] font-bold;
+  @apply text-2xl text-gray font-bold;
 }
 .seeMoreBtn {
-  @apply w-full rounded-2xl text-xs font-semibold text-white py-3 hover:-mt-[2px] hover:mb-[2px] duration-100 hover:shadow-[0px_10px_21px_#00000040];
-  background: linear-gradient(90deg, #7764fb 0%, #f364f3 100%);
+  @apply bg-gradientPurple w-full rounded-2xl text-xs font-semibold text-white py-3 hover:-mt-[2px] hover:mb-[2px] duration-100 hover:shadow-[0px_10px_21px_#00000040];
 }
 .seeMoreBtn:focus,
 .seeMoreBtn:active {

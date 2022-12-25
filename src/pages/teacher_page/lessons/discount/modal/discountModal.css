@@ -1,3 +1,4 @@
+@tailwind components;
 .modal {
   @apply z-10 w-full h-[100vh] top-0 left-0 fixed bg-[#090e249e];
 }
@@ -20,25 +21,26 @@
   @apply w-[40%] h-auto flex flex-col gap-[15px];
 }
 .modalInpTitle {
-  @apply font-semibold text-sm text-[#6b6b6b];
+  @apply font-semibold text-sm text-gray;
 }
 .modalInp {
   @apply flex h-[50px] gap-[20px];
 }
-.modal-inp1 {
-  @apply w-[217px] h-[40px] text-[#9c9c9c] rounded-[15px];
-  padding: 12px 12px 12px 10px;
-  background: rgba(255, 255, 255, 0.6);
-  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
-  font-weight: 400;
-  font-size: 12px;
+@layer components {
+  .modal-inp1 {
+    @apply shadow-light w-[217px] h-[40px] text-[#9c9c9c] rounded-[15px];
+    padding: 12px 12px 12px 10px;
+    background: rgba(255, 255, 255, 0.6);
+    font-weight: 400;
+    font-size: 12px;
+  }
 }
 .date {
   @apply flex gap-[7px] w-[250px] justify-center;
 }
 .dateInp {
   @apply w-[142px] h-[40px] rounded-[15px] text-[#cccccc] py-0 px-[8px] text-xs font-normal;
-  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+  @apply shadow-light;
 }
 .gic {
   @apply w-[10.89px] h-0 mt-[7%];
@@ -53,7 +55,7 @@
   border-radius: 3px;
 }
 .modalText {
-  @apply font-normal text-[10px] text-[#6b6b6b];
+  @apply font-normal text-[10px] text-gray;
 }
 .modalButton {
   @apply w-[50%] h-[100px] flex items-end gap-[15px];
@@ -63,7 +65,7 @@
   background: #898bce;
 }
 .modalButton :last-child {
-  background: linear-gradient(90deg, #7764fb 0%, #f364f3 100%);
+  @apply bg-gradientPurple;
   border-radius: 15px;
 }
 /* modalCard */

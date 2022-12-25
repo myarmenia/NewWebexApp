@@ -1,8 +1,8 @@
+@tailwind components;
 .panelContainer {
   @apply w-[220px] h-[190px] pt-[12px] px-[18px] bg-[#F8EFFF] rounded-[15px];
   box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.1);
 }
-
 .title {
   @apply w-full h-[25px] font-normal text-sm;
   letter-spacing: 0.01em;
@@ -44,8 +44,7 @@
   @apply w-[32px] h-[32px];
 }
 .number {
-  @apply text-[48px] font-semibold;
-  background: linear-gradient(90deg, #7764fb 0%, #f364f3 100%);
+  @apply bg-gradientPurple text-[48px] font-semibold;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

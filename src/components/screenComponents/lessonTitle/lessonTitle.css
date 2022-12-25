@@ -1,19 +1,20 @@
+@tailwind components;
 .newLessonTitle {
   @apply flex flex-col gap-4 items-start mb-[26px];
 }
-.lessonTitle {
-  @apply font-semibold text-base;
-  background: linear-gradient(90deg, #7764fb 0%, #f364f3 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+@layer components {
+  .lessonTitle {
+    @apply bg-gradientPurple font-semibold text-base;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .purpleUnderline {
+    @apply bg-gradientPurple scale-y-125 min-w-[151px] w-[14%] h-[1px] rounded absolute left-0 top-0 right-auto;
+  }
 }
 .underline {
   @apply bg-[#BEBFE4] w-full h-[1px] relative;
-}
-.purpleUnderline {
-  @apply scale-y-125 min-w-[151px] w-[14%] h-[1px] rounded absolute left-0 top-0 right-auto;
-  background: linear-gradient(90deg, #7764fb 0%, #f364f3 100%);
 }
 
 /* @media (max-width: 1060px) {

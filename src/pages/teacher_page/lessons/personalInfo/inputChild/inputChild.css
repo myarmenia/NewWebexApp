@@ -1,3 +1,4 @@
+@tailwind components;
 .inputChild {
   @apply h-auto flex flex-col gap-[20px];
 }
@@ -5,7 +6,7 @@
   @apply h-auto flex flex-col gap-[20px];
 }
 .infoName {
-  @apply font-semibold text-sm text-[#6b6b6b] mb-[20px];
+  @apply font-semibold text-sm text-gray mb-[20px];
 }
 .dateValidation {
   @apply w-full h-auto flex;
@@ -25,13 +26,18 @@
   color: #6b6b6b;
 }
 .clickText {
-  @apply font-normal text-[10px] text-[#6b6b6b];
+  @apply font-normal text-[10px] text-gray;
 }
-.name {
-  @apply box-border outline-none bg-white w-[100%] h-10 flex 
+@layer components {
+  .name {
+    @apply box-border outline-none bg-white w-[100%] h-10 flex 
     justify-center flex-col items-start pl-[15px] pr-5 gap-[10px] 
-    rounded-2xl font-normal text-xs;
-  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+    rounded-2xl font-normal text-xs shadow-light;
+  }
+  .dateInp,
+  .textarea {
+    @apply shadow-light text-xs;
+  }
 }
 .date {
   @apply flex gap-[7px] w-[250px] justify-center;
@@ -43,12 +49,7 @@
   @apply w-[10.89px] h-0 mt-[7%];
   border: 1px solid #cccccc;
 }
-.dateInp,
-.textarea {
-  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
-  font-weight: 400;
-  font-size: 12px;
-}
+
 .textarea {
   @apply h-[124px] rounded-[15px] text-[#cccccc] py-[12px] px-[17px];
   resize: none;
@@ -63,13 +64,13 @@
 }
 .addText,
 .donwloadFile {
-  @apply font-normal text-xs text-[#6b6b6b];
+  @apply font-normal text-xs text-gray;
 }
 .sertificat {
   @apply h-auto flex flex-col;
 }
 .sertificatChild {
-  @apply flex text-[#6b6b6b] text-sm font-semibold;
+  @apply flex text-gray text-sm font-semibold;
   font-weight: 600;
   font-size: 14px;
 }
@@ -77,7 +78,7 @@
   visibility: hidden;
 }
 .sertificatChild input::before {
-  @apply w-full h-full inline-block cursor-pointer   pb-[10%];
+  @apply w-full h-full inline-block cursor-pointer pb-[10%];
   content: "";
   background: url("../../../../../assets/teacher_images/personalInfo/download.svg")
     no-repeat;

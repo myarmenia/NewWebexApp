@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { IDateDay } from "../../models/interfaces";
+import { IDateDay } from "../../models/interfaces"; 
+
 
 const initialState = {
   currentDate: new Date() as Date,

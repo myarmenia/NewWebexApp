@@ -13,11 +13,9 @@ import { Autoplay, Navigation } from "swiper";
 export const LesComments: FC = () => {
   return (
     <div className="flex flex-col gap-2 self-center w-full mt-6">
-      <span className="text-sm font-semibold text-[#6B6B6B]">
-        Կարծիքներ (9)
-      </span>
+      <span className="text-sm font-semibold text-gray">Կարծիքներ (9)</span>
       <div className="lesPage_commentsContainer">
-        <div className="mySwiper-button-prev2 w-4 h-6 shrink-0">
+        <div className="mySwiper-button-prev2">
           <img src={chevron} alt="" />
         </div>
         <Swiper
@@ -51,7 +49,7 @@ export const LesComments: FC = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-        <div className="mySwiper-button-next2 w-4 h-6 shrink-0">
+        <div className="mySwiper-button-next2">
           <img src={chevron} alt="" className="rotate-180" />
         </div>
       </div>

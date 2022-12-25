@@ -1,11 +1,12 @@
+@tailwind components;
 #CalendarBody {
   @apply flex rounded-[15px] my-[15px] bg-[#F8EFFF];
   box-shadow: 0px 0px 6px #8080801a;
 }
-#CalendarBodyContainer {
-  @apply w-full h-full flex rounded-[15px];
-
-  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+@layer components {
+  #CalendarBodyContainer {
+    @apply shadow-light w-full h-full flex rounded-[15px];
+  }
 }
 .fullHR {
   @apply bg-[#BEBFE4] w-[2px];

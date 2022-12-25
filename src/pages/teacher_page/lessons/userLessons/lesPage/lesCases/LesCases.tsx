@@ -1,9 +1,13 @@
 import React, { FC } from "react";
 import "./lesCases.css";
 import "../../userLesComponents/lesBox/lesBox.css";
-import { LesBoxProps } from "../../userLesComponents/lesBox/LesBox";
 
-interface LesCasesProps extends LesBoxProps {}
+import starImg from "../../../../../../assets/teacher_images/userLessons/starImg.svg";
+
+import { LesPageProps } from "../LesPage";
+import { LessonProps } from "../../../../../../models/interfaces";
+
+interface LesCasesProps extends LessonProps {}
 
 export const LesCases: FC<LesCasesProps> = ({
   studentsCount,
@@ -16,7 +20,9 @@ export const LesCases: FC<LesCasesProps> = ({
       <span className="studentsCount">{studentsCount} ուսանող</span>
       <div className="flex justify-between items-center">
         <p className="lesBox_price !text-[36px]">{price} դրամ</p>
-        <span className="text-[32px]">6 &#9734;</span>
+        <span className="text-[32px] text-gray flex items-center gap-1">
+          6 <img src={starImg} className="w-7 h-7 shrink-0" alt="" />
+        </span>
       </div>
       <div className="keys">
         {keys.map((key, index) => (

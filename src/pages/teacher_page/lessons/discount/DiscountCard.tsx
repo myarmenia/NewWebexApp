@@ -8,14 +8,8 @@ interface DiscountCardProps {
 }
 export const DiscountCard: React.FC<DiscountCardProps> = ({ isActive }) => {
   const [modalActive, setIsModalActive] = useState(false);
-  const modalActiveClick = () => {
-    setIsModalActive(!modalActive);
-  };
   return (
     <>
-      {modalActive ? (
-        <ModalDiscount modalActiveClick={modalActiveClick} />
-      ) : null}
       <div className="discountCard">
         <div className="discountCardChild">
           <img src={isActive ? discount : promo} />
@@ -34,7 +28,7 @@ export const DiscountCard: React.FC<DiscountCardProps> = ({ isActive }) => {
               ? "Ներգրավեք ավելի շատ ուսանողներ։"
               : "Գուցե ուսանողները ցակնական սովորել հենց ձեզ մոտ։"}
           </div>
-          <button className="discountButton" onClick={modalActiveClick}>
+          <button className="discountButton" onClick={() => {}}>
             Միացնել
           </button>
         </div>
