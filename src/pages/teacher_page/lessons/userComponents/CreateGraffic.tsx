@@ -2,7 +2,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import React from "react";
 import { useForm, FormProvider, useFieldArray } from "react-hook-form";
 import "./createGraffic.css";
-import InputTime from "./InputTime";
+import { InputTime } from "./InputTime";
 import * as Yup from "yup";
 import { isErrored } from "stream";
 import { format } from "path";
@@ -77,6 +77,7 @@ const CreateGraffic: React.FC = () => {
     control,
     name: "sunday",
   });
+
   const onSubmit = (data: UserSubmitForm2) => console.log(data, "data");
   return (
     <FormProvider {...methods}>
