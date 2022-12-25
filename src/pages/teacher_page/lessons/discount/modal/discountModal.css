@@ -26,20 +26,21 @@
 .modalInp {
   @apply flex h-[50px] gap-[20px];
 }
-.modal-inp1 {
-  @apply w-[217px] h-[40px] text-[#9c9c9c] rounded-[15px];
-  padding: 12px 12px 12px 10px;
-  background: rgba(255, 255, 255, 0.6);
-  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
-  font-weight: 400;
-  font-size: 12px;
+@layer components {
+  .modal-inp1 {
+    @apply shadow-light w-[217px] h-[40px] text-[#9c9c9c] rounded-[15px];
+    padding: 12px 12px 12px 10px;
+    background: rgba(255, 255, 255, 0.6);
+    font-weight: 400;
+    font-size: 12px;
+  }
 }
 .date {
   @apply flex gap-[7px] w-[250px] justify-center;
 }
 .dateInp {
   @apply w-[142px] h-[40px] rounded-[15px] text-[#cccccc] py-0 px-[8px] text-xs font-normal;
-  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+  @apply shadow-light;
 }
 .gic {
   @apply w-[10.89px] h-0 mt-[7%];

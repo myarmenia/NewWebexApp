@@ -13,6 +13,7 @@ import {
 } from "../../../../../models/interfaces";
 import { LesComments } from "./lesComments/LesComments";
 import { CustomBtn } from "../../../../../components/teacherComponents/customBtn/CustomBtn";
+import { LessonTitle } from "../../../../../components/screenComponents/lessonTitle/LessonTitle";
 
 export interface LesPageProps extends LessonProps {
   stageCount: number;
@@ -40,24 +41,27 @@ export const LesPage: FC<LesPageProps> = ({
   // const { title, body } = currentObj;
 
   return (
-    <div className="lesPage">
-      <div className="lesPage_container">
-        <LesContainer>
-          <LesPTitle {...{ title }} />
-        </LesContainer>
-        <LesImageBox {...{ stageCount, stageLessons, lessonTime }} />
-        <LesContainer>
-          <LesCases
-            {...{ studentsCount, title, price, keys }}
-            description={body}
-          />
-          <LesStages />
-          <LesComments />
-          {/* or button */}
-          {/* <CustomBtn type="button" title="Հրապարակել" className="!mt-5" /> */}
-        </LesContainer>
+    <>
+      <LessonTitle title="Իմ դասընթացները" className="w-full justify-between" />
+      <div className="lesPage">
+        <div className="lesPage_container">
+          <LesContainer>
+            <LesPTitle {...{ title }} />
+          </LesContainer>
+          <LesImageBox {...{ stageCount, stageLessons, lessonTime }} />
+          <LesContainer>
+            <LesCases
+              {...{ studentsCount, title, price, keys }}
+              description={body}
+            />
+            <LesStages />
+            <LesComments />
+            {/* or button */}
+            {/* <CustomBtn type="button" title="Հրապարակել" className="!mt-5" /> */}
+          </LesContainer>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

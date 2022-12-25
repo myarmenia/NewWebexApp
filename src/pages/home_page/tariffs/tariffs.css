@@ -72,7 +72,7 @@ input:checked + .slider:before {
   @apply w-[20%] h-[auto] flex flex-col justify-between  px-[29px] py-[41px] rounded-[30px];
   box-sizing: border-box;
   background: rgba(255, 255, 255, 0.4);
-  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+  @apply shadow-light
   border-radius: 30px;
 }
 .card-header {

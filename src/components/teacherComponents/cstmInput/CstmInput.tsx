@@ -18,23 +18,22 @@ export const CstmInput: React.FC<CstmInputProps> = ({
   error,
   defaultValue,
 }) => {
-  const {
-    register,
-    formState: { errors },
-  } = useFormContext();
-  const RealName = regName ? register(regName) : null;
+  const formMethods = useFormContext();
+  const RealName = regName ? formMethods?.register(regName) : null;
 
   const errorMessage = useMemo(() => {
     if (error) {
       return <p className="errorMessage">{error}</p>;
     } else if (regName) {
       return (
-        <p className="errorMessage">{errors[regName]?.message!.toString()}</p>
+        <p className="errorMessage">
+          {formMethods?.formState?.errors[regName]?.message!.toString()}
+        </p>
       );
     } else {
       return;
     }
-  }, [error, errors]);
+  }, [error, formMethods?.formState?.errors]);
   return (
     <div className="flex flex-col relative w-full">
       <input

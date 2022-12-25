@@ -25,8 +25,11 @@ export const Lessons: FC = () => {
       <div>
         <LessonTitle
           title="Չհրապարակված դասընթացներ"
-          isAddLessonBtn={true}
           className="w-full justify-between"
+          linkForBtn={{
+            to: "/new_lesson",
+            title: "+ Ավելացնել դասընթաց"
+          }}
         />
         {lessonsArr.length ? (
           <div className="userLessonsSection_unpublished">
