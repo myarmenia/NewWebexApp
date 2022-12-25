@@ -4,7 +4,6 @@ import fillBalanceImg from "../../../../../../assets/teacher_images/exam/Group 1
 import editPenImg from "../../../../../../assets/teacher_images/userLessons/editGray.svg";
 import { AttachedCard } from "../attachedCard/AttachedCard";
 import { WalTbody } from "../walTbody/WalTbody";
-import { WalThead } from "../walThead/WalThead";
 import { FormProvider, useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";

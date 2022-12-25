@@ -18,7 +18,12 @@
   @apply w-full border-none bg-inherit text-base placeholder:text-[#9C9C9C] placeholder:text-xs;
 }
 .custopSelect_option {
-  @apply hover:bg-slate-200 transition-all py-3 px-4 pb-2 text-ellipsis overflow-hidden mx-auto h-11 w-full text-[#9C9C9C] whitespace-nowrap cursor-pointer;
+  @apply flex justify-between items-center hover:bg-slate-200 
+  transition-all mx-auto h-11 w-full text-[#9C9C9C]
+  cursor-pointer overflow-y-hidden;
+}
+.custopSelect_option_text {
+  @apply py-3 px-4 w-full text-ellipsis overflow-hidden whitespace-nowrap;
 }
 .addCategoryInp {
   @apply w-full px-4 py-3 border-[#CCCCCC] border rounded-2xl outline-none h-10;
