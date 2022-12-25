@@ -6,6 +6,7 @@ import {
   FieldErrorsImpl,
   UseFieldArrayReturn,
   useFormContext,
+  useFieldArray,
 } from "react-hook-form";
 import { UserSubmitForm2 } from "./CreateGraffic";
 
@@ -31,27 +32,21 @@ export interface IErrorsForm {
   sunday?: YupProps[];
 }
 
-const InputTime: React.FC<InputProps> = ({
+export const InputTime: React.FC<InputProps> = ({
   day,
   placholder,
   fieldArray,
   regName,
   count,
 }) => {
+  type ISome = typeof regName;
+
   const {
     register,
     watch,
-
     formState: { errors },
   } = useFormContext();
-  // {Array.isArray(watch(regName)) ? (
-  //                 <div className="errorMessage">
-  //                   {/* {errors.regName[index]?.end?.message ||
-  //                     errors.regName[index]?.start?.message} */}
-  //                 </div>
-  //               ) : null}
-  // console.log(watch());
-  // console.log(fieldArray.remove());
+
   return (
     <div className="graffics">
       <p className="grafficsDay">{day}</p>
@@ -116,4 +111,4 @@ const InputTime: React.FC<InputProps> = ({
   );
 };
 
-export default InputTime;
+// export default InputTime;

@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect, useMemo, useState } from "react";
 import "./lesComments.css";
 import chevron from "../../../../../../assets/home_images/lessons/leftChevron.svg";
 
@@ -11,6 +11,10 @@ import "swiper/css/navigation";
 import { Autoplay, Navigation } from "swiper";
 
 export const LesComments: FC = () => {
+  const slidesPerView = useMemo<number>(
+    () => (window.innerWidth <= 600 ? 1 : window.innerWidth <= 800 ? 2 : 3),
+    []
+  );
   return (
     <div className="flex flex-col gap-2 self-center w-full mt-6">
       <span className="text-sm font-semibold text-gray">Կարծիքներ (9)</span>
@@ -19,7 +23,7 @@ export const LesComments: FC = () => {
           <img src={chevron} alt="" />
         </div>
         <Swiper
-          slidesPerView={3}
+          slidesPerView={slidesPerView}
           spaceBetween={0}
           slidesPerGroup={1}
           loop={true}
@@ -28,7 +32,7 @@ export const LesComments: FC = () => {
             clickable: true,
           }}
           autoplay={{
-            delay: 10000,
+            delay: 20000,
             disableOnInteraction: false,
           }}
           navigation={{
@@ -50,7 +54,7 @@ export const LesComments: FC = () => {
           ))}
         </Swiper>
         <div className="mySwiper-button-next2">
-          <img src={chevron} alt="" className="rotate-180" />
+          <img src={chevron} alt="" className="mySwiper-button-next2 rotate-180" />
         </div>
       </div>
     </div>
