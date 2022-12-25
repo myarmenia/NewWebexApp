@@ -7,12 +7,22 @@
 .addImgInp {
   @apply w-[144.47px] h-[144.47px] rounded-[3px] px-[3.74px] py-[3.74px];
   border: 1px solid #bebfe4;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
-.imgDownload::-webkit-file-upload-button {
+/* .imgDownload::-webkit-file-upload-button {
   visibility: hidden;
 }
+::-webkit-file-upload-button {
+  visibility: hidden;
+} */
 .imgDownload {
   @apply w-full h-full;
+  font-size: 0;
+}
+.imgDownload2 {
+  @apply w-full h-full;
+  font-size: 0;
 }
 .imgDownload::before {
   @apply w-full h-full inline-block cursor-pointer rounded-[3px]  pb-[10%];

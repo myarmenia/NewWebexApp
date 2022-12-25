@@ -23,6 +23,9 @@ import {
   // feedback_studentsLoader,
 } from "./lessons/feedback/Feedback";
 
+
+
+
 // lessons for user
 import { extItems, UserLessons } from "./lessons/userLessons/UserLessons";
 import {
@@ -49,11 +52,15 @@ import { Loyaut } from "./loyaut/Loyaut";
 import { LesTask } from "./lessons/feedback/feedbackComponents/mesContent/lesTask/LesTask";
 import { MesHomeWork } from "./lessons/feedback/feedbackComponents/mesContent/mesHomeWork/MesHomeWork";
 import { MesMessages } from "./lessons/feedback/feedbackComponents/mesContent/mesMessages/MesMessages";
+import { useDispatch, useSelector } from "react-redux";
+import StudentLessons from "../student_page/studentLessons/StudentLessons";
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Loyaut />}>
       {/* <Route index element={<Exam />} /> */}
-      <Route index element={<AddLesson />} />
+      <Route index element={<StudentLessons />} />
+      {/* <Route index element={<AddLesson />} /> */}
       <Route path="new_lesson/*">
         <Route index element={<NewLesson />} />
         <Route path="lesson_graffic/*" element={<FirstLesson />} />

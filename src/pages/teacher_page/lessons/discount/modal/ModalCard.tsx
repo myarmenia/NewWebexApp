@@ -13,7 +13,7 @@ const ModalCard: FC = () => {
       </div>
       <div className="secondCardSection">
         <div>65 000դրամ</div>
-        <button>
+        <button type="button">
           <img src={deleteImg} />
         </button>
       </div>

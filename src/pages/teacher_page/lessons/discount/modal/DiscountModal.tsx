@@ -10,19 +10,37 @@ import { CustomSelect } from "../../../../../components/teacherComponents/custom
 
 // Yup
 export const discountModal = Yup.object().shape({
+  price: Yup.string().required(),
   select: Yup.string().default("Տեսակ"),
   titleSelect: Yup.string().default("title"),
+  date: Yup.object()
+    .shape({
+      start: Yup.date()
+
+        .max(new Date(), "Future date not allowed")
+        .typeError("Invalid Started date"),
+      end: Yup.date().when(
+        "start",
+        (start, Yup) =>
+          start && Yup.min(start, "End time cannot be before start time")
+      ),
+    })
+    .typeError("Invalid Ended date"),
+  timeCheck: Yup.bool().oneOf([true], "Պայմաններ ընդունելը  պարտադիր է"),
 });
 interface IDiscountModal {
+  price: string;
   select: string;
   titleSelect: string;
+  date: { start: Date | string; end: Date | string };
+  timeCheck: boolean;
 }
 
 export const ModalDiscount: FC = () => {
   const methods = useForm<IDiscountModal>({
     resolver: yupResolver(discountModal),
   });
-  const { handleSubmit } = methods;
+  const { handleSubmit, register } = methods;
 
   const onSubmit = (data: IDiscountModal) => {
     console.log(data);
@@ -39,7 +57,11 @@ export const ModalDiscount: FC = () => {
             <div className="modalInputChild">
               <div className="modalInpTitle">Զեղչի քանակ</div>
               <div className="modalInp">
-                <input className="modal-inp1" placeholder="Արժեք" />
+                <input
+                  className="modal-inp1"
+                  placeholder="Արժեք"
+                  {...register("price")}
+                />
                 <CustomSelect
                   placeholder="Տեսակ"
                   regName="select"
@@ -63,12 +85,24 @@ export const ModalDiscount: FC = () => {
             <div className="modalInputChild2">
               <div className="modalInpTitle">Ժամանակահատված</div>
               <div className="date">
-                <input type="date" className="dateInp" />
+                <input
+                  type="date"
+                  className="dateInp"
+                  {...register("date.start", { value: new Date() })}
+                />
                 <div className="gic"></div>
-                <input type="date" className="dateInp" />
+                <input
+                  type="date"
+                  className="dateInp"
+                  {...register("date.end", { value: new Date() })}
+                />
               </div>
               <div className="modalCheckbox">
-                <input type="checkbox" className="modalCheck" />
+                <input
+                  type="checkbox"
+                  className="modalCheck"
+                  {...register("timeCheck")}
+                />
                 <div className="checkboxText">Անժամկետ</div>
               </div>
             </div>
@@ -81,7 +115,7 @@ export const ModalDiscount: FC = () => {
           </div>
 
           <div className="modalButton">
-            <button>Չեղարկել</button>
+            <button onClick={modalActiveClick}>Չեղարկել</button>
             <button>Հաստատել</button>
           </div>
         </form>
