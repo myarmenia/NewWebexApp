@@ -82,7 +82,7 @@ const PersonalInfo = () => {
       <LessonTitle title="Անձնական տվյալներ" />
       <FormProvider {...methods}>
         <form className="personalInfo" onSubmit={handleSubmit(onSubmit)}>
-          <AddImg />
+          {/* <AddImg /> */}
           <div className="personalInfoChild">
             <div className="inputChild">
               <div className="inputChild2">
@@ -116,6 +116,7 @@ const PersonalInfo = () => {
                 regName="workattempt"
                 fieldArray={workattempt}
               />
+              <CustomBtn type="button" title="adsfs" className="h-[34px]" />
             </div>
             <div className="inputChild2">
               <Inp3

@@ -51,6 +51,8 @@ import { StageLesPage } from "../pages/teacher_page/lessons/userLessons/stageLes
 import { StudentData } from "../pages/student_page/student_sections/studentData/StudentData";
 import { StudentLoyaut } from "../pages/student_page/student_loyaut/StudentLoyaut";
 import HelpCenter from "../pages/student_page/help_center/HelpCenter";
+import { StdLessons } from "../pages/student_page/student_sections/studentLessons/stdLessons/StdLessons";
+import { StdLesPage } from "../pages/student_page/student_sections/studentLessons/stdLesson/StdLesPage";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -152,6 +154,55 @@ export const router = createBrowserRouter(
         <Route path="perosnal_info" element={<StudentData />} />
         <Route path="my_lesson" element={<StudentLessons />} />
         <Route path="help_center" element={<HelpCenter />} />
+        <Route path="my_lesson" element={<StudentLessons />}>
+          <Route index element={<StdLessons />} />
+          <Route
+            path="student_courses"
+            element={
+              <StdLesPage
+                title="Գրաֆիկ դիզայնի դասընթաց սկսնակների համար"
+                isCourseActive={true}
+                stageCount={3}
+                stageLessons={12}
+                lessonTime={2}
+                studentsCount={3}
+                keys={[
+                  "Արվեստ և դիզայն",
+                  "Սկսնակների համար",
+                  "Հավաստագիր",
+                  "16+",
+                ]}
+                price="65 000"
+              />
+            }
+            loader={lessonPageLoader}
+          />
+        </Route>
+        <Route path="feedback">
+          <Route
+            path="student/:stdId"
+            element={<Feedback />}
+            loader={feedback_studentsLoader}
+          >
+            <Route path="lesson/:id" loader={feedbackLessonLoader}>
+              <Route
+                path="task"
+                element={<LesTask />}
+                loader={feedbackLessonLoader}
+              />
+              <Route
+                path="homework"
+                element={<MesHomeWork />}
+                loader={feedbackLessonLoader}
+              />
+              <Route
+                path="chat"
+                element={<MesMessages />}
+                loader={feedbackLessonLoader}
+              />
+            </Route>
+          </Route>
+        </Route>
       </Route>
     </Route>
   )

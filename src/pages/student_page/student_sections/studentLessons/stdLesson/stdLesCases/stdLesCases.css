@@ -1,0 +1,13 @@
+.lesCases {
+  @apply flex flex-col gap-6;
+}
+.stdLesPage_progress_bar {
+  @apply relative h-6 bg-[#D9D9D9] overflow-hidden rounded-[30px] mb-5;
+}
+.stdLesPage_progress {
+  @apply absolute left-0 top-0 h-full bg-[#898BCE] w-[70%];
+}
+.stdLesPage_progress_percent {
+  @apply absolute left-1/2 top-1/2 text-2xl text-white;
+  transform: translate(-50%, -50%);
+}

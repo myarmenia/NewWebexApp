@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { LessonProps } from "../../../../models/interfaces";
+import { LessonProps } from "../../../../../models/interfaces";
 import editImg from "../../../images/Teacher/UserLessons/editGray.svg";
-import { CustomBtn } from "../../../../components/teacherComponents/customBtn/CustomBtn";
+import { CustomBtn } from "../../../../../components/teacherComponents/customBtn/CustomBtn";
 export interface LesBoxProps extends LessonProps {
   studentsCount: number;
   id?: number;
@@ -48,7 +48,7 @@ const StudentLesCard: React.FC<LesBoxProps> = ({
         </span>
       </div>
       <div className="student-btnSection">
-        <Link to={`stage/${id}`}>
+        <Link to={"student_courses"}>
           <CustomBtn
             type="button"
             title="Ավելին"
