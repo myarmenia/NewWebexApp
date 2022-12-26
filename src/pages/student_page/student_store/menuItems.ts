@@ -61,7 +61,7 @@ export const menuItems: IteacherMenu[] = [
     img: starImg,
     activeImg: activeImg4,
     title: "Ընտրանի",
-    to: "students",
+    to: "choosed_lessons",
   },
   {
     id: Math.random(),

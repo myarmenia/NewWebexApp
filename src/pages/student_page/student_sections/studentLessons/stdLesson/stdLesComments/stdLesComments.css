@@ -1,0 +1,4 @@
+.mySwiper-button-prev2,
+.mySwiper-button-next2 {
+  @apply w-4 h-6 shrink-0 cursor-pointer;
+}

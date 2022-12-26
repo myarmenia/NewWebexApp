@@ -1,20 +1,24 @@
 import React, { FC, useState, MouseEvent } from "react";
-import "./stageBox.css";
+import "./stdStageBox.css";
 import plusImg from "../../../../../../assets/teacher_images/userLessons/plusImg.svg";
 import minusImg from "../../../../../../assets/teacher_images/userLessons/minusImg.svg";
-import { StageLesson } from "../stageLesson/StageLesson";
+import { StageLesson } from "../../../../../../pages/teacher_page/lessons/userLessons/userLesComponents/stageLesson/StageLesson";
 import {
   ILessonLoaderData,
   IStageLesson,
 } from "../../../../../../models/interfaces";
 import { useLoaderData } from "react-router";
+import { StdStageLesson } from "./stdStageLesson/StdStageLesson";
 
 export interface StageBoxProps {
   stageNumber?: number;
   stageLessons: IStageLesson[];
 }
 
-export const StageBox: FC<StageBoxProps> = ({ stageNumber, stageLessons }) => {
+export const StdStageBox: FC<StageBoxProps> = ({
+  stageNumber,
+  stageLessons,
+}) => {
   const { lessonsObj } = useLoaderData() as ILessonLoaderData;
 
   // const { lessonsArr } = useSelector(lessonsSelectorFN);
@@ -43,7 +47,12 @@ export const StageBox: FC<StageBoxProps> = ({ stageNumber, stageLessons }) => {
       <div className="stageLessons" style={animLessons}>
         <hr className="w-full bg-[#CCCCCC] h-[1px] mt-5" />
         {lessonsObj.map(({ title, body, id }, i) => (
-          <StageLesson title={body} lessonNumber={id} key={Math.random()} />
+          <StdStageLesson
+            title={body}
+            lessonNumber={id}
+            key={Math.random()}
+            isLessonCompleted={i < 7}
+          />
         ))}
       </div>
     </div>
