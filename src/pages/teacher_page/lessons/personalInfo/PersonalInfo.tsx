@@ -13,6 +13,8 @@ import Sertificat from "./inputChild/Sertificat";
 import { LessonTitle } from "../../../../components/screenComponents/lessonTitle/LessonTitle";
 import AddImg from "../../../../components/teacherComponents/sherid/addImg/AddImg";
 import { CstmTextarea } from "../../../../components/teacherComponents/cstmTextarea/CstmTextarea";
+import { CstmInput } from "../../../../components/teacherComponents/cstmInput/CstmInput";
+import { CustomBtn } from "../../../../components/teacherComponents/customBtn/CustomBtn";
 
 const PersonalInfo = () => {
   const methods = useForm<PersonalSubmitForm>({
@@ -97,6 +99,7 @@ const PersonalInfo = () => {
                 regName="workattempt"
                 fieldArray={workattempt}
               />
+              <CustomBtn type="button" title="adsfs" className="h-[34px]" />
             </div>
             <div className="inputChild2">
               <Inp3
