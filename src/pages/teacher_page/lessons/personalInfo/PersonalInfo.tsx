@@ -18,10 +18,6 @@ const PersonalInfo = () => {
   const methods = useForm<PersonalSubmitForm>({
     resolver: yupResolver(personalInfoValidation),
     defaultValues: {
-      img: "",
-      adress: "",
-      tel: "",
-      aboutme: "",
       workattempt: [
         {
           select: "",
@@ -53,7 +49,6 @@ const PersonalInfo = () => {
           end: "",
         },
       ],
-      sertificat: "",
     },
   });
   const { handleSubmit, control, register, watch } = methods;
@@ -75,6 +70,7 @@ const PersonalInfo = () => {
   });
   const onSubmit = (data: PersonalSubmitForm) => {
     console.log(data);
+    console.log("barev");
   };
 
   return (
@@ -82,25 +78,15 @@ const PersonalInfo = () => {
       <LessonTitle title="Անձնական տվյալներ" />
       <FormProvider {...methods}>
         <form className="personalInfo" onSubmit={handleSubmit(onSubmit)}>
-          {/* <AddImg /> */}
+          <AddImg />
           <div className="personalInfoChild">
             <div className="inputChild">
               <div className="inputChild2">
                 <div className="font-semibold text-gray text-sm">
                   Անձնական տվյալներ
                 </div>
-                <CstmInput
-                  type="text"
-                  className="name"
-                  placeholder="Հասցե"
-                  regName="adress"
-                />
-                <CstmInput
-                  type="text"
-                  className="name"
-                  placeholder="Հեռախոս"
-                  regName="tel"
-                />
+                <CstmInput type="text" placeholder="Հասցե" regName="adress" />
+                <CstmInput type="text" placeholder="Հեռախոս" regName="tel" />
               </div>
               <div className="flex flex-col gap-3">
                 <p className="font-semibold text-gray text-sm">Իմ մասին</p>
@@ -116,7 +102,6 @@ const PersonalInfo = () => {
                 regName="workattempt"
                 fieldArray={workattempt}
               />
-              <CustomBtn type="button" title="adsfs" className="h-[34px]" />
             </div>
             <div className="inputChild2">
               <Inp3

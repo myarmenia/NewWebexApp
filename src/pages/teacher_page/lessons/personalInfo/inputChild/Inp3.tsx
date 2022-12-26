@@ -77,6 +77,7 @@ export const Inp3: React.FC<inputChildProps> = ({
       <div className="buttonContainer">
         <button
           className="add"
+          type="button"
           onClick={() => {
             fieldArray.append({
               select2: "",

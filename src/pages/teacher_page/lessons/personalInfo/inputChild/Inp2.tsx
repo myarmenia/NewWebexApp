@@ -24,7 +24,7 @@ export const Inp2: React.FC<inputChildProps> = ({
           <div className="inputChild2" key={id}>
             <input
               type="text"
-              className="name "
+              className="name"
               placeholder="Կազմակերպություն"
               {...register(`${regName}.${index}.company`)}
             />
