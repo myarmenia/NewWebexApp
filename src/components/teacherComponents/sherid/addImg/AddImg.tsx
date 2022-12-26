@@ -13,6 +13,7 @@ const AddImg: React.FC = () => {
     watch,
     formState: { errors },
   } = useFormContext();
+  // console.log(errors);
   return (
     <div className="addImgCustom">
       <div className="addImgChild">

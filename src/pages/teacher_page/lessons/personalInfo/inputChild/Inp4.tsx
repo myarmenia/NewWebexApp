@@ -12,7 +12,7 @@ const Inp4: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
 
   return (
     <div className="inputChild">
-      <div className="infoName">Լեզուներ</div>
+      <div className="font-semibold text-gray text-sm">Լեզուներ</div>
       {fieldArray.fields.map(({ id }, index) => {
         return (
           <div className="inputChild2" key={id}>
@@ -26,7 +26,7 @@ const Inp4: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
         );
       })}
       <div className="buttonContainer">
-        <button className="add">
+        <button className="add" type="button">
           <img
             src={buttonImg}
             onClick={() => {

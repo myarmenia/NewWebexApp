@@ -8,7 +8,7 @@ const Sertificat = () => {
   } = useFormContext();
   return (
     <div className="sertificat">
-      <div className="infoName">Սերտիֆիկատ</div>
+      <div className="font-semibold text-gray text-sm">Սերտիֆիկատ</div>
       <div className="sertificatChild">
         <input type="file" className="file" {...register(`sertificat`)} />
         <div className="donwloadFile">Բեռնել ֆայլը</div>

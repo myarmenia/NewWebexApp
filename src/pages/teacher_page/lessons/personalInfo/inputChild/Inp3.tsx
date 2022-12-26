@@ -19,7 +19,7 @@ export const Inp3: React.FC<inputChildProps> = ({
 
   return (
     <div className="inputChild">
-      <div className="infoName">Կրթություն</div>
+      <div className="font-semibold text-gray text-sm">Կրթություն</div>
       {fieldArray.fields.map(({ id }, index) => {
         return (
           <div className="inputChild2" key={id}>
