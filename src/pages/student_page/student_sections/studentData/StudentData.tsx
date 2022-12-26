@@ -8,10 +8,10 @@ import {
   UseFieldArrayReturn,
   useForm,
 } from "react-hook-form";
-import buttonImg from "../../../images/createGraffic/buttonimg.svg";
+import buttonImg from "../../../../assets/teacher_images/createGraffic/buttonimg.svg";
 import "./studentData.css";
-import { LessonTitle } from "../../../components/screenComponents/lessonTitle/LessonTitle";
-import AddImg from "../../../components/teacherComponents/sherid/addImg/AddImg";
+import { LessonTitle } from "../../../../components/screenComponents/lessonTitle/LessonTitle";
+import AddImg from "../../../../components/teacherComponents/sherid/addImg/AddImg";
 interface ILanguageProps {
   name: string;
 }

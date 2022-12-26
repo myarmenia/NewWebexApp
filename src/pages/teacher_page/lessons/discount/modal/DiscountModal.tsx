@@ -115,7 +115,7 @@ export const ModalDiscount: FC = () => {
           </div>
 
           <div className="modalButton">
-            <button onClick={modalActiveClick}>Չեղարկել</button>
+            <button>Չեղարկել</button>
             <button>Հաստատել</button>
           </div>
         </form>
