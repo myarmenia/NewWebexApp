@@ -1,28 +1,27 @@
-import React from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useForm, FormProvider, useFieldArray } from "react-hook-form";
+import { FormProvider, useFieldArray, useForm } from "react-hook-form";
 // import { InputChild } from "./inputChild/InputChild";
-import { PersonalSubmitForm, validationSchema } from "./InterfacePerson";
-import "./personalInfo.css";
-import Inp from "./inputChild/Inp";
+import { LessonTitle } from "../../../../components/screenComponents/lessonTitle/LessonTitle";
+import { CstmInput } from "../../../../components/teacherComponents/cstmInput/CstmInput";
+import { CstmTextarea } from "../../../../components/teacherComponents/cstmTextarea/CstmTextarea";
+import { CustomBtn } from "../../../../components/teacherComponents/customBtn/CustomBtn";
+import AddImg from "../../../../components/teacherComponents/sherid/addImg/AddImg";
 import { Inp2 } from "./inputChild/Inp2";
 import { Inp3 } from "./inputChild/Inp3";
 import Inp4 from "./inputChild/Inp4";
 import Inp5 from "./inputChild/Inp5";
 import Sertificat from "./inputChild/Sertificat";
-import { LessonTitle } from "../../../../components/screenComponents/lessonTitle/LessonTitle";
-import AddImg from "../../../../components/teacherComponents/sherid/addImg/AddImg";
-import { CstmTextarea } from "../../../../components/teacherComponents/cstmTextarea/CstmTextarea";
-import { CstmInput } from "../../../../components/teacherComponents/cstmInput/CstmInput";
-import { CustomBtn } from "../../../../components/teacherComponents/customBtn/CustomBtn";
+import { personalInfoValidation, PersonalSubmitForm } from "./InterfacePerson";
+import "./personalInfo.css";
 
 const PersonalInfo = () => {
   const methods = useForm<PersonalSubmitForm>({
-    resolver: yupResolver(validationSchema),
+    resolver: yupResolver(personalInfoValidation),
     defaultValues: {
       img: "",
       adress: "",
       tel: "",
+      aboutme: "",
       workattempt: [
         {
           select: "",
@@ -74,24 +73,42 @@ const PersonalInfo = () => {
     control,
     name: "additionaledu",
   });
-
   const onSubmit = (data: PersonalSubmitForm) => {
-    console.log(data, "data");
-    console.log(watch());
+    console.log(data);
   };
-  console.log(watch());
+
   return (
     <>
       <LessonTitle title="Անձնական տվյալներ" />
       <FormProvider {...methods}>
         <form className="personalInfo" onSubmit={handleSubmit(onSubmit)}>
-          <AddImg />
+          {/* <AddImg /> */}
           <div className="personalInfoChild">
             <div className="inputChild">
-              <Inp />
+              <div className="inputChild2">
+                <div className="font-semibold text-gray text-sm">
+                  Անձնական տվյալներ
+                </div>
+                <CstmInput
+                  type="text"
+                  className="name"
+                  placeholder="Հասցե"
+                  regName="adress"
+                />
+                <CstmInput
+                  type="text"
+                  className="name"
+                  placeholder="Հեռախոս"
+                  regName="tel"
+                />
+              </div>
               <div className="flex flex-col gap-3">
                 <p className="font-semibold text-gray text-sm">Իմ մասին</p>
-                <CstmTextarea placeholder="Նկարագիր" className="!h-[287px]" />
+                <CstmTextarea
+                  placeholder="Նկարագիր"
+                  className="!h-[287px]"
+                  regName="aboutme"
+                />
               </div>
               <Inp2
                 selectName="select"
@@ -114,7 +131,7 @@ const PersonalInfo = () => {
             </div>
           </div>
           <div className="buttonSave">
-            <button type="submit">Պահպանել</button>
+            <CustomBtn type="submit" title="Պահպանել" />
           </div>
         </form>
       </FormProvider>

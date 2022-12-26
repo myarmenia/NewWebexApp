@@ -2,34 +2,23 @@
   @apply flex flex-col gap-[70px];
 }
 .studentDataChild {
-  @apply w-[50%] flex flex-col gap-[20px];
+  @apply w-[40%] flex flex-col gap-[20px];
 }
 .studentDataChild2 {
-  @apply w-[50%] flex flex-col gap-[20px];
+  @apply w-[40%] flex flex-col gap-[20px];
 }
 .studentDataForm {
   @apply flex flex-col gap-[20px];
 }
 .studentDataFormChild {
-  @apply flex gap-[20px];
+  @apply w-[80%] flex gap-[20px] justify-between;
 }
 .studentDataTitle {
   font-weight: 600;
   font-size: 14px;
   color: #6b6b6b;
 }
-.studentDataInp {
-  padding: 12px 12px 12px 10px;
-  gap: 10px;
-  width: 400px;
-  height: 40px;
-  background: rgba(255, 255, 255, 0.6);
-  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 15px;
-  font-weight: 400;
-  font-size: 12px;
-  color: #9c9c9c;
-}
+
 .buttonContainer {
   @apply flex gap-[10px] h-[40px] items-center;
 }

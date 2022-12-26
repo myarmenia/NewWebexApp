@@ -12,6 +12,8 @@ import buttonImg from "../../../../assets/teacher_images/createGraffic/buttonimg
 import "./studentData.css";
 import { LessonTitle } from "../../../../components/screenComponents/lessonTitle/LessonTitle";
 import AddImg from "../../../../components/teacherComponents/sherid/addImg/AddImg";
+import { CstmInput } from "../../../../components/teacherComponents/cstmInput/CstmInput";
+import { CustomBtn } from "../../../../components/teacherComponents/customBtn/CustomBtn";
 interface ILanguageProps {
   name: string;
 }
@@ -23,17 +25,14 @@ interface IStudentData {
 }
 export const StudentDataYup = Yup.object().shape({
   imgSrc: Yup.string(),
-  address: Yup.string(),
-  phoneNum: Yup.string(),
-  language: Yup.array().of(Yup.object()),
+  adress: Yup.string().required("Լրացնելը պարտադիր է"),
+  phoneNum: Yup.string().required("Լրացնելը պարտադիր է"),
+  language: Yup.array().of(Yup.object()).required("Լրացնելը պարտադիր է"),
 });
 export const StudentData = () => {
   const methods = useForm<IStudentData>({
     resolver: yupResolver(StudentDataYup),
     defaultValues: {
-      //   imgSrc: "",
-      //   adress: "",
-      //   phoneNum: "",
       language: [{ name: "" }],
     },
   });
@@ -55,31 +54,25 @@ export const StudentData = () => {
           <div className="studentDataFormChild">
             <div className="studentDataChild">
               <div className="studentDataTitle">Անձնական տվյալներ</div>
-              <input
-                className="studentDataInp"
-                placeholder="Հասցե"
-                {...register("adress")}
-              />
-              <input
-                className="studentDataInp"
-                placeholder="Հեռախոս"
-                {...register("phoneNum")}
-              />
+              <CstmInput placeholder="Հասցե" type="text" regName="adress" />
+              <CstmInput placeholder="Հեռախոս" type="text" regName="phoneNum" />
             </div>
             <div className="studentDataChild">
               <div className="studentDataTitle">Լեզուներ</div>
-              {language.fields.map(({ id }, index) => {
+              {language.fields.map(({ id, name }, index) => {
                 return (
-                  <input
+                  <CstmInput
                     className="studentDataInp"
                     placeholder="Հայերեն"
+                    type="text"
                     key={id}
-                    {...register(`language.${index}.name`)}
+                    regName={`language.${index}.name`}
                   />
                 );
               })}
               <div className="buttonContainer">
                 <button
+                  type="button"
                   className="add"
                   onClick={() => {
                     language.append({
@@ -93,9 +86,7 @@ export const StudentData = () => {
               </div>
             </div>
           </div>
-          <button type="submit" className="studentDataBtn">
-            Ուղարկել
-          </button>
+          <CustomBtn type="submit" title="Ուղարկել" />
         </form>
       </div>
     </FormProvider>

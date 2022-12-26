@@ -50,6 +50,7 @@ import {
 import { StageLesPage } from "../pages/teacher_page/lessons/userLessons/stageLesPage/StageLesPage";
 import { StudentData } from "../pages/student_page/student_sections/studentData/StudentData";
 import { StudentLoyaut } from "../pages/student_page/student_loyaut/StudentLoyaut";
+import HelpCenter from "../pages/student_page/help_center/HelpCenter";
 import { StdLessons } from "../pages/student_page/student_sections/studentLessons/stdLessons/StdLessons";
 import { StdLesPage } from "../pages/student_page/student_sections/studentLessons/stdLesson/StdLesPage";
 
@@ -151,6 +152,8 @@ export const router = createBrowserRouter(
       </Route>
       <Route path="student" element={<StudentLoyaut />}>
         <Route path="perosnal_info" element={<StudentData />} />
+        <Route path="my_lesson" element={<StudentLessons />} />
+        <Route path="help_center" element={<HelpCenter />} />
         <Route path="my_lesson" element={<StudentLessons />}>
           <Route index element={<StdLessons />} />
           <Route

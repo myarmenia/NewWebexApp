@@ -38,6 +38,7 @@ export interface PersonalSubmitForm {
   img: string;
   adress: string;
   tel: string;
+  aboutme: string;
   workattempt: PersonalYupProps[];
   education: PersonalYupProps2[];
   languages: PersonalYupProps4[];
@@ -45,10 +46,11 @@ export interface PersonalSubmitForm {
   sertificat: string;
 }
 
-export const validationSchema = Yup.object().shape({
+export const personalInfoValidation = Yup.object().shape({
   img: Yup.string(),
   address: Yup.string(),
   tel: Yup.string(),
+  aboutme: Yup.string(),
   workattempt: Yup.array().of(
     Yup.object().shape({
       select: Yup.string(),
