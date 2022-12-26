@@ -17,6 +17,7 @@ interface InputProps {
   regName: string;
   count: number;
   fieldArray: UseFieldArrayReturn<UserSubmitForm2, any, "id">;
+  // fieldArray: UseFieldArrayReturn<UserSubmitForm2, keyof UserSubmitForm2, "id">;
 }
 interface YupProps {
   start: string;
@@ -39,19 +40,23 @@ export const InputTime: React.FC<InputProps> = ({
   regName,
   count,
 }) => {
-  type ISome = typeof regName;
-
   const {
     register,
     watch,
     formState: { errors },
   } = useFormContext();
 
+  const newFieldArray: UseFieldArrayReturn<
+    UserSubmitForm2,
+    keyof UserSubmitForm2,
+    "id"
+  > = fieldArray;
+
   return (
     <div className="graffics">
       <p className="grafficsDay">{day}</p>
       <div className="grafficInput">
-        {fieldArray.fields.map(({ id }, index) => {
+        {newFieldArray.fields.map(({ id }, index) => {
           return (
             <div className="grafficInputChild" key={id}>
               <>

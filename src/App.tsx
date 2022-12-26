@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import Container from "./components/homeComponent/container/Container";
 import { Features } from "./pages/home_page/features/Features";
@@ -14,43 +14,30 @@ import { Teacher } from "./pages/teacher_page/Teacher";
 import Regsitration from "./pages/registration/Regsitration";
 import Entry from "./pages/registration/entry/Entry";
 import Tariffs from "./pages/home_page/tariffs/Tariffs";
-import {
-  createBrowserRouter,
-  createRoutesFromElements,
-  Route,
-  RouterProvider,
-  Routes,
-} from "react-router-dom";
+import { RouterProvider, useNavigate } from "react-router-dom";
+
+import { router } from "./routes/appRoute";
 function App() {
-  const router = createBrowserRouter(
-    createRoutesFromElements(<Route path="/" element={<Teacher />} />)
-  );
-
-  return (
-    // <RouterProvider router={router} />
-    // <Routes>
-    // </Routes>
-    <Teacher />
-
-    // <Teacher />
-    // <Header />
-    //  <Container>
-    //     <SearchArea />
-    //     <InfoCont />
-    //     <Features />
-    //   </Container>
-    //   <News />
-    //   <Container>
-    //     <Opinion />
-    //     <Lessons />
-    //     <Questions />
-    //   </Container>
-    //   <Footer />
-    //  <Tariffs />
-
-    //   <Regsitration />
-    //   <Entry />
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
+
+// <Teacher />
+// <Header />
+//  <Container>
+//     <SearchArea />
+//     <InfoCont />
+//     <Features />
+//   </Container>
+//   <News />
+//   <Container>
+//     <Opinion />
+//     <Lessons />
+//     <Questions />
+//   </Container>
+//   <Footer />
+//  <Tariffs />
+
+//   <Regsitration />
+//   <Entry />
