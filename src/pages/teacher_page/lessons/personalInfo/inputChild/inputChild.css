@@ -5,9 +5,6 @@
 .inputChild2 {
   @apply h-auto flex flex-col gap-[20px];
 }
-.infoName {
-  @apply font-semibold text-sm text-gray mb-[20px];
-}
 .dateValidation {
   @apply w-full h-auto flex;
 }

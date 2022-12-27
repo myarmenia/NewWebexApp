@@ -7,8 +7,9 @@ import ModalCard from "./ModalCard";
 import * as Yup from "yup";
 import { ModalContainer } from "../../../../../components/modalContainer/ModalContainer";
 import { CustomSelect } from "../../../../../components/teacherComponents/customSelect/CustomSelect";
+import { CstmInput } from "../../../../../components/teacherComponents/cstmInput/CstmInput";
+import { ErrorResponse } from "@remix-run/router";
 
-// Yup
 export const discountModal = Yup.object().shape({
   price: Yup.string().required(),
   select: Yup.string().default("Տեսակ"),
@@ -16,7 +17,6 @@ export const discountModal = Yup.object().shape({
   date: Yup.object()
     .shape({
       start: Yup.date()
-
         .max(new Date(), "Future date not allowed")
         .typeError("Invalid Started date"),
       end: Yup.date().when(
@@ -35,12 +35,18 @@ interface IDiscountModal {
   date: { start: Date | string; end: Date | string };
   timeCheck: boolean;
 }
-
-export const ModalDiscount: FC = () => {
+interface IModalDiscount {
+  modalActive: () => void;
+}
+export const ModalDiscount: FC<IModalDiscount> = ({ modalActive }) => {
   const methods = useForm<IDiscountModal>({
     resolver: yupResolver(discountModal),
   });
-  const { handleSubmit, register } = methods;
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = methods;
 
   const onSubmit = (data: IDiscountModal) => {
     console.log(data);
@@ -57,10 +63,11 @@ export const ModalDiscount: FC = () => {
             <div className="modalInputChild">
               <div className="modalInpTitle">Զեղչի քանակ</div>
               <div className="modalInp">
-                <input
+                <CstmInput
+                  type="text"
                   className="modal-inp1"
                   placeholder="Արժեք"
-                  {...register("price")}
+                  regName="price"
                 />
                 <CustomSelect
                   placeholder="Տեսակ"
@@ -97,6 +104,7 @@ export const ModalDiscount: FC = () => {
                   {...register("date.end", { value: new Date() })}
                 />
               </div>
+              <div className="dateError">{errors.date?.end?.message}</div>
               <div className="modalCheckbox">
                 <input
                   type="checkbox"
@@ -115,8 +123,10 @@ export const ModalDiscount: FC = () => {
           </div>
 
           <div className="modalButton">
-            <button>Չեղարկել</button>
-            <button>Հաստատել</button>
+            <button onClick={modalActive} type="button">
+              Չեղարկել
+            </button>
+            <button type="submit">Հաստատել</button>
           </div>
         </form>
       </ModalContainer>

@@ -15,16 +15,19 @@
   @apply w-full flex gap-[50px] mt-[30px];
 }
 .modalInputChild {
-  @apply w-[50%] h-auto flex flex-col gap-[15px];
+  @apply w-[50%] h-auto flex flex-col gap-[20px];
 }
 .modalInputChild2 {
-  @apply w-[40%] h-auto flex flex-col gap-[15px];
+  @apply w-[40%] h-auto flex flex-col gap-[20px];
 }
 .modalInpTitle {
   @apply font-semibold text-sm text-gray;
 }
 .modalInp {
   @apply flex h-[50px] gap-[20px];
+}
+.dateError {
+  @apply text-[red] text-xs top-[25%] absolute;
 }
 @layer components {
   .modal-inp1 {
@@ -95,8 +98,5 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 21px;
-
-  /* Filled gray 6B */
-
   color: #6b6b6b;
 }

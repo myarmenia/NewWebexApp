@@ -2,9 +2,9 @@ import React from "react";
 import buttonImg from "../../../../../assets/teacher_images/createGraffic/buttonimg.svg";
 import { useFormContext } from "react-hook-form";
 import { CustomSelect } from "../../../../../components/teacherComponents/customSelect/CustomSelect";
-import { inputChildProps } from "../InterfacePerson";
-import "./inputChild.css";
 
+import "./inputChild.css";
+import { inputChildProps } from "../InterfacePerson";
 export const Inp2: React.FC<inputChildProps> = ({
   option,
   selectName,
@@ -18,13 +18,13 @@ export const Inp2: React.FC<inputChildProps> = ({
   } = useFormContext();
   return (
     <div className="inputChild">
-      <div className="infoName">Աշխատանքային փորձ</div>
+      <div className="font-semibold text-gray text-sm">Աշխատանքային փորձ</div>
       {fieldArray.fields.map(({ id }, index) => {
         return (
           <div className="inputChild2" key={id}>
             <input
               type="text"
-              className="name "
+              className="name"
               placeholder="Կազմակերպություն"
               {...register(`${regName}.${index}.company`)}
             />
@@ -36,7 +36,7 @@ export const Inp2: React.FC<inputChildProps> = ({
             />
             <input
               type="text"
-              className="name "
+              className="name"
               placeholder="Պաշտոն"
               {...register(`${regName}.${index}.position`)}
             />
@@ -78,6 +78,7 @@ export const Inp2: React.FC<inputChildProps> = ({
       <div className="buttonContainer">
         <button
           className="add"
+          type="button"
           onClick={() => {
             fieldArray.append({
               select: "",

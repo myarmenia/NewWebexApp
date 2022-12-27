@@ -1,5 +1,5 @@
 import * as Yup from "yup";
-import { UseFieldArrayReturn, useFormContext } from "react-hook-form";
+import { UseFieldArrayReturn } from "react-hook-form";
 export interface inputChildProps {
   isActive?: boolean;
   option?: any;
@@ -7,7 +7,7 @@ export interface inputChildProps {
   regName: string;
   fieldArray: UseFieldArrayReturn<PersonalSubmitForm, any, "id">;
 }
-export interface PersonalYupProps {
+interface workAttemptYupProps {
   select: string;
   company: string;
   position: string;
@@ -16,7 +16,7 @@ export interface PersonalYupProps {
   end: string;
   description: string;
 }
-export interface PersonalYupProps2 {
+interface educationYupProps {
   select2: string;
   statement: string;
   faculty: string;
@@ -24,31 +24,33 @@ export interface PersonalYupProps2 {
   start: string;
   end: string;
 }
-export interface PersonalYupProps3 {
+interface additionaleduYupProps {
   name: string;
   company: string;
   profession: string;
   start: string;
   end: string;
 }
-export interface PersonalYupProps4 {
+interface languagesYupProps {
   languages: string;
 }
 export interface PersonalSubmitForm {
   img: string;
   adress: string;
   tel: string;
-  workattempt: PersonalYupProps[];
-  education: PersonalYupProps2[];
-  languages: PersonalYupProps4[];
-  additionaledu: PersonalYupProps3[];
+  aboutme: string;
+  workattempt: workAttemptYupProps[];
+  education: educationYupProps[];
+  languages: languagesYupProps[];
+  additionaledu: additionaleduYupProps[];
   sertificat: string;
 }
 
-export const validationSchema = Yup.object().shape({
+export const personalInfoValidation = Yup.object().shape({
   img: Yup.string(),
   address: Yup.string(),
   tel: Yup.string(),
+  aboutme: Yup.string(),
   workattempt: Yup.array().of(
     Yup.object().shape({
       select: Yup.string(),

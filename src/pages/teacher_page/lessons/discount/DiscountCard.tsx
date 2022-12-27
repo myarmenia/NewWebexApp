@@ -2,14 +2,18 @@ import React, { useState } from "react";
 import "./discount.css";
 import discount from "../../../../assets/teacher_images/discount/discount.svg";
 import promo from "../../../../assets/teacher_images/discount/promo.svg";
-import { ModalDiscount } from "./modal/DiscountModal";
+import { ModalDiscount } from "./modal/ModalDiscount";
 interface DiscountCardProps {
   isActive: boolean;
 }
 export const DiscountCard: React.FC<DiscountCardProps> = ({ isActive }) => {
   const [modalActive, setIsModalActive] = useState(false);
+  const modalActiveClick = () => {
+    setIsModalActive((prev) => !prev);
+  };
   return (
     <>
+      {modalActive ? <ModalDiscount modalActive={modalActiveClick} /> : null}
       <div className="discountCard">
         <div className="discountCardChild">
           <img src={isActive ? discount : promo} />
@@ -28,7 +32,11 @@ export const DiscountCard: React.FC<DiscountCardProps> = ({ isActive }) => {
               ? "Ներգրավեք ավելի շատ ուսանողներ։"
               : "Գուցե ուսանողները ցակնական սովորել հենց ձեզ մոտ։"}
           </div>
-          <button className="discountButton" onClick={() => {}}>
+          <button
+            className="discountButton"
+            type="button"
+            onClick={modalActiveClick}
+          >
             Միացնել
           </button>
         </div>

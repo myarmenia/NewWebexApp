@@ -114,7 +114,7 @@ export const InputTime: React.FC<InputProps> = ({
           onClick={() => {
             watch(regName)[count - 1]?.end == "" ||
             watch(regName)[count - 1]?.start == ""
-              ? console.log("barev")
+              ? console.log()
               : fieldArray.append({ start: "", end: "" });
           }}
         >

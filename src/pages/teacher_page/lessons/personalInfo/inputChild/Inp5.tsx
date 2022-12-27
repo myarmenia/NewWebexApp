@@ -12,7 +12,7 @@ const Inp5: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
   } = useFormContext();
   return (
     <div className="inputChild">
-      <div className="infoName">Հավելյալ կրթություն</div>
+      <div className="font-semibold text-gray text-sm">Հավելյալ կրթություն</div>
       {fieldArray.fields.map(({ id }, index) => {
         return (
           <div className="inputChild2" key={id}>
@@ -30,7 +30,7 @@ const Inp5: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
             />
             <input
               type="text"
-              className="name barevs"
+              className="name"
               placeholder="Մասնագիտություն"
               {...register(`${regName}.${index}.proffesion`)}
             />
@@ -70,6 +70,7 @@ const Inp5: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
               end: "",
             });
           }}
+          type="button"
         >
           <img src={buttonImg} />
         </button>
