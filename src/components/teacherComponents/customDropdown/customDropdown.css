@@ -13,10 +13,11 @@
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
 }
 .dropItem {
-  @apply bg-slate-50 hover:bg-slate-100 text-center transition-all py-3 px-3 text-ellipsis overflow-hidden mx-auto h-fit w-full text-black whitespace-nowrap cursor-pointer;
+  @apply z-10 bg-slate-50 hover:bg-slate-100 text-center transition-all py-3 px-3 text-ellipsis overflow-hidden mx-auto h-fit w-full text-black whitespace-nowrap cursor-pointer;
+  position: initial;
 }
 @media (max-width: 800px) {
-  .customSelect,
+  .customDropdown,
   .dropdownTitle {
     @apply border-none;
   }

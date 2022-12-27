@@ -25,6 +25,7 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
       className="flex justify-center"
       onMouseEnter={() => onPointer(true)}
       onMouseLeave={() => onPointer(false)}
+      // onClick={() => onPointer(!state)}
     >
       <div className={`customDropdown ${className}`}>
         <DropdownTitle
@@ -33,7 +34,7 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
           state={state}
         />
         {state && (
-          <Items setState={setState} state={state} options={select.options} />
+          <Items {...{ state, setState, onPointer }} options={select.options} />
         )}
       </div>
     </div>
