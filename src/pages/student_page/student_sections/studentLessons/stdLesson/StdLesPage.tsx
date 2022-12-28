@@ -1,19 +1,17 @@
-import React, { FC } from "react";
-import "./stdLesPage.css";
+import { FC } from "react";
 import { LesImageBox } from "./lesImageBox/LesImageBox";
-
-import { LoaderFunctionArgs, useLoaderData } from "react-router";
-import {
-  ILessonLoaderData,
-  LessonProps,
-} from "../../../../../models/interfaces";
-import { CustomBtn } from "../../../../../components/teacherComponents/customBtn/CustomBtn";
-import { LessonTitle } from "../../../../../components/screenComponents/lessonTitle/LessonTitle";
+import "./stdLesPage.css";
+import { LoaderFunctionArgs } from "react-router";
+import { LessonTitle } from "../../../../../components/reusable/lessonTitle/LessonTitle";
+import { LessonProps } from "../../../../../models/interfaces";
 import { LesContainer } from "../../../../teacher_page/lessons/userLessons/userLesComponents/lesContainer/LesContainer";
+import { LesPTitle } from "../../../../teacher_page/lessons/userLessons/userLesComponents/lesPTitle/LesPTitle";
 import { StdLesCases } from "./stdLesCases/StdLesCases";
 import { StdLesStages } from "./stdLesStages/StdLesStages";
-import { StdLesComments } from "./stdLesComments/StdLesComments";
-import { LesPTitle } from "../../../../teacher_page/lessons/userLessons/userLesComponents/lesPTitle/LesPTitle";
+import starImg from "../../../../../assets/student_images/studentLessons/Star 5.svg";
+import { FormProvider, useForm } from "react-hook-form";
+import { CustomBtn } from "../../../../../components/forms/customBtn/CustomBtn";
+import { CstmTextarea } from "../../../../../components/forms/cstmTextarea/CstmTextarea";
 
 export interface LesPageProps extends LessonProps {
   stageCount: number;
@@ -40,7 +38,11 @@ export const StdLesPage: FC<LesPageProps> = ({
   // const { lessonsArr } = useSelector(lessonsSelectorFN);
   // const currentObj = lessonsArr[+params.id! - 1];
   // const { title, body } = currentObj;
-
+  const methods = useForm({
+    defaultValues: {
+      opinion: "",
+    },
+  });
   return (
     <>
       <LessonTitle title="Իմ դասընթացները" className="w-full justify-between" />
@@ -57,12 +59,38 @@ export const StdLesPage: FC<LesPageProps> = ({
             />
             <StdLesStages />
             {/* <StdLesComments /> */}
-            <div>
+            <div className="flex flex-col mt-3">
               <p className="text-gray font-bold mb-2">Դասախոս</p>
               <span className="text-xl text-gray">Անուն Ազգանուն</span>
             </div>
-            {/* or button */}
-            {/* <CustomBtn type="button" title="Հրապարակել" className="!mt-5" /> */}
+            <div className="w-full bg-[#898BCE] h-[1px]" />
+            <div className="flex flex-col gap-6">
+              <div className="flex flex-col gap-2">
+                <span className="font-semibold text-sm text-gray">
+                  Թողնել կարծիք
+                </span>
+                <div className="flex items-center gap-[6px]">
+                  <img src={starImg} alt="" />
+                  <img src={starImg} alt="" />
+                  <img src={starImg} alt="" />
+                  <img src={starImg} alt="" />
+                  <img src={starImg} alt="" />
+                </div>
+              </div>
+              <FormProvider {...methods}>
+                <form
+                  onSubmit={methods.handleSubmit((d) => console.log(d))}
+                  className="w-full flex flex-col gap-8"
+                >
+                  <CstmTextarea placeholder="Գրել կարծիքը" regName="opinion" />
+                  <CustomBtn
+                    type="submit"
+                    title="Ուղարկել"
+                    className="!w-[254px]"
+                  />
+                </form>
+              </FormProvider>
+            </div>
           </LesContainer>
         </div>
       </div>

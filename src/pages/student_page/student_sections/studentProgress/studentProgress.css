@@ -1,0 +1,8 @@
+.student_progress {
+  @apply flex flex-col gap-[53px];
+}
+
+.student_progres_info {
+  @apply w-[271px] flex flex-col rounded-2xl py-3 px-4 bg-[#ffffff99];
+  filter: drop-shadow(2px 4px 10px rgba(0, 0, 0, 0.1));
+}

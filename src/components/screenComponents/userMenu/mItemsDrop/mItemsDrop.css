@@ -1,5 +1,5 @@
 .mItemsDrop {
-  @apply hover:opacity-75 cursor-pointer w-auto whitespace-nowrap list-none relative flex flex-col gap-3;
+  @apply cursor-pointer w-auto whitespace-nowrap list-none relative flex flex-col gap-3;
 }
 .sumItems {
   @apply flex flex-col gap-2 w-fit ml-9;

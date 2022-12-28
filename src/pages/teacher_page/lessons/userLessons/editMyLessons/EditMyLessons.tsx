@@ -10,8 +10,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { LoaderFunctionArgs, useLoaderData, useParams } from "react-router";
 import { ILessonLoaderData } from "../../../../../models/interfaces";
 import { ExtraMats } from "./editMyLessons_copns/ExtraMats";
-import { CstmTextarea } from "../../../../../components/teacherComponents/cstmTextarea/CstmTextarea";
-import { CstmInput } from "../../../../../components/teacherComponents/cstmInput/CstmInput";
+import { CstmTextarea } from "../../../../../components/forms/cstmTextarea/CstmTextarea";
+import { CstmInput } from "../../../../../components/forms/cstmInput/CstmInput";
 
 interface EditMyLessonsProps {
   title?: string;

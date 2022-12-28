@@ -1,5 +1,5 @@
 import React from "react";
-import { LessonTitle } from "../../../../components/screenComponents/lessonTitle/LessonTitle";
+import { LessonTitle } from "../../../../components/reusable/lessonTitle/LessonTitle";
 import { IPaginationItem } from "../../../../models/interfaces";
 import { FirstLesCont } from "./firstLesCont/FirstLesCont";
 import "./firstLesson.css";

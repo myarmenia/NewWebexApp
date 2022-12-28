@@ -5,7 +5,7 @@ import { FormProvider, useFieldArray, useForm } from "react-hook-form";
 import { examSchema, IExamSchema } from "../examSchema";
 import { ExamCnt } from "./examCnt/ExamCnt";
 import { CntTitle } from "../../../../../components/teacherComponents/contTitle/CntTitle";
-import { CustomBtn } from "../../../../../components/teacherComponents/customBtn/CustomBtn";
+import { CustomBtn } from "../../../../../components/forms/customBtn/CustomBtn";
 
 export const ExamBody: React.FC = () => {
   const methods = useForm<IExamSchema>({

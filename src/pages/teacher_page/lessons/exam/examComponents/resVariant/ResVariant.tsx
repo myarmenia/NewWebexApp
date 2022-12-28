@@ -4,7 +4,7 @@ import {
   UseFieldArrayReturn,
   useFormContext,
 } from "react-hook-form";
-import { CstmInput } from "../../../../../../components/teacherComponents/cstmInput/CstmInput";
+import { CstmInput } from "../../../../../../components/forms/cstmInput/CstmInput";
 import removeVariantImg from "../../../../../../assets/teacher_images/exam/Group 1555.svg";
 import { IExamSchema } from "../../examSchema";
 

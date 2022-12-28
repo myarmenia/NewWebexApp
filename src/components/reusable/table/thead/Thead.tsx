@@ -1,17 +1,17 @@
-import React, { FC } from "react";
-import "./cstmThead.css";
+import { FC } from "react";
+import "./thead.css";
 
-interface CstmTheadProps {
+interface TheadProps {
   items: string[];
   thClassName?: string;
 }
 
-export const CstmThead: FC<CstmTheadProps> = ({ items, thClassName }) => {
+export const Thead: FC<TheadProps> = ({ items, thClassName }) => {
   return (
     <thead className="relative">
       <tr className="theadTr">
         {items.map((el, i) => (
-          <th key={i} className={thClassName}>
+          <th key={i} className={"custom_th "+  thClassName}>
             {el}
           </th>
         ))}

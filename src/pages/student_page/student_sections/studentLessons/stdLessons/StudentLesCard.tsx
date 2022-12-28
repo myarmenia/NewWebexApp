@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { CustomBtn } from "../../../../../components/forms/customBtn/CustomBtn";
 import { LessonProps } from "../../../../../models/interfaces";
 import editImg from "../../../images/Teacher/UserLessons/editGray.svg";
-import { CustomBtn } from "../../../../../components/teacherComponents/customBtn/CustomBtn";
+
 export interface LesBoxProps extends LessonProps {
   studentsCount: number;
   id?: number;

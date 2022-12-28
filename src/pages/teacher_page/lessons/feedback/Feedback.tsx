@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { LoaderFunctionArgs, Outlet } from "react-router";
-import { LessonTitle } from "../../../../components/screenComponents/lessonTitle/LessonTitle";
+import { LessonTitle } from "../../../../components/reusable/lessonTitle/LessonTitle";
 import "./feedback.css";
 import { FeedbackCont } from "./feedbackComponents/feedbackCont/FeedbackCont";
 

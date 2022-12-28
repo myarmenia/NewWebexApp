@@ -8,7 +8,7 @@ import {
   createDates,
   createDatesWeek,
 } from "../../../../redux/reducers/calendarList";
-import { LessonTitle } from "../../../../components/screenComponents/lessonTitle/LessonTitle";
+import { LessonTitle } from "../../../../components/reusable/lessonTitle/LessonTitle";
 export const Calendar: FC = () => {
   const { currentDate } = useSelector(
     (state: ICalendarReducer) => state.calendarList

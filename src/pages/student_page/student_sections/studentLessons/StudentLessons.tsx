@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { Outlet } from "react-router";
-import { LessonTitle } from "../../../../components/screenComponents/lessonTitle/LessonTitle";
+import { LessonTitle } from "../../../../components/reusable/lessonTitle/LessonTitle";
 // import { LessonTitle } from "../../screenComponents/lessonTitle/LessonTitle";
 // import StudentLesCard from "./stdLesson/StudentLesCard";
 import "./studentLessons.css";

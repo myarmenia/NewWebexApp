@@ -23,13 +23,9 @@ export const CstmInput: React.FC<CstmInputProps> = ({
 
   const errorMessage = useMemo(() => {
     if (error) {
-      return <p className="errorMessage">{error}</p>;
+      return error;
     } else if (regName) {
-      return (
-        <p className="errorMessage">
-          {formMethods?.formState?.errors[regName]?.message!.toString()}
-        </p>
-      );
+      return formMethods?.formState?.errors[regName]?.message!.toString();
     } else {
       return;
     }
@@ -43,7 +39,7 @@ export const CstmInput: React.FC<CstmInputProps> = ({
         placeholder={placeholder}
         defaultValue={defaultValue}
       />
-      {errorMessage}
+      <p className="errorMessage">{errorMessage}</p>
     </div>
   );
 };
