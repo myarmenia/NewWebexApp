@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import { LoaderFunctionArgs, Outlet } from "react-router";
 import { LessonTitle } from "../../../../components/reusable/lessonTitle/LessonTitle";
+import { instance } from "../../../../request/request";
 import "./feedback.css";
 import { FeedbackCont } from "./feedbackComponents/feedbackCont/FeedbackCont";
 
@@ -16,21 +17,14 @@ export const Feedback: FC = () => {
 };
 
 export const feedbackLessonLoader = async ({ params }: LoaderFunctionArgs) => {
-  const res = await fetch(
-    "https://jsonplaceholder.typicode.com/posts?userId=1"
-  );
-  const data = await res.json();
-  return { data, params };
+  const res = await instance.get("/posts?userId=1");
+  return { data: res.data, params };
 };
 
 export const feedback_studentsLoader = async ({
   params,
 }: LoaderFunctionArgs) => {
-  const res = await fetch(
-    "https://jsonplaceholder.typicode.com/posts?userId=1"
-  );
-  const res1 = await fetch("https://jsonplaceholder.typicode.com/users");
-  const data = await res.json();
-  const students = await res1.json();
-  return { data, students, params };
+  const res = await instance.get("/posts?userId=1");
+  const res1 = await instance.get("/users");
+  return { data: res.data, students: res1.data, params };
 };

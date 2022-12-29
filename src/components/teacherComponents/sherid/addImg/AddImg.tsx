@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useFormContext } from "react-hook-form";
-import Input from "../Input";
 import "./addImg.css";
 const AddImg: React.FC = () => {
   const [file, setFile] = useState<string | any>("");
@@ -8,12 +7,7 @@ const AddImg: React.FC = () => {
     setFile(URL.createObjectURL(event.target.files![0]));
   };
 
-  const {
-    register,
-    watch,
-    formState: { errors },
-  } = useFormContext();
-  // console.log(errors);
+  const { register } = useFormContext();
   return (
     <div className="addImgCustom">
       <div className="addImgChild">

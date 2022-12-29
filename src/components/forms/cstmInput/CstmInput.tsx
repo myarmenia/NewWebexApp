@@ -10,6 +10,7 @@ interface CstmInputProps {
   error?: string;
   defaultValue?: string | number;
 }
+
 export const CstmInput: React.FC<CstmInputProps> = ({
   type,
   placeholder,

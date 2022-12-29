@@ -5,7 +5,6 @@ import { FirstLesCont } from "./firstLesCont/FirstLesCont";
 import "./firstLesson.css";
 import { Pagination } from "./pagination/Pagination";
 
-export const FirstLesson: React.FC = () => {
   const count = 15;
   const paginationItems: IPaginationItem[] = Array.from({ length: count }).map(
     (el, ind) =>
@@ -16,6 +15,9 @@ export const FirstLesson: React.FC = () => {
         : { id: Math.random(), isActive: false, isCompleted: false }
     // ({ id: Math.random(), isActive: false, isCompleted: false })
   );
+
+export const FirstLesson: React.FC = () => {
+
 
   return (
     <div className="firstLesson">

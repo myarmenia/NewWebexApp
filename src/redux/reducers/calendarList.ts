@@ -16,9 +16,6 @@ const calendarList = createSlice({
   name: "calendar",
   initialState,
   reducers: {
-    logDates: (state) => {
-      console.log(state);
-    },
     createDates: (state) => {
       state.dates = [];
       const currentDate = new Date(
