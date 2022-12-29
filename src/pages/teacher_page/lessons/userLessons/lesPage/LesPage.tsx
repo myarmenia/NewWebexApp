@@ -12,8 +12,8 @@ import {
   LessonProps,
 } from "../../../../../models/interfaces";
 import { LesComments } from "./lesComments/LesComments";
-import { CustomBtn } from "../../../../../components/teacherComponents/customBtn/CustomBtn";
-import { LessonTitle } from "../../../../../components/screenComponents/lessonTitle/LessonTitle";
+import { CustomBtn } from "../../../../../components/forms/customBtn/CustomBtn";
+import { LessonTitle } from "../../../../../components/reusable/lessonTitle/LessonTitle";
 
 export interface LesPageProps extends LessonProps {
   stageCount: number;

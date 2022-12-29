@@ -53,6 +53,7 @@ import { StudentLoyaut } from "../pages/student_page/student_loyaut/StudentLoyau
 import HelpCenter from "../pages/student_page/help_center/HelpCenter";
 import { StdLessons } from "../pages/student_page/student_sections/studentLessons/stdLessons/StdLessons";
 import { StdLesPage } from "../pages/student_page/student_sections/studentLessons/stdLesson/StdLesPage";
+import { StudentProgress } from "../pages/student_page/student_sections/studentProgress/StudentProgress";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -203,6 +204,7 @@ export const router = createBrowserRouter(
             </Route>
           </Route>
         </Route>
+        <Route path="progress" element={<StudentProgress />} />
       </Route>
     </Route>
   )

@@ -1,7 +1,7 @@
 import React from "react";
 import "./ageDiv.css";
 import { useFormContext } from "react-hook-form";
-import { CustomNmbInp } from "../../../../../../components/teacherComponents/customNmbInp/CustomNmbInp";
+import { CustomNmbInp } from "../../../../../../components/forms/customNmbInp/CustomNmbInp";
 
 interface AgeDivProps {}
 

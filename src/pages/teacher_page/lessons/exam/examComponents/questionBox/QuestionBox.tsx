@@ -9,8 +9,8 @@ import {
 } from "react-hook-form";
 import { IExamSchema } from "../../examSchema";
 import { ResVariant } from "../resVariant/ResVariant";
-import { CstmTextarea } from "../../../../../../components/teacherComponents/cstmTextarea/CstmTextarea";
 import { LoadImage } from "../../../../../../components/teacherComponents/loadImage/LoadImage";
+import { CstmTextarea } from "../../../../../../components/forms/cstmTextarea/CstmTextarea";
 
 interface QuestionBoxProps {
   field: FieldArrayWithId<IExamSchema, "questionBox", "id">;

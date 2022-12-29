@@ -10,3 +10,8 @@
 .lesPage_editText {
   @apply text-xs text-gray;
 }
+@media (max-width: 786px){
+  .lesPage_titleBox{
+    @apply w-[95%]
+  }
+}

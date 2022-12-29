@@ -11,6 +11,7 @@ interface LesPTitleProps {
 }
 
 export const LesPTitle: FC<LesPTitleProps> = ({ title, className }) => {
+  
   return (
     <div className={"lesPage_titleBox " + className?.cont}>
       <h5 className={"lesPage_title " + className?.title}>{title}</h5>

@@ -6,9 +6,9 @@ import ModalCard from "./ModalCard";
 
 import * as Yup from "yup";
 import { ModalContainer } from "../../../../../components/modalContainer/ModalContainer";
-import { CustomSelect } from "../../../../../components/teacherComponents/customSelect/CustomSelect";
-import { CstmInput } from "../../../../../components/teacherComponents/cstmInput/CstmInput";
+import { CstmInput } from "../../../../../components/forms/cstmInput/CstmInput";
 import { ErrorResponse } from "@remix-run/router";
+import { CustomSelect } from "../../../../../components/forms/customSelect/CustomSelect";
 
 export const discountModal = Yup.object().shape({
   price: Yup.string().required(),

@@ -1,13 +1,13 @@
-import React from "react";
-import { DiscountCard } from "./DiscountCard";
+import { FC } from "react";
+import { CustomBtn } from "../../../../components/forms/customBtn/CustomBtn";
+import { LessonTitle } from "../../../../components/reusable/lessonTitle/LessonTitle";
+import { Table } from "../../../../components/reusable/table/Table";
 import "./discount.css";
-import { ModalDiscount } from "./modal/ModalDiscount";
-import { LessonTitle } from "../../../../components/screenComponents/lessonTitle/LessonTitle";
-import { CustomBtn } from "../../../../components/teacherComponents/customBtn/CustomBtn";
-export const Discount = () => {
+import { DiscountCard } from "./DiscountCard";
+
+export const Discount: FC = () => {
   return (
     <div className="discount_mainCont">
-     
       <LessonTitle title="Զեղչ և պրոմո" />
       <div className="discount_cont">
         <div className="discount">
@@ -17,82 +17,72 @@ export const Discount = () => {
         <div className="discount_tableCont">
           <div className="activeDiscount">
             <p className="font-semibold text-sm mb-3">Ակտիվ զեղչեր </p>
-            <div className="discount_activeTable">
-              <table className="w-full">
-                <thead>
-                  <tr className="discount_theadTr">
-                    <th>Ժամանակահատված</th>
-                    <th className="w-full">Դասընթաց</th>
-                    <th>Տեսակ</th>
-                    <th>Արժեք</th>
-                    <th className="!text-center">Ապակտիվացնել</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr className="discount_tbodyTr">
-                    <td className="discount_tbodyTr_date">
-                      11/22/2022 - 12/22/2022
-                    </td>
-                    <td>Դասընթացի վերնագիրը</td>
-                    <td>Զեղչ</td>
-                    <td>20%</td>
-                    <td>
+            <Table
+              theadItems={{
+                items: [
+                  "Ժամանակահատված",
+                  "Դասընթաց",
+                  "Տեսակ",
+                  "Արժեք",
+                  "Ապակտիվացնել",
+                ],
+              }}
+              tbodyItems={Array.from({ length: 2 }).map(() => ({
+                trData: [
+                  { item: "11/22/2022 - 12/22/2022", className: "text-center" },
+                  { item: "Դասընթացի վերնագիրը", className: "text-center" },
+                  { item: "Զեղչ", className: "text-center" },
+                  { item: "20%", className: "text-center" },
+                  {
+                    item: (
                       <CustomBtn
                         className="!w-fit !min-w-min"
                         title="Դադարեցնել"
                         type="button"
                       />
-                    </td>
-                  </tr>
-                  <tr className="discount_tbodyTr">
-                    <td>11/22/2022 - 12/22/2022</td>
-                    <td>Դասընթացի վերնագիրը</td>
-                    <td>Զեղչ</td>
-                    <td>20%</td>
-                    <td className="text-center">
-                      <CustomBtn
-                        className="!w-fit !min-w-min"
-                        title="Դադարեցնել"
-                        type="button"
-                      />
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+                    ),
+                    className: "text-center",
+                  },
+                ],
+              }))}
+            />
           </div>
           <div className="discount_promos">
             <p className="font-semibold text-sm mb-3">Պրոմոներ </p>
-            <div className="discount_promosTable">
-              <table className="w-full">
-                <thead>
-                  <tr className="discount_theadTr">
-                    <th>Ժամանակահատված</th>
-                    <th className="w-full">Դասի վերնագիրը</th>
-                    <th>Տեսակ</th>
-                    <th>Արժեք</th>
-                    <th className="!text-center">Ապակտիվացնել</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr className="discount_tbodyTr">
-                    <td className="discount_tbodyTr_date">
-                      11/22/2022 - 12/22/2022
-                    </td>
-                    <td>Դասընթացի վերնագիրը</td>
-                    <td>Պրոմո</td>
-                    <td></td>
-                    <td className="text-center">
-                      <CustomBtn
-                        className="!w-fit !min-w-min whitespace-nowrap"
-                        title="Հանել պրոմոյից"
-                        type="button"
-                      />
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+            <Table
+              theadItems={{
+                items: [
+                  "Ժամանակահատված",
+                  "Դասընթաց",
+                  "Տեսակ",
+                  "Արժեք",
+                  "Ապակտիվացնել",
+                ],
+              }}
+              tbodyItems={[
+                {
+                  trData: [
+                    {
+                      item: "11/22/2022 - 12/22/2022",
+                      className: "text-center",
+                    },
+                    { item: "Դասընթացի վերնագիրը", className: "text-center" },
+                    { item: "Պրոմո", className: "text-center" },
+                    { item: "", className: "text-center" },
+                    {
+                      item: (
+                        <CustomBtn
+                          className="!w-fit !min-w-min"
+                          title="Հանել պրոմոյից"
+                          type="button"
+                        />
+                      ),
+                      className: "text-center",
+                    },
+                  ],
+                },
+              ]}
+            />
           </div>
         </div>
       </div>

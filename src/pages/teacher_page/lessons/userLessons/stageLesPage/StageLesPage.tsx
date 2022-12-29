@@ -8,7 +8,7 @@ import { LesContainer } from "../userLesComponents/lesContainer/LesContainer";
 import { LesStageBox } from "./lesStageBox/LesStageBox";
 import { LesWorkBox, LesWorkBoxProps } from "./lesWorkBox/LesWorkBox";
 import { Link } from "react-router-dom";
-import { LessonTitle } from "../../../../../components/screenComponents/lessonTitle/LessonTitle";
+import { LessonTitle } from "../../../../../components/reusable/lessonTitle/LessonTitle";
 
 const lesWorkAndHomeWork: LesWorkBoxProps[] = [
   {

@@ -10,10 +10,11 @@ import {
 } from "react-hook-form";
 import buttonImg from "../../../../assets/teacher_images/createGraffic/buttonimg.svg";
 import "./studentData.css";
-import { LessonTitle } from "../../../../components/screenComponents/lessonTitle/LessonTitle";
+import { LessonTitle } from "../../../../components/reusable/lessonTitle/LessonTitle";
 import AddImg from "../../../../components/teacherComponents/sherid/addImg/AddImg";
-import { CstmInput } from "../../../../components/teacherComponents/cstmInput/CstmInput";
-import { CustomBtn } from "../../../../components/teacherComponents/customBtn/CustomBtn";
+import { CstmInput } from "../../../../components/forms/cstmInput/CstmInput";
+import { CustomBtn } from "../../../../components/forms/customBtn/CustomBtn";
+
 interface ILanguageProps {
   name: string;
 }
