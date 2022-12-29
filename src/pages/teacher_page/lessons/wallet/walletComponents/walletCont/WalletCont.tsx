@@ -1,16 +1,13 @@
-import React, { FC, useState } from "react";
-import "./walletCont.css";
-import fillBalanceImg from "../../../../../../assets/teacher_images/exam/Group 1552.svg";
-import editPenImg from "../../../../../../assets/teacher_images/userLessons/editGray.svg";
-import { AttachedCard } from "../attachedCard/AttachedCard";
-import { WalTbody } from "../walTbody/WalTbody";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { FC, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { CustomBtn } from "../../../../../../components/teacherComponents/customBtn/CustomBtn";
+import editPenImg from "../../../../../../assets/teacher_images/userLessons/editGray.svg";
+import { CustomBtn } from "../../../../../../components/forms/customBtn/CustomBtn";
+import { CustomSelect } from "../../../../../../components/forms/customSelect/CustomSelect";
 import { ModalContainer } from "../../../../../../components/modalContainer/ModalContainer";
-import { CustomSelect } from "../../../../../../components/teacherComponents/customSelect/CustomSelect";
-import { CstmThead } from "../../../../../../components/teacherComponents/cstmThead/CstmThead";
+import { Table } from "../../../../../../components/reusable/table/Table";
+import "./walletCont.css";
 
 interface WalletContProps {
   balance: number;
@@ -106,19 +103,37 @@ export const WalletCont: FC<WalletContProps> = ({ balance }) => {
             </p>
             <div className="table_history">
               {transactionHistory ? (
-                <table className="w-full">
-                  {/* <WalThead /> */}
-                  <CstmThead
-                    thClassName="!text-center"
-                    items={[
+                <Table
+                  theadItems={{
+                    items: [
                       "Ամսաթիվ",
                       "Գումար",
                       "Գործարքի տեսակը",
                       "Հաշվի մնացորդը",
-                    ]}
-                  />
-                  <WalTbody />
-                </table>
+                    ],
+                    thClassName: "text-center",
+                  }}
+                  tbodyItems={Array.from({ length: 3 }).map((el, i) => ({
+                    trData: [
+                      {
+                        item: "11/22/2022",
+                        className: "!py-5 !px-5 text-center",
+                      },
+                      {
+                        item: "1000 դրամ",
+                        className: "!py-5 !px-5 text-center",
+                      },
+                      {
+                        item: "Հաշվի համալրում",
+                        className: "!py-5 !px-5 text-center",
+                      },
+                      {
+                        item: "1000 դրամ",
+                        className: "!py-5 !px-5 text-center",
+                      },
+                    ],
+                  }))}
+                />
               ) : (
                 <span className="text-xs">Դուք դեռ չունեք կատարած գործարք</span>
               )}

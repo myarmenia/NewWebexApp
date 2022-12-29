@@ -7,7 +7,7 @@ import * as Yup from "yup";
 import { isErrored } from "stream";
 import { format } from "path";
 import { Link } from "react-router-dom";
-import { LessonTitle } from "../../../../components/screenComponents/lessonTitle/LessonTitle";
+import { LessonTitle } from "../../../../components/reusable/lessonTitle/LessonTitle";
 interface YupProps {
   start: string;
   end: string;

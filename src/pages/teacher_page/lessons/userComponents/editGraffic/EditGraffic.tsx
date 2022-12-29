@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { LessonTitle } from "../../../../../components/screenComponents/lessonTitle/LessonTitle";
+import { LessonTitle } from "../../../../../components/reusable/lessonTitle/LessonTitle";
 import CreateGraffic from "../CreateGraffic";
 import "./editGraffic.css";
 import GrafficChild from "./GrafficChild";

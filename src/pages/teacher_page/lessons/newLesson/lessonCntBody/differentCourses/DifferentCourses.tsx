@@ -2,7 +2,7 @@ import React from "react";
 import "./differentCourses.css";
 import { FieldArrayWithId, useFormContext } from "react-hook-form";
 import { TeacherSubmitForm } from "../validationSchema";
-import { CustomNmbInp } from "../../../../../../components/teacherComponents/customNmbInp/CustomNmbInp";
+import { CustomNmbInp } from "../../../../../../components/forms/customNmbInp/CustomNmbInp";
 
 interface DifferentCoursesProps {
   fields: FieldArrayWithId<TeacherSubmitForm, "stages", "id">[];

@@ -1,6 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { IDateDay } from "../../models/interfaces"; 
+import { IDateDay } from "../../models/interfaces";
 
+const createDayEventArray = () =>
+  Array.from({ length: Math.floor(Math.random() * 8) }).map(() => ({
+    time: "20:00",
+  }));
 
 const initialState = {
   currentDate: new Date() as Date,
@@ -12,15 +16,7 @@ const calendarList = createSlice({
   name: "calendar",
   initialState,
   reducers: {
-    logDates: (state) => {
-      console.log(state);
-    },
     createDates: (state) => {
-      const createDayEventArray = () =>
-        Array.from({ length: Math.floor(Math.random() * 8) }).map(() => ({
-          time: "20:00",
-        }));
-
       state.dates = [];
       const currentDate = new Date(
         state.currentDate.getFullYear(),

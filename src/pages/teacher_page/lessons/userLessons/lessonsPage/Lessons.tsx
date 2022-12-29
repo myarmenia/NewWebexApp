@@ -1,12 +1,13 @@
 import React, { FC, Fragment } from "react";
 import "./lessons.css";
 import { useLoaderData } from "react-router";
-import { LessonTitle } from "../../../../../components/screenComponents/lessonTitle/LessonTitle";
+import { LessonTitle } from "../../../../../components/reusable/lessonTitle/LessonTitle";
 import {
   ILessonLoaderData,
   ILessonLoaderObj,
 } from "../../../../../models/interfaces";
 import { LesBox } from "../userLesComponents/lesBox/LesBox";
+import { instance } from "../../../../../request/request";
 
 interface UserLessons {
   // lessonsArr: LessonProps[] | LesBoxProps[];
@@ -28,7 +29,7 @@ export const Lessons: FC = () => {
           className="w-full justify-between"
           linkForBtn={{
             to: "/new_lesson",
-            title: "+ Ավելացնել դասընթաց"
+            title: "+ Ավելացնել դասընթաց",
           }}
         />
         {lessonsArr.length ? (
@@ -98,10 +99,6 @@ export const Lessons: FC = () => {
 };
 
 export const lessonsLoader = async () => {
-  const res = await fetch(
-    "https://jsonplaceholder.typicode.com/posts?userId=1"
-  );
-  // const lessonsArr = await res.json();
-
-  return res.json();
+  const res = await instance.get("posts?userId=1");
+  return res.data;
 };

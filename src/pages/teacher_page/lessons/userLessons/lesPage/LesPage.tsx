@@ -12,8 +12,9 @@ import {
   LessonProps,
 } from "../../../../../models/interfaces";
 import { LesComments } from "./lesComments/LesComments";
-import { CustomBtn } from "../../../../../components/teacherComponents/customBtn/CustomBtn";
-import { LessonTitle } from "../../../../../components/screenComponents/lessonTitle/LessonTitle";
+import { CustomBtn } from "../../../../../components/forms/customBtn/CustomBtn";
+import { LessonTitle } from "../../../../../components/reusable/lessonTitle/LessonTitle";
+import { instance } from "../../../../../request/request";
 
 export interface LesPageProps extends LessonProps {
   stageCount: number;
@@ -66,15 +67,9 @@ export const LesPage: FC<LesPageProps> = ({
 };
 
 export const lessonPageLoader = async ({ params }: LoaderFunctionArgs) => {
-  const res = await fetch(
-    `https://jsonplaceholder.typicode.com/posts/${params.id}?userId=1`
-  );
-  const lessons = await fetch(
-    `https://jsonplaceholder.typicode.com/posts?userId=1`
-  );
+  const res = await instance.get(`/posts/${params.id}?userId=1`);
+  const lessons = await instance.get("/posts?userId=1");
   const paramsId = params.id;
   const paramsLes = params.les;
-  const obj = await res.json();
-  const lessonsObj = await lessons.json();
-  return { obj, lessonsObj, paramsId, paramsLes };
+  return { obj: res.data, lessonsObj: lessons.data, paramsId, paramsLes };
 };

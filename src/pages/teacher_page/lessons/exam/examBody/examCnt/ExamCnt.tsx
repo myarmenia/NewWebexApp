@@ -4,8 +4,8 @@ import { UseFieldArrayReturn } from "react-hook-form";
 import { AttachImage } from "../../examComponents/attachImgae/AttachImage";
 import { IExamSchema } from "../../examSchema";
 import { QuestionBox } from "../../examComponents/questionBox/QuestionBox";
-import { CstmInput } from "../../../../../../components/teacherComponents/cstmInput/CstmInput";
-import { CstmTextarea } from "../../../../../../components/teacherComponents/cstmTextarea/CstmTextarea";
+import { CstmInput } from "../../../../../../components/forms/cstmInput/CstmInput";
+import { CstmTextarea } from "../../../../../../components/forms/cstmTextarea/CstmTextarea";
 
 interface ExamCntProps {
   questions: UseFieldArrayReturn<IExamSchema, "questionBox", "id">;

@@ -8,7 +8,8 @@ import {
   createDates,
   createDatesWeek,
 } from "../../../../redux/reducers/calendarList";
-import { LessonTitle } from "../../../../components/screenComponents/lessonTitle/LessonTitle";
+import { LessonTitle } from "../../../../components/reusable/lessonTitle/LessonTitle";
+import { instance } from "../../../../request/request";
 export const Calendar: FC = () => {
   const { currentDate } = useSelector(
     (state: ICalendarReducer) => state.calendarList
@@ -35,9 +36,6 @@ export const Calendar: FC = () => {
 };
 
 export const calendarLoader = async () => {
-  const res = await fetch(
-    "https://jsonplaceholder.typicode.com/posts?userId=1"
-  );
-  const user = await res.json();
-  return { user };
+  const res = await instance.get("/posts?userId=1");
+  return { user: res.data };
 };

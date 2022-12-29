@@ -15,12 +15,11 @@ export const StageLessons: React.FC = () => {
       id: Math.random(),
     })
   );
-//   console.log(85 * Math.round(lessonsCount / 2));
 
   return (
     <div
       className="stageLessons"
-    //   style={{ height: 85 * Math.round(lessonsCount / 2) + "px" }}
+      //   style={{ height: 85 * Math.round(lessonsCount / 2) + "px" }}
     >
       {lessonsArr.map((el, index) => {
         return <LessonBox {...el} lessonNumber={index + 1} key={el.id} />;

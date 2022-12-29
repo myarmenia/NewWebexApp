@@ -1,18 +1,18 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FormProvider, useFieldArray, useForm } from "react-hook-form";
 // import { InputChild } from "./inputChild/InputChild";
-import { LessonTitle } from "../../../../components/screenComponents/lessonTitle/LessonTitle";
-import { CstmInput } from "../../../../components/teacherComponents/cstmInput/CstmInput";
-import { CstmTextarea } from "../../../../components/teacherComponents/cstmTextarea/CstmTextarea";
-import { CustomBtn } from "../../../../components/teacherComponents/customBtn/CustomBtn";
+import { LessonTitle } from "../../../../components/reusable/lessonTitle/LessonTitle";
+import { CstmInput } from "../../../../components/forms/cstmInput/CstmInput";
 import AddImg from "../../../../components/teacherComponents/sherid/addImg/AddImg";
 import { Inp2 } from "./inputChild/Inp2";
 import { Inp3 } from "./inputChild/Inp3";
-import Inp4 from "./inputChild/Inp4";
-import Inp5 from "./inputChild/Inp5";
 import Sertificat from "./inputChild/Sertificat";
 import { personalInfoValidation, PersonalSubmitForm } from "./InterfacePerson";
 import "./personalInfo.css";
+import { CstmTextarea } from "../../../../components/forms/cstmTextarea/CstmTextarea";
+import Inp4 from "./inputChild/Inp4";
+import Inp5 from "./inputChild/Inp5";
+import { CustomBtn } from "../../../../components/forms/customBtn/CustomBtn";
 const PersonalInfo = () => {
   const methods = useForm<PersonalSubmitForm>({
     resolver: yupResolver(personalInfoValidation),
@@ -69,14 +69,13 @@ const PersonalInfo = () => {
   });
   const onSubmit = (data: PersonalSubmitForm) => {
     console.log(data);
-    console.log("barev");
   };
 
   return (
     <>
       <LessonTitle title="Անձնական տվյալներ" />
       <FormProvider {...methods}>
-        <form className="personalInfo" onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)} className="personalInfo">
           <AddImg />
           <div className="personalInfoChild">
             <div className="inputChild">

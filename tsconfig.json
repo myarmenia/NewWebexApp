@@ -17,5 +17,6 @@
     "jsx": "react-jsx",
     "rootDir": ""
   },
-  "include": ["src", "src/components", "src/custom.d.ts"]
+  "include": ["src", "src/components", "src/custom.d.ts"],
+  "exclude": ["node_modules"]
 }

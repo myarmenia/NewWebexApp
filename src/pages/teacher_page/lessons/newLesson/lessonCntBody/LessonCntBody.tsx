@@ -11,11 +11,11 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { Knowledges } from "./knowledges/Knowledges";
 import { nLessCreate_L_Schema, TeacherSubmitForm } from "./validationSchema";
 import { useNavigate } from "react-router-dom";
-import { CstmInput } from "../../../../../components/teacherComponents/cstmInput/CstmInput";
-import { CustomSelect } from "../../../../../components/teacherComponents/customSelect/CustomSelect";
-import { CstmTextarea } from "../../../../../components/teacherComponents/cstmTextarea/CstmTextarea";
-import { CustomNmbInp } from "../../../../../components/teacherComponents/customNmbInp/CustomNmbInp";
-import { CustomBtn } from "../../../../../components/teacherComponents/customBtn/CustomBtn";
+import { CstmInput } from "../../../../../components/forms/cstmInput/CstmInput";
+import { CustomSelect } from "../../../../../components/forms/customSelect/CustomSelect";
+import { CustomNmbInp } from "../../../../../components/forms/customNmbInp/CustomNmbInp";
+import { CustomBtn } from "../../../../../components/forms/customBtn/CustomBtn";
+import { CstmTextarea } from "../../../../../components/forms/cstmTextarea/CstmTextarea";
 
 export const LessonCntBody: React.FC = () => {
   const navigate = useNavigate();

@@ -1,9 +1,6 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import "./stdLesCases.css";
-
-import starImg from "../../../../../../assets/teacher_images/userLessons/starImg.svg";
-
-import { LesPageProps } from "../StdLesPage";
+import { ProgressBar } from "../../../../../../components/reusable/ProgressBar";
 import { LessonProps } from "../../../../../../models/interfaces";
 
 interface StdLesCasesProps extends LessonProps {}
@@ -33,10 +30,7 @@ export const StdLesCases: FC<StdLesCasesProps> = ({
       <p className="lesBox_description !leading-[22px] !text-sm">
         {description}
       </p>
-      <div className="stdLesPage_progress_bar">
-        <div className="stdLesPage_progress"/>
-        <span className="stdLesPage_progress_percent">70%</span>
-      </div>
+      <ProgressBar progress={70} className="!h-6 !text-2xl" />
     </div>
   );
 };

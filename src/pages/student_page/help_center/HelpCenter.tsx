@@ -1,9 +1,9 @@
 import React from "react";
 import { FormProvider, useForm } from "react-hook-form";
-import { LessonTitle } from "../../../components/screenComponents/lessonTitle/LessonTitle";
-import { CstmInput } from "../../../components/teacherComponents/cstmInput/CstmInput";
-import { CstmTextarea } from "../../../components/teacherComponents/cstmTextarea/CstmTextarea";
-import { CustomBtn } from "../../../components/teacherComponents/customBtn/CustomBtn";
+import { LessonTitle } from "../../../components/reusable/lessonTitle/LessonTitle";
+import { CstmInput } from "../../../components/forms/cstmInput/CstmInput";
+import { CstmTextarea } from "../../../components/forms/cstmTextarea/CstmTextarea";
+import { CustomBtn } from "../../../components/forms/customBtn/CustomBtn";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import "./helpCenter.css";
