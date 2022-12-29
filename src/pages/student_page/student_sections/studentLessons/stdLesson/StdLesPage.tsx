@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useCallback, useEffect, useState } from "react";
 import { LesImageBox } from "./lesImageBox/LesImageBox";
 import "./stdLesPage.css";
 import { LoaderFunctionArgs } from "react-router";
@@ -12,6 +12,8 @@ import starImg from "../../../../../assets/student_images/studentLessons/Star 5.
 import { FormProvider, useForm } from "react-hook-form";
 import { CustomBtn } from "../../../../../components/forms/customBtn/CustomBtn";
 import { CstmTextarea } from "../../../../../components/forms/cstmTextarea/CstmTextarea";
+import { OpinionStars } from "./opinionStars/OpinionStars";
+import { instance } from "../../../../../request/request";
 
 export interface LesPageProps extends LessonProps {
   stageCount: number;
@@ -38,11 +40,19 @@ export const StdLesPage: FC<LesPageProps> = ({
   // const { lessonsArr } = useSelector(lessonsSelectorFN);
   // const currentObj = lessonsArr[+params.id! - 1];
   // const { title, body } = currentObj;
-  const methods = useForm({
-    defaultValues: {
-      opinion: "",
-    },
-  });
+
+  const [value, setValue] = useState<string>("");
+  const [error, setError] = useState(false);
+
+  const logOpinionData = useCallback(() => {
+    if (value.length <= 16 && value.length >= 4) {
+      console.log({ opinion: value });
+      setError(false);
+    } else {
+      setError(true);
+    }
+  }, [value]);
+
   return (
     <>
       <LessonTitle title="Իմ դասընթացները" className="w-full justify-between" />
@@ -69,27 +79,21 @@ export const StdLesPage: FC<LesPageProps> = ({
                 <span className="font-semibold text-sm text-gray">
                   Թողնել կարծիք
                 </span>
-                <div className="flex items-center gap-[6px]">
-                  <img src={starImg} alt="" />
-                  <img src={starImg} alt="" />
-                  <img src={starImg} alt="" />
-                  <img src={starImg} alt="" />
-                  <img src={starImg} alt="" />
-                </div>
+                <OpinionStars />
               </div>
-              <FormProvider {...methods}>
-                <form
-                  onSubmit={methods.handleSubmit((d) => console.log(d))}
-                  className="w-full flex flex-col gap-8"
-                >
-                  <CstmTextarea placeholder="Գրել կարծիքը" regName="opinion" />
-                  <CustomBtn
-                    type="submit"
-                    title="Ուղարկել"
-                    className="!w-[254px]"
-                  />
-                </form>
-              </FormProvider>
+              <div className="w-full flex flex-col gap-8">
+                <CstmTextarea
+                  {...{ value, setValue }}
+                  placeholder="Գրել կարծիքը"
+                  error={error ? "min length must be 4" : ""}
+                />
+                <CustomBtn
+                  type="button"
+                  title="Ուղարկել"
+                  className="!w-[254px]"
+                  onClick={() => logOpinionData()}
+                />
+              </div>
             </div>
           </LesContainer>
         </div>
@@ -99,15 +103,9 @@ export const StdLesPage: FC<LesPageProps> = ({
 };
 
 export const lessonPageLoader = async ({ params }: LoaderFunctionArgs) => {
-  const res = await fetch(
-    `https://jsonplaceholder.typicode.com/posts/${params.id}?userId=1`
-  );
-  const lessons = await fetch(
-    `https://jsonplaceholder.typicode.com/posts?userId=1`
-  );
+  const res = await instance.get(`/posts/${params.id}?userId=1`);
+  const lessonsObj = await instance.get("/posts?userId=1");
   const paramsId = params.id;
   const paramsLes = params.les;
-  const obj = await res.json();
-  const lessonsObj = await lessons.json();
-  return { obj, lessonsObj, paramsId, paramsLes };
+  return { obj: res.data, lessonsObj: lessonsObj.data, paramsId, paramsLes };
 };

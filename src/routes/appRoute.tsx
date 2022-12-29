@@ -49,7 +49,7 @@ import {
 } from "../pages/teacher_page/lessons/userLessons/lesPage/LesPage";
 import { StageLesPage } from "../pages/teacher_page/lessons/userLessons/stageLesPage/StageLesPage";
 import { StudentData } from "../pages/student_page/student_sections/studentData/StudentData";
-import { StudentLoyaut } from "../pages/student_page/student_loyaut/StudentLoyaut";
+import { StudentLoyaut } from "../pages/student_page/StudentLoyaut";
 import HelpCenter from "../pages/student_page/help_center/HelpCenter";
 import { StdLessons } from "../pages/student_page/student_sections/studentLessons/stdLessons/StdLessons";
 import { StdLesPage } from "../pages/student_page/student_sections/studentLessons/stdLesson/StdLesPage";

@@ -9,6 +9,7 @@ import { LesStageBox } from "./lesStageBox/LesStageBox";
 import { LesWorkBox, LesWorkBoxProps } from "./lesWorkBox/LesWorkBox";
 import { Link } from "react-router-dom";
 import { LessonTitle } from "../../../../../components/reusable/lessonTitle/LessonTitle";
+import { instance } from "../../../../../request/request";
 
 const lesWorkAndHomeWork: LesWorkBoxProps[] = [
   {
@@ -100,15 +101,9 @@ export const StageLesPage: FC = () => {
 };
 
 export const stageLesPageLoader = async ({ params }: LoaderFunctionArgs) => {
-  const res = await fetch(
-    `https://jsonplaceholder.typicode.com/posts/${params.id}?userId=1`
-  );
-  const lessons = await fetch(
-    `https://jsonplaceholder.typicode.com/posts?userId=1`
-  );
+  const res = await instance.get(`/posts/${params.id}?userId=1`);
+  const lessons = await instance.get("/posts?userId=1");
   const paramsId = params.id;
   const paramsLes = params.les;
-  const obj = await res.json();
-  const lessonsObj = await lessons.json();
-  return { obj, lessonsObj, paramsId, paramsLes };
+  return { obj: res.data, lessonsObj: lessons.data, paramsId, paramsLes };
 };
