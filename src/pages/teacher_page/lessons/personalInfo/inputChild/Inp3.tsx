@@ -1,11 +1,10 @@
 import React from "react";
 import buttonImg from "../../../../../assets/teacher_images/createGraffic/buttonimg.svg";
 import { useFormContext } from "react-hook-form";
-
 import { inputChildProps, PersonalSubmitForm } from "../InterfacePerson";
 import "./inputChild.css";
-import { CustomSelect } from "../../../../../components/forms/customSelect/CustomSelect";
 import { CstmInput } from "../../../../../components/forms/cstmInput/CstmInput";
+import { CustomSelect } from "../../../../../components/forms/customSelect/CustomSelect";
 
 export const Inp3: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
   const {

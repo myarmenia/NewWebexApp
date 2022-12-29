@@ -19,9 +19,6 @@
   @apply bg-white rounded-[10px] h-[168px] flex justify-center items-center;
 }
 
-.table_history {
-  filter: drop-shadow(2px 4px 10px rgba(0, 0, 0, 0.1));
-}
 .transactionHistory table {
   @apply w-full border-spacing-y-3 border-separate;
 }
@@ -60,6 +57,5 @@
   }
   .table_history {
     @apply overflow-x-auto;
-    filter: drop-shadow(0px 8px 15px rgba(0, 0, 0, 0.2));
   }
 }
