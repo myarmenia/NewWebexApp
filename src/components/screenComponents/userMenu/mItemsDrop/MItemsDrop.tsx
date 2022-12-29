@@ -23,15 +23,18 @@ export const MItemsDrop: FC<MItemsDropProps> = ({
       className={`mItemsDrop ${thisPathState ? "activeMenuItem" : ""}`}
       onClick={() => setDropSubMenu((prev) => !prev)}
     >
-      <div className="menuA">
-        <img src={thisPathState ? activeImg : img} alt="" />
-        <p className="menuSpan">{title}</p>
-        <img
-          src={thisPathState ? chevDownPurple : chevDown}
-          alt=""
-          className={`arrowDownMenu ${dropSubMenu ? "rotate-180" : ""}`}
-        />
+      <div className="hoverAnimation">
+        <div className="menuA">
+          <img src={thisPathState ? activeImg : img} alt="" />
+          <p className="menuSpan">{title}</p>
+          <img
+            src={thisPathState ? chevDownPurple : chevDown}
+            alt=""
+            className={`arrowDownMenu ${dropSubMenu ? "rotate-180" : ""}`}
+          />
+        </div>
       </div>
+
       {dropSubMenu && (
         <div className="sumItems">
           {toSubPaths?.map((el) => (
@@ -39,7 +42,7 @@ export const MItemsDrop: FC<MItemsDropProps> = ({
               key={Math.random()}
               to={el.path}
               className={({ isActive }) =>
-                isActive ? "subMenuSpan textPurple" : "subMenuSpan"
+                isActive ? "subMenuSpan textPurple" : "subMenuSpan hoverAnimation"
               }
             >
               {el.title}
