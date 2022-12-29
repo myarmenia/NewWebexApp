@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { CustomBtn } from "../../../../../components/forms/customBtn/CustomBtn";
 import { LessonProps } from "../../../../../models/interfaces";
 import editImg from "../../../images/Teacher/UserLessons/editGray.svg";
+import starImg from "../../../../../assets/teacher_images/userLessons/starImg.svg";
 
 export interface LesBoxProps extends LessonProps {
   studentsCount: number;
@@ -41,7 +42,9 @@ const StudentLesCard: React.FC<LesBoxProps> = ({
       <p className="student-lesBox_description">{description}</p>
       <div className="count-star">
         <p className="student-lesBox_price">{price}</p>
-        <div className="student-star">6 &#x2B50;</div>
+        <div className="student-star">
+          6 <img src={starImg} />
+        </div>
       </div>
       <div className="flex ">
         <span className="student-studentsCount">
