@@ -5,19 +5,32 @@
 #menuUl {
   @apply flex flex-col gap-6 mt-9;
 }
-.menuLi {
-  @apply w-auto gap-4 whitespace-nowrap list-none relative hover:opacity-75 duration-200;
-}
 .menuA {
-  @apply list-none font-bold text-base decoration-0 w-auto gap-[15px] flex whitespace-nowrap justify-start items-center h-auto;
+  @apply w-fit list-none font-bold text-base decoration-0 gap-[15px] flex whitespace-nowrap justify-start items-center h-auto;
   text-decoration: none;
 }
-.menuSpan {
-  @apply text-sm text-gray;
+/* --------------------------- */
+.menuLi {
+  @apply w-fit gap-4 whitespace-nowrap list-none relative duration-200;
 }
+/* .menuLi:after {
+  content: "";
+  @apply origin-[100%_50%] mt-[1px] transition-transform ease-in-out duration-300 transform block border-b-2 scale-x-0;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(90deg, #7764fb 0%, #f364f3 100%);
+}
+.menuLi:hover:after {
+  @apply scale-x-[1] origin-[0%_50%];
+} */
+
+/* -------------------------------- */
+.menuSpan {
+  @apply text-sm leading-4 text-gray inline-block m-0;
+}
+
 @layer components {
   .activeMenuItem {
-    @apply hover:!opacity-100 bg-gradientPurple;
+    @apply bg-gradientPurple;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
