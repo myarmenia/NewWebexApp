@@ -12,20 +12,16 @@ import { CustomSelect } from "../../../../../components/forms/customSelect/Custo
 
 export const discountModal = Yup.object().shape({
   price: Yup.string().required(),
-  select: Yup.string().default("Տեսակ"),
-  titleSelect: Yup.string().default("title"),
-  date: Yup.object()
-    .shape({
-      start: Yup.date()
-        .max(new Date(), "Future date not allowed")
-        .typeError("Invalid Started date"),
-      end: Yup.date().when(
-        "start",
-        (start, Yup) =>
-          start && Yup.min(start, "End time cannot be before start time")
-      ),
-    })
-    .typeError("Invalid Ended date"),
+  select: Yup.string().required("partadir e"),
+  titleSelect: Yup.string().required("partadir e"),
+  date: Yup.object().shape({
+    start: Yup.date().max(new Date(), "Future date not allowed"),
+    end: Yup.string().when(
+      "start",
+      (start, Yup) =>
+        start && Yup.min(start, "End time cannot be before start time")
+    ),
+  }),
   timeCheck: Yup.bool().oneOf([true], "Պայմաններ ընդունելը  պարտադիր է"),
 });
 interface IDiscountModal {
@@ -56,7 +52,7 @@ export const ModalDiscount: FC<IModalDiscount> = ({ modalActive }) => {
     <FormProvider {...methods}>
       {/* <div className="modal">
         <form className="modalChild" onSubmit={handleSubmit(onSubmit)}> */}
-      <ModalContainer>
+      <ModalContainer onClick={modalActive}>
         <form onSubmit={handleSubmit(onSubmit)} action="">
           <div className="modalTitle">Ակտիվացնել Զեղչ</div>
           <div className="modalInput">

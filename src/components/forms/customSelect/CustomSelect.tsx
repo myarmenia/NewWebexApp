@@ -15,15 +15,14 @@ export const CustomSelect: FC<CustomSelectProps> = ({
   className,
   isMutable,
   regName,
-  placeholder,
   error,
+  placeholder,
 }) => {
   const [state, setState] = useState<boolean>(false);
   const formMethods = useFormContext();
   const toggleOptions = () => {
     setState((prev) => !prev);
   };
-
   const errorMessage = useMemo(() => {
     if (error) {
       return error;

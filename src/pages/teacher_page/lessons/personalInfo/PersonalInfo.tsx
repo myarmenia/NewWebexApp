@@ -5,69 +5,68 @@ import { LessonTitle } from "../../../../components/reusable/lessonTitle/LessonT
 import { CstmInput } from "../../../../components/forms/cstmInput/CstmInput";
 import AddImg from "../../../../components/teacherComponents/sherid/addImg/AddImg";
 import { Inp2 } from "./inputChild/Inp2";
-// import { Inp3 } from "./inputChild/Inp3";
-// import Inp4 from "./inputChild/Inp4";
-// import Inp5 from "./inputChild/Inp5";
+import { Inp3 } from "./inputChild/Inp3";
 import Sertificat from "./inputChild/Sertificat";
 import { personalInfoValidation, PersonalSubmitForm } from "./InterfacePerson";
 import "./personalInfo.css";
-import { CustomBtn } from "../../../../components/forms/customBtn/CustomBtn";
 import { CstmTextarea } from "../../../../components/forms/cstmTextarea/CstmTextarea";
-
+import Inp4 from "./inputChild/Inp4";
+import Inp5 from "./inputChild/Inp5";
+import { CustomBtn } from "../../../../components/forms/customBtn/CustomBtn";
 const PersonalInfo = () => {
   const methods = useForm<PersonalSubmitForm>({
     resolver: yupResolver(personalInfoValidation),
-    // defaultValues: {
-    //   workattempt: [
-    //     {
-    //       select: "",
-    //       company: "",
-    //       position: "",
-    //       acceptTerms: false,
-    //       start: "",
-    //       end: "",
-    //       description: "",
-    //     },
-    //   ],
-    //   education: [
-    //     {
-    //       select2: "",
-    //       statement: "",
-    //       faculty: "",
-    //       profession: "",
-    //       start: "",
-    //       end: "",
-    //     },
-    //   ],
-    //   languages: [{}],
-    //   additionaledu: [
-    //     {
-    //       name: "",
-    //       company: "",
-    //       profession: "",
-    //       start: "",
-    //       end: "",
-    //     },
-    //   ],
-    // },
+    defaultValues: {
+      workattempt: [
+        {
+          select: "",
+          company: "",
+          position: "",
+          acceptTerms: false,
+          start: "",
+          end: "",
+          description: "",
+        },
+      ],
+      education: [
+        {
+          select2: "",
+          statement: "",
+          faculty: "",
+          profession: "",
+          start: "",
+          end: "",
+        },
+      ],
+      languages: [{}],
+      additionaledu: [
+        {
+          name: "",
+          company: "",
+          profession: "",
+          start: "",
+          end: "",
+        },
+      ],
+    },
   });
   const { handleSubmit, control, register, watch } = methods;
-  // const workattempt = useFieldArray({
-  //   control,
-  //   name: "workattempt",
-  // });
-  // const education = useFieldArray({
-  //   control,
-  //   name: "education",
-  // });
-  // const languages = useFieldArray({
-  //   control,
-  //   name: "languages",
-  // });
-  // const additionaledu = useFieldArray({
-  //   control,
-  //   name: "additionaledu",
-  // });
+  const workattempt = useFieldArray({
+    control,
+    name: "workattempt",
+  });
+  const education = useFieldArray({
+    control,
+    name: "education",
+  });
+  const languages = useFieldArray({
+    control,
+    name: "languages",
+  });
+  const additionaledu = useFieldArray({
+    control,
+    name: "additionaledu",
+  });
   const onSubmit = (data: PersonalSubmitForm) => {
     console.log(data);
   };
@@ -85,32 +84,22 @@ const PersonalInfo = () => {
                   Անձնական տվյալներ
                 </div>
                 <CstmInput type="text" placeholder="Հասցե" regName="address" />
-                {/* <CstmInput type="text" placeholder="Հեռախոս" regName="tel" /> */}
+                <CstmInput type="text" placeholder="Հեռախոս" regName="tel" />
               </div>
-              {/* <div className="flex flex-col gap-3">
+              <div className="flex flex-col gap-3">
                 <p className="font-semibold text-gray text-sm">Իմ մասին</p>
                 <CstmTextarea
                   placeholder="Նկարագիր"
                   className="!h-[287px]"
                   regName="aboutme"
                 />
-              </div> */}
-              {/* <Inp2
-                selectName="select"
-                option={["chka", "sadd", "asd", "klka"]}
-                regName="workattempt"
-                fieldArray={workattempt}
-              /> */}
+              </div>
+              <Inp2 regName="workattempt" fieldArray={workattempt} />
             </div>
             <div className="inputChild2">
-              {/* <Inp3
-                selectName="select2"
-                option={["asas", "sadd", "asd", "klka"]}
-                regName="education"
-                fieldArray={education}
-              /> */}
-              {/* <Inp4 regName="languages" fieldArray={languages} />
-              <Inp5 regName="additionaledu" fieldArray={additionaledu} /> */}
+              <Inp3 regName="education" fieldArray={education} />
+              <Inp4 regName="languages" fieldArray={languages} />
+              <Inp5 regName="additionaledu" fieldArray={additionaledu} />
               <Sertificat />
             </div>
           </div>

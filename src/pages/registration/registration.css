@@ -8,9 +8,9 @@
 }
 .registrationTitle {
   @apply bg-gradientPurple text-2xl font-bold;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 .registration-form {
   @apply w-[50%] h-auto flex flex-col justify-center items-center;
