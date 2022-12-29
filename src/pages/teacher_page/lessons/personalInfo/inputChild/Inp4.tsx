@@ -4,7 +4,7 @@ import { useFormContext } from "react-hook-form";
 import { inputChildProps, PersonalSubmitForm } from "../InterfacePerson";
 import "./inputChild.css";
 import { CstmInput } from "../../../../../components/forms/cstmInput/CstmInput";
-
+import deleteImg from "../../../../../assets/teacher_images/discount/delete.svg";
 const Inp4: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
   const {
     register,
@@ -19,13 +19,18 @@ const Inp4: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
         const languagesError =
           errors.languages && errors.languages[index]?.languages?.message;
         return (
-          <div className="inputChild2" key={id}>
+          <div className="inputChild3" key={id}>
             <CstmInput
               type="text"
               className="name "
               placeholder="Հայերեն"
               regName={`${regName}.${index}.language`}
               error={languagesError}
+            />
+            <img
+              src={deleteImg}
+              className="deleteImg"
+              onClick={() => fieldArray.remove(index)}
             />
           </div>
         );

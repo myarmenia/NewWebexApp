@@ -5,6 +5,12 @@
 .inputChild2 {
   @apply h-auto flex flex-col gap-[20px];
 }
+.inputChild3 {
+  @apply h-auto flex  gap-[20px];
+}
+.deleteImg {
+  @apply w-[19px] h-[19px] mt-[2%] cursor-pointer;
+}
 .dateValidation {
   @apply w-full h-auto flex;
 }

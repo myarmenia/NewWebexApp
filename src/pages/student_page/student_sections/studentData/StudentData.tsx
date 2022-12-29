@@ -14,31 +14,52 @@ import { LessonTitle } from "../../../../components/reusable/lessonTitle/LessonT
 import AddImg from "../../../../components/teacherComponents/sherid/addImg/AddImg";
 import { CstmInput } from "../../../../components/forms/cstmInput/CstmInput";
 import { CustomBtn } from "../../../../components/forms/customBtn/CustomBtn";
-
+import deleteImg from "../../../../assets/teacher_images/discount/delete.svg";
+interface IPersonalInfoProps {
+  adress: string;
+  phoneNum: string;
+}
 interface ILanguageProps {
   name: string;
 }
 interface IStudentData {
   imgSrc: string;
-  adress: string;
-  phoneNum: string;
+  personalInfo: IPersonalInfoProps[];
   language: ILanguageProps[];
 }
 export const StudentDataYup = Yup.object().shape({
   imgSrc: Yup.string(),
-  adress: Yup.string().required("Լրացնելը պարտադիր է"),
-  phoneNum: Yup.string().required("Լրացնելը պարտադիր է"),
-  language: Yup.array().of(Yup.object()).required("Լրացնելը պարտադիր է"),
+  personalInfo: Yup.array().of(
+    Yup.object().shape({
+      adress: Yup.string().required("Լրացնելը պարտադիր է"),
+      phoneNum: Yup.string().required("Լրացնելը պարտադիր է"),
+    })
+  ),
+  language: Yup.array().of(
+    Yup.object().shape({  
+      name: Yup.string().required("Լրացնելը պարտադիր է"),
+    })
+  ),
 });
 export const StudentData = () => {
   const methods = useForm<IStudentData>({
     resolver: yupResolver(StudentDataYup),
     defaultValues: {
       language: [{ name: "" }],
+      personalInfo: [{ adress: "", phoneNum: "" }],
     },
   });
-
-  const { handleSubmit, control, register, watch } = methods;
+  const {
+    handleSubmit,
+    control,
+    register,
+    watch,
+    formState: { errors },
+  } = methods;
+  const personalInfo = useFieldArray({
+    control,
+    name: "personalInfo",
+  });
   const language = useFieldArray({
     control,
     name: "language",
@@ -55,20 +76,68 @@ export const StudentData = () => {
           <div className="studentDataFormChild">
             <div className="studentDataChild">
               <div className="studentDataTitle">Անձնական տվյալներ</div>
-              <CstmInput placeholder="Հասցե" type="text" regName="adress" />
-              <CstmInput placeholder="Հեռախոս" type="text" regName="phoneNum" />
+              {personalInfo.fields.map(({ id }, index) => {
+                const adressError =
+                  errors.personalInfo &&
+                  errors.personalInfo[index]?.adress?.message;
+                const phoneNumError =
+                  errors.personalInfo &&
+                  errors.personalInfo[index]?.phoneNum?.message;
+                return (
+                  <div key={id} className="studentDataInp">
+                    <CstmInput
+                      placeholder="Հասցե"
+                      type="text"
+                      regName={`personalInfo.${index}.adress`}
+                      error={adressError}
+                    />
+                    <CstmInput
+                      placeholder="Հեռախոս"
+                      type="text"
+                      regName={`personalInfo.${index}.phoneNum`}
+                      error={phoneNumError}
+                    />
+                  </div>
+                );
+              })}
+              <div className="buttonContainer">
+                <button
+                  type="button"
+                  className="add"
+                  onClick={() => {
+                    personalInfo.append({
+                      adress: "",
+                      phoneNum: "",
+                    });
+                  }}
+                >
+                  <img src={buttonImg} />
+                </button>
+                <div className="addText">Ավելացնել</div>
+              </div>
             </div>
+
             <div className="studentDataChild">
               <div className="studentDataTitle">Լեզուներ</div>
-              {language.fields.map(({ id, name }, index) => {
+              {language.fields.map(({ id }, index) => {
+                const languageError =
+                  errors.language && errors.language[index]?.name?.message;
                 return (
-                  <CstmInput
-                    className="studentDataInp"
-                    placeholder="Հայերեն"
-                    type="text"
-                    key={id}
-                    regName={`language.${index}.name`}
-                  />
+                  <div className="studentDataInp2" key={id}>
+                    <CstmInput
+                      className="studentDataInp2"
+                      placeholder="Հայերեն"
+                      type="text"
+                      key={id}
+                      regName={`language.${index}.name`}
+                      error={languageError}
+                    />
+                    <img
+                      src={deleteImg}
+                      className="deleteImg"
+                      onClick={() => language.remove(index)}
+                    />
+                  </div>
                 );
               })}
               <div className="buttonContainer">
