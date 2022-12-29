@@ -1,53 +1,60 @@
 import React from "react";
-import buttonImg from "../../../../../assets/teacher_images/createGraffic/buttonimg.svg";
 import { useFormContext } from "react-hook-form";
+import buttonImg from "../../../../../assets/teacher_images/createGraffic/buttonimg.svg";
 import { CustomSelect } from "../../../../../components/teacherComponents/customSelect/CustomSelect";
 
+import { CstmInput } from "../../../../../components/teacherComponents/cstmInput/CstmInput";
+import { CstmTextarea } from "../../../../../components/teacherComponents/cstmTextarea/CstmTextarea";
+import { inputChildProps, PersonalSubmitForm } from "../InterfacePerson";
 import "./inputChild.css";
-import { inputChildProps } from "../InterfacePerson";
-export const Inp2: React.FC<inputChildProps> = ({
-  option,
-  selectName,
-  regName,
-  fieldArray,
-}) => {
+export const Inp2: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
   const {
     register,
     watch,
     formState: { errors },
-  } = useFormContext();
+  } = useFormContext<PersonalSubmitForm>();
   return (
     <div className="inputChild">
       <div className="font-semibold text-gray text-sm">Աշխատանքային փորձ</div>
       {fieldArray.fields.map(({ id }, index) => {
+        const descriptionError =
+          errors.workattempt && errors.workattempt[index]?.description?.message;
+        const selectError =
+          errors.workattempt && errors.workattempt[index]?.select?.message;
+        const companyError =
+          errors.workattempt && errors.workattempt[index]?.company?.message;
+        const positionError =
+          errors.workattempt && errors.workattempt[index]?.position?.message;
         return (
           <div className="inputChild2" key={id}>
-            <input
+            <CstmInput
               type="text"
-              className="name"
+              // className="name"
               placeholder="Կազմակերպություն"
-              {...register(`${regName}.${index}.company`)}
+              regName={`${regName}.${index}.company`}
+              error={companyError}
             />
             <CustomSelect
               placeholder="adfsd"
-              regName={selectName}
+              regName={`${regName}.${index}.select`}
               className="registration_select"
-              options={option}
+              options={["chka", "sadd", "asd", "klka"]}
+              error={selectError}
             />
-            <input
+            <CstmInput
               type="text"
               className="name"
               placeholder="Պաշտոն"
-              {...register(`${regName}.${index}.position`)}
+              regName={`${regName}.${index}.position`}
+              error={positionError}
             />
-
             <div className="dateValidation">
               <div className="checkbox">
                 <div className="checkboxText">Ժամանակահատված</div>
                 <div className="checkboxChild">
                   <input
                     type="checkbox"
-                    {...register(`${regName}.${index}.acceptTerms`)}
+                    {...register(`workattempt.${index}.acceptTerms`)}
                   />
                   <div className="clickText">ներկայումս</div>
                 </div>
@@ -56,22 +63,21 @@ export const Inp2: React.FC<inputChildProps> = ({
                 <input
                   type="date"
                   className="dateInp"
-                  {...register(`${regName}.${index}.start`)}
+                  {...register(`workattempt.${index}.start`)}
                 />
                 <div className="gic"></div>
                 <input
                   type="date"
                   className="dateInp"
-                  {...register(`${regName}.${index}.end`)}
+                  {...register(`workattempt.${index}.end`)}
                 />
               </div>
             </div>
-
-            <textarea
-              className="textarea"
+            <CstmTextarea
               placeholder="Աշխատանքի նկարագրություն"
-              {...register(`${regName}.${index}.description`)}
-            ></textarea>
+              error={descriptionError}
+              regName={`workattempt.${index}.description`}
+            />
           </div>
         );
       })}

@@ -13,7 +13,6 @@ import Inp5 from "./inputChild/Inp5";
 import Sertificat from "./inputChild/Sertificat";
 import { personalInfoValidation, PersonalSubmitForm } from "./InterfacePerson";
 import "./personalInfo.css";
-
 const PersonalInfo = () => {
   const methods = useForm<PersonalSubmitForm>({
     resolver: yupResolver(personalInfoValidation),
@@ -85,7 +84,7 @@ const PersonalInfo = () => {
                 <div className="font-semibold text-gray text-sm">
                   Անձնական տվյալներ
                 </div>
-                <CstmInput type="text" placeholder="Հասցե" regName="adress" />
+                <CstmInput type="text" placeholder="Հասցե" regName="address" />
                 <CstmInput type="text" placeholder="Հեռախոս" regName="tel" />
               </div>
               <div className="flex flex-col gap-3">
@@ -96,20 +95,10 @@ const PersonalInfo = () => {
                   regName="aboutme"
                 />
               </div>
-              <Inp2
-                selectName="select"
-                option={["chka", "sadd", "asd", "klka"]}
-                regName="workattempt"
-                fieldArray={workattempt}
-              />
+              <Inp2 regName="workattempt" fieldArray={workattempt} />
             </div>
             <div className="inputChild2">
-              <Inp3
-                selectName="select2"
-                option={["asas", "sadd", "asd", "klka"]}
-                regName="education"
-                fieldArray={education}
-              />
+              <Inp3 regName="education" fieldArray={education} />
               <Inp4 regName="languages" fieldArray={languages} />
               <Inp5 regName="additionaledu" fieldArray={additionaledu} />
               <Sertificat />

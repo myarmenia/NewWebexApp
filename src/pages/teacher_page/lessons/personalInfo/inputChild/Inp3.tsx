@@ -2,53 +2,57 @@ import React from "react";
 import buttonImg from "../../../../../assets/teacher_images/createGraffic/buttonimg.svg";
 import { useFormContext } from "react-hook-form";
 import { CustomSelect } from "../../../../../components/teacherComponents/customSelect/CustomSelect";
-import { inputChildProps } from "../InterfacePerson";
+import { inputChildProps, PersonalSubmitForm } from "../InterfacePerson";
 import "./inputChild.css";
+import { CstmInput } from "../../../../../components/teacherComponents/cstmInput/CstmInput";
 
-export const Inp3: React.FC<inputChildProps> = ({
-  option,
-  selectName,
-  regName,
-  fieldArray,
-}) => {
+export const Inp3: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
   const {
     register,
     watch,
     formState: { errors },
-  } = useFormContext();
+  } = useFormContext<PersonalSubmitForm>();
 
   return (
     <div className="inputChild">
       <div className="font-semibold text-gray text-sm">Կրթություն</div>
       {fieldArray.fields.map(({ id }, index) => {
+        const select2Error =
+          errors.education && errors.education[index]?.select2?.message;
+        const statementError =
+          errors.education && errors.education[index]?.statement?.message;
+        const facultyError =
+          errors.education && errors.education[index]?.faculty?.message;
+        const professionError =
+          errors.education && errors.education[index]?.profession?.message;
         return (
           <div className="inputChild2" key={id}>
             <CustomSelect
               placeholder="adsfdsf"
-              regName={selectName}
+              regName={`${regName}.${index}.select2`}
               className="registration_select"
-              options={option}
+              options={["asas", "sadd", "asd", "klka"]}
+              error={select2Error}
             />
-
-            <input
+            <CstmInput
               type="text"
-              className="name "
               placeholder="Ուսումնական հաստատություն"
-              {...register(`${regName}.${index}.statement`)}
+              regName={`${regName}.${index}.statement`}
+              error={statementError}
             />
 
-            <input
+            <CstmInput
               type="text"
-              className="name "
               placeholder="Ֆակուլտետ"
-              {...register(`${regName}.${index}.faculty`)}
+              regName={`${regName}.${index}.faculty`}
+              error={facultyError}
             />
 
-            <input
+            <CstmInput
               type="text"
-              className="name "
               placeholder="Մասնագիտություն"
-              {...register(`${regName}.${index}.proffesion`)}
+              regName={`${regName}.${index}.profession`}
+              error={professionError}
             />
 
             <div className="dateValidation">
@@ -61,13 +65,13 @@ export const Inp3: React.FC<inputChildProps> = ({
                 <input
                   type="date"
                   className="dateInp"
-                  {...register(`${regName}.${index}.start`)}
+                  {...register(`education.${index}.start`)}
                 />
                 <div className="gic"></div>
                 <input
                   type="date"
                   className="dateInp"
-                  {...register(`${regName}.${index}.end`)}
+                  {...register(`education.${index}.end`)}
                 />
               </div>
             </div>

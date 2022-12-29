@@ -8,6 +8,7 @@ export interface ISelect {
   options: string[];
 }
 export interface ICustomSelect {
+  error?: string;
   option: string;
   optionId: number;
   options: string[];

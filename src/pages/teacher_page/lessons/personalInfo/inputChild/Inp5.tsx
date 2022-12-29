@@ -1,38 +1,46 @@
 import React from "react";
 import buttonImg from "../../../../../assets/teacher_images/createGraffic/buttonimg.svg";
 import { useFormContext } from "react-hook-form";
-import { inputChildProps } from "../InterfacePerson";
+import { inputChildProps, PersonalSubmitForm } from "../InterfacePerson";
 import "./inputChild.css";
+import { CstmInput } from "../../../../../components/teacherComponents/cstmInput/CstmInput";
 
 const Inp5: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
   const {
     register,
     watch,
     formState: { errors },
-  } = useFormContext();
+  } = useFormContext<PersonalSubmitForm>();
   return (
     <div className="inputChild">
       <div className="font-semibold text-gray text-sm">Հավելյալ կրթություն</div>
       {fieldArray.fields.map(({ id }, index) => {
+        const additionaleduError =
+          errors.additionaledu && errors.additionaledu[index]?.name?.message;
+        const companyError =
+          errors.additionaledu && errors.additionaledu[index]?.company?.message;
+        const proffesionError =
+          errors.additionaledu &&
+          errors.additionaledu[index]?.profession?.message;
         return (
           <div className="inputChild2" key={id}>
-            <input
+            <CstmInput
               type="text"
-              className="name "
               placeholder="Դասընթացի անվանումը"
-              {...register(`${regName}.${index}.name`)}
+              regName={`${regName}.${index}.name`}
+              error={additionaleduError}
             />
-            <input
+            <CstmInput
               type="text"
-              className="name"
               placeholder="Դասընթացն անցկացնող կազմակերպություն"
-              {...register(`${regName}.${index}.company`)}
+              regName={`${regName}.${index}.company`}
+              error={companyError}
             />
-            <input
+            <CstmInput
               type="text"
-              className="name"
+              regName={`${regName}.${index}.profession`}
               placeholder="Մասնագիտություն"
-              {...register(`${regName}.${index}.proffesion`)}
+              error={proffesionError}
             />
 
             <div className="dateValidation">
@@ -45,13 +53,13 @@ const Inp5: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
                 <input
                   type="date"
                   className="dateInp"
-                  {...register(`${regName}.${index}.start`)}
+                  {...register(`additionaledu.${index}.start`)}
                 />
                 <div className="gic"></div>
                 <input
                   type="date"
                   className="dateInp"
-                  {...register(`${regName}.${index}.end`)}
+                  {...register(`additionaledu.${index}.end`)}
                 />
               </div>
             </div>

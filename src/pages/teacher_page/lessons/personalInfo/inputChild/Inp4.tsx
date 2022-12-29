@@ -1,26 +1,30 @@
 import React from "react";
 import buttonImg from "../../../../../assets/teacher_images/createGraffic/buttonimg.svg";
 import { useFormContext } from "react-hook-form";
-import { inputChildProps } from "../InterfacePerson";
+import { inputChildProps, PersonalSubmitForm } from "../InterfacePerson";
 import "./inputChild.css";
+import { CstmInput } from "../../../../../components/teacherComponents/cstmInput/CstmInput";
 const Inp4: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
   const {
     register,
     watch,
     formState: { errors },
-  } = useFormContext();
+  } = useFormContext<PersonalSubmitForm>();
 
   return (
     <div className="inputChild">
       <div className="font-semibold text-gray text-sm">Լեզուներ</div>
       {fieldArray.fields.map(({ id }, index) => {
+        const languagesError =
+          errors.languages && errors.languages[index]?.languages?.message;
         return (
           <div className="inputChild2" key={id}>
-            <input
+            <CstmInput
               type="text"
               className="name "
               placeholder="Հայերեն"
-              {...register(`${regName}.${index}.language`)}
+              regName={`${regName}.${index}.language`}
+              error={languagesError}
             />
           </div>
         );
