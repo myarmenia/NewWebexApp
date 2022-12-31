@@ -10,11 +10,9 @@ import "./cstmTextarea.css";
 interface CstmTextareaProps {
   regName?: string;
   error?: string;
-  placeholder?: string;
+  placeholder: string;
   className?: string;
   defaultValue?: string;
-  // setValue?: Dispatch<SetStateAction<string>>;
-  // value?: string;
   onChange?: ChangeEventHandler<HTMLTextAreaElement>;
 }
 
@@ -23,20 +21,15 @@ export const CstmTextarea: React.FC<CstmTextareaProps> = ({
   placeholder,
   className,
   defaultValue,
-  // setValue,
-  // value,
   error,
   onChange,
 }) => {
   const formMethods = useFormContext();
   const errorMessage = useMemo(() => {
-    if (error) {
-      return error;
-    } else if (regName) {
-      return formMethods?.formState?.errors[regName]?.message!.toString();
-    } else {
-      return;
-    }
+    return (
+      error ||
+      (regName && formMethods?.formState?.errors[regName]?.message!.toString())
+    );
   }, [error, formMethods?.formState?.errors]);
 
   return (
@@ -47,8 +40,6 @@ export const CstmTextarea: React.FC<CstmTextareaProps> = ({
         placeholder={placeholder}
         {...formMethods?.register(regName!)}
         defaultValue={defaultValue}
-        // value={value}
-        // onChange={(e) => setValue?.(e.target.value)}
         onChange={onChange}
       />
       <p className="errorMessage">{errorMessage}</p>

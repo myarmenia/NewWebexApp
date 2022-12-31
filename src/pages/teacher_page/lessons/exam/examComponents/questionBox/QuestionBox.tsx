@@ -25,7 +25,6 @@ export const QuestionBox: React.FC<QuestionBoxProps> = ({
 }) => {
   const { watch } = useFormContext();
   const addVariant = (e: MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
     questions.update(i, {
       ...field,
       examQuestion: watch("questionBox")[i].examQuestion,

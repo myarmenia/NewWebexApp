@@ -1,5 +1,5 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FormProvider, useFieldArray, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import downloadImg from "../../../../../assets/teacher_images/newLesson/download.svg";
@@ -18,9 +18,6 @@ import { TxtWinput } from "./txtWinput/TxtWinput";
 import { nLessCreate_L_Schema, TeacherSubmitForm } from "./validationSchema";
 
 export const LessonCntBody: React.FC = () => {
-  const [titleValue, setTitleValue] = useState<string>("");
-  console.log(titleValue, "titleValue");
-
   const navigate = useNavigate();
   const [selectOptions, setOptions] = useState<string[]>([
     "aaa",
@@ -85,7 +82,6 @@ export const LessonCntBody: React.FC = () => {
       navigate("lesson_graffic");
     }
   };
-
   return (
     <FormProvider {...methods}>
       <div className="LessonCntBody">
@@ -187,9 +183,6 @@ export const LessonCntBody: React.FC = () => {
           </div>
           <div className="nextBtnCont">
             <CustomBtn title="Առաջ" type="submit" />
-            {/* <a href="#" className="hoverBtn">
-              Hover Me!
-            </a> */}
             {/* <button
               type="button"
               className="addLessonBtn"

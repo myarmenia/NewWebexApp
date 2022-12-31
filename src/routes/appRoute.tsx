@@ -30,7 +30,7 @@ import { Wallet } from "../pages/teacher_page/lessons/wallet/Wallet";
 import HelpCenter from "../pages/student_page/help_center/HelpCenter";
 import { StudentLoyaut } from "../pages/student_page/StudentLoyaut";
 import { StudentData } from "../pages/student_page/student_sections/studentData/StudentData";
-import { StdLesPage } from "../pages/student_page/student_sections/studentLessons/stdLesson/StdLesPage";
+import { StdLesPage, stdLessonPageLoader } from "../pages/student_page/student_sections/studentLessons/stdLesson/StdLesPage";
 import { StdLessons } from "../pages/student_page/student_sections/studentLessons/stdLessons/StdLessons";
 import StudentLessons from "../pages/student_page/student_sections/studentLessons/StudentLessons";
 import { StudentProgress } from "../pages/student_page/student_sections/studentProgress/StudentProgress";
@@ -173,7 +173,7 @@ export const router = createBrowserRouter(
                 price="65 000"
               />
             }
-            loader={lessonPageLoader}
+            loader={stdLessonPageLoader}
           />
         </Route>
         <Route path="feedback">

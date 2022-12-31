@@ -4,7 +4,7 @@ import "./navItem.css";
 
 export const NavItem: React.FC<INavItem> = ({ children }) => {
   return (
-    <a href="#" className="navItem">
+    <a href="#" className="navItem hoverTextAnimation">
       {children}
     </a>
   );

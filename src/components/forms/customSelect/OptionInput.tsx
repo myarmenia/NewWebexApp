@@ -1,4 +1,4 @@
-import React, { FC, useRef } from "react";
+import { FC, useRef } from "react";
 import acceptImg from "../../../assets/teacher_images/newLesson/accept.svg";
 import { ICustomSelect } from "../../../models/interfaces";
 
