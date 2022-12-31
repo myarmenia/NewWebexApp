@@ -1,23 +1,26 @@
-import React, { useState } from "react";
-import "./lessonCntBody.css";
-import downloadImg from "../../../../../assets/teacher_images/newLesson/download.svg";
-import { AgeDiv } from "./ageDiv/AgeDiv";
-import { FinishExam } from "./finishExam/FinishExam";
-import { TxtWinput } from "./txtWinput/TxtWinput";
-import { DifferentCourses } from "./differentCourses/DifferentCourses";
-import { Phases } from "./phases/Phases";
-import { FormProvider, useFieldArray, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Knowledges } from "./knowledges/Knowledges";
-import { nLessCreate_L_Schema, TeacherSubmitForm } from "./validationSchema";
+import React, { useState } from "react";
+import { FormProvider, useFieldArray, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import downloadImg from "../../../../../assets/teacher_images/newLesson/download.svg";
 import { CstmInput } from "../../../../../components/forms/cstmInput/CstmInput";
-import { CustomSelect } from "../../../../../components/forms/customSelect/CustomSelect";
-import { CustomNmbInp } from "../../../../../components/forms/customNmbInp/CustomNmbInp";
-import { CustomBtn } from "../../../../../components/forms/customBtn/CustomBtn";
 import { CstmTextarea } from "../../../../../components/forms/cstmTextarea/CstmTextarea";
+import { CustomBtn } from "../../../../../components/forms/customBtn/CustomBtn";
+import { CustomNmbInp } from "../../../../../components/forms/customNmbInp/CustomNmbInp";
+import { CustomSelect } from "../../../../../components/forms/customSelect/CustomSelect";
+import { AgeDiv } from "./ageDiv/AgeDiv";
+import { DifferentCourses } from "./differentCourses/DifferentCourses";
+import { FinishExam } from "./finishExam/FinishExam";
+import { Knowledges } from "./knowledges/Knowledges";
+import "./lessonCntBody.css";
+import { Phases } from "./phases/Phases";
+import { TxtWinput } from "./txtWinput/TxtWinput";
+import { nLessCreate_L_Schema, TeacherSubmitForm } from "./validationSchema";
 
 export const LessonCntBody: React.FC = () => {
+  const [titleValue, setTitleValue] = useState<string>("");
+  console.log(titleValue, "titleValue");
+
   const navigate = useNavigate();
   const [selectOptions, setOptions] = useState<string[]>([
     "aaa",
@@ -184,6 +187,9 @@ export const LessonCntBody: React.FC = () => {
           </div>
           <div className="nextBtnCont">
             <CustomBtn title="Առաջ" type="submit" />
+            {/* <a href="#" className="hoverBtn">
+              Hover Me!
+            </a> */}
             {/* <button
               type="button"
               className="addLessonBtn"

@@ -2,9 +2,9 @@ import React, { FC, useRef } from "react";
 import acceptImg from "../../../assets/teacher_images/newLesson/accept.svg";
 import { ICustomSelect } from "../../../models/interfaces";
 
-type OptionInputProps = Pick<ICustomSelect, "setOptions" | "options">;
+type OptionInputProps = Pick<ICustomSelect, "options" | "isMutable">;
 
-export const OptionInput: FC<OptionInputProps> = ({ options, setOptions }) => {
+export const OptionInput: FC<OptionInputProps> = ({ options, isMutable }) => {
   const inpRef = useRef<HTMLInputElement>(null);
   return (
     <div className="relative m-3 mt-2">
@@ -18,7 +18,7 @@ export const OptionInput: FC<OptionInputProps> = ({ options, setOptions }) => {
         src={acceptImg}
         alt=""
         onClick={() => {
-          setOptions?.([...options, inpRef.current!.value]);
+          isMutable?.setOptions?.([...options, inpRef.current!.value]);
           inpRef.current!.value = "";
           inpRef.current!.focus();
         }}

@@ -22,7 +22,7 @@ export interface IWalletModalForm {
 }
 export const WalletCont: FC<WalletContProps> = ({ balance }) => {
   const [transactionHistory, setTransactionHistory] = useState<boolean>(true);
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [isModalOpened, setIsModalOpen] = useState<boolean>(false);
   const [tarifPlanName, setTarifPlanState] = useState<string>();
 
   const methods = useForm<IWalletModalForm>({
@@ -141,7 +141,7 @@ export const WalletCont: FC<WalletContProps> = ({ balance }) => {
           </div>
         </div>
       </div>
-      {isModalOpen && (
+      {isModalOpened && (
         <ModalContainer
           onClick={() => setIsModalOpen(false)}
           className={{ modal: "!pt-[14px] !h-[390px] !w-[600px] !px-5" }}

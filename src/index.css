@@ -115,19 +115,19 @@ textarea {
 
 button:hover {
   filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.1));
-  @apply transition-all -translate-y-[1px] duration-300;
+  /* @apply transition-all -translate-y-[1px] duration-300; */
 }
 
-.hoverAnimation {
+.hoverTextAnimation {
   @apply w-fit;
 }
-.hoverAnimation:after {
+.hoverTextAnimation:after {
   content: "";
-  @apply mt-1 transition-transform ease-in-out duration-300 transform block border-b-2 scale-x-0;
-  transform-origin: calc(100% + 100px) 50%;
+  @apply transition-transform ease-in-out duration-300 transform block border-b-2 scale-x-0;
+  transform-origin: 100% 50%;
   border-image-slice: 1;
   border-image-source: linear-gradient(90deg, #7764fb 0%, #f364f3 100%);
 }
-.hoverAnimation:hover:after {
-  @apply scale-x-[1] origin-[-10px_50%];
+.hoverTextAnimation:hover:after {
+  @apply scale-x-[1] origin-[0_50%];
 }

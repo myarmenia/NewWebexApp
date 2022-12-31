@@ -1,18 +1,22 @@
-import "./customSelect.css";
-import React, { Dispatch, FC, SetStateAction, useMemo, useState } from "react";
-import { Options } from "./Options";
-import { DefaultOption } from "./DefaultOption";
+import { FC, useMemo, useState } from "react";
 import { useFormContext } from "react-hook-form";
 import { ICustomSelect } from "../../../models/interfaces";
+import "./customSelect.css";
+import { DefaultOption } from "./DefaultOption";
+import { Options } from "./Options";
 
 interface CustomSelectProps
   extends Pick<
     ICustomSelect,
-    "options" | "className" | "regName" | "placeholder" | "isMutable" | "error"
-  > {
-  setValue?: Dispatch<SetStateAction<string>>;
-  value?: string;
-}
+    | "options"
+    | "className"
+    | "regName"
+    | "placeholder"
+    | "isMutable"
+    | "error"
+    | "setValue"
+    | "value"
+  > {}
 
 export const CustomSelect: FC<CustomSelectProps> = ({
   options,
@@ -21,6 +25,7 @@ export const CustomSelect: FC<CustomSelectProps> = ({
   regName,
   error,
   placeholder,
+  // if you want to make select work without react-hook-form you need to pass value and setValue useState
   setValue,
   value,
 }) => {
@@ -33,17 +38,21 @@ export const CustomSelect: FC<CustomSelectProps> = ({
     if (error) {
       return error;
     } else if (regName) {
-      return formMethods?.formState?.errors[regName]?.message!.toString();
+      return formMethods?.formState?.errors[regName]?.message?.toString();
     } else {
       return;
     }
-  }, [error, formMethods?.formState?.errors]);
+  }, [error, formMethods?.formState?.errors[regName!]?.message]);
   return (
     <div className="flex justify-center h-10">
       <div className={`customSelect ${className}`}>
-        <DefaultOption {...{ toggleOptions, regName, placeholder }} />
+        <DefaultOption
+          {...{ toggleOptions, regName, placeholder, setValue, value }}
+        />
         {state && (
-          <Options {...{ options, toggleOptions, regName, isMutable }} />
+          <Options
+            {...{ options, toggleOptions, regName, isMutable, setValue }}
+          />
         )}
         <p className="errorMessage">{errorMessage}</p>
       </div>

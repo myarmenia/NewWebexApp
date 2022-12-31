@@ -9,10 +9,10 @@ interface TrNumProps {
 export const TrNum: FC<TrNumProps> = ({ el }) => {
   return (
     <tr>
-      {el.map(({ dayNumber, isActive, notCurrentMonth }) => {
+      {el.map(({ dayNumber, isActive, isCurrentMonth }) => {
         return (
           <TdNum
-            {...{ dayNumber, isActive, notCurrentMonth }}
+            {...{ dayNumber, isActive, isCurrentMonth }}
             key={Math.random()}
           />
         );

@@ -1,4 +1,5 @@
 import React, {
+  ChangeEventHandler,
   Dispatch,
   SetStateAction,
   useEffect,
@@ -19,8 +20,9 @@ interface CustomNmbInpProps {
   regName: string;
   error?: string;
   fieldArray?: UseFieldArrayReturn<TeacherSubmitForm, "stages", "id">;
-  setValue?: Dispatch<SetStateAction<string>>;
-  value?: string;
+  // setValue?: Dispatch<SetStateAction<string>>;
+  // value?: string;
+  onChange?: ChangeEventHandler<HTMLInputElement>;
 }
 
 export const CustomNmbInp: React.FC<CustomNmbInpProps> = ({
@@ -28,8 +30,9 @@ export const CustomNmbInp: React.FC<CustomNmbInpProps> = ({
   regName,
   error,
   fieldArray,
-  setValue,
-  value,
+  // setValue,
+  // value,
+  onChange,
 }) => {
   const methods = useFormContext();
   const {
@@ -80,8 +83,9 @@ export const CustomNmbInp: React.FC<CustomNmbInpProps> = ({
             disabled
             defaultValue={age}
             {...register(regName)}
-            value={value}
-            onChange={(e) => setValue?.(e.target.value)}
+            // value={value}
+            // onChange={(e) => setValue?.(e.target.value)}
+            onChange={onChange}
           />
         </div>
         <img src={arrow} alt="" className="arrowLeft" onClick={decrease} />
