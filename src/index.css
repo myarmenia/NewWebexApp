@@ -71,6 +71,27 @@ textarea {
 }
 /* --------------- custom checkbox ------------ */
 
+/* ----- time input start ------ */
+
+.timeInp {
+  @apply text-[#9C9C9C] text-xs relative w-[85px];
+}
+.timeInp::-webkit-calendar-picker-indicator {
+  @apply w-full h-full absolute left-[10px] cursor-pointer;
+  background: none;
+}
+.timeInp::-webkit-datetime-edit-ampm-field {
+  display: none;
+}
+.timeInp::-webkit-clear-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+}
+
+/* ----- time input end ------ */
 .textPurple {
   @apply bg-gradientPurple;
   -webkit-background-clip: text;
@@ -97,12 +118,16 @@ button:hover {
   @apply transition-all -translate-y-[1px] duration-300;
 }
 
+.hoverAnimation {
+  @apply w-fit;
+}
 .hoverAnimation:after {
   content: "";
-  @apply origin-[100%_50%] mt-[2px] transition-transform ease-in-out duration-300 transform block border-b-2 scale-x-0;
+  @apply mt-1 transition-transform ease-in-out duration-300 transform block border-b-2 scale-x-0;
+  transform-origin: calc(100% + 100px) 50%;
   border-image-slice: 1;
   border-image-source: linear-gradient(90deg, #7764fb 0%, #f364f3 100%);
 }
 .hoverAnimation:hover:after {
-  @apply scale-x-[1] origin-[0%_50%];
+  @apply scale-x-[1] origin-[-10px_50%];
 }
