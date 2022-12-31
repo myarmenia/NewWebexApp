@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { Dispatch, SetStateAction, useMemo } from "react";
 import "./cstmInput.css";
 import { useFormContext } from "react-hook-form";
 
@@ -9,6 +9,8 @@ interface CstmInputProps {
   className?: string;
   error?: string;
   defaultValue?: string | number;
+  setValue?: Dispatch<SetStateAction<string>>;
+  value?: string;
 }
 
 export const CstmInput: React.FC<CstmInputProps> = ({
@@ -18,6 +20,8 @@ export const CstmInput: React.FC<CstmInputProps> = ({
   className,
   error,
   defaultValue,
+  setValue,
+  value,
 }) => {
   const formMethods = useFormContext();
   const RealName = regName ? formMethods?.register(regName) : null;
@@ -39,6 +43,8 @@ export const CstmInput: React.FC<CstmInputProps> = ({
         type={type}
         placeholder={placeholder}
         defaultValue={defaultValue}
+        value={value}
+        onChange={(e) => setValue?.(e.target.value)}
       />
       <p className="errorMessage">{errorMessage}</p>
     </div>

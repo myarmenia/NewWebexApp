@@ -1,4 +1,10 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, {
+  Dispatch,
+  SetStateAction,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 import "./customNmbInp.css";
 import arrow from "../../../assets/teacher_images/newLesson/Polygon 3.svg";
 import {
@@ -13,6 +19,8 @@ interface CustomNmbInpProps {
   regName: string;
   error?: string;
   fieldArray?: UseFieldArrayReturn<TeacherSubmitForm, "stages", "id">;
+  setValue?: Dispatch<SetStateAction<string>>;
+  value?: string;
 }
 
 export const CustomNmbInp: React.FC<CustomNmbInpProps> = ({
@@ -20,13 +28,15 @@ export const CustomNmbInp: React.FC<CustomNmbInpProps> = ({
   regName,
   error,
   fieldArray,
+  setValue,
+  value,
 }) => {
+  const methods = useFormContext();
   const {
     register,
-    setValue,
     watch,
     formState: { errors },
-  } = useFormContext();
+  } = methods;
 
   const [age, setAge] = useState<number>(defaultValue);
   const increase = () => {
@@ -46,7 +56,7 @@ export const CustomNmbInp: React.FC<CustomNmbInpProps> = ({
     }
   };
   useEffect(() => {
-    setValue(regName, age);
+    methods?.setValue(regName, age);
   }, [age]);
 
   const errorMessage = useMemo(() => {
@@ -70,6 +80,8 @@ export const CustomNmbInp: React.FC<CustomNmbInpProps> = ({
             disabled
             defaultValue={age}
             {...register(regName)}
+            value={value}
+            onChange={(e) => setValue?.(e.target.value)}
           />
         </div>
         <img src={arrow} alt="" className="arrowLeft" onClick={decrease} />

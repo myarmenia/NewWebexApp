@@ -1,14 +1,18 @@
 import "./customSelect.css";
-import React, { FC, useMemo, useState } from "react";
+import React, { Dispatch, FC, SetStateAction, useMemo, useState } from "react";
 import { Options } from "./Options";
 import { DefaultOption } from "./DefaultOption";
 import { useFormContext } from "react-hook-form";
 import { ICustomSelect } from "../../../models/interfaces";
 
-type CustomSelectProps = Pick<
-  ICustomSelect,
-  "options" | "className" | "regName" | "placeholder" | "isMutable" | "error"
->;
+interface CustomSelectProps
+  extends Pick<
+    ICustomSelect,
+    "options" | "className" | "regName" | "placeholder" | "isMutable" | "error"
+  > {
+  setValue?: Dispatch<SetStateAction<string>>;
+  value?: string;
+}
 
 export const CustomSelect: FC<CustomSelectProps> = ({
   options,
@@ -17,6 +21,8 @@ export const CustomSelect: FC<CustomSelectProps> = ({
   regName,
   error,
   placeholder,
+  setValue,
+  value,
 }) => {
   const [state, setState] = useState<boolean>(false);
   const formMethods = useFormContext();
