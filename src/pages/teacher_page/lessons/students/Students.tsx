@@ -4,6 +4,7 @@ import { CustomBtn } from "../../../../components/forms/customBtn/CustomBtn";
 import { CustomDropdown } from "../../../../components/reusable/customDropdown/CustomDropdown";
 import { LessonTitle } from "../../../../components/reusable/lessonTitle/LessonTitle";
 import { Table } from "../../../../components/reusable/table/Table";
+import { generateArray } from "../../../../helper/generateArray";
 import { IStudentTd } from "../../../../models/interfaces";
 import { TdDate } from "./stdComponents/tds/TdDate";
 import { TdFeedBack } from "./stdComponents/tds/TdFeedBack";
@@ -12,8 +13,8 @@ import { TdName } from "./stdComponents/tds/TdName";
 import { TdProgres } from "./stdComponents/tds/TdProgres";
 import "./students.css";
 
-const tbodyData = (length: number): IStudentTd[] =>
-  Array.from({ length: length }).map(() => ({
+const tbodyData = (length: number) =>
+  generateArray(length, {
     image: "smile.png",
     name: "Անուն Ազգանուն",
     phoneNumber: "+374 90 888 888",
@@ -26,7 +27,7 @@ const tbodyData = (length: number): IStudentTd[] =>
       progres: (() => Math.floor(Math.random() * 100))(),
       homework: "",
     })),
-  }));
+  });
 
 export const Students: FC = () => {
   return (
@@ -37,48 +38,46 @@ export const Students: FC = () => {
           classNameParent="!mb-[14px]"
         />
         <Table
-          theadItems={{
-            items: [
-              "Ուսանողի Անուն",
-              "Հեռախոս",
-              "Դասընթացի անվանումը",
-              "Հայտի ամսաթիվը",
-              "Տալ հասանելիություն դասերին",
-              "",
-            ],
-          }}
-          tbodyItems={tbodyData(2).map(({ lessons, name, phoneNumber }) => ({
-            trData: [
-              {
-                item: <TdName {...{ name }} />,
-              },
-              {
-                item: (
-                  <TdLes lessons={[{ ...lessons[0], title: phoneNumber }]} />
-                ),
-              },
-              { item: <TdLes {...{ lessons }} /> },
-              { item: <TdDate {...{ lessons }} />, className: "!text-center" },
-              {
-                item: (
-                  <CustomBtn
-                    title="Առաջին փուլ"
-                    type="button"
-                    className="!py-2 !min-w-[152px]"
-                  />
-                ),
-              },
-              {
-                item: (
-                  <img
-                    src={trashbinImg}
-                    className="cursor-pointer scale-125"
-                    alt=""
-                  />
-                ),
-              },
-            ],
-          }))}
+          rows={[
+            {
+              name: "Ուսանողի Անուն",
+              selector: ({ name }: any) => <TdName {...{ name }} />,
+            },
+            {
+              name: "Հեռախոս",
+              selector: ({ lessons, phoneNumber }: any) => (
+                <TdLes lessons={[{ ...lessons[0], title: phoneNumber }]} />
+              ),
+            },
+            {
+              name: "Դասընթացի անվանումը",
+              selector: ({ lessons }: any) => <TdLes {...{ lessons }} />,
+            },
+            {
+              name: "Հայտի ամսաթիվը",
+              selector: ({ lessons }: any) => <TdDate {...{ lessons }} />,
+            },
+            {
+              name: "Տալ հասանելիություն դասերին",
+              selector: ({ name }: any) => (
+                <CustomBtn
+                  title="Առաջին փուլ"
+                  className="!py-2 !min-w-[152px]"
+                />
+              ),
+            },
+            {
+              name: "",
+              selector: ({ name }: any) => (
+                <img
+                  src={trashbinImg}
+                  className="cursor-pointer scale-125"
+                  alt=""
+                />
+              ),
+            },
+          ]}
+          tbodyItems={tbodyData(2)}
         />
       </div>
       <div>
@@ -93,35 +92,35 @@ export const Students: FC = () => {
             />
           </div>
           <Table
-            theadItems={{
-              items: [
-                "Ուսանողի Անուն",
-                "Հեռախոս",
-                "Դասընթացի անվանումը",
-                "Ուսուցման ամսաթիվը",
-                "Առաջընթացը",
-                "Տնայիններ",
-              ],
-            }}
-            tbodyItems={tbodyData(8).map(({ lessons, name, phoneNumber }) => ({
-              trData: [
-                {
-                  item: <TdName {...{ name }} />,
-                },
-                {
-                  item: (
-                    <TdLes lessons={[{ ...lessons[0], title: phoneNumber }]} />
-                  ),
-                },
-                { item: <TdLes {...{ lessons }} /> },
-                {
-                  item: <TdDate {...{ lessons }} />,
-                  className: "!text-center",
-                },
-                { item: <TdProgres {...{ lessons }} /> },
-                { item: <TdFeedBack {...{ lessons }} /> },
-              ],
-            }))}
+            rows={[
+              {
+                name: "Ուսանողի Անուն",
+                selector: ({ name }: any) => <TdName {...{ name }} />,
+              },
+              {
+                name: "Հեռախոս",
+                selector: ({ lessons, phoneNumber }: any) => (
+                  <TdLes lessons={[{ ...lessons[0], title: phoneNumber }]} />
+                ),
+              },
+              {
+                name: "Դասընթացի անվանումը",
+                selector: ({ lessons }: any) => <TdLes {...{ lessons }} />,
+              },
+              {
+                name: "Ուսուցման ամսաթիվը",
+                selector: ({ lessons }: any) => <TdDate {...{ lessons }} />,
+              },
+              {
+                name: "Առաջընթացը",
+                selector: ({ lessons }: any) => <TdProgres {...{ lessons }} />,
+              },
+              {
+                name: "Տնայիններ",
+                selector: ({ lessons }: any) => <TdFeedBack {...{ lessons }} />,
+              },
+            ]}
+            tbodyItems={tbodyData(8)}
           />
         </div>
       </div>

@@ -1,18 +1,16 @@
 import { FC } from "react";
+import { TableProps } from "../Table";
 import "./thead.css";
 
-interface TheadProps {
-  items: string[];
-  thClassName?: string;
-}
+type TheadProps = Pick<TableProps, "rows">;
 
-export const Thead: FC<TheadProps> = ({ items, thClassName }) => {
+export const Thead: FC<TheadProps> = ({ rows }) => {
   return (
-    <thead className="relative">
+    <thead>
       <tr className="theadTr">
-        {items.map((el, i) => (
-          <th key={i} className={"custom_th "+  thClassName}>
-            {el}
+        {rows.map(({ name, thClassName }, i) => (
+          <th key={i} className={"custom_th " + thClassName}>
+            {name}
           </th>
         ))}
       </tr>

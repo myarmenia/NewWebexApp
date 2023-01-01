@@ -32,7 +32,7 @@ input,
 textarea {
   outline: none;
 }
-/* ---------------- SCROLL_BAR STARTS ---------------- */
+/* ---------------- SCROLL_BAR ---------------- */
 ::-webkit-scrollbar {
   width: 3px;
   height: 2px;
@@ -53,7 +53,7 @@ textarea {
 .scrollbar_hidden::-webkit-scrollbar-thumb:hover {
   visibility: hidden;
 }
-/* ---------------- SCROLL_BAR ENDS ---------------- */
+/* ========================================================= */
 
 /* --------------- custom checkbox ------------ */
 .customCheckbox {
@@ -69,10 +69,9 @@ textarea {
   @apply bg-white w-[11px] h-[11px] absolute rounded-[3px] top-[1px] left-[1px];
   content: "";
 }
-/* --------------- custom checkbox ------------ */
+/* ============================================ */
 
-/* ----- time input start ------ */
-
+/* ----- time input ------ */
 .timeInp {
   @apply text-[#9C9C9C] text-xs relative w-[85px];
 }
@@ -90,8 +89,8 @@ textarea {
   -ms-appearance: none;
   appearance: none;
 }
+/* ===================================================== */
 
-/* ----- time input end ------ */
 .textPurple {
   @apply bg-gradientPurple;
   -webkit-background-clip: text;
@@ -100,24 +99,11 @@ textarea {
   /* text-fill-color: transparent; */
 }
 
-.my_background_08,
-.my_background_06,
-.my_background_04 {
-  @apply z-0 w-full h-full bg-white opacity-60 rounded-[15px] !absolute top-0 left-0;
-  box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.1);
-}
-.my_background_04 {
-  @apply opacity-40;
-}
-.my_background_08 {
-  @apply opacity-80;
-}
-
 button:hover {
   filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.1));
   /* @apply transition-all -translate-y-[1px] duration-300; */
 }
-
+/* text hover animation */
 .hoverTextAnimation {
   @apply w-fit;
 }
@@ -131,3 +117,36 @@ button:hover {
 .hoverTextAnimation:hover:after {
   @apply scale-x-[1] origin-[0_50%];
 }
+/* ========================================= */
+
+/* ---------- custom table styles ------------ */
+.custom_table {
+  @apply border-spacing-y-3 border-separate;
+}
+
+.custom_tr {
+  @apply relative bg-[#f0f9fc99] rounded-[10px];
+}
+.custom_td {
+  @apply box-content h-[41px] border-none text-xs text-gray py-1 px-5 first:rounded-l-[10px] last:rounded-r-[10px];
+}
+.stdudentName {
+  @apply flex items-center gap-[10px];
+}
+.custom_td_lessonTitle_cont {
+  @apply max-w-[178px] min-w-[100px];
+}
+.custom_td_lessonTitle {
+  @apply text-ellipsis whitespace-nowrap overflow-x-hidden;
+}
+
+@media (max-width: 850px) {
+  .custom_td {
+    @apply px-3;
+  }
+  .stdTbodyTr {
+    @apply overflow-x-auto;
+  }
+}
+
+/* ========================================= */

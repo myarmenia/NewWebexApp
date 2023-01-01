@@ -1,16 +1,16 @@
-import React, { FC } from "react";
-import "./dayCont.css";
-import filterImg from "../../../../../../assets/teacher_images/calendar/filterImg.svg";
-import { CalTbody } from "./calTbody/CalTbody";
-import { CalThead } from "./calThead/CalThead";
+import { FC } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  toPrevMonth,
-  toNextMonth,
-} from "../../../../../../redux/reducers/calendarList";
-import { ToggleMonth } from "./toggleMonth/ToggleMonth";
+import filterImg from "../../../../../../assets/teacher_images/calendar/filterImg.svg";
 import { ICalendarReducer } from "../../../../../../models/interfaces";
+import {
+  toNextMonth,
+  toPrevMonth,
+} from "../../../../../../redux/reducers/calendarList";
 import { months } from "../../calStore/calStore";
+import { CalTbody } from "./CalTbody";
+import { CalThead } from "./calThead/CalThead";
+import "./dayCont.css";
+import { ToggleMonth } from "./toggleMonth/ToggleMonth";
 
 interface DayContProps {
   // currentDate: Date;

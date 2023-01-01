@@ -1,9 +1,9 @@
-import React, { FC } from "react";
-import { IDateDay } from "../../../../../../../models/interfaces";
-import "./tdNum.css";
+import { FC } from "react";
 import { useDispatch } from "react-redux";
-import { chooseDay } from "../../../../../../../redux/reducers/calendarList";
 import { useNavigate } from "react-router";
+import { IDateDay } from "../../../../../../../models/interfaces";
+import { chooseDay } from "../../../../../../../redux/reducers/calendarList";
+import "./tdNum.css";
 
 interface TdNumProps extends IDateDay {}
 

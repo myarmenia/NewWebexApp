@@ -1,15 +1,19 @@
 import { FC } from "react";
-import { Tr, TrProps } from "./tr/Tr";
+import { TableProps } from "./Table";
 
-export interface TbodyProps {
-  tbodyItems: TrProps[];
-}
+interface TbodyProps extends TableProps {}
 
-export const Tbody: FC<TbodyProps> = ({ tbodyItems }) => {
+export const Tbody: FC<TbodyProps> = ({ rows, tbodyItems }) => {
   return (
-    <tbody className="border-spacing-y-3 border-separate">
-      {tbodyItems.map(({ trData }, index) => (
-        <Tr {...{ trData }} key={index} />
+    <tbody>
+      {tbodyItems?.map((el, index) => (
+        <tr className="custom_tr" key={index}>
+          {rows.map(({ selector, tdClassName }, i) => (
+            <td className={`custom_td ${tdClassName}`} key={i}>
+              {selector(el)}
+            </td>
+          ))}
+        </tr>
       ))}
     </tbody>
   );

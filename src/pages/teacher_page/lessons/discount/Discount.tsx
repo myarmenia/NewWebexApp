@@ -18,70 +18,77 @@ export const Discount: FC = () => {
           <div className="activeDiscount">
             <p className="font-semibold text-sm mb-3">Ակտիվ զեղչեր </p>
             <Table
-              theadItems={{
-                items: [
-                  "Ժամանակահատված",
-                  "Դասընթաց",
-                  "Տեսակ",
-                  "Արժեք",
-                  "Ապակտիվացնել",
-                ],
-              }}
-              tbodyItems={Array.from({ length: 2 }).map(() => ({
-                trData: [
-                  { item: "11/22/2022 - 12/22/2022", className: "text-center" },
-                  { item: "Դասընթացի վերնագիրը", className: "text-center" },
-                  { item: "Զեղչ", className: "text-center" },
-                  { item: "20%", className: "text-center" },
-                  {
-                    item: (
-                      <CustomBtn
-                        className="!w-fit !min-w-min"
-                        title="Դադարեցնել"
-                        type="button"
-                      />
-                    ),
-                    className: "text-center",
-                  },
-                ],
-              }))}
+              rows={[
+                {
+                  name: "Ժամանակահատված",
+                  selector: (obj: any) => "11/22/2022 - 12/22/2022",
+                  tdClassName: "text-center",
+                },
+                {
+                  name: "Դասընթաց",
+                  selector: (obj: any) => "Դասընթացի վերնագիրը",
+                  tdClassName: "text-center",
+                },
+                {
+                  name: "Տեսակ",
+                  selector: (obj: any) => "Զեղչ",
+                  tdClassName: "text-center",
+                },
+                {
+                  name: "Արժեք",
+                  selector: (obj: any) => "20%",
+                  tdClassName: "text-center",
+                },
+                {
+                  name: "Ապակտիվացնել",
+                  selector: (obj: any) => (
+                    <CustomBtn
+                      className="!w-fit !min-w-min"
+                      title="Դադարեցնել"
+                    />
+                  ),
+                  tdClassName: "text-center",
+                },
+              ]}
+              tbodyItems={[{}, {}]}
             />
           </div>
           <div className="discount_promos">
             <p className="font-semibold text-sm mb-3">Պրոմոներ </p>
             <Table
-              theadItems={{
-                items: [
-                  "Ժամանակահատված",
-                  "Դասընթաց",
-                  "Տեսակ",
-                  "Արժեք",
-                  "Ապակտիվացնել",
-                ],
-              }}
-              tbodyItems={[
+              rows={[
                 {
-                  trData: [
-                    {
-                      item: "11/22/2022 - 12/22/2022",
-                      className: "text-center",
-                    },
-                    { item: "Դասընթացի վերնագիրը", className: "text-center" },
-                    { item: "Պրոմո", className: "text-center" },
-                    { item: "", className: "text-center" },
-                    {
-                      item: (
-                        <CustomBtn
-                          className="!w-fit !min-w-min"
-                          title="Հանել պրոմոյից"
-                          type="button"
-                        />
-                      ),
-                      className: "text-center",
-                    },
-                  ],
+                  name: "Ժամանակահատված",
+                  selector: (obj: any) => "11/22/2022 - 12/22/2022",
+                  tdClassName: "text-center",
+                },
+                {
+                  name: "Դասընթաց",
+                  selector: (obj: any) => "Դասընթացի վերնագիրը",
+                  tdClassName: "text-center",
+                },
+                {
+                  name: "Տեսակ",
+                  selector: (obj: any) => "Պրոմո",
+                  tdClassName: "text-center",
+                },
+                {
+                  name: "Արժեք",
+                  selector: (obj: any) => "",
+                  tdClassName: "text-center",
+                },
+                {
+                  name: "Ապակտիվացնել",
+                  selector: (obj: any) => (
+                    <CustomBtn
+                      className="!w-fit !min-w-min"
+                      title="Հանել պրոմոյից"
+                    />
+                  ),
+                  tdClassName: "text-center",
                 },
               ]}
+              tbodyItems={[{}]}
             />
           </div>
         </div>

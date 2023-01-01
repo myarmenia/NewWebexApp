@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { useSelector } from "react-redux";
-import { ICalendarReducer } from "../../../../../../../models/interfaces";
-import { TrNum } from "../trNum/TrNum";
+import { ICalendarReducer } from "../../../../../../models/interfaces";
+import { TrNum } from "./TrNum";
 
 interface NmTbodyProps {}
 
@@ -11,8 +11,8 @@ export const NmTbody: FC<NmTbodyProps> = () => {
   );
   return (
     <tbody id="tbodyNumber">
-      {datesWeek.map((el) => {
-        return <TrNum {...{ el }} key={Math.random()} />;
+      {datesWeek.map((weekData) => {
+        return <TrNum {...{ weekData }} key={Math.random()} />;
       })}
     </tbody>
   );

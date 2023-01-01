@@ -1,6 +1,6 @@
-import React, { FC } from "react";
-import "./tdBox.css";
+import { FC } from "react";
 import { IDateDay } from "../../../../../../../models/interfaces";
+import "./tdBox.css";
 
 interface TdBoxProps extends IDateDay {
   className?: string;

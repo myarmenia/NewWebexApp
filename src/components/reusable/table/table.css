@@ -5,3 +5,28 @@
 .custom_table {
   @apply w-full border-spacing-y-3 border-separate;
 }
+
+.custom_tr {
+  @apply relative bg-[#f0f9fc99] rounded-[10px];
+}
+.custom_td {
+  @apply box-content h-[41px] border-none text-xs text-gray py-1 px-5 first:rounded-l-[10px] last:rounded-r-[10px];
+}
+.stdudentName {
+  @apply flex items-center gap-[10px];
+}
+.custom_td_lessonTitle_cont {
+  @apply max-w-[178px] min-w-[100px];
+}
+.custom_td_lessonTitle {
+  @apply text-ellipsis whitespace-nowrap overflow-x-hidden;
+}
+
+@media (max-width: 850px) {
+  .custom_td {
+    @apply px-3;
+  }
+  .stdTbodyTr {
+    @apply overflow-x-auto;
+  }
+}

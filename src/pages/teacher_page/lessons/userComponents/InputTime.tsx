@@ -26,7 +26,6 @@ interface InputProps {
   regName: string;
   count: number;
   fieldArray: UseFieldArrayReturn<UserSubmitForm2, any, "id">;
-  // fieldArray: UseFieldArrayReturn<UserSubmitForm2, ISome, "id">;
 }
 interface YupProps {
   start: string;
