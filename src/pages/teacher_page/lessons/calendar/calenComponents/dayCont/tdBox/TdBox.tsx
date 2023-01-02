@@ -1,6 +1,6 @@
-import React, { FC } from "react";
-import "./tdBox.css";
+import { FC } from "react";
 import { IDateDay } from "../../../../../../../models/interfaces";
+import "./tdBox.css";
 
 interface TdBoxProps extends IDateDay {
   className?: string;
@@ -10,13 +10,13 @@ export const TdBox: FC<TdBoxProps> = ({
   dayNumber,
   currentDayEvents,
   className,
-  notCurrentMonth,
+  isCurrentMonth,
 }) => {
   return (
     <td className={`tdBox1 ${className}`}>
       <div
         className={`CalendarCont2NumberBox ${
-          notCurrentMonth ? "opacity-40" : ""
+          !isCurrentMonth ? "opacity-40" : ""
         }`}
       >
         {dayNumber}

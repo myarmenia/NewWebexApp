@@ -1,12 +1,12 @@
 import React, { FC } from "react";
-import { weekDayNames } from "../../../calStore/calStore";
-import { ThNum } from "../thNum/ThNum";
+import { weekDays_long_short } from "../../calStore/calStore";
+import { ThNum } from "./ThNum";
 
 export const NmThead: FC = () => {
   return (
     <thead>
       <tr>
-        {weekDayNames.map((weeekName) => (
+        {weekDays_long_short.map((weeekName) => (
           <ThNum {...{ weeekName }} key={Math.random()} />
         ))}
       </tr>

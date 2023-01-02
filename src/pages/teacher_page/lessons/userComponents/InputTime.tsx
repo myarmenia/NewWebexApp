@@ -10,6 +10,15 @@ import {
 } from "react-hook-form";
 import { UserSubmitForm2 } from "./CreateGraffic";
 
+type ISome =
+  | "monday"
+  | "tuesday"
+  | "thursday"
+  | "wednesday"
+  | "friday"
+  | "saturday"
+  | "sunday";
+
 interface InputProps {
   day: string;
   className?: string;
@@ -17,7 +26,6 @@ interface InputProps {
   regName: string;
   count: number;
   fieldArray: UseFieldArrayReturn<UserSubmitForm2, any, "id">;
-  // fieldArray: UseFieldArrayReturn<UserSubmitForm2, fieldArrKey(), "id">;
 }
 interface YupProps {
   start: string;
@@ -31,16 +39,6 @@ export interface IErrorsForm {
   friday?: YupProps[];
   saturday?: YupProps[];
   sunday?: YupProps[];
-}
-
-enum ISome {
-  monday = "monday",
-  tuesday = "tuesday",
-  thursday = "thursday",
-  wednesday = "wednesday",
-  friday = "friday",
-  saturday = "saturday",
-  sunday = "sunday",
 }
 
 export const InputTime: React.FC<InputProps> = ({

@@ -7,6 +7,7 @@ import { CustomBtn } from "../../../../../../components/forms/customBtn/CustomBt
 import { CustomSelect } from "../../../../../../components/forms/customSelect/CustomSelect";
 import { ModalContainer } from "../../../../../../components/modalContainer/ModalContainer";
 import { Table } from "../../../../../../components/reusable/table/Table";
+import { generateArray } from "../../../../../../helper/generateArray";
 import "./walletCont.css";
 
 interface WalletContProps {
@@ -22,7 +23,7 @@ export interface IWalletModalForm {
 }
 export const WalletCont: FC<WalletContProps> = ({ balance }) => {
   const [transactionHistory, setTransactionHistory] = useState<boolean>(true);
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [isModalOpened, setIsModalOpen] = useState<boolean>(false);
   const [tarifPlanName, setTarifPlanState] = useState<string>();
 
   const methods = useForm<IWalletModalForm>({
@@ -104,35 +105,30 @@ export const WalletCont: FC<WalletContProps> = ({ balance }) => {
             <div className="table_history">
               {transactionHistory ? (
                 <Table
-                  theadItems={{
-                    items: [
-                      "Ամսաթիվ",
-                      "Գումար",
-                      "Գործարքի տեսակը",
-                      "Հաշվի մնացորդը",
-                    ],
-                    thClassName: "text-center",
-                  }}
-                  tbodyItems={Array.from({ length: 3 }).map((el, i) => ({
-                    trData: [
-                      {
-                        item: "11/22/2022",
-                        className: "!py-5 !px-5 text-center",
-                      },
-                      {
-                        item: "1000 դրամ",
-                        className: "!py-5 !px-5 text-center",
-                      },
-                      {
-                        item: "Հաշվի համալրում",
-                        className: "!py-5 !px-5 text-center",
-                      },
-                      {
-                        item: "1000 դրամ",
-                        className: "!py-5 !px-5 text-center",
-                      },
-                    ],
-                  }))}
+                  rows={[
+                    {
+                      name: "Ամսաթիվ",
+                      selector: (obj: any) => "11/22/2022",
+                      tdClassName: "!py-5 !px-5 text-center",
+                    },
+                    {
+                      name: "Գումար",
+                      selector: (obj: any) => "1000 դրամ",
+                      tdClassName: "!py-5 !px-5 text-center",
+                    },
+                    {
+                      name: "Գործարքի տեսակը",
+                      selector: (obj: any) => "Հաշվի համալրում",
+                      tdClassName: "!py-5 !px-5 text-center",
+                    },
+                    {
+                      name: "Հաշվի մնացորդը",
+                      selector: (obj: any) => "1000 դրամ",
+                      tdClassName: "!py-5 !px-5 text-center",
+                    },
+                  ]}
+                  tbodyItems={generateArray(3)}
+                  className="custom_table"
                 />
               ) : (
                 <span className="text-xs">Դուք դեռ չունեք կատարած գործարք</span>
@@ -141,7 +137,7 @@ export const WalletCont: FC<WalletContProps> = ({ balance }) => {
           </div>
         </div>
       </div>
-      {isModalOpen && (
+      {isModalOpened && (
         <ModalContainer
           onClick={() => setIsModalOpen(false)}
           className={{ modal: "!pt-[14px] !h-[390px] !w-[600px] !px-5" }}

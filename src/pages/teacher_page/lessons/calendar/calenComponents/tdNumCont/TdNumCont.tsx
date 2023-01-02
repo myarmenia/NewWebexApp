@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import "./tdNumCont.css";
-import { NmTbody } from "./nmTbody/NmTbody";
-import { NmThead } from "./nmThead/NmThead";
+import { NmTbody } from "./NmTbody";
+import { NmThead } from "./NmThead";
 
 interface TdNumContProps {}
 

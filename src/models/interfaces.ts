@@ -8,20 +8,18 @@ export interface ISelect {
   options: string[];
 }
 export interface ICustomSelect {
-  error?: string;
-  option: string;
-  optionId: number;
   options: string[];
-  setOptions?: Dispatch<SetStateAction<string[]>>;
-  toggleOptions: () => void;
-  className?: string;
-  regName?: string;
   placeholder: string;
+  regName?: string;
+  error?: string;
   isMutable?: {
     setOptions: Dispatch<SetStateAction<string[]>>;
     isInput: boolean;
   };
-  removeOption?: (currentId: number) => void;
+  toggleOptions: () => void;
+  className?: string;
+  setValue?: Dispatch<SetStateAction<string>>;
+  value?: string;
 }
 
 export type INavItemsContent = string | ISelect;
@@ -80,7 +78,7 @@ export interface IPaginationItem {
 export interface IDateDay {
   dayNumber: number;
   isActive?: boolean;
-  notCurrentMonth?: boolean;
+  isCurrentMonth: boolean;
   currentDayEvents?: {
     evName?: string;
     time: string;

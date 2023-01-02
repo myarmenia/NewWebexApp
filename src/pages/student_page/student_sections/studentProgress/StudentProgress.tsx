@@ -4,6 +4,14 @@ import { Table } from "../../../../components/reusable/table/Table";
 import toStudentsPageImg from "../../../../assets/teacher_images/students/Vector 214.svg";
 import listImg from "../../../../assets/student_images/studentLessons/Group 1667.svg";
 import { ProgressBar } from "../../../../components/reusable/ProgressBar";
+import { generateArray } from "../../../../helper/generateArray";
+
+interface TableObjectProps {
+  title: string;
+  date: string | Date;
+  status: string;
+  progress: number;
+}
 
 export const StudentProgress: FC = () => {
   return (
@@ -15,7 +23,9 @@ export const StudentProgress: FC = () => {
         <div className="w-[95%] mx-auto">
           <div className="flex justify-between items-center">
             <img src={listImg} alt="" />
-            <span className="textPurple text-[48px] font-semibold h-fit">10</span>
+            <span className="textPurple text-[48px] font-semibold h-fit">
+              10
+            </span>
           </div>
           <div className="flex items-center justify-between gap-5">
             <div className="flex flex-col items-center">
@@ -40,33 +50,39 @@ export const StudentProgress: FC = () => {
         </div>
       </div>
       <Table
-        theadItems={{
-          items: [
-            "Դասընթացի անվանում",
-            "Գրանցման ամսաթիվը",
-            "Կարգավիճակ",
-            "Իմ առաջընթացը",
-          ],
-        }}
-        tbodyItems={Array.from({ length: 9 }).map(() => ({
-          trData: [
-            {
-              item: (
-                <div className="flex items-center gap-2 w-fit mx-auto">
-                  <span>Գրաֆիկ դիզայնի դասընթաց</span>
-                  <img src={toStudentsPageImg} className="w-[14px]" alt="" />
-                </div>
-              ),
-              className: "text-center",
-            },
-            { item: "10․10․2022", className: "text-center" },
-            { item: "Ընթացիկ", className: "text-center" },
-            {
-              item: <ProgressBar progress={Math.floor(Math.random() * 100)} />,
-              className: "text-center",
-            },
-          ],
-        }))}
+        rows={[
+          {
+            name: "Դասընթացի անվանում",
+            selector: (obj: TableObjectProps) => (
+              <div className="flex items-center gap-2 w-fit mx-auto">
+                <span>Գրաֆիկ դիզայնի դասընթաց</span>
+                <img src={toStudentsPageImg} className="w-[14px]" alt="" />
+              </div>
+            ),
+          },
+          {
+            name: "Գրանցման ամսաթիվը",
+            selector: (obj: TableObjectProps) => "10․10․2022",
+            tdClassName: "!text-center",
+          },
+          {
+            name: "Կարգավիճակ",
+            selector: (obj: TableObjectProps) => "Ընթացիկ",
+            tdClassName: "!text-center",
+          },
+          {
+            name: "Իմ առաջընթացը",
+            selector: (obj: TableObjectProps) => (
+              <ProgressBar
+                className="w-[300px]"
+                progress={Math.floor(Math.random() * 100)}
+              />
+            ),
+            tdClassName: "!text-center",
+          },
+        ]}
+        tbodyItems={generateArray(9)}
+        className="custom_table"
       />
     </div>
   );

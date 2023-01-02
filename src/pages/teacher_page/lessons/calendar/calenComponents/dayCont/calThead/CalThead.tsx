@@ -1,12 +1,12 @@
 import React, { FC } from "react";
 import "./calThead.css";
-import { weekDays } from "../../../calStore/calStore";
+import { weekDays_long } from "../../../calStore/calStore";
 
 export const CalThead: FC = () => {
   return (
     <thead id="thead20">
       <tr>
-        {weekDays.map((el) => (
+        {weekDays_long.map((el) => (
           <th className="th2" key={Math.random()}>
             {el}
           </th>

@@ -5,7 +5,7 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 .customNmbInp {
-  @apply relative;
+  @apply relative w-fit;
 }
 .CustomNmbInput {
   @apply w-[85px] flex justify-center;

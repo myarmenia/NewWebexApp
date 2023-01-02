@@ -2,7 +2,6 @@ import React from "react";
 import chevDown from "../../../assets/general_images/chevDown.svg";
 
 interface DropdownTitleProps {
-  state: boolean;
   title: string;
   rotateClass: boolean;
 }
@@ -10,7 +9,6 @@ interface DropdownTitleProps {
 export const DropdownTitle: React.FC<DropdownTitleProps> = ({
   title,
   rotateClass,
-  state,
 }) => {
   return (
     <div className="dropdownTitle">

@@ -19,7 +19,7 @@ export const MenuLi: React.FC<MenuLiProps> = ({
       className={({ isActive }) =>
         isPathsEqual || isActive
           ? "activeMenuItem menuLi"
-          : "menuLi hoverAnimation"
+          : "menuLi hoverTextAnimation"
       }
     >
       <div className="menuA">

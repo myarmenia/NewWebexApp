@@ -4,9 +4,12 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        "med-800": { raw: "(max-width: 800px)" },
+        "med-850": { raw: "(max-width: 850px)" },
         "med-1100": { raw: "(max-width: 1100px)" },
         "med-1060": { raw: "(max-width: 1060px)" },
+      },
+      dropShadow: {
+        normal: "0px 8px 15px rgba(0, 0, 0, 0.2)",
       },
       boxShadow: {
         light: "2px 4px 10px rgba(0, 0, 0, 0.1)",

@@ -23,7 +23,7 @@ export const MItemsDrop: FC<MItemsDropProps> = ({
       className={`mItemsDrop ${thisPathState ? "activeMenuItem" : ""}`}
       onClick={() => setDropSubMenu((prev) => !prev)}
     >
-      <div className="hoverAnimation">
+      <div className="hoverTextAnimation">
         <div className="menuA">
           <img src={thisPathState ? activeImg : img} alt="" />
           <p className="menuSpan">{title}</p>
@@ -42,7 +42,9 @@ export const MItemsDrop: FC<MItemsDropProps> = ({
               key={Math.random()}
               to={el.path}
               className={({ isActive }) =>
-                isActive ? "subMenuSpan textPurple" : "subMenuSpan hoverAnimation"
+                isActive
+                  ? "subMenuSpan textPurple"
+                  : "subMenuSpan hoverTextAnimation"
               }
             >
               {el.title}

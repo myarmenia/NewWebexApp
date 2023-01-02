@@ -8,7 +8,7 @@ export const nLessCreate_L_Schema = Yup.object().shape({
     .required("title is required"),
   select: Yup.string().required("this option is required"),
   select1: Yup.string().required("this option is required").default(""),
-  describtion: Yup.string().min(3, "min is 3"),
+  // describtion: Yup.string().min(3, "min is 3"),
   cost: Yup.number()
     .positive()
     .typeError("must be 'number' and this option is required")
@@ -66,7 +66,7 @@ export interface TeacherSubmitForm {
   title: string;
   select: string;
   select1: string;
-  describtion: string;
+  // describtion: string;
   cost: number;
   isAgeLimit: boolean;
   minAgeLimit?: number;

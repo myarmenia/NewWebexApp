@@ -1,27 +1,29 @@
-import React from "react";
-import "./examBody.css";
 import { yupResolver } from "@hookform/resolvers/yup";
+import React from "react";
 import { FormProvider, useFieldArray, useForm } from "react-hook-form";
-import { examSchema, IExamSchema } from "../examSchema";
-import { ExamCnt } from "./examCnt/ExamCnt";
-import { CntTitle } from "../../../../../components/teacherComponents/contTitle/CntTitle";
 import { CustomBtn } from "../../../../../components/forms/customBtn/CustomBtn";
+import { CntTitle } from "../../../../../components/teacherComponents/contTitle/CntTitle";
+import { examSchema, IExamSchema } from "../examSchema";
+import "./examBody.css";
+import { ExamCnt } from "./examCnt/ExamCnt";
 
 export const ExamBody: React.FC = () => {
   const methods = useForm<IExamSchema>({
     resolver: yupResolver(examSchema),
     defaultValues: {
       questionBox: [
-        { examQuestion: "", image: "", responseVariants: [{ variant: "" }] },
+        {
+          examQuestion: "",
+          image: "",
+          responseVariants: [
+            { variant: "", isVariantTrue: false },
+            { variant: "", isVariantTrue: false },
+          ],
+        },
       ],
     },
   });
-  const {
-    handleSubmit,
-    formState: { errors },
-    watch,
-    control,
-  } = methods;
+  const { handleSubmit, watch, control } = methods;
   const questions = useFieldArray({
     control,
     name: "questionBox",

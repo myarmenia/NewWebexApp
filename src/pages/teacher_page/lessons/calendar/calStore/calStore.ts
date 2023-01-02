@@ -1,6 +1,6 @@
 import { IWeekEvent } from "../../../../../models/interfaces";
 
-export const weekDays: readonly string[] = [
+export const weekDays_long: readonly string[] = [
   "Կիրակի",
   "Երկուշաբթի",
   "Երեքշաբթի",
@@ -9,7 +9,7 @@ export const weekDays: readonly string[] = [
   "Ուրբաթ",
   "Շաբաթ",
 ];
-export const weekDayNames: readonly string[] = [
+export const weekDays_long_short: readonly string[] = [
   "Կիր",
   "Երկ",
   "Երք",

@@ -1,12 +1,14 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { useFormContext } from "react-hook-form";
 import trashbinImg from "../../../assets/teacher_images/exam/delete.svg";
 import { ICustomSelect } from "../../../models/interfaces";
 
-type OptionProps = Pick<
-  ICustomSelect,
-  "toggleOptions" | "regName" | "option" | "removeOption" | "optionId"
->;
+interface OptionProps
+  extends Pick<ICustomSelect, "toggleOptions" | "regName" | "setValue"> {
+  optionId: number;
+  option: string;
+  removeOption?: (currentId: number) => void;
+}
 
 export const Option: FC<OptionProps> = ({
   toggleOptions,
@@ -14,6 +16,7 @@ export const Option: FC<OptionProps> = ({
   regName,
   removeOption,
   optionId,
+  setValue,
 }) => {
   const formMethods = useFormContext();
   return (
@@ -21,9 +24,10 @@ export const Option: FC<OptionProps> = ({
       <div
         className="custopSelect_option_text"
         onClick={() => {
-          toggleOptions();
+          setValue?.(option);
           regName &&
             formMethods?.setValue(regName, option, { shouldValidate: true });
+          toggleOptions();
         }}
       >
         {option}
