@@ -11,6 +11,7 @@ export const TdNum: FC<TdNumProps> = ({
   dayNumber,
   isActive,
   isCurrentMonth,
+  currentDayEvents,
 }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();

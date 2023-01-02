@@ -128,6 +128,7 @@ export const WalletCont: FC<WalletContProps> = ({ balance }) => {
                     },
                   ]}
                   tbodyItems={generateArray(3)}
+                  className="custom_table"
                 />
               ) : (
                 <span className="text-xs">Դուք դեռ չունեք կատարած գործարք</span>

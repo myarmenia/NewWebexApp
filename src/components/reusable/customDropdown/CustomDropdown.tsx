@@ -13,6 +13,7 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
   select,
   className,
 }) => {
+  const { title, options } = select;
   const [state, setState] = useState<boolean>(false);
   const [rotateClass, setRotateClass] = useState<boolean>(false);
   const onPointer = (e: boolean): void => {
@@ -28,14 +29,8 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
       // onClick={() => onPointer(!state)}
     >
       <div className={`customDropdown ${className}`}>
-        <DropdownTitle
-          title={select.title}
-          rotateClass={rotateClass}
-          state={state}
-        />
-        {state && (
-          <Items {...{ state, setState, onPointer }} options={select.options} />
-        )}
+        <DropdownTitle {...{ rotateClass, title }} />
+        {state && <Items {...{ state, setState, onPointer, options }} />}
       </div>
     </div>
   );

@@ -13,9 +13,9 @@ import { TdName } from "./stdComponents/tds/TdName";
 import { TdProgres } from "./stdComponents/tds/TdProgres";
 import "./students.css";
 
-const tbodyData = (length: number) =>
-  generateArray(length, {
-    image: "smile.png",
+const tbodyData = (length: number): IStudentTd[] =>
+  Array.from({ length }).map(() => ({
+    image: "user.png",
     name: "Անուն Ազգանուն",
     phoneNumber: "+374 90 888 888",
     lessons: Array.from({
@@ -27,7 +27,7 @@ const tbodyData = (length: number) =>
       progres: (() => Math.floor(Math.random() * 100))(),
       homework: "",
     })),
-  });
+  }));
 
 export const Students: FC = () => {
   return (
@@ -78,14 +78,15 @@ export const Students: FC = () => {
             },
           ]}
           tbodyItems={tbodyData(2)}
+          className="custom_table"
         />
       </div>
       <div>
         <LessonTitle title="Ուսանողներ" classNameParent="!mb-[14px]" />
         <div className="students_container">
           <div className="filterSection">
-            <div className="filterBox">Ավարտած</div>
-            <div className="filterBox">Սովորող</div>
+            <div className="filterBox bg_hover">Ավարտած</div>
+            <div className="filterBox bg_hover">Սովորող</div>
             <CustomDropdown
               className="filterBox"
               select={{ title: "Ըստ դասընթացի", options: ["adsf"] }}
@@ -121,6 +122,7 @@ export const Students: FC = () => {
               },
             ]}
             tbodyItems={tbodyData(8)}
+            className="custom_table"
           />
         </div>
       </div>

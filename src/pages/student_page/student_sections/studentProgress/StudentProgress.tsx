@@ -63,19 +63,26 @@ export const StudentProgress: FC = () => {
           {
             name: "Գրանցման ամսաթիվը",
             selector: (obj: TableObjectProps) => "10․10․2022",
+            tdClassName: "!text-center",
           },
           {
             name: "Կարգավիճակ",
             selector: (obj: TableObjectProps) => "Ընթացիկ",
+            tdClassName: "!text-center",
           },
           {
             name: "Իմ առաջընթացը",
             selector: (obj: TableObjectProps) => (
-              <ProgressBar progress={Math.floor(Math.random() * 100)} />
+              <ProgressBar
+                className="w-[300px]"
+                progress={Math.floor(Math.random() * 100)}
+              />
             ),
+            tdClassName: "!text-center",
           },
         ]}
         tbodyItems={generateArray(9)}
+        className="custom_table"
       />
     </div>
   );

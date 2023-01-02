@@ -1,15 +1,15 @@
-import React, { FC } from "react";
-import "./stageLesPage.css";
-import editImg from "../../../../../assets/teacher_images/userLessons/editGray.svg";
+import { FC } from "react";
 import { LoaderFunctionArgs, useLoaderData } from "react-router";
+import { Link } from "react-router-dom";
+import editImg from "../../../../../assets/teacher_images/userLessons/editGray.svg";
+import { LessonTitle } from "../../../../../components/reusable/lessonTitle/LessonTitle";
 import { ILessonLoaderData } from "../../../../../models/interfaces";
+import { instance } from "../../../../../request/request";
 import { stagesArr } from "../lesPage/lesStages/LesStages";
 import { LesContainer } from "../userLesComponents/lesContainer/LesContainer";
 import { LesStageBox } from "./lesStageBox/LesStageBox";
 import { LesWorkBox, LesWorkBoxProps } from "./lesWorkBox/LesWorkBox";
-import { Link } from "react-router-dom";
-import { LessonTitle } from "../../../../../components/reusable/lessonTitle/LessonTitle";
-import { instance } from "../../../../../request/request";
+import "./stageLesPage.css";
 
 const lesWorkAndHomeWork: LesWorkBoxProps[] = [
   {

@@ -99,11 +99,10 @@ textarea {
   /* text-fill-color: transparent; */
 }
 
-button:hover {
+/* button:hover {
   filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.1));
-  /* @apply transition-all -translate-y-[1px] duration-300; */
-}
-/* text hover animation */
+} */
+/* --------------- text hover animation ----------- */
 .hoverTextAnimation {
   @apply w-fit;
 }
@@ -120,33 +119,60 @@ button:hover {
 /* ========================================= */
 
 /* ---------- custom table styles ------------ */
-.custom_table {
-  @apply border-spacing-y-3 border-separate;
+div.custom_table {
+  @apply drop-shadow-normal w-full pr-2 overflow-y-auto;
+  max-height: max(500px, calc(100vh - 340px));
 }
-
-.custom_tr {
+div.custom_table table {
+  @apply w-full border-spacing-y-3 border-separate;
+}
+div.custom_table tbody tr {
   @apply relative bg-[#f0f9fc99] rounded-[10px];
 }
-.custom_td {
+div.custom_table tbody tr td {
   @apply box-content h-[41px] border-none text-xs text-gray py-1 px-5 first:rounded-l-[10px] last:rounded-r-[10px];
 }
 .stdudentName {
   @apply flex items-center gap-[10px];
 }
-.custom_td_lessonTitle_cont {
-  @apply max-w-[178px] min-w-[100px];
+div.custom_table thead tr {
+  @apply bg-[#ffffffd1] rounded-[10px] text-xs font-semibold h-8;
 }
-.custom_td_lessonTitle {
-  @apply text-ellipsis whitespace-nowrap overflow-x-hidden;
+div.custom_table thead tr th {
+  @apply text-gray relative px-5 first:rounded-l-[10px] first:before:hidden last:rounded-r-[10px];
 }
-
+div.custom_table thead tr th::before {
+  @apply -translate-y-1/2 absolute left-0 h-[13px] w-[1px] top-1/2 bg-[#BEBFE4];
+  content: "";
+}
 @media (max-width: 850px) {
-  .custom_td {
+  div.custom_table tbody tr td {
     @apply px-3;
   }
-  .stdTbodyTr {
+  div.custom_table tbody tr {
     @apply overflow-x-auto;
   }
 }
+/* =========================================== */
 
-/* ========================================= */
+/* ----- background hover animation ----- */
+@layer components {
+  .bg_hover {
+    @apply text-black w-fit inline-block transition-all duration-200 
+    overflow-hidden z-[1] relative border-0 hover:text-white;
+  }
+}
+.bg_hover::after {
+  content: "";
+  @apply absolute top-0 left-0 h-full w-full bg-gradientPurple -z-[1] rounded-2xl;
+  transition: 0.2s ease all;
+  transform: scale(0, 1);
+  transform-origin: top right;
+  transition: transform 500ms cubic-bezier(0.86, 0, 0.07, 1);
+  transition-timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+}
+.bg_hover:hover::after {
+  transform: scale(1, 1);
+  transform-origin: top left;
+}
+/* =========================================== */
