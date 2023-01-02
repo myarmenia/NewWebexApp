@@ -1,14 +1,11 @@
 import { FC } from "react";
-import { useSelector } from "react-redux";
-import { ICalendarReducer } from "../../../../../../models/interfaces";
+import { useAppSelector } from "../../../../../../hooks";
 import { TdBox } from "./tdBox/TdBox";
 
 interface CalTbodyProps {}
 
 export const CalTbody: FC<CalTbodyProps> = ({}) => {
-  const { datesWeek } = useSelector(
-    (state: ICalendarReducer) => state.calendarList
-  );
+  const { datesWeek } = useAppSelector((state) => state.calendarList);
   return (
     <tbody>
       {datesWeek.map((week, ind) => {

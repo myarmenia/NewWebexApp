@@ -1,8 +1,9 @@
 import { FC } from "react";
 import trashbinImg from "../../../../assets/teacher_images/exam/delete.svg";
-import { CustomBtn } from "../../../../components/forms/customBtn/CustomBtn";
+import { CustomBtn } from "../../../../components/forms";
 import { CustomDropdown } from "../../../../components/reusable/customDropdown/CustomDropdown";
-import { LessonTitle } from "../../../../components/reusable/lessonTitle/LessonTitle";
+import { FilterBtn } from "../../../../components/reusable/FilterBtn";
+import { LessonTitle } from "../../../../components/reusable";
 import { Table } from "../../../../components/reusable/table/Table";
 import { generateArray } from "../../../../helper/generateArray";
 import { IStudentTd } from "../../../../models/interfaces";
@@ -85,8 +86,10 @@ export const Students: FC = () => {
         <LessonTitle title="Ուսանողներ" classNameParent="!mb-[14px]" />
         <div className="students_container">
           <div className="filterSection">
-            <div className="filterBox bg_hover">Ավարտած</div>
-            <div className="filterBox bg_hover">Սովորող</div>
+            {/* <div className="filterBox bg_hover">Ավարտած</div> */}
+            {/* <div className="filterBox bg_hover">Սովորող</div> */}
+            <FilterBtn>Ավարտած</FilterBtn>
+            <FilterBtn>Սովորող</FilterBtn>
             <CustomDropdown
               className="filterBox"
               select={{ title: "Ըստ դասընթացի", options: ["adsf"] }}

@@ -1,13 +1,11 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { NavigateFunction } from "react-router";
 import { IDateDay } from "../../models/interfaces";
 
 interface IChooseDay {
-  payload: {
-    id: number;
-    isCurrentMonth: boolean;
-    navigate: NavigateFunction;
-  };
+  id: number;
+  isCurrentMonth: boolean;
+  navigate: NavigateFunction;
 }
 
 const createDayEventArray = () =>
@@ -19,6 +17,7 @@ const initialState = {
   currentDate: new Date() as Date,
   dates: [] as IDateDay[],
   datesWeek: [] as IDateDay[][],
+  chosenDay: new Date() as Date,
 };
 
 const calendarList = createSlice({
@@ -32,26 +31,27 @@ const calendarList = createSlice({
         state.currentDate.getMonth(),
         1
       );
-      const weekDay = currentDate.getDay();
       currentDate.setDate(currentDate.getDate() - currentDate.getDay());
       while (myDates.length < 35) {
         if (
-          currentDate.getDate() === new Date().getDate() &&
-          currentDate.getMonth() === new Date().getMonth() &&
-          currentDate.getFullYear() === new Date().getFullYear()
+          currentDate.getDate() === state.chosenDay.getDate() &&
+          currentDate.getMonth() === state.chosenDay.getMonth() &&
+          currentDate.getFullYear() === state.chosenDay.getFullYear()
         ) {
           myDates.push({
             dayNumber: currentDate.getDate(),
             isActive: true,
             currentDayEvents: createDayEventArray(),
-            isCurrentMonth: true,
+            isCurrentMonth:
+              currentDate.getMonth() === state.currentDate.getMonth(),
           });
         } else {
           myDates.push({
             dayNumber: currentDate.getDate(),
             isActive: false,
             currentDayEvents: createDayEventArray(),
-            isCurrentMonth: true,
+            isCurrentMonth:
+              currentDate.getMonth() === state.currentDate.getMonth(),
           });
         }
         currentDate.setDate(currentDate.getDate() + 1);
@@ -66,21 +66,30 @@ const calendarList = createSlice({
           ).getDate()
       ) {
         while (myDates.length < 42) {
-          myDates.push({
-            dayNumber: currentDate.getDate(),
-            isActive: false,
-            currentDayEvents: createDayEventArray(),
-            isCurrentMonth: true,
-          });
+          if (
+            currentDate.getDate() === state.chosenDay.getDate() &&
+            currentDate.getMonth() === state.chosenDay.getMonth() &&
+            currentDate.getFullYear() === state.chosenDay.getFullYear()
+          ) {
+            myDates.push({
+              dayNumber: currentDate.getDate(),
+              isActive: true,
+              currentDayEvents: createDayEventArray(),
+              isCurrentMonth:
+                currentDate.getMonth() === state.currentDate.getMonth(),
+            });
+          } else {
+            myDates.push({
+              dayNumber: currentDate.getDate(),
+              isActive: false,
+              currentDayEvents: createDayEventArray(),
+              isCurrentMonth:
+                currentDate.getMonth() === state.currentDate.getMonth(),
+            });
+          }
           currentDate.setDate(currentDate.getDate() + 1);
         }
       }
-      for (let i = 0; i < myDates.length; i++) {
-        if (i < weekDay || (i > 30 && myDates[i].dayNumber < 8)) {
-          myDates[i].isCurrentMonth = false;
-        }
-      }
-
       state.dates = myDates;
     },
     createDatesWeek: (state) => {
@@ -97,12 +106,14 @@ const calendarList = createSlice({
       }
       state.datesWeek = myDatesWeek;
     },
-    chooseDay: (state, { payload }: IChooseDay) => {
+    chooseDay: (state, { payload }: PayloadAction<IChooseDay>) => {
       const myDatesWeek = state.datesWeek;
       myDatesWeek.map((el) =>
         el.map((elem) => {
           if (payload.isCurrentMonth) {
             if (elem.dayNumber === payload.id) {
+              state.chosenDay = new Date(state.currentDate);
+              state.chosenDay.setDate(payload.id);
               payload.navigate("week_schedule");
               return (elem.isActive = true);
             }

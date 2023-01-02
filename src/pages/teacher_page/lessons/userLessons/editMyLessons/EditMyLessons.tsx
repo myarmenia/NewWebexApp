@@ -1,17 +1,14 @@
-import React, { Dispatch, FC, SetStateAction, useEffect } from "react";
-import "./editMyLessons.css";
-import saveImg from "../../../../../assets/teacher_images/newLesson/acceptPurple.svg";
-import fileImg from "../../../../../assets/teacher_images/userLessons/Group 1701.svg";
-import deleteMaterial from "../../../../../assets/teacher_images/exam/Group 1555.svg";
-import { LesContainer } from "../userLesComponents/lesContainer/LesContainer";
-import { FormProvider, useForm, useFieldArray } from "react-hook-form";
-import { editSchema, IEditSchema, IExtraMats } from "./editSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { LoaderFunctionArgs, useLoaderData, useParams } from "react-router";
+import { FC, useEffect } from "react";
+import { FormProvider, useFieldArray, useForm } from "react-hook-form";
+import { useLoaderData } from "react-router";
+import saveImg from "../../../../../assets/teacher_images/newLesson/acceptPurple.svg";
+import { CstmInput, CstmTextarea } from "../../../../../components/forms";
 import { ILessonLoaderData } from "../../../../../models/interfaces";
+import { LesContainer } from "../userLesComponents/lesContainer/LesContainer";
+import "./editMyLessons.css";
 import { ExtraMats } from "./editMyLessons_copns/ExtraMats";
-import { CstmTextarea } from "../../../../../components/forms/cstmTextarea/CstmTextarea";
-import { CstmInput } from "../../../../../components/forms/cstmInput/CstmInput";
+import { editSchema, IEditSchema, IExtraMats } from "./editSchema";
 
 interface EditMyLessonsProps {
   title?: string;

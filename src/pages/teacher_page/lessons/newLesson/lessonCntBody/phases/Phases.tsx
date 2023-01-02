@@ -3,7 +3,7 @@ import "./phases.css";
 import { FieldArrayWithId } from "react-hook-form";
 import { TeacherSubmitForm } from "../validationSchema";
 import { useFormContext } from "react-hook-form";
-import { CstmInput } from "../../../../../../components/forms/cstmInput/CstmInput";
+import { CstmInput } from "../../../../../../components/forms";
 
 interface PhasesProps {
   fields: FieldArrayWithId<TeacherSubmitForm, "stages", "id">[];

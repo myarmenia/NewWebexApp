@@ -1,7 +1,7 @@
 import React from "react";
 import "./lessonTitle.css";
 import editImg from "../../../assets/teacher_images/newLesson/pencil 1.svg";
-import { CustomBtn } from "../../forms/customBtn/CustomBtn";
+import { CustomBtn } from "../../forms";
 import { Link } from "react-router-dom";
 
 interface LessonTitleProps {

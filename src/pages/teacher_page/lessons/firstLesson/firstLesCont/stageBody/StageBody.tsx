@@ -2,10 +2,10 @@ import React from "react";
 import "./stageBody.css";
 import { BoxTitle } from "../BoxTitle";
 import { SaveDataDiv } from "../SaveDataDiv";
-import { CstmInput } from "../../../../../../components/forms/cstmInput/CstmInput";
+import { CstmInput } from "../../../../../../components/forms";
 import { AttachFile } from "../../../../../../components/teacherComponents/attachFile/AttachFile";
 import { LoadImage } from "../../../../../../components/teacherComponents/loadImage/LoadImage";
-import { CstmTextarea } from "../../../../../../components/forms/cstmTextarea/CstmTextarea";
+import { CstmTextarea } from "../../../../../../components/forms";
 
 export const StageBody: React.FC = () => {
   return (

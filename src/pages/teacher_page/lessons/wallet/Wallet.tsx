@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { LessonTitle } from "../../../../components/reusable/lessonTitle/LessonTitle";
+import { LessonTitle } from "../../../../components/reusable";
 import "./wallet.css";
 import { WalletCont } from "./walletComponents/walletCont/WalletCont";
 

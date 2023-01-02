@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { CustomBtn } from "../../../../../components/forms/customBtn/CustomBtn";
+import { CustomBtn } from "../../../../../components/forms";
 import { LessonProps } from "../../../../../models/interfaces";
 import editImg from "../../../images/Teacher/UserLessons/editGray.svg";
 import starImg from "../../../../../assets/teacher_images/userLessons/starImg.svg";

@@ -6,7 +6,7 @@ import starImg from "../../../../../../assets/teacher_images/userLessons/starImg
 
 import { LessonProps } from "../../../../../../models/interfaces";
 import { Link } from "react-router-dom";
-import { CustomBtn } from "../../../../../../components/forms/customBtn/CustomBtn";
+import { CustomBtn } from "../../../../../../components/forms";
 
 export interface LesBoxProps extends LessonProps {
   studentsCount?: number;

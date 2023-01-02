@@ -1,7 +1,7 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import React from "react";
 import { FormProvider, useFieldArray, useForm } from "react-hook-form";
-import { CustomBtn } from "../../../../../components/forms/customBtn/CustomBtn";
+import { CustomBtn } from "../../../../../components/forms";
 import { CntTitle } from "../../../../../components/teacherComponents/contTitle/CntTitle";
 import { examSchema, IExamSchema } from "../examSchema";
 import "./examBody.css";

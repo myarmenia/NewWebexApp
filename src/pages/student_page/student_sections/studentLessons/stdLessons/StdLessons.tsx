@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import "./stdLessons.css";
-import { LessonTitle } from "../../../../../components/reusable/lessonTitle/LessonTitle";
+import { LessonTitle } from "../../../../../components/reusable";
 import StudentLesCard from "./StudentLesCard";
 
 export const StdLessons: FC = () => {

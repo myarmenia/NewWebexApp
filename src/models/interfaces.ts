@@ -90,13 +90,6 @@ export interface IWeekEvent {
   weekday?: number; // weekday must be from 1 to 7 => {weekday === row}
   evTime?: number; // evTime must be from 1 to 17 => {evTime === col}
 }
-export interface ICalendarReducer {
-  calendarList: {
-    dates: IDateDay[];
-    datesWeek: IDateDay[][];
-    currentDate: Date;
-  };
-}
 export interface IStageLesson {
   lessonNumber?: number;
   title: string;

@@ -1,4 +1,4 @@
-import { IWeekEvent } from "../../../../../models/interfaces";
+import { IWeekEvent } from "../../models/interfaces";
 
 export const weekDays_long: readonly string[] = [
   "Կիրակի",

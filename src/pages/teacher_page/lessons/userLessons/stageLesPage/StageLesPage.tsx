@@ -2,7 +2,7 @@ import { FC } from "react";
 import { LoaderFunctionArgs, useLoaderData } from "react-router";
 import { Link } from "react-router-dom";
 import editImg from "../../../../../assets/teacher_images/userLessons/editGray.svg";
-import { LessonTitle } from "../../../../../components/reusable/lessonTitle/LessonTitle";
+import { LessonTitle } from "../../../../../components/reusable";
 import { ILessonLoaderData } from "../../../../../models/interfaces";
 import { instance } from "../../../../../request/request";
 import { stagesArr } from "../lesPage/lesStages/LesStages";

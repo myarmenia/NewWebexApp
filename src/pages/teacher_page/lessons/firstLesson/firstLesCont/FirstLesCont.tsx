@@ -7,7 +7,7 @@ import { StageBody } from "./stageBody/StageBody";
 import { StageLessons } from "./stageLessons/StageLessons";
 import { Route, Routes } from "react-router";
 import { CntTitle } from "../../../../../components/teacherComponents/contTitle/CntTitle";
-import { CustomBtn } from "../../../../../components/forms/customBtn/CustomBtn";
+import { CustomBtn } from "../../../../../components/forms";
 
 export const FirstLesCont: React.FC = () => {
   const methods = useForm<IFirstLessonSchema>({

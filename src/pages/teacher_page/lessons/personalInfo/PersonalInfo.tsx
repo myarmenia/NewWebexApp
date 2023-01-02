@@ -1,18 +1,18 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FormProvider, useFieldArray, useForm } from "react-hook-form";
 // import { InputChild } from "./inputChild/InputChild";
-import { LessonTitle } from "../../../../components/reusable/lessonTitle/LessonTitle";
-import { CstmInput } from "../../../../components/forms/cstmInput/CstmInput";
+import { LessonTitle } from "../../../../components/reusable";
+import { CstmInput } from "../../../../components/forms";
 import AddImg from "../../../../components/teacherComponents/sherid/addImg/AddImg";
 import { Inp2 } from "./inputChild/Inp2";
 import { Inp3 } from "./inputChild/Inp3";
 import Sertificat from "./inputChild/Sertificat";
 import { personalInfoValidation, PersonalSubmitForm } from "./InterfacePerson";
 import "./personalInfo.css";
-import { CstmTextarea } from "../../../../components/forms/cstmTextarea/CstmTextarea";
+import { CstmTextarea } from "../../../../components/forms";
 import Inp4 from "./inputChild/Inp4";
 import Inp5 from "./inputChild/Inp5";
-import { CustomBtn } from "../../../../components/forms/customBtn/CustomBtn";
+import { CustomBtn } from "../../../../components/forms";
 const PersonalInfo = () => {
   const methods = useForm<PersonalSubmitForm>({
     resolver: yupResolver(personalInfoValidation),

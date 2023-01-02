@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { weekDays_long_short } from "../../calStore/calStore";
+import { weekDays_long_short } from "../../../../../../helper/calStore/calStore";
 import { ThNum } from "./ThNum";
 
 export const NmThead: FC = () => {
