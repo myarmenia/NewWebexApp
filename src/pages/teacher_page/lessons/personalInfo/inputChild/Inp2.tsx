@@ -1,9 +1,9 @@
 import React from "react";
 import { useFormContext } from "react-hook-form";
 import buttonImg from "../../../../../assets/teacher_images/createGraffic/buttonimg.svg";
-import { CstmInput } from "../../../../../components/forms/cstmInput/CstmInput";
-import { CstmTextarea } from "../../../../../components/forms/cstmTextarea/CstmTextarea";
-import { CustomSelect } from "../../../../../components/forms/customSelect/CustomSelect";
+import { CstmInput } from "../../../../../components/forms";
+import { CstmTextarea } from "../../../../../components/forms";
+import { CustomSelect } from "../../../../../components/forms";
 import { inputChildProps, PersonalSubmitForm } from "../InterfacePerson";
 import "./inputChild.css";
 export const Inp2: React.FC<inputChildProps> = ({ regName, fieldArray }) => {

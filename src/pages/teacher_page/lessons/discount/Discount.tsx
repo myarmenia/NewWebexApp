@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { CustomBtn } from "../../../../components/forms/customBtn/CustomBtn";
-import { LessonTitle } from "../../../../components/reusable/lessonTitle/LessonTitle";
+import { CustomBtn } from "../../../../components/forms";
+import { LessonTitle } from "../../../../components/reusable";
 import { Table } from "../../../../components/reusable/table/Table";
 import "./discount.css";
 import { DiscountCard } from "./DiscountCard";

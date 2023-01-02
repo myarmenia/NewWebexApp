@@ -12,8 +12,8 @@ import {
   LessonProps,
 } from "../../../../../models/interfaces";
 import { LesComments } from "./lesComments/LesComments";
-import { CustomBtn } from "../../../../../components/forms/customBtn/CustomBtn";
-import { LessonTitle } from "../../../../../components/reusable/lessonTitle/LessonTitle";
+import { CustomBtn } from "../../../../../components/forms";
+import { LessonTitle } from "../../../../../components/reusable";
 import { instance } from "../../../../../request/request";
 
 export interface LesPageProps extends LessonProps {

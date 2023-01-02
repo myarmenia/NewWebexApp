@@ -1,12 +1,12 @@
 import React from "react";
 import { useFormContext } from "react-hook-form";
-import { CustomNmbInp } from "../../../../../../components/forms/customNmbInp/CustomNmbInp";
+import { CustomNmbInp } from "../../../../../../components/forms";
 import "./ageDiv.css";
 
 interface AgeDivProps {}
 
 export const AgeDiv: React.FC<AgeDivProps> = ({}) => {
-    const { register } = useFormContext();
+  const { register } = useFormContext();
   return (
     <div className="ageDiv">
       <div className="noAgeLimit">

@@ -1,20 +1,13 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import React from "react";
+import { FormProvider, useFieldArray, useForm } from "react-hook-form";
 import * as Yup from "yup";
-import {
-  FormProvider,
-  useFieldArray,
-  UseFieldArrayProps,
-  UseFieldArrayReturn,
-  useForm,
-} from "react-hook-form";
 import buttonImg from "../../../../assets/teacher_images/createGraffic/buttonimg.svg";
-import "./studentData.css";
-import { LessonTitle } from "../../../../components/reusable/lessonTitle/LessonTitle";
-import AddImg from "../../../../components/teacherComponents/sherid/addImg/AddImg";
-import { CstmInput } from "../../../../components/forms/cstmInput/CstmInput";
-import { CustomBtn } from "../../../../components/forms/customBtn/CustomBtn";
 import deleteImg from "../../../../assets/teacher_images/discount/delete.svg";
+import { CstmInput } from "../../../../components/forms";
+import { CustomBtn } from "../../../../components/forms";
+import { LessonTitle } from "../../../../components/reusable";
+import AddImg from "../../../../components/teacherComponents/sherid/addImg/AddImg";
+import "./studentData.css";
 interface IPersonalInfoProps {
   adress: string;
   phoneNum: string;
@@ -36,7 +29,7 @@ export const StudentDataYup = Yup.object().shape({
     })
   ),
   language: Yup.array().of(
-    Yup.object().shape({  
+    Yup.object().shape({
       name: Yup.string().required("Լրացնելը պարտադիր է"),
     })
   ),

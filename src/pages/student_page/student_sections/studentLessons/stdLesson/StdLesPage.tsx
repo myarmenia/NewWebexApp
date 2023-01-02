@@ -1,8 +1,8 @@
 import { FC, useCallback, useState } from "react";
 import { LoaderFunctionArgs } from "react-router";
-import { CstmTextarea } from "../../../../../components/forms/cstmTextarea/CstmTextarea";
-import { CustomBtn } from "../../../../../components/forms/customBtn/CustomBtn";
-import { LessonTitle } from "../../../../../components/reusable/lessonTitle/LessonTitle";
+import { CstmTextarea } from "../../../../../components/forms";
+import { CustomBtn } from "../../../../../components/forms";
+import { LessonTitle } from "../../../../../components/reusable";
 import { LessonProps } from "../../../../../models/interfaces";
 import { instance } from "../../../../../request/request";
 import { LesContainer } from "../../../../teacher_page/lessons/userLessons/userLesComponents/lesContainer/LesContainer";

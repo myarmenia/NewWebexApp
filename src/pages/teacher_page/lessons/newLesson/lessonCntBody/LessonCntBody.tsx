@@ -1,13 +1,15 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { FormProvider, useFieldArray, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import downloadImg from "../../../../../assets/teacher_images/newLesson/download.svg";
-import { CstmInput } from "../../../../../components/forms/cstmInput/CstmInput";
-import { CstmTextarea } from "../../../../../components/forms/cstmTextarea/CstmTextarea";
-import { CustomBtn } from "../../../../../components/forms/customBtn/CustomBtn";
-import { CustomNmbInp } from "../../../../../components/forms/customNmbInp/CustomNmbInp";
-import { CustomSelect } from "../../../../../components/forms/customSelect/CustomSelect";
+import {
+  CstmInput,
+  CstmTextarea,
+  CustomBtn,
+  CustomNmbInp,
+  CustomSelect,
+} from "../../../../../components/forms";
 import { AgeDiv } from "./ageDiv/AgeDiv";
 import { DifferentCourses } from "./differentCourses/DifferentCourses";
 import { FinishExam } from "./finishExam/FinishExam";

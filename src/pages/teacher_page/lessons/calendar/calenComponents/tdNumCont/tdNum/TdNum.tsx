@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
+import { useAppDispatch } from "../../../../../../../hooks";
 import { IDateDay } from "../../../../../../../models/interfaces";
 import { chooseDay } from "../../../../../../../redux/reducers/calendarList";
 import "./tdNum.css";
@@ -11,10 +11,9 @@ export const TdNum: FC<TdNumProps> = ({
   dayNumber,
   isActive,
   isCurrentMonth,
-  currentDayEvents,
 }) => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const chooseWeekDay = () => {
     dispatch(chooseDay({ id: dayNumber, navigate, isCurrentMonth }));
   };

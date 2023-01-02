@@ -8,7 +8,7 @@ import emailIcon from "../../images/registration/mail.png";
 import passwordIcon from "../../images/registration/password.png";
 import facebook from "../../images/registration/facebook.png";
 import gmail from "../../images/registration/gmail.png";
-import { CustomSelect } from "../../components/forms/customSelect/CustomSelect";
+import { CustomSelect } from "../../components/forms";
 import Input from "../../components/teacherComponents/sherid/Input";
 // import { Option } from "../header/customSelect/Option";
 interface UserSubmitForm {

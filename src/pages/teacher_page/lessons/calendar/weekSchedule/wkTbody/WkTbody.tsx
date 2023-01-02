@@ -1,6 +1,9 @@
 import React, { FC } from "react";
 import "./wkTbody.css";
-import { weekScheduleTime, weekSheduleEvents } from "../../calStore/calStore";
+import {
+  weekScheduleTime,
+  weekSheduleEvents,
+} from "../../../../../../helper/calStore/calStore";
 import { WkTd } from "../wkTd/WkTd";
 
 export const WkTbody: FC = () => {

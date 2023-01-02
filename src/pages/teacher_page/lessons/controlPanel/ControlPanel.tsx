@@ -10,7 +10,7 @@ import opinion from "../../../../assets/teacher_images/controlPanel/opinion.svg"
 import discount from "../../../../assets/teacher_images/controlPanel/discount.svg";
 import notification from "../../../../assets/teacher_images/controlPanel/notification.svg";
 import help from "../../../../assets/teacher_images/controlPanel/help.svg";
-import { LessonTitle } from "../../../../components/reusable/lessonTitle/LessonTitle";
+import { LessonTitle } from "../../../../components/reusable";
 
 export const ControlPanel = () => {
   return (
