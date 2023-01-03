@@ -5,24 +5,14 @@ interface ItemsProps {
   state: boolean;
   setState: (state: boolean) => void;
   options: string[];
-  onPointer: (e: boolean) => void;
 }
 
-export const Items: React.FC<ItemsProps> = ({
-  state,
-  setState,
-  options,
-  onPointer,
-}) => {
+export const Items: React.FC<ItemsProps> = ({ state, setState, options }) => {
   return (
-    <div
-      className="dropItems"
-      onMouseEnter={() => onPointer(true)}
-      onMouseLeave={() => onPointer(false)}
-    >
+    <div className="dropItems">
       <div className="dropItemsCont">
         {options.map((option, id) => (
-          <Item option={option} key={id} state={state} setState={setState} />
+          <Item {...{ option, setState }} key={id} />
         ))}
       </div>
     </div>

@@ -4,7 +4,7 @@ import { Table } from "../../../../components/reusable/table/Table";
 import toStudentsPageImg from "../../../../assets/teacher_images/students/Vector 214.svg";
 import listImg from "../../../../assets/student_images/studentLessons/Group 1667.svg";
 import { ProgressBar } from "../../../../components/reusable/ProgressBar";
-import { generateArray } from "../../../../helper/generateArray";
+import { generateArray } from "../../../../helper";
 
 interface TableObjectProps {
   title: string;

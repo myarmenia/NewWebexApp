@@ -2,21 +2,11 @@ import React from "react";
 
 interface ItemProps {
   option: string;
-  state: boolean;
   setState: (state: boolean) => void;
 }
-export const Item: React.FC<ItemProps> = ({
-  option,
-  state,
-  setState,
-}) => {
+export const Item: React.FC<ItemProps> = ({ option, setState }) => {
   return (
-    <div
-      className="dropItem"
-      onClick={() => {
-        setState(!state);
-      }}
-    >
+    <div className="dropItem" onClick={() => setState(false)}>
       {option}
     </div>
   );

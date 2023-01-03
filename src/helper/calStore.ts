@@ -1,4 +1,4 @@
-import { IWeekEvent } from "../../models/interfaces";
+import { IWeekEvent } from "../models/interfaces";
 
 export const weekDays_long: readonly string[] = [
   "Կիրակի",
@@ -56,13 +56,19 @@ export const weekSheduleEvents: IWeekEvent[] = [
     title: "Դասընթացի վերնագիրը",
     lessonDuration: 2,
     weekday: 1,
-    evTime: 8,
+    evTime: "08:00",
   },
   {
     title: "Դասընթացի վերնագիրը",
     lessonDuration: 2,
     weekday: 2,
-    evTime: 11,
+    evTime: "11:00",
+  },
+  {
+    title: "Դասընթացի վերնագիրը",
+    lessonDuration: 2,
+    weekday: 2,
+    evTime: "15:07:07",
   },
   {
     title: "Դասընթացի վերնագիրը",

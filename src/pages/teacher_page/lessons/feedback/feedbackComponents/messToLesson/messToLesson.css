@@ -1,9 +1,9 @@
 .messageCont_lessons {
-  @apply bg-[#ffffff5c] px-6 py-[10px] pr-[6px] rounded-[15px];
+  @apply h-fit bg-[#ffffff5c] px-6 py-[10px] pr-[6px] rounded-[15px];
   width: calc(35% - 20px);
   @apply shadow-light;
 }
 .messageCont_lessons_cont {
   @apply min-h-[400px] flex flex-col gap-[18px] pr-[18px] transition-all duration-300 overflow-y-auto;
-  max-height: calc(100vh - 355px);
+  max-height: calc(100vh - 330px);
 }

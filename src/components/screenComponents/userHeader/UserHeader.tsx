@@ -14,7 +14,11 @@ export const UserHeaderStore: INavItemsContent[] = [
   "Հարթակ",
   "Սակագներ",
   "Դասընթացներ",
-  { title: "Ընկերություն", options: ["cccc", "1111111"] },
+  {
+    title: "Ընկերություն",
+    options: ["cccc", "1111111"],
+    className: "text-gray",
+  },
 ];
 
 export const UserHeader: React.FC = () => {

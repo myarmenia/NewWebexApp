@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import "./calThead.css";
-import { weekDays_long } from "../../../../../../../helper/calStore/calStore";
+import { weekDays_long } from "../../../../../../../helper";
 
 export const CalThead: FC = () => {
   return (
