@@ -13,7 +13,7 @@ export const DropdownTitle: React.FC<DropdownTitleProps> = ({
   return (
     <div className="dropdownTitle">
       <div className="flex justify-center w-full">
-        <button>{title}</button>
+        <span>{title}</span>
       </div>
       <img
         src={chevDown}

@@ -1,4 +1,4 @@
-import { months } from "./calStore/calStore";
+import { months } from "./calStore";
 
 export const getCurrentWeekStartToEnd = (date: Date): string => {
   const myDate = new Date(date);

@@ -1,7 +1,7 @@
 import { FC } from "react";
 import filterImg from "../../../../../../assets/teacher_images/calendar/filterImg.svg";
 import { FilterBtn } from "../../../../../../components/reusable";
-import { getMonthAndYear } from "../../../../../../helper/getMonthAndYear";
+import { getMonthAndYear } from "../../../../../../helper";
 import { useAppDispatch, useAppSelector } from "../../../../../../hooks";
 import {
   toNextMonth,

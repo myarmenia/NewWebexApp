@@ -3,7 +3,6 @@ import {
   createRoutesFromElements,
   Route,
 } from "react-router-dom";
-
 import { AddLesson } from "../pages/teacher_page/lessons/addLesson/AddLesson";
 import {
   Calendar,
@@ -28,9 +27,12 @@ import { EditMyLessons } from "../pages/teacher_page/lessons/userLessons/editMyL
 import { Wallet } from "../pages/teacher_page/lessons/wallet/Wallet";
 
 import HelpCenter from "../pages/student_page/help_center/HelpCenter";
-import { StudentLoyaut } from "../pages/student_page/StudentLoyaut";
+import { Student } from "../pages/student_page/Student";
 import { StudentData } from "../pages/student_page/student_sections/studentData/StudentData";
-import { StdLesPage, stdLessonPageLoader } from "../pages/student_page/student_sections/studentLessons/stdLesson/StdLesPage";
+import {
+  StdLesPage,
+  stdLessonPageLoader,
+} from "../pages/student_page/student_sections/studentLessons/stdLesson/StdLesPage";
 import { StdLessons } from "../pages/student_page/student_sections/studentLessons/stdLessons/StdLessons";
 import StudentLessons from "../pages/student_page/student_sections/studentLessons/StudentLessons";
 import { StudentProgress } from "../pages/student_page/student_sections/studentProgress/StudentProgress";
@@ -50,12 +52,12 @@ import {
   extItems,
   UserLessons,
 } from "../pages/teacher_page/lessons/userLessons/UserLessons";
-import { TeacherLoyaut } from "../pages/teacher_page/teacher_loyaut/TeacherLoyaut";
+import { Teacher } from "../pages/teacher_page/Teacher";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/">
-      <Route path="teacher" element={<TeacherLoyaut />}>
+      <Route path="teacher" element={<Teacher />}>
         {/* <Route index element={<Exam />} /> */}
         <Route index element={<AddLesson />} />
         <Route path="new_lesson/*">
@@ -148,7 +150,7 @@ export const router = createBrowserRouter(
           </Route>
         </Route>
       </Route>
-      <Route path="student" element={<StudentLoyaut />}>
+      <Route path="student" element={<Student />}>
         <Route path="perosnal_info" element={<StudentData />} />
         <Route path="my_lesson" element={<StudentLessons />} />
         <Route path="help_center" element={<HelpCenter />} />

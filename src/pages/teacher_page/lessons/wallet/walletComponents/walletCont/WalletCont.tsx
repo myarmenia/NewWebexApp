@@ -7,7 +7,7 @@ import { CustomBtn } from "../../../../../../components/forms";
 import { CustomSelect } from "../../../../../../components/forms";
 import { ModalContainer } from "../../../../../../components/modalContainer/ModalContainer";
 import { Table } from "../../../../../../components/reusable/table/Table";
-import { generateArray } from "../../../../../../helper/generateArray";
+import { generateArray } from "../../../../../../helper";
 import "./walletCont.css";
 
 interface WalletContProps {

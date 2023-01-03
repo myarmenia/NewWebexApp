@@ -5,7 +5,7 @@ import { CustomDropdown } from "../../../../components/reusable/customDropdown/C
 import { FilterBtn } from "../../../../components/reusable/FilterBtn";
 import { LessonTitle } from "../../../../components/reusable";
 import { Table } from "../../../../components/reusable/table/Table";
-import { generateArray } from "../../../../helper/generateArray";
+import { generateArray } from "../../../../helper";
 import { IStudentTd } from "../../../../models/interfaces";
 import { TdDate } from "./stdComponents/tds/TdDate";
 import { TdFeedBack } from "./stdComponents/tds/TdFeedBack";
@@ -92,7 +92,8 @@ export const Students: FC = () => {
             <FilterBtn>Սովորող</FilterBtn>
             <CustomDropdown
               className="filterBox"
-              select={{ title: "Ըստ դասընթացի", options: ["adsf"] }}
+              title={"Ըստ դասընթացի"}
+              options={["aafsdfas"]}
             />
           </div>
           <Table
