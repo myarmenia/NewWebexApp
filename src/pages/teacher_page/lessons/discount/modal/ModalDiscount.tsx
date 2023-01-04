@@ -1,14 +1,12 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import React, { FC } from "react";
+import { FC } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import "./discountModal.css";
 import ModalCard from "./ModalCard";
-
 import * as Yup from "yup";
-import { ModalContainer } from "../../../../../components/modalContainer/ModalContainer";
 import { CstmInput } from "../../../../../components/forms/cstmInput/CstmInput";
-import { ErrorResponse } from "@remix-run/router";
 import { CustomSelect } from "../../../../../components/forms/customSelect/CustomSelect";
+import { ModalContainer } from "../../../../../components/modalContainer/ModalContainer";
 
 export const discountModal = Yup.object().shape({
   price: Yup.string().required(),
@@ -16,7 +14,7 @@ export const discountModal = Yup.object().shape({
   titleSelect: Yup.string().required("partadir e"),
   date: Yup.object().shape({
     start: Yup.date().max(new Date(), "Future date not allowed"),
-    end: Yup.string().when(
+    end: Yup.date().when(
       "start",
       (start, Yup) =>
         start && Yup.min(start, "End time cannot be before start time")

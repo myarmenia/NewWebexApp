@@ -1,51 +1,59 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import React from "react";
-import { useForm, FormProvider, useFieldArray } from "react-hook-form";
+import { FormProvider, useFieldArray, useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
+import * as Yup from "yup";
+import { LessonTitle } from "../../../../components/reusable/lessonTitle/LessonTitle";
 import "./createGraffic.css";
 import { InputTime } from "./InputTime";
-import * as Yup from "yup";
-import { isErrored } from "stream";
-import { format } from "path";
-import { Link } from "react-router-dom";
-import { LessonTitle } from "../../../../components/reusable/lessonTitle/LessonTitle";
-interface YupProps {
-  start: string;
-  end: string;
+export interface IInputTimeProps {
+  start: Date | string;
+  end: Date | string;
 }
 export interface UserSubmitForm2 {
-  monday?: YupProps[];
-  tuesday?: YupProps[];
-  thursday?: YupProps[];
-  wednesday?: YupProps[];
-  friday?: YupProps[];
-  saturday?: YupProps[];
-  sunday?: YupProps[];
+  monday?: IInputTimeProps[];
+  // tuesday?: IInputTimeProps[];
+  // thursday?: IInputTimeProps[];
+  // wednesday?: IInputTimeProps[];
+  // friday?: IInputTimeProps[];
+  // saturday?: IInputTimeProps[];
+  // sunday?: IInputTimeProps[];
 }
+console.log(new Date().toLocaleTimeString());
 const SchemaChild = Yup.array().of(
   Yup.object().shape({
-    start: Yup.string(),
-    end: Yup.string(),
+    start: Yup.date().max(new Date().getHours(), "Future date not allowed"),
+    end: Yup.date().when(
+      "start",
+      (start, Yup) =>
+        start && Yup.min(start, "End time cannot be before start time")
+    ),
   })
 );
 const Schema = Yup.object().shape({
   monday: SchemaChild,
-  wednesday: SchemaChild,
-  thursday: SchemaChild,
-  friday: SchemaChild,
-  saturday: SchemaChild,
-  sunday: SchemaChild,
+  // wednesday: SchemaChild,
+  // thursday: SchemaChild,
+  // friday: SchemaChild,
+  // saturday: SchemaChild,
+  // sunday: SchemaChild,
 });
 const CreateGraffic: React.FC = () => {
   const methods = useForm<UserSubmitForm2>({
     resolver: yupResolver(Schema),
     defaultValues: {
-      monday: [{ start: "", end: "" }],
-      tuesday: [{ start: "", end: "" }],
-      wednesday: [{ start: "", end: "" }],
-      thursday: [{ start: "", end: "" }],
-      friday: [{ start: "", end: "" }],
-      saturday: [{ start: "", end: "" }],
-      sunday: [{ start: "", end: "" }],
+      monday: [
+        {
+          start: new Date(),
+          end: new Date(),
+        },
+      ],
+      // tuesday: [{ start: new Date(), end: new Date() }],
+      // wednesday: [{ start: new Date(), end: new Date() }],
+      // thursday: [{ start: new Date(), end: new Date() }],
+      // friday: [{ start: new Date(), end: new Date() }],
+      // saturday: [{ start: new Date(), end: new Date() }],
+      // sunday: [{ start: new Date(), end: new Date() }],
     },
   });
   const { handleSubmit, control, register, watch } = methods;
@@ -53,31 +61,30 @@ const CreateGraffic: React.FC = () => {
     control,
     name: "monday",
   });
-  const tuesday = useFieldArray({
-    control,
-    name: "tuesday",
-  });
-  const wednesday = useFieldArray({
-    control,
-    name: "wednesday",
-  });
-  const thursday = useFieldArray({
-    control,
-    name: "thursday",
-  });
-  const friday = useFieldArray({
-    control,
-    name: "friday",
-  });
-  const saturday = useFieldArray({
-    control,
-    name: "saturday",
-  });
-  const sunday = useFieldArray({
-    control,
-    name: "sunday",
-  });
-
+  // const tuesday = useFieldArray({
+  //   control,
+  //   name: "tuesday",
+  // });
+  // const wednesday = useFieldArray({
+  //   control,
+  //   name: "wednesday",
+  // });
+  // const thursday = useFieldArray({
+  //   control,
+  //   name: "thursday",
+  // });
+  // const friday = useFieldArray({
+  //   control,
+  //   name: "friday",
+  // });
+  // const saturday = useFieldArray({
+  //   control,
+  //   name: "saturday",
+  // });
+  // const sunday = useFieldArray({
+  //   control,
+  //   name: "sunday",
+  // });;
   const onSubmit = (data: UserSubmitForm2) => console.log(data, "data");
   return (
     <FormProvider {...methods}>
@@ -90,13 +97,13 @@ const CreateGraffic: React.FC = () => {
             fieldArray={monday}
             count={watch("monday")?.length || 1}
           />
-          <InputTime
+          {/*<InputTime
             day="Երեքշաբթի"
             regName="tuesday"
             fieldArray={tuesday}
             count={watch("tuesday")?.length || 1}
           />
-          <InputTime
+         <InputTime
             day="Չորեքշաբթի"
             regName="wednesday"
             fieldArray={wednesday}
@@ -125,12 +132,12 @@ const CreateGraffic: React.FC = () => {
             regName="sunday"
             fieldArray={sunday}
             count={watch("sunday")?.length || 1}
-          />
-          <Link to={"edit_graffic"}>
-            <button type="submit" className="save">
-              Պահպանել
-            </button>
-          </Link>
+          /> */}
+          {/* <Link to={"edit_graffic"}> */}
+          <button type="submit" className="save">
+            Պահպանել
+          </button>
+          {/* </Link> */}
         </form>
       </div>
     </FormProvider>
