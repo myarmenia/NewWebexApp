@@ -13,8 +13,8 @@ interface workAttemptYupProps {
   company: string;
   position: string;
   acceptTerms: boolean;
-  start: string;
-  end: string;
+  start: string | Date;
+  end: string | Date;
   description: string;
 }
 interface educationYupProps {
@@ -22,8 +22,8 @@ interface educationYupProps {
   statement: string;
   faculty: string;
   profession: string;
-  start: string;
-  end: string;
+  start: string | Date;
+  end: string | Date;
 }
 interface languagesYupProps {
   languages: string;
@@ -32,8 +32,8 @@ interface additionaleduYupProps {
   name: string;
   company: string;
   profession: string;
-  start: string;
-  end: string;
+  start: string | Date;
+  end: string | Date;
 }
 
 export interface PersonalSubmitForm {
@@ -50,40 +50,50 @@ export interface PersonalSubmitForm {
 
 export const personalInfoValidation = Yup.object().shape({
   img: Yup.string(),
-  address: Yup.string().required("partadir e"),
-  tel: Yup.string().required("partadir e"),
-  aboutme: Yup.string().required("partadir e"),
+  address: Yup.string(),
+  tel: Yup.string(),
+  aboutme: Yup.string(),
   workattempt: Yup.array().of(
     Yup.object().shape({
-      select: Yup.string().required("partadir e"),
-      company: Yup.string().required("partadir e"),
-      position: Yup.string().required("partadir e"),
+      select: Yup.string(),
+      company: Yup.string(),
+      position: Yup.string(),
       acceptTerms: Yup.bool().oneOf([true], "Պայմաններ ընդունելը  պարտադիր է"),
-      start: Yup.string(),
-      end: Yup.string(),
-      description: Yup.string().required("partadir e"),
+      start: Yup.date().max(new Date(), "Future date not allowed"),
+      end: Yup.date().when(
+        "start",
+        (start, Yup) =>
+          start && Yup.min(start, "End time cannot be before start time")
+      ),
+      description: Yup.string(),
     })
   ),
   education: Yup.array().of(
     Yup.object().shape({
-      select2: Yup.string().required("partadir e"),
-      statement: Yup.string().required("partadir e"),
-      faculty: Yup.string().required("partadir e"),
-      profession: Yup.string().required("partadir e"),
-      start: Yup.string(),
-      end: Yup.string(),
+      select2: Yup.string(),
+      statement: Yup.string(),
+      faculty: Yup.string(),
+      profession: Yup.string(),
+      start: Yup.date().max(new Date(), "Future date not allowed"),
+      end: Yup.date().when(
+        "start",
+        (start, Yup) =>
+          start && Yup.min(start, "End time cannot be before start time")
+      ),
     })
   ),
-  languages: Yup.array().of(
-    Yup.object().shape({ languages: Yup.string().required("partadir e") })
-  ),
+  languages: Yup.array().of(Yup.object().shape({ languages: Yup.string() })),
   additionaledu: Yup.array().of(
     Yup.object().shape({
-      name: Yup.string().required("partadir e"),
-      company: Yup.string().required("partadir e"),
-      profession: Yup.string().required("partadir e"),
-      start: Yup.string(),
-      end: Yup.string(),
+      name: Yup.string(),
+      company: Yup.string(),
+      profession: Yup.string(),
+      start: Yup.date().max(new Date(), "Future date not allowed"),
+      end: Yup.date().when(
+        "start",
+        (start, Yup) =>
+          start && Yup.min(start, "End time cannot be before start time")
+      ),
     })
   ),
   sertificat: Yup.string(),

@@ -138,6 +138,23 @@ div.custom_table thead tr th::before {
     @apply overflow-x-auto;
   }
 }
+.timeInp {
+  @apply text-[#9C9C9C] text-xs relative w-[85px];
+}
+.timeInp::-webkit-calendar-picker-indicator {
+  @apply w-full h-full absolute left-[10px] cursor-pointer;
+  background: none;
+}
+.timeInp::-webkit-datetime-edit-ampm-field {
+  display: none;
+}
+.timeInp::-webkit-clear-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+}
 /* div.custom_table tbody:before {
   content: "@";
   display: block;

@@ -3,7 +3,7 @@
   @apply w-full h-auto flex flex-col gap-[57px] pb-[20px];
 }
 .personalInfoChild {
-  @apply w-full flex h-auto gap-[140px];
+  @apply w-[80%] flex justify-between  h-auto gap-[80px];
 }
 .infoChild {
   @apply h-auto flex flex-col gap-[20px];
@@ -19,4 +19,17 @@
   font-weight: 600;
   font-size: 12px;
   color: #ffffff;
+}
+@media screen and (max-width: 924px) {
+  .personalInfoChild {
+    @apply flex-col;
+  }
+}
+@media screen and (max-width: 600px) {
+  .personalInfoChild {
+    @apply w-full;
+  }
+  .dateValidation {
+    @apply flex-col gap-[10px];
+  }
 }

@@ -25,6 +25,7 @@
 .customCheckbox + span {
   @apply text-[10px] text-gray;
 }
+
 .stagesContainer {
   @apply flex gap-6 flex-col;
 }
