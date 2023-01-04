@@ -4,8 +4,8 @@ import {
   UseFieldArrayReturn,
   useFormContext,
 } from "react-hook-form";
-import { CstmInput } from "../../../../../../components/forms/cstmInput/CstmInput";
 import removeVariantImg from "../../../../../../assets/teacher_images/exam/Group 1555.svg";
+import { CstmInput } from "../../../../../../components/forms";
 import { IExamSchema } from "../../examSchema";
 
 interface ResVariantProps {
@@ -21,7 +21,7 @@ export const ResVariant: React.FC<ResVariantProps> = ({
   ind,
   i,
 }) => {
-  const { register, watch, setValue } = useFormContext();
+  const { register, watch } = useFormContext();
   const removeVariant = (e: React.MouseEvent<HTMLImageElement>) => {
     e.preventDefault();
     const newObj = watch(`questionBox.${i}.responseVariants`).filter(
@@ -31,6 +31,7 @@ export const ResVariant: React.FC<ResVariantProps> = ({
     );
     questions.update(i, {
       ...field,
+      examQuestion: watch("questionBox")[i].examQuestion,
       responseVariants: newObj,
     });
   };

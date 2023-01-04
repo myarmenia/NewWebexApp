@@ -9,7 +9,7 @@ interface StarItemProps {
 
 export const StarItem: FC<StarItemProps> = ({ isCompleted, onClick }) => {
   return (
-    <div onClick={onClick}>
+    <div onClick={onClick} className="cursor-pointer">
       {isCompleted ? (
         <img src={ActiveStarImg} alt="" />
       ) : (

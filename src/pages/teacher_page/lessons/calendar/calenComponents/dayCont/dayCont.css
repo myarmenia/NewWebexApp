@@ -16,7 +16,7 @@
 }
 @layer components {
   .CalendarHeadFilterBtn {
-    @apply shadow-light border-[1.35px] border-white py-[5px] px-[11px] text-[#9c9c9c] bg-white w-[82px] flex justify-between items-center rounded-[30px] cursor-pointer text-sm gap-2;
+    @apply shadow-light py-[5px] px-[11px] text-[#9c9c9c] bg-white w-[82px] flex justify-between items-center rounded-[30px] cursor-pointer text-sm gap-2;
   }
 }
 .dayCont_tr > td:first-child {

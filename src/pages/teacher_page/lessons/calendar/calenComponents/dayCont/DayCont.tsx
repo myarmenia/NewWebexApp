@@ -1,35 +1,31 @@
-import React, { FC } from "react";
-import "./dayCont.css";
+import { FC } from "react";
 import filterImg from "../../../../../../assets/teacher_images/calendar/filterImg.svg";
-import { CalTbody } from "./calTbody/CalTbody";
-import { CalThead } from "./calThead/CalThead";
-import { useDispatch, useSelector } from "react-redux";
+import { FilterBtn } from "../../../../../../components/reusable";
+import { getMonthAndYear } from "../../../../../../helper";
+import { useAppDispatch, useAppSelector } from "../../../../../../hooks";
 import {
-  toPrevMonth,
   toNextMonth,
+  toPrevMonth,
 } from "../../../../../../redux/reducers/calendarList";
+import { CalTbody } from "./CalTbody";
+import { CalThead } from "./calThead/CalThead";
+import "./dayCont.css";
 import { ToggleMonth } from "./toggleMonth/ToggleMonth";
-import { ICalendarReducer } from "../../../../../../models/interfaces";
-import { months } from "../../calStore/calStore";
 
 interface DayContProps {
   // currentDate: Date;
 }
 
 export const DayCont: FC<DayContProps> = ({}) => {
-  const { currentDate } = useSelector(
-    (state: ICalendarReducer) => state.calendarList
-  );
-  const dispatch = useDispatch();
-  const toMonth = `${
-    months[currentDate.getMonth()]
-  } ${currentDate.toLocaleString("en-US", { year: "numeric" })}`;
+  const { currentDate } = useAppSelector((state) => state.calendarList);
+  const dispatch = useAppDispatch();
+
   return (
     <div id="CalendarBody_DayContainer">
       <div className="CaledarHead">
         <div id="CalendarBody_DayContainerHead">
           <div id="monthBox">
-            <p id="month">{toMonth}</p>
+            <p id="month">{getMonthAndYear(currentDate)}</p>
             <div id="ArrowBox">
               <ToggleMonth toggleMonth={() => dispatch(toPrevMonth())} />
               <ToggleMonth
@@ -39,10 +35,10 @@ export const DayCont: FC<DayContProps> = ({}) => {
             </div>
           </div>
           <div id="CalendarHeadBox2">
-            <button className="CalendarHeadFilterBtn">
+            <FilterBtn className="CalendarHeadFilterBtn">
               Ֆիլտր
               <img src={filterImg} />
-            </button>
+            </FilterBtn>
           </div>
         </div>
       </div>

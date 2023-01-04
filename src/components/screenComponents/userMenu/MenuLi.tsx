@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink, useLocation } from "react-router-dom";
-import { IteacherMenu } from "../../../../models/interfaces";
+import { IteacherMenu } from "../../../models/interfaces";
 
 interface MenuLiProps extends IteacherMenu {}
 
@@ -11,15 +11,14 @@ export const MenuLi: React.FC<MenuLiProps> = ({
   to,
 }) => {
   const { pathname } = useLocation();
-  const isPathsEqual = pathname.split("/")[1] === to?.split("/")[0];
-
+  const isPathsEqual = pathname.includes(to?.split("/")[0]!);
   return (
     <NavLink
       to={to!}
       className={({ isActive }) =>
         isPathsEqual || isActive
           ? "activeMenuItem menuLi"
-          : "menuLi hoverAnimation"
+          : "menuLi hoverTextAnimation"
       }
     >
       <div className="menuA">

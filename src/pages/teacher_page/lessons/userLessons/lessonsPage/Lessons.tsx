@@ -1,7 +1,7 @@
 import React, { FC, Fragment } from "react";
 import "./lessons.css";
 import { useLoaderData } from "react-router";
-import { LessonTitle } from "../../../../../components/reusable/lessonTitle/LessonTitle";
+import { LessonTitle } from "../../../../../components/reusable";
 import {
   ILessonLoaderData,
   ILessonLoaderObj,

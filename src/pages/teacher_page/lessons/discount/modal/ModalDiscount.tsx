@@ -4,9 +4,11 @@ import { FormProvider, useForm } from "react-hook-form";
 import "./discountModal.css";
 import ModalCard from "./ModalCard";
 import * as Yup from "yup";
-import { CstmInput } from "../../../../../components/forms/cstmInput/CstmInput";
-import { CustomSelect } from "../../../../../components/forms/customSelect/CustomSelect";
+
 import { ModalContainer } from "../../../../../components/modalContainer/ModalContainer";
+import { CstmInput } from "../../../../../components/forms";
+import { ErrorResponse } from "@remix-run/router";
+import { CustomSelect } from "../../../../../components/forms";
 
 export const discountModal = Yup.object().shape({
   price: Yup.string().required(),

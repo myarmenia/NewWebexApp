@@ -3,28 +3,24 @@ import { Dispatch, SetStateAction } from "react";
 export interface INavItem {
   children: string | React.ReactNode;
 }
-export interface ISelect {
-  title: string;
-  options: string[];
-}
 export interface ICustomSelect {
-  error?: string;
-  option: string;
-  optionId: number;
   options: string[];
-  setOptions?: Dispatch<SetStateAction<string[]>>;
-  toggleOptions: () => void;
-  className?: string;
-  regName?: string;
   placeholder: string;
+  regName?: string;
+  error?: string;
   isMutable?: {
     setOptions: Dispatch<SetStateAction<string[]>>;
     isInput: boolean;
   };
-  removeOption?: (currentId: number) => void;
+  toggleOptions: () => void;
+  className?: string;
+  setValue?: Dispatch<SetStateAction<string>>;
+  value?: string;
 }
 
-export type INavItemsContent = string | ISelect;
+export type INavItemsContent =
+  | string
+  | { title: string; options: string[]; className?: string };
 export interface FeatureBoxProps {
   divUrl: string;
   staticImg: string;
@@ -47,10 +43,10 @@ export interface LessonProps {
   studentsCount?: number;
 }
 export interface IteacherMenu {
-  id?: number;
+  title: string;
   img: string;
   activeImg: string;
-  title: string;
+  id?: number;
   to?: string;
   toSubPaths?: {
     title: string;
@@ -80,7 +76,7 @@ export interface IPaginationItem {
 export interface IDateDay {
   dayNumber: number;
   isActive?: boolean;
-  notCurrentMonth?: boolean;
+  isCurrentMonth: boolean;
   currentDayEvents?: {
     evName?: string;
     time: string;
@@ -90,14 +86,7 @@ export interface IWeekEvent {
   title: string;
   lessonDuration?: number;
   weekday?: number; // weekday must be from 1 to 7 => {weekday === row}
-  evTime?: number; // evTime must be from 1 to 17 => {evTime === col}
-}
-export interface ICalendarReducer {
-  calendarList: {
-    dates: IDateDay[];
-    datesWeek: IDateDay[][];
-    currentDate: Date;
-  };
+  evTime?: number | string; // evTime must be from 1 to 17 => {evTime === col}
 }
 export interface IStageLesson {
   lessonNumber?: number;

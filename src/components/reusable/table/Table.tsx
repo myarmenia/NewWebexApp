@@ -1,20 +1,24 @@
-import { FC } from "react";
-import "./table.css";
+import { FC, ReactNode } from "react";
 import { Tbody } from "./Tbody";
-import { Thead } from "./thead/Thead";
-import { TrProps } from "./tr/Tr";
+import { Thead } from "./Thead";
 
-interface TableProps {
-  theadItems: { items: string[]; thClassName?: string };
-  tbodyItems: TrProps[];
+export interface TableProps<T extends object> {
+  rows: {
+    name: string;
+    selector: (obj: T) => string | number | ReactNode | JSX.Element;
+    tdClassName?: string;
+    thClassName?: string;
+  }[];
+  tbodyItems: T[];
+  className?: string;
 }
 
-export const Table: FC<TableProps> = ({ theadItems, tbodyItems }) => {
+export const Table: FC<TableProps<any>> = ({ rows, tbodyItems, className }) => {
   return (
-    <div className="custom_table_container">
-      <table className="custom_table">
-        <Thead {...theadItems} />
-        <Tbody {...{ tbodyItems }} />
+    <div className={"overflow-x-auto " + className}>
+      <table>
+        <Thead {...{ rows }} />
+        <Tbody {...{ rows, tbodyItems }} />
       </table>
     </div>
   );

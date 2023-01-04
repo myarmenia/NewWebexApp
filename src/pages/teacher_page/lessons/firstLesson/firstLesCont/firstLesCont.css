@@ -8,9 +8,9 @@
 }
 /* .firstLesCont div {
 } */
-.lessonContainer {
+/* .lessonContainer {
   @apply flex justify-between mx-auto w-[98%];
-}
+} */
 .lessonContainer1 {
   @apply w-[40%];
 }

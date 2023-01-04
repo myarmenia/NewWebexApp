@@ -4,7 +4,6 @@ import { IStudentTd } from "../../../../../../models/interfaces";
 
 export const TdFeedBack: FC<Pick<IStudentTd, "lessons">> = ({ lessons }) => {
   return (
-    // <td className="">
     <div className="flex items-center justify-center flex-col gap-1">
       {lessons.map((elem, ind) => (
         // <Link to={"somewhere"}>

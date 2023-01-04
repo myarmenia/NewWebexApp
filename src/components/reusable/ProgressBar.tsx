@@ -8,7 +8,7 @@ interface ProgressBarProps {
 export const ProgressBar: FC<ProgressBarProps> = ({ progress, className }) => {
   return (
     <div
-      className={`text-[10px] w-full h-3 flex bg-[#D9D9D9] relative rounded-[30px] overflow-hidden ${className}`}
+      className={`text-[10px] mx-auto w-full h-3 flex bg-[#D9D9D9] relative rounded-[30px] overflow-hidden ${className}`}
       key={Math.random()}
     >
       <div className="bg-[#898BCE] h-full" style={{ width: progress + "%" }} />

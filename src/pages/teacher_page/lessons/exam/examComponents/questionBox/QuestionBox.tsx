@@ -10,7 +10,7 @@ import {
 import { IExamSchema } from "../../examSchema";
 import { ResVariant } from "../resVariant/ResVariant";
 import { LoadImage } from "../../../../../../components/teacherComponents/loadImage/LoadImage";
-import { CstmTextarea } from "../../../../../../components/forms/cstmTextarea/CstmTextarea";
+import { CstmTextarea } from "../../../../../../components/forms";
 
 interface QuestionBoxProps {
   field: FieldArrayWithId<IExamSchema, "questionBox", "id">;
@@ -25,7 +25,6 @@ export const QuestionBox: React.FC<QuestionBoxProps> = ({
 }) => {
   const { watch } = useFormContext();
   const addVariant = (e: MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
     questions.update(i, {
       ...field,
       examQuestion: watch("questionBox")[i].examQuestion,

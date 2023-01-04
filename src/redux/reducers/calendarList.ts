@@ -1,5 +1,12 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { NavigateFunction } from "react-router";
 import { IDateDay } from "../../models/interfaces";
+
+interface IChooseDay {
+  id: number;
+  isCurrentMonth: boolean;
+  navigate: NavigateFunction;
+}
 
 const createDayEventArray = () =>
   Array.from({ length: Math.floor(Math.random() * 8) }).map(() => ({
@@ -10,6 +17,7 @@ const initialState = {
   currentDate: new Date() as Date,
   dates: [] as IDateDay[],
   datesWeek: [] as IDateDay[][],
+  chosenDay: new Date() as Date,
 };
 
 const calendarList = createSlice({
@@ -17,60 +25,75 @@ const calendarList = createSlice({
   initialState,
   reducers: {
     createDates: (state) => {
-      state.dates = [];
+      const myDates: IDateDay[] = [];
       const currentDate = new Date(
         state.currentDate.getFullYear(),
         state.currentDate.getMonth(),
         1
       );
-      const weekDay = currentDate.getDay();
       currentDate.setDate(currentDate.getDate() - currentDate.getDay());
-      while (state.dates.length < 35) {
+      while (myDates.length < 35) {
         if (
-          currentDate.getDate() === new Date().getDate() &&
-          currentDate.getMonth() === new Date().getMonth() &&
-          currentDate.getFullYear() === new Date().getFullYear()
+          currentDate.getDate() === state.chosenDay.getDate() &&
+          currentDate.getMonth() === state.chosenDay.getMonth() &&
+          currentDate.getFullYear() === state.chosenDay.getFullYear()
         ) {
-          state.dates.push({
+          myDates.push({
             dayNumber: currentDate.getDate(),
             isActive: true,
             currentDayEvents: createDayEventArray(),
+            isCurrentMonth:
+              currentDate.getMonth() === state.currentDate.getMonth(),
           });
         } else {
-          state.dates.push({
+          myDates.push({
             dayNumber: currentDate.getDate(),
             isActive: false,
             currentDayEvents: createDayEventArray(),
+            isCurrentMonth:
+              currentDate.getMonth() === state.currentDate.getMonth(),
           });
         }
         currentDate.setDate(currentDate.getDate() + 1);
       }
       if (
-        state.dates[state.dates.length - 1].dayNumber > 7 &&
-        state.dates[state.dates.length - 1].dayNumber !==
+        myDates[myDates.length - 1].dayNumber > 7 &&
+        myDates[myDates.length - 1].dayNumber !==
           new Date(
             state.currentDate.getFullYear(),
             state.currentDate.getMonth() + 1,
             0
           ).getDate()
       ) {
-        while (state.dates.length < 42) {
-          state.dates.push({
-            dayNumber: currentDate.getDate(),
-            isActive: false,
-            currentDayEvents: createDayEventArray(),
-          });
+        while (myDates.length < 42) {
+          if (
+            currentDate.getDate() === state.chosenDay.getDate() &&
+            currentDate.getMonth() === state.chosenDay.getMonth() &&
+            currentDate.getFullYear() === state.chosenDay.getFullYear()
+          ) {
+            myDates.push({
+              dayNumber: currentDate.getDate(),
+              isActive: true,
+              currentDayEvents: createDayEventArray(),
+              isCurrentMonth:
+                currentDate.getMonth() === state.currentDate.getMonth(),
+            });
+          } else {
+            myDates.push({
+              dayNumber: currentDate.getDate(),
+              isActive: false,
+              currentDayEvents: createDayEventArray(),
+              isCurrentMonth:
+                currentDate.getMonth() === state.currentDate.getMonth(),
+            });
+          }
           currentDate.setDate(currentDate.getDate() + 1);
         }
       }
-      for (let i = 0; i < state.dates.length; i++) {
-        if (i < weekDay || (i > 30 && state.dates[i].dayNumber < 8)) {
-          state.dates[i].notCurrentMonth = true;
-        }
-      }
+      state.dates = myDates;
     },
     createDatesWeek: (state) => {
-      state.datesWeek = [];
+      let myDatesWeek: IDateDay[][] = [];
       let weeksInMonth = state.dates.length / 7;
       let vari = 0;
       for (let b = 0; b < weeksInMonth; b++) {
@@ -79,14 +102,19 @@ const calendarList = createSlice({
           some.push(state.dates[vari]);
           vari++;
         }
-        state.datesWeek = [...state.datesWeek, some];
+        myDatesWeek = [...myDatesWeek, some];
       }
+      state.datesWeek = myDatesWeek;
     },
-    chooseDay: (state, { payload }) => {
-      state.datesWeek.map((el) =>
+    chooseDay: (state, { payload }: PayloadAction<IChooseDay>) => {
+      const myDatesWeek = state.datesWeek;
+      myDatesWeek.map((el) =>
         el.map((elem) => {
-          if (!elem.notCurrentMonth) {
-            if (elem.dayNumber === payload) {
+          if (payload.isCurrentMonth) {
+            if (elem.dayNumber === payload.id) {
+              state.chosenDay = new Date(state.currentDate);
+              state.chosenDay.setDate(payload.id);
+              payload.navigate("week_schedule");
               return (elem.isActive = true);
             }
             return (elem.isActive = false);
@@ -94,6 +122,7 @@ const calendarList = createSlice({
           return elem;
         })
       );
+      state.datesWeek = myDatesWeek;
     },
     toPrevMonth: (state) => {
       const date = new Date(

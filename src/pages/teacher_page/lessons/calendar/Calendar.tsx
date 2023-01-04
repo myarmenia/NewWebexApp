@@ -1,20 +1,17 @@
-import React, { FC, useEffect } from "react";
-import "./calendar.css";
-import { TdNumCont } from "./calenComponents/tdNumCont/TdNumCont";
-import { DayCont } from "./calenComponents/dayCont/DayCont";
-import { ICalendarReducer } from "../../../../models/interfaces";
-import { useDispatch, useSelector } from "react-redux";
+import { FC, useEffect } from "react";
+import { LessonTitle } from "../../../../components/reusable";
+import { useAppDispatch, useAppSelector } from "../../../../hooks";
 import {
   createDates,
   createDatesWeek,
 } from "../../../../redux/reducers/calendarList";
-import { LessonTitle } from "../../../../components/reusable/lessonTitle/LessonTitle";
 import { instance } from "../../../../request/request";
+import { DayCont } from "./calenComponents/dayCont/DayCont";
+import { TdNumCont } from "./calenComponents/tdNumCont/TdNumCont";
+import "./calendar.css";
 export const Calendar: FC = () => {
-  const { currentDate } = useSelector(
-    (state: ICalendarReducer) => state.calendarList
-  );
-  const dispatch = useDispatch();
+  const { currentDate } = useAppSelector((state) => state.calendarList);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(createDates());

@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import arrowImg from "../../../../../../../assets/teacher_images/calendar/arrowLeft.svg";
 
 interface ToggleMonthProps {

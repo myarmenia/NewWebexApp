@@ -1,5 +1,5 @@
 import React from "react";
-import { LessonTitle } from "../../../../components/reusable/lessonTitle/LessonTitle";
+import { LessonTitle } from "../../../../components/reusable";
 import "./exam.css";
 import { ExamBody } from "./examBody/ExamBody";
 

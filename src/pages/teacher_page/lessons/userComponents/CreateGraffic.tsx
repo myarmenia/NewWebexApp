@@ -22,7 +22,7 @@ export interface UserSubmitForm2 {
 console.log(new Date().toLocaleTimeString());
 const SchemaChild = Yup.array().of(
   Yup.object().shape({
-    start: Yup.date().max(new Date().getHours(), "Future date not allowed"),
+    start: Yup.date().max(new Date(), "Future date not allowed"),
     end: Yup.date().when(
       "start",
       (start, Yup) =>

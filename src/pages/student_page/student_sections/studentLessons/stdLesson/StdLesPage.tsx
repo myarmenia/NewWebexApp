@@ -1,19 +1,17 @@
-import { FC, useCallback, useEffect, useState } from "react";
-import { LesImageBox } from "./lesImageBox/LesImageBox";
-import "./stdLesPage.css";
+import { FC, useCallback, useState } from "react";
 import { LoaderFunctionArgs } from "react-router";
-import { LessonTitle } from "../../../../../components/reusable/lessonTitle/LessonTitle";
+import { CstmTextarea } from "../../../../../components/forms";
+import { CustomBtn } from "../../../../../components/forms";
+import { LessonTitle } from "../../../../../components/reusable";
 import { LessonProps } from "../../../../../models/interfaces";
+import { instance } from "../../../../../request/request";
 import { LesContainer } from "../../../../teacher_page/lessons/userLessons/userLesComponents/lesContainer/LesContainer";
 import { LesPTitle } from "../../../../teacher_page/lessons/userLessons/userLesComponents/lesPTitle/LesPTitle";
-import { StdLesCases } from "./stdLesCases/StdLesCases";
-import { StdLesStages } from "./stdLesStages/StdLesStages";
-import starImg from "../../../../../assets/student_images/studentLessons/Star 5.svg";
-import { FormProvider, useForm } from "react-hook-form";
-import { CustomBtn } from "../../../../../components/forms/customBtn/CustomBtn";
-import { CstmTextarea } from "../../../../../components/forms/cstmTextarea/CstmTextarea";
+import { LesImageBox } from "./lesImageBox/LesImageBox";
 import { OpinionStars } from "./opinionStars/OpinionStars";
-import { instance } from "../../../../../request/request";
+import { StdLesCases } from "./stdLesCases/StdLesCases";
+import "./stdLesPage.css";
+import { StdLesStages } from "./stdLesStages/StdLesStages";
 
 export interface LesPageProps extends LessonProps {
   stageCount: number;
@@ -44,14 +42,14 @@ export const StdLesPage: FC<LesPageProps> = ({
   const [value, setValue] = useState<string>("");
   const [error, setError] = useState(false);
 
-  const logOpinionData = useCallback(() => {
+  const logOpinionData = () => {
     if (value.length <= 16 && value.length >= 4) {
       console.log({ opinion: value });
       setError(false);
     } else {
       setError(true);
     }
-  }, [value]);
+  };
 
   return (
     <>
@@ -83,9 +81,9 @@ export const StdLesPage: FC<LesPageProps> = ({
               </div>
               <div className="w-full flex flex-col gap-8">
                 <CstmTextarea
-                  {...{ value, setValue }}
                   placeholder="Գրել կարծիքը"
                   error={error ? "min length must be 4" : ""}
+                  onChange={(e) => setValue(e.target.value)}
                 />
                 <CustomBtn
                   type="button"
@@ -102,10 +100,8 @@ export const StdLesPage: FC<LesPageProps> = ({
   );
 };
 
-export const lessonPageLoader = async ({ params }: LoaderFunctionArgs) => {
-  const res = await instance.get(`/posts/${params.id}?userId=1`);
+export const stdLessonPageLoader = async ({ params }: LoaderFunctionArgs) => {
   const lessonsObj = await instance.get("/posts?userId=1");
-  const paramsId = params.id;
-  const paramsLes = params.les;
-  return { obj: res.data, lessonsObj: lessonsObj.data, paramsId, paramsLes };
+
+  return { lessonsObj: lessonsObj.data };
 };

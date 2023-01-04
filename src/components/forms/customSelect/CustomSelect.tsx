@@ -1,14 +1,22 @@
 import "./customSelect.css";
-import React, { FC, useMemo, useState } from "react";
-import { Options } from "./Options";
-import { DefaultOption } from "./DefaultOption";
+import { FC, useMemo, useState } from "react";
 import { useFormContext } from "react-hook-form";
 import { ICustomSelect } from "../../../models/interfaces";
+import { DefaultOption } from "./DefaultOption";
+import { Options } from "./Options";
 
-type CustomSelectProps = Pick<
-  ICustomSelect,
-  "options" | "className" | "regName" | "placeholder" | "isMutable" | "error"
->;
+interface CustomSelectProps
+  extends Pick<
+    ICustomSelect,
+    | "options"
+    | "className"
+    | "regName"
+    | "placeholder"
+    | "isMutable"
+    | "error"
+    | "setValue"
+    | "value"
+  > {}
 
 export const CustomSelect: FC<CustomSelectProps> = ({
   options,
@@ -17,6 +25,9 @@ export const CustomSelect: FC<CustomSelectProps> = ({
   regName,
   error,
   placeholder,
+  // if you want to make select work without react-hook-form you need to pass value and setValue useState
+  setValue,
+  value,
 }) => {
   const [state, setState] = useState<boolean>(false);
   const formMethods = useFormContext();
@@ -24,20 +35,21 @@ export const CustomSelect: FC<CustomSelectProps> = ({
     setState((prev) => !prev);
   };
   const errorMessage = useMemo(() => {
-    if (error) {
-      return error;
-    } else if (regName) {
-      return formMethods?.formState?.errors[regName]?.message!.toString();
-    } else {
-      return;
-    }
-  }, [error, formMethods?.formState?.errors]);
+    return (
+      error ||
+      (regName && formMethods?.formState?.errors[regName]?.message!.toString())
+    );
+  }, [error, formMethods?.formState?.errors[regName!]?.message]);
   return (
     <div className="flex justify-center h-10">
       <div className={`customSelect ${className}`}>
-        <DefaultOption {...{ toggleOptions, regName, placeholder }} />
+        <DefaultOption
+          {...{ toggleOptions, regName, placeholder, setValue, value }}
+        />
         {state && (
-          <Options {...{ options, toggleOptions, regName, isMutable }} />
+          <Options
+            {...{ options, toggleOptions, regName, isMutable, setValue }}
+          />
         )}
         <p className="errorMessage">{errorMessage}</p>
       </div>

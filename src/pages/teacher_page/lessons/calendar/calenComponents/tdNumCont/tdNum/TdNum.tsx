@@ -1,27 +1,26 @@
-import React, { FC } from "react";
-import { IDateDay } from "../../../../../../../models/interfaces";
-import "./tdNum.css";
-import { useDispatch } from "react-redux";
-import { chooseDay } from "../../../../../../../redux/reducers/calendarList";
+import { FC } from "react";
 import { useNavigate } from "react-router";
+import { useAppDispatch } from "../../../../../../../hooks";
+import { IDateDay } from "../../../../../../../models/interfaces";
+import { chooseDay } from "../../../../../../../redux/reducers/calendarList";
+import "./tdNum.css";
 
 interface TdNumProps extends IDateDay {}
 
 export const TdNum: FC<TdNumProps> = ({
   dayNumber,
   isActive,
-  notCurrentMonth,
+  isCurrentMonth,
 }) => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const chooseWeekDay = () => {
-    dispatch(chooseDay(dayNumber));
-    navigate("week_schedule");
+    dispatch(chooseDay({ id: dayNumber, navigate, isCurrentMonth }));
   };
 
   return (
     <td
-      className={`tdNum ${notCurrentMonth ? "opacity-40 text-[#9C9C9C]" : ""}`}
+      className={`tdNum ${!isCurrentMonth ? "opacity-40 text-[#9C9C9C]" : ""}`}
       onClick={chooseWeekDay}
     >
       <div className={isActive ? "activeDay" : "tdNumeric"}>

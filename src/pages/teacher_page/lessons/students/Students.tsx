@@ -1,9 +1,11 @@
 import { FC } from "react";
 import trashbinImg from "../../../../assets/teacher_images/exam/delete.svg";
-import { CustomBtn } from "../../../../components/forms/customBtn/CustomBtn";
+import { CustomBtn } from "../../../../components/forms";
 import { CustomDropdown } from "../../../../components/reusable/customDropdown/CustomDropdown";
-import { LessonTitle } from "../../../../components/reusable/lessonTitle/LessonTitle";
+import { FilterBtn } from "../../../../components/reusable/FilterBtn";
+import { LessonTitle } from "../../../../components/reusable";
 import { Table } from "../../../../components/reusable/table/Table";
+import { generateArray } from "../../../../helper";
 import { IStudentTd } from "../../../../models/interfaces";
 import { TdDate } from "./stdComponents/tds/TdDate";
 import { TdFeedBack } from "./stdComponents/tds/TdFeedBack";
@@ -13,8 +15,8 @@ import { TdProgres } from "./stdComponents/tds/TdProgres";
 import "./students.css";
 
 const tbodyData = (length: number): IStudentTd[] =>
-  Array.from({ length: length }).map(() => ({
-    image: "smile.png",
+  Array.from({ length }).map(() => ({
+    image: "user.png",
     name: "Անուն Ազգանուն",
     phoneNumber: "+374 90 888 888",
     lessons: Array.from({
@@ -37,91 +39,94 @@ export const Students: FC = () => {
           classNameParent="!mb-[14px]"
         />
         <Table
-          theadItems={{
-            items: [
-              "Ուսանողի Անուն",
-              "Հեռախոս",
-              "Դասընթացի անվանումը",
-              "Հայտի ամսաթիվը",
-              "Տալ հասանելիություն դասերին",
-              "",
-            ],
-          }}
-          tbodyItems={tbodyData(2).map(({ lessons, name, phoneNumber }) => ({
-            trData: [
-              {
-                item: <TdName {...{ name }} />,
-              },
-              {
-                item: (
-                  <TdLes lessons={[{ ...lessons[0], title: phoneNumber }]} />
-                ),
-              },
-              { item: <TdLes {...{ lessons }} /> },
-              { item: <TdDate {...{ lessons }} />, className: "!text-center" },
-              {
-                item: (
-                  <CustomBtn
-                    title="Առաջին փուլ"
-                    type="button"
-                    className="!py-2 !min-w-[152px]"
-                  />
-                ),
-              },
-              {
-                item: (
-                  <img
-                    src={trashbinImg}
-                    className="cursor-pointer scale-125"
-                    alt=""
-                  />
-                ),
-              },
-            ],
-          }))}
+          rows={[
+            {
+              name: "Ուսանողի Անուն",
+              selector: ({ name }: any) => <TdName {...{ name }} />,
+            },
+            {
+              name: "Հեռախոս",
+              selector: ({ lessons, phoneNumber }: any) => (
+                <TdLes lessons={[{ ...lessons[0], title: phoneNumber }]} />
+              ),
+            },
+            {
+              name: "Դասընթացի անվանումը",
+              selector: ({ lessons }: any) => <TdLes {...{ lessons }} />,
+            },
+            {
+              name: "Հայտի ամսաթիվը",
+              selector: ({ lessons }: any) => <TdDate {...{ lessons }} />,
+            },
+            {
+              name: "Տալ հասանելիություն դասերին",
+              selector: ({ name }: any) => (
+                <CustomBtn
+                  title="Առաջին փուլ"
+                  className="!py-2 !min-w-[152px]"
+                />
+              ),
+            },
+            {
+              name: "",
+              selector: ({ name }: any) => (
+                <img
+                  src={trashbinImg}
+                  className="cursor-pointer scale-125"
+                  alt=""
+                />
+              ),
+            },
+          ]}
+          tbodyItems={tbodyData(2)}
+          className="custom_table"
         />
       </div>
       <div>
         <LessonTitle title="Ուսանողներ" classNameParent="!mb-[14px]" />
         <div className="students_container">
           <div className="filterSection">
-            <div className="filterBox">Ավարտած</div>
-            <div className="filterBox">Սովորող</div>
+            {/* <div className="filterBox bg_hover">Ավարտած</div> */}
+            {/* <div className="filterBox bg_hover">Սովորող</div> */}
+            <FilterBtn>Ավարտած</FilterBtn>
+            <FilterBtn>Սովորող</FilterBtn>
             <CustomDropdown
               className="filterBox"
-              select={{ title: "Ըստ դասընթացի", options: ["adsf"] }}
+              title={"Ըստ դասընթացի"}
+              options={["aafsdfas"]}
             />
           </div>
           <Table
-            theadItems={{
-              items: [
-                "Ուսանողի Անուն",
-                "Հեռախոս",
-                "Դասընթացի անվանումը",
-                "Ուսուցման ամսաթիվը",
-                "Առաջընթացը",
-                "Տնայիններ",
-              ],
-            }}
-            tbodyItems={tbodyData(8).map(({ lessons, name, phoneNumber }) => ({
-              trData: [
-                {
-                  item: <TdName {...{ name }} />,
-                },
-                {
-                  item: (
-                    <TdLes lessons={[{ ...lessons[0], title: phoneNumber }]} />
-                  ),
-                },
-                { item: <TdLes {...{ lessons }} /> },
-                {
-                  item: <TdDate {...{ lessons }} />,
-                  className: "!text-center",
-                },
-                { item: <TdProgres {...{ lessons }} /> },
-                { item: <TdFeedBack {...{ lessons }} /> },
-              ],
-            }))}
+            rows={[
+              {
+                name: "Ուսանողի Անուն",
+                selector: ({ name }: any) => <TdName {...{ name }} />,
+              },
+              {
+                name: "Հեռախոս",
+                selector: ({ lessons, phoneNumber }: any) => (
+                  <TdLes lessons={[{ ...lessons[0], title: phoneNumber }]} />
+                ),
+              },
+              {
+                name: "Դասընթացի անվանումը",
+                selector: ({ lessons }: any) => <TdLes {...{ lessons }} />,
+              },
+              {
+                name: "Ուսուցման ամսաթիվը",
+                selector: ({ lessons }: any) => <TdDate {...{ lessons }} />,
+              },
+              {
+                name: "Առաջընթացը",
+                selector: ({ lessons }: any) => <TdProgres {...{ lessons }} />,
+              },
+              {
+                name: "Տնայիններ",
+                selector: ({ lessons }: any) => <TdFeedBack {...{ lessons }} />,
+              },
+            ]}
+            tbodyItems={tbodyData(8)}
+            className="custom_table"
           />
         </div>
       </div>

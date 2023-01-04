@@ -1,9 +1,9 @@
-import React, { FC, useState } from "react";
-import "./mItemsDrop.css";
+import { FC, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
-import { IteacherMenu } from "../../../../models/interfaces";
 import chevDown from "../../../../assets/general_images/chevDown.svg";
 import chevDownPurple from "../../../../assets/general_images/chevDownPurple.svg";
+import { IteacherMenu } from "../../../../models/interfaces";
+import "./mItemsDrop.css";
 
 interface MItemsDropProps extends IteacherMenu {}
 
@@ -13,36 +13,35 @@ export const MItemsDrop: FC<MItemsDropProps> = ({
   img,
   title,
 }) => {
-  const location = useLocation();
-  const [dropSubMenu, setDropSubMenu] = useState<boolean>(false);
-  const thisPathState = toSubPaths?.some(
-    (el) => `/${el.path}` === location.pathname
-  );
+  const { pathname } = useLocation();
+  const [isDroped, setIsDroped] = useState<boolean>(false);
+  const thisPathState = toSubPaths?.some((el) => pathname.includes(el.path));
   return (
-    <li
-      className={`mItemsDrop ${thisPathState ? "activeMenuItem" : ""}`}
-      onClick={() => setDropSubMenu((prev) => !prev)}
-    >
-      <div className="hoverAnimation">
+    <li className="mItemsDrop" onClick={() => setIsDroped((prev) => !prev)}>
+      <div className="hoverTextAnimation">
         <div className="menuA">
           <img src={thisPathState ? activeImg : img} alt="" />
-          <p className="menuSpan">{title}</p>
+          <span className={`menuSpan ${thisPathState ? "activeMenuItem" : ""}`}>
+            {title}
+          </span>
           <img
             src={thisPathState ? chevDownPurple : chevDown}
             alt=""
-            className={`arrowDownMenu ${dropSubMenu ? "rotate-180" : ""}`}
+            className={`arrowDownMenu ${isDroped ? "rotate-180" : ""}`}
           />
         </div>
       </div>
 
-      {dropSubMenu && (
+      {isDroped && (
         <div className="sumItems">
           {toSubPaths?.map((el) => (
             <NavLink
               key={Math.random()}
               to={el.path}
               className={({ isActive }) =>
-                isActive ? "subMenuSpan textPurple" : "subMenuSpan hoverAnimation"
+                isActive
+                  ? "subMenuSpan textPurple"
+                  : "subMenuSpan hoverTextAnimation"
               }
             >
               {el.title}

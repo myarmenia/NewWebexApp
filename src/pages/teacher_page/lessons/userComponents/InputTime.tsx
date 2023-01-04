@@ -5,6 +5,15 @@ import deleteIcon from "../../../../assets/teacher_images/createGraffic/delete.s
 import { UserSubmitForm2 } from "./CreateGraffic";
 import "./createGraffic.css";
 
+type ISome =
+  | "monday"
+  | "tuesday"
+  | "thursday"
+  | "wednesday"
+  | "friday"
+  | "saturday"
+  | "sunday";
+
 interface InputProps {
   day: string;
   className?: string;

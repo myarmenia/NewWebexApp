@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import "./userMenu.css";
 import { MItemsDrop } from "./mItemsDrop/MItemsDrop";
-import { MenuLi } from "./menuLi/MenuLi";
+import { MenuLi } from "./MenuLi";
 import { IteacherMenu } from "../../../models/interfaces";
 
 interface UserMenuProps {

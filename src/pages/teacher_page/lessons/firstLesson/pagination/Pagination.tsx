@@ -23,7 +23,7 @@ export const Pagination: React.FC<PaginationProps> = ({ currentitems }) => {
       })
     );
     if (completedCount === currentitems?.length) {
-      navigate("/exam");
+      navigate("/teacher/exam");
     }
   };
 

@@ -5,9 +5,9 @@ import { LesContainer } from "../../../../userLessons/userLesComponents/lesConta
 import { StudentsWork } from "./StudentsWork";
 import { useLoaderData, useParams } from "react-router";
 import { IOtherLessonLoaderData } from "../../../../../../../models/interfaces";
-import { CstmInput } from "../../../../../../../components/forms/cstmInput/CstmInput";
+import { CstmInput } from "../../../../../../../components/forms";
 import { FormProvider, useForm } from "react-hook-form";
-import { CustomBtn } from "../../../../../../../components/forms/customBtn/CustomBtn";
+import { CustomBtn } from "../../../../../../../components/forms";
 
 export const MesHomeWork: FC = () => {
   const [isHomeWorkAccepted, setIsHomeWorkAccepted] = useState(false);

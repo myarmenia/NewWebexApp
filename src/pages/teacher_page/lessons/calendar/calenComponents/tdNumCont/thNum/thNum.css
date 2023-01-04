@@ -1,9 +1,0 @@
-.thNumeric {
-  @apply text-[8px] text-gray font-semibold;
-}
-
-@media (max-width: 860px) {
-  .thNumeric {
-    @apply text-xl;
-  }
-}

@@ -2,40 +2,28 @@ import "./customDropdown.css";
 import React, { useState } from "react";
 import { Items } from "./Items";
 import { DropdownTitle } from "./DropdownTitle";
-import { ISelect } from "../../../models/interfaces";
 
 interface CustomDropdownProps {
-  select: ISelect;
+  title: string;
+  options: string[];
   className?: string;
 }
 
 export const CustomDropdown: React.FC<CustomDropdownProps> = ({
-  select,
+  title,
+  options,
   className,
 }) => {
   const [state, setState] = useState<boolean>(false);
-  const [rotateClass, setRotateClass] = useState<boolean>(false);
-  const onPointer = (e: boolean): void => {
-    setState(e);
-    setRotateClass(e);
-  };
-
   return (
     <div
       className="flex justify-center"
-      onMouseEnter={() => onPointer(true)}
-      onMouseLeave={() => onPointer(false)}
-      // onClick={() => onPointer(!state)}
+      onMouseEnter={() => setState(true)}
+      onMouseLeave={() => setState(false)}
     >
       <div className={`customDropdown ${className}`}>
-        <DropdownTitle
-          title={select.title}
-          rotateClass={rotateClass}
-          state={state}
-        />
-        {state && (
-          <Items {...{ state, setState, onPointer }} options={select.options} />
-        )}
+        <DropdownTitle {...{ rotateClass: state, title }} />
+        {state && <Items {...{ state, setState, options }} />}
       </div>
     </div>
   );
