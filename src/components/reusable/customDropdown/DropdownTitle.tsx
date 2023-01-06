@@ -2,24 +2,24 @@ import React from "react";
 import chevDown from "../../../assets/general_images/chevDown.svg";
 
 interface DropdownTitleProps {
-  title: string;
-  rotateClass: boolean;
+  dropDownTitle: string;
+  state: boolean;
 }
 
 export const DropdownTitle: React.FC<DropdownTitleProps> = ({
-  title,
-  rotateClass,
+  dropDownTitle,
+  state,
 }) => {
   return (
     <div className="dropdownTitle">
       <div className="flex justify-center w-full">
-        <span>{title}</span>
+        <span>{dropDownTitle}</span>
       </div>
       <img
         src={chevDown}
         alt=""
         className={`scale-75 duration-300 h-fit ${
-          rotateClass ? "rotate-180" : "rotate-0"
+          state ? "rotate-180" : "rotate-0"
         }`}
       />
     </div>

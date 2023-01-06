@@ -30,7 +30,7 @@ export const Header: React.FC = () => {
             />
           ) : (
             <div className="flex items-center">
-              <Navbar navbarItems={headerStore} />
+              {/* <Navbar navbarItems={headerStore} /> */}
             </div>
           )}
         </div>

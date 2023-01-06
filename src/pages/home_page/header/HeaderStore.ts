@@ -1,10 +1,10 @@
 import { INavItemsContent } from "../../../models/interfaces";
 
 export const headerStore: INavItemsContent[] = [
-  "Գլխավոր",
-  "Հարթակ",
-  "Սակագներ",
-  "Դասընթացներ",
-  { title: "Ընկերություն", options: ["cccc", "1111111"] },
-  "Գրանցում",
+  { title: "Գլխավոր", path: "" },
+  { title: "Հարթակ", path: "" },
+  { title: "Սակագներ", path: "" },
+  { title: "Դասընթացներ", path: "" },
+  { dropDownTitle: "Ընկերություն", options: [{ title: "Գլխավոր", path: "" }] },
+  { title: "Գրանցում", path: "" },
 ];

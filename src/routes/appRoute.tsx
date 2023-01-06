@@ -1,12 +1,11 @@
 import {
   createBrowserRouter,
-  createRoutesFromElements,
-  Route,
+  createRoutesFromElements, Route
 } from "react-router-dom";
 import { AddLesson } from "../pages/teacher_page/lessons/addLesson/AddLesson";
 import {
   Calendar,
-  calendarLoader,
+  calendarLoader
 } from "../pages/teacher_page/lessons/calendar/Calendar";
 import { WeekSchedule } from "../pages/teacher_page/lessons/calendar/weekSchedule/WeekSchedule";
 import { ControlPanel } from "../pages/teacher_page/lessons/controlPanel/ControlPanel";
@@ -15,7 +14,7 @@ import { Exam } from "../pages/teacher_page/lessons/exam/Exam";
 import {
   Feedback,
   feedbackLessonLoader,
-  feedback_studentsLoader,
+  feedback_studentsLoader
 } from "../pages/teacher_page/lessons/feedback/Feedback";
 import { FirstLesson } from "../pages/teacher_page/lessons/firstLesson/FirstLesson";
 import { NewLesson } from "../pages/teacher_page/lessons/newLesson/NewLesson";
@@ -31,7 +30,7 @@ import { Student } from "../pages/student_page/Student";
 import { StudentData } from "../pages/student_page/student_sections/studentData/StudentData";
 import {
   StdLesPage,
-  stdLessonPageLoader,
+  stdLessonPageLoader
 } from "../pages/student_page/student_sections/studentLessons/stdLesson/StdLesPage";
 import { StdLessons } from "../pages/student_page/student_sections/studentLessons/stdLessons/StdLessons";
 import StudentLessons from "../pages/student_page/student_sections/studentLessons/StudentLessons";
@@ -41,22 +40,23 @@ import { MesHomeWork } from "../pages/teacher_page/lessons/feedback/feedbackComp
 import { MesMessages } from "../pages/teacher_page/lessons/feedback/feedbackComponents/mesContent/mesMessages/MesMessages";
 import {
   LesPage,
-  lessonPageLoader,
+  lessonPageLoader
 } from "../pages/teacher_page/lessons/userLessons/lesPage/LesPage";
 import {
   Lessons,
-  lessonsLoader,
+  lessonsLoader
 } from "../pages/teacher_page/lessons/userLessons/lessonsPage/Lessons";
 import { StageLesPage } from "../pages/teacher_page/lessons/userLessons/stageLesPage/StageLesPage";
 import {
   extItems,
-  UserLessons,
+  UserLessons
 } from "../pages/teacher_page/lessons/userLessons/UserLessons";
 import { Teacher } from "../pages/teacher_page/Teacher";
+import { MainRoute } from "./MainRoute";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/">
+    <Route path="/" element={<MainRoute />}>
       <Route path="teacher" element={<Teacher />}>
         {/* <Route index element={<Exam />} /> */}
         <Route index element={<AddLesson />} />

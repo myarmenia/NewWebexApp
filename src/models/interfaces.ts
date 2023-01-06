@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, MouseEventHandler, SetStateAction } from "react";
 
 export interface INavItem {
   children: string | React.ReactNode;
@@ -18,9 +18,20 @@ export interface ICustomSelect {
   value?: string;
 }
 
+export interface IHeaderDropDownOption {
+  title: string;
+  path?: string;
+  onClick?: () => void;
+}
+export interface IHeaderDropDown {
+  dropDownTitle: string;
+  options: IHeaderDropDownOption[];
+  className?: string;
+}
 export type INavItemsContent =
-  | string
-  | { title: string; options: string[]; className?: string };
+  | { title: string; path?: string }
+  | IHeaderDropDown;
+
 export interface FeatureBoxProps {
   divUrl: string;
   staticImg: string;

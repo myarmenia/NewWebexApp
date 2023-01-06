@@ -10,13 +10,17 @@ import { UserPanel } from "./userPanel/UserPanel";
 import { Navbar } from "../../teacherComponents/navbar/Navbar";
 
 export const UserHeaderStore: INavItemsContent[] = [
-  "Գլխավոր",
-  "Հարթակ",
-  "Սակագներ",
-  "Դասընթացներ",
+  { title: "Գլխավոր" },
+  { title: "Հարթակ" },
+  { title: "Սակագներ" },
+  { title: "Դասընթացներ" },
   {
-    title: "Ընկերություն",
-    options: ["cccc", "1111111"],
+    dropDownTitle: "Ընկերություն",
+    options: [
+      { title: "student", path: "/student/perosnal_info" },
+      { title: "no path" },
+      { title: "teacher", path: "/teacher" },
+    ],
     className: "text-gray",
   },
 ];

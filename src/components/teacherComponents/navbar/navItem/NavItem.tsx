@@ -1,11 +1,16 @@
 import React from "react";
-import { INavItem } from "../../../../models/interfaces";
+import { NavLink } from "react-router-dom";
 import "./navItem.css";
 
-export const NavItem: React.FC<INavItem> = ({ children }) => {
+interface NavItemProps {
+  title: string;
+  path?: string;
+}
+
+export const NavItem: React.FC<NavItemProps> = ({ path, title }) => {
   return (
-    <a href="#" className="navItem">
-      <span className="hoverTextAnimation">{children}</span>
-    </a>
+    <NavLink to={path!} className="navItem">
+      <span className="hoverTextAnimation">{title}</span>
+    </NavLink>
   );
 };

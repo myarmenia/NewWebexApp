@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { CustomBtn } from "../../../../components/forms";
 import "./addLesson.css";

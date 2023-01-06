@@ -5,6 +5,6 @@ import "./smNavbar.css";
 
 export const SMNavbar: React.FC = () => {
   return <div className="smNavbar">
-    <Navbar navbarItems={UserHeaderStore} />
+    {/* <Navbar navbarItems={UserHeaderStore} /> */}
   </div>;
 };
