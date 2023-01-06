@@ -10,13 +10,23 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({ navbarItems }) => {
   return (
     <>
-      {navbarItems.map((el, index) =>
-        typeof el === "string" ? (
-          <NavItem key={index}>{el}</NavItem>
-        ) : (
+      {navbarItems.map((el, index) => {
+        return "dropDownTitle" in el ? (
           <CustomDropdown {...el} key={index} />
-        )
-      )}
+        ) : (
+          <NavItem {...el} key={index}></NavItem>
+        );
+      })}
     </>
   );
 };
+
+// return el.hasOwnProperty("dropDownTitle") ? (
+//   <CustomDropdown
+//     dropDownTitle=" "
+//     options={[{ title: "", path: "" }]}
+//     key={index}
+//   />
+// ) : (
+//   <NavItem title="" path="" key={index}></NavItem>
+// );

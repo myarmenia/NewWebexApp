@@ -14,7 +14,7 @@ import { Teacher } from "./pages/teacher_page/Teacher";
 import Regsitration from "./pages/registration/Regsitration";
 import Entry from "./pages/registration/entry/Entry";
 import Tariffs from "./pages/home_page/tariffs/Tariffs";
-import { RouterProvider, useNavigate } from "react-router-dom";
+import { RouterProvider } from "react-router-dom";
 
 import { router } from "./routes/appRoute";
 function App() {

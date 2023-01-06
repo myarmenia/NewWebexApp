@@ -1,13 +1,15 @@
 import React from "react";
+import {
+  IHeaderDropDownOption
+} from "../../../models/interfaces";
 import { Item } from "./Item";
 
 interface ItemsProps {
-  state: boolean;
   setState: (state: boolean) => void;
-  options: string[];
+  options: IHeaderDropDownOption[];
 }
 
-export const Items: React.FC<ItemsProps> = ({ state, setState, options }) => {
+export const Items: React.FC<ItemsProps> = ({ setState, options }) => {
   return (
     <div className="dropItems">
       <div className="dropItemsCont">

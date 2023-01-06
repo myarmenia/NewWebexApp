@@ -1,16 +1,17 @@
-import "./customDropdown.css";
 import React, { useState } from "react";
-import { Items } from "./Items";
+import { IHeaderDropDownOption } from "../../../models/interfaces";
+import "./customDropdown.css";
 import { DropdownTitle } from "./DropdownTitle";
+import { Items } from "./Items";
 
 interface CustomDropdownProps {
-  title: string;
-  options: string[];
+  dropDownTitle: string;
+  options: IHeaderDropDownOption[];
   className?: string;
 }
 
 export const CustomDropdown: React.FC<CustomDropdownProps> = ({
-  title,
+  dropDownTitle,
   options,
   className,
 }) => {
@@ -22,8 +23,8 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
       onMouseLeave={() => setState(false)}
     >
       <div className={`customDropdown ${className}`}>
-        <DropdownTitle {...{ rotateClass: state, title }} />
-        {state && <Items {...{ state, setState, options }} />}
+        <DropdownTitle {...{ state, dropDownTitle }} />
+        {state && <Items {...{ setState, options }} />}
       </div>
     </div>
   );

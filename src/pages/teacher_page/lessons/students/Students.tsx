@@ -92,15 +92,20 @@ export const Students: FC = () => {
             <FilterBtn>Սովորող</FilterBtn>
             <CustomDropdown
               className="filterBox"
-              title={"Ըստ դասընթացի"}
-              options={["aafsdfas"]}
+              dropDownTitle={"Ըստ դասընթացի"}
+              options={[
+                { title: "adfdsfsd" },
+                { title: "adfdsfsd" },
+                { title: "adfdsfsd" },
+                { title: "adfdsfsd" },
+              ]}
             />
           </div>
           <Table
             rows={[
               {
                 name: "Ուսանողի Անուն",
-                selector: ({ name }: any) => <TdName {...{ name }} />,
+                selector: ({ name }) => <TdName {...{ name }} />,
               },
               {
                 name: "Հեռախոս",

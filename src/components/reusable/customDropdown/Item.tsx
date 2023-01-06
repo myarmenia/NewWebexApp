@@ -1,13 +1,26 @@
-import React from "react";
+import { FC } from "react";
+import { useNavigate } from "react-router";
+import { IHeaderDropDownOption } from "../../../models/interfaces";
 
 interface ItemProps {
-  option: string;
+  option: IHeaderDropDownOption;
   setState: (state: boolean) => void;
 }
-export const Item: React.FC<ItemProps> = ({ option, setState }) => {
+export const Item: FC<ItemProps> = ({
+  option: { title, onClick, path },
+  setState,
+}) => {
+  const navigate = useNavigate();
   return (
-    <div className="dropItem" onClick={() => setState(false)}>
-      {option}
+    <div
+      className="dropItem"
+      onClick={() => {
+        onClick?.();
+        path && navigate(path);
+        setState(false);
+      }}
+    >
+      {title}
     </div>
   );
 };
