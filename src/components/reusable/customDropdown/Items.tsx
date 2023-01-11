@@ -1,7 +1,5 @@
 import React from "react";
-import {
-  IHeaderDropDownOption
-} from "../../../models/interfaces";
+import { IHeaderDropDownOption } from "../../../models/interfaces";
 import { Item } from "./Item";
 
 interface ItemsProps {
@@ -12,10 +10,12 @@ interface ItemsProps {
 export const Items: React.FC<ItemsProps> = ({ setState, options }) => {
   return (
     <div className="dropItems">
-      <div className="dropItemsCont">
-        {options.map((option, id) => (
-          <Item {...{ option, setState }} key={id} />
-        ))}
+      <div className="overflow-hidden rounded-2xl">
+        <div className="dropItemsCont">
+          {options.map((option, id) => (
+            <Item {...{ option, setState }} key={id} />
+          ))}
+        </div>
       </div>
     </div>
   );

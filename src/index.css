@@ -5,6 +5,7 @@
 * {
   box-sizing: border-box;
 }
+
 /* ----- active elements ----- */
 .activeNavItem {
   @apply text-[red];
@@ -155,12 +156,6 @@ div.custom_table thead tr th::before {
   -ms-appearance: none;
   appearance: none;
 }
-/* div.custom_table tbody:before {
-  content: "@";
-  display: block;
-  line-height: 5px;
-  text-indent: -99999px;
-} */
 /* ================================================================ */
 
 /* --------------- text hover animation ----------- */
@@ -188,7 +183,7 @@ div.custom_table thead tr th::before {
 }
 .bg_hover::after {
   content: "";
-  @apply absolute top-0 left-0 h-full w-full bg-gradientPurple -z-[1] rounded-2xl;
+  @apply absolute top-0 left-0 h-full w-full bg-gradientPurple -z-[1];
   transition: 0.2s ease all;
   transform: scale(0, 1);
   transform-origin: top right;

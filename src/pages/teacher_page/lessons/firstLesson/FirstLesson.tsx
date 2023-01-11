@@ -1,8 +1,8 @@
-import React from "react";
+import { FC } from "react";
+import "./firstLesson.css";
 import { LessonTitle } from "../../../../components/reusable";
 import { IPaginationItem } from "../../../../models/interfaces";
 import { FirstLesCont } from "./firstLesCont/FirstLesCont";
-import "./firstLesson.css";
 import { Pagination } from "./pagination/Pagination";
 
 const count = 15;
@@ -16,7 +16,7 @@ const paginationItems: IPaginationItem[] = Array.from({ length: count }).map(
   // ({ id: Math.random(), isActive: false, isCompleted: false })
 );
 
-export const FirstLesson: React.FC = () => {
+export const FirstLesson: FC = () => {
   return (
     <div className="firstLesson">
       <LessonTitle title="Նոր դասընթաց" />

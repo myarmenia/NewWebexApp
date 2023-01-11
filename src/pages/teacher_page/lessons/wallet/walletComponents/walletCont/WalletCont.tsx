@@ -1,14 +1,13 @@
+import "./walletCont.css";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FC, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import * as yup from "yup";
 import editPenImg from "../../../../../../assets/teacher_images/userLessons/editGray.svg";
-import { CustomBtn } from "../../../../../../components/forms";
-import { CustomSelect } from "../../../../../../components/forms";
+import { CustomBtn, CustomSelect } from "../../../../../../components/forms";
 import { ModalContainer } from "../../../../../../components/modalContainer/ModalContainer";
-import { Table } from "../../../../../../components/reusable/table/Table";
+import { Table } from "../../../../../../components/reusable";
 import { generateArray } from "../../../../../../helper";
-import "./walletCont.css";
 
 // ---------- validation ----------
 const walletModalFormSchema = yup.object().shape({
@@ -109,22 +108,22 @@ export const WalletCont: FC<WalletContProps> = ({ balance }) => {
                   rows={[
                     {
                       name: "Ամսաթիվ",
-                      selector: (obj: any) => "11/22/2022",
+                      render: () => "11/22/2022",
                       tdClassName: "!py-5 !px-5 text-center",
                     },
                     {
                       name: "Գումար",
-                      selector: (obj: any) => "1000 դրամ",
+                      render: () => "1000 դրամ",
                       tdClassName: "!py-5 !px-5 text-center",
                     },
                     {
                       name: "Գործարքի տեսակը",
-                      selector: (obj: any) => "Հաշվի համալրում",
+                      render: () => "Հաշվի համալրում",
                       tdClassName: "!py-5 !px-5 text-center",
                     },
                     {
                       name: "Հաշվի մնացորդը",
-                      selector: (obj: any) => "1000 դրամ",
+                      render: () => "1000 դրամ",
                       tdClassName: "!py-5 !px-5 text-center",
                     },
                   ]}

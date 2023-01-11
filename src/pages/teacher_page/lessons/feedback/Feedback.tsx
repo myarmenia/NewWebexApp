@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { LoaderFunctionArgs, Outlet } from "react-router";
 import { LessonTitle } from "../../../../components/reusable";
-import { instance } from "../../../../request/request";
+import { instance } from "../../../../request";
 import "./feedback.css";
 import { FeedbackCont } from "./feedbackComponents/feedbackCont/FeedbackCont";
 

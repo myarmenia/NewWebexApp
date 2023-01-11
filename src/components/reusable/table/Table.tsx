@@ -5,7 +5,7 @@ import { Thead } from "./Thead";
 export interface TableProps<T extends object> {
   rows: {
     name: string;
-    selector: (obj: T) => string | number | ReactNode | JSX.Element;
+    render: (obj: T) => string | number | ReactNode | JSX.Element;
     tdClassName?: string;
     thClassName?: string;
   }[];

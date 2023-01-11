@@ -1,17 +1,9 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import "./studentProgress.css";
-import { Table } from "../../../../components/reusable/table/Table";
-import toStudentsPageImg from "../../../../assets/teacher_images/students/Vector 214.svg";
 import listImg from "../../../../assets/student_images/studentLessons/Group 1667.svg";
-import { ProgressBar } from "../../../../components/reusable/ProgressBar";
+import toStudentsPageImg from "../../../../assets/teacher_images/students/Vector 214.svg";
+import { Table, ProgressBar } from "../../../../components/reusable";
 import { generateArray } from "../../../../helper";
-
-interface TableObjectProps {
-  title: string;
-  date: string | Date;
-  status: string;
-  progress: number;
-}
 
 export const StudentProgress: FC = () => {
   return (
@@ -27,25 +19,10 @@ export const StudentProgress: FC = () => {
               10
             </span>
           </div>
-          <div className="flex items-center justify-between gap-5">
-            <div className="flex flex-col items-center">
-              <div className="rounded-lg shadow-light bg-white px-3 font-semibold py-1 textPurple">
-                4
-              </div>
-              <span className="text-[#5F6368] text-[10px]">Ընթացիկ</span>
-            </div>
-            <div className="flex flex-col items-center">
-              <div className="rounded-lg shadow-light bg-white px-3 font-semibold py-1 textPurple">
-                3
-              </div>
-              <span className="text-[#5F6368] text-[10px]">Ավարտած</span>
-            </div>
-            <div className="flex flex-col items-center">
-              <div className="rounded-lg shadow-light bg-white px-3 font-semibold py-1 textPurple">
-                3
-              </div>
-              <span className="text-[#5F6368] text-[10px]">Ընդհատված</span>
-            </div>
+          <div className="grid items-center grid-cols-3 gap-2">
+            <ProgressInfoCard count={4} title="Ընթացիկ" />
+            <ProgressInfoCard count={3} title="Ավարտած" />
+            <ProgressInfoCard count={3} title="Ընդհատված" />
           </div>
         </div>
       </div>
@@ -53,26 +30,30 @@ export const StudentProgress: FC = () => {
         rows={[
           {
             name: "Դասընթացի անվանում",
-            selector: (obj: TableObjectProps) => (
+            render: () => (
               <div className="flex items-center gap-2 w-fit mx-auto">
                 <span>Գրաֆիկ դիզայնի դասընթաց</span>
-                <img src={toStudentsPageImg} className="w-[14px]" alt="" />
+                <img
+                  src={toStudentsPageImg}
+                  className="w-[14px] cursor-pointer"
+                  alt=""
+                />
               </div>
             ),
           },
           {
             name: "Գրանցման ամսաթիվը",
-            selector: (obj: TableObjectProps) => "10․10․2022",
+            render: () => "10․10․2022",
             tdClassName: "!text-center",
           },
           {
             name: "Կարգավիճակ",
-            selector: (obj: TableObjectProps) => "Ընթացիկ",
+            render: () => "Ընթացիկ",
             tdClassName: "!text-center",
           },
           {
             name: "Իմ առաջընթացը",
-            selector: (obj: TableObjectProps) => (
+            render: () => (
               <ProgressBar
                 className="w-[300px]"
                 progress={Math.floor(Math.random() * 100)}
@@ -84,6 +65,20 @@ export const StudentProgress: FC = () => {
         tbodyItems={generateArray(9)}
         className="custom_table"
       />
+    </div>
+  );
+};
+
+const ProgressInfoCard: FC<{ title: string; count: number }> = ({
+  title,
+  count,
+}) => {
+  return (
+    <div className="flex flex-col items-center">
+      <div className="rounded-lg shadow-light bg-white px-3 font-semibold py-1 textPurple">
+        {count}
+      </div>
+      <span className="text-[#5F6368] text-[10px]">{title}</span>
     </div>
   );
 };

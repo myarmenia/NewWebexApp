@@ -9,12 +9,13 @@
   transform: translate(-50%, 0);
 }
 .dropItemsCont {
-  @apply rounded-2xl bg-slate-50 overflow-hidden;
+  @apply -mb-[7px] rounded-2xl bg-slate-50 overflow-hidden overflow-y-auto max-h-[200px];
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
 }
 .dropItem {
-  @apply z-10 bg-slate-50 hover:bg-slate-100 text-center transition-all py-3 px-3 text-ellipsis overflow-hidden mx-auto h-fit w-full text-black whitespace-nowrap cursor-pointer;
-  position: initial;
+  @apply z-10 bg-slate-50 hover:bg-slate-100 text-center transition-all
+  py-3 px-3 text-ellipsis overflow-hidden mx-auto h-fit w-full text-black 
+  whitespace-nowrap cursor-pointer;
 }
 @media (max-width: 800px) {
   .customDropdown,

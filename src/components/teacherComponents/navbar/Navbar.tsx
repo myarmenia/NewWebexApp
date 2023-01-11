@@ -1,6 +1,6 @@
 import React from "react";
 import { INavItemsContent } from "../../../models/interfaces";
-import { CustomDropdown } from "../../reusable/customDropdown/CustomDropdown";
+import { CustomDropdown } from "../../reusable";
 import { NavItem } from "./navItem/NavItem";
 
 interface NavbarProps {

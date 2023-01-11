@@ -7,20 +7,15 @@ import {
   ILessonLoaderObj,
 } from "../../../../../models/interfaces";
 import { LesBox } from "../userLesComponents/lesBox/LesBox";
-import { instance } from "../../../../../request/request";
+import { instance } from "../../../../../request";
 
 interface UserLessons {
-  // lessonsArr: LessonProps[] | LesBoxProps[];
   lessonsArr: ILessonLoaderData[];
 }
 
 export const Lessons: FC = () => {
-  // ----- Loader data ------
   const lessonsArr = useLoaderData() as ILessonLoaderObj[];
-  // const lessonsArr = [] as ILessonLoaderObj[];
 
-  // const dispatch = useDispatch();
-  // const { lessonsArr } = useSelector(lessonsSelectorFN);
   return (
     <div className="flex flex-col gap-[94px]">
       <div>
@@ -51,7 +46,6 @@ export const Lessons: FC = () => {
                   to={`stage/${id}`}
                   isCourseActive={false}
                 />
-                {/* <LesBox {...el} studentsCount={3} /> */}
               </Fragment>
             ))}
           </div>
@@ -84,7 +78,6 @@ export const Lessons: FC = () => {
                   to={`stage/${id}`}
                   isCourseActive={true}
                 />
-                {/* <LesBox {...el} studentsCount={3} /> */}
               </Fragment>
             ))}
           </div>

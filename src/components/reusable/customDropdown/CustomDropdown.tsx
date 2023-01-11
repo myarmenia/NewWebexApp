@@ -1,18 +1,18 @@
 import React, { useState } from "react";
-import { IHeaderDropDownOption } from "../../../models/interfaces";
 import "./customDropdown.css";
+import { IHeaderDropDownOption } from "../../../models/interfaces";
 import { DropdownTitle } from "./DropdownTitle";
 import { Items } from "./Items";
 
 interface CustomDropdownProps {
   dropDownTitle: string;
-  options: IHeaderDropDownOption[];
+  options?: IHeaderDropDownOption[];
   className?: string;
 }
 
 export const CustomDropdown: React.FC<CustomDropdownProps> = ({
   dropDownTitle,
-  options,
+  options = [{ title: "something" }],
   className = "",
 }) => {
   const [state, setState] = useState<boolean>(false);

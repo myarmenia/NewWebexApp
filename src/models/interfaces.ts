@@ -19,7 +19,7 @@ export interface ICustomSelect {
 }
 
 export interface IHeaderDropDownOption {
-  title: string;
+  title?: string;
   path?: string;
   onClick?: () => void;
 }

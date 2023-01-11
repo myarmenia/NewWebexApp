@@ -1,15 +1,15 @@
 import { FC } from "react";
+import "./stageLesPage.css";
 import { LoaderFunctionArgs, useLoaderData } from "react-router";
 import { Link } from "react-router-dom";
 import editImg from "../../../../../assets/teacher_images/userLessons/editGray.svg";
 import { LessonTitle } from "../../../../../components/reusable";
 import { ILessonLoaderData } from "../../../../../models/interfaces";
-import { instance } from "../../../../../request/request";
+import { instance } from "../../../../../request";
 import { stagesArr } from "../lesPage/lesStages/LesStages";
 import { LesContainer } from "../userLesComponents/lesContainer/LesContainer";
 import { LesStageBox } from "./lesStageBox/LesStageBox";
 import { LesWorkBox, LesWorkBoxProps } from "./lesWorkBox/LesWorkBox";
-import "./stageLesPage.css";
 
 const lesWorkAndHomeWork: LesWorkBoxProps[] = [
   {
@@ -30,15 +30,9 @@ const lesWorkAndHomeWork: LesWorkBoxProps[] = [
 ];
 
 export const StageLesPage: FC = () => {
-  // ----- Loader data ------
   const { obj, lessonsObj, paramsLes } = useLoaderData() as ILessonLoaderData;
   const { title, id } = obj;
   const { body } = lessonsObj[paramsLes - 1];
-
-  // const params = useParams();
-  // const { lessonsArr } = useSelector(lessonsSelectorFN);
-  // const currentObj = lessonsArr[+params.les! - 1];
-  // const { title, body, id } = currentObj;
 
   return (
     <>

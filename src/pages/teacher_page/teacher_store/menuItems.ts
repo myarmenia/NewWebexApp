@@ -80,6 +80,6 @@ export const menuItems: IteacherMenu[] = [
     img: img8,
     activeImg: activeImg8,
     title: "Աջակցության կենտրոն",
-    to: "panel",
+    to: "help_center",
   },
 ];
