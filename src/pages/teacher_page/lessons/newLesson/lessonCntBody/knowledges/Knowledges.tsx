@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./knowledges.css";
 import { UseFieldArrayReturn, useFormContext } from "react-hook-form";
-import { TeacherSubmitForm } from "../validationSchema";
+import { TeacherSubmitForm } from "../../../../../../validations/newLesson_schema";
 import { KnwItem } from "./KnwItem";
 
 interface KnowledgesProps {

@@ -15,13 +15,11 @@ export const StageBody: React.FC = () => {
         <div className="LessonCntBody_box">
           <div className="LessonCntBody_boxContent">
             <CstmInput
-              type="text"
               placeholder="Դասի վերնագիրը*"
               regName="lessonTitle"
               className="shadow-light"
             />
             <CstmInput
-              type="text"
               placeholder="Տեսանյութ (կցել youtube-ի հղումը)"
               regName="videoInp"
               className="shadow-light"
@@ -45,7 +43,6 @@ export const StageBody: React.FC = () => {
         <div className="LessonCntBody_box">
           <div className="LessonCntBody_boxContent">
             <CstmInput
-              type="text"
               placeholder="Տեսանյութ (կցել youtube-ի հղումը)"
               regName="videoInpHomework"
               className="shadow-light"

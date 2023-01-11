@@ -1,7 +1,8 @@
-import "./customSelect.css";
-import { FC, useMemo, useState } from "react";
+import { FC, useState } from "react";
 import { useFormContext } from "react-hook-form";
+import { useError } from "../../../hooks";
 import { ICustomSelect } from "../../../models/interfaces";
+import "./customSelect.css";
 import { DefaultOption } from "./DefaultOption";
 import { Options } from "./Options";
 
@@ -20,7 +21,7 @@ interface CustomSelectProps
 
 export const CustomSelect: FC<CustomSelectProps> = ({
   options,
-  className,
+  className = "",
   isMutable,
   regName,
   error,
@@ -34,12 +35,7 @@ export const CustomSelect: FC<CustomSelectProps> = ({
   const toggleOptions = () => {
     setState((prev) => !prev);
   };
-  const errorMessage = useMemo(() => {
-    return (
-      error ||
-      (regName && formMethods?.formState?.errors[regName]?.message!.toString())
-    );
-  }, [error, formMethods?.formState?.errors[regName!]?.message]);
+  const errorMessage = useError(error, regName, formMethods);
   return (
     <div className="flex justify-center h-10">
       <div className={`customSelect ${className}`}>

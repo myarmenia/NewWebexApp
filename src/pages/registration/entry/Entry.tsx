@@ -1,7 +1,7 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import * as Yup from "yup";
 import Input from "../../../components/teacherComponents/sherid/Input";
+import { login_schema } from "../../../validations/login_schema";
 import emailIcon from "../../images/registration/mail.png";
 import passwordIcon from "../../images/registration/password.png";
 import "./entry.css";
@@ -12,23 +12,12 @@ interface EntryForm {
 }
 
 const Entry = () => {
-  const validationSchema = Yup.object().shape({
-    email: Yup.string()
-      .required("Էլ․ հասցեն պարտադիր է")
-      .email("Էլ․ հասցեն անվավեր է"),
-    password: Yup.string()
-      .required("Գաղտնաբառը պարտադիր է")
-      .min(8, "Գաղտնաբառը պետք է լինի առնվազն 8 նիշ")
-      .max(15, "Գաղտնաբառը չպետք է գերազանցի 15 նիշը"),
-    acceptTerms: Yup.bool().oneOf([true], "Պայմաններ ընդունելը  պարտադիր է"),
-  });
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors },
   } = useForm<EntryForm>({
-    resolver: yupResolver(validationSchema),
+    resolver: yupResolver(login_schema),
   });
 
   const onSubmit = (data: EntryForm) => {

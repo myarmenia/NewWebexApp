@@ -1,7 +1,7 @@
 import * as Yup from "yup";
 
 // Yup
-export const firstLessonSchema = Yup.object().shape({
+export const firstLesson_schema = Yup.object().shape({
   lessonTitle: Yup.string()
     .min(4, "min is 4")
     .max(24, "max is 24")

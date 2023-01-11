@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 import { LessonTitle } from "../../../../../components/reusable";
-import CreateGraffic from "../CreateGraffic";
+import { CreateGraffic } from "../CreateGraffic";
 import "./editGraffic.css";
 import GrafficChild from "./GrafficChild";
-const arr: any = {
+const arr: { [key: string]: { start: string; end: string }[] } = {
   monday: [
     {
       start: "11:44",
@@ -63,7 +63,7 @@ const arr: any = {
     },
   ],
 };
-const EditGraffic: React.FC = () => {
+export const EditGraffic: FC = () => {
   const [value, setValue] = useState(arr);
   console.log(value?.wednesday);
   console.log(value);
@@ -105,5 +105,3 @@ const EditGraffic: React.FC = () => {
     </>
   );
 };
-
-export default EditGraffic;

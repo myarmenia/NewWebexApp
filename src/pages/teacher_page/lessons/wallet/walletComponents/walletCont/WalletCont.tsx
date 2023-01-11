@@ -10,16 +10,17 @@ import { Table } from "../../../../../../components/reusable/table/Table";
 import { generateArray } from "../../../../../../helper";
 import "./walletCont.css";
 
-interface WalletContProps {
-  balance: number;
-}
-
+// ---------- validation ----------
 const walletModalFormSchema = yup.object().shape({
   planSelect: yup.string(),
 });
-
 export interface IWalletModalForm {
   planSelect: string;
+}
+// ===============================================
+
+interface WalletContProps {
+  balance: number;
 }
 export const WalletCont: FC<WalletContProps> = ({ balance }) => {
   const [transactionHistory, setTransactionHistory] = useState<boolean>(true);

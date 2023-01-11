@@ -5,7 +5,10 @@ interface ProgressBarProps {
   className?: string;
 }
 
-export const ProgressBar: FC<ProgressBarProps> = ({ progress, className }) => {
+export const ProgressBar: FC<ProgressBarProps> = ({
+  progress,
+  className = "",
+}) => {
   return (
     <div
       className={`text-[10px] mx-auto w-full h-3 flex bg-[#D9D9D9] relative rounded-[30px] overflow-hidden ${className}`}

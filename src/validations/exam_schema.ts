@@ -6,12 +6,12 @@ const questionProps = Yup.object().shape({
   responseVariants: Yup.array(
     Yup.object().shape({
       variant: Yup.string(),
-      isVariantTrue: Yup.boolean()
+      isVariantTrue: Yup.boolean(),
     })
   ),
 });
 
-export const examSchema = Yup.object().shape({
+export const exam_schema = Yup.object().shape({
   examTitle: Yup.string()
     .min(4, "min is 4")
     .max(16, "max is 16")

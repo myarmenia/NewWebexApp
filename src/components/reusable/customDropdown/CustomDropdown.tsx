@@ -13,7 +13,7 @@ interface CustomDropdownProps {
 export const CustomDropdown: React.FC<CustomDropdownProps> = ({
   dropDownTitle,
   options,
-  className,
+  className = "",
 }) => {
   const [state, setState] = useState<boolean>(false);
   return (

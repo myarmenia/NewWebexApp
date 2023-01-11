@@ -1,16 +1,15 @@
-import React, { FC, ReactNode } from "react";
-import { IWeekEvent } from "../../../../../../models/interfaces";
+import { FC, ReactNode } from "react";
+import { IWeekEvent } from "../../../../../models/interfaces";
 
 interface WkTdProps {
   event?: IWeekEvent;
-  hasEvent?: boolean;
   children?: ReactNode;
 }
 
-export const WkTd: FC<WkTdProps> = ({ event, hasEvent, children }) => {
+export const WkTd: FC<WkTdProps> = ({ event, children }) => {
   return (
     <td className="weekSchTd" key={Math.random()}>
-      {hasEvent && (
+      {event && (
         <div
           className="wkEventBox"
           style={{

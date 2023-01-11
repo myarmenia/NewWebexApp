@@ -1,14 +1,16 @@
 import React from "react";
+import "./inputChild.css";
 import buttonImg from "../../../../../assets/teacher_images/createGraffic/buttonimg.svg";
 import { useFormContext } from "react-hook-form";
-import { inputChildProps, PersonalSubmitForm } from "../InterfacePerson";
-import "./inputChild.css";
+import {
+  inputChildProps,
+  PersonalSubmitForm,
+} from "../../../../../validations/teacherInfo_schema";
 import { CstmInput } from "../../../../../components/forms";
 
-const Inp5: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
+export const Inp5: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
   const {
     register,
-    watch,
     formState: { errors },
   } = useFormContext<PersonalSubmitForm>();
   return (
@@ -25,19 +27,16 @@ const Inp5: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
         return (
           <div className="inputChild2" key={id}>
             <CstmInput
-              type="text"
               placeholder="Դասընթացի անվանումը"
               regName={`${regName}.${index}.name`}
               error={additionaleduError}
             />
             <CstmInput
-              type="text"
               placeholder="Դասընթացն անցկացնող կազմակերպություն"
               regName={`${regName}.${index}.company`}
               error={companyError}
             />
             <CstmInput
-              type="text"
               regName={`${regName}.${index}.profession`}
               placeholder="Մասնագիտություն"
               error={proffesionError}
@@ -87,5 +86,3 @@ const Inp5: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
     </div>
   );
 };
-
-export default Inp5;

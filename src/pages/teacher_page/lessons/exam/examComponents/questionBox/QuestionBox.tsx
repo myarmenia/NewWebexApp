@@ -7,7 +7,7 @@ import {
   UseFieldArrayReturn,
   useFormContext,
 } from "react-hook-form";
-import { IExamSchema } from "../../examSchema";
+import { IExamSchema } from "../../../../../../validations/exam_schema";
 import { ResVariant } from "../resVariant/ResVariant";
 import { LoadImage } from "../../../../../../components/teacherComponents/loadImage/LoadImage";
 import { CstmTextarea } from "../../../../../../components/forms";

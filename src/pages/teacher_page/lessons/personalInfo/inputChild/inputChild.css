@@ -9,7 +9,7 @@
   @apply h-auto flex  gap-[20px];
 }
 .deleteImg {
-  @apply w-[19px] h-[19px] mt-[2%] cursor-pointer;
+  @apply w-[19px] h-[19px] cursor-pointer;
 }
 .dateValidation {
   @apply w-full h-auto flex;

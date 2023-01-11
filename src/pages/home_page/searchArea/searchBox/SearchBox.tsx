@@ -4,7 +4,7 @@ import { SearchBoxProps } from "../../../../models/interfaces";
 
 export const SearchBox: React.FC<SearchBoxProps> = ({
   url,
-  className,
+  className = "",
   alt,
   title,
   animDelay,

@@ -11,15 +11,11 @@ interface SubmitBtnProps {
 export const CustomBtn: React.FC<SubmitBtnProps> = ({
   title,
   type = "button",
-  className,
+  className = "",
   onClick,
 }) => {
   return (
-    <button
-      type={type}
-      className={`addLessonBtn ${className}`}
-      onClick={onClick}
-    >
+    <button className={`addLessonBtn ${className}`} {...{ type, onClick }}>
       {title}
     </button>
   );

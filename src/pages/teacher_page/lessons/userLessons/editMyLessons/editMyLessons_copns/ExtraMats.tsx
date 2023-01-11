@@ -1,6 +1,9 @@
 import React, { FC, useEffect, useState } from "react";
 import { UseFieldArrayReturn, useFormContext } from "react-hook-form";
-import { IEditSchema, IExtraMats } from "../editSchema";
+import {
+  IEditSchema,
+  IExtraMats,
+} from "../../../../../../validations/editLesson_schema";
 import fileImg from "../../../../../../assets/teacher_images/userLessons/Group 1701.svg";
 import deleteMaterial from "../../../../../../assets/teacher_images/exam/Group 1555.svg";
 

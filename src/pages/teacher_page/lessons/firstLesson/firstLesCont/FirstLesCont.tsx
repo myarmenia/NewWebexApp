@@ -2,7 +2,7 @@ import React from "react";
 import "./firstLesCont.css";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FormProvider, useForm } from "react-hook-form";
-import { firstLessonSchema, IFirstLessonSchema } from "../firstLesSchema";
+import { firstLesson_schema, IFirstLessonSchema } from "../../../../../validations/firstLesson_schema";
 import { StageBody } from "./stageBody/StageBody";
 import { StageLessons } from "./stageLessons/StageLessons";
 import { Route, Routes } from "react-router";
@@ -11,7 +11,7 @@ import { CustomBtn } from "../../../../../components/forms";
 
 export const FirstLesCont: React.FC = () => {
   const methods = useForm<IFirstLessonSchema>({
-    resolver: yupResolver(firstLessonSchema),
+    resolver: yupResolver(firstLesson_schema),
   });
   const { handleSubmit } = methods;
 

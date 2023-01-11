@@ -1,11 +1,8 @@
-import React from "react";
+import { FC } from "react";
 import { useFormContext } from "react-hook-form";
-const Sertificat = () => {
-  const {
-    register,
-    watch,
-    formState: { errors },
-  } = useFormContext();
+
+export const Sertificat: FC = () => {
+  const { register } = useFormContext();
   return (
     <div className="sertificat">
       <div className="font-semibold text-gray text-sm">Սերտիֆիկատ</div>
@@ -16,5 +13,3 @@ const Sertificat = () => {
     </div>
   );
 };
-
-export default Sertificat;

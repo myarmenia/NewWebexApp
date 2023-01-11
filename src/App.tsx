@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./App.css";
 import Container from "./components/homeComponent/container/Container";
 import { Features } from "./pages/home_page/features/Features";
@@ -10,13 +10,12 @@ import { Opinion } from "./pages/home_page/opinion/Opinion";
 import { Questions } from "./pages/home_page/questions/Questions";
 import { SearchArea } from "./pages/home_page/searchArea/SearchArea";
 import { Lessons } from "./pages/home_page/lessons/Lessons";
-import { Teacher } from "./pages/teacher_page/Teacher";
 import Regsitration from "./pages/registration/Regsitration";
 import Entry from "./pages/registration/entry/Entry";
 import Tariffs from "./pages/home_page/tariffs/Tariffs";
 import { RouterProvider } from "react-router-dom";
 
-import { router } from "./routes/appRoute";
+import { router } from "./routes";
 function App() {
   return <RouterProvider router={router} />;
 }

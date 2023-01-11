@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { Outlet } from "react-router";
-import { IExtraMats } from "./editMyLessons/editSchema";
+import { IExtraMats } from "../../../../validations/editLesson_schema";
 import "./userLessons.css";
 
 export const extItems: IExtraMats[] = [

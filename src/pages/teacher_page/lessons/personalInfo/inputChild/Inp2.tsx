@@ -4,7 +4,10 @@ import buttonImg from "../../../../../assets/teacher_images/createGraffic/button
 import { CstmInput } from "../../../../../components/forms";
 import { CstmTextarea } from "../../../../../components/forms";
 import { CustomSelect } from "../../../../../components/forms";
-import { inputChildProps, PersonalSubmitForm } from "../InterfacePerson";
+import {
+  inputChildProps,
+  PersonalSubmitForm,
+} from "../../../../../validations/teacherInfo_schema";
 import "./inputChild.css";
 export const Inp2: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
   const {
@@ -27,8 +30,6 @@ export const Inp2: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
         return (
           <div className="inputChild2" key={id}>
             <CstmInput
-              type="text"
-              // className="name"
               placeholder="Կազմակերպություն"
               regName={`${regName}.${index}.company`}
               error={companyError}
@@ -41,7 +42,6 @@ export const Inp2: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
               error={selectError}
             />
             <CstmInput
-              type="text"
               className="name"
               placeholder="Պաշտոն"
               regName={`${regName}.${index}.position`}

@@ -1,15 +1,16 @@
 import React from "react";
-import buttonImg from "../../../../../assets/teacher_images/createGraffic/buttonimg.svg";
 import { useFormContext } from "react-hook-form";
-import { inputChildProps, PersonalSubmitForm } from "../InterfacePerson";
+import buttonImg from "../../../../../assets/teacher_images/createGraffic/buttonimg.svg";
+import { CstmInput, CustomSelect } from "../../../../../components/forms";
+import {
+  inputChildProps,
+  PersonalSubmitForm,
+} from "../../../../../validations/teacherInfo_schema";
 import "./inputChild.css";
-import { CstmInput } from "../../../../../components/forms";
-import { CustomSelect } from "../../../../../components/forms";
 
 export const Inp3: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
   const {
     register,
-    watch,
     formState: { errors },
   } = useFormContext<PersonalSubmitForm>();
 
@@ -35,21 +36,16 @@ export const Inp3: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
               error={select2Error}
             />
             <CstmInput
-              type="text"
               placeholder="Ուսումնական հաստատություն"
               regName={`${regName}.${index}.statement`}
               error={statementError}
             />
-
             <CstmInput
-              type="text"
               placeholder="Ֆակուլտետ"
               regName={`${regName}.${index}.faculty`}
               error={facultyError}
             />
-
             <CstmInput
-              type="text"
               placeholder="Մասնագիտություն"
               regName={`${regName}.${index}.profession`}
               error={professionError}
