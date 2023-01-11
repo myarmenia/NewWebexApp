@@ -1,12 +1,13 @@
 import { yupResolver } from "@hookform/resolvers/yup";
+import { FC } from "react";
 import { FormProvider, useFieldArray, useForm } from "react-hook-form";
-import * as Yup from "yup";
 import buttonImg from "../../../../assets/teacher_images/createGraffic/buttonimg.svg";
 import deleteImg from "../../../../assets/teacher_images/discount/delete.svg";
 import { CstmInput } from "../../../../components/forms";
 import { CustomBtn } from "../../../../components/forms";
 import { LessonTitle } from "../../../../components/reusable";
 import AddImg from "../../../../components/teacherComponents/sherid/addImg/AddImg";
+import { studentData_schema } from "../../../../validations/studentData_schema";
 import "./studentData.css";
 interface IPersonalInfoProps {
   adress: string;
@@ -20,23 +21,9 @@ interface IStudentData {
   personalInfo: IPersonalInfoProps[];
   language: ILanguageProps[];
 }
-export const StudentDataYup = Yup.object().shape({
-  imgSrc: Yup.string(),
-  personalInfo: Yup.array().of(
-    Yup.object().shape({
-      adress: Yup.string().required("Լրացնելը պարտադիր է"),
-      phoneNum: Yup.string().required("Լրացնելը պարտադիր է"),
-    })
-  ),
-  language: Yup.array().of(
-    Yup.object().shape({
-      name: Yup.string().required("Լրացնելը պարտադիր է"),
-    })
-  ),
-});
-export const StudentData = () => {
+export const StudentData: FC = () => {
   const methods = useForm<IStudentData>({
-    resolver: yupResolver(StudentDataYup),
+    resolver: yupResolver(studentData_schema),
     defaultValues: {
       language: [{ name: "" }],
       personalInfo: [{ adress: "", phoneNum: "" }],
@@ -80,13 +67,11 @@ export const StudentData = () => {
                   <div key={id} className="studentDataInp">
                     <CstmInput
                       placeholder="Հասցե"
-                      type="text"
                       regName={`personalInfo.${index}.adress`}
                       error={adressError}
                     />
                     <CstmInput
                       placeholder="Հեռախոս"
-                      type="text"
                       regName={`personalInfo.${index}.phoneNum`}
                       error={phoneNumError}
                     />
@@ -120,8 +105,6 @@ export const StudentData = () => {
                     <CstmInput
                       className="studentDataInp2"
                       placeholder="Հայերեն"
-                      type="text"
-                      key={id}
                       regName={`language.${index}.name`}
                       error={languageError}
                     />

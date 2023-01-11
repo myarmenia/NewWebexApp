@@ -1,7 +1,7 @@
 import React from "react";
 import "./differentCourses.css";
 import { FieldArrayWithId, useFormContext } from "react-hook-form";
-import { TeacherSubmitForm } from "../validationSchema";
+import { TeacherSubmitForm } from "../../../../../../validations/newLesson_schema";
 import { CustomNmbInp } from "../../../../../../components/forms";
 
 interface DifferentCoursesProps {

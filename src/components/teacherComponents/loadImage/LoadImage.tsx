@@ -11,7 +11,14 @@ interface LoadImageProps {
   };
 }
 
-export const LoadImage: React.FC<LoadImageProps> = ({ regName, className }) => {
+export const LoadImage: React.FC<LoadImageProps> = ({
+  regName,
+  className = {
+    div: "",
+    img: "",
+    text: "",
+  },
+}) => {
   const [file, setFile] = useState<string | any>("");
   const onFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFile(URL.createObjectURL(event.target.files![0]));

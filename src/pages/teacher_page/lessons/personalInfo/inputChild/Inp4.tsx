@@ -1,14 +1,16 @@
 import React from "react";
-import buttonImg from "../../../../../assets/teacher_images/createGraffic/buttonimg.svg";
-import { useFormContext } from "react-hook-form";
-import { inputChildProps, PersonalSubmitForm } from "../InterfacePerson";
 import "./inputChild.css";
-import { CstmInput } from "../../../../../components/forms";
+import buttonImg from "../../../../../assets/teacher_images/createGraffic/buttonimg.svg";
 import deleteImg from "../../../../../assets/teacher_images/discount/delete.svg";
-const Inp4: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
+import { useFormContext } from "react-hook-form";
+import {
+  inputChildProps,
+  PersonalSubmitForm,
+} from "../../../../../validations/teacherInfo_schema";
+import { CstmInput } from "../../../../../components/forms";
+
+export const Inp4: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
   const {
-    register,
-    watch,
     formState: { errors },
   } = useFormContext<PersonalSubmitForm>();
 
@@ -21,7 +23,6 @@ const Inp4: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
         return (
           <div className="inputChild3" key={id}>
             <CstmInput
-              type="text"
               className="name "
               placeholder="Հայերեն"
               regName={`${regName}.${index}.language`}
@@ -49,5 +50,3 @@ const Inp4: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
     </div>
   );
 };
-
-export default Inp4;

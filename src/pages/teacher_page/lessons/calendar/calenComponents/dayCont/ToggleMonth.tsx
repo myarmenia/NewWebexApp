@@ -1,5 +1,5 @@
 import { FC } from "react";
-import arrowImg from "../../../../../../../assets/teacher_images/calendar/arrowLeft.svg";
+import arrowImg from "../../../../../../assets/teacher_images/calendar/arrowLeft.svg";
 
 interface ToggleMonthProps {
   toggleMonth: () => void;
@@ -8,12 +8,12 @@ interface ToggleMonthProps {
 
 export const ToggleMonth: FC<ToggleMonthProps> = ({
   toggleMonth,
-  className,
+  className = "",
 }) => {
   return (
     <img
       src={arrowImg}
-      className={"arrow " + className}
+      className={"w-2 h-[14px] cursor-pointer " + className}
       alt=""
       onClick={toggleMonth}
     />

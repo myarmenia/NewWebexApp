@@ -13,7 +13,11 @@ export interface TableProps<T extends object> {
   className?: string;
 }
 
-export const Table: FC<TableProps<any>> = ({ rows, tbodyItems, className }) => {
+export const Table: FC<TableProps<any>> = ({
+  rows,
+  tbodyItems,
+  className = "",
+}) => {
   return (
     <div className={"overflow-x-auto " + className}>
       <table>

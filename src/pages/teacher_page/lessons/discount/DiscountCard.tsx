@@ -13,7 +13,7 @@ export const DiscountCard: React.FC<DiscountCardProps> = ({ isActive }) => {
   };
   return (
     <>
-      {modalActive ? <ModalDiscount modalActive={modalActiveClick} /> : null}
+      {modalActive && <ModalDiscount modalActive={modalActiveClick} />}
       <div className="discountCard">
         <div className="discountCardChild">
           <img src={isActive ? discount : promo} />

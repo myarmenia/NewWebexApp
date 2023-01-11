@@ -1,7 +1,7 @@
 import React from "react";
 import closeImg from "../../../../../../assets/teacher_images/newLesson/X.svg";
 import { UseFieldArrayReturn } from "react-hook-form";
-import { TeacherSubmitForm } from "../validationSchema";
+import { TeacherSubmitForm } from "../../../../../../validations/newLesson_schema";
 
 interface KnwItemProps {
   knowledge: string;

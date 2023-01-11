@@ -20,7 +20,7 @@ export const LesWorkBox: FC<LesWorkBoxProps> = ({
   videoUrl,
   description,
   extMats,
-  className,
+  className = { title: "" },
 }) => {
   return (
     <LesContainer className="lessonWork">

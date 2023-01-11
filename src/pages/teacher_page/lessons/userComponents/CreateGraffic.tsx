@@ -1,5 +1,5 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import React from "react";
+import React, { FC } from "react";
 import { FormProvider, useFieldArray, useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import * as Yup from "yup";
@@ -38,7 +38,7 @@ const Schema = Yup.object().shape({
   // saturday: SchemaChild,
   // sunday: SchemaChild,
 });
-const CreateGraffic: React.FC = () => {
+export const CreateGraffic: FC = () => {
   const methods = useForm<UserSubmitForm2>({
     resolver: yupResolver(Schema),
     defaultValues: {
@@ -143,5 +143,3 @@ const CreateGraffic: React.FC = () => {
     </FormProvider>
   );
 };
-
-export default CreateGraffic;

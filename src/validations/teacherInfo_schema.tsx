@@ -1,6 +1,5 @@
 import * as Yup from "yup";
 import { UseFieldArrayReturn } from "react-hook-form";
-import YouTubePlayer from "react-player/youtube";
 export interface inputChildProps {
   isActive?: boolean;
   option?: any;
@@ -48,7 +47,7 @@ export interface PersonalSubmitForm {
   sertificat: string;
 }
 
-export const personalInfoValidation = Yup.object().shape({
+export const teacherInfo_schema = Yup.object().shape({
   img: Yup.string(),
   address: Yup.string(),
   tel: Yup.string(),

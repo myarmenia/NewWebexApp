@@ -9,7 +9,7 @@ interface TdBoxProps extends IDateDay {
 export const TdBox: FC<TdBoxProps> = ({
   dayNumber,
   currentDayEvents,
-  className,
+  className = "",
   isCurrentMonth,
 }) => {
   return (

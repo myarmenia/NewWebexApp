@@ -1,57 +1,55 @@
+// react-router-dom
 import {
   createBrowserRouter,
-  createRoutesFromElements, Route
+  createRoutesFromElements,
+  Route,
 } from "react-router-dom";
-import { AddLesson } from "../pages/teacher_page/lessons/addLesson/AddLesson";
+
+// Pages for TEACHER section
+import { Teacher } from "../pages/teacher_page/Teacher";
 import {
+  AddLesson,
+  WeekSchedule,
+  ControlPanel,
+  Discount,
+  Exam,
   Calendar,
-  calendarLoader
-} from "../pages/teacher_page/lessons/calendar/Calendar";
-import { WeekSchedule } from "../pages/teacher_page/lessons/calendar/weekSchedule/WeekSchedule";
-import { ControlPanel } from "../pages/teacher_page/lessons/controlPanel/ControlPanel";
-import { Discount } from "../pages/teacher_page/lessons/discount/Discount";
-import { Exam } from "../pages/teacher_page/lessons/exam/Exam";
-import {
+  CreateGraffic,
+  EditGraffic,
+  EditMyLessons,
   Feedback,
+  FirstLesson,
+  NewLesson,
+  PersonalInfo,
+  Students,
+  UserLessons,
+  extItems,
+  Wallet,
+  calendarLoader,
   feedbackLessonLoader,
-  feedback_studentsLoader
-} from "../pages/teacher_page/lessons/feedback/Feedback";
-import { FirstLesson } from "../pages/teacher_page/lessons/firstLesson/FirstLesson";
-import { NewLesson } from "../pages/teacher_page/lessons/newLesson/NewLesson";
-import PersonalInfo from "../pages/teacher_page/lessons/personalInfo/PersonalInfo";
-import { Students } from "../pages/teacher_page/lessons/students/Students";
-import CreateGraffic from "../pages/teacher_page/lessons/userComponents/CreateGraffic";
-import EditGraffic from "../pages/teacher_page/lessons/userComponents/editGraffic/EditGraffic";
-import { EditMyLessons } from "../pages/teacher_page/lessons/userLessons/editMyLessons/EditMyLessons";
-import { Wallet } from "../pages/teacher_page/lessons/wallet/Wallet";
+  feedback_studentsLoader,
+  LesPage,
+  LesTask,
+  Lessons,
+  MesHomeWork,
+  MesMessages,
+  lessonPageLoader,
+  lessonsLoader,
+  StageLesPage,
+} from "../pages/teacher_page/lessons";
+
+// Pages for STUDENT section
+import { Student } from "../pages/student_page/Student";
+import {
+  StudentLessons,
+  StudentData,
+  StudentProgress,
+  StdLesPage,
+  stdLessonPageLoader,
+  StdLessons,
+} from "../pages/student_page/student_sections";
 
 import HelpCenter from "../pages/student_page/help_center/HelpCenter";
-import { Student } from "../pages/student_page/Student";
-import { StudentData } from "../pages/student_page/student_sections/studentData/StudentData";
-import {
-  StdLesPage,
-  stdLessonPageLoader
-} from "../pages/student_page/student_sections/studentLessons/stdLesson/StdLesPage";
-import { StdLessons } from "../pages/student_page/student_sections/studentLessons/stdLessons/StdLessons";
-import StudentLessons from "../pages/student_page/student_sections/studentLessons/StudentLessons";
-import { StudentProgress } from "../pages/student_page/student_sections/studentProgress/StudentProgress";
-import { LesTask } from "../pages/teacher_page/lessons/feedback/feedbackComponents/mesContent/lesTask/LesTask";
-import { MesHomeWork } from "../pages/teacher_page/lessons/feedback/feedbackComponents/mesContent/mesHomeWork/MesHomeWork";
-import { MesMessages } from "../pages/teacher_page/lessons/feedback/feedbackComponents/mesContent/mesMessages/MesMessages";
-import {
-  LesPage,
-  lessonPageLoader
-} from "../pages/teacher_page/lessons/userLessons/lesPage/LesPage";
-import {
-  Lessons,
-  lessonsLoader
-} from "../pages/teacher_page/lessons/userLessons/lessonsPage/Lessons";
-import { StageLesPage } from "../pages/teacher_page/lessons/userLessons/stageLesPage/StageLesPage";
-import {
-  extItems,
-  UserLessons
-} from "../pages/teacher_page/lessons/userLessons/UserLessons";
-import { Teacher } from "../pages/teacher_page/Teacher";
 import { MainRoute } from "./MainRoute";
 
 export const router = createBrowserRouter(

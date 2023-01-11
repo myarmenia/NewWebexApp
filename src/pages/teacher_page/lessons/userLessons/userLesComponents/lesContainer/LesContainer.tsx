@@ -8,7 +8,7 @@ interface LesContainerProps {
 
 export const LesContainer: FC<LesContainerProps> = ({
   children,
-  className,
+  className = "",
 }) => {
   return <div className={"lesContainer " + className}>{children}</div>;
 };

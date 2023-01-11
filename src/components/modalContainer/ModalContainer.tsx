@@ -1,9 +1,9 @@
-import React, { FC, ReactNode } from "react";
+import { FC, MouseEventHandler, ReactNode } from "react";
 import "./modalContainer.css";
 
 interface ModalContainerProps {
   children: ReactNode;
-  onClick?: () => void;
+  onClick?: MouseEventHandler<HTMLDivElement>;
   className?: {
     container?: string;
     modal?: string;
@@ -13,7 +13,7 @@ interface ModalContainerProps {
 export const ModalContainer: FC<ModalContainerProps> = ({
   children,
   onClick,
-  className,
+  className = { container: "", modal: "" },
 }) => {
   return (
     <div className={"modalContainer " + className?.container}>

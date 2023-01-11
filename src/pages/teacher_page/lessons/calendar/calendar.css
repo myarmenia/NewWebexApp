@@ -1,33 +1,30 @@
 @tailwind components;
-#CalendarBody {
+#calendarBody {
   @apply flex rounded-[15px] my-[15px] bg-[#F8EFFF];
   box-shadow: 0px 0px 6px #8080801a;
 }
 @layer components {
-  #CalendarBodyContainer {
+  #calendarBodyContainer {
     @apply shadow-light w-full h-full flex rounded-[15px];
   }
 }
 .fullHR {
   @apply bg-[#BEBFE4] w-[2px];
 }
-#table2 {
-  @apply w-full border-collapse h-[inherit];
-}
 
 @media (max-width: 860px) {
-  #CalendarBodyContainer {
+  #calendarBodyContainer {
     @apply flex-col;
   }
-  #CalendarBody_NumericContainer {
+  #numericContainer {
     @apply w-auto;
   }
-  #CalendarBody_DayContainerContent {
+  #dayContainerContent {
     @apply overflow-x-auto;
   }
 }
 @media (max-width: 610px) {
-  #CalendarHeadBox2 {
+  #calendarHeadBox {
     @apply h-[inherit];
   }
   #monthBox {
@@ -35,7 +32,7 @@
   }
 }
 @media (max-width: 420px) {
-  #CalendarBody_DayContainerHead {
+  #dayContainerHead {
     @apply flex flex-wrap gap-[15px] items-center justify-center h-20;
   }
   #monthBox {

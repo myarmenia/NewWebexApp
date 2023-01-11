@@ -6,7 +6,7 @@ import {
 } from "react-hook-form";
 import removeVariantImg from "../../../../../../assets/teacher_images/exam/Group 1555.svg";
 import { CstmInput } from "../../../../../../components/forms";
-import { IExamSchema } from "../../examSchema";
+import { IExamSchema } from "../../../../../../validations/exam_schema";
 
 interface ResVariantProps {
   field: FieldArrayWithId<IExamSchema, "questionBox", "id">;
@@ -39,7 +39,6 @@ export const ResVariant: React.FC<ResVariantProps> = ({
   return (
     <div className="flex justify-between gap-[31px] items-center" key={ind}>
       <CstmInput
-        type="text"
         placeholder={`Տարբերակ ${ind + 1}`}
         className="w-full"
         regName={`questionBox.${i}.responseVariants.${ind}.variant`}

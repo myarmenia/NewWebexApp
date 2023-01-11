@@ -1,14 +1,14 @@
 import * as Yup from "yup";
 
 // Yup
-export const nLessCreate_L_Schema = Yup.object().shape({
+export const newLesson_schema = Yup.object().shape({
   title: Yup.string()
     .min(4, "վերնագիրը պետք է լինի առնվազն 4 նիշ")
     .max(20, "վերնագիրը չպետք է գերազանցի 20 նիշը")
     .required("title is required"),
   select: Yup.string().required("this option is required"),
   select1: Yup.string().required("this option is required").default(""),
-  // describtion: Yup.string().min(3, "min is 3"),
+  describtion: Yup.string().min(3, "min is 3").required("afdsfs"),
   cost: Yup.number()
     .positive()
     .typeError("must be 'number' and this option is required")
@@ -30,7 +30,7 @@ export const nLessCreate_L_Schema = Yup.object().shape({
   stagesCount: Yup.number()
     .positive()
     .typeError("must be 'number'")
-    .moreThan(1, "minimum 1")
+    .moreThan(0, "minimum 1")
     .lessThan(99, "maximum 99")
     .default(3),
   stageLessons: Yup.number()
@@ -53,7 +53,7 @@ export const nLessCreate_L_Schema = Yup.object().shape({
       stageDescription: Yup.string()
         .min(4, "some aafdsadf")
         .required("required"),
-      count: Yup.number().moreThan(2, "more than 2").required("dfadf"),
+      count: Yup.number(),
       stage: Yup.number(),
     })
   ),
@@ -66,7 +66,7 @@ export interface TeacherSubmitForm {
   title: string;
   select: string;
   select1: string;
-  // describtion: string;
+  describtion: string;
   cost: number;
   isAgeLimit: boolean;
   minAgeLimit?: number;

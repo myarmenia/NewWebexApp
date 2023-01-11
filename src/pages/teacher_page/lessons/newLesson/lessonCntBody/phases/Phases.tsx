@@ -1,7 +1,7 @@
 import React from "react";
 import "./phases.css";
 import { FieldArrayWithId } from "react-hook-form";
-import { TeacherSubmitForm } from "../validationSchema";
+import { TeacherSubmitForm } from "../../../../../../validations/newLesson_schema";
 import { useFormContext } from "react-hook-form";
 import { CstmInput } from "../../../../../../components/forms";
 
@@ -24,7 +24,6 @@ export const Phases: React.FC<PhasesProps> = ({ fields }) => {
           return (
             <CstmInput
               key={field.id}
-              type="text"
               placeholder={`Փուլ ${index + 1}`}
               regName={`stages.${index}.stageDescription`}
               error={myError}

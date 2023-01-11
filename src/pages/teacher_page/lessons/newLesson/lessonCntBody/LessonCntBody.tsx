@@ -17,7 +17,10 @@ import { Knowledges } from "./knowledges/Knowledges";
 import "./lessonCntBody.css";
 import { Phases } from "./phases/Phases";
 import { TxtWinput } from "./txtWinput/TxtWinput";
-import { nLessCreate_L_Schema, TeacherSubmitForm } from "./validationSchema";
+import {
+  newLesson_schema,
+  TeacherSubmitForm,
+} from "../../../../../validations/newLesson_schema";
 
 export const LessonCntBody: React.FC = () => {
   const navigate = useNavigate();
@@ -31,18 +34,14 @@ export const LessonCntBody: React.FC = () => {
   const [isDifferent, setIsDifferent] = useState<boolean>(false);
 
   const methods = useForm<TeacherSubmitForm>({
-    resolver: yupResolver(nLessCreate_L_Schema),
+    resolver: yupResolver(newLesson_schema),
     defaultValues: {
       stages: [
         { stage: 0, count: 2, stageDescription: "" },
         { stage: 1, count: 2, stageDescription: "" },
         { stage: 2, count: 2, stageDescription: "" },
       ],
-      requiredKnowledges: [
-        // {
-        //   knowledge: "React.js",
-        // },
-      ],
+      requiredKnowledges: [],
     },
   });
   const { register, handleSubmit, control } = methods;
@@ -57,16 +56,16 @@ export const LessonCntBody: React.FC = () => {
   const { fields } = fieldArray;
 
   const onSubmit = (data: TeacherSubmitForm) => {
-    let values = {};
+    let values;
     if (!data.areStagesDifferent) {
-      values = {
-        ...data,
-        stages: data.stages.map((el) => {
-          let elem = { ...el };
-          delete elem.count;
-          return elem;
+      let myStages = data.stages.map((el) => {
+          delete el.count;
+          return el;
         }),
-      };
+        values = {
+          ...data,
+          stages: myStages,
+        };
     } else {
       delete data.stageLessons;
       values = { ...data };
@@ -80,6 +79,8 @@ export const LessonCntBody: React.FC = () => {
     }
 
     console.log(values, "porc");
+    console.log(!data.areStagesDifferent);
+
     if (values) {
       navigate("lesson_graffic");
     }
@@ -90,11 +91,7 @@ export const LessonCntBody: React.FC = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="lessonContainer newLesCont">
             <div className="LessonCntBody_box">
-              <CstmInput
-                placeholder="Դասընթացի վերնագիրը*"
-                type="text"
-                regName="title"
-              />
+              <CstmInput placeholder="Դասընթացի վերնագիրը*" regName="title" />
               <CustomSelect
                 placeholder="Ընտրել կատեգորիան*"
                 options={selectOptions}
@@ -185,15 +182,6 @@ export const LessonCntBody: React.FC = () => {
           </div>
           <div className="nextBtnCont">
             <CustomBtn title="Առաջ" type="submit" />
-            {/* <button
-              type="button"
-              className="addLessonBtn"
-              onClick={() => {
-                console.log(watch());
-              }}
-            >
-              watch
-            </button> */}
           </div>
         </form>
       </div>

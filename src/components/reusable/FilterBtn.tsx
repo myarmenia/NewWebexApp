@@ -8,7 +8,7 @@ interface FilterBtnProps {
 
 export const FilterBtn: FC<FilterBtnProps> = ({
   children,
-  className,
+  className = "",
   onClick,
 }) => {
   return (

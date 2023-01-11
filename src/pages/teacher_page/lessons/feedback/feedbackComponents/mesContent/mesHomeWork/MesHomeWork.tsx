@@ -55,7 +55,6 @@ export const MesHomeWork: FC = () => {
               <CstmInput
                 className="!w-[193px]"
                 placeholder="Գնահատել ուսանողին"
-                type="text"
                 regName="studnet_rate"
               />
               <CustomBtn type="submit" title="Հաստատել" />

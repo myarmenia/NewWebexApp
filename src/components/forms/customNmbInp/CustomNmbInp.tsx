@@ -1,20 +1,12 @@
-import React, {
-  Dispatch,
-  SetStateAction,
-  useEffect,
-  useMemo,
-  useState
-} from "react";
-import {
-  UseFieldArrayReturn,
-  useFormContext
-} from "react-hook-form";
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { UseFieldArrayReturn, useFormContext } from "react-hook-form";
 import arrow from "../../../assets/teacher_images/newLesson/Polygon 3.svg";
-import { TeacherSubmitForm } from "../../../pages/teacher_page/lessons/newLesson/lessonCntBody/validationSchema";
+import { useError } from "../../../hooks";
+import { TeacherSubmitForm } from "../../../validations/newLesson_schema";
 import "./customNmbInp.css";
 
 interface CustomNmbInpProps {
-  defaultValue: number;
+  defaultValue?: number;
   regName?: string;
   error?: string;
   fieldArray?: UseFieldArrayReturn<TeacherSubmitForm, "stages", "id">;
@@ -23,7 +15,7 @@ interface CustomNmbInpProps {
 }
 
 export const CustomNmbInp: React.FC<CustomNmbInpProps> = ({
-  defaultValue,
+  defaultValue = 1,
   regName,
   error,
   fieldArray,
@@ -55,12 +47,8 @@ export const CustomNmbInp: React.FC<CustomNmbInpProps> = ({
     regName && methods?.setValue(regName, age);
   }, [age]);
 
-  const errorMessage = useMemo(() => {
-    return (
-      error ||
-      (regName && methods?.formState?.errors[regName]?.message!.toString())
-    );
-  }, [error, methods?.formState?.errors]);
+  const errorMessage = useError(error, regName, methods);
+
   return (
     <div className="relative">
       <div className="customNmbInp">
@@ -72,7 +60,6 @@ export const CustomNmbInp: React.FC<CustomNmbInpProps> = ({
             defaultValue={age}
             {...registerWithName}
             value={value}
-            // onChange={(e) => setValue?.(e.target.value)}
           />
         </div>
         <img src={arrow} alt="" className="arrowLeft" onClick={decrease} />

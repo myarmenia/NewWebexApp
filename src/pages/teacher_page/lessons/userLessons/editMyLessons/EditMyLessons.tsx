@@ -8,7 +8,11 @@ import { ILessonLoaderData } from "../../../../../models/interfaces";
 import { LesContainer } from "../userLesComponents/lesContainer/LesContainer";
 import "./editMyLessons.css";
 import { ExtraMats } from "./editMyLessons_copns/ExtraMats";
-import { editSchema, IEditSchema, IExtraMats } from "./editSchema";
+import {
+  editLesson_schema,
+  IEditSchema,
+  IExtraMats,
+} from "../../../../../validations/editLesson_schema";
 
 interface EditMyLessonsProps {
   title?: string;
@@ -33,16 +37,9 @@ export const EditMyLessons: FC<EditMyLessonsProps> = ({
   const { obj, lessonsObj, paramsLes } = useLoaderData() as ILessonLoaderData;
   const { title } = obj;
   const { body } = lessonsObj[paramsLes - 1];
-
-  // const params = useParams();
-  // const {
-  //   feedbackArr: { messages },
-  // } = useSelector(lessonsSelectorFN);
-  // const currentObj = messages[+params.id! - 1];
-  // const { title, body } = currentObj;
-
+  
   const methods = useForm<IEditSchema>({
-    resolver: yupResolver(editSchema),
+    resolver: yupResolver(editLesson_schema),
   });
 
   const { handleSubmit, setValue, control } = methods;
@@ -74,20 +71,16 @@ export const EditMyLessons: FC<EditMyLessonsProps> = ({
             <div className="inputContainer">
               <div className="lesSection">
                 <CstmTextarea
-                  placeholder=""
                   defaultValue={body}
                   regName="title"
                   className="editP_input min-h-[200px]"
                 />
                 <CstmInput
-                  type="text"
-                  placeholder=""
                   defaultValue={inp2}
                   regName="videoSource"
                   className="editP_input"
                 />
                 <CstmTextarea
-                  placeholder=""
                   defaultValue={inp3}
                   regName="description"
                   className="editP_input"
@@ -97,14 +90,11 @@ export const EditMyLessons: FC<EditMyLessonsProps> = ({
               <div className="homeSection">
                 <p className="homeTitle">Տնային աշխատանք</p>
                 <CstmInput
-                  type="text"
-                  placeholder=""
                   defaultValue={inp4}
                   className="editP_input"
                   regName="homeW_videoSource"
                 />
                 <CstmTextarea
-                  placeholder=""
                   defaultValue={inp4}
                   className="editP_input"
                   regName="homeW_description"

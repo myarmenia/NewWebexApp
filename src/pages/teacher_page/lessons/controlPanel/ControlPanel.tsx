@@ -1,5 +1,4 @@
-import React from "react";
-import PersonalInfo from "../personalInfo/PersonalInfo";
+import React, { FC } from "react";
 import "./controlPanel.css";
 import { PanelChild } from "./panelChild/PanelChild";
 import PersonalData from "./panelChild/PersonalData";
@@ -12,7 +11,7 @@ import notification from "../../../../assets/teacher_images/controlPanel/notific
 import help from "../../../../assets/teacher_images/controlPanel/help.svg";
 import { LessonTitle } from "../../../../components/reusable";
 
-export const ControlPanel = () => {
+export const ControlPanel: FC = () => {
   return (
     <>
       <LessonTitle title="Ղեկավարման վահանակ" />

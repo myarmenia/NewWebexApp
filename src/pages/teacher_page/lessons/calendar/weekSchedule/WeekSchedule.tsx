@@ -4,7 +4,7 @@ import { LessonTitle } from "../../../../../components/reusable";
 import { getCurrentWeekStartToEnd } from "../../../../../helper";
 import { useAppSelector } from "../../../../../hooks";
 import { WkTbody } from "./wkTbody/WkTbody";
-import { WkThead } from "./wkThead/WkThead";
+import { WkThead } from "./WkThead";
 
 export const WeekSchedule: FC = () => {
   const { chosenDay } = useAppSelector((state) => state.calendarList);

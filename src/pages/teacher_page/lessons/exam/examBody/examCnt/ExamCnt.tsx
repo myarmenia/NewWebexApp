@@ -2,7 +2,7 @@ import React from "react";
 import "./examCnt.css";
 import { UseFieldArrayReturn } from "react-hook-form";
 import { AttachImage } from "../../examComponents/attachImgae/AttachImage";
-import { IExamSchema } from "../../examSchema";
+import { IExamSchema } from "../../../../../../validations/exam_schema";
 import { QuestionBox } from "../../examComponents/questionBox/QuestionBox";
 import { CstmInput } from "../../../../../../components/forms";
 import { CstmTextarea } from "../../../../../../components/forms";
@@ -15,19 +15,10 @@ export const ExamCnt: React.FC<ExamCntProps> = ({ questions }) => {
   return (
     <div className="examCnt">
       <div className="examCnt1 w-[41.5%]">
-        <CstmInput
-          type="text"
-          placeholder="Քննության վերնագիրը"
-          regName="examTitle"
-        />
+        <CstmInput placeholder="Քննության վերնագիրը" regName="examTitle" />
         <CstmTextarea placeholder="Նկարագրություն" regName="describtion" />
+        <CstmInput placeholder="Անցողիկ շեմը (%)" regName="threshold" />
         <CstmInput
-          type="text"
-          placeholder="Անցողիկ շեմը (%)"
-          regName="threshold"
-        />
-        <CstmInput
-          type="text"
           placeholder="Քննության տևողությունը (րոպե)"
           regName="duration"
         />

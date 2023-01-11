@@ -1,10 +1,13 @@
-import { Component, FC, ReactNode, useEffect } from "react";
-import { Outlet, useNavigate } from "react-router-dom";
+import { FC, useEffect } from "react";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 
 export const MainRoute: FC = () => {
   const navigate = useNavigate();
+  const { pathname } = useLocation();
   useEffect(() => {
-    navigate("teacher");
+    if (pathname === "/") {
+      navigate("teacher");
+    }
   }, []);
   return <Outlet />;
 };

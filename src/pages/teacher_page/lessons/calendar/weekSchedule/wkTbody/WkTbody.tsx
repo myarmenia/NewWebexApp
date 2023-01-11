@@ -1,7 +1,10 @@
-import React, { FC } from "react";
 import "./wkTbody.css";
+import { FC } from "react";
 import { weekScheduleTime, weekSheduleEvents } from "../../../../../../helper";
-import { WkTd } from "../wkTd/WkTd";
+import { WkTd } from "../WkTd";
+
+const strOrNumber = (e: string | number): number =>
+  typeof e === "string" ? parseInt(e) : e;
 
 export const WkTbody: FC = () => {
   return (
@@ -11,17 +14,13 @@ export const WkTbody: FC = () => {
           <WkTd>{el}</WkTd>
           {Array.from({ length: 7 }).map((item, row) => {
             for (let event of weekSheduleEvents) {
-              const eventTime =
-                typeof event.evTime === "string"
-                  ? parseInt(event.evTime)
-                  : event.evTime!;
-              if (event.weekday! - 1 === row && eventTime - 8 === col) {
-                return (
-                  <WkTd hasEvent={true} {...{ event }} key={Math.random()} />
-                );
+              if (
+                event.weekday! - 1 === row &&
+                strOrNumber(event.evTime!) - 8 === col
+              ) {
+                return <WkTd {...{ event }} key={Math.random()} />;
               }
             }
-
             return <WkTd key={Math.random()} />;
           })}
         </tr>

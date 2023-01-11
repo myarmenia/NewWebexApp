@@ -18,7 +18,7 @@ interface LessonTitleProps {
 export const LessonTitle: React.FC<LessonTitleProps> = ({
   title,
   editIsActive,
-  className,
+  className = "",
   classNameParent,
   linkForBtn,
 }) => {

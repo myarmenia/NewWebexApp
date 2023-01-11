@@ -1,21 +1,27 @@
+import "./personalInfo.css";
+import { FC } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FormProvider, useFieldArray, useForm } from "react-hook-form";
-// import { InputChild } from "./inputChild/InputChild";
+import {
+  CstmInput,
+  CstmTextarea,
+  CustomBtn,
+} from "../../../../components/forms";
 import { LessonTitle } from "../../../../components/reusable";
-import { CstmInput } from "../../../../components/forms";
 import AddImg from "../../../../components/teacherComponents/sherid/addImg/AddImg";
 import { Inp2 } from "./inputChild/Inp2";
 import { Inp3 } from "./inputChild/Inp3";
-import Sertificat from "./inputChild/Sertificat";
-import { personalInfoValidation, PersonalSubmitForm } from "./InterfacePerson";
-import "./personalInfo.css";
-import { CstmTextarea } from "../../../../components/forms";
-import Inp4 from "./inputChild/Inp4";
-import Inp5 from "./inputChild/Inp5";
-import { CustomBtn } from "../../../../components/forms";
-const PersonalInfo = () => {
+import { Inp4 } from "./inputChild/Inp4";
+import { Inp5 } from "./inputChild/Inp5";
+import { Sertificat } from "./inputChild/Sertificat";
+import {
+  teacherInfo_schema,
+  PersonalSubmitForm,
+} from "../../../../validations/teacherInfo_schema";
+
+export const PersonalInfo: FC = () => {
   const methods = useForm<PersonalSubmitForm>({
-    resolver: yupResolver(personalInfoValidation),
+    resolver: yupResolver(teacherInfo_schema),
     defaultValues: {
       workattempt: [
         {
@@ -50,7 +56,7 @@ const PersonalInfo = () => {
       ],
     },
   });
-  const { handleSubmit, control, register, watch } = methods;
+  const { handleSubmit, control } = methods;
   const workattempt = useFieldArray({
     control,
     name: "workattempt",
@@ -83,8 +89,8 @@ const PersonalInfo = () => {
                 <div className="font-semibold text-gray text-sm">
                   Անձնական տվյալներ
                 </div>
-                <CstmInput type="text" placeholder="Հասցե" regName="address" />
-                <CstmInput type="text" placeholder="Հեռախոս" regName="tel" />
+                <CstmInput placeholder="Հասցե" regName="address" />
+                <CstmInput placeholder="Հեռախոս" regName="tel" />
               </div>
               <div className="flex flex-col gap-3">
                 <p className="font-semibold text-gray text-sm">Իմ մասին</p>
@@ -111,5 +117,3 @@ const PersonalInfo = () => {
     </>
   );
 };
-
-export default PersonalInfo;

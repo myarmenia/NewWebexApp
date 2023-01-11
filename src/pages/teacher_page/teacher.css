@@ -5,16 +5,10 @@
   @apply w-full bg-cover;
 }
 .lessonInp {
-  @apply w-full py-3 px-[17px] bg-white rounded-2xl outline-none h-10 text-base;
+  @apply w-full py-3 px-[17px] bg-white rounded-2xl outline-none h-10 text-base
+  placeholder:text-[#9C9C9C] placeholder:text-xs;
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.05);
 }
-.lessonInp::placeholder {
-  @apply text-[#9C9C9C] text-xs;
-}
-/* * { */
-/* @apply text-gray; */
-/* } */
-
 .activeNavItem {
   @apply text-[red];
 }
