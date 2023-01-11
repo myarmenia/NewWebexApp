@@ -1,16 +1,15 @@
-import { FC, useCallback, useState } from "react";
+import { FC, useState } from "react";
+import "./stdLesPage.css";
 import { LoaderFunctionArgs } from "react-router";
-import { CstmTextarea } from "../../../../../components/forms";
-import { CustomBtn } from "../../../../../components/forms";
+import { CstmTextarea, CustomBtn } from "../../../../../components/forms";
 import { LessonTitle } from "../../../../../components/reusable";
 import { LessonProps } from "../../../../../models/interfaces";
-import { instance } from "../../../../../request/request";
+import { instance } from "../../../../../request";
 import { LesContainer } from "../../../../teacher_page/lessons/userLessons/userLesComponents/lesContainer/LesContainer";
 import { LesPTitle } from "../../../../teacher_page/lessons/userLessons/userLesComponents/lesPTitle/LesPTitle";
 import { LesImageBox } from "./lesImageBox/LesImageBox";
 import { OpinionStars } from "./opinionStars/OpinionStars";
 import { StdLesCases } from "./stdLesCases/StdLesCases";
-import "./stdLesPage.css";
 import { StdLesStages } from "./stdLesStages/StdLesStages";
 
 export interface LesPageProps extends LessonProps {
@@ -30,15 +29,6 @@ export const StdLesPage: FC<LesPageProps> = ({
   price,
   title,
 }) => {
-  // ----- Loader data ------
-  // const { obj } = useLoaderData() as ILessonLoaderData;
-  // const { title, body } = obj;
-
-  // const params = useParams();
-  // const { lessonsArr } = useSelector(lessonsSelectorFN);
-  // const currentObj = lessonsArr[+params.id! - 1];
-  // const { title, body } = currentObj;
-
   const [value, setValue] = useState<string>("");
   const [error, setError] = useState(false);
 

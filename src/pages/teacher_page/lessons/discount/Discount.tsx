@@ -1,8 +1,7 @@
 import { FC } from "react";
-import { CustomBtn } from "../../../../components/forms";
-import { LessonTitle } from "../../../../components/reusable";
-import { Table } from "../../../../components/reusable/table/Table";
 import "./discount.css";
+import { CustomBtn } from "../../../../components/forms";
+import { LessonTitle, Table } from "../../../../components/reusable";
 import { DiscountCard } from "./DiscountCard";
 
 export const Discount: FC = () => {
@@ -21,27 +20,27 @@ export const Discount: FC = () => {
               rows={[
                 {
                   name: "Ժամանակահատված",
-                  selector: (obj: any) => "11/22/2022 - 12/22/2022",
+                  render: () => "11/22/2022 - 12/22/2022",
                   tdClassName: "text-center",
                 },
                 {
                   name: "Դասընթաց",
-                  selector: (obj: any) => "Դասընթացի վերնագիրը",
+                  render: () => "Դասընթացի վերնագիրը",
                   tdClassName: "text-center",
                 },
                 {
                   name: "Տեսակ",
-                  selector: (obj: any) => "Զեղչ",
+                  render: () => "Զեղչ",
                   tdClassName: "text-center",
                 },
                 {
                   name: "Արժեք",
-                  selector: (obj: any) => "20%",
+                  render: () => "20%",
                   tdClassName: "text-center",
                 },
                 {
                   name: "Ապակտիվացնել",
-                  selector: (obj: any) => (
+                  render: () => (
                     <CustomBtn
                       className="!w-fit !min-w-min"
                       title="Դադարեցնել"
@@ -60,27 +59,27 @@ export const Discount: FC = () => {
               rows={[
                 {
                   name: "Ժամանակահատված",
-                  selector: (obj: any) => "11/22/2022 - 12/22/2022",
+                  render: () => "11/22/2022 - 12/22/2022",
                   tdClassName: "text-center",
                 },
                 {
                   name: "Դասընթաց",
-                  selector: (obj: any) => "Դասընթացի վերնագիրը",
+                  render: () => "Դասընթացի վերնագիրը",
                   tdClassName: "text-center",
                 },
                 {
                   name: "Տեսակ",
-                  selector: (obj: any) => "Պրոմո",
+                  render: () => "Պրոմո",
                   tdClassName: "text-center",
                 },
                 {
                   name: "Արժեք",
-                  selector: (obj: any) => "",
+                  render: () => "",
                   tdClassName: "text-center",
                 },
                 {
                   name: "Ապակտիվացնել",
-                  selector: (obj: any) => (
+                  render: () => (
                     <CustomBtn
                       className="!w-fit !min-w-min"
                       title="Հանել պրոմոյից"

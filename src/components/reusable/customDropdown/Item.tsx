@@ -13,11 +13,11 @@ export const Item: FC<ItemProps> = ({
   const navigate = useNavigate();
   return (
     <div
-      className="dropItem"
+      className="dropItem bg_hover"
       onClick={() => {
         onClick?.();
         path && navigate(path);
-        setState(false);
+        // setState(false);
       }}
     >
       {title}

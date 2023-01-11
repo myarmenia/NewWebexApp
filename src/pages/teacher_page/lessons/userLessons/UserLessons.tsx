@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import { FC } from "react";
+import "./userLessons.css";
 import { Outlet } from "react-router";
 import { IExtraMats } from "../../../../validations/editLesson_schema";
-import "./userLessons.css";
 
 export const extItems: IExtraMats[] = [
   {
@@ -21,11 +21,6 @@ export const extItems: IExtraMats[] = [
 export const UserLessons: FC = () => {
   return (
     <div className="userLessons">
-      {/* <LessonTitle
-        title="Իմ դասընթացները"
-        isAddLessonBtn={true}
-        className="w-full justify-between"
-      /> */}
       <Outlet />
     </div>
   );

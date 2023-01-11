@@ -1,18 +1,20 @@
 import { FC } from "react";
+import "./students.css";
 import trashbinImg from "../../../../assets/teacher_images/exam/delete.svg";
 import { CustomBtn } from "../../../../components/forms";
-import { CustomDropdown } from "../../../../components/reusable/customDropdown/CustomDropdown";
-import { FilterBtn } from "../../../../components/reusable/FilterBtn";
-import { LessonTitle } from "../../../../components/reusable";
-import { Table } from "../../../../components/reusable/table/Table";
-import { generateArray } from "../../../../helper";
+import {
+  CustomDropdown,
+  FilterBtn,
+  LessonTitle,
+  Table,
+} from "../../../../components/reusable";
 import { IStudentTd } from "../../../../models/interfaces";
 import { TdDate } from "./stdComponents/tds/TdDate";
 import { TdFeedBack } from "./stdComponents/tds/TdFeedBack";
 import { TdLes } from "./stdComponents/tds/TdLes";
 import { TdName } from "./stdComponents/tds/TdName";
 import { TdProgres } from "./stdComponents/tds/TdProgres";
-import "./students.css";
+import { generateArray } from "../../../../helper";
 
 const tbodyData = (length: number): IStudentTd[] =>
   Array.from({ length }).map(() => ({
@@ -42,25 +44,25 @@ export const Students: FC = () => {
           rows={[
             {
               name: "Ուսանողի Անուն",
-              selector: ({ name }: any) => <TdName {...{ name }} />,
+              render: ({ name }: any) => <TdName {...{ name }} />,
             },
             {
               name: "Հեռախոս",
-              selector: ({ lessons, phoneNumber }: any) => (
+              render: ({ lessons, phoneNumber }: any) => (
                 <TdLes lessons={[{ ...lessons[0], title: phoneNumber }]} />
               ),
             },
             {
               name: "Դասընթացի անվանումը",
-              selector: ({ lessons }: any) => <TdLes {...{ lessons }} />,
+              render: ({ lessons }: any) => <TdLes {...{ lessons }} />,
             },
             {
               name: "Հայտի ամսաթիվը",
-              selector: ({ lessons }: any) => <TdDate {...{ lessons }} />,
+              render: ({ lessons }: any) => <TdDate {...{ lessons }} />,
             },
             {
               name: "Տալ հասանելիություն դասերին",
-              selector: ({ name }: any) => (
+              render: () => (
                 <CustomBtn
                   title="Առաջին փուլ"
                   className="!py-2 !min-w-[152px]"
@@ -69,7 +71,7 @@ export const Students: FC = () => {
             },
             {
               name: "",
-              selector: ({ name }: any) => (
+              render: () => (
                 <img
                   src={trashbinImg}
                   className="cursor-pointer scale-125"
@@ -86,48 +88,41 @@ export const Students: FC = () => {
         <LessonTitle title="Ուսանողներ" classNameParent="!mb-[14px]" />
         <div className="students_container">
           <div className="filterSection">
-            {/* <div className="filterBox bg_hover">Ավարտած</div> */}
-            {/* <div className="filterBox bg_hover">Սովորող</div> */}
             <FilterBtn>Ավարտած</FilterBtn>
             <FilterBtn>Սովորող</FilterBtn>
             <CustomDropdown
               className="filterBox"
-              dropDownTitle={"Ըստ դասընթացի"}
-              options={[
-                { title: "adfdsfsd" },
-                { title: "adfdsfsd" },
-                { title: "adfdsfsd" },
-                { title: "adfdsfsd" },
-              ]}
+              dropDownTitle="Ըստ դասընթացի"
+              options={generateArray(10, { title: "adfdsfsd" })}
             />
           </div>
           <Table
             rows={[
               {
                 name: "Ուսանողի Անուն",
-                selector: ({ name }) => <TdName {...{ name }} />,
+                render: ({ name }) => <TdName {...{ name }} />,
               },
               {
                 name: "Հեռախոս",
-                selector: ({ lessons, phoneNumber }: any) => (
+                render: ({ lessons, phoneNumber }: any) => (
                   <TdLes lessons={[{ ...lessons[0], title: phoneNumber }]} />
                 ),
               },
               {
                 name: "Դասընթացի անվանումը",
-                selector: ({ lessons }: any) => <TdLes {...{ lessons }} />,
+                render: ({ lessons }: any) => <TdLes {...{ lessons }} />,
               },
               {
                 name: "Ուսուցման ամսաթիվը",
-                selector: ({ lessons }: any) => <TdDate {...{ lessons }} />,
+                render: ({ lessons }: any) => <TdDate {...{ lessons }} />,
               },
               {
                 name: "Առաջընթացը",
-                selector: ({ lessons }: any) => <TdProgres {...{ lessons }} />,
+                render: ({ lessons }: any) => <TdProgres {...{ lessons }} />,
               },
               {
                 name: "Տնայիններ",
-                selector: ({ lessons }: any) => <TdFeedBack {...{ lessons }} />,
+                render: ({ lessons }: any) => <TdFeedBack {...{ lessons }} />,
               },
             ]}
             tbodyItems={tbodyData(8)}

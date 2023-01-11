@@ -1,14 +1,14 @@
-import { yupResolver } from "@hookform/resolvers/yup";
 import { FC } from "react";
+import "./studentData.css";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { FormProvider, useFieldArray, useForm } from "react-hook-form";
 import buttonImg from "../../../../assets/teacher_images/createGraffic/buttonimg.svg";
 import deleteImg from "../../../../assets/teacher_images/discount/delete.svg";
-import { CstmInput } from "../../../../components/forms";
-import { CustomBtn } from "../../../../components/forms";
+import { CstmInput, CustomBtn } from "../../../../components/forms";
 import { LessonTitle } from "../../../../components/reusable";
 import AddImg from "../../../../components/teacherComponents/sherid/addImg/AddImg";
 import { studentData_schema } from "../../../../validations/studentData_schema";
-import "./studentData.css";
+
 interface IPersonalInfoProps {
   adress: string;
   phoneNum: string;
@@ -32,8 +32,6 @@ export const StudentData: FC = () => {
   const {
     handleSubmit,
     control,
-    register,
-    watch,
     formState: { errors },
   } = methods;
   const personalInfo = useFieldArray({

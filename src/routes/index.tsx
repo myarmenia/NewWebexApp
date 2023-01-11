@@ -147,6 +147,7 @@ export const router = createBrowserRouter(
             </Route>
           </Route>
         </Route>
+        <Route path="help_center" element={<HelpCenter />} />
       </Route>
       <Route path="student" element={<Student />}>
         <Route path="perosnal_info" element={<StudentData />} />

@@ -1,9 +1,9 @@
-import React from "react";
+import { FC } from "react";
 import "./newLesson.css";
-import { LessonCntBody } from "./lessonCntBody/LessonCntBody";
 import { LessonTitle } from "../../../../components/reusable";
+import { LessonCntBody } from "./lessonCntBody/LessonCntBody";
 
-export const NewLesson: React.FC = () => {
+export const NewLesson: FC = () => {
   return (
     <div className="newLesson">
       <LessonTitle title="Նոր դասընթաց" />

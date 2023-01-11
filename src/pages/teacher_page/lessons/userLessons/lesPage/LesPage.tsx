@@ -1,20 +1,18 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import "./lesPage.css";
-import { LesContainer } from "../userLesComponents/lesContainer/LesContainer";
-import { LesPTitle } from "../userLesComponents/lesPTitle/LesPTitle";
-import { LesImageBox } from "./lesImageBox/LesImageBox";
-import { LesBoxProps } from "../userLesComponents/lesBox/LesBox";
-import { LesCases } from "./lesCases/LesCases";
-import { LesStages } from "./lesStages/LesStages";
 import { LoaderFunctionArgs, useLoaderData } from "react-router";
+import { LessonTitle } from "../../../../../components/reusable";
 import {
   ILessonLoaderData,
   LessonProps,
 } from "../../../../../models/interfaces";
+import { instance } from "../../../../../request";
+import { LesContainer } from "../userLesComponents/lesContainer/LesContainer";
+import { LesPTitle } from "../userLesComponents/lesPTitle/LesPTitle";
+import { LesCases } from "./lesCases/LesCases";
 import { LesComments } from "./lesComments/LesComments";
-import { CustomBtn } from "../../../../../components/forms";
-import { LessonTitle } from "../../../../../components/reusable";
-import { instance } from "../../../../../request/request";
+import { LesImageBox } from "./lesImageBox/LesImageBox";
+import { LesStages } from "./lesStages/LesStages";
 
 export interface LesPageProps extends LessonProps {
   stageCount: number;

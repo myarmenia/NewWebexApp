@@ -1,6 +1,5 @@
-import React, { FC, useState } from "react";
+import { FC, useState } from "react";
 import { LessonTitle } from "../../../../../components/reusable";
-import { CreateGraffic } from "../CreateGraffic";
 import "./editGraffic.css";
 import GrafficChild from "./GrafficChild";
 const arr: { [key: string]: { start: string; end: string }[] } = {
