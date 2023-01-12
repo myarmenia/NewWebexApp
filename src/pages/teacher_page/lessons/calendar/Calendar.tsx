@@ -9,6 +9,7 @@ import {
 import { instance } from "../../../../request";
 import { DayCont } from "./calenComponents/dayCont/DayCont";
 import { TdNumCont } from "./calenComponents/tdNumCont/TdNumCont";
+import { LoaderFunction } from "react-router";
 
 export const Calendar: FC = () => {
   const { currentDate } = useAppSelector((state) => state.calendarList);
@@ -33,7 +34,7 @@ export const Calendar: FC = () => {
   );
 };
 
-export const calendarLoader = async () => {
+export const calendarLoader: LoaderFunction = async () => {
   const res = await instance.get("/posts?userId=1");
   return { user: res.data };
 };

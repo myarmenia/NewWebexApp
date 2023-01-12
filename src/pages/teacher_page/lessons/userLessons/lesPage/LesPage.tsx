@@ -1,6 +1,10 @@
 import { FC } from "react";
 import "./lesPage.css";
-import { LoaderFunctionArgs, useLoaderData } from "react-router";
+import {
+  LoaderFunction,
+  LoaderFunctionArgs,
+  useLoaderData,
+} from "react-router";
 import { LessonTitle } from "../../../../../components/reusable";
 import {
   ILessonLoaderData,
@@ -64,7 +68,9 @@ export const LesPage: FC<LesPageProps> = ({
   );
 };
 
-export const lessonPageLoader = async ({ params }: LoaderFunctionArgs) => {
+export const lessonPageLoader: LoaderFunction = async ({
+  params,
+}: LoaderFunctionArgs) => {
   const res = await instance.get(`/posts/${params.id}?userId=1`);
   const lessons = await instance.get("/posts?userId=1");
   const paramsId = params.id;

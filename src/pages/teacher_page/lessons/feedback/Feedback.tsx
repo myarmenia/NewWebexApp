@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { LoaderFunctionArgs, Outlet } from "react-router";
+import { LoaderFunction, LoaderFunctionArgs, Outlet } from "react-router";
 import { LessonTitle } from "../../../../components/reusable";
 import { instance } from "../../../../request";
 import "./feedback.css";
@@ -16,12 +16,12 @@ export const Feedback: FC = () => {
   );
 };
 
-export const feedbackLessonLoader = async ({ params }: LoaderFunctionArgs) => {
+export const feedbackLessonLoader: LoaderFunction = async ({ params }: LoaderFunctionArgs) => {
   const res = await instance.get("/posts?userId=1");
   return { data: res.data, params };
 };
 
-export const feedback_studentsLoader = async ({
+export const feedback_studentsLoader: LoaderFunction = async ({
   params,
 }: LoaderFunctionArgs) => {
   const res = await instance.get("/posts?userId=1");

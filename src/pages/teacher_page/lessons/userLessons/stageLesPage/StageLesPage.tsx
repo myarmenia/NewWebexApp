@@ -1,6 +1,10 @@
 import { FC } from "react";
 import "./stageLesPage.css";
-import { LoaderFunctionArgs, useLoaderData } from "react-router";
+import {
+  LoaderFunction,
+  LoaderFunctionArgs,
+  useLoaderData,
+} from "react-router";
 import { Link } from "react-router-dom";
 import editImg from "../../../../../assets/teacher_images/userLessons/editGray.svg";
 import { LessonTitle } from "../../../../../components/reusable";
@@ -53,16 +57,6 @@ export const StageLesPage: FC = () => {
             </Link>
             <hr className="stageLesPage_hr" />
             <LesContainer className="lesWorkHomeWork_container ">
-              {/* {lessonsObj.map(({ title, body, id }) => (
-              <LesWorkBox
-                title={body}
-                description={body}
-                lesNumber={id}
-                extMats={["png", "pptx", "docx"]}
-                // {...{  lesNumber, extMats, className }}
-                key={Math.random()}
-              />
-            ))} */}
               <LesWorkBox
                 title={body}
                 description={body}
@@ -94,7 +88,9 @@ export const StageLesPage: FC = () => {
   );
 };
 
-export const stageLesPageLoader = async ({ params }: LoaderFunctionArgs) => {
+export const stageLesPageLoader: LoaderFunction = async ({
+  params,
+}: LoaderFunctionArgs) => {
   const res = await instance.get(`/posts/${params.id}?userId=1`);
   const lessons = await instance.get("/posts?userId=1");
   const paramsId = params.id;

@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 import "./stdLesPage.css";
-import { LoaderFunctionArgs } from "react-router";
+import { LoaderFunction, LoaderFunctionArgs } from "react-router";
 import { CstmTextarea, CustomBtn } from "../../../../../components/forms";
 import { LessonTitle } from "../../../../../components/reusable";
 import { LessonProps } from "../../../../../models/interfaces";
@@ -90,7 +90,7 @@ export const StdLesPage: FC<LesPageProps> = ({
   );
 };
 
-export const stdLessonPageLoader = async ({ params }: LoaderFunctionArgs) => {
+export const stdLessonPageLoader: LoaderFunction = async ({ params }: LoaderFunctionArgs) => {
   const lessonsObj = await instance.get("/posts?userId=1");
 
   return { lessonsObj: lessonsObj.data };
