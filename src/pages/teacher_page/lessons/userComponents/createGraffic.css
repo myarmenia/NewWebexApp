@@ -36,9 +36,6 @@
 .buttonContainer {
   @apply flex gap-[10px];
 }
-.removeInput {
-  @apply shrink-0;
-}
 .addText {
   @apply text-xs text-gray;
 }

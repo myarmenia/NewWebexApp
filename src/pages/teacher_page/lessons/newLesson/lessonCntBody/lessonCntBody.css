@@ -38,6 +38,10 @@
 .stageBox_opened {
   @apply w-[497px];
 }
+.buttonsContainerBetween {
+  @apply flex justify-between items-center gap-4;
+}
+
 @media (max-width: 1350px) {
   .newLesCont {
     @apply !gap-[58px];
@@ -67,9 +71,10 @@
     @apply w-[279px]
   } */
 }
-@media (max-width: 960px) {
-  .newLesCont {
-    @apply !gap-7;
+
+@media (max-width: 650px) {
+  .newLesCont > .LessonCntBody_box {
+    @apply w-full;
   }
 }
 @media (max-width: 870px) {
@@ -77,6 +82,14 @@
     @apply flex-col;
   }
   .newLesCont > .LessonCntBody_box {
-    @apply w-[80%] min-w-[290px];
+    @apply min-w-[290px];
+  }
+  .hrMain {
+    @apply w-full h-[1px];
+  }
+}
+@media (max-width: 960px) {
+  .newLesCont {
+    @apply !gap-7;
   }
 }

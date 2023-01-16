@@ -12,7 +12,7 @@ export const StageBody: React.FC = () => {
     <div className="lessonContainer firstLesson_Container">
       <div className="lessonContainer1">
         <BoxTitle title="Դաս 1" />
-        <div className="LessonCntBody_box">
+        <div className="firstLessonCntBody_box">
           <div className="LessonCntBody_boxContent">
             <CstmInput
               placeholder="Դասի վերնագիրը*"
@@ -29,7 +29,7 @@ export const StageBody: React.FC = () => {
               placeholder="Բովանդակություն"
               className="lessonInp"
             />
-            <div className="flex justify-between gap-3">
+            <div className="flex justify-between gap-3 med-450:flex-col">
               <AttachFile regName="lessonFile" title="Հավելյալ նյութերը" />
               <LoadImage regName="lessonImage_url" />
             </div>
@@ -37,10 +37,10 @@ export const StageBody: React.FC = () => {
           <SaveDataDiv />
         </div>
       </div>
-      <div className="hrMain !m-0" />
+      <div className="firstLesson-hrMain !m-0" />
       <div className="lessonContainer1">
         <BoxTitle title="Տնային հանձնարարություն" />
-        <div className="LessonCntBody_box">
+        <div className="firstLessonCntBody_box">
           <div className="LessonCntBody_boxContent">
             <CstmInput
               placeholder="Տեսանյութ (կցել youtube-ի հղումը)"
@@ -52,7 +52,7 @@ export const StageBody: React.FC = () => {
               className="lessonInp"
               placeholder="Բովանդակություն"
             />
-            <div className="flex justify-between gap-3">
+            <div className="flex justify-between gap-3 med-450:flex-col">
               <AttachFile
                 regName="homeworkFile"
                 title="Տնային աշխատանքի նյութերը"

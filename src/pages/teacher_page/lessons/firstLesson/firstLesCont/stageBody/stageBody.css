@@ -1,5 +1,18 @@
+.firstLesson-hrMain {
+  @apply bg-[#BEBFE4] mt-5 h-[400px] w-[1px];
+}
+
+.firstLesson_Container {
+  @apply justify-between;
+}
 @media (max-width: 700px) {
+  .firstLesson-hrMain {
+    @apply h-[1px] w-full;
+  }
   .firstLesson_Container {
-    @apply gap-5;
+    @apply !gap-5;
+  }
+  .nextBtnCont1 {
+    @apply justify-center;
   }
 }

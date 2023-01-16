@@ -1,11 +1,11 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import React, { FC } from "react";
+import { FC } from "react";
 import { FormProvider, useFieldArray, useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
 import * as Yup from "yup";
 import { LessonTitle } from "../../../../components/reusable/lessonTitle/LessonTitle";
 import "./createGraffic.css";
 import { InputTime } from "./InputTime";
+
 export interface IInputTimeProps {
   start: Date | string;
   end: Date | string;
@@ -19,7 +19,7 @@ export interface UserSubmitForm2 {
   // saturday?: IInputTimeProps[];
   // sunday?: IInputTimeProps[];
 }
-console.log(new Date().toLocaleTimeString());
+
 const SchemaChild = Yup.array().of(
   Yup.object().shape({
     start: Yup.date().max(new Date(), "Future date not allowed"),
@@ -44,8 +44,8 @@ export const CreateGraffic: FC = () => {
     defaultValues: {
       monday: [
         {
-          start: new Date(),
-          end: new Date(),
+          start: "",
+          end: "",
         },
       ],
       // tuesday: [{ start: new Date(), end: new Date() }],
@@ -56,7 +56,7 @@ export const CreateGraffic: FC = () => {
       // sunday: [{ start: new Date(), end: new Date() }],
     },
   });
-  const { handleSubmit, control, register, watch } = methods;
+  const { handleSubmit, control, watch } = methods;
   const monday = useFieldArray({
     control,
     name: "monday",
@@ -86,11 +86,16 @@ export const CreateGraffic: FC = () => {
   //   name: "sunday",
   // });;
   const onSubmit = (data: UserSubmitForm2) => console.log(data, "data");
+
   return (
     <FormProvider {...methods}>
       <LessonTitle title="Կազմել դասավանդման գրաֆիկ" />
       <div className="createGraffic ">
-        <form className="grafficChild" onSubmit={handleSubmit(onSubmit)}>
+        <form
+          className="grafficChild"
+          onSubmit={handleSubmit(onSubmit)}
+          action=""
+        >
           <InputTime
             day="Երկուշաբթի"
             regName="monday"
@@ -134,7 +139,11 @@ export const CreateGraffic: FC = () => {
             count={watch("sunday")?.length || 1}
           /> */}
           {/* <Link to={"edit_graffic"}> */}
-          <button type="submit" className="save">
+          {/* <button type="submit" className="save">
+            Պահպանել
+          </button> */}
+          {/* <CustomBtn title="Պահպանել" type="submit" /> */}
+          <button className="px-5 py-3 bg-[red] text-white w-fit">
             Պահպանել
           </button>
           {/* </Link> */}

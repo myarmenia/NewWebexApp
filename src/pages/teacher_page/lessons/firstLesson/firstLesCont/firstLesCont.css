@@ -14,7 +14,7 @@
 .lessonContainer1 {
   @apply w-[40%];
 }
-.LessonCntBody_box {
+.firstLessonCntBody_box {
   @apply flex flex-col gap-5 w-full justify-between;
   height: calc(100% - 36px);
 }
