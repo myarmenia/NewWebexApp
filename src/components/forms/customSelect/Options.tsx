@@ -1,35 +1,18 @@
 import { FC } from "react";
-import { ICustomSelect } from "../../../models/interfaces";
+import { useSelectContext } from "./CustomSelect";
 import { Option } from "./Option";
 import { OptionInput } from "./OptionInput";
 
-type OptionsProps = Pick<
-  ICustomSelect,
-  "toggleOptions" | "isMutable" | "regName" | "options" | "setValue"
->;
-
-export const Options: FC<OptionsProps> = ({
-  toggleOptions,
-  options,
-  isMutable,
-  regName,
-  setValue,
-}) => {
-  const removeOption = (currentId: number) => {
-    isMutable?.setOptions(options.filter((option, id) => id !== currentId));
-  };
+export const Options: FC = () => {
+  const { options, isMutable } = useSelectContext();
   return (
     <div className="options">
       <div className="optionsContainer">
         {options.map((option, optionId) => (
-          <Option
-            key={optionId}
-            {...{ option, toggleOptions, regName, optionId, setValue }}
-            removeOption={isMutable && removeOption}
-          />
+          <Option key={optionId} {...{ option, optionId }} />
         ))}
       </div>
-      {isMutable?.isInput && <OptionInput {...{ options, isMutable }} />}
+      {isMutable?.isInput && <OptionInput />}
     </div>
   );
 };

@@ -10,3 +10,9 @@
 .ageLimits {
   @apply flex gap-2 items-center;
 }
+
+@media (max-width: 650px) {
+  .ageDiv {
+    @apply flex-col items-start gap-2;
+  }
+}

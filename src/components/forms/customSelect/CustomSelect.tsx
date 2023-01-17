@@ -1,8 +1,8 @@
-import { FC, useState } from "react";
+import { createContext, FC, useContext, useState } from "react";
+import "./customSelect.css";
 import { useFormContext } from "react-hook-form";
 import { useError } from "../../../hooks";
 import { ICustomSelect } from "../../../models/interfaces";
-import "./customSelect.css";
 import { DefaultOption } from "./DefaultOption";
 import { Options } from "./Options";
 
@@ -19,36 +19,33 @@ interface CustomSelectProps
     | "value"
   > {}
 
-export const CustomSelect: FC<CustomSelectProps> = ({
-  options,
-  className = "",
-  isMutable,
-  regName,
-  error,
-  placeholder,
-  // if you want to make select work without react-hook-form you need to pass value and setValue useState
-  setValue,
-  value,
-}) => {
+export const CustomSelectContext = createContext<ICustomSelect>(null!);
+
+// if you want to make select work without react-hook-form you need to pass value and setValue useState to component
+export const CustomSelect: FC<CustomSelectProps> = (props) => {
+  const { className = "", regName, error, isMutable, options } = props;
   const [state, setState] = useState<boolean>(false);
   const formMethods = useFormContext();
   const toggleOptions = () => {
     setState((prev) => !prev);
   };
+  const removeOption = (currentId: number) => {
+    isMutable?.setOptions(options.filter((option, id) => id !== currentId));
+  };
   const errorMessage = useError(error, regName, formMethods);
   return (
-    <div className="flex justify-center h-10">
-      <div className={`customSelect ${className}`}>
-        <DefaultOption
-          {...{ toggleOptions, regName, placeholder, setValue, value }}
-        />
-        {state && (
-          <Options
-            {...{ options, toggleOptions, regName, isMutable, setValue }}
-          />
-        )}
-        <p className="errorMessage">{errorMessage}</p>
+    <CustomSelectContext.Provider
+      value={{ ...props, toggleOptions, removeOption }}
+    >
+      <div className="flex justify-center h-10">
+        <div className={`customSelect ${className}`}>
+          <DefaultOption />
+          {state && <Options />}
+          <p className="errorMessage">{errorMessage}</p>
+        </div>
       </div>
-    </div>
+    </CustomSelectContext.Provider>
   );
 };
+
+export const useSelectContext = () => useContext(CustomSelectContext);

@@ -5,14 +5,14 @@ import { useLoaderData } from "react-router";
 import saveImg from "../../../../../assets/teacher_images/newLesson/acceptPurple.svg";
 import { CstmInput, CstmTextarea } from "../../../../../components/forms";
 import { ILessonLoaderData } from "../../../../../models/interfaces";
-import { LesContainer } from "../userLesComponents/lesContainer/LesContainer";
-import "./editMyLessons.css";
-import { ExtraMats } from "./editMyLessons_copns/ExtraMats";
 import {
   editLesson_schema,
   IEditSchema,
   IExtraMats,
 } from "../../../../../validations/editLesson_schema";
+import { LesContainer } from "../userLesComponents/lesContainer/LesContainer";
+import "./editMyLessons.css";
+import { ExtraMats } from "./editMyLessons_copns/ExtraMats";
 
 interface EditMyLessonsProps {
   title?: string;
@@ -37,7 +37,7 @@ export const EditMyLessons: FC<EditMyLessonsProps> = ({
   const { obj, lessonsObj, paramsLes } = useLoaderData() as ILessonLoaderData;
   const { title } = obj;
   const { body } = lessonsObj[paramsLes - 1];
-  
+
   const methods = useForm<IEditSchema>({
     resolver: yupResolver(editLesson_schema),
   });

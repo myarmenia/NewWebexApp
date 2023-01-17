@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-import "./userHeader.css";
 import chevDown from "../../../assets/general_images/chevDown.svg";
-import searchImg from "../../../assets/teacher_images/header/searchImg.svg";
 import notifImg from "../../../assets/teacher_images/header/Notification.svg";
 import teacherImg from "../../../assets/teacher_images/header/Rectangle 83.svg";
-import { SMNavbar } from "./smNavbar/SMNavbar";
+import searchImg from "../../../assets/teacher_images/header/searchImg.svg";
 import { INavItemsContent } from "../../../models/interfaces";
-import { UserPanel } from "./userPanel/UserPanel";
 import { Navbar } from "../../teacherComponents/navbar/Navbar";
+import "./userHeader.css";
+import { UserPanel } from "./userPanel/UserPanel";
 
 export const UserHeaderStore: INavItemsContent[] = [
   { title: "Գլխավոր" },
@@ -41,9 +40,14 @@ export const UserHeader: React.FC = () => {
         </div>
         {/* <SMNavbar /> */}
         <div className="icons">
-          <img src={searchImg} id="searchBtn" className="cursor-pointer" />
+          <img
+            src={searchImg}
+            id="searchBtn"
+            className="cursor-pointer"
+            alt=""
+          />
           <div id="notificationImage">
-            <img src={notifImg} className="cursor-pointer" />
+            <img src={notifImg} className="cursor-pointer" alt="" />
           </div>
           <div
             className="relative cursor-pointer"
@@ -56,7 +60,12 @@ export const UserHeader: React.FC = () => {
             </div>
             {isPanelActive && <UserPanel />}
           </div>
-          <img id="personImage" src={teacherImg} className="cursor-pointer" />
+          <img
+            id="personImage"
+            src={teacherImg}
+            className="cursor-pointer"
+            alt=""
+          />
         </div>
       </nav>
     </header>

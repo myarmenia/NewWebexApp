@@ -45,7 +45,7 @@ export const CustomNmbInp: React.FC<CustomNmbInpProps> = ({
   useEffect(() => {
     setValue?.(age);
     regName && methods?.setValue(regName, age);
-  }, [age]);
+  }, [age, methods, regName]);
 
   const errorMessage = useError(error, regName, methods);
 

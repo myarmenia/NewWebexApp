@@ -4,5 +4,5 @@
     no-repeat;
 }
 .loadImageDiv {
-  @apply bg-[#bebfe48f] bg-cover bg-no-repeat bg-center rounded-md pb-[15px] px-7 pt-[21px] flex flex-col gap-2 justify-center items-center;
+  @apply bg-[#bebfe48f] w-fit bg-cover bg-no-repeat bg-center rounded-md pb-[15px] px-7 pt-[21px] flex flex-col gap-2 justify-center items-center;
 }
