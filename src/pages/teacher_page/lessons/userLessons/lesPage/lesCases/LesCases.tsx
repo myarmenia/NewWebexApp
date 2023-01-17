@@ -1,10 +1,9 @@
-import React, { FC } from "react";
-import "./lesCases.css";
+import { FC } from "react";
 import "../../userLesComponents/lesBox/lesBox.css";
+import "./lesCases.css";
 
 import starImg from "../../../../../../assets/teacher_images/userLessons/starImg.svg";
 
-import { LesPageProps } from "../LesPage";
 import { LessonProps } from "../../../../../../models/interfaces";
 
 interface LesCasesProps extends LessonProps {}

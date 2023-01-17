@@ -26,7 +26,7 @@ export const ExamBody: React.FC = () => {
       ],
     },
   });
-  const { handleSubmit, watch, control } = methods;
+  const { handleSubmit, control } = methods;
   const questions = useFieldArray({
     control,
     name: "questionBox",

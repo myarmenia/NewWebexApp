@@ -11,7 +11,7 @@ export const UserPanel: FC = () => {
           Ղեկավարման վահանակ
         </Link>
         <div className="exitHEadBox">
-          <img id="exit" src={exitImg} className="cursor-pointer" />
+          <img id="exit" src={exitImg} className="cursor-pointer" alt="" />
           <span className="text-xs text-[#9C9C9C] whitespace-nowrap">
             Դուրս գալ
           </span>

@@ -1,15 +1,11 @@
 import React, { FC, useEffect, useState } from "react";
-import { UseFieldArrayReturn, useFormContext } from "react-hook-form";
+import { UseFieldArrayReturn } from "react-hook-form";
+import deleteMaterial from "../../../../../../assets/teacher_images/exam/Group 1555.svg";
+import fileImg from "../../../../../../assets/teacher_images/userLessons/Group 1701.svg";
 import {
   IEditSchema,
   IExtraMats,
 } from "../../../../../../validations/editLesson_schema";
-import fileImg from "../../../../../../assets/teacher_images/userLessons/Group 1701.svg";
-import deleteMaterial from "../../../../../../assets/teacher_images/exam/Group 1555.svg";
-
-declare type FieldArrayKey =
-  | keyof Pick<IEditSchema, "extraMaterials" | "homeW_extraMaterials">
-  | any;
 
 interface ExtraMatsProps {
   extraMats?: UseFieldArrayReturn<IEditSchema, "extraMaterials", "id">;

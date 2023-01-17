@@ -1,11 +1,10 @@
 import { FC, useRef } from "react";
 import acceptImg from "../../../assets/teacher_images/newLesson/accept.svg";
-import { ICustomSelect } from "../../../models/interfaces";
+import { useSelectContext } from "./CustomSelect";
 
-type OptionInputProps = Pick<ICustomSelect, "options" | "isMutable">;
-
-export const OptionInput: FC<OptionInputProps> = ({ options, isMutable }) => {
+export const OptionInput: FC = () => {
   const inpRef = useRef<HTMLInputElement>(null);
+  const { options, isMutable } = useSelectContext();
   return (
     <div className="relative m-3 mt-2">
       <input

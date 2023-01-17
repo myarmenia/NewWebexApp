@@ -13,6 +13,7 @@ export interface ICustomSelect {
     isInput: boolean;
   };
   toggleOptions: () => void;
+  removeOption?: (currentId: number) => void;
   className?: string;
   setValue?: Dispatch<SetStateAction<string>>;
   value?: string;
