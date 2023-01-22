@@ -11,38 +11,32 @@
   @apply max-h-[200px] overflow-y-auto bg-[#ffffff69];
 }
 .defaultOption {
-  @apply w-full flex gap-1 items-center border-[1px] border-white text-ellipsis overflow-hidden py-3 px-[17px] bg-white rounded-2xl;
-  @apply shadow-light;
+  @apply shadow-light w-full flex gap-1 items-center border-[1px] border-white text-ellipsis overflow-hidden py-3 px-[17px] bg-white rounded-2xl;
 }
-.myInput {
+.title {
   @apply w-full border-none bg-inherit text-base placeholder:text-[#9C9C9C] placeholder:text-xs;
 }
-.custopSelect_option {
+.optionBox {
   @apply flex justify-between items-center hover:bg-slate-200 
   transition-all mx-auto h-11 w-full text-[#9C9C9C]
   cursor-pointer overflow-y-hidden;
 }
-.custopSelect_option_text {
+.option {
   @apply py-3 px-4 w-full text-ellipsis overflow-hidden whitespace-nowrap;
 }
-.addCategoryInp {
+.input {
   @apply w-full px-4 py-3 border-[#CCCCCC] border rounded-2xl outline-none h-10;
 }
 .addImg {
   @apply absolute top-[53%] left-auto right-[13px];
   transform: translate(0, -50%);
 }
-.errorMessage {
-  @apply text-[red] leading-3 whitespace-nowrap w-full left-[53%] -bottom-3 absolute;
-  transform: translate(-50%, 0);
+.backDiv {
+  @apply fixed top-0 left-0 bottom-0 right-0;
 }
 @media (max-width: 800px) {
   .customSelect,
   .defaultOption {
     @apply border-none;
-  }
-
-  .custopSelect_option {
-    @apply hover:bg-[#0085ff80] hover:text-white;
   }
 }

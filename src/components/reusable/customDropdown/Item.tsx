@@ -4,12 +4,8 @@ import { IHeaderDropDownOption } from "../../../models/interfaces";
 
 interface ItemProps {
   option: IHeaderDropDownOption;
-  setState: (state: boolean) => void;
 }
-export const Item: FC<ItemProps> = ({
-  option: { title, onClick, path },
-  setState,
-}) => {
+export const Item: FC<ItemProps> = ({ option: { title, onClick, path } }) => {
   const navigate = useNavigate();
   return (
     <div
@@ -17,7 +13,6 @@ export const Item: FC<ItemProps> = ({
       onClick={() => {
         onClick?.();
         path && navigate(path);
-        // setState(false);
       }}
     >
       {title}

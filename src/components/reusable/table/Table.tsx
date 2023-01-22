@@ -1,28 +1,28 @@
-import { FC, ReactNode } from "react";
+import { ReactNode } from "react";
 import { Tbody } from "./Tbody";
 import { Thead } from "./Thead";
 
-export interface TableProps<T extends object> {
+export interface TableProps<T> {
   rows: {
     name: string;
     render: (obj: T) => string | number | ReactNode | JSX.Element;
     tdClassName?: string;
     thClassName?: string;
   }[];
-  tbodyItems: T[];
+  data: T[];
   className?: string;
 }
 
-export const Table: FC<TableProps<any>> = ({
+export const Table = <T extends any>({
   rows,
-  tbodyItems,
+  data,
   className = "",
-}) => {
+}: TableProps<T>) => {
   return (
     <div className={"overflow-x-auto " + className}>
       <table>
         <Thead {...{ rows }} />
-        <Tbody {...{ rows, tbodyItems }} />
+        <Tbody {...{ rows, data }} />
       </table>
     </div>
   );

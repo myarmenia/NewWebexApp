@@ -1,5 +1,5 @@
 import React from "react";
-import "./customBtn.css";
+import styles from "./customBtn.module.css";
 
 interface SubmitBtnProps {
   title: string;
@@ -15,7 +15,10 @@ export const CustomBtn: React.FC<SubmitBtnProps> = ({
   onClick,
 }) => {
   return (
-    <button className={`addLessonBtn ${className}`} {...{ type, onClick }}>
+    <button
+      className={`${styles.addLessonBtn} ${className}`}
+      {...{ type, onClick }}
+    >
       {title}
     </button>
   );

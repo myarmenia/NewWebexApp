@@ -1,8 +1,8 @@
 import { createContext, FC, useContext, useState } from "react";
-import "./customSelect.css";
 import { useFormContext } from "react-hook-form";
 import { useError } from "../../../hooks";
 import { ICustomSelect } from "../../../models/interfaces";
+import styles from "./customSelect.module.css";
 import { DefaultOption } from "./DefaultOption";
 import { Options } from "./Options";
 
@@ -38,7 +38,7 @@ export const CustomSelect: FC<CustomSelectProps> = (props) => {
       value={{ ...props, toggleOptions, removeOption }}
     >
       <div className="flex justify-center h-10">
-        <div className={`customSelect ${className}`}>
+        <div className={[styles.customSelect, className].join(" ")}>
           <DefaultOption />
           {state && <Options />}
           <p className="errorMessage">{errorMessage}</p>

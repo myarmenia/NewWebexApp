@@ -1,13 +1,13 @@
-.LessonCntBody {
+.container {
   @apply w-full;
 }
-.LessonCntBody > form {
+.container > form {
   @apply flex gap-5 flex-col;
 }
-.lessonContainer {
+.form_content {
   @apply flex gap-[58px];
 }
-.LessonCntBody_box {
+.box {
   @apply flex flex-col gap-5 w-[400px] min-w-[320px];
 }
 .hrMain {
@@ -16,7 +16,7 @@
 .nextBtnCont {
   @apply flex gap-4;
 }
-.LessonCntBody_box2 {
+.box_lg {
   @apply w-auto;
 }
 .txtWcheckbox {
@@ -43,7 +43,7 @@
 }
 
 @media (max-width: 1350px) {
-  .newLesCont {
+  .form_content {
     @apply !gap-[58px];
   }
   .stageBox_opened {
@@ -51,37 +51,24 @@
   }
 }
 @media (max-width: 1060px) {
-  /* .hrMain {
-    @apply hidden;
-  } */
-  .lessonContainer {
-    /* @apply gap-5 justify-center; */
+  .form_content {
     @apply justify-evenly;
   }
   .nextBtnCont {
     @apply justify-center;
   }
-  /*.LessonCntBody_box {
-    @apply w-[80%];
-  }
-  .LessonCntBody_box2 {
-    @apply flex-row flex-wrap justify-between;
-  }
-  .stageBox{
-    @apply w-[279px]
-  } */
 }
 
 @media (max-width: 650px) {
-  .newLesCont > .LessonCntBody_box {
+  .form_content > .box {
     @apply w-full;
   }
 }
 @media (max-width: 870px) {
-  .newLesCont {
+  .form_content {
     @apply flex-col;
   }
-  .newLesCont > .LessonCntBody_box {
+  .form_content > .box {
     @apply min-w-[290px];
   }
   .hrMain {
@@ -89,7 +76,7 @@
   }
 }
 @media (max-width: 960px) {
-  .newLesCont {
+  .form_content {
     @apply !gap-7;
   }
 }

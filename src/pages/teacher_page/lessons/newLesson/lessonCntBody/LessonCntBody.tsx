@@ -1,5 +1,5 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { FormProvider, useFieldArray, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import downloadImg from "../../../../../assets/teacher_images/newLesson/download.svg";
@@ -14,7 +14,7 @@ import { AgeDiv } from "./ageDiv/AgeDiv";
 import { DifferentCourses } from "./differentCourses/DifferentCourses";
 import { FinishExam } from "./finishExam/FinishExam";
 import { Knowledges } from "./knowledges/Knowledges";
-import "./lessonCntBody.css";
+import styles from "./lessonCntBody.module.css";
 import { Phases } from "./phases/Phases";
 import { TxtWinput } from "./txtWinput/TxtWinput";
 import {
@@ -29,8 +29,6 @@ export const LessonCntBody: React.FC = () => {
     "bbbb",
     "cccc",
   ]);
-  const dificultyLevels: string[] = ["aaa", "bbb"];
-
   const [isDifferent, setIsDifferent] = useState<boolean>(false);
 
   const methods = useForm<TeacherSubmitForm>({
@@ -55,7 +53,7 @@ export const LessonCntBody: React.FC = () => {
   });
   const { fields } = fieldArray;
 
-  const onSubmit = (data: TeacherSubmitForm) => {
+  const onSubmit = useCallback((data: TeacherSubmitForm) => {
     let values;
     if (!data.areStagesDifferent) {
       let myStages = data.stages.map((el) => {
@@ -84,13 +82,15 @@ export const LessonCntBody: React.FC = () => {
     if (values) {
       navigate("lesson_graffic");
     }
-  };
+  }, []);
+  console.log(11);
+
   return (
     <FormProvider {...methods}>
-      <div className="LessonCntBody">
+      <div className={styles.container}>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="lessonContainer newLesCont">
-            <div className="LessonCntBody_box">
+          <div className={styles.form_content}>
+            <div className={styles.box}>
               <CstmInput placeholder="Դասընթացի վերնագիրը*" regName="title" />
               <CustomSelect
                 placeholder="Ընտրել կատեգորիան*"
@@ -103,13 +103,13 @@ export const LessonCntBody: React.FC = () => {
               />
               <CustomSelect
                 placeholder="Ընտրել մակարդակը*"
-                options={dificultyLevels}
+                options={["aaa", "bbb"]}
                 regName="select1"
               />
               <Knowledges {...{ reqKnowledges }} />
               <CstmTextarea
                 regName="describtion"
-                className="lessonInp h-[202px]"
+                className="!h-[202px]"
                 placeholder="loremadfdsf"
               />
               <AgeDiv />
@@ -132,8 +132,8 @@ export const LessonCntBody: React.FC = () => {
               </button>
             </div>
             <div className="hrMain" />
-            <div className="LessonCntBody_box2 LessonCntBody_box">
-              <div className="stagesContainer">
+            <div className={[styles.box_lg, styles.box].join(" ")}>
+              <div className={styles.stagesContainer}>
                 <TxtWinput text="Դասընթացի փուլերի քանակը">
                   <CustomNmbInp
                     defaultValue={3}
@@ -142,11 +142,13 @@ export const LessonCntBody: React.FC = () => {
                   />
                 </TxtWinput>
                 <div
-                  className={`stageBox1 ${
-                    isDifferent ? "stageBox_opened" : "stageBox_closed"
+                  className={`${styles.stageBox1} ${
+                    isDifferent
+                      ? styles.stageBox_opened
+                      : styles.stageBox_closed
                   }`}
                 >
-                  <div className="txtWcheckbox">
+                  <div className={styles.txtWcheckbox}>
                     <span className="text-gray text-xs">
                       Մի փուլի դասերի քանակը
                     </span>
@@ -180,7 +182,7 @@ export const LessonCntBody: React.FC = () => {
               <Phases {...{ fields }} />
             </div>
           </div>
-          <div className="nextBtnCont">
+          <div className={styles.nextBtnCont}>
             <CustomBtn title="Առաջ" type="submit" />
           </div>
         </form>

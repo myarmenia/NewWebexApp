@@ -49,7 +49,7 @@ export const Discount: FC = () => {
                   tdClassName: "text-center",
                 },
               ]}
-              tbodyItems={[{}, {}]}
+              data={[{}, {}]}
               className="custom_table"
             />
           </div>
@@ -88,7 +88,7 @@ export const Discount: FC = () => {
                   tdClassName: "text-center",
                 },
               ]}
-              tbodyItems={[{}]}
+              data={[{}]}
               className="custom_table"
             />
           </div>

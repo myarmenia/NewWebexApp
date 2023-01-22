@@ -3,7 +3,7 @@ import { UseFieldArrayReturn, useFormContext } from "react-hook-form";
 import arrow from "../../../assets/teacher_images/newLesson/Polygon 3.svg";
 import { useError } from "../../../hooks";
 import { TeacherSubmitForm } from "../../../validations/newLesson_schema";
-import "./customNmbInp.css";
+import styles from "./customNmbInp.module.css";
 
 interface CustomNmbInpProps {
   defaultValue?: number;
@@ -22,15 +22,15 @@ export const CustomNmbInp: React.FC<CustomNmbInpProps> = ({
   setValue,
   value,
 }) => {
-  const methods = useFormContext();
-  const registerWithName = regName && methods.register(regName);
+  const formMethods = useFormContext();
+  const register = regName ? formMethods?.register(regName) : null;
 
   const [age, setAge] = useState<number>(defaultValue);
   const increase = () => {
     if (age >= 1) {
       setAge((prev) => prev + 1);
       fieldArray?.append?.({
-        stage: methods?.watch("stagesCount"),
+        stage: formMethods?.watch("stagesCount"),
         count: 2,
         stageDescription: "",
       });
@@ -39,31 +39,40 @@ export const CustomNmbInp: React.FC<CustomNmbInpProps> = ({
   const decrease = () => {
     if (age > 1) {
       setAge((prev) => prev - 1);
-      fieldArray?.remove?.(methods?.watch("stagesCount") - 1);
+      fieldArray?.remove?.(formMethods?.watch("stagesCount") - 1);
     }
   };
   useEffect(() => {
     setValue?.(age);
-    regName && methods?.setValue(regName, age);
-  }, [age, methods, regName]);
+    regName && formMethods?.setValue(regName, age);
+  }, [age]);
 
-  const errorMessage = useError(error, regName, methods);
+  const errorMessage = useError(error, regName, formMethods);
 
   return (
     <div className="relative">
-      <div className="customNmbInp">
-        <div className="lessonInp CustomNmbInput">
+      <div className={styles.container}>
+        <div className={`lessonInp ${styles.input_box}`}>
           <input
             type="number"
-            className="inpNumber"
             disabled
             defaultValue={age}
-            {...registerWithName}
+            {...register}
             value={value}
           />
         </div>
-        <img src={arrow} alt="" className="arrowLeft" onClick={decrease} />
-        <img src={arrow} alt="" className="arrowRight" onClick={increase} />
+        <img
+          src={arrow}
+          alt=""
+          className={styles.left_arrow}
+          onClick={decrease}
+        />
+        <img
+          src={arrow}
+          alt=""
+          className={styles.right_arrow}
+          onClick={increase}
+        />
       </div>
       <p className="errorMessage">{errorMessage}</p>
     </div>

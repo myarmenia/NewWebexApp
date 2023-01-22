@@ -1,16 +1,17 @@
-import React, { ChangeEventHandler } from "react";
+import React, { ChangeEventHandler, KeyboardEventHandler } from "react";
 import { useFormContext } from "react-hook-form";
 import { useError } from "../../../hooks";
-import "./cstmInput.css";
 
 interface CstmInputProps {
+  regName?: string;
   type?: "text" | "number";
   placeholder?: string;
-  regName?: string;
+  value?: string | number;
   className?: string;
   error?: string;
   defaultValue?: string | number;
   onChange?: ChangeEventHandler<HTMLInputElement>;
+  onKeyDown?: KeyboardEventHandler<HTMLInputElement>;
 }
 
 export const CstmInput: React.FC<CstmInputProps> = ({
@@ -18,18 +19,20 @@ export const CstmInput: React.FC<CstmInputProps> = ({
   placeholder = "",
   className = "",
   defaultValue,
+  value,
   regName,
   error,
   onChange,
+  onKeyDown,
 }) => {
   const formMethods = useFormContext();
   const errorMessage = useError(error, regName, formMethods);
-  const RealName = regName ? formMethods?.register(regName) : null;
+  const register = regName ? formMethods?.register(regName) : null;
   return (
     <div className="flex flex-col relative w-full">
       <input
-        {...RealName}
-        {...{ type, placeholder, defaultValue, onChange }}
+        {...register}
+        {...{ type, placeholder, defaultValue, value, onKeyDown, onChange }}
         className={"lessonInp " + className}
       />
       <p className="errorMessage">{errorMessage}</p>

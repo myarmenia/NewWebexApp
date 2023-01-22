@@ -1,31 +1,20 @@
 import React from "react";
 import closeImg from "../../../../../../assets/teacher_images/newLesson/X.svg";
-import { UseFieldArrayReturn } from "react-hook-form";
-import { TeacherSubmitForm } from "../../../../../../validations/newLesson_schema";
 
 interface KnwItemProps {
   knowledge: string;
-  reqKnowledges: UseFieldArrayReturn<
-    TeacherSubmitForm,
-    "requiredKnowledges",
-    "id"
-  >;
-  i: number;
+  onClick: () => void;
 }
 
-export const KnwItem: React.FC<KnwItemProps> = ({
-  knowledge,
-  reqKnowledges,
-  i,
-}) => {
+export const KnwItem: React.FC<KnwItemProps> = ({ knowledge, onClick }) => {
   return (
-    <div className="knowledge">
-      <span className="knowledgeText">{knowledge}</span>
+    <div className="flex justify-between items-center gap-[10px] bg-[#7764FB] text-xs text-white opacity-80 pl-3 pr-[10px] py-[5px] rounded-[30px] min-h-[22px]">
+      <span className="leading-3">{knowledge}</span>
       <img
-        className="h-2"
+        className="h-2 cursor-pointer"
         src={closeImg}
         alt=""
-        onClick={() => reqKnowledges.remove(i)}
+        onClick={onClick}
       />
     </div>
   );

@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import "./knowledges.css";
+import React, { ChangeEvent, useState } from "react";
 import { UseFieldArrayReturn, useFormContext } from "react-hook-form";
+import { CstmInput } from "../../../../../../components/forms";
 import { TeacherSubmitForm } from "../../../../../../validations/newLesson_schema";
 import { KnwItem } from "./KnwItem";
 
@@ -14,7 +14,7 @@ interface KnowledgesProps {
 
 export const Knowledges: React.FC<KnowledgesProps> = ({ reqKnowledges }) => {
   const [val, setVal] = useState<string>("");
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     setVal(e.target.value);
   };
 
@@ -24,23 +24,24 @@ export const Knowledges: React.FC<KnowledgesProps> = ({ reqKnowledges }) => {
   } = useFormContext();
 
   const keyDownHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
+    if (e.key === "Enter" && val) {
       reqKnowledges.append({ knowledge: val });
       setVal("");
+      e.preventDefault();
+    }
+    if (e.key === "Enter" && !val) {
+      e.preventDefault();
     }
   };
 
   return (
-    <div className="knowledges">
-      <div className="knowledgeInputSection">
-        <input
-          className="lessonInp"
-          type="text"
-          placeholder="Ավելացնել պահանջվող նախնական գիտելիքները"
+    <div className="flex flex-col gap-5">
+      <div className="flex flex-col relative">
+        <CstmInput
           value={val}
-          onChange={onChange}
           onKeyDown={keyDownHandler}
+          {...{ onChange }}
+          placeholder="Ավելացնել պահանջվող նախնական գիտելիքները"
         />
         {/* for error */}
         {/* <p className="errorMessage">
@@ -50,7 +51,13 @@ export const Knowledges: React.FC<KnowledgesProps> = ({ reqKnowledges }) => {
       {!!watch("requiredKnowledges").length && (
         <div className="flex gap-2 flex-wrap">
           {reqKnowledges.fields.map(({ knowledge, id }, i) => {
-            return <KnwItem {...{ knowledge, reqKnowledges, i }} key={id} />;
+            return (
+              <KnwItem
+                {...{ knowledge }}
+                onClick={() => reqKnowledges.remove(i)}
+                key={id}
+              />
+            );
           })}
         </div>
       )}

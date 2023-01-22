@@ -13,7 +13,7 @@ export const Items: React.FC<ItemsProps> = ({ setState, options }) => {
       <div className="overflow-hidden rounded-2xl">
         <div className="dropItemsCont">
           {options.map((option, id) => (
-            <Item {...{ option, setState }} key={id} />
+            <Item {...{ option }} key={id} />
           ))}
         </div>
       </div>

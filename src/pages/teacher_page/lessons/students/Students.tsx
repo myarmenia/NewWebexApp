@@ -80,7 +80,7 @@ export const Students: FC = () => {
               ),
             },
           ]}
-          tbodyItems={tbodyData(2)}
+          data={tbodyData(2)}
           className="custom_table"
         />
       </div>
@@ -125,7 +125,7 @@ export const Students: FC = () => {
                 render: ({ lessons }: any) => <TdFeedBack {...{ lessons }} />,
               },
             ]}
-            tbodyItems={tbodyData(8)}
+            data={tbodyData(8)}
             className="custom_table"
           />
         </div>

@@ -1,11 +1,9 @@
-import React from "react";
+import { FC } from "react";
 import { useFormContext } from "react-hook-form";
 import { CustomNmbInp } from "../../../../../../components/forms";
 import "./ageDiv.css";
 
-interface AgeDivProps {}
-
-export const AgeDiv: React.FC<AgeDivProps> = ({}) => {
+export const AgeDiv: FC = () => {
   const { register } = useFormContext();
   return (
     <div className="ageDiv">
