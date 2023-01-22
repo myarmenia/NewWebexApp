@@ -104,6 +104,13 @@ textarea {
 }
 /* ================================================================ */
 
+/* ---------- error message for forms ---------- */
+.errorMessage {
+  @apply text-[red] text-xs leading-3 whitespace-nowrap w-full left-[53%] -bottom-3 absolute;
+  transform: translate(-50%, 0);
+}
+/* ================================================================ */
+
 /* ---------- custom table styles ------------ */
 div.custom_table {
   @apply drop-shadow-normal w-full pr-2 overflow-y-auto;

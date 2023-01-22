@@ -1,14 +1,13 @@
-import { FC } from "react";
 import { TableProps } from "./Table";
 
-interface TbodyProps extends TableProps<any> {}
+interface TbodyProps<T> extends TableProps<T> {}
 
-export const Tbody: FC<TbodyProps> = ({ rows, tbodyItems }) => {
+export const Tbody = <T extends any>({ rows, data }: TbodyProps<T>) => {
   return (
     <tbody>
-      {tbodyItems?.map((el, index) => (
+      {data?.map((el, index) => (
         <tr key={index}>
-          {rows.map(({ render, tdClassName }, i) => (
+          {rows.map(({ render, tdClassName = "" }, i) => (
             <td className={tdClassName} key={i}>
               {render(el)}
             </td>

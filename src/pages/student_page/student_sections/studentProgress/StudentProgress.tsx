@@ -62,7 +62,7 @@ export const StudentProgress: FC = () => {
             tdClassName: "!text-center",
           },
         ]}
-        tbodyItems={generateArray(9)}
+        data={generateArray(9)}
         className="custom_table"
       />
     </div>

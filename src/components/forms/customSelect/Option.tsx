@@ -1,4 +1,5 @@
 import { FC } from "react";
+import styles from "./customSelect.module.css";
 import { useFormContext } from "react-hook-form";
 import trashbinImg from "../../../assets/teacher_images/exam/delete.svg";
 import { useSelectContext } from "./CustomSelect";
@@ -13,9 +14,9 @@ export const Option: FC<OptionProps> = ({ option, optionId }) => {
   const { toggleOptions, regName, removeOption, setValue, isMutable } =
     useSelectContext();
   return (
-    <div className="custopSelect_option">
+    <div className={styles.optionBox}>
       <div
-        className="custopSelect_option_text"
+        className={styles.option}
         onClick={() => {
           setValue?.(option);
           regName &&

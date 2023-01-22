@@ -24,9 +24,7 @@ export const FinishExam: React.FC<FinishExamProps> = ({ text, regName }) => {
           <input type="radio" {...register(regName)} value={"Ոչ"} />
           <span>Ոչ</span>
         </div>
-        <p className="errorMessage">
-          <>{errors[regName]?.message}</>
-        </p>
+        <p className="errorMessage">{errors[regName]?.message?.toString()}</p>
       </div>
     </div>
   );

@@ -18,7 +18,7 @@ export const DifferentCourses: React.FC<DifferentCoursesProps> = ({
     <div className="differentCourses">
       {fields.map((field, index) => {
         const myError =
-          errors?.stages && errors?.stages[index!]?.stageDescription?.message;
+          errors?.stages && errors?.stages[index!]?.count?.message;
 
         return (
           <div className="flex flex-col gap-1" key={field.id}>

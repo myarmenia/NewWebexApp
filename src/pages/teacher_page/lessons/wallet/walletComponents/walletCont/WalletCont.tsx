@@ -127,7 +127,7 @@ export const WalletCont: FC<WalletContProps> = ({ balance }) => {
                       tdClassName: "!py-5 !px-5 text-center",
                     },
                   ]}
-                  tbodyItems={generateArray(3)}
+                  data={generateArray(3)}
                   className="custom_table"
                 />
               ) : (

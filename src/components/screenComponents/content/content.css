@@ -8,14 +8,10 @@
 }
 @media (max-width: 1300px) {
   .contentBody {
-    /* @apply w-[92%]; */
     width: calc(100% - 105px);
   }
 }
 @media (max-width: 1060px) {
-  /* .lessonContainer {
-    @apply flex-wrap;
-  } */
   .contentBody {
     @apply w-full;
   }

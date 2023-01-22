@@ -1,15 +1,17 @@
-import React, { ChangeEventHandler } from "react";
+import React, { ChangeEventHandler, KeyboardEventHandler } from "react";
 import { useFormContext } from "react-hook-form";
 import { useError } from "../../../hooks";
-import "./cstmTextarea.css";
+import styles from "./cstmTextarea.module.css";
 
 interface CstmTextareaProps {
   regName?: string;
-  error?: string;
   placeholder?: string;
+  value?: string | number;
   className?: string;
-  defaultValue?: string;
+  error?: string;
+  defaultValue?: string | number;
   onChange?: ChangeEventHandler<HTMLTextAreaElement>;
+  onKeyDown?: KeyboardEventHandler<HTMLTextAreaElement>;
 }
 
 export const CstmTextarea: React.FC<CstmTextareaProps> = ({
@@ -19,17 +21,20 @@ export const CstmTextarea: React.FC<CstmTextareaProps> = ({
   defaultValue,
   error,
   onChange,
+  onKeyDown,
+  value,
 }) => {
   const formMethods = useFormContext();
   const errorMessage = useError(error, regName, formMethods);
+  const register = regName ? formMethods?.register(regName) : null;
 
   return (
     <div className="flex flex-col relative w-full">
       <textarea
         wrap="off"
-        className={`${className} scrollbar_hidden lessonTextarea lessonInp`}
-        {...formMethods?.register(regName!)}
-        {...{ defaultValue, onChange, placeholder }}
+        className={`${className} scrollbar_hidden ${styles.textarea} lessonInp`}
+        {...register}
+        {...{ defaultValue, onChange, placeholder, value, onKeyDown }}
       />
       <p className="errorMessage">{errorMessage}</p>
     </div>

@@ -6,13 +6,13 @@ import { Items } from "./Items";
 
 interface CustomDropdownProps {
   dropDownTitle: string;
-  options?: IHeaderDropDownOption[];
+  options: IHeaderDropDownOption[];
   className?: string;
 }
 
 export const CustomDropdown: React.FC<CustomDropdownProps> = ({
   dropDownTitle,
-  options = [{ title: "something" }],
+  options,
   className = "",
 }) => {
   const [state, setState] = useState<boolean>(false);
@@ -29,3 +29,9 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
     </div>
   );
 };
+
+// export interface IHeaderDropDownOption {
+//   title?: string;
+//   path?: string;
+//   onClick?: () => void;
+// }

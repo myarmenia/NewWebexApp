@@ -19,7 +19,7 @@ export const LessonTitle: React.FC<LessonTitleProps> = ({
   title,
   editIsActive,
   className = "",
-  classNameParent,
+  classNameParent = "",
   linkForBtn,
 }) => {
   return (

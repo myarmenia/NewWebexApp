@@ -15,7 +15,8 @@
     "isolatedModules": true,
     "noEmit": false,
     "jsx": "react-jsx",
-    "rootDir": ""
+    "rootDir": "",
+    "plugins": [{ "name": "typescript-plugin-css-modules" }]
   },
   "include": ["src", "src/components", "src/custom.d.ts"],
   "exclude": ["node_modules"]

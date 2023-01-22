@@ -4,27 +4,24 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-.customNmbInp {
+.container {
   @apply relative w-fit;
 }
-.CustomNmbInput {
+.input_box {
   @apply w-[85px] flex justify-center;
 }
-.CustomNmbInput > input {
-  @apply w-5 h-full bg-white text-center appearance-none m-0;
+.input_box > input {
+  @apply w-5 h-full bg-white text-center appearance-none m-0 leading-[16.5px] text-[#9C9C9C] text-xs;
 }
-.arrowLeft,
-.arrowRight {
+.left_arrow,
+.right_arrow {
   @apply absolute hover:opacity-75 top-[52%] cursor-pointer;
   transform: translate(0, -50%);
 }
-.arrowLeft {
+.left_arrow {
   @apply left-[12px];
 }
-.arrowRight {
+.right_arrow {
   @apply left-auto right-[12px];
   transform: translate(0, -50%) rotate(180deg);
-}
-.inpNumber {
-  @apply leading-[16.5px] text-[#9C9C9C] text-xs;
 }
