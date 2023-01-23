@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 import { LessonTitle } from "../../../../../components/reusable";
-import "./editGraffic.css";
+import styles from "./editGraffic.module.css";
 import GrafficChild from "./GrafficChild";
 const arr: { [key: string]: { start: string; end: string }[] } = {
   monday: [
@@ -90,8 +90,8 @@ export const EditGraffic: FC = () => {
   return (
     <>
       <LessonTitle title="Դասավանդման գրաֆիկ" editIsActive={true} />
-      <div className="editGraffic">
-        <div className="editGrafficChild">
+      <div className={styles.editGraffic}>
+        <div className={styles.editGrafficChild}>
           <GrafficChild weekDay="Երկուշաբթի" times={monday} />
           <GrafficChild weekDay="Երեքշաբթի" times={tuesday} />
           <GrafficChild weekDay="Չորեքշաբթի" times={wednesday} />

@@ -1,7 +1,9 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FC } from "react";
 import { FormProvider, useFieldArray, useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 import * as Yup from "yup";
+import { CustomBtn } from "../../../../components/forms";
 import { LessonTitle } from "../../../../components/reusable/lessonTitle/LessonTitle";
 import styles from "./createGraffic.module.css";
 import { InputTime } from "./InputTime";
@@ -90,9 +92,9 @@ export const CreateGraffic: FC = () => {
   return (
     <FormProvider {...methods}>
       <LessonTitle title="Կազմել դասավանդման գրաֆիկ" />
-      <div className="createGraffic" >
+      <div className={styles.createGraffic}>
         <form
-          className="grafficChild"
+          className={styles.grafficChild}
           onSubmit={handleSubmit(onSubmit)}
           action=""
         >
@@ -138,15 +140,9 @@ export const CreateGraffic: FC = () => {
             fieldArray={sunday}
             count={watch("sunday")?.length || 1}
           /> */}
-          {/* <Link to={"edit_graffic"}> */}
-          {/* <button type="submit" className="save">
-            Պահպանել
-          </button> */}
-          {/* <CustomBtn title="Պահպանել" type="submit" /> */}
-          <button className="px-5 py-3 bg-[red] text-white w-fit">
-            Պահպանել
-          </button>
-          {/* </Link> */}
+          <Link to={"edit_graffic"}>
+            <CustomBtn title="Պահպանել" type="submit" />
+          </Link>
         </form>
       </div>
     </FormProvider>

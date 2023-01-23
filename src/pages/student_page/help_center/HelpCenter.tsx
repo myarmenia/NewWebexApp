@@ -4,7 +4,7 @@ import { FormProvider, useForm } from "react-hook-form";
 import { CstmInput, CstmTextarea, CustomBtn } from "../../../components/forms";
 import { LessonTitle } from "../../../components/reusable";
 import { helpCenter_schema } from "../../../validations/helpCenter_schema";
-import "./helpCenter.css";
+import styles from "./helpCenter.module.css";
 
 interface IHelpCenter {
   term: string;
@@ -22,7 +22,7 @@ const HelpCenter: React.FC = () => {
     <div>
       <LessonTitle title="Աջակցության կենտրոն" />
       <FormProvider {...methods}>
-        <form onSubmit={handleSubmit(onSubmit)} className="helpCenter">
+        <form onSubmit={handleSubmit(onSubmit)} className={styles.helpCenter}>
           <CstmInput placeholder="Թեմա" regName="term" />
           <CstmTextarea placeholder="Նամակ" regName="message" />
           <CustomBtn title="Ուղարկել" type="submit" />

@@ -45,7 +45,7 @@
 
 /* ================================= */
 .discount_cont {
-  @apply flex flex-col gap-[120px];
+  @apply flex flex-col gap-[30px];
 }
 .discount_tableCont {
   @apply flex flex-col gap-[59px] text-gray;

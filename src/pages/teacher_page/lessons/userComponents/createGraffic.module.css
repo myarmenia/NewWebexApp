@@ -27,7 +27,7 @@
   row-gap: 20px;
 }
 .grafficInputChild {
-  @apply h-[80px] flex items-center;
+  @apply h-[80px] flex;
   column-gap: 15px;
 }
 .gic {
