@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./discount.css";
+import styles from "./discount.module.css";
 import discount from "../../../../assets/teacher_images/discount/discount.svg";
 import promo from "../../../../assets/teacher_images/discount/promo.svg";
 import { ModalDiscount } from "./modal/ModalDiscount";
@@ -14,26 +14,26 @@ export const DiscountCard: React.FC<DiscountCardProps> = ({ isActive }) => {
   return (
     <>
       {modalActive && <ModalDiscount modalActive={modalActiveClick} />}
-      <div className="discountCard">
-        <div className="discountCardChild">
+      <div className={styles.discountCard}>
+        <div className={styles.discountCardChild}>
           <img src={isActive ? discount : promo} />
         </div>
-        <div className="discountCardChild2">
-          <div className="discountHeader">
+        <div className={styles.discountCardChild2}>
+          <div className={styles.discountHeader}>
             {isActive ? "Ակտիվացնել Զեղչ" : "Դարձնել Պրոմո"}
           </div>
-          <div className="text">
+          <div className={styles.text}>
             {isActive
               ? "Դուք կարող եք միացնել զեղչ մի կամ մի քանի դասընթացների համար։"
               : "Դուք կարող եք տեսանյութերը դարձնել պրոմո, ինչը հնարավորություն կտա ուսանողներին ծանոթանալու դասընթացին:"}
           </div>
-          <div className="text">
+          <div className={styles.text}>
             {isActive
               ? "Ներգրավեք ավելի շատ ուսանողներ։"
               : "Գուցե ուսանողները ցակնական սովորել հենց ձեզ մոտ։"}
           </div>
           <button
-            className="discountButton"
+            className={styles.discountButton}
             type="button"
             onClick={modalActiveClick}
           >

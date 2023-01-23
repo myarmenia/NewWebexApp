@@ -1,6 +1,6 @@
 .registration {
   @apply w-auto flex justify-center mt-20;
-  background: url("../../images/vivid-blurred-colorful-background.png");
+  /* background: url("../../images/vivid-blurred-colorful-background.png"); */
   height: calc(100vh - 80px);
 }
 .registrationChild {
@@ -74,7 +74,6 @@ input[type="checkbox"]:checked:after {
 }
 input[type="radio"] {
   background-color: #fff;
-
   border: 0.15em solid #cccccc;
   border-radius: 50%;
 }

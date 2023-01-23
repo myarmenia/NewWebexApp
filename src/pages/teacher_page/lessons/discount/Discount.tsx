@@ -1,20 +1,24 @@
 import { FC } from "react";
-import "./discount.css";
+import styles from "./discount.module.css";
 import { CustomBtn } from "../../../../components/forms";
 import { LessonTitle, Table } from "../../../../components/reusable";
 import { DiscountCard } from "./DiscountCard";
 
 export const Discount: FC = () => {
   return (
-    <div className="discount_mainCont">
+    <div
+    //  className="discount_mainCont"
+    >
       <LessonTitle title="Զեղչ և պրոմո" />
-      <div className="discount_cont">
-        <div className="discount">
+      <div className={styles.discount_cont}>
+        <div className={styles.discount}>
           <DiscountCard isActive={true} />
           <DiscountCard isActive={false} />
         </div>
-        <div className="discount_tableCont">
-          <div className="activeDiscount">
+        <div className={styles.discount_tableCont}>
+          <div
+          // className="activeDiscount"
+          >
             <p className="font-semibold text-sm mb-3">Ակտիվ զեղչեր </p>
             <Table
               rows={[
@@ -52,7 +56,7 @@ export const Discount: FC = () => {
               data={[{}, {}]}
             />
           </div>
-          <div className="discount_promos">
+          <div className={styles.discount_promos}>
             <p className="font-semibold text-sm mb-3">Պրոմոներ </p>
             <Table
               rows={[
