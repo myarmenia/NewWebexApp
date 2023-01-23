@@ -1,0 +1,26 @@
+<body>
+    <h2>{{user.name}}</h2>
+    <h3>Student</h3>
+    <h2>Email: {{user.email}}</h2>
+    {{#if user.url}}
+    <img src="images/user_photo/{{user.url}}" alt="" width="150px" height="150px">
+    {{else}}
+    <img src="https://th.bing.com/th/id/OIP.4cXCxY8706jhQfPwR1gK7wHaHa?pid=ImgDet&rs=1" alt="" width="150px"
+        height="150px">
+    {{/if}}
+    <form action="/addTeacherInfo" method="post" enctype="multipart/form-data">
+        <div>
+            <input type="file" name="photo">
+        </div><br>
+        <div>
+            Anjnakan tvyalner
+            <input type="text" name="address" placeholder="Address">
+            <input type="text" name="phone" placeholder="Phone">
+        </div><br>
+        <div>
+            Lezuner
+            <input type="text" name="lenguage" placeholder="Lenguage">
+        </div><br>
+        <button>Save</button>
+    </form>
+</body>
