@@ -24,7 +24,12 @@ export const LesWorkBox: FC<LesWorkBoxProps> = ({
 }) => {
   return (
     <LesContainer className="lessonWork">
-      <p className={"lessonWork_title " + className?.title}>
+      <p
+        className={
+          "font-semibold text-sm first-letter:capitalize inline " +
+          className?.title
+        }
+      >
         <span className="font-normal mr-2 float-left">
           {lesNumber && `Դաս ${lesNumber}:`}
         </span>

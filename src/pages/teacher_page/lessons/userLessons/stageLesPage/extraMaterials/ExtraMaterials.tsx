@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import "./extraMaterial.css";
+import styles from "./extraMaterial.module.css";
 import fileImg from "../../../../../../assets/teacher_images/userLessons/Group 1701.svg";
 
 interface ExtraMaterialsProps {
@@ -8,11 +8,11 @@ interface ExtraMaterialsProps {
 
 export const ExtraMaterials: FC<ExtraMaterialsProps> = ({ items }) => {
   return (
-    <div className="extraMaterials">
+    <div className={styles.extraMaterials}>
       <p className="text-xs font-semibold">Հավելյալ նյութերը</p>
-      <div className="extMatItems">
+      <div className={styles.extMatItems}>
         {items.map((item, i) => (
-          <div className="extraMat" key={Math.random()}>
+          <div className={styles.extraMat} key={Math.random()}>
             <img src={fileImg} alt="" />
             <span>
               {i + 1}.{item}

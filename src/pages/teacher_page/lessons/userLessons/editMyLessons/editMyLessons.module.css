@@ -1,14 +1,14 @@
-.editMyLessons {
+.mycontainer {
   @apply bg-[#F8EFFF] w-[63%] text-gray mb-3;
   box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.1);
 }
-.editMyLessons_container {
+.content {
   @apply !w-[90%] !pb-[40px] !gap-[15px];
 }
-.editMyLessons_titleBox {
+.heading {
   @apply flex justify-between items-center border-b border-[#BEBFE4] pb-5;
 }
-.editMyLessons_title {
+.title {
   @apply text-base;
 }
 .saveChanges {
@@ -20,7 +20,7 @@
 .inputContainer {
   @apply flex flex-col gap-[53px] min-w-[54%] w-fit;
 }
-.editP_input {
+.input {
   @apply min-w-[54%];
 }
 .extraMat {

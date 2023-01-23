@@ -1,4 +1,4 @@
-.userLessonsSection_unpublished,
-.userLessonsSection_active {
+.container_unpublished,
+.container_active {
   @apply grid gap-[11px] mb-[10px] grid-cols-[repeat(auto-fill,_minmax(260px,_1fr))];
 }

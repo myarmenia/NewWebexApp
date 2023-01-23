@@ -1,11 +1,11 @@
 import React, { FC, useEffect, useState } from "react";
 import { UseFieldArrayReturn } from "react-hook-form";
-import deleteMaterial from "../../../../../../assets/teacher_images/exam/Group 1555.svg";
-import fileImg from "../../../../../../assets/teacher_images/userLessons/Group 1701.svg";
+import deleteMaterial from "../../../../../assets/teacher_images/exam/Group 1555.svg";
+import fileImg from "../../../../../assets/teacher_images/userLessons/Group 1701.svg";
 import {
   IEditSchema,
   IExtraMats,
-} from "../../../../../../validations/editLesson_schema";
+} from "../../../../../validations/editLesson_schema";
 
 interface ExtraMatsProps {
   extraMats?: UseFieldArrayReturn<IEditSchema, "extraMaterials", "id">;
@@ -30,15 +30,15 @@ export const ExtraMats: FC<ExtraMatsProps> = ({ extraMats, homeExtraMats }) => {
     realExtrMats?.append(file!);
   }, [file]);
   return (
-    <div className="extraMaterials">
+    <div className="flex flex-col gap-[10px]">
       <p className="text-xs font-semibold">Հավելյալ նյութերը</p>
-      <div className="extMatItems">
+      <div className="flex flex-col gap-1 ml-1">
         {realExtrMats!.fields.map((field, i) => (
           <div
             className="flex gap-3 min-w-[90px] w-fit justify-between items-start"
             key={field.id}
           >
-            <div className="extraMat">
+            <div className="flex gap-[5px] text-xs">
               <img src={fileImg} alt="" />
               <span>
                 {i + 1}.{field.type}
