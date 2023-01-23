@@ -1,5 +1,5 @@
 import React from "react";
-import "./stageBody.css";
+import styles from "./stageBody.module.css";
 import { BoxTitle } from "../BoxTitle";
 import { SaveDataDiv } from "../SaveDataDiv";
 import { CstmInput } from "../../../../../../components/forms";
@@ -9,11 +9,12 @@ import { CstmTextarea } from "../../../../../../components/forms";
 
 export const StageBody: React.FC = () => {
   return (
-    <div className="lessonContainer firstLesson_Container">
-      <div className="lessonContainer1">
+    // <div className={lessonContainer, styles.firstLesson_Container}>
+    <div className={styles.mycontainer}>
+      <div className={styles.box}>
         <BoxTitle title="Դաս 1" />
-        <div className="firstLessonCntBody_box">
-          <div className="LessonCntBody_boxContent">
+        <div className={styles.box_content}>
+          <div className={styles.article}>
             <CstmInput
               placeholder="Դասի վերնագիրը*"
               regName="lessonTitle"
@@ -37,11 +38,11 @@ export const StageBody: React.FC = () => {
           <SaveDataDiv />
         </div>
       </div>
-      <div className="firstLesson-hrMain !m-0" />
-      <div className="lessonContainer1">
+      <div className={styles.hr} />
+      <div className={styles.box}>
         <BoxTitle title="Տնային հանձնարարություն" />
-        <div className="firstLessonCntBody_box">
-          <div className="LessonCntBody_boxContent">
+        <div className={styles.box_content}>
+          <div className={styles.article}>
             <CstmInput
               placeholder="Տեսանյութ (կցել youtube-ի հղումը)"
               regName="videoInpHomework"

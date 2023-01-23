@@ -19,7 +19,7 @@ export const Table = <T extends any>({
   className = "",
 }: TableProps<T>) => {
   return (
-    <div className={"overflow-x-auto " + className}>
+    <div className={"custom_table overflow-x-auto " + className}>
       <table>
         <Thead {...{ rows }} />
         <Tbody {...{ rows, data }} />

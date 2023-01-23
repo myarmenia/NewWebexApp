@@ -1,7 +1,0 @@
-.addLesson {
-  @apply absolute top-1/4 left-1/2 flex flex-col items-center gap-[19px];
-  transform: translate(-50%, -50%);
-}
-.message {
-  @apply text-gray font-semibold text-sm text-center;
-}

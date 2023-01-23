@@ -42,7 +42,7 @@ export const ExamBody: React.FC = () => {
             <CntTitle title="Քննություն" />
             <ExamCnt {...{ questions }} />
           </div>
-          <div className="buttonsContainerBetween">
+          <div className="flex justify-between items-center gap-4">
             <CustomBtn title="Նախորդ էջ" type="button" />
             <div className="flex gap-7 items-center">
               <span className="textPurple textUnderline">Բաց թողնել</span>

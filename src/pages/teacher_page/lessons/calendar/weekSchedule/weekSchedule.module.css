@@ -1,0 +1,37 @@
+@tailwind components;
+.mainContainer {
+  @apply w-full mb-3;
+}
+@layer components {
+  .mycontainer {
+    @apply shadow-light bg-[#F8EFFF] overflow-x-auto rounded-[15px];
+  }
+  .table {
+    @apply shadow-light w-full rounded-[15px];
+  }
+}
+.th,
+.td {
+  @apply py-[9px] px-6 border border-[#BEBFE4] text-gray relative
+  last:border-r-0
+  first:border-l-0 first:text-center;
+}
+.th {
+  @apply border-b-[3px] border-t-0 font-semibold;
+}
+.event {
+  @apply opacity-80 h-[77px] px-2 py-1 w-[95%] bg-[#BEBFE4] rounded-[5px] absolute top-[5px] left-1/2;
+  transform: translate(-50%, 0);
+}
+.event > p {
+  @apply text-gray font-bold text-[9px];
+}
+tbody > tr:last-child > td {
+  @apply border-b-0;
+}
+@media (max-width: 1140px) {
+  .td,
+  .th {
+    @apply px-2;
+  }
+}

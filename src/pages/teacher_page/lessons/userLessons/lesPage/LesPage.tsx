@@ -1,5 +1,5 @@
 import { FC } from "react";
-import "./lesPage.css";
+import styles from "./lesPage.module.css";
 import {
   LoaderFunction,
   LoaderFunctionArgs,
@@ -11,12 +11,12 @@ import {
   LessonProps,
 } from "../../../../../models/interfaces";
 import { instance } from "../../../../../request";
-import { LesContainer } from "../userLesComponents/lesContainer/LesContainer";
+import { LesContainer } from "../userLesComponents/LesContainer";
 import { LesPTitle } from "../userLesComponents/lesPTitle/LesPTitle";
-import { LesCases } from "./lesCases/LesCases";
-import { LesComments } from "./lesComments/LesComments";
-import { LesImageBox } from "./lesImageBox/LesImageBox";
-import { LesStages } from "./lesStages/LesStages";
+import { LesCases } from "./blocks/LesCases";
+import { LesComments } from "./blocks/LesComments";
+import { LesImageBox } from "./blocks/lesImageBox/LesImageBox";
+import { LesStages } from "./blocks/LesStages";
 
 export interface LesPageProps extends LessonProps {
   stageCount: number;
@@ -46,8 +46,8 @@ export const LesPage: FC<LesPageProps> = ({
   return (
     <>
       <LessonTitle title="Իմ դասընթացները" className="w-full justify-between" />
-      <div className="lesPage">
-        <div className="lesPage_container">
+      <div className={styles.mycontainer}>
+        <div className={styles.content}>
           <LesContainer>
             <LesPTitle {...{ title }} />
           </LesContainer>

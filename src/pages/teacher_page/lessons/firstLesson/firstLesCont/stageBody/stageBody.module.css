@@ -1,0 +1,35 @@
+.hr {
+  @apply bg-[#BEBFE4] mt-5 h-[400px] w-[1px];
+}
+.mycontainer {
+  @apply flex justify-between;
+}
+.box {
+  @apply w-[40%];
+}
+.box_content {
+  @apply flex flex-col gap-5 w-full justify-between;
+  height: calc(100% - 36px);
+}
+.article {
+  @apply flex flex-col gap-5 justify-between w-full mb-[10px];
+}
+@media (max-width: 1300px) {
+  .box {
+    @apply w-[45%];
+  }
+}
+@media (max-width: 700px) {
+  .hr {
+    @apply h-[1px] w-full;
+  }
+  .mycontainer {
+    @apply flex-col gap-5;
+  }
+  .nextBtnCont1 {
+    @apply justify-center;
+  }
+  .box {
+    @apply w-full;
+  }
+}

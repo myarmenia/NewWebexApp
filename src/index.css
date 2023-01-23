@@ -125,9 +125,6 @@ div.custom_table tbody tr {
 div.custom_table tbody tr td {
   @apply box-content h-[41px] border-none text-xs text-gray py-1 px-5 first:rounded-l-[10px] last:rounded-r-[10px];
 }
-.stdudentName {
-  @apply flex items-center gap-[10px];
-}
 div.custom_table thead tr {
   @apply bg-[#ffffffd1] rounded-[10px] text-xs font-semibold h-8;
 }

@@ -54,7 +54,6 @@ export const Discount: FC = () => {
                 },
               ]}
               data={[{}, {}]}
-              className="custom_table"
             />
           </div>
           <div className={styles.discount_promos}>
@@ -93,7 +92,6 @@ export const Discount: FC = () => {
                 },
               ]}
               data={[{}]}
-              className="custom_table"
             />
           </div>
         </div>

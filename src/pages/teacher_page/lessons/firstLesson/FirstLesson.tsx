@@ -1,5 +1,5 @@
 import { FC } from "react";
-import "./firstLesson.css";
+import styles from "./firstLesson.module.css";
 import { LessonTitle } from "../../../../components/reusable";
 import { IPaginationItem } from "../../../../models/interfaces";
 import { FirstLesCont } from "./firstLesCont/FirstLesCont";
@@ -18,7 +18,7 @@ const paginationItems: IPaginationItem[] = Array.from({ length: count }).map(
 
 export const FirstLesson: FC = () => {
   return (
-    <div className="firstLesson">
+    <div className={styles.mycontainer}>
       <LessonTitle title="Նոր դասընթաց" />
       <Pagination currentitems={paginationItems} />
       <FirstLesCont />

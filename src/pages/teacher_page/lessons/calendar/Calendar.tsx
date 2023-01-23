@@ -1,5 +1,5 @@
 import { FC, useEffect } from "react";
-import "./calendar.css";
+import styles from "./calendar.module.css";
 import { LessonTitle } from "../../../../components/reusable";
 import { useAppDispatch, useAppSelector } from "../../../../hooks";
 import {
@@ -21,12 +21,12 @@ export const Calendar: FC = () => {
   }, [myCurrentDate, dispatch]);
 
   return (
-    <div className="calendar">
+    <div>
       <LessonTitle title="Դասավանդման գրաֆիկ" />
-      <div id="calendarBody">
-        <div id="calendarBodyContainer">
+      <div className={styles.mycontainer}>
+        <div className={styles.content}>
           <TdNumCont />
-          <div className="fullHR" />
+          <div className={styles.hr} />
           <DayCont />
         </div>
       </div>

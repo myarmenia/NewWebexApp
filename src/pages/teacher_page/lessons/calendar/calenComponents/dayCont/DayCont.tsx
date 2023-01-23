@@ -1,4 +1,4 @@
-import "./dayCont.css";
+import styles from "./dayCont.module.css";
 import { FC } from "react";
 import filterImg from "../../../../../../assets/teacher_images/calendar/filterImg.svg";
 import { FilterBtn } from "../../../../../../components/reusable";
@@ -9,7 +9,7 @@ import {
   toPrevMonth,
 } from "../../../../../../redux/reducers/calendarList";
 import { CalTbody } from "./CalTbody";
-import { CalThead } from "./calThead/CalThead";
+import { CalThead } from "./CalThead";
 import { ToggleMonth } from "./ToggleMonth";
 
 export const DayCont: FC = ({}) => {
@@ -17,12 +17,12 @@ export const DayCont: FC = ({}) => {
   const dispatch = useAppDispatch();
 
   return (
-    <div id="dayContainer">
-      <div className="caledarHead">
-        <div id="dayContainerHead">
-          <div id="monthBox">
-            <p id="month">{getMonthAndYear(currentDate)}</p>
-            <div id="arrowBox">
+    <div className={styles.mycontainer}>
+      <div className={styles.heading}>
+        <div className={styles.heading_body}>
+          <div className={styles.monthBox}>
+            <p className={styles.month}>{getMonthAndYear(currentDate)}</p>
+            <div className={styles.arrowBox}>
               <ToggleMonth toggleMonth={() => dispatch(toPrevMonth())} />
               <ToggleMonth
                 toggleMonth={() => dispatch(toNextMonth())}
@@ -30,16 +30,16 @@ export const DayCont: FC = ({}) => {
               />
             </div>
           </div>
-          <div id="calendarHeadBox">
-            <FilterBtn className="calendarFilterBtn">
+          <div className={styles.filter_box}>
+            <FilterBtn className={styles.filter_btn}>
               Ֆիլտր
               <img src={filterImg} />
             </FilterBtn>
           </div>
         </div>
       </div>
-      <div id="dayContainerContent">
-        <table id="w-full border-collapse h-[inherit]">
+      <div className={styles.table_container}>
+        <table className="w-full border-collapse h-[inherit]">
           <CalThead />
           <CalTbody />
         </table>

@@ -1,5 +1,5 @@
 import React from "react";
-import "./phases.css";
+import styles from "./phases.module.css";
 import { FieldArrayWithId } from "react-hook-form";
 import { TeacherSubmitForm } from "../../../../../../validations/newLesson_schema";
 import { useFormContext } from "react-hook-form";
@@ -14,9 +14,9 @@ export const Phases: React.FC<PhasesProps> = ({ fields }) => {
     formState: { errors },
   } = useFormContext<TeacherSubmitForm>();
   return (
-    <div className="phases">
-      <p className="phasesTitle">Վերնագրել դասընթացի փուլերը</p>
-      <div className="phasesCont">
+    <div className={styles.mycontainer}>
+      <p className={styles.title}>Վերնագրել դասընթացի փուլերը</p>
+      <div className={styles.content}>
         {fields.map((field, index) => {
           const myError =
             errors?.stages && errors?.stages[index!]?.stageDescription?.message;

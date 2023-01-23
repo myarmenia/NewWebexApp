@@ -1,5 +1,5 @@
 import React from "react";
-import "./differentCourses.css";
+import styles from "./differentCourses.module.css";
 import { FieldArrayWithId, useFormContext } from "react-hook-form";
 import { TeacherSubmitForm } from "../../../../../../validations/newLesson_schema";
 import { CustomNmbInp } from "../../../../../../components/forms";
@@ -15,7 +15,7 @@ export const DifferentCourses: React.FC<DifferentCoursesProps> = ({
     formState: { errors },
   } = useFormContext<TeacherSubmitForm>();
   return (
-    <div className="differentCourses">
+    <div className={styles.mycontainer}>
       {fields.map((field, index) => {
         const myError =
           errors?.stages && errors?.stages[index!]?.count?.message;

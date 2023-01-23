@@ -4,7 +4,7 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-.container {
+.mycontainer {
   @apply relative w-fit;
 }
 .input_box {

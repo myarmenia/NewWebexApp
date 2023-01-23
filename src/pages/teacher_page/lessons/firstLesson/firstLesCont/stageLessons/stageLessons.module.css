@@ -1,0 +1,20 @@
+.mycontainer {
+  @apply grid grid-cols-2 relative;
+  /* @apply flex flex-col flex-wrap relative; */
+  row-gap: 10px;
+  column-gap: 23px;
+  height: 50%
+}
+.hr {
+  @apply bg-[#BEBFE4] rounded-xl w-[1px] absolute left-1/2 top-[29px];
+  height: calc(100% - 79px);
+  transform: translate(-50%, 0);
+}
+@media (max-width: 768px) {
+  .hr {
+    @apply hidden;
+  }
+  .mycontainer {
+    @apply grid-cols-1;
+  }
+}

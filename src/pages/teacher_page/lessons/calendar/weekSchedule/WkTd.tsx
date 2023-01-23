@@ -1,5 +1,6 @@
 import { FC, ReactNode } from "react";
 import { IWeekEvent } from "../../../../../models/interfaces";
+import styles from "./weekSchedule.module.css";
 
 interface WkTdProps {
   event?: IWeekEvent;
@@ -8,10 +9,10 @@ interface WkTdProps {
 
 export const WkTd: FC<WkTdProps> = ({ event, children }) => {
   return (
-    <td className="weekSchTd" key={Math.random()}>
+    <td className={styles.td} key={Math.random()}>
       {event && (
         <div
-          className="wkEventBox"
+          className={styles.event}
           style={{
             height: event?.lessonDuration! * 43 - 10 + "px",
           }}

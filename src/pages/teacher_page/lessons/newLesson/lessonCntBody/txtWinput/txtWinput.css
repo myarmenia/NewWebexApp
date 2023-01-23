@@ -1,9 +1,0 @@
-.txtWinput {
-  @apply flex justify-between items-center w-[279px];
-}
-.txtWinput_text {
-  @apply text-gray text-xs;
-}
-.stageBox {
-  @apply h-fit;
-}

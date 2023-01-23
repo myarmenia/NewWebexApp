@@ -1,5 +1,0 @@
-@media (max-width: 540px) {
-  .userLessons {
-    @apply w-[95%] mx-auto;
-  }
-}

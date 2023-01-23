@@ -1,0 +1,19 @@
+.table {
+  @apply w-full border-collapse;
+}
+.mycontainer {
+  @apply w-[17%] h-full flex flex-col gap-[18px] py-4 px-[5px];
+}
+.content {
+  @apply overflow-x-auto;
+}
+@media (max-width: 860px) {
+  .mycontainer {
+    @apply w-auto border-b border-[#898BCE];
+  }
+}
+@media (max-width: 420px) {
+  .monthBox {
+    @apply w-full;
+  }
+}

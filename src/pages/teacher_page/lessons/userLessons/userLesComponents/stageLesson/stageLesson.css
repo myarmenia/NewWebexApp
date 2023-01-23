@@ -1,9 +1,0 @@
-.stageLesson {
-  @apply flex items-center gap-4;
-}
-.lessonNumber {
-  @apply text-base whitespace-nowrap;
-}
-.stageLessonTitle {
-  @apply cursor-pointer font-semibold text-base text-ellipsis whitespace-nowrap overflow-x-hidden hover:opacity-95;
-}

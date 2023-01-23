@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./pagination.css";
+import styles from  "./pagination.module.css";
 import { IPaginationItem } from "../../../../../models/interfaces";
 import { PagItem } from "./PagItem";
 import { useNavigate } from "react-router";
@@ -27,27 +27,9 @@ export const Pagination: React.FC<PaginationProps> = ({ currentitems }) => {
     }
   };
 
-  // passing to next or previous lesson by pagination
-  // const [count, setCount] = useState<number>(1);
-  // const goNext = (id: number) => {
-  //   setItems(
-  //     items.map((el, ind) => {
-  //       if (id === ind + 1) {
-  //         return { ...el, isActive: true };
-  //       } else if (id > ind) {
-  //         return { ...el, isActive: false, isCompleted: true };
-  //       }
-  //       return { ...el, isActive: false, isCompleted: false };
-  //     })
-  //   );
-  // };
-  // useEffect(() => {
-  //   goNext(count);
-  // }, [count]);
-  // =======================
   return (
     <>
-      <div className="pagination">
+      <div className={styles.mycontainer}>
         {items.map((el, index) => {
           return (
             <PagItem
@@ -59,24 +41,47 @@ export const Pagination: React.FC<PaginationProps> = ({ currentitems }) => {
           );
         })}
       </div>
-      {/* <button
-        className="addLessonBtn"
-        onClick={() => {
-          setCount((prev) =>
-            prev > 0 && prev < currentitems?.length! ? prev + 1 : prev
-          );
-        }}
-      >
-        go to next
-      </button>
-      <button
-        className="addLessonBtn"
-        onClick={() => {
-          setCount((prev) => (prev > 1 ? prev - 1 : prev));
-        }}
-      >
-        go to previous
-      </button> */}
     </>
   );
 };
+
+// passing to next or previous lesson by pagination
+// const [count, setCount] = useState<number>(1);
+// const goNext = (id: number) => {
+//   setItems(
+//     items.map((el, ind) => {
+//       if (id === ind + 1) {
+//         return { ...el, isActive: true };
+//       } else if (id > ind) {
+//         return { ...el, isActive: false, isCompleted: true };
+//       }
+//       return { ...el, isActive: false, isCompleted: false };
+//     })
+//   );
+// };
+// useEffect(() => {
+//   goNext(count);
+// }, [count]);
+
+// JSX
+{
+  /* <button
+className="addLessonBtn"
+onClick={() => {
+  setCount((prev) =>
+    prev > 0 && prev < currentitems?.length! ? prev + 1 : prev
+  );
+}}
+>
+go to next
+</button>
+<button
+className="addLessonBtn"
+onClick={() => {
+  setCount((prev) => (prev > 1 ? prev - 1 : prev));
+}}
+>
+go to previous
+</button> */
+}
+// =======================

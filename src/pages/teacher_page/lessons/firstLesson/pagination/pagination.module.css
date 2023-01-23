@@ -1,0 +1,31 @@
+.mycontainer {
+  @apply w-[99%] flex items-center my-[30px] mx-auto;
+}
+.item {
+  @apply relative;
+}
+.line {
+  @apply bg-[#BEBFE4] h-1 w-full;
+}
+.number {
+  @apply z-[1] cursor-pointer duration-100 flex justify-center items-center w-[13px] h-[13px] bg-[#BEBFE4] text-white text-[8px] font-bold rounded-full absolute top-[50%] left-auto right-0;
+  transform: translate(0, -50%);
+}
+.active {
+  @apply bg-gradientPurple text-xs font-bold w-[22px] h-[22px] -right-[6px];
+}
+.completed {
+  @apply bg-gradientPurple w-[13px] h-[13px];
+}
+.lineActive {
+  @apply bg-gradientPurple h-1 w-full;
+}
+.firstItem {
+  @apply left-0 z-[1];
+}
+
+@media (max-width: 700px) {
+  .mycontainer {
+    @apply hidden;
+  }
+}

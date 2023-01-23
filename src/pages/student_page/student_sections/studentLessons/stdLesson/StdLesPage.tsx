@@ -5,7 +5,7 @@ import { CstmTextarea, CustomBtn } from "../../../../../components/forms";
 import { LessonTitle } from "../../../../../components/reusable";
 import { LessonProps } from "../../../../../models/interfaces";
 import { instance } from "../../../../../request";
-import { LesContainer } from "../../../../teacher_page/lessons/userLessons/userLesComponents/lesContainer/LesContainer";
+import { LesContainer } from "../../../../teacher_page/lessons/userLessons/userLesComponents/LesContainer";
 import { LesPTitle } from "../../../../teacher_page/lessons/userLessons/userLesComponents/lesPTitle/LesPTitle";
 import { LesImageBox } from "./lesImageBox/LesImageBox";
 import { OpinionStars } from "./opinionStars/OpinionStars";
@@ -90,7 +90,9 @@ export const StdLesPage: FC<LesPageProps> = ({
   );
 };
 
-export const stdLessonPageLoader: LoaderFunction = async ({ params }: LoaderFunctionArgs) => {
+export const stdLessonPageLoader: LoaderFunction = async ({
+  params,
+}: LoaderFunctionArgs) => {
   const lessonsObj = await instance.get("/posts?userId=1");
 
   return { lessonsObj: lessonsObj.data };

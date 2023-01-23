@@ -1,5 +1,5 @@
 import { FC } from "react";
-import "./students.css";
+import styles from "./students.module.css";
 import trashbinImg from "../../../../assets/teacher_images/exam/delete.svg";
 import { CustomBtn } from "../../../../components/forms";
 import {
@@ -34,7 +34,7 @@ const tbodyData = (length: number): IStudentTd[] =>
 
 export const Students: FC = () => {
   return (
-    <div className="students">
+    <div className={styles.mycontainer}>
       <div>
         <LessonTitle
           title="Ուսանողների գրանցում"
@@ -81,17 +81,16 @@ export const Students: FC = () => {
             },
           ]}
           data={tbodyData(2)}
-          className="custom_table"
         />
       </div>
       <div>
         <LessonTitle title="Ուսանողներ" classNameParent="!mb-[14px]" />
-        <div className="students_container">
-          <div className="filterSection">
+        <div className={styles.students_container}>
+          <div className={styles.filter_section}>
             <FilterBtn>Ավարտած</FilterBtn>
             <FilterBtn>Սովորող</FilterBtn>
             <CustomDropdown
-              className="filterBox"
+              className={styles.filterBox}
               dropDownTitle="Ըստ դասընթացի"
               options={generateArray(10, { title: "adfdsfsd" })}
             />
@@ -126,7 +125,6 @@ export const Students: FC = () => {
               },
             ]}
             data={tbodyData(8)}
-            className="custom_table"
           />
         </div>
       </div>

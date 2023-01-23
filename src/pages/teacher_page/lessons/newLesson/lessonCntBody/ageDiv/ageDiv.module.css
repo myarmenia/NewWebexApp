@@ -1,0 +1,18 @@
+.mycontainer {
+  @apply flex items-center justify-between w-full;
+}
+.noAgeLimit {
+  @apply flex flex-col gap-[7px];
+}
+.checkbox + span {
+  @apply text-[10px] text-gray;
+}
+.ageLimits {
+  @apply flex gap-2 items-center;
+}
+
+@media (max-width: 650px) {
+  .ageDiv {
+    @apply flex-col items-start gap-2;
+  }
+}

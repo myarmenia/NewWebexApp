@@ -1,0 +1,41 @@
+@tailwind components;
+.mycontainer {
+  @apply flex rounded-[15px] my-[15px] bg-[#F8EFFF];
+  box-shadow: 0px 0px 6px #8080801a;
+}
+@layer components {
+  .content {
+    @apply shadow-light w-full h-full flex rounded-[15px];
+  }
+}
+.hr {
+  @apply bg-[#BEBFE4] w-[2px];
+}
+
+@media (max-width: 860px) {
+  .content {
+    @apply flex-col;
+  }
+  #numericContainer {
+    @apply w-auto;
+  }
+  #dayContainerContent {
+    @apply overflow-x-auto;
+  }
+}
+@media (max-width: 610px) {
+  #calendarHeadBox {
+    @apply h-[inherit];
+  }
+  #monthBox {
+    @apply h-fit m-0 mx-2;
+  }
+}
+@media (max-width: 420px) {
+  #dayContainerHead {
+    @apply flex flex-wrap gap-[15px] items-center justify-center h-20;
+  }
+  #monthBox {
+    @apply w-full;
+  }
+}
