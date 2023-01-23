@@ -1,7 +1,7 @@
 import React, { FC, useState } from "react";
 import "./mesHomeWork.css";
 import { ExtraMaterials } from "../../../../userLessons/stageLesPage/extraMaterials/ExtraMaterials";
-import { LesContainer } from "../../../../userLessons/userLesComponents/lesContainer/LesContainer";
+import { LesContainer } from "../../../../userLessons/userLesComponents/LesContainer";
 import { StudentsWork } from "./StudentsWork";
 import { useLoaderData, useParams } from "react-router";
 import { IOtherLessonLoaderData } from "../../../../../../../models/interfaces";

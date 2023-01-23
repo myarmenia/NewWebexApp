@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { IStudentTd } from "../../../../../../models/interfaces";
 
 export const TdDate: FC<Pick<IStudentTd, "lessons">> = ({ lessons }) => {

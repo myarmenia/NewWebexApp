@@ -1,6 +1,6 @@
 import { FC } from "react";
 import editImg from "../../../../../../assets/teacher_images/userLessons/editGray.svg";
-import "./lesPTitle.css";
+import styles from "./lesPTitle.module.css";
 
 interface LesPTitleProps {
   title: string;
@@ -18,10 +18,10 @@ export const LesPTitle: FC<LesPTitleProps> = ({
   },
 }) => {
   return (
-    <div className={"lesPage_titleBox " + className?.cont}>
-      <h5 className={"lesPage_title " + className?.title}>{title}</h5>
-      <div className="lesPage_editBox">
-        <span className="lesPage_editText">Խմբագրել</span>
+    <div className={styles.box + className?.cont}>
+      <h5 className={styles.title + className?.title}>{title}</h5>
+      <div className={styles.edit_box}>
+        <span className="text-xs text-gray">Խմբագրել</span>
         <img src={editImg} alt="" />
       </div>
     </div>

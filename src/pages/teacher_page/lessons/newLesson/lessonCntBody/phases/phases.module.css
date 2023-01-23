@@ -1,0 +1,15 @@
+.mycontainer {
+  @apply flex flex-col gap-4;
+}
+.content {
+  @apply flex flex-col gap-5 w-[400px] max-h-[290px] overflow-y-auto overflow-x-hidden pb-2 pr-1;
+}
+.title {
+  @apply font-semibold text-sm text-gray;
+}
+
+@media (max-width: 870px) {
+  .content {
+    @apply w-auto min-w-[290px];
+  }
+}

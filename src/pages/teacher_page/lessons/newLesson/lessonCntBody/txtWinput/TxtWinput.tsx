@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import "./txtWinput.css";
+import styles from "./txtWinput.module.css";
 
 interface TxtWinputProps {
   text: string;
@@ -8,8 +8,8 @@ interface TxtWinputProps {
 
 export const TxtWinput: React.FC<TxtWinputProps> = ({ text, children }) => {
   return (
-    <div className="txtWinput">
-      <span className="txtWinput_text">{text}</span>
+    <div className={styles.box}>
+      <span className={styles.title}>{text}</span>
       {children}
     </div>
   );

@@ -87,7 +87,7 @@ export const LessonCntBody: React.FC = () => {
 
   return (
     <FormProvider {...methods}>
-      <div className={styles.container}>
+      <div className={styles.mycontainer}>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className={styles.form_content}>
             <div className={styles.box}>
@@ -131,9 +131,9 @@ export const LessonCntBody: React.FC = () => {
                 <span className="text-gray text-xs">Բեռնել շապիկի նկարը</span>
               </button>
             </div>
-            <div className="hrMain" />
+            <div className={styles.hr} />
             <div className={[styles.box_lg, styles.box].join(" ")}>
-              <div className={styles.stagesContainer}>
+              <div className={styles.stages}>
                 <TxtWinput text="Դասընթացի փուլերի քանակը">
                   <CustomNmbInp
                     defaultValue={3}
@@ -142,7 +142,7 @@ export const LessonCntBody: React.FC = () => {
                   />
                 </TxtWinput>
                 <div
-                  className={`${styles.stageBox1} ${
+                  className={`${styles.stage_box} ${
                     isDifferent
                       ? styles.stageBox_opened
                       : styles.stageBox_closed
@@ -155,7 +155,7 @@ export const LessonCntBody: React.FC = () => {
                     <div className="flex gap-2">
                       <input
                         type="checkbox"
-                        className="customCheckbox"
+                        className={styles.checkbox}
                         onClick={() => setIsDifferent(!isDifferent)}
                         {...register("areStagesDifferent")}
                       />
@@ -182,7 +182,7 @@ export const LessonCntBody: React.FC = () => {
               <Phases {...{ fields }} />
             </div>
           </div>
-          <div className={styles.nextBtnCont}>
+          <div className={styles.btn_box}>
             <CustomBtn title="Առաջ" type="submit" />
           </div>
         </form>

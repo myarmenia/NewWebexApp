@@ -1,5 +1,5 @@
 import { FC } from "react";
-import "./stageLesPage.css";
+import styles from "./stageLesPage.module.css";
 import {
   LoaderFunction,
   LoaderFunctionArgs,
@@ -10,8 +10,8 @@ import editImg from "../../../../../assets/teacher_images/userLessons/editGray.s
 import { LessonTitle } from "../../../../../components/reusable";
 import { ILessonLoaderData } from "../../../../../models/interfaces";
 import { instance } from "../../../../../request";
-import { stagesArr } from "../lesPage/lesStages/LesStages";
-import { LesContainer } from "../userLesComponents/lesContainer/LesContainer";
+import { stagesArr } from "../lesPage/blocks/LesStages";
+import { LesContainer } from "../userLesComponents/LesContainer";
 import { LesStageBox } from "./lesStageBox/LesStageBox";
 import { LesWorkBox, LesWorkBoxProps } from "./lesWorkBox/LesWorkBox";
 
@@ -41,22 +41,24 @@ export const StageLesPage: FC = () => {
   return (
     <>
       <LessonTitle title="Իմ դասընթացները" className="w-full justify-between" />
-      <div className="stageLesPage">
-        <div className="lessonContent">
-          <LesContainer className="lesCont">
+      <div className={styles.stageLesPage}>
+        <div className={styles.lessonContent}>
+          <LesContainer className={styles.lesCont}>
             <Link to="edit">
-              <div className="lesPage_titleBox ">
-                <h5 className="lesPage_title !text-gray !font-normal">
+              <div className={styles.lesPage_titleBox}>
+                <h5 className="font-normal text-base leading-5 text-gray text-start">
                   {title}
                 </h5>
-                <div className="lesPage_editBox">
-                  <span className="lesPage_editText">Խմբագրել</span>
+                <div className="flex items-center gap-2">
+                  <span className="flex items-center gap-[6px] cursor-pointer">
+                    Խմբագրել
+                  </span>
                   <img src={editImg} alt="" />
                 </div>
               </div>
             </Link>
-            <hr className="stageLesPage_hr" />
-            <LesContainer className="lesWorkHomeWork_container ">
+            <hr className={styles.hr} />
+            <LesContainer className={styles.lesWorkHomeWork_container}>
               <LesWorkBox
                 title={body}
                 description={body}
@@ -74,7 +76,7 @@ export const StageLesPage: FC = () => {
             </LesContainer>
           </LesContainer>
         </div>
-        <div className="stagesContainer">
+        <div className={styles.stagesContainer}>
           {stagesArr.map(({ stageLessons }, i) => (
             <LesStageBox
               {...{ stageLessons }}

@@ -10,7 +10,7 @@ import {
   IEditSchema,
   IExtraMats,
 } from "../../../../../validations/editLesson_schema";
-import { LesContainer } from "../userLesComponents/lesContainer/LesContainer";
+import { LesContainer } from "../userLesComponents/LesContainer";
 import "./editMyLessons.css";
 import { ExtraMats } from "./editMyLessons_copns/ExtraMats";
 

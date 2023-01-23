@@ -1,8 +1,11 @@
 import React from "react";
-import "./firstLesCont.css";
+import styles from "./firstLesCont.module.css";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FormProvider, useForm } from "react-hook-form";
-import { firstLesson_schema, IFirstLessonSchema } from "../../../../../validations/firstLesson_schema";
+import {
+  firstLesson_schema,
+  IFirstLessonSchema,
+} from "../../../../../validations/firstLesson_schema";
 import { StageBody } from "./stageBody/StageBody";
 import { StageLessons } from "./stageLessons/StageLessons";
 import { Route, Routes } from "react-router";
@@ -21,8 +24,8 @@ export const FirstLesCont: React.FC = () => {
   return (
     <FormProvider {...methods}>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="lessonCont">
-          <div className="firstLesCont">
+        <div className={styles.mycontainer}>
+          <div className={styles.content}>
             <CntTitle title="ՓՈՒԼ 1" />
             <Routes>
               <Route path="/" element={<StageBody />} />
@@ -31,7 +34,7 @@ export const FirstLesCont: React.FC = () => {
             {/* <StageBody /> */}
             {/* <StageLessons /> */}
           </div>
-          <div className="nextBtnCont1">
+          <div className={styles.btn_box}>
             <CustomBtn title="Հաջորդ դասը" type="submit" />
           </div>
         </div>

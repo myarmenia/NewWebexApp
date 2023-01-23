@@ -1,5 +1,5 @@
 import React from "react";
-import "./pagination.css";
+import styles from "./pagination.module.css";
 import { IPaginationItem } from "../../../../../models/interfaces";
 
 interface PagItemProps {
@@ -17,16 +17,20 @@ export const PagItem: React.FC<PagItemProps> = ({
 }) => {
   const { mainDiv, line, lesson, first } = {
     mainDiv: isFirst ? "w-[13px]" : "w-[100%]",
-    line: el.isActive || el.isCompleted ? "pagLineActive" : "",
-    lesson: el.isActive ? "pagActive" : el.isCompleted ? "pagCompleted" : "",
-    first: isFirst ? "firstItem" : "",
+    line: el.isActive || el.isCompleted ? styles.lineActive : "",
+    lesson: el.isActive
+      ? styles.active
+      : el.isCompleted
+      ? styles.completed
+      : "",
+    first: isFirst ? styles.firstItem : "",
   };
 
   return (
-    <div className={`pagItem ${mainDiv}`}>
-      {!isFirst && <div className={`pagLine ${line}`} />}
+    <div className={`${styles.item} ${mainDiv}`}>
+      {!isFirst && <div className={`${styles.line} ${line}`} />}
       <div
-        className={`pagNumber ${lesson} ${first}`}
+        className={[styles.number, lesson, first].join(" ")}
         onClick={() => itemClickHandler(el.id, item)}
       >
         <span>{item}</span>

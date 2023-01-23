@@ -7,6 +7,7 @@ interface CstmInputProps {
   type?: "text" | "number";
   placeholder?: string;
   value?: string | number;
+  img?: string;
   className?: string;
   error?: string;
   defaultValue?: string | number;
@@ -19,6 +20,7 @@ export const CstmInput: React.FC<CstmInputProps> = ({
   placeholder = "",
   className = "",
   defaultValue,
+  img,
   value,
   regName,
   error,
@@ -30,6 +32,7 @@ export const CstmInput: React.FC<CstmInputProps> = ({
   const register = regName ? formMethods?.register(regName) : null;
   return (
     <div className="flex flex-col relative w-full">
+      {img && <img src={img} alt="" />}
       <input
         {...register}
         {...{ type, placeholder, defaultValue, value, onKeyDown, onChange }}

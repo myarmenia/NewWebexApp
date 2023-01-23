@@ -1,0 +1,14 @@
+.box {
+  @apply flex items-center justify-between;
+}
+.title {
+  @apply text-[#7A64FA] font-bold text-base first-letter:capitalize;
+}
+.edit_box {
+  @apply flex items-center gap-[6px] cursor-pointer;
+}
+@media (max-width: 786px) {
+  .box {
+    @apply w-[95%];
+  }
+}

@@ -1,5 +1,5 @@
 import React from "react";
-import "./finishExam.css";
+import styles from "./finishExam.module.css";
 import { useFormContext } from "react-hook-form";
 
 interface FinishExamProps {
@@ -13,14 +13,14 @@ export const FinishExam: React.FC<FinishExamProps> = ({ text, regName }) => {
     formState: { errors },
   } = useFormContext();
   return (
-    <div className="finishExam">
+    <div className={styles.mycontainer}>
       <span className="text-gray text-xs">{text}</span>
-      <div className="radioCont">
-        <div className="radioBox">
+      <div className={styles.content}>
+        <div className={styles.box}>
           <input type="radio" {...register(regName)} value={"Այո"} />
           <span>Այո</span>
         </div>
-        <div className="radioBox">
+        <div className={styles.box}>
           <input type="radio" {...register(regName)} value={"Ոչ"} />
           <span>Ոչ</span>
         </div>

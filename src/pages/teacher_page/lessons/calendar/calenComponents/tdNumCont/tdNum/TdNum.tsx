@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 import { useAppDispatch } from "../../../../../../../hooks";
 import { IDateDay } from "../../../../../../../models/interfaces";
 import { chooseDay } from "../../../../../../../redux/reducers/calendarList";
-import "./tdNum.css";
+import styles from "./tdNum.module.css";
 
 interface TdNumProps extends IDateDay {}
 
@@ -20,10 +20,12 @@ export const TdNum: FC<TdNumProps> = ({
 
   return (
     <td
-      className={`tdNum ${!isCurrentMonth ? "opacity-40 text-[#9C9C9C]" : ""}`}
+      className={`${styles.tdNum} ${
+        !isCurrentMonth ? "opacity-40 text-[#9C9C9C]" : ""
+      }`}
       onClick={chooseWeekDay}
     >
-      <div className={isActive ? "activeDay" : "tdNumeric"}>
+      <div className={isActive ? styles.activeDay : styles.tdNumeric}>
         <span>{dayNumber}</span>
       </div>
     </td>

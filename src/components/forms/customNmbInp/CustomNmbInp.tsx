@@ -51,7 +51,7 @@ export const CustomNmbInp: React.FC<CustomNmbInpProps> = ({
 
   return (
     <div className="relative">
-      <div className={styles.container}>
+      <div className={styles.mycontainer}>
         <div className={`lessonInp ${styles.input_box}`}>
           <input
             type="number"

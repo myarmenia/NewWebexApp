@@ -1,7 +1,7 @@
-.container {
+.mycontainer {
   @apply w-full;
 }
-.container > form {
+.mycontainer > form {
   @apply flex gap-5 flex-col;
 }
 .form_content {
@@ -10,10 +10,10 @@
 .box {
   @apply flex flex-col gap-5 w-[400px] min-w-[320px];
 }
-.hrMain {
+.hr {
   @apply bg-[#BEBFE4] mt-5 h-[450px] w-[1px];
 }
-.nextBtnCont {
+.btn_box {
   @apply flex gap-4;
 }
 .box_lg {
@@ -22,14 +22,13 @@
 .txtWcheckbox {
   @apply flex flex-col gap-[7px];
 }
-.customCheckbox + span {
+.checkbox + span {
   @apply text-[10px] text-gray;
 }
-
-.stagesContainer {
+.stages {
   @apply flex gap-6 flex-col;
 }
-.stageBox1 {
+.stage_box {
   @apply flex justify-between rounded-[20px] py-4 relative overflow-y-hidden;
 }
 .stageBox_closed {
@@ -37,9 +36,6 @@
 }
 .stageBox_opened {
   @apply w-[497px];
-}
-.buttonsContainerBetween {
-  @apply flex justify-between items-center gap-4;
 }
 
 @media (max-width: 1350px) {
@@ -54,29 +50,35 @@
   .form_content {
     @apply justify-evenly;
   }
-  .nextBtnCont {
+  .btn_box {
     @apply justify-center;
   }
 }
-
-@media (max-width: 650px) {
-  .form_content > .box {
-    @apply w-full;
+@media (max-width: 960px) {
+  .form_content {
+    @apply !gap-7;
   }
 }
 @media (max-width: 870px) {
+  .box_lg {
+    @apply w-[400px];
+  }
+  .stageBox_closed {
+    @apply w-full;
+  }
   .form_content {
     @apply flex-col;
   }
   .form_content > .box {
     @apply min-w-[290px];
   }
-  .hrMain {
+  .hr {
     @apply w-full h-[1px];
   }
 }
-@media (max-width: 960px) {
-  .form_content {
-    @apply !gap-7;
+
+@media (max-width: 650px) {
+  .form_content > .box {
+    @apply w-full;
   }
 }

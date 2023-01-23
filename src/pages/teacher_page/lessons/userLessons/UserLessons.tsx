@@ -1,5 +1,5 @@
 import { FC } from "react";
-import "./userLessons.css";
+import styles from  "./userLessons.module.css";
 import { Outlet } from "react-router";
 import { IExtraMats } from "../../../../validations/editLesson_schema";
 
@@ -20,7 +20,7 @@ export const extItems: IExtraMats[] = [
 
 export const UserLessons: FC = () => {
   return (
-    <div className="userLessons">
+    <div className={styles.mycontainer}>
       <Outlet />
     </div>
   );

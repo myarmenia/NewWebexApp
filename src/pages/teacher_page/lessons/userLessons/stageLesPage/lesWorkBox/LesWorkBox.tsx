@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import "./lesWorkBox.css";
-import { LesContainer } from "../../userLesComponents/lesContainer/LesContainer";
+import { LesContainer } from "../../userLesComponents/LesContainer";
 import { ExtraMaterials } from "../extraMaterials/ExtraMaterials";
 
 export interface LesWorkBoxProps {

@@ -1,6 +1,6 @@
 import React from "react";
 import { LessonBox } from "./lessonBox/LessonBox";
-import "./stageLessons.css";
+import styles from "./stageLessons.module.css";
 
 interface ILessons {
   title: string;
@@ -18,13 +18,13 @@ export const StageLessons: React.FC = () => {
 
   return (
     <div
-      className="stageLessons"
+      className={styles.mycontainer}
       //   style={{ height: 85 * Math.round(lessonsCount / 2) + "px" }}
     >
       {lessonsArr.map((el, index) => {
         return <LessonBox {...el} lessonNumber={index + 1} key={el.id} />;
       })}
-      <hr className="stageLessonsHr" />
+      <hr className={styles.hr} />
     </div>
   );
 };

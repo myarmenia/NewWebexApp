@@ -7,7 +7,7 @@ interface NmTbodyProps {}
 export const NmTbody: FC<NmTbodyProps> = () => {
   const { datesWeek } = useAppSelector((state) => state.calendarList);
   return (
-    <tbody id="tbodyNumber">
+    <tbody className="tbodyNumber">
       {datesWeek.map((weekData) => {
         return <TrNum {...{ weekData }} key={Math.random()} />;
       })}

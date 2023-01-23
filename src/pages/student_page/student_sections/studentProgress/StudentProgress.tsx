@@ -63,7 +63,6 @@ export const StudentProgress: FC = () => {
           },
         ]}
         data={generateArray(9)}
-        className="custom_table"
       />
     </div>
   );

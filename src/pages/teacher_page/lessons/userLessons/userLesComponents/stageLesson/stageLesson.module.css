@@ -1,0 +1,9 @@
+.box {
+  @apply flex items-center gap-4;
+}
+.number {
+  @apply text-base whitespace-nowrap;
+}
+.title {
+  @apply cursor-pointer font-semibold text-base text-ellipsis whitespace-nowrap overflow-x-hidden hover:opacity-95;
+}
