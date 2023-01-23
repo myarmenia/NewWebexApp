@@ -6,7 +6,7 @@ import {
   inputChildProps,
   PersonalSubmitForm,
 } from "../../../../../validations/teacherInfo_schema";
-import "./inputChild.css";
+import styles from "./inputChild.module.css";
 
 export const Inp3: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
   const {
@@ -15,7 +15,7 @@ export const Inp3: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
   } = useFormContext<PersonalSubmitForm>();
 
   return (
-    <div className="inputChild">
+    <div className={styles.inputChild}>
       <div className="font-semibold text-gray text-sm">Կրթություն</div>
       {fieldArray.fields.map(({ id }, index) => {
         const select2Error =
@@ -27,7 +27,7 @@ export const Inp3: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
         const professionError =
           errors.education && errors.education[index]?.profession?.message;
         return (
-          <div className="inputChild2" key={id}>
+          <div className={styles.inputChild2} key={id}>
             <CustomSelect
               placeholder="adsfdsf"
               regName={`${regName}.${index}.select2`}
@@ -50,23 +50,22 @@ export const Inp3: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
               regName={`${regName}.${index}.profession`}
               error={professionError}
             />
-
-            <div className="dateValidation">
-              <div className="checkbox">
-                <div className="checkboxText">
+            <div className={styles.dateValidation}>
+              <div className={styles.checkbox}>
+                <div className={styles.checkboxText}>
                   Ուսումնառության ժամանակահատված
                 </div>
               </div>
-              <div className="date">
+              <div className={styles.date}>
                 <input
                   type="date"
-                  className="dateInp"
+                  className={styles.dateInp}
                   {...register(`education.${index}.start`)}
                 />
-                <div className="gic"></div>
+                <div className={styles.gic}></div>
                 <input
                   type="date"
-                  className="dateInp"
+                  className={styles.dateInp}
                   {...register(`education.${index}.end`)}
                 />
               </div>
@@ -76,7 +75,7 @@ export const Inp3: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
       })}
       <div className="buttonContainer">
         <button
-          className="add"
+          // className="add"
           type="button"
           onClick={() => {
             fieldArray.append({
@@ -91,7 +90,7 @@ export const Inp3: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
         >
           <img src={buttonImg} />
         </button>
-        <div className="addText">Ավելացնել</div>
+        <div className={styles.addText}>Ավելացնել</div>
       </div>
     </div>
   );

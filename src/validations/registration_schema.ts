@@ -1,12 +1,12 @@
 import * as Yup from "yup";
 
 export const registration_schema = Yup.object().shape({
-  checkbox: Yup.string()
-    .oneOf(["Դասավանդող", "Ուսանող"])
+  teacherStudentId: Yup.string()
+    .oneOf(["1", "2"])
     .required("Նշելը պարտադիր է")
     .nullable(),
-  select: Yup.string().required("Նշելը պարտադիր է"),
-  username: Yup.string()
+  // select: Yup.string().required("Նշելը պարտադիր է"),
+  name: Yup.string()
     .required("Անունը պարտադիր է")
     .min(4, "Անունը պետք է լինի առնվազն 4 նիշ")
     .max(20, "Անունը չպետք է գերազանցի 20 նիշը"),
@@ -17,8 +17,8 @@ export const registration_schema = Yup.object().shape({
     .required("Գաղտնաբառը պարտադիր է")
     .min(8, "Գաղտնաբառը պետք է լինի առնվազն 8 նիշ")
     .max(15, "Գաղտնաբառը չպետք է գերազանցի 15 նիշը"),
-  confirmPassword: Yup.string()
+ repeatPassowrd: Yup.string()
     .required("Գաղտնաբառ հաստատելը պարտադիր է")
     .oneOf([Yup.ref("password"), null], "Հաստատված գաղտնաբառը սխալ է"),
-  acceptTerms: Yup.bool().oneOf([true], "Պայմաններ ընդունելը  պարտադիր է"),
+  // acceptTerms: Yup.bool().oneOf([true], "Պայմաններ ընդունելը  պարտադիր է"),
 });

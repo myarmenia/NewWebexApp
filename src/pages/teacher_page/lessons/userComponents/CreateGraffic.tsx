@@ -3,7 +3,7 @@ import { FC } from "react";
 import { FormProvider, useFieldArray, useForm } from "react-hook-form";
 import * as Yup from "yup";
 import { LessonTitle } from "../../../../components/reusable/lessonTitle/LessonTitle";
-import "./createGraffic.css";
+import styles from "./createGraffic.module.css";
 import { InputTime } from "./InputTime";
 
 export interface IInputTimeProps {
@@ -90,7 +90,7 @@ export const CreateGraffic: FC = () => {
   return (
     <FormProvider {...methods}>
       <LessonTitle title="Կազմել դասավանդման գրաֆիկ" />
-      <div className="createGraffic ">
+      <div className="createGraffic" >
         <form
           className="grafficChild"
           onSubmit={handleSubmit(onSubmit)}
