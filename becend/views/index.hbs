@@ -1,0 +1,32 @@
+<h2>Registartion</h2>
+<form action="/addUser" method="post">
+    <div>
+        <label for="1">Teacher</label>
+        <input type="radio" name="teacherStudentId" value="1">
+    </div>
+    <div>
+        <label for="2">Student</label>
+        <input type="radio" name="teacherStudentId" value="2">
+    </div>
+    <div>
+        <select name="firmId">
+            {{#each firms}}
+            <option value={{id}}>{{name}}</option>
+            {{/each}}
+        </select>
+
+    </div>
+    <div>
+        <input type="text" name="name" placeholder="Name">
+    </div>
+    <div>
+        <input type="text" name="email" placeholder="Email">
+    </div>
+    <div>
+        <input type="text" name="password" placeholder="Password">
+    </div>
+    <div>
+        <input type="text" name="repeatpassword" placeholder="Repeat Password">
+    </div>
+    <button>Save</button>
+</form>
