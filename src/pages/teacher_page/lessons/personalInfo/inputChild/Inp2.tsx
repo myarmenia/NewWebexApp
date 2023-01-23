@@ -8,7 +8,7 @@ import {
   inputChildProps,
   PersonalSubmitForm,
 } from "../../../../../validations/teacherInfo_schema";
-import "./inputChild.css";
+import styles from "./inputChild.module.css";
 export const Inp2: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
   const {
     register,
@@ -16,7 +16,7 @@ export const Inp2: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
     formState: { errors },
   } = useFormContext<PersonalSubmitForm>();
   return (
-    <div className="inputChild">
+    <div className={styles.inputChild}>
       <div className="font-semibold text-gray text-sm">Աշխատանքային փորձ</div>
       {fieldArray.fields.map(({ id }, index) => {
         const descriptionError =
@@ -28,7 +28,7 @@ export const Inp2: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
         const positionError =
           errors.workattempt && errors.workattempt[index]?.position?.message;
         return (
-          <div className="inputChild2" key={id}>
+          <div className={styles.inputChild2} key={id}>
             <CstmInput
               placeholder="Կազմակերպություն"
               regName={`${regName}.${index}.company`}
@@ -37,37 +37,37 @@ export const Inp2: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
             <CustomSelect
               placeholder="adfsd"
               regName={`${regName}.${index}.select`}
-              className="registration_select"
+              // className="registration_select"
               options={["chka", "sadd", "asd", "klka"]}
               error={selectError}
             />
             <CstmInput
-              className="name"
+              className={styles.name}
               placeholder="Պաշտոն"
               regName={`${regName}.${index}.position`}
               error={positionError}
             />
-            <div className="dateValidation">
-              <div className="checkbox">
-                <div className="checkboxText">Ժամանակահատված</div>
-                <div className="checkboxChild">
+            <div className={styles.dateValidation}>
+              <div className={styles.checkbox}>
+                <div className={styles.checkboxText}>Ժամանակահատված</div>
+                <div className={styles.checkboxChild}>
                   <input
                     type="checkbox"
                     {...register(`workattempt.${index}.acceptTerms`)}
                   />
-                  <div className="clickText">ներկայումս</div>
+                  <div className={styles.clickText}>ներկայումս</div>
                 </div>
               </div>
-              <div className="date">
+              <div className={styles.date}>
                 <input
                   type="date"
-                  className="dateInp"
+                  className={styles.dateInp}
                   {...register(`workattempt.${index}.start`)}
                 />
                 <div className="gic"></div>
                 <input
                   type="date"
-                  className="dateInp"
+                  className={styles.dateInp}
                   {...register(`workattempt.${index}.end`)}
                 />
               </div>
@@ -80,9 +80,10 @@ export const Inp2: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
           </div>
         );
       })}
-      <div className="buttonContainer">
+      <div className={styles.buttonContainer}>
         <button
-          className="add"
+          // className="add"
+
           type="button"
           onClick={() => {
             fieldArray.append({
@@ -98,7 +99,7 @@ export const Inp2: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
         >
           <img src={buttonImg} />
         </button>
-        <div className="addText">Ավելացնել</div>
+        <div className={styles.addText}>Ավելացնել</div>
       </div>
     </div>
   );

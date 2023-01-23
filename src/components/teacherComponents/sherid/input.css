@@ -12,7 +12,7 @@
 select {
   @apply w-[55%] h-[40px] flex  justify-center flex-col items-start pl-[40px] pr-[20px] gap-[10px] rounded-[15px] font-normal text-xs;
   box-sizing: border-box;
-  @apply shadow-light
+  @apply shadow-light;
   outline: none;
   background-color: rgba(255, 255, 255, 0.6);
   border-radius: 40px;

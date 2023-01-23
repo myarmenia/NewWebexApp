@@ -20,6 +20,12 @@
   font-size: 12px;
   color: #ffffff;
 }
+.inputChild {
+  @apply h-auto flex flex-col gap-[20px];
+}
+.inputChild2 {
+  @apply h-auto flex flex-col gap-[20px];
+}
 @media screen and (max-width: 924px) {
   .personalInfoChild {
     @apply flex-col;

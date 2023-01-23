@@ -3,7 +3,7 @@ import { UseFieldArrayReturn, useFormContext } from "react-hook-form";
 import buttonImg from "../../../../assets/teacher_images/createGraffic/buttonimg.svg";
 import deleteIcon from "../../../../assets/teacher_images/createGraffic/delete.svg";
 import { UserSubmitForm2 } from "./CreateGraffic";
-import "./createGraffic.css";
+import styles from "./createGraffic.module.css";
 
 interface InputProps {
   day: string;
@@ -27,18 +27,19 @@ export const InputTime: FC<InputProps> = ({
     formState: { errors },
   } = useFormContext();
   return (
-    <div className="graffics">
-      <p className="grafficsDay">{day}</p>
-      <div className="grafficInput">
+    <div className={styles.graffics}>
+      <p className={styles.grafficsDay}>{day}</p>
+      <div className={styles.grafficInput}>
         {fieldArray.fields.map(({ id }, index) => {
           return (
             <div key={id}>
-              <div className="grafficInputChild">
+              <div className={styles.grafficInputChild}>
                 <input
                   type="time"
                   // defaultValue={"02:00:00"}
                   // step="1"
-                  className="timeInp lessonInp"
+                  // className="timeInp lessonInp"
+                  className={styles.time}
                   placeholder={placholder}
                   {...register(`${regName}.${index}.start`)}
                 />
@@ -47,13 +48,14 @@ export const InputTime: FC<InputProps> = ({
                   type="time"
                   // defaultValue={"02:00:00"}
                   // step="1"
-                  className="timeInp lessonInp"
+                  // className="timeInp lessonInp"
+                  className={styles.time}
                   placeholder={placholder}
                   {...register(`${regName}.${index}.end`)}
                 />
                 <img
                   src={deleteIcon}
-                  className="shrink-0 cursor-pointer"
+                  className="shrink-0 cursor-pointer w-5 h-10"
                   onClick={() => fieldArray.remove(index)}
                 />
               </div>
@@ -74,7 +76,7 @@ export const InputTime: FC<InputProps> = ({
           );
         })}
       </div>
-      <div className="buttonContainer">
+      <div className={styles.buttonContainer}>
         <button
           className="add"
           type="button"
@@ -88,7 +90,7 @@ export const InputTime: FC<InputProps> = ({
         >
           <img src={buttonImg} />
         </button>
-        <div className="addText">ավելացնել տարբերակ</div>
+        <div className={styles.addText}>ավելացնել տարբերակ</div>
       </div>
     </div>
   );

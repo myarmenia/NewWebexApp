@@ -1,5 +1,5 @@
 import React from "react";
-import "./editGraffic.css";
+import styles from "./editGraffic.module.css";
 interface GrafficChild {
   weekDay: string;
   times: any;
@@ -7,9 +7,9 @@ interface GrafficChild {
 
 const GrafficChild: React.FC<GrafficChild> = ({ weekDay, times }) => {
   return (
-    <div className="grafficContainer">
-      <p className="day">{weekDay}</p>
-      <div className="editTime">{times}</div>
+    <div className={styles.grafficContainer}>
+      <p className={styles.day}>{weekDay}</p>
+      <div className={styles.editTime}>{times}</div>
     </div>
   );
 };

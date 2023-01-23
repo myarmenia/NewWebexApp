@@ -1,4 +1,4 @@
-import "./personalInfo.css";
+import styles from "./personalInfo.module.css";
 import { FC } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FormProvider, useFieldArray, useForm } from "react-hook-form";
@@ -81,11 +81,11 @@ export const PersonalInfo: FC = () => {
     <>
       <LessonTitle title="Անձնական տվյալներ" />
       <FormProvider {...methods}>
-        <form onSubmit={handleSubmit(onSubmit)} className="personalInfo">
+        <form onSubmit={handleSubmit(onSubmit)} className={styles.personalInfo}>
           <AddImg />
-          <div className="personalInfoChild">
-            <div className="inputChild">
-              <div className="inputChild2">
+          <div className={styles.personalInfoChild}>
+            <div className={styles.inputChild}>
+              <div className={styles.inputChild2}>
                 <div className="font-semibold text-gray text-sm">
                   Անձնական տվյալներ
                 </div>
@@ -102,14 +102,14 @@ export const PersonalInfo: FC = () => {
               </div>
               <Inp2 regName="workattempt" fieldArray={workattempt} />
             </div>
-            <div className="inputChild2">
+            <div className={styles.inputChild2}>
               <Inp3 regName="education" fieldArray={education} />
               <Inp4 regName="languages" fieldArray={languages} />
               <Inp5 regName="additionaledu" fieldArray={additionaledu} />
               <Sertificat />
             </div>
           </div>
-          <div className="buttonSave">
+          <div className={styles.buttonSave}>
             <CustomBtn type="submit" title="Պահպանել" />
           </div>
         </form>

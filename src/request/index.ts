@@ -1,7 +1,10 @@
 import axios from "axios";
-
-export const baseURL: string = "https://jsonplaceholder.typicode.com";
+const token = "";
+export const baseURL: string = "http://localhost:8000/";
 
 export const instance = axios.create({
   baseURL,
+  headers: {
+    Authorization: `Bearer ${token}`,
+  },
 });
