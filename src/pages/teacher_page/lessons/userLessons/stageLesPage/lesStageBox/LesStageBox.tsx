@@ -1,8 +1,8 @@
-import React, { FC, Fragment, useState } from "react";
-import "./lesStageBox.css";
-import plusImg from "../../../../../../assets/teacher_images/userLessons/plusImg.svg";
+import { FC, Fragment, useState } from "react";
 import minusImg from "../../../../../../assets/teacher_images/userLessons/minusImg.svg";
+import plusImg from "../../../../../../assets/teacher_images/userLessons/plusImg.svg";
 import { IStageLesson } from "../../../../../../models/interfaces";
+import styles from "./lesStageBox.module.css";
 import { LesStgLesson } from "./lesStgLesson/LesStgLesson";
 
 interface LesStageBoxProps {
@@ -20,10 +20,10 @@ export const LesStageBox: FC<LesStageBoxProps> = ({
     : { height: "0", paddingBottom: "0" };
 
   return (
-    <div className="lesStageBox">
-      <div className="stageBox_container">
-        <div className="lesStageBoxHead">
-          <span className="LesStageNumber">Փուլ {stageNumber}</span>
+    <div className={styles.lesStageBox}>
+      <div>
+        <div className={styles.lesStageBoxHead}>
+          <span>Փուլ {stageNumber}</span>
           <img
             src={isShown ? minusImg : plusImg}
             alt=""
@@ -31,7 +31,7 @@ export const LesStageBox: FC<LesStageBoxProps> = ({
             className="cursor-pointer w-[18px] h-[18px]"
           />
         </div>
-        <div className="lesStageLessons" style={animLessons}>
+        <div className={styles.lesStageLessons} style={animLessons}>
           {stageLessons.map(({ title }, i) => (
             <Fragment key={Math.random()}>
               {i !== stageLessons.length - 1 && (
