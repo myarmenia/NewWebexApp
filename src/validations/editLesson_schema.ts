@@ -1,21 +1,21 @@
-import * as yup from "yup";
+import * as Yup from "yup";
 
-export const editLesson_schema = yup.object().shape({
-  title: yup.string().required("adf"),
-  videoSource: yup.string().required("dfadsfd"),
-  description: yup.string().required("dfdf"),
-  extraMaterials: yup.array(
-    yup.object().shape({
-      name: yup.string(),
-      url: yup.string(),
+export const editLesson_schema = Yup.object().shape({
+  title: Yup.string().required("adf"),
+  videoSource: Yup.string().required("dfadsfd"),
+  description: Yup.string().required("dfdf"),
+  extraMaterials: Yup.array(
+    Yup.object().shape({
+      name: Yup.string(),
+      url: Yup.string(),
     })
   ),
-  homeW_videoSource: yup.string(),
-  homeW_description: yup.string(),
-  homeW_extraMaterials: yup.array(
-    yup.object().shape({
-      name: yup.string(),
-      url: yup.string(),
+  homeW_videoSource: Yup.string(),
+  homeW_description: Yup.string(),
+  homeW_extraMaterials: Yup.array(
+    Yup.object().shape({
+      name: Yup.string(),
+      url: Yup.string(),
     })
   ),
 });

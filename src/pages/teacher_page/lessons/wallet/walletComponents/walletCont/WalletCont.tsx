@@ -2,7 +2,7 @@ import styles from "./walletCont.module.css";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FC, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
-import * as yup from "yup";
+import * as Yup from "yup";
 import editPenImg from "../../../../../../assets/teacher_images/userLessons/editGray.svg";
 import { CustomBtn, CustomSelect } from "../../../../../../components/forms";
 import { ModalContainer } from "../../../../../../components/modalContainer/ModalContainer";
@@ -10,8 +10,8 @@ import { Table } from "../../../../../../components/reusable";
 import { generateArray } from "../../../../../../helper";
 
 // ---------- validation ----------
-const walletModalFormSchema = yup.object().shape({
-  planSelect: yup.string(),
+const walletModalFormSchema = Yup.object().shape({
+  planSelect: Yup.string(),
 });
 export interface IWalletModalForm {
   planSelect: string;
