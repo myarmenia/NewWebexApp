@@ -17,6 +17,7 @@ interface CustomSelectProps
     | "error"
     | "setValue"
     | "value"
+    | "img"
   > {}
 
 export const CustomSelectContext = createContext<ICustomSelect>(null!);

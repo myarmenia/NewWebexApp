@@ -1,8 +1,8 @@
-import React from "react";
-import "./lessonTitle.css";
+import { FC } from "react";
+import { Link } from "react-router-dom";
 import editImg from "../../../assets/teacher_images/newLesson/pencil 1.svg";
 import { CustomBtn } from "../../forms";
-import { Link } from "react-router-dom";
+import "./lessonTitle.css";
 
 interface LessonTitleProps {
   title: string;
@@ -15,7 +15,7 @@ interface LessonTitleProps {
   };
 }
 
-export const LessonTitle: React.FC<LessonTitleProps> = ({
+export const LessonTitle: FC<LessonTitleProps> = ({
   title,
   editIsActive,
   className = "",

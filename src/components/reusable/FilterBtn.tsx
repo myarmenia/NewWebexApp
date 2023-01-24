@@ -13,6 +13,7 @@ export const FilterBtn: FC<FilterBtnProps> = ({
 }) => {
   return (
     <button
+      type="button"
       onClick={onClick}
       className={
         className +

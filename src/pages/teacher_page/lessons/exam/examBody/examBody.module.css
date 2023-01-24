@@ -24,13 +24,7 @@
 .nextBtnCont {
   @apply flex gap-4 justify-between;
 }
-.textUnderline {
-  @apply text-xs font-semibold relative;
-}
-.textUnderline::after {
-  @apply bg-gradientPurple w-full h-[1px] absolute bg-[red] left-0 bottom-[1.3px] top-auto;
-  content: "";
-}
+
 .hrMain {
   @apply bg-[#BEBFE4] mt-5 h-[400px] w-[1px];
 }

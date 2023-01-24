@@ -1,5 +1,5 @@
 import { FC } from "react";
-import styles, { studentDataTitle } from "./studentData.module.css";
+import styles from "./studentData.module.css";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FormProvider, useFieldArray, useForm } from "react-hook-form";
 import buttonImg from "../../../../assets/teacher_images/createGraffic/buttonimg.svg";
@@ -97,7 +97,7 @@ export const StudentData: FC = () => {
             </div>
 
             <div className={styles.studentDataChild}>
-              <div className={studentDataTitle}>Լեզուներ</div>
+              <div className={styles.studentDataTitle}>Լեզուներ</div>
               {language.fields.map(({ id }, index) => {
                 const languageError =
                   errors.language && errors.language[index]?.name?.message;

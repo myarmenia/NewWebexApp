@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler, KeyboardEventHandler } from "react";
+import { ChangeEventHandler, FC, KeyboardEventHandler } from "react";
 import { useFormContext } from "react-hook-form";
 import { useError } from "../../../hooks";
 import styles from "./cstmTextarea.module.css";
@@ -14,7 +14,7 @@ interface CstmTextareaProps {
   onKeyDown?: KeyboardEventHandler<HTMLTextAreaElement>;
 }
 
-export const CstmTextarea: React.FC<CstmTextareaProps> = ({
+export const CstmTextarea: FC<CstmTextareaProps> = ({
   regName,
   placeholder = "",
   className = "",

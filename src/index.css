@@ -106,6 +106,16 @@ textarea {
 /* ================================================================ */
 
 /* ---------- error message for forms ---------- */
+.textUnderline {
+  @apply text-xs font-semibold relative;
+}
+.textUnderline::after {
+  @apply bg-gradientPurple w-full h-[1px] absolute bg-[red] left-0 bottom-[1.3px] top-auto;
+  content: "";
+}
+/* ================================================================ */
+
+/* ---------- error message for forms ---------- */
 .errorMessage {
   @apply text-[red] text-xs leading-3 whitespace-nowrap w-full left-[53%] -bottom-3 absolute;
   transform: translate(-50%, 0);
