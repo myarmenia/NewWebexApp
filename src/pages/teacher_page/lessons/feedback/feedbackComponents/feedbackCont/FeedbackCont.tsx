@@ -1,5 +1,5 @@
 import React, { FC, ReactNode, useEffect } from "react";
-import "./feedbackCont.css";
+import styles from "./feedbackCont.module.css";
 import { UsersMessages } from "../usersMessages/UsersMessages";
 import { IOtherLessonLoaderData } from "../../../../../../models/interfaces";
 import { MessToLesson } from "../messToLesson/MessToLesson";
@@ -26,14 +26,14 @@ export const FeedbackCont: FC<{ children?: ReactNode }> = ({ children }) => {
   // const currentObj = students[+params.stdId! - 1];
 
   return (
-    <div className="feedbackCont">
+    <div className={styles.feedbackCont}>
       <UsersMessages />
-      <div className="messageSection">
-        <div className="messageCont_title">
+      <div className={styles.messageSection}>
+        <div className={styles.messageCont_title}>
           <p>{currentObj.name}</p>
           {isNavBarShown && <ChatNav />}
         </div>
-        <div className="messageCont">
+        <div className={styles.messageCont}>
           {children}
           <MessToLesson />
         </div>

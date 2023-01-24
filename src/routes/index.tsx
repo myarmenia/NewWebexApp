@@ -58,7 +58,7 @@ export const router = createBrowserRouter(
     <Route path="/" element={<MainRoute />}>
       {/* <Route index element={<Regsitration />}></Route> */}
       <Route path="teacher" element={<Teacher />}>
-        {/* <Route index element={<Exam />} /> */}
+        <Route index element={<Exam />} />
         <Route index element={<AddLesson />} />
         <Route path="new_lesson/*">
           <Route index element={<NewLesson />} />

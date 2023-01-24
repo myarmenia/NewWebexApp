@@ -1,23 +1,24 @@
 import React from "react";
 import user from "../../../../../assets/teacher_images/controlPanel/user.svg";
 import star from "../../../../../assets/teacher_images/controlPanel/star.svg";
+import styles from "./panelChild.module.css";
 interface PanelDataProps {
   title: string;
   isActiv?: boolean;
 }
 const PersonalData: React.FC<PanelDataProps> = ({ title }) => {
   return (
-    <div className="panelContainer">
-      <div className="title">{title}</div>
-      <div className="panelData">
-        <img src={user} className="panelDataImg" />
-        <div className="stars">
-          <img src={star} className="star" />
-          <img src={star} className="star" />
-          <img src={star} className="star" />
-          <img src={star} className="star" />
-          <img src={star} className="star" />
-          <div className="count">(25)</div>
+    <div className={styles.panelContainer}>
+      <div className={styles.title}>{title}</div>
+      <div className={styles.panelData}>
+        <img src={user} className={styles.panelDataImg} />
+        <div className={styles.stars}>
+          <img src={star} className={styles.star} />
+          <img src={star} className={styles.star} />
+          <img src={star} className={styles.star} />
+          <img src={star} className={styles.star} />
+          <img src={star} className={styles.star} />
+          <div className={styles.count}>(25)</div>
         </div>
       </div>
 

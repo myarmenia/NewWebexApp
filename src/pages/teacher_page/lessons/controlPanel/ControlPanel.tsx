@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import "./controlPanel.css";
+import styles from "./controlPanel.module.css";
 import { PanelChild } from "./panelChild/PanelChild";
 import PersonalData from "./panelChild/PersonalData";
 import lessons from "../../../../assets/teacher_images/controlPanel/lessons.svg";
@@ -15,7 +15,7 @@ export const ControlPanel: FC = () => {
   return (
     <>
       <LessonTitle title="Ղեկավարման վահանակ" />
-      <div className="controlPanel">
+      <div className={styles.controlPanel}>
         <PersonalData title="Անձնական տվյալներ" />
         <PanelChild
           title="Իմ դասընթացները"
@@ -73,8 +73,8 @@ export const ControlPanel: FC = () => {
           text="Զեղչված դաս"
         />
       </div>
-      <div className="grafficLesson">Դասավանդման գրաֆիկ</div>
-      <div className="controlPanel2">
+      <div className={styles.grafficLesson}>Դասավանդման գրաֆիկ</div>
+      <div className={styles.controlPanel2}>
         <PanelChild title="Երկուշաբթի" isActiv={false} />
         <PanelChild title="Երեքշաբթի" isActiv={false} />
         <PanelChild title="Չորեքշաբթի" isActiv={false} />

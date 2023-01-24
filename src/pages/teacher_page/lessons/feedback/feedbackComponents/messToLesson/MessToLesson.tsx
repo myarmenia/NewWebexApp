@@ -1,5 +1,5 @@
 import React, { FC, Fragment } from "react";
-import "./messToLesson.css";
+import styles from "./messToLesson.module.css";
 import { IOtherLessonLoaderData } from "../../../../../../models/interfaces";
 import { useLoaderData } from "react-router";
 import { LesMessage } from "../lesMessage/LesMessage";
@@ -15,11 +15,11 @@ export const MessToLesson: FC<MessToLessonProps> = ({}) => {
   // } = useSelector(lessonsSelectorFN);
 
   return (
-    <div className="messageCont_lessons">
+    <div className={styles.messageCont_lessons}>
       <div className="mr-[18px] text-xs text-[#5F6368] border-b border-[#BEBFE4] py-3 mb-2">
         Տնային հանձնարարություններ
       </div>
-      <div className="messageCont_lessons_cont">
+      <div className={styles.messageCont_lessons_cont}>
         {data.map(({ title }, i) => (
           <Fragment key={Math.random()}>
             {i !== data.length - 1 && i !== 0 && (

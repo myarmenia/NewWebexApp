@@ -1,12 +1,12 @@
 import React, { FC } from "react";
 import { ChatInput } from "../../chatInput/ChatInput";
-import "./mesMessages.css";
+import styles from "./mesMessages.module.css";
 import { MessageBox } from "./MessageBox";
 
 export const MesMessages: FC = () => {
   return (
-    <div className="mesMessages">
-      <div className="messages_container">
+    <div className={styles.mesMessages}>
+      <div className={styles.messages_container}>
         <MessageBox
           text="asdfasdfadfd"
           time="10:10"
