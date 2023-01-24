@@ -5,12 +5,22 @@ import chevDown from "../../../assets/general_images/customSelectArrow.svg";
 import { useSelectContext } from "./CustomSelect";
 
 export const DefaultOption: FC = () => {
-  const { toggleOptions, regName, placeholder, value } = useSelectContext();
+  const { toggleOptions, regName, placeholder, value, img } =
+    useSelectContext();
   const formMethods = useFormContext();
   const register = regName && formMethods?.register(regName);
   return (
     <div className={styles.defaultOption} onClick={() => toggleOptions()}>
-      <div className="flex text-gray w-full text-xs">
+      {img && (
+        <img
+          src={img}
+          alt=""
+          className="absolute -translate-y-1/2 top-1/2 left-2"
+        />
+      )}
+      <div
+        className={`flex text-gray w-full text-xs ${img ? "!pl-[13px]" : ""}`}
+      >
         <input
           {...register}
           type="text"
