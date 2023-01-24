@@ -4,7 +4,7 @@
 .title {
   @apply text-gray text-xs;
 }
-@media (max-width: 870px) {
+@media (max-width: 750px) {
   .box {
     @apply w-full;
   }

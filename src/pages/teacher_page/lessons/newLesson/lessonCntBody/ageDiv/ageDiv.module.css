@@ -11,7 +11,13 @@
   @apply flex gap-2 items-center;
 }
 
-@media (max-width: 650px) {
+@media (max-width: 750px) {
+  .mycontainer {
+    @apply justify-start gap-5;
+  }
+  .noAgeLimit {
+    @apply flex-row gap-4
+  }
   .ageDiv {
     @apply flex-col items-start gap-2;
   }

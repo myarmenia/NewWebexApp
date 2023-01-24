@@ -45,6 +45,9 @@
   .stageBox_opened {
     @apply w-[388px];
   }
+  /* .stageBox_closed {
+    @apply w-full;
+  } */
 }
 @media (max-width: 1060px) {
   .form_content {
@@ -59,7 +62,13 @@
     @apply !gap-7;
   }
 }
-@media (max-width: 870px) {
+@media (max-width: 750px) {
+  .stageBox_opened {
+    @apply w-full;
+  }
+  .stageBox_closed {
+    @apply w-full;
+  }
   .box_lg {
     @apply w-[400px];
   }
@@ -75,9 +84,6 @@
   .hr {
     @apply w-full h-[1px];
   }
-}
-
-@media (max-width: 650px) {
   .form_content > .box {
     @apply w-full;
   }

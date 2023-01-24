@@ -61,8 +61,9 @@ textarea {
 
 /* --------------- custom checkbox ------------ */
 .customCheckbox {
-  @apply bg-gradientPurple w-[13px] h-[13px] ml-[10px] cursor-pointer relative border-none bg-white rounded-[4px];
-  @apply after:hidden appearance-none;
+  @apply bg-gradientPurple w-[13px] h-[13px] ml-[10px] cursor-pointer 
+  relative border-none bg-white rounded-[4px] after:hidden 
+  appearance-none shrink-0;
 }
 .customCheckbox:checked:after {
   @apply w-[14px] h-[10px] top-[1px] left-[1px] absolute inline-block visible bg-center bg-no-repeat bg-contain;

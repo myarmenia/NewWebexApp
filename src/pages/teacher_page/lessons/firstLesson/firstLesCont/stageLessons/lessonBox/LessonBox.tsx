@@ -13,7 +13,7 @@ export const LessonBox: React.FC<LessonBoxProps> = ({
 }) => {
   return (
     <div className={styles.box}>
-      <p className={styles.number + "textPurple"}>{`Դաս ${lessonNumber}:`}</p>
+      <p className={styles.number + " textPurple"}>{`Դաս ${lessonNumber}:`}</p>
       <div className={styles.content}>
         <p className={styles.title}>{title}</p>
         <span className={styles.homework}>Տնային աշխատանք</span>

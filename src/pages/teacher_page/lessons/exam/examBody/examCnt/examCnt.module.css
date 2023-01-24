@@ -1,9 +1,9 @@
-.examCnt {
+.mycontainer {
   @apply flex justify-between mx-auto w-[98%];
 }
-.examCnt1 {
+.box {
   @apply flex flex-col gap-5 max-h-[1000px] overflow-y-auto overflow-x-hidden;
 }
-.hrMain {
+.hr {
   @apply bg-[#BEBFE4] mt-5 h-[470px] w-[1px];
 }
