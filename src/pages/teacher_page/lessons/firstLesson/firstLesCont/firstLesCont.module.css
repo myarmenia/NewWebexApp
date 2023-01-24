@@ -6,11 +6,6 @@
   @apply rounded-2xl px-[29px] py-[24px] bg-[#F8EFFF];
   filter: drop-shadow(2px 4px 10px rgba(0, 0, 0, 0.1));
 }
-/* .content div {
-} */
-/* .lessonContainer {
-  @apply flex justify-between mx-auto w-[98%];
-} */
 .lessonContainer1 {
   @apply w-[40%];
 }

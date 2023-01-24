@@ -5,8 +5,10 @@ module.exports = {
     extend: {
       screens: {
         "med-450": { raw: "(max-width: 450px)" },
-        "med-850": { raw: "(max-width: 850px)" },
+        "med-480": { raw: "(max-width: 480px)" },
         "med-750": { raw: "(max-width: 750px)" },
+        "med-600": { raw: "(max-width: 600px)" },
+        "med-850": { raw: "(max-width: 850px)" },
         "med-1100": { raw: "(max-width: 1100px)" },
         "med-1060": { raw: "(max-width: 1060px)" },
       },

@@ -52,13 +52,15 @@ import {
 import HelpCenter from "../pages/student_page/help_center/HelpCenter";
 import { MainRoute } from "./MainRoute";
 import Regsitration from "../pages/registration/Regsitration";
+import Entry from "../pages/registration/entry/Entry";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<MainRoute />}>
-      {/* <Route index element={<Regsitration />}></Route> */}
+      {/* <Route index element={<Regsitration />} /> */}
+      <Route index element={<Entry />} />
       <Route path="teacher" element={<Teacher />}>
-        <Route index element={<Exam />} />
+        {/* <Route index element={<Exam />} /> */}
         <Route index element={<AddLesson />} />
         <Route path="new_lesson/*">
           <Route index element={<NewLesson />} />

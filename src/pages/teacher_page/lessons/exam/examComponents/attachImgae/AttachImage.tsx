@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./attachImage.css";
+import styles from "./attachImage.module.css";
 import { useFormContext } from "react-hook-form";
 
 interface AttachImageProps {
@@ -22,14 +22,14 @@ export const AttachImage: React.FC<AttachImageProps> = ({
     regName && setValue(regName, file);
   }, [file]);
   return (
-    <div className="attachImage">
+    <div className={styles.attachImage}>
       <input
-        className="attachImageInput"
+        className={styles.attachImageInput}
         type="file"
         accept={formats?.join(", ")}
         onChange={onFileUpload}
       />
-      <p className="allowedImageFormat">
+      <p className={styles.allowedImageFormat}>
         {`Կցել ${formatTitle} ${formats?.join(", ")}`}
       </p>
     </div>

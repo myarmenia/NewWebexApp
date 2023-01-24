@@ -7,3 +7,15 @@
 .hr {
   @apply bg-[#BEBFE4] mt-5 h-[470px] w-[1px];
 }
+
+@media (max-width: 850px) {
+  .mycontainer {
+    @apply flex-col;
+  }
+  .box {
+    @apply w-full;
+  }
+  .hr {
+    @apply h-[1px] w-full my-5;
+  }
+}

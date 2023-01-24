@@ -1,6 +1,6 @@
 .registration {
   @apply w-auto flex justify-center mt-20;
-  /* background: url("../../images/vivid-blurred-colorful-background.png"); */
+  background: url("../../assets/general_images/vivid-blurred-colorful-background.png");
   height: calc(100vh - 80px);
 }
 .registrationChild {
@@ -8,9 +8,9 @@
 }
 .registrationTitle {
   @apply bg-gradientPurple text-2xl font-bold;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 .registration-form {
   @apply w-[50%] h-auto flex flex-col justify-center items-center;
@@ -98,6 +98,12 @@ input[type="radio"]:checked {
   width: 32px;
   height: 32px;
 }
+/* ================================= */
+.form-group {
+  @apply w-[55%] mb-5;
+  position: relative;
+}
+/* ================================= */
 
 @media (max-width: 1300px) {
   .registration-form {

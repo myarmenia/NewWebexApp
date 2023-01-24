@@ -3,7 +3,7 @@ import styles from "./examCnt.module.css";
 import { UseFieldArrayReturn } from "react-hook-form";
 import { AttachImage } from "../../examComponents/attachImgae/AttachImage";
 import { IExamSchema } from "../../../../../../validations/exam_schema";
-import { QuestionBox } from "../../examComponents/questionBox/QuestionBox";
+import { QuestionBox } from "../../examComponents/QuestionBox";
 import { CstmInput, CustomBtn } from "../../../../../../components/forms";
 import { CstmTextarea } from "../../../../../../components/forms";
 
