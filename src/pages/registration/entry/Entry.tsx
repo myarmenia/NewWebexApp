@@ -1,10 +1,11 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useForm } from "react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
 import Input from "../../../components/teacherComponents/sherid/Input";
 import { login_schema } from "../../../validations/login_schema";
-import emailIcon from "../../images/registration/mail.png";
-import passwordIcon from "../../images/registration/password.png";
+import emailIcon from "../../../assets/registration_images/mail.png";
+import passwordIcon from "../../../assets/registration_images/password.png";
 import styles from "./entry.module.css";
+import { CstmInput } from "../../../components/forms";
 interface EntryForm {
   email: string;
   password: string;
@@ -12,26 +13,28 @@ interface EntryForm {
 }
 
 const Entry = () => {
+  const methods = useForm<EntryForm>({
+    resolver: yupResolver(login_schema),
+  });
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<EntryForm>({
-    resolver: yupResolver(login_schema),
-  });
+  } = methods;
 
   const onSubmit = (data: EntryForm) => {
     console.log(data);
   };
   return (
-    <div className={styles.entry}>
-      <div className={styles.entryChild}>
-        <div className={styles.entryTitle}>Մուտք</div>
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className={styles["entry-form"]}
-        >
-          <Input
+    <FormProvider {...methods}>
+      <div className={styles.entry}>
+        <div className={styles.entryChild}>
+          <div className={styles.entryTitle}>Մուտք</div>
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className={styles["entry-form"]}
+          >
+            {/* <Input
             register={{ ...register("email") }}
             type="email"
             url={emailIcon}
@@ -44,43 +47,57 @@ const Entry = () => {
             url={passwordIcon}
             error={errors.password?.message}
             placeholder="Գաղտնաբառ"
-          />
-          <div className={styles.recover}>
-            <a href="">Վերականգնել գաղտնաբառը</a>
-          </div>
-          <div className={styles["form-group-checkbox2"]}>
-            <input
-              type="checkbox"
-              {...register("acceptTerms")}
-              // className={`form-check-input ${
-              //   errors.acceptTerms ? "is-invalid" : ""
-              // }`}
+          /> */}
+
+            <CstmInput
+              regName="email"
+              boxClassName={styles["form-group"]}
+              img={emailIcon}
+              placeholder="Էլ․ փոստ"
             />
-            <label
-              htmlFor="acceptTerms"
-              // className="form-check-label"
+            <CstmInput
+              regName="password"
+              boxClassName={styles["form-group"]}
+              img={passwordIcon}
+              placeholder="Գաղտնաբառ"
+            />
+            <div className={styles.recover}>
+              <a href="">Վերականգնել գաղտնաբառը</a>
+            </div>
+            <div className={styles["form-group-checkbox2"]}>
+              <input
+                type="checkbox"
+                {...register("acceptTerms")}
+                // className={`form-check-input ${
+                //   errors.acceptTerms ? "is-invalid" : ""
+                // }`}
+              />
+              <label
+                htmlFor="acceptTerms"
+                // className="form-check-label"
+              >
+                Հիշել
+              </label>
+            </div>
+            <div
+            // className="invalid-feedback"
             >
-              Հիշել
-            </label>
+              {errors.acceptTerms?.message}
+            </div>
+            <div
+            // className="form-group-button"
+            >
+              <button type="submit" className={styles.btn}>
+                Մուտք
+              </button>
+            </div>
+          </form>
+          <div className={styles.register}>
+            <p>Դեռ գրացնվա՞ծ չեք </p> <a href="">Գրանցվել</a>
           </div>
-          <div
-          // className="invalid-feedback"
-          >
-            {errors.acceptTerms?.message}
-          </div>
-          <div
-          // className="form-group-button"
-          >
-            <button type="submit" className={styles.btn}>
-              Մուտք
-            </button>
-          </div>
-        </form>
-        <div className={styles.register}>
-          <p>Դեռ գրացնվա՞ծ չեք </p> <a href="">Գրանցվել</a>
         </div>
       </div>
-    </div>
+    </FormProvider>
   );
 };
 

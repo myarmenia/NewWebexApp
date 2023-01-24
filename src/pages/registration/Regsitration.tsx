@@ -1,6 +1,6 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FormProvider, useForm } from "react-hook-form";
-import { CustomSelect } from "../../components/forms";
+import { CstmInput, CustomSelect } from "../../components/forms";
 import Input from "../../components/teacherComponents/sherid/Input";
 import facebook from "../../assets/registration_images/facebook.png";
 import gmail from "../../assets/registration_images/gmail.png";
@@ -94,35 +94,28 @@ const Regsitration = () => {
                 </div>
               ) : null}
 
-              <Input
-                register={{ ...register("name") }}
-                type="text"
-                className="name"
-                url={userIcon}
-                error={errors.name?.message}
+              <CstmInput
+                regName="name"
+                boxClassName={styles["form-group"]}
+                img={userIcon}
                 placeholder="Անուն"
               />
-              <Input
-                register={{ ...register("email") }}
-                type="email"
-                className="email"
-                url={emailIcon}
-                error={errors.email?.message}
+              <CstmInput
+                regName="email"
+                img={userIcon}
+                boxClassName={styles["form-group"]}
                 placeholder="Էլ․ փոստ"
               />
-              <Input
-                register={{ ...register("password") }}
-                type="password"
-                className="password"
-                url={passwordIcon}
-                error={errors.password?.message}
+              <CstmInput
+                regName="password"
+                img={userIcon}
+                boxClassName={styles["form-group"]}
                 placeholder="Գաղտնաբառ"
               />
-              <Input
-                register={{ ...register("repeatPassowrd") }}
-                type="password"
-                url={passwordIcon}
-                error={errors.repeatPassowrd?.message}
+              <CstmInput
+                regName="repeatPassowrd"
+                img={userIcon}
+                boxClassName={styles["form-group"]}
                 placeholder="Կրկնել գաղտնաբառը"
               />
               <div className={styles["form-group-checkbox2"]}>

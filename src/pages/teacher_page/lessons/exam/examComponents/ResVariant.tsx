@@ -37,7 +37,10 @@ export const ResVariant: React.FC<ResVariantProps> = ({
   };
 
   return (
-    <div className="flex justify-between gap-[31px] items-center" key={ind}>
+    <div
+      className="flex justify-between gap-[31px] items-center med-450:gap-3"
+      key={ind}
+    >
       <CstmInput
         placeholder={`Տարբերակ ${ind + 1}`}
         className="w-full"

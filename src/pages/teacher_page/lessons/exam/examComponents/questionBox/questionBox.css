@@ -1,6 +1,0 @@
-.questionTitle {
-  @apply text-gray text-sm;
-}
-.overLine {
-  @apply h-[1px] bg-[#BEBFE4] -mt-[5px];
-}

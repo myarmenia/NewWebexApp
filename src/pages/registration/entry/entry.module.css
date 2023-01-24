@@ -1,6 +1,6 @@
 .entry {
   @apply w-auto h-[100vh] flex justify-center;
-  background: url("../../images/vivid-blurred-colorful-background.png");
+  background: url("../../../assets/general_images/vivid-blurred-colorful-background.png");
 }
 .entryChild {
   @apply w-[100%] h-[100%] flex flex-col justify-center items-center;
@@ -95,6 +95,14 @@ input[type="checkbox"]:checked:after {
   border-bottom: 3px solid #7764fb;
   transform: rotate(52deg);
 }
+
+/* ================================= */
+.form-group {
+  @apply w-[55%] mb-5;
+  position: relative;
+}
+/* ================================= */
+
 
 @media (max-width: 1240px) {
   .form-group-checkbox {
