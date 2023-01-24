@@ -1,11 +1,11 @@
 import { FC } from "react";
-import "./wallet.css";
+import styles from "./wallet.module.css";
 import { LessonTitle } from "../../../../components/reusable";
 import { WalletCont } from "./walletComponents/walletCont/WalletCont";
 
 export const Wallet: FC = () => {
   return (
-    <div className="wallet">
+    <div className={styles.wallet}>
       <LessonTitle title="Դրամապանակ" />
       <WalletCont balance={0} />
     </div>

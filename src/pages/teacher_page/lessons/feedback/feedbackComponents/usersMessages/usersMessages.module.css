@@ -7,10 +7,10 @@
   @apply bg-gradientPurple w-[10px] h-[10px] rounded-full;
 }
 .chatContainer {
-  @apply flex gap-2 py-4 justify-between w-full cursor-pointer border-b border-[#BEBFE4];
+  @apply grid gap-2 py-4 grid-cols-[1fr,2.5fr,0.5fr] w-full cursor-pointer border-b border-[#BEBFE4];
 }
 .chatDescriptionBox {
-  @apply flex flex-col gap-2 max-w-[80%] whitespace-nowrap overflow-x-hidden text-ellipsis;
+  @apply flex flex-col gap-2 max-w-[100%] whitespace-nowrap overflow-x-hidden text-ellipsis;
 }
 .chatDescription1 {
   @apply text-sm font-semibold whitespace-nowrap overflow-x-hidden text-ellipsis;

@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import { useLoaderData } from "react-router";
 import { Link } from "react-router-dom";
 import { IOtherLessonLoaderData } from "../../../../../../models/interfaces";
-import "./usersMessages.css";
+import styles from "./usersMessages.module.css";
 
 export const UsersMessages: FC = () => {
   // ----- Loader data ------
@@ -13,23 +13,28 @@ export const UsersMessages: FC = () => {
   // } = useSelector(lessonsSelectorFN);
 
   return (
-    <div className="feedbackMessages">
+    <div className={styles.feedbackMessages}>
       {students.map(({ id, name, username }) => {
         return (
           <Link
             to={`../student/${id}/lesson/1/task`}
-            className="chatContainer"
+            className={styles.chatContainer}
             key={id}
           >
-            <img className="chatImg" src="" />
-            <div className="chatDescriptionBox">
+            <img className={styles.chatImg} src="" />
+            <div className={styles.chatDescriptionBox}>
               <div className="flex items-center gap-2">
-                <p className="chatDescription1">{name}</p>
-                <div className={id % 3 ? "userOnline" : ""} />
+                <p className={styles.chatDescription1}>{name}</p>
+                <div className={id % 3 ? styles.userOnline : ""} />
               </div>
-              <p className="chatDescription2">{username}</p>
+              <p className={styles.chatDescription2}>{username}</p>
             </div>
-            <span className="chatTime">11:10</span>
+            <div
+
+            // className="chatTime"
+            >
+              11:10
+            </div>
           </Link>
         );
       })}

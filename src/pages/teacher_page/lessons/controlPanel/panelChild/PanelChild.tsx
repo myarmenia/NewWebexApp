@@ -1,6 +1,6 @@
 import React from "react";
 import { FirstPanel } from "./FirstPanel";
-import "./panelChild.css";
+import styles from "./panelChild.module.css";
 import { SecondPanel } from "./SecondPanel";
 interface PanelChildProps {
   title: string;
@@ -19,8 +19,8 @@ export const PanelChild: React.FC<PanelChildProps> = ({
   text,
 }) => {
   return (
-    <div className="panelContainer">
-      <div className="title">{title}</div>
+    <div className={styles.panelContainer}>
+      <div className={styles.title}>{title}</div>
       {isActiv ? (
         <FirstPanel url={url} num={num} count={count} text={text} />
       ) : (
