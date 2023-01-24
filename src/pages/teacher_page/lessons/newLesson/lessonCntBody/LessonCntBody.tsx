@@ -115,7 +115,7 @@ export const LessonCntBody: React.FC = () => {
               <AgeDiv />
               <FinishExam text="Վերջնական քննություն" regName="isExam" />
               <FinishExam text="Հավաստագիր" regName="certificate" />
-              <div className="flex gap-5 items-center">
+              <div className="flex gap-5 items-center med-750:!w-[50%]">
                 <CstmInput
                   placeholder="Դասընթացի արժեքը*"
                   type="number"
