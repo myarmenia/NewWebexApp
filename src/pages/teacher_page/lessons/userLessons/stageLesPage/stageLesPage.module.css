@@ -17,6 +17,9 @@
 .lesWorkHomeWork_container {
   @apply w-[97%] p-0 gap-10;
 }
+.lesPage_titleBox {
+  @apply flex items-center gap-3 justify-between;
+}
 
 @media (max-width: 850px) {
   .stageLesPage {

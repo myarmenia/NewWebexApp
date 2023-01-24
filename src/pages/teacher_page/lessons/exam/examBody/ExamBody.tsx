@@ -7,7 +7,7 @@ import {
   exam_schema,
   IExamSchema,
 } from "../../../../../validations/exam_schema";
-import "./examBody.css";
+import styles from "./examBody.module.css";
 import { ExamCnt } from "./examCnt/ExamCnt";
 
 export const ExamBody: React.FC = () => {
@@ -37,8 +37,8 @@ export const ExamBody: React.FC = () => {
   return (
     <FormProvider {...methods}>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="lessonCont">
-          <div className="examCont">
+        <div className={styles.mycontainer}>
+          <div className={styles.content}>
             <CntTitle title="Քննություն" />
             <ExamCnt {...{ questions }} />
           </div>

@@ -1,14 +1,14 @@
-@tailwind components;
-.lessonCont {
+.mycontainer {
   @apply flex flex-col gap-7;
 }
-.examCont {
+.content {
   @apply bg-[#ffffffbf] rounded-2xl px-[29px] py-[24px];
   filter: drop-shadow(2px 4px 10px rgba(0, 0, 0, 0.1));
 }
-.lessonCont {
-  @apply flex flex-col gap-7;
-}
+
+/* ================================================================ */
+/* ================================================================ */
+/* ================================================================ */
 .firstLesCont {
   @apply bg-[#ffffffbf] rounded-2xl px-[29px] py-[24px];
   filter: drop-shadow(2px 4px 10px rgba(0, 0, 0, 0.1));

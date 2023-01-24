@@ -7,8 +7,7 @@
 .title {
   @apply font-semibold text-sm text-gray;
 }
-
-@media (max-width: 870px) {
+@media (max-width: 900px) {
   .content {
     @apply w-auto min-w-[290px];
   }
