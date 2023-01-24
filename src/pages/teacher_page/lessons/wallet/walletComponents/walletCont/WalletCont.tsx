@@ -1,4 +1,4 @@
-import "./walletCont.css";
+import styles from "./walletCont.module.css";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FC, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
@@ -31,8 +31,8 @@ export const WalletCont: FC<WalletContProps> = ({ balance }) => {
   });
   return (
     <>
-      <div className="walletCont">
-        <div className="walletCont_header">
+      <div className={styles.walletCont}>
+        <div className={styles.walletCont_header}>
           {/* <div className="balanceBox">
           <div>
             <p className="font-semibold text-sm mb-1">
@@ -51,7 +51,7 @@ export const WalletCont: FC<WalletContProps> = ({ balance }) => {
           </div>
         </div> */}
           <div className="flex flex-col gap-9">
-            <div className="tariffPlanBox">
+            <div className={styles.tariffPlanBox}>
               <div className="flex items-center gap-4">
                 <p className="font-semibold text-sm mb-1">Սակագնային պլան</p>
                 <img
@@ -69,7 +69,7 @@ export const WalletCont: FC<WalletContProps> = ({ balance }) => {
                 </span>
               )}
             </div>
-            <CustomBtn type="button" title="Վճարել" className="payBtn" />
+            <CustomBtn type="button" title="Վճարել" className={styles.payBtn} />
           </div>
         </div>
         {/* <div className="attachedCards_cont">
@@ -97,12 +97,12 @@ export const WalletCont: FC<WalletContProps> = ({ balance }) => {
           />
           </div>
         </div> */}
-        <div className="transactionHistory">
+        <div className={styles.transactionHistory}>
           <div>
             <p className="font-semibold text-sm mb-1">
               Գործարքների պատմություն
             </p>
-            <div className="table_history">
+            <div className={styles.table_history}>
               {transactionHistory ? (
                 <Table
                   rows={[
@@ -164,7 +164,7 @@ export const WalletCont: FC<WalletContProps> = ({ balance }) => {
                   <CustomBtn
                     type="submit"
                     title="Չեղարկել"
-                    className="payBtn"
+                    className={styles.payBtn}
                   />
                   <CustomBtn type="submit" title="Հաստատել" />
                 </div>

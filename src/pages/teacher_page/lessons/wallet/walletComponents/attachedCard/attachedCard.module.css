@@ -1,0 +1,16 @@
+.attachedCard {
+  @apply flex flex-col justify-between relative px-5 pb-[22px] py-[13px] h-[168px] bg-white rounded-[10px];
+}
+.attachedCard_numbers {
+  @apply text-2xl;
+}
+@media (max-width: 825px) {
+  .attachedCards {
+    @apply grid-cols-2;
+  }
+}
+@media (max-width: 610px) {
+  .attachedCards {
+    @apply grid-cols-1;
+  }
+}

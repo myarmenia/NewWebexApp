@@ -1,0 +1,12 @@
+.mesHomeWork_container {
+  @apply justify-start;
+}
+.grayBtn {
+  @apply bg-[#898BCE] bg-none min-w-min;
+}
+.messageCont_cont {
+  @apply flex flex-col gap-3 w-[65%] justify-between;
+}
+.cont01 {
+  @apply flex flex-col gap-5;
+}

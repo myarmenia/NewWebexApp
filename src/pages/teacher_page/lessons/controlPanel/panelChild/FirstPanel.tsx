@@ -1,5 +1,5 @@
 import React from "react";
-import "./panelChild.css";
+import styles from "./panelChild.module.css";
 import lessons from "../../../../images/controlPanel/lessons.svg";
 interface FirstPanelProps {
   url?: string;
@@ -14,20 +14,20 @@ export const FirstPanel: React.FC<FirstPanelProps> = ({
   text,
 }) => {
   return (
-    <div className="firstPanel">
-      <div className="firstPanelChild">
-        <img src={url} className="firstPanelImg" />
-        <div className="number">{num}</div>
+    <div className={styles.firstPanel}>
+      <div className={styles.firstPanelChild}>
+        <img src={url} className={styles.firstPanelImg} />
+        <div className={styles.number}>{num}</div>
       </div>
-      <div className="firstPanelChild2">
+      <div className={styles.firstPanelChild2}>
         {count ? (
-          <div className="number2">
+          <div className={styles.number2}>
             <span>{count}</span>
           </div>
         ) : (
           count
         )}
-        {text ? <div className="firstPanelText">{text}</div> : null}
+        {text ? <div className={styles.firstPanelText}>{text}</div> : null}
       </div>
     </div>
   );

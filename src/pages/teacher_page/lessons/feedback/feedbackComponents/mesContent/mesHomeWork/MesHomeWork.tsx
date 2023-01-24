@@ -1,5 +1,5 @@
 import React, { FC, useState } from "react";
-import "./mesHomeWork.css";
+import styles from "./mesHomeWork.module.css";
 import { ExtraMaterials } from "../../../../userLessons/stageLesPage/extraMaterials/ExtraMaterials";
 import { LesContainer } from "../../../../userLessons/userLesComponents/LesContainer";
 import { StudentsWork } from "./StudentsWork";
@@ -28,9 +28,11 @@ export const MesHomeWork: FC = () => {
   });
   return (
     <FormProvider {...formMethods}>
-      <div className="messageCont_cont mesHomeWork_container">
+      <div
+        className={`${styles.messageCont_cont} ${styles.mesHomeWork_container}`}
+      >
         <div className="bg-white rounded-[15px]">
-          <LesContainer className="cont01">
+          <LesContainer className={styles.cont01}>
             <p className="hover:opacity-75 border-b border-[#BEBFE4] text-[10px] font-semibold pb-4">
               Տնային աշխատանք
             </p>
@@ -40,7 +42,9 @@ export const MesHomeWork: FC = () => {
           </LesContainer>
         </div>
         <div className="flex flex-col ">
-          <div className="student_homeW_container">
+          <div
+          // className="student_homeW_container"
+          >
             <div className="flex gap-[22px] flex-col w-[300px] justify-between my-8">
               <StudentsWork />
               <StudentsWork />
@@ -66,7 +70,11 @@ export const MesHomeWork: FC = () => {
                 title="Ընդունել աշխատանքը"
                 onClick={() => setIsHomeWorkAccepted(true)}
               />
-              <CustomBtn type="button" title="Չընդունել" className="grayBtn" />
+              <CustomBtn
+                type="button"
+                title="Չընդունել"
+                className={styles.grayBtn}
+              />
             </div>
           )}
         </div>
