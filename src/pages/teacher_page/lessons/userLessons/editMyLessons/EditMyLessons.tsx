@@ -11,8 +11,8 @@ import {
   IExtraMats,
 } from "../../../../../validations/editLesson_schema";
 import { LesContainer } from "../userLesComponents/LesContainer";
-import "./editMyLessons.css";
-import { ExtraMats } from "./editMyLessons_copns/ExtraMats";
+import styles from "./editMyLessons.module.css";
+import { ExtraMats } from "./ExtraMats";
 
 interface EditMyLessonsProps {
   title?: string;
@@ -59,44 +59,44 @@ export const EditMyLessons: FC<EditMyLessonsProps> = ({
   return (
     <FormProvider {...methods}>
       <form action="" onSubmit={handleSubmit(onSubmit)}>
-        <div className="editMyLessons">
-          <LesContainer className="editMyLessons_container">
-            <div className="editMyLessons_titleBox">
-              <div className="editMyLessons_title">{title}</div>
-              <button className="saveChanges">
+        <div className={styles.mycontainer}>
+          <LesContainer className={styles.content}>
+            <div className={styles.heading}>
+              <div className={styles.title}>{title}</div>
+              <button className={styles.saveChanges}>
                 <span className="text-xs">Պահպանել</span>
                 <img src={saveImg} alt="" className="h-[15px]" />
               </button>
             </div>
-            <div className="inputContainer">
-              <div className="lesSection">
+            <div className={styles.inputContainer}>
+              <div className={styles.lesSection}>
                 <CstmTextarea
                   defaultValue={body}
                   regName="title"
-                  className="editP_input min-h-[200px]"
+                  className={styles.input + " min-h-[200px]"}
                 />
                 <CstmInput
                   defaultValue={inp2}
                   regName="videoSource"
-                  className="editP_input"
+                  className={styles.input}
                 />
                 <CstmTextarea
                   defaultValue={inp3}
                   regName="description"
-                  className="editP_input"
+                  className={styles.input}
                 />
                 <ExtraMats extraMats={lesExtraMats} />
               </div>
-              <div className="homeSection">
-                <p className="homeTitle">Տնային աշխատանք</p>
+              <div className={styles.homeSection}>
+                <p className={styles.homeTitle}>Տնային աշխատանք</p>
                 <CstmInput
                   defaultValue={inp4}
-                  className="editP_input"
+                  className={styles.input}
                   regName="homeW_videoSource"
                 />
                 <CstmTextarea
                   defaultValue={inp4}
-                  className="editP_input"
+                  className={styles.input}
                   regName="homeW_description"
                 />
                 <ExtraMats homeExtraMats={homeExtraMats} />

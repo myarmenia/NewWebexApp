@@ -1,5 +1,5 @@
 import { FC, Fragment } from "react";
-import "./lessons.css";
+import styles from "./lessons.module.css";
 import { LoaderFunction, useLoaderData } from "react-router";
 import { LessonTitle } from "../../../../../components/reusable";
 import {
@@ -24,7 +24,7 @@ export const Lessons: FC = () => {
           }}
         />
         {lessonsArr.length ? (
-          <div className="userLessonsSection_unpublished">
+          <div className={styles.container_unpublished}>
             {lessonsArr.map(({ title, body, id }) => (
               <LesBox
                 {...{ title, id }}
@@ -53,7 +53,7 @@ export const Lessons: FC = () => {
       <div>
         <LessonTitle title="Ակտիվ դաընթացներ" />
         {lessonsArr.length ? (
-          <div className="userLessonsSection_active">
+          <div className={styles.container_active}>
             {lessonsArr.map(({ title, body, id }) => (
               <LesBox
                 {...{ title, id }}

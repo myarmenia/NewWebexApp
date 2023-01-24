@@ -7,11 +7,3 @@
 .attachFileTitle {
   @apply text-[10px];
 }
-.loadFileInput {
-  @apply w-[10px] h-[18px] shrink-0 bg-contain cursor-pointer;
-  background: url("../../..//assets//teacher_images//firstLesson/downloadFile.svg")
-    no-repeat;
-}
-.allowedFileFormat {
-  @apply text-xs;
-}
