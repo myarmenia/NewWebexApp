@@ -1,4 +1,4 @@
-import React, { MouseEventHandler } from "react";
+import { FC, MouseEventHandler } from "react";
 import styles from "./customBtn.module.css";
 
 interface SubmitBtnProps {
@@ -8,7 +8,7 @@ interface SubmitBtnProps {
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
-export const CustomBtn: React.FC<SubmitBtnProps> = ({
+export const CustomBtn: FC<SubmitBtnProps> = ({
   title,
   type = "button",
   className = "",

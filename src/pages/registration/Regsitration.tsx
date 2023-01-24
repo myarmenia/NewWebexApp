@@ -1,6 +1,6 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FormProvider, useForm } from "react-hook-form";
-import { CstmInput, CustomSelect } from "../../components/forms";
+import { CstmInput, CustomBtn, CustomSelect } from "../../components/forms";
 import Input from "../../components/teacherComponents/sherid/Input";
 import facebook from "../../assets/registration_images/facebook.png";
 import gmail from "../../assets/registration_images/gmail.png";
@@ -10,15 +10,16 @@ import userIcon from "../../assets/registration_images/user.png";
 import { registration_schema } from "../../validations/registration_schema";
 import styles from "./registration.module.css";
 import { instance } from "../../request";
+import { Link } from "react-router-dom";
 // import { Option } from "../header/customSelect/Option";
 interface UserSubmitForm {
   teacherStudentId: string;
-  // select: string[];
+  select: string[];
   name: string;
   email: string;
   password: string;
   repeatPassowrd: string;
-  // acceptTerms: boolean;
+  acceptTerms: boolean;
 }
 
 const fetchData = async (data: UserSubmitForm) => {
@@ -47,52 +48,52 @@ const Regsitration = () => {
     console.log(data);
     fetchData(data);
   };
-  const isOpenDropdown = watch("teacherStudentId");
 
   return (
     <>
       <FormProvider {...methods}>
         <div className={styles.registration}>
           <div className={styles.registrationChild}>
-            <div className={styles.registrationChild}>Գրանցվել</div>
+            <div className={styles.registrationTitle}>Գրանցվել</div>
             <form
               onSubmit={handleSubmit(onSubmit)}
               className={styles["registration-form"]}
             >
               <div className={styles["form-group-checkbox"]}>
                 <div className={styles["form-group-checkboxChild"]}>
-                  <input
-                    type="radio"
-                    value="1"
-                    {...register("teacherStudentId")}
-                    className="teacher"
-                  />
-                  <label className={styles["radio-label"]}>Դասավանդող</label>
-                  <input
-                    value="2"
-                    type="radio"
-                    {...register("teacherStudentId")}
-                  />
-                  <label className={styles["radio-label"]}>Ուսանող</label>
+                  <div className="flex items-center gap-3">
+                    <input
+                      type="radio"
+                      value="Դասավանդող"
+                      {...register("teacherStudentId")}
+                      className="teacher"
+                    />
+                    <label className={styles["radio-label"]}>Դասավանդող</label>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <input
+                      value="Ուսանող"
+                      type="radio"
+                      {...register("teacherStudentId")}
+                    />
+                    <label className={styles["radio-label"]}>Ուսանող</label>
+                  </div>
                 </div>
-                <div
-                // className="invalid-feedback"
-                >
+                {/* <div>{errors.teacherStudentId?.message}</div> */}
+                <p className="errorMessage">
                   {errors.teacherStudentId?.message}
-                </div>
+                </p>
               </div>
 
-              {isOpenDropdown === "Դասավանդող" ? (
-                <div className={styles["form-group2"]}>
+              {watch("teacherStudentId") === "Դասավանդող" && (
+                <div className={styles["form-group"]}>
                   <CustomSelect
                     placeholder="selecti placehodery"
                     regName="select"
-                    // className="registration_select"
-
-                    options={["asdsad", "asdads", "adsd"]}
+                    options={["Անհատ", "Ընկերություն"]}
                   />
                 </div>
-              ) : null}
+              )}
 
               <CstmInput
                 regName="name"
@@ -102,39 +103,49 @@ const Regsitration = () => {
               />
               <CstmInput
                 regName="email"
-                img={userIcon}
+                type="email"
+                img={emailIcon}
                 boxClassName={styles["form-group"]}
                 placeholder="Էլ․ փոստ"
               />
               <CstmInput
                 regName="password"
-                img={userIcon}
+                img={passwordIcon}
+                type="password"
                 boxClassName={styles["form-group"]}
                 placeholder="Գաղտնաբառ"
               />
               <CstmInput
                 regName="repeatPassowrd"
-                img={userIcon}
+                img={passwordIcon}
+                type="password"
                 boxClassName={styles["form-group"]}
                 placeholder="Կրկնել գաղտնաբառը"
               />
               <div className={styles["form-group-checkbox2"]}>
-                {/* <div className={styles["form-group-checkboxChild2"]}>
+                <div className={styles["form-group-checkboxChild2"]}>
                   <input
                     type="checkbox"
-                    {...register("acceptTerms")}
                     // className={`form-check-input ${
                     //   errors.acceptTerms ? "is-invalid" : ""
                     // }`}
                     className={styles["form-check-input"]}
+                    {...register("acceptTerms")}
                   />
                   <label
                     htmlFor="acceptTerms"
                     // className="form-check-label"
                   >
-                    Ես համաձայն եմ Օգտագործման համաձայնագրի հետ
+                    Ես համաձայն եմ &nbsp;
+                    <a
+                      className="textPurple textUnderline after:bottom-[0.3px]"
+                      href="#"
+                    >
+                      Օգտագործման համաձայնագրի
+                    </a>
+                    &nbsp; հետ
                   </label>
-                </div> */}
+                </div>
                 {/* <div
                 // className="invalid-feedback"
                 >
@@ -142,13 +153,15 @@ const Regsitration = () => {
                 </div> */}
               </div>
               <div className={styles["form-group-button"]}>
-                <button type="submit" className={styles.btn}>
-                  Գրանցվել
-                </button>
+                <CustomBtn
+                  title="Գրանցվել"
+                  type="submit"
+                  className={styles.btn}
+                />
               </div>
             </form>
             <div className={styles.entry}>
-              <p>Արդեն գրացնվա՞ծ եք</p> <a href="">Մուտք</a>
+              <p>Արդեն գրացնվա՞ծ եք</p> <Link to="/login">Մուտք</Link>
             </div>
             <div className={styles.social}>
               <a href="#">

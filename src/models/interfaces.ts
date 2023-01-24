@@ -17,6 +17,7 @@ export interface ICustomSelect {
   className?: string;
   setValue?: Dispatch<SetStateAction<string>>;
   value?: string;
+  img?: string;
 }
 
 export interface IHeaderDropDownOption {

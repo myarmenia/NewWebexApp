@@ -5,7 +5,8 @@ import { login_schema } from "../../../validations/login_schema";
 import emailIcon from "../../../assets/registration_images/mail.png";
 import passwordIcon from "../../../assets/registration_images/password.png";
 import styles from "./entry.module.css";
-import { CstmInput } from "../../../components/forms";
+import { CstmInput, CustomBtn } from "../../../components/forms";
+import { Link } from "react-router-dom";
 interface EntryForm {
   email: string;
   password: string;
@@ -53,12 +54,14 @@ const Entry = () => {
               regName="email"
               boxClassName={styles["form-group"]}
               img={emailIcon}
+              type="email"
               placeholder="Էլ․ փոստ"
             />
             <CstmInput
               regName="password"
               boxClassName={styles["form-group"]}
               img={passwordIcon}
+              type="password"
               placeholder="Գաղտնաբառ"
             />
             <div className={styles.recover}>
@@ -86,14 +89,12 @@ const Entry = () => {
             </div>
             <div
             // className="form-group-button"
-            >
-              <button type="submit" className={styles.btn}>
-                Մուտք
-              </button>
+            > 
+              <CustomBtn title="Մուտք" type="submit" className={styles.btn} />
             </div>
           </form>
           <div className={styles.register}>
-            <p>Դեռ գրացնվա՞ծ չեք </p> <a href="">Գրանցվել</a>
+            <p>Դեռ գրացնվա՞ծ չեք </p> <Link to="/registration">Գրանցվել</Link>
           </div>
         </div>
       </div>

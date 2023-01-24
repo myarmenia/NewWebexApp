@@ -1,10 +1,14 @@
-import React, { ChangeEventHandler, KeyboardEventHandler } from "react";
+import React, {
+  ChangeEventHandler,
+  HTMLInputTypeAttribute,
+  KeyboardEventHandler,
+} from "react";
 import { useFormContext } from "react-hook-form";
 import { useError } from "../../hooks";
 
 interface CstmInputProps {
   regName?: string;
-  type?: "text" | "number";
+  type?: HTMLInputTypeAttribute;
   placeholder?: string;
   value?: string | number;
   img?: string;
