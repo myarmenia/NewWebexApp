@@ -1,5 +1,5 @@
 import { FC } from "react";
-import "./studentProgress.css";
+import styles from "./studentProgress.module.css";
 import listImg from "../../../../assets/student_images/studentLessons/Group 1667.svg";
 import toStudentsPageImg from "../../../../assets/teacher_images/students/Vector 214.svg";
 import { Table, ProgressBar } from "../../../../components/reusable";
@@ -7,8 +7,8 @@ import { generateArray } from "../../../../helper";
 
 export const StudentProgress: FC = () => {
   return (
-    <div className="student_progress">
-      <div className="student_progres_info">
+    <div className={styles.student_progress}>
+      <div className={styles.student_progres_info}>
         <div className="border-b border-[#BEBFE4] text-[#5F6368] pb-1">
           Ընդհանուր
         </div>

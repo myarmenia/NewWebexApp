@@ -1,5 +1,5 @@
 import React, { FC, useState, MouseEvent } from "react";
-import "./stdStageBox.css";
+import styles from "./stdStageBox.module.css";
 import plusImg from "../../../../../../assets/teacher_images/userLessons/plusImg.svg";
 import minusImg from "../../../../../../assets/teacher_images/userLessons/minusImg.svg";
 import { StageLesson } from "../../../../../../pages/teacher_page/lessons/userLessons/userLesComponents/stageLesson/StageLesson";
@@ -34,9 +34,13 @@ export const StdStageBox: FC<StageBoxProps> = ({
     : { height: "0" };
 
   return (
-    <div className="stageBox">
-      <div className="stageBoxHead">
-        <span className="stageNumber">Փուլ {stageNumber}</span>
+    <div className={styles.stageBox}>
+      <div className={styles.stageBoxHead}>
+        <span
+        // className="stageNumber"
+        >
+          Փուլ {stageNumber}
+        </span>
         <img
           src={isShown ? minusImg : plusImg}
           alt=""
@@ -44,7 +48,7 @@ export const StdStageBox: FC<StageBoxProps> = ({
           className="cursor-pointer h-5 w-5"
         />
       </div>
-      <div className="stageLessons" style={animLessons}>
+      <div className={styles.stageLessons} style={animLessons}>
         <hr className="w-full bg-[#CCCCCC] h-[1px] mt-5" />
         {lessonsObj.map(({ title, body, id }, i) => (
           <StdStageLesson
