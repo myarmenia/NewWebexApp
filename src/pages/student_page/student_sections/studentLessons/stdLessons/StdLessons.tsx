@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import "./stdLessons.css";
+import styles from "./stdLessons.module.css";
 import { LessonTitle } from "../../../../../components/reusable";
 import StudentLesCard from "./StudentLesCard";
 
@@ -7,7 +7,7 @@ export const StdLessons: FC = () => {
   return (
     <div>
       <LessonTitle title="Իմ դասընթացները" />
-      <div className="student_lessonsBoxes">
+      <div className={styles.student_lessonsBoxes}>
         <StudentLesCard
           title="Գրաֆիկ դիզայնի դասընթաց սկսնակների համար"
           keys={[

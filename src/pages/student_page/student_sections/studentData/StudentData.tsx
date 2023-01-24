@@ -1,5 +1,5 @@
 import { FC } from "react";
-import "./studentData.css";
+import styles, { studentDataTitle } from "./studentData.module.css";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FormProvider, useFieldArray, useForm } from "react-hook-form";
 import buttonImg from "../../../../assets/teacher_images/createGraffic/buttonimg.svg";
@@ -48,12 +48,15 @@ export const StudentData: FC = () => {
   return (
     <FormProvider {...methods}>
       <LessonTitle title="Անձնական տվյալներ" />
-      <div className="studentData">
+      <div className={styles.studentData}>
         <AddImg />
-        <form className="studentDataForm" onSubmit={handleSubmit(onSubmit)}>
-          <div className="studentDataFormChild">
-            <div className="studentDataChild">
-              <div className="studentDataTitle">Անձնական տվյալներ</div>
+        <form
+          className={styles.studentDataForm}
+          onSubmit={handleSubmit(onSubmit)}
+        >
+          <div className={styles.studentDataFormChild}>
+            <div className={styles.studentDataChild}>
+              <div className={styles.studentDataTitle}>Անձնական տվյալներ</div>
               {personalInfo.fields.map(({ id }, index) => {
                 const adressError =
                   errors.personalInfo &&
@@ -62,7 +65,7 @@ export const StudentData: FC = () => {
                   errors.personalInfo &&
                   errors.personalInfo[index]?.phoneNum?.message;
                 return (
-                  <div key={id} className="studentDataInp">
+                  <div key={id} className={styles.studentDataInp}>
                     <CstmInput
                       placeholder="Հասցե"
                       regName={`personalInfo.${index}.adress`}
@@ -76,10 +79,10 @@ export const StudentData: FC = () => {
                   </div>
                 );
               })}
-              <div className="buttonContainer">
+              <div className={styles.buttonContainer}>
                 <button
                   type="button"
-                  className="add"
+                  // className="add"
                   onClick={() => {
                     personalInfo.append({
                       adress: "",
@@ -89,35 +92,35 @@ export const StudentData: FC = () => {
                 >
                   <img src={buttonImg} />
                 </button>
-                <div className="addText">Ավելացնել</div>
+                <div className={styles.addText}>Ավելացնել</div>
               </div>
             </div>
 
-            <div className="studentDataChild">
-              <div className="studentDataTitle">Լեզուներ</div>
+            <div className={styles.studentDataChild}>
+              <div className={studentDataTitle}>Լեզուներ</div>
               {language.fields.map(({ id }, index) => {
                 const languageError =
                   errors.language && errors.language[index]?.name?.message;
                 return (
-                  <div className="studentDataInp2" key={id}>
+                  <div className={styles.studentDataInp2} key={id}>
                     <CstmInput
-                      className="studentDataInp2"
+                      className={styles.studentDataInp2}
                       placeholder="Հայերեն"
                       regName={`language.${index}.name`}
                       error={languageError}
                     />
                     <img
                       src={deleteImg}
-                      className="deleteImg"
+                      // className="deleteImg"
                       onClick={() => language.remove(index)}
                     />
                   </div>
                 );
               })}
-              <div className="buttonContainer">
+              <div className={styles.buttonContainer}>
                 <button
                   type="button"
-                  className="add"
+                  // className="add"
                   onClick={() => {
                     language.append({
                       name: "",
@@ -126,7 +129,7 @@ export const StudentData: FC = () => {
                 >
                   <img src={buttonImg} />
                 </button>
-                <div className="addText">Ավելացնել</div>
+                <div className={styles.addText}>Ավելացնել</div>
               </div>
             </div>
           </div>

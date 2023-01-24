@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import "./stdLesPage.css";
+import styles from "./stdLesPage.module.css";
 import { LoaderFunction, LoaderFunctionArgs } from "react-router";
 import { CstmTextarea, CustomBtn } from "../../../../../components/forms";
 import { LessonTitle } from "../../../../../components/reusable";
@@ -44,8 +44,8 @@ export const StdLesPage: FC<LesPageProps> = ({
   return (
     <>
       <LessonTitle title="Իմ դասընթացները" className="w-full justify-between" />
-      <div className="lesPage">
-        <div className="lesPage_container">
+      <div className={styles.lesPage}>
+        <div className={styles.lesPage_container}>
           <LesContainer>{title && <LesPTitle {...{ title }} />}</LesContainer>
           <LesImageBox {...{ stageCount, stageLessons, lessonTime }} />
           <LesContainer>
