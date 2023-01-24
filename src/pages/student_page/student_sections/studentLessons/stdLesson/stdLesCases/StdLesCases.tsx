@@ -1,5 +1,5 @@
 import { FC } from "react";
-import "./stdLesCases.css";
+import styles from "./stdLesCases.module.css";
 import { ProgressBar } from "../../../../../../components/reusable/ProgressBar";
 import { LessonProps } from "../../../../../../models/interfaces";
 
@@ -12,7 +12,7 @@ export const StdLesCases: FC<StdLesCasesProps> = ({
   description,
 }) => {
   return (
-    <div className="lesCases">
+    <div className={styles.lesCases}>
       {/* <span className="studentsCount">{studentsCount} ուսանող</span>
       <div className="flex justify-between items-center">
         <p className="lesBox_price !text-[36px]">{price} դրամ</p>
@@ -27,7 +27,10 @@ export const StdLesCases: FC<StdLesCasesProps> = ({
           </div>
         ))}
       </div> */}
-      <p className="lesBox_description !leading-[22px] !text-sm">
+      <p
+        className="!leading-[22px] !text-sm"
+        //  className="lesBox_description !leading-[22px] !text-sm"
+      >
         {description}
       </p>
       <ProgressBar progress={70} className="!h-6 !text-2xl" />

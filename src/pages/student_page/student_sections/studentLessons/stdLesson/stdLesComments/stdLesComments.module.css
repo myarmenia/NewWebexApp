@@ -1,0 +1,11 @@
+.mySwiper-button-prev2,
+.mySwiper-button-next2 {
+  @apply w-4 h-6 shrink-0 cursor-pointer;
+}
+.lesPage_commentsContainer {
+  @apply flex items-center w-[104%] self-center;
+}
+.lesPage_comment {
+  @apply bg-white py-4 px-6 text-sm rounded-[30px] m-[17px] italic;
+  box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.1);
+}
