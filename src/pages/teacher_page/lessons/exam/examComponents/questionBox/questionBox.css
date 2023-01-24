@@ -1,9 +1,3 @@
-.questionBox {
-  @apply flex flex-col gap-[17px];
-}
-.questionPart {
-  @apply flex flex-col gap-3;
-}
 .questionTitle {
   @apply text-gray text-sm;
 }

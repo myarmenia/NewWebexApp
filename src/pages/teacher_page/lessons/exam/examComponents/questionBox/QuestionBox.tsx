@@ -8,7 +8,7 @@ import {
   useFormContext,
 } from "react-hook-form";
 import { IExamSchema } from "../../../../../../validations/exam_schema";
-import { ResVariant } from "../resVariant/ResVariant";
+import { ResVariant } from "../ResVariant";
 import { LoadImage } from "../../../../../../components/teacherComponents/loadImage/LoadImage";
 import { CstmTextarea } from "../../../../../../components/forms";
 
@@ -38,9 +38,9 @@ export const QuestionBox: React.FC<QuestionBoxProps> = ({
     });
   };
   return (
-    <div className="questionBox">
+    <div className="flex flex-col gap-[17px]">
       {i > 0 && <div className="overLine" />}
-      <div className="questionPart">
+      <div className="flex flex-col gap-3">
         <div className="flex items-center gap-[17px]">
           <span className="questionTitle">{`Հարց ${i + 1}`}</span>
           <img

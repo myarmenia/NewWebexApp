@@ -4,9 +4,9 @@ import {
   UseFieldArrayReturn,
   useFormContext,
 } from "react-hook-form";
-import removeVariantImg from "../../../../../../assets/teacher_images/exam/Group 1555.svg";
-import { CstmInput } from "../../../../../../components/forms";
-import { IExamSchema } from "../../../../../../validations/exam_schema";
+import removeVariantImg from "../../../../../assets/teacher_images/exam/Group 1555.svg";
+import { CstmInput } from "../../../../../components/forms";
+import { IExamSchema } from "../../../../../validations/exam_schema";
 
 interface ResVariantProps {
   field: FieldArrayWithId<IExamSchema, "questionBox", "id">;
@@ -45,7 +45,7 @@ export const ResVariant: React.FC<ResVariantProps> = ({
       />
       <input
         type="checkbox"
-        className="customCheckbox !h-[14px] !w-[17px] before:h-[11.5px]"
+        className="customCheckbox before:h-[11.5px]"
         {...register(`questionBox.${i}.responseVariants.${ind}.isVariantTrue`)}
       />
       <img
