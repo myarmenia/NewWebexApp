@@ -1,43 +1,24 @@
-import React, {
-  ChangeEventHandler,
-  HTMLInputTypeAttribute,
-  KeyboardEventHandler,
-} from "react";
+import React, { InputHTMLAttributes } from "react";
 import { useFormContext } from "react-hook-form";
 import { useError } from "../../hooks";
+import { ErrorMessage } from "../reusable";
 
 interface CstmInputProps {
   regName?: string;
-  type?: HTMLInputTypeAttribute;
-  placeholder?: string;
-  value?: string | number;
   img?: string;
   className?: string;
   boxClassName?: string;
   error?: string;
-  defaultValue?: string | number;
-  onChange?: ChangeEventHandler<HTMLInputElement>;
-  onKeyDown?: KeyboardEventHandler<HTMLInputElement>;
 }
 
-export const CstmInput: React.FC<CstmInputProps> = ({
-  type = "text",
-  placeholder = "",
-  className = "",
-  boxClassName = "",
-  defaultValue,
-  img,
-  value,
-  regName,
-  error,
-  onChange,
-  onKeyDown,
-}) => {
+export const CstmInput: React.FC<
+  CstmInputProps & InputHTMLAttributes<HTMLInputElement>
+> = ({ className = "", boxClassName = "", img, regName, error, ...props }) => {
   const formMethods = useFormContext();
   const errorMessage = useError(error, regName, formMethods);
   const register = regName ? formMethods?.register(regName) : null;
   return (
-    <div className={"flex relative w-full " + boxClassName}>
+    <div className={"flex w-full relative " + boxClassName}>
       {img && (
         <img
           src={img}
@@ -46,11 +27,11 @@ export const CstmInput: React.FC<CstmInputProps> = ({
         />
       )}
       <input
-        {...register}
-        {...{ type, placeholder, defaultValue, value, onKeyDown, onChange }}
         className={`lessonInp ${className} ${img ? "!pl-[30px]" : ""}`}
+        {...props}
+        {...register}
       />
-      <p className="errorMessage">{errorMessage}</p>
+      <ErrorMessage>{errorMessage}</ErrorMessage>
     </div>
   );
 };

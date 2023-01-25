@@ -8,7 +8,7 @@ export const DefaultOption: FC = () => {
   const { toggleOptions, regName, placeholder, value, img } =
     useSelectContext();
   const formMethods = useFormContext();
-  const register = regName && formMethods?.register(regName);
+  const register = regName ? formMethods?.register(regName) : null;
   return (
     <div className={styles.defaultOption} onClick={() => toggleOptions()}>
       {img && (
@@ -22,12 +22,12 @@ export const DefaultOption: FC = () => {
         className={`flex text-gray w-full text-xs ${img ? "!pl-[13px]" : ""}`}
       >
         <input
-          {...register}
           type="text"
           {...{ placeholder }}
           disabled
           className={styles.title}
           value={value}
+          {...register}
         />
       </div>
       <img src={chevDown} alt="" className="w-3" />

@@ -1,0 +1,18 @@
+.input {
+  @apply w-[107px] py-3 px-[17px] text-xs bg-white rounded-2xl outline-none h-10
+placeholder:text-[#9C9C9C] placeholder:text-xs shadow-light relative;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.05);
+}
+.input::-webkit-calendar-picker-indicator {
+  background: url("../../../assets/teacher_images/personalInfo/calendarIcon.svg")
+    no-repeat;
+  @apply absolute -translate-y-1/2 top-1/2 right-[15px] cursor-pointer mt-0.5;
+}
+.input::-webkit-datetime-edit,
+.input::-webkit-inner-spin-button,
+.input::-webkit-clear-button {
+  display: none;
+}
+.value {
+  @apply text-xs absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-[40%] text-[#cccccc];
+}

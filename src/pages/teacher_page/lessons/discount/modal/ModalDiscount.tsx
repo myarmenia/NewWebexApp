@@ -3,7 +3,11 @@ import { FC } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import styles from "./discountModal.module.css";
 import ModalCard from "./ModalCard";
-import { CstmInput, CustomSelect } from "../../../../../components/forms";
+import {
+  CstmInput,
+  CustomCheckbox,
+  CustomSelect,
+} from "../../../../../components/forms";
 import { ModalContainer } from "../../../../../components/modalContainer/ModalContainer";
 import { discountModal_schema } from "../../../../../validations/modalDiscount_schema";
 
@@ -86,14 +90,7 @@ export const ModalDiscount: FC<IModalDiscount> = ({ modalActive }) => {
               <div className={styles.dateError}>
                 {errors.date?.end?.message}
               </div>
-              <div className={styles.modalCheckbox}>
-                <input
-                  type="checkbox"
-                  className={styles.modalCheck}
-                  {...register("timeCheck")}
-                />
-                <div className={styles.checkboxText}>Անժամկետ</div>
-              </div>
+              <CustomCheckbox regName="timeCheck" label="Անժամկետ" />
             </div>
           </div>
           <div className={styles.modalCard}>

@@ -1,22 +1,16 @@
 import { FC } from "react";
-import { useFormContext } from "react-hook-form";
-import { CustomNmbInp } from "../../../../../../components/forms";
+import {
+  CustomCheckbox,
+  CustomNmbInp,
+} from "../../../../../../components/forms";
 import styles from "./ageDiv.module.css";
 
 export const AgeDiv: FC = () => {
-  const { register } = useFormContext();
   return (
     <div className={styles.mycontainer}>
       <div className={styles.noAgeLimit}>
         <span className="text-gray text-xs">Տարիքային սահմանափակում</span>
-        <div className="flex gap-2">
-          <input
-            type="checkbox"
-            className={styles.checkbox}
-            {...register("isAgeLimit")}
-          />
-          <span>Չկա</span>
-        </div>
+        <CustomCheckbox regName="isAgeLimit" label="Չկա" />
       </div>
       <div className={styles.ageLimits}>
         <CustomNmbInp defaultValue={16} regName="minAgeLimit" />

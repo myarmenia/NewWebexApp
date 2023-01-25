@@ -4,14 +4,16 @@ import { FieldValues, UseFormReturn } from "react-hook-form";
 export const useError = (
   error: string | undefined,
   regName: string | undefined,
-  methods: UseFormReturn<FieldValues, any>
+  formMethods: UseFormReturn<FieldValues, any>
 ) => {
   const errorMessage = useMemo(() => {
     return (
       error ||
-      (regName && methods?.formState?.errors[regName]?.message!.toString())
+      (regName &&
+        formMethods?.formState?.errors[regName] &&
+        formMethods?.formState?.errors[regName]?.message!.toString())
     );
-  }, [error, methods?.formState?.errors]);
+  }, [error, regName && formMethods?.formState?.errors[regName]]);
 
   return errorMessage;
 };
