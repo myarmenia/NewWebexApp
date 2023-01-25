@@ -46,40 +46,6 @@ label {
 .form-check-input {
   @apply w-[16px] h-[16px];
 }
-input[type="checkbox"] {
-  width: 15px !important;
-  height: 15px !important;
-  position: relative;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -o-appearance: none;
-  appearance: none;
-  border-radius: 3px;
-  outline: 1px solid #cccccc;
-  background: #ffffff;
-}
-input[type="checkbox"]:checked {
-  outline: 1px solid #7764fb;
-}
-input[type="checkbox"]:checked:after {
-  content: "";
-  position: absolute;
-  bottom: 3px;
-  left: 6px;
-  width: 9px;
-  height: 15px;
-  border-right: 3px solid #7764fb;
-  border-bottom: 3px solid #7764fb;
-  transform: rotate(52deg);
-}
-input[type="radio"] {
-  background-color: #fff;
-  border: 0.15em solid #cccccc;
-  border-radius: 50%;
-}
-input[type="radio"]:checked {
-  accent-color: #7764fb;
-}
 .entry {
   @apply w-[100%] h-[60px] flex  justify-center items-center  gap-[10px];
 }

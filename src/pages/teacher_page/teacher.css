@@ -4,11 +4,6 @@
   min-height: calc(100vh - 80px);
   @apply w-full bg-cover;
 }
-.lessonInp {
-  @apply w-full py-3 px-[17px] bg-white rounded-2xl outline-none h-10 text-base
-  placeholder:text-[#9C9C9C] placeholder:text-xs;
-  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.05);
-}
 .activeNavItem {
   @apply text-[red];
 }

@@ -1,8 +1,8 @@
 import { FC } from "react";
-import { UseFieldArrayReturn, useFormContext } from "react-hook-form";
+import { FieldArrayWithId, useFormContext } from "react-hook-form";
 import buttonImg from "../../../../assets/teacher_images/createGraffic/buttonimg.svg";
 import deleteIcon from "../../../../assets/teacher_images/createGraffic/delete.svg";
-import { UserSubmitForm2 } from "./CreateGraffic";
+import { IInputTimeProps, UserSubmitForm2 } from "./CreateGraffic";
 import styles from "./createGraffic.module.css";
 
 interface InputProps {
@@ -11,13 +11,17 @@ interface InputProps {
   placholder?: string;
   regName: string;
   count: number;
-  fieldArray: UseFieldArrayReturn<UserSubmitForm2, any, "id">;
+  fields: FieldArrayWithId<UserSubmitForm2, keyof UserSubmitForm2, "id">[];
+  remove: (index?: number | number[] | undefined) => void;
+  append: (value: IInputTimeProps | IInputTimeProps[]) => void;
 }
 
 export const InputTime: FC<InputProps> = ({
   day,
   placholder,
-  fieldArray,
+  append,
+  fields,
+  remove,
   regName,
   count,
 }) => {
@@ -30,7 +34,7 @@ export const InputTime: FC<InputProps> = ({
     <div className={styles.graffics}>
       <p className={styles.grafficsDay}>{day}</p>
       <div className={styles.grafficInput}>
-        {fieldArray.fields.map(({ id }, index) => {
+        {fields.map(({ id }, index) => {
           return (
             <div key={id}>
               <div className={styles.grafficInputChild}>
@@ -56,7 +60,7 @@ export const InputTime: FC<InputProps> = ({
                 <img
                   src={deleteIcon}
                   className="shrink-0 cursor-pointer w-5 h-10"
-                  onClick={() => fieldArray.remove(index)}
+                  onClick={() => remove(index)}
                 />
               </div>
 
@@ -84,8 +88,8 @@ export const InputTime: FC<InputProps> = ({
             // watch(regName)[count - 1]?.end == "" ||
             // watch(regName)[count - 1]?.start == ""
             //   ? console.log(watch(regName)[count - 1])
-            //   : fieldArray.append({ start: "", end: "" });
-            fieldArray.append({ start: "", end: "" });
+            //   : append({ start: "", end: "" });
+            append({ start: "", end: "" });
           }}
         >
           <img src={buttonImg} />

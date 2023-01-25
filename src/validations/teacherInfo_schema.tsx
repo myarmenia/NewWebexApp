@@ -59,11 +59,12 @@ export const teacherInfo_schema = Yup.object().shape({
       position: Yup.string(),
       acceptTerms: Yup.bool().oneOf([true], "Պայմաններ ընդունելը  պարտադիր է"),
       start: Yup.date().max(new Date(), "Future date not allowed"),
-      end: Yup.date().when(
-        "start",
-        (start, Yup) =>
-          start && Yup.min(start, "End time cannot be before start time")
-      ),
+      end: Yup.date(),
+      // .when(
+      //   "start",
+      //   (start, Yup) =>
+      //     start && Yup.min(start, "End time cannot be before start time")
+      // ),
       description: Yup.string(),
     })
   ),
@@ -73,12 +74,13 @@ export const teacherInfo_schema = Yup.object().shape({
       statement: Yup.string(),
       faculty: Yup.string(),
       profession: Yup.string(),
-      start: Yup.date().max(new Date(), "Future date not allowed"),
-      end: Yup.date().when(
-        "start",
-        (start, Yup) =>
-          start && Yup.min(start, "End time cannot be before start time")
-      ),
+      start: Yup.date(),
+      end: Yup.date()
+      // .when(
+      //   "start",
+      //   (start, Yup) =>
+      //     start && Yup.min(start, "End time cannot be before start time")
+      // ),
     })
   ),
   languages: Yup.array().of(Yup.object().shape({ languages: Yup.string() })),
@@ -87,12 +89,13 @@ export const teacherInfo_schema = Yup.object().shape({
       name: Yup.string(),
       company: Yup.string(),
       profession: Yup.string(),
-      start: Yup.date().max(new Date(), "Future date not allowed"),
-      end: Yup.date().when(
-        "start",
-        (start, Yup) =>
-          start && Yup.min(start, "End time cannot be before start time")
-      ),
+      start: Yup.date(),
+      end: Yup.date()
+      // .when(
+      //   "start",
+      //   (start, Yup) =>
+      //     start && Yup.min(start, "End time cannot be before start time")
+      // ),
     })
   ),
   sertificat: Yup.string(),

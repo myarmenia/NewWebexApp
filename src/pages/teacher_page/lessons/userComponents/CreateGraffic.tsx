@@ -14,27 +14,34 @@ export interface IInputTimeProps {
 }
 export interface UserSubmitForm2 {
   monday?: IInputTimeProps[];
-  // tuesday?: IInputTimeProps[];
+  tuesday?: IInputTimeProps[];
+  wednesday?: IInputTimeProps[];
   // thursday?: IInputTimeProps[];
-  // wednesday?: IInputTimeProps[];
   // friday?: IInputTimeProps[];
   // saturday?: IInputTimeProps[];
   // sunday?: IInputTimeProps[];
 }
 
-const SchemaChild = Yup.array().of(
-  Yup.object().shape({
-    start: Yup.date().max(new Date(), "Future date not allowed"),
-    end: Yup.date().when(
-      "start",
-      (start, Yup) =>
-        start && Yup.min(start, "End time cannot be before start time")
-    ),
-  })
-);
+const SchemaChild = Yup.array()
+  .of(
+    Yup.object().shape({
+      start: Yup.date()
+        .max(new Date(), "Future date not allowed")
+        .required("some error"),
+      end: Yup.date()
+        .when(
+          "start",
+          (start, Yup) =>
+            start && Yup.min(start, "End time cannot be before start time")
+        )
+        .required("some error"),
+    })
+  )
+  .required("error");
 const Schema = Yup.object().shape({
   monday: SchemaChild,
-  // wednesday: SchemaChild,
+  tuesday: SchemaChild,
+  wednesday: SchemaChild,
   // thursday: SchemaChild,
   // friday: SchemaChild,
   // saturday: SchemaChild,
@@ -44,13 +51,9 @@ export const CreateGraffic: FC = () => {
   const methods = useForm<UserSubmitForm2>({
     resolver: yupResolver(Schema),
     defaultValues: {
-      monday: [
-        {
-          start: "",
-          end: "",
-        },
-      ],
-      // tuesday: [{ start: new Date(), end: new Date() }],
+      monday: [{ start: "", end: "" }],
+      tuesday: [{ start: "", end: "" }],
+      wednesday: [{ start: "", end: "" }],
       // wednesday: [{ start: new Date(), end: new Date() }],
       // thursday: [{ start: new Date(), end: new Date() }],
       // friday: [{ start: new Date(), end: new Date() }],
@@ -63,14 +66,14 @@ export const CreateGraffic: FC = () => {
     control,
     name: "monday",
   });
-  // const tuesday = useFieldArray({
-  //   control,
-  //   name: "tuesday",
-  // });
-  // const wednesday = useFieldArray({
-  //   control,
-  //   name: "wednesday",
-  // });
+  const tuesday = useFieldArray({
+    control,
+    name: "tuesday",
+  });
+  const wednesday = useFieldArray({
+    control,
+    name: "wednesday",
+  });
   // const thursday = useFieldArray({
   //   control,
   //   name: "thursday",
@@ -101,22 +104,25 @@ export const CreateGraffic: FC = () => {
           <InputTime
             day="Երկուշաբթի"
             regName="monday"
-            fieldArray={monday}
+            // fieldArray={monday}
+            {...monday}
             count={watch("monday")?.length || 1}
           />
-          {/*<InputTime
+          <InputTime
             day="Երեքշաբթի"
             regName="tuesday"
-            fieldArray={tuesday}
+            // fieldArray={tuesday}
+            {...tuesday}
             count={watch("tuesday")?.length || 1}
           />
-         <InputTime
+          <InputTime
             day="Չորեքշաբթի"
             regName="wednesday"
-            fieldArray={wednesday}
+            // fieldArray={wednesday}
+            {...wednesday}
             count={watch("wednesday")?.length || 1}
           />
-          <InputTime
+          {/*  <InputTime
             day="Հինգշաբթի"
             regName="thursday"
             fieldArray={thursday}
@@ -140,9 +146,9 @@ export const CreateGraffic: FC = () => {
             fieldArray={sunday}
             count={watch("sunday")?.length || 1}
           /> */}
-          <Link to={"edit_graffic"}>
-            <CustomBtn title="Պահպանել" type="submit" />
-          </Link>
+          {/* <Link to={"edit_graffic"}> */}
+          <CustomBtn title="Պահպանել" type="submit" />
+          {/* </Link> */}
         </form>
       </div>
     </FormProvider>

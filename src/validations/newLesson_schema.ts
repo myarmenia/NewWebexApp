@@ -8,7 +8,7 @@ export const newLesson_schema = Yup.object().shape({
     .required("title is required"),
   select: Yup.string().required("this option is required"),
   select1: Yup.string().required("this option is required").default(""),
-  describtion: Yup.string().min(3, "min is 3").required("afdsfs"),
+  describtion: Yup.string().min(4, "min is 4").required("afdsfs"),
   cost: Yup.number()
     .positive()
     .typeError("must be 'number' and this option is required")

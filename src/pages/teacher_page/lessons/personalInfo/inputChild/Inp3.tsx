@@ -1,7 +1,11 @@
 import React from "react";
 import { useFormContext } from "react-hook-form";
 import buttonImg from "../../../../../assets/teacher_images/createGraffic/buttonimg.svg";
-import { CstmInput, CustomSelect } from "../../../../../components/forms";
+import {
+  CstmDateInput,
+  CstmInput,
+  CustomSelect,
+} from "../../../../../components/forms";
 import {
   inputChildProps,
   PersonalSubmitForm,
@@ -57,7 +61,7 @@ export const Inp3: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
                 </div>
               </div>
               <div className={styles.date}>
-                <input
+                {/* <input
                   type="date"
                   className={styles.dateInp}
                   {...register(`education.${index}.start`)}
@@ -67,7 +71,13 @@ export const Inp3: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
                   type="date"
                   className={styles.dateInp}
                   {...register(`education.${index}.end`)}
+                /> */}
+                <CstmDateInput
+                  regName={`additionaledu.${index}.start`}
+                  defaultValue={"01.01.2023"}
                 />
+                <div className="w-2 h-[1px] bg-[#CCCCCC]" />
+                <CstmDateInput regName={`additionaledu.${index}.end`} />
               </div>
             </div>
           </div>

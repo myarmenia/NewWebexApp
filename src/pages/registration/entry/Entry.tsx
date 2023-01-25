@@ -5,7 +5,11 @@ import { login_schema } from "../../../validations/login_schema";
 import emailIcon from "../../../assets/registration_images/mail.png";
 import passwordIcon from "../../../assets/registration_images/password.png";
 import styles from "./entry.module.css";
-import { CstmInput, CustomBtn } from "../../../components/forms";
+import {
+  CstmInput,
+  CustomBtn,
+  CustomCheckbox,
+} from "../../../components/forms";
 import { Link } from "react-router-dom";
 interface EntryForm {
   email: string;
@@ -67,21 +71,11 @@ const Entry = () => {
             <div className={styles.recover}>
               <a href="">Վերականգնել գաղտնաբառը</a>
             </div>
-            <div className={styles["form-group-checkbox2"]}>
-              <input
-                type="checkbox"
-                {...register("acceptTerms")}
-                // className={`form-check-input ${
-                //   errors.acceptTerms ? "is-invalid" : ""
-                // }`}
-              />
-              <label
-                htmlFor="acceptTerms"
-                // className="form-check-label"
-              >
-                Հիշել
-              </label>
-            </div>
+            <CustomCheckbox
+              regName="acceptTerms"
+              label="Հիշել"
+              boxClassName={styles["form-group-checkbox2"]}
+            />
             <div
             // className="invalid-feedback"
             >
@@ -89,7 +83,7 @@ const Entry = () => {
             </div>
             <div
             // className="form-group-button"
-            > 
+            >
               <CustomBtn title="Մուտք" type="submit" className={styles.btn} />
             </div>
           </form>

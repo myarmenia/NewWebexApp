@@ -1,16 +1,22 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FormProvider, useForm } from "react-hook-form";
-import { CstmInput, CustomBtn, CustomSelect } from "../../components/forms";
-import Input from "../../components/teacherComponents/sherid/Input";
+import { Link } from "react-router-dom";
 import facebook from "../../assets/registration_images/facebook.png";
 import gmail from "../../assets/registration_images/gmail.png";
 import emailIcon from "../../assets/registration_images/mail.png";
 import passwordIcon from "../../assets/registration_images/password.png";
 import userIcon from "../../assets/registration_images/user.png";
+import {
+  CstmInput,
+  CustomBtn,
+  CustomCheckbox,
+  CustomRadio,
+  CustomSelect
+} from "../../components/forms";
+import { ErrorMessage } from "../../components/reusable";
+import { instance } from "../../request";
 import { registration_schema } from "../../validations/registration_schema";
 import styles from "./registration.module.css";
-import { instance } from "../../request";
-import { Link } from "react-router-dom";
 // import { Option } from "../header/customSelect/Option";
 interface UserSubmitForm {
   teacherStudentId: string;
@@ -39,7 +45,6 @@ const Regsitration = () => {
     resolver: yupResolver(registration_schema),
   });
   const {
-    register,
     handleSubmit,
     watch,
     formState: { errors },
@@ -61,28 +66,24 @@ const Regsitration = () => {
             >
               <div className={styles["form-group-checkbox"]}>
                 <div className={styles["form-group-checkboxChild"]}>
-                  <div className="flex items-center gap-3">
-                    <input
-                      type="radio"
-                      value="Դասավանդող"
-                      {...register("teacherStudentId")}
-                      className="teacher"
-                    />
-                    <label className={styles["radio-label"]}>Դասավանդող</label>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <input
-                      value="Ուսանող"
-                      type="radio"
-                      {...register("teacherStudentId")}
-                    />
-                    <label className={styles["radio-label"]}>Ուսանող</label>
-                  </div>
+                  <CustomRadio
+                    boxClassName="!gap-3"
+                    labelClassName={styles["radio-label"]}
+                    regName="teacherStudentId"
+                    label="Դասավանդող"
+                    value="Դասավանդող"
+                  />
+                  <CustomRadio
+                    boxClassName="!gap-3"
+                    labelClassName={styles["radio-label"]}
+                    regName="teacherStudentId"
+                    label="Ուսանող"
+                    value="Ուսանող"
+                  />
                 </div>
-                {/* <div>{errors.teacherStudentId?.message}</div> */}
-                <p className="errorMessage">
+                <ErrorMessage className="!left-[54%] !w-fit">
                   {errors.teacherStudentId?.message}
-                </p>
+                </ErrorMessage>
               </div>
 
               {watch("teacherStudentId") === "Դասավանդող" && (
@@ -124,14 +125,7 @@ const Regsitration = () => {
               />
               <div className={styles["form-group-checkbox2"]}>
                 <div className={styles["form-group-checkboxChild2"]}>
-                  <input
-                    type="checkbox"
-                    // className={`form-check-input ${
-                    //   errors.acceptTerms ? "is-invalid" : ""
-                    // }`}
-                    className={styles["form-check-input"]}
-                    {...register("acceptTerms")}
-                  />
+                  <CustomCheckbox regName="acceptTerms" />
                   <label
                     htmlFor="acceptTerms"
                     // className="form-check-label"

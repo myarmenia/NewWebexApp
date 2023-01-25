@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import "./customDropdown.css";
+import { FC, useState } from "react";
 import { IHeaderDropDownOption } from "../../../models/interfaces";
+import "./customDropdown.css";
 import { DropdownTitle } from "./DropdownTitle";
 import { Items } from "./Items";
 
@@ -10,7 +10,7 @@ interface CustomDropdownProps {
   className?: string;
 }
 
-export const CustomDropdown: React.FC<CustomDropdownProps> = ({
+export const CustomDropdown: FC<CustomDropdownProps> = ({
   dropDownTitle,
   options,
   className = "",

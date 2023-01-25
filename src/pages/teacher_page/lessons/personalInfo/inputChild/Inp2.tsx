@@ -1,9 +1,13 @@
 import React from "react";
 import { useFormContext } from "react-hook-form";
 import buttonImg from "../../../../../assets/teacher_images/createGraffic/buttonimg.svg";
-import { CstmInput } from "../../../../../components/forms";
-import { CstmTextarea } from "../../../../../components/forms";
-import { CustomSelect } from "../../../../../components/forms";
+import {
+  CstmDateInput,
+  CstmInput,
+  CstmTextarea,
+  CustomCheckbox,
+  CustomSelect,
+} from "../../../../../components/forms";
 import {
   inputChildProps,
   PersonalSubmitForm,
@@ -11,10 +15,9 @@ import {
 import styles from "./inputChild.module.css";
 export const Inp2: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
   const {
-    register,
-    watch,
     formState: { errors },
   } = useFormContext<PersonalSubmitForm>();
+
   return (
     <div className={styles.inputChild}>
       <div className="font-semibold text-gray text-sm">Աշխատանքային փորձ</div>
@@ -37,7 +40,6 @@ export const Inp2: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
             <CustomSelect
               placeholder="adfsd"
               regName={`${regName}.${index}.select`}
-              // className="registration_select"
               options={["chka", "sadd", "asd", "klka"]}
               error={selectError}
             />
@@ -50,26 +52,36 @@ export const Inp2: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
             <div className={styles.dateValidation}>
               <div className={styles.checkbox}>
                 <div className={styles.checkboxText}>Ժամանակահատված</div>
-                <div className={styles.checkboxChild}>
+                {/* <div className={styles.checkboxChild}>
                   <input
                     type="checkbox"
                     {...register(`workattempt.${index}.acceptTerms`)}
                   />
                   <div className={styles.clickText}>ներկայումս</div>
-                </div>
+                </div> */}
+                {/* Rub es ete petq chi - jnji */}
+                <CustomCheckbox
+                  regName={`workattempt.${index}.acceptTerms`}
+                  label="ներկայումս"
+                />
               </div>
               <div className={styles.date}>
-                <input
+                {/* <input
                   type="date"
                   className={styles.dateInp}
                   {...register(`workattempt.${index}.start`)}
+                /> */}
+                <CstmDateInput
+                  regName={`workattempt.${index}.start`}
+                  defaultValue={"01.01.2023"}
                 />
-                <div className="gic"></div>
-                <input
+                <div className="w-2 h-[1px] bg-[#CCCCCC]"></div>
+                <CstmDateInput regName={`workattempt.${index}.end`} />
+                {/*<input
                   type="date"
                   className={styles.dateInp}
                   {...register(`workattempt.${index}.end`)}
-                />
+                /> */}
               </div>
             </div>
             <CstmTextarea
@@ -82,8 +94,6 @@ export const Inp2: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
       })}
       <div className={styles.buttonContainer}>
         <button
-          // className="add"
-
           type="button"
           onClick={() => {
             fieldArray.append({

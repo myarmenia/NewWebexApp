@@ -43,7 +43,7 @@
   }
 }
 .date {
-  @apply flex gap-[7px] w-[250px] justify-center;
+  @apply flex gap-[7px] w-[250px] justify-center items-center;
 }
 .dateInp {
   @apply w-[142px] h-[40px] rounded-[15px] text-[#cccccc] py-0 px-[8px];
