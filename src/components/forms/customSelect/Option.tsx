@@ -11,7 +11,7 @@ interface OptionProps {
 
 export const Option: FC<OptionProps> = ({ option, optionId }) => {
   const formMethods = useFormContext();
-  const { toggleOptions, regName, removeOption, setValue, isMutable } =
+  const { toggleOptions, regName, removeOption, setValue, setOptions } =
     useSelectContext();
   return (
     <div className={styles.optionBox}>
@@ -26,7 +26,7 @@ export const Option: FC<OptionProps> = ({ option, optionId }) => {
       >
         {option}
       </div>
-      {isMutable && (
+      {Boolean(setOptions) && (
         <img
           className="py-3 px-4"
           src={trashbinImg}

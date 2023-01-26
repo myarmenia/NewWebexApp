@@ -1,29 +1,21 @@
-import React, { ChangeEvent, useState } from "react";
-import { UseFieldArrayReturn, useFormContext } from "react-hook-form";
+import { ChangeEvent, FC, KeyboardEvent, useState } from "react";
+import { useFieldArray, useFormContext } from "react-hook-form";
 import { CstmInput } from "../../../../../../components/forms";
 import { TeacherSubmitForm } from "../../../../../../validations/newLesson_schema";
 import { KnwItem } from "./KnwItem";
 
-interface KnowledgesProps {
-  reqKnowledges: UseFieldArrayReturn<
-    TeacherSubmitForm,
-    "requiredKnowledges",
-    "id"
-  >;
-}
-
-export const Knowledges: React.FC<KnowledgesProps> = ({ reqKnowledges }) => {
+export const Knowledges: FC = () => {
+  const { watch, control } = useFormContext<TeacherSubmitForm>();
   const [val, setVal] = useState<string>("");
+  const reqKnowledges = useFieldArray({
+    control,
+    name: "requiredKnowledges",
+  }); 
+
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     setVal(e.target.value);
   };
-
-  const {
-    watch,
-    formState: { errors },
-  } = useFormContext();
-
-  const keyDownHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const keyDownHandler = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && val) {
       reqKnowledges.append({ knowledge: val });
       setVal("");
@@ -43,10 +35,6 @@ export const Knowledges: React.FC<KnowledgesProps> = ({ reqKnowledges }) => {
           {...{ onChange }}
           placeholder="Ավելացնել պահանջվող նախնական գիտելիքները"
         />
-        {/* for error */}
-        {/* <p className="errorMessage">
-          <>{errors[regName!]?.message}</>
-        </p> */}
       </div>
       {!!watch("requiredKnowledges").length && (
         <div className="flex gap-2 flex-wrap">

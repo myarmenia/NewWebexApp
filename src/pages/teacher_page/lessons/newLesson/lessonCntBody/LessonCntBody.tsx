@@ -9,11 +9,11 @@ import {
   CustomBtn,
   CustomCheckbox,
   CustomNmbInp,
-  CustomSelect
+  CustomSelect,
 } from "../../../../../components/forms";
 import {
   newLesson_schema,
-  TeacherSubmitForm
+  TeacherSubmitForm,
 } from "../../../../../validations/newLesson_schema";
 import { AgeDiv } from "./ageDiv/AgeDiv";
 import { DifferentCourses } from "./differentCourses/DifferentCourses";
@@ -43,20 +43,10 @@ export const LessonCntBody: React.FC = () => {
       requiredKnowledges: [],
     },
   });
-  const {
-    register,
-    handleSubmit,
-    control,
-
-    formState: { errors },
-  } = methods;
+  const { register, handleSubmit, control, watch } = methods;
   const fieldArray = useFieldArray({
     control,
     name: "stages",
-  });
-  const reqKnowledges = useFieldArray({
-    control,
-    name: "requiredKnowledges",
   });
   const { fields } = fieldArray;
 
@@ -82,10 +72,7 @@ export const LessonCntBody: React.FC = () => {
     } else {
       values = data;
     }
-
     console.log(values, "porc");
-    console.log(!data.areStagesDifferent);
-
     if (values) {
       navigate("lesson_graffic");
     }
@@ -102,17 +89,14 @@ export const LessonCntBody: React.FC = () => {
                 placeholder="Ընտրել կատեգորիան*"
                 options={selectOptions}
                 regName="select"
-                isMutable={{
-                  isInput: true,
-                  setOptions,
-                }}
+                {...{ setOptions }}
               />
               <CustomSelect
                 placeholder="Ընտրել մակարդակը*"
                 options={["aaa", "bbb"]}
                 regName="select1"
               />
-              <Knowledges {...{ reqKnowledges }} />
+              <Knowledges />
               <CstmTextarea
                 regName="describtion"
                 className="!h-[202px]"
@@ -144,7 +128,16 @@ export const LessonCntBody: React.FC = () => {
                   <CustomNmbInp
                     defaultValue={3}
                     regName="stagesCount"
-                    {...{ fieldArray }}
+                    fnDecrease={() => {
+                      fieldArray?.remove?.(watch("stagesCount") - 1);
+                    }}
+                    fnIncrease={() => {
+                      fieldArray?.append?.({
+                        stage: watch("stagesCount"),
+                        count: 2,
+                        stageDescription: "",
+                      });
+                    }}
                   />
                 </TxtWinput>
                 <div

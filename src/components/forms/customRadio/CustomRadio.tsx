@@ -23,8 +23,8 @@ export const CustomRadio: FC<
   return (
     <div className={[styles.box, boxClassName].join(" ")}>
       <input
-        type="radio"
         {...props}
+        type="radio"
         className={[styles.myRadio, className].join(" ")}
         {...register}
       />

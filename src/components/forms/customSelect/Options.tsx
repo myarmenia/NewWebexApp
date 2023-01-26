@@ -5,7 +5,7 @@ import { Option } from "./Option";
 import { OptionInput } from "./OptionInput";
 
 export const Options: FC = () => {
-  const { options, isMutable, toggleOptions } = useSelectContext();
+  const { options, setOptions, toggleOptions } = useSelectContext();
   return (
     <>
       <div className={styles.options}>
@@ -14,7 +14,7 @@ export const Options: FC = () => {
             <Option key={optionId} {...{ option, optionId }} />
           ))}
         </div>
-        {isMutable?.isInput && <OptionInput />}
+        {Boolean(setOptions) && <OptionInput />}
       </div>
       <div className={styles.backDiv} onClick={toggleOptions} />
     </>

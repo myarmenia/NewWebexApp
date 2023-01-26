@@ -43,14 +43,12 @@ const Entry = () => {
             register={{ ...register("email") }}
             type="email"
             url={emailIcon}
-            error={errors.email?.message}
             placeholder="Էլ․ փոստ"
           />
           <Input
             register={{ ...register("password") }}
             type="password"
             url={passwordIcon}
-            error={errors.password?.message}
             placeholder="Գաղտնաբառ"
           /> */}
 

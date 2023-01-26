@@ -22,32 +22,21 @@ export const Inp2: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
     <div className={styles.inputChild}>
       <div className="font-semibold text-gray text-sm">Աշխատանքային փորձ</div>
       {fieldArray.fields.map(({ id }, index) => {
-        const descriptionError =
-          errors.workattempt && errors.workattempt[index]?.description?.message;
-        const selectError =
-          errors.workattempt && errors.workattempt[index]?.select?.message;
-        const companyError =
-          errors.workattempt && errors.workattempt[index]?.company?.message;
-        const positionError =
-          errors.workattempt && errors.workattempt[index]?.position?.message;
         return (
           <div className={styles.inputChild2} key={id}>
             <CstmInput
               placeholder="Կազմակերպություն"
               regName={`${regName}.${index}.company`}
-              error={companyError}
             />
             <CustomSelect
               placeholder="adfsd"
               regName={`${regName}.${index}.select`}
               options={["chka", "sadd", "asd", "klka"]}
-              error={selectError}
             />
             <CstmInput
               className={styles.name}
               placeholder="Պաշտոն"
               regName={`${regName}.${index}.position`}
-              error={positionError}
             />
             <div className={styles.dateValidation}>
               <div className={styles.checkbox}>
@@ -86,7 +75,6 @@ export const Inp2: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
             </div>
             <CstmTextarea
               placeholder="Աշխատանքի նկարագրություն"
-              error={descriptionError}
               regName={`workattempt.${index}.description`}
             />
           </div>

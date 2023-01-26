@@ -22,14 +22,6 @@ export const Inp3: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
     <div className={styles.inputChild}>
       <div className="font-semibold text-gray text-sm">Կրթություն</div>
       {fieldArray.fields.map(({ id }, index) => {
-        const select2Error =
-          errors.education && errors.education[index]?.select2?.message;
-        const statementError =
-          errors.education && errors.education[index]?.statement?.message;
-        const facultyError =
-          errors.education && errors.education[index]?.faculty?.message;
-        const professionError =
-          errors.education && errors.education[index]?.profession?.message;
         return (
           <div className={styles.inputChild2} key={id}>
             <CustomSelect
@@ -37,22 +29,18 @@ export const Inp3: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
               regName={`${regName}.${index}.select2`}
               className="registration_select"
               options={["asas", "sadd", "asd", "klka"]}
-              error={select2Error}
             />
             <CstmInput
               placeholder="Ուսումնական հաստատություն"
               regName={`${regName}.${index}.statement`}
-              error={statementError}
             />
             <CstmInput
               placeholder="Ֆակուլտետ"
               regName={`${regName}.${index}.faculty`}
-              error={facultyError}
             />
             <CstmInput
               placeholder="Մասնագիտություն"
               regName={`${regName}.${index}.profession`}
-              error={professionError}
             />
             <div className={styles.dateValidation}>
               <div className={styles.checkbox}>
