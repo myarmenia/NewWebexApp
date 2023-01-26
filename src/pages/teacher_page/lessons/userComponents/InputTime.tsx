@@ -1,19 +1,46 @@
 import { FC } from "react";
-import { UseFieldArrayReturn, useFormContext } from "react-hook-form";
+import {
+  ArrayPath,
+  FieldArrayWithId,
+  FieldValues,
+  UseFieldArrayAppend,
+  UseFieldArrayInsert,
+  UseFieldArrayMove,
+  UseFieldArrayPrepend,
+  UseFieldArrayRemove,
+  UseFieldArrayReplace,
+  UseFieldArraySwap,
+  UseFieldArrayUpdate,
+  useFormContext,
+} from "react-hook-form";
 import buttonImg from "../../../../assets/teacher_images/createGraffic/buttonimg.svg";
 import deleteIcon from "../../../../assets/teacher_images/createGraffic/delete.svg";
 import { UserSubmitForm2 } from "./CreateGraffic";
 import styles from "./createGraffic.module.css";
-
 interface InputProps {
   day: string;
   className?: string;
   placholder?: string;
   regName: string;
   count: number;
-  fieldArray: UseFieldArrayReturn<UserSubmitForm2, any, "id">;
+  fieldArray: UseFieldArrayReturn<UserSubmitForm2, "monday", "id">;
 }
-
+// type weekDay = "monday" | "tuesday" | "friday";
+type UseFieldArrayReturn<
+  TFieldValues extends FieldValues = FieldValues,
+  TFieldArrayName extends ArrayPath<TFieldValues> = ArrayPath<TFieldValues>,
+  TKeyName extends string = "id"
+> = {
+  swap: UseFieldArraySwap;
+  move: UseFieldArrayMove;
+  prepend: UseFieldArrayPrepend<TFieldValues, TFieldArrayName>;
+  append: UseFieldArrayAppend<TFieldValues, TFieldArrayName>;
+  remove: UseFieldArrayRemove;
+  insert: UseFieldArrayInsert<TFieldValues, TFieldArrayName>;
+  update: UseFieldArrayUpdate<TFieldValues, TFieldArrayName>;
+  replace: UseFieldArrayReplace<TFieldValues, TFieldArrayName>;
+  fields: FieldArrayWithId<TFieldValues, TFieldArrayName, TKeyName>[];
+};
 export const InputTime: FC<InputProps> = ({
   day,
   placholder,
