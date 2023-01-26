@@ -1,23 +1,20 @@
-import { FC, MouseEventHandler } from "react";
+import { ButtonHTMLAttributes, FC, MouseEventHandler } from "react";
 import styles from "./customBtn.module.css";
 
 interface SubmitBtnProps {
   title: string;
   type?: "button" | "submit" | "reset";
   className?: string;
-  onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
-export const CustomBtn: FC<SubmitBtnProps> = ({
-  title,
-  type = "button",
-  className = "",
-  onClick,
-}) => {
+export const CustomBtn: FC<
+  SubmitBtnProps & ButtonHTMLAttributes<HTMLButtonElement>
+> = ({ title, type = "button", className = "", ...props }) => {
   return (
     <button
       className={`${styles.addLessonBtn} ${className}`}
-      {...{ type, onClick }}
+      {...{ type }}
+      {...props}
     >
       {title}
     </button>

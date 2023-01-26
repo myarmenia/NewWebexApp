@@ -6,7 +6,7 @@ import {
   inputChildProps,
   PersonalSubmitForm,
 } from "../../../../../validations/teacherInfo_schema";
-import { CstmInput } from "../../../../../components/forms";
+import { CstmDateInput, CstmInput } from "../../../../../components/forms";
 
 export const Inp5: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
   const {
@@ -49,7 +49,7 @@ export const Inp5: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
                 </div>
               </div>
               <div className={styles.date}>
-                <input
+                {/* <input
                   type="date"
                   className={styles.dateInp}
                   {...register(`additionaledu.${index}.start`)}
@@ -59,7 +59,13 @@ export const Inp5: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
                   type="date"
                   className={styles.dateInp}
                   {...register(`additionaledu.${index}.end`)}
+                /> */}
+                <CstmDateInput
+                  regName={`additionaledu.${index}.start`}
+                  defaultValue={"01.01.2023"}
                 />
+                <div className="w-2 h-[1px] bg-[#CCCCCC]" />
+                <CstmDateInput regName={`additionaledu.${index}.end`} />
               </div>
             </div>
           </div>

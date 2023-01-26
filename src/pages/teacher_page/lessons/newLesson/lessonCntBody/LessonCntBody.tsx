@@ -7,9 +7,14 @@ import {
   CstmInput,
   CstmTextarea,
   CustomBtn,
+  CustomCheckbox,
   CustomNmbInp,
-  CustomSelect,
+  CustomSelect
 } from "../../../../../components/forms";
+import {
+  newLesson_schema,
+  TeacherSubmitForm
+} from "../../../../../validations/newLesson_schema";
 import { AgeDiv } from "./ageDiv/AgeDiv";
 import { DifferentCourses } from "./differentCourses/DifferentCourses";
 import { FinishExam } from "./finishExam/FinishExam";
@@ -17,10 +22,6 @@ import { Knowledges } from "./knowledges/Knowledges";
 import styles from "./lessonCntBody.module.css";
 import { Phases } from "./phases/Phases";
 import { TxtWinput } from "./txtWinput/TxtWinput";
-import {
-  newLesson_schema,
-  TeacherSubmitForm,
-} from "../../../../../validations/newLesson_schema";
 
 export const LessonCntBody: React.FC = () => {
   const navigate = useNavigate();
@@ -42,7 +43,13 @@ export const LessonCntBody: React.FC = () => {
       requiredKnowledges: [],
     },
   });
-  const { register, handleSubmit, control } = methods;
+  const {
+    register,
+    handleSubmit,
+    control,
+
+    formState: { errors },
+  } = methods;
   const fieldArray = useFieldArray({
     control,
     name: "stages",
@@ -83,7 +90,6 @@ export const LessonCntBody: React.FC = () => {
       navigate("lesson_graffic");
     }
   }, []);
-  console.log(11);
 
   return (
     <FormProvider {...methods}>
@@ -152,15 +158,11 @@ export const LessonCntBody: React.FC = () => {
                     <span className="text-gray text-xs">
                       Մի փուլի դասերի քանակը
                     </span>
-                    <div className="flex gap-2">
-                      <input
-                        type="checkbox"
-                        className={styles.checkbox}
-                        onClick={() => setIsDifferent(!isDifferent)}
-                        {...register("areStagesDifferent")}
-                      />
-                      <span>Փուլերը տարբերվում են</span>
-                    </div>
+                    <CustomCheckbox
+                      regName="areStagesDifferent"
+                      onClick={() => setIsDifferent(!isDifferent)}
+                      label="Փուլերը տարբերվում են"
+                    />
                   </div>
 
                   {isDifferent ? (

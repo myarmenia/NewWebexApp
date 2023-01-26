@@ -3,6 +3,7 @@ import { UseFieldArrayReturn, useFormContext } from "react-hook-form";
 import arrow from "../../../assets/teacher_images/newLesson/Polygon 3.svg";
 import { useError } from "../../../hooks";
 import { TeacherSubmitForm } from "../../../validations/newLesson_schema";
+import { ErrorMessage } from "../../reusable";
 import styles from "./customNmbInp.module.css";
 
 interface CustomNmbInpProps {
@@ -57,8 +58,8 @@ export const CustomNmbInp: React.FC<CustomNmbInpProps> = ({
             type="number"
             disabled
             defaultValue={age}
-            {...register}
             value={value}
+            {...register}
           />
         </div>
         <img
@@ -74,7 +75,7 @@ export const CustomNmbInp: React.FC<CustomNmbInpProps> = ({
           onClick={increase}
         />
       </div>
-      <p className="errorMessage">{errorMessage}</p>
+      <ErrorMessage>{errorMessage}</ErrorMessage>
     </div>
   );
 };

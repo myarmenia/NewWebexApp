@@ -1,11 +1,11 @@
-import React from "react";
+import { FC, MouseEvent } from "react";
 import {
   FieldArrayWithId,
   UseFieldArrayReturn,
   useFormContext,
 } from "react-hook-form";
 import removeVariantImg from "../../../../../assets/teacher_images/exam/Group 1555.svg";
-import { CstmInput } from "../../../../../components/forms";
+import { CstmInput, CustomCheckbox } from "../../../../../components/forms";
 import { IExamSchema } from "../../../../../validations/exam_schema";
 
 interface ResVariantProps {
@@ -15,14 +15,14 @@ interface ResVariantProps {
   i: number;
 }
 
-export const ResVariant: React.FC<ResVariantProps> = ({
+export const ResVariant: FC<ResVariantProps> = ({
   field,
   questions,
   ind,
   i,
 }) => {
-  const { register, watch } = useFormContext();
-  const removeVariant = (e: React.MouseEvent<HTMLImageElement>) => {
+  const { watch } = useFormContext();
+  const removeVariant = (e: MouseEvent<HTMLImageElement>) => {
     e.preventDefault();
     const newObj = watch(`questionBox.${i}.responseVariants`).filter(
       (el: { variant: string }, ix: number) => {
@@ -46,10 +46,8 @@ export const ResVariant: React.FC<ResVariantProps> = ({
         className="w-full"
         regName={`questionBox.${i}.responseVariants.${ind}.variant`}
       />
-      <input
-        type="checkbox"
-        className="customCheckbox before:h-[11.5px]"
-        {...register(`questionBox.${i}.responseVariants.${ind}.isVariantTrue`)}
+      <CustomCheckbox
+        regName={`questionBox.${i}.responseVariants.${ind}.isVariantTrue`}
       />
       <img
         src={removeVariantImg}

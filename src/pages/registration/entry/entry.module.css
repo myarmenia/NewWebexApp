@@ -24,6 +24,9 @@
 .form-group-checkbox2 {
   @apply w-[50%] h-[30px] flex items-center gap-[10px];
 }
+.form-group-checkbox2 > span {
+  @apply text-xs;
+}
 .form-group-button {
   @apply w-[60%] h-[60px] flex  justify-center  items-center;
 }
@@ -69,34 +72,6 @@ label {
 :root {
   --form-control-disabled: #959495;
 }
-
-input[type="checkbox"] {
-  width: 15px !important;
-  height: 15px !important;
-  position: relative;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -o-appearance: none;
-  appearance: none;
-  border-radius: 3px;
-  outline: 1px solid #cccccc;
-  background: #ffffff;
-}
-input[type="checkbox"]:checked {
-  outline: 1px solid #7764fb;
-}
-input[type="checkbox"]:checked:after {
-  content: "";
-  position: absolute;
-  bottom: 3px;
-  left: 6px;
-  width: 9px;
-  height: 15px;
-  border-right: 3px solid #7764fb;
-  border-bottom: 3px solid #7764fb;
-  transform: rotate(52deg);
-}
-
 /* ================================= */
 .form-group {
   @apply w-[55%] mb-5;
@@ -133,7 +108,7 @@ input[type="checkbox"]:checked:after {
   }
 
   .form-group {
-    @apply w-[70%] 
+    @apply w-[70%];
   }
 }
 @media (max-width: 672px) {

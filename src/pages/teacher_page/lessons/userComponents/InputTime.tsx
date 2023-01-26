@@ -1,21 +1,8 @@
 import { FC } from "react";
-import {
-  ArrayPath,
-  FieldArrayWithId,
-  FieldValues,
-  UseFieldArrayAppend,
-  UseFieldArrayInsert,
-  UseFieldArrayMove,
-  UseFieldArrayPrepend,
-  UseFieldArrayRemove,
-  UseFieldArrayReplace,
-  UseFieldArraySwap,
-  UseFieldArrayUpdate,
-  useFormContext,
-} from "react-hook-form";
+import { FieldArrayWithId, useFormContext } from "react-hook-form";
 import buttonImg from "../../../../assets/teacher_images/createGraffic/buttonimg.svg";
 import deleteIcon from "../../../../assets/teacher_images/createGraffic/delete.svg";
-import { UserSubmitForm2 } from "./CreateGraffic";
+import { IInputTimeProps, UserSubmitForm2 } from "./CreateGraffic";
 import styles from "./createGraffic.module.css";
 interface InputProps {
   day: string;
@@ -23,28 +10,17 @@ interface InputProps {
   placholder?: string;
   regName: string;
   count: number;
-  fieldArray: UseFieldArrayReturn<UserSubmitForm2, "monday", "id">;
+  fields: FieldArrayWithId<UserSubmitForm2, keyof UserSubmitForm2, "id">[];
+  remove: (index?: number | number[] | undefined) => void;
+  append: (value: IInputTimeProps | IInputTimeProps[]) => void;
 }
-// type weekDay = "monday" | "tuesday" | "friday";
-type UseFieldArrayReturn<
-  TFieldValues extends FieldValues = FieldValues,
-  TFieldArrayName extends ArrayPath<TFieldValues> = ArrayPath<TFieldValues>,
-  TKeyName extends string = "id"
-> = {
-  swap: UseFieldArraySwap;
-  move: UseFieldArrayMove;
-  prepend: UseFieldArrayPrepend<TFieldValues, TFieldArrayName>;
-  append: UseFieldArrayAppend<TFieldValues, TFieldArrayName>;
-  remove: UseFieldArrayRemove;
-  insert: UseFieldArrayInsert<TFieldValues, TFieldArrayName>;
-  update: UseFieldArrayUpdate<TFieldValues, TFieldArrayName>;
-  replace: UseFieldArrayReplace<TFieldValues, TFieldArrayName>;
-  fields: FieldArrayWithId<TFieldValues, TFieldArrayName, TKeyName>[];
-};
+
 export const InputTime: FC<InputProps> = ({
   day,
   placholder,
-  fieldArray,
+  append,
+  fields,
+  remove,
   regName,
   count,
 }) => {
@@ -57,7 +33,7 @@ export const InputTime: FC<InputProps> = ({
     <div className={styles.graffics}>
       <p className={styles.grafficsDay}>{day}</p>
       <div className={styles.grafficInput}>
-        {fieldArray.fields.map(({ id }, index) => {
+        {fields.map(({ id }, index) => {
           return (
             <div key={id}>
               <div className={styles.grafficInputChild}>
@@ -83,7 +59,7 @@ export const InputTime: FC<InputProps> = ({
                 <img
                   src={deleteIcon}
                   className="shrink-0 cursor-pointer w-5 h-10"
-                  onClick={() => fieldArray.remove(index)}
+                  onClick={() => remove(index)}
                 />
               </div>
 
@@ -111,8 +87,8 @@ export const InputTime: FC<InputProps> = ({
             // watch(regName)[count - 1]?.end == "" ||
             // watch(regName)[count - 1]?.start == ""
             //   ? console.log(watch(regName)[count - 1])
-            //   : fieldArray.append({ start: "", end: "" });
-            fieldArray.append({ start: "", end: "" });
+            //   : append({ start: "", end: "" });
+            append({ start: "", end: "" });
           }}
         >
           <img src={buttonImg} />

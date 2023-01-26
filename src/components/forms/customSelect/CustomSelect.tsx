@@ -2,6 +2,7 @@ import { createContext, FC, useContext, useState } from "react";
 import { useFormContext } from "react-hook-form";
 import { useError } from "../../../hooks";
 import { ICustomSelect } from "../../../models/interfaces";
+import { ErrorMessage } from "../../reusable";
 import styles from "./customSelect.module.css";
 import { DefaultOption } from "./DefaultOption";
 import { Options } from "./Options";
@@ -42,7 +43,7 @@ export const CustomSelect: FC<CustomSelectProps> = (props) => {
         <div className={[styles.customSelect, className].join(" ")}>
           <DefaultOption />
           {state && <Options />}
-          <p className="errorMessage">{errorMessage}</p>
+          <ErrorMessage>{errorMessage}</ErrorMessage>
         </div>
       </div>
     </CustomSelectContext.Provider>
