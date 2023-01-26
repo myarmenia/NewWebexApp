@@ -4,7 +4,6 @@ import buttonImg from "../../../../assets/teacher_images/createGraffic/buttonimg
 import deleteIcon from "../../../../assets/teacher_images/createGraffic/delete.svg";
 import { IInputTimeProps, UserSubmitForm2 } from "./CreateGraffic";
 import styles from "./createGraffic.module.css";
-
 interface InputProps {
   day: string;
   className?: string;
