@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { weekDays_long_short } from "../../../../../../helper";
 import { ThNum } from "./ThNum";
 

@@ -2,15 +2,13 @@ import { FC } from "react";
 import { useAppSelector } from "../../../../../../hooks";
 import { TrNum } from "./TrNum";
 
-interface NmTbodyProps {}
-
-export const NmTbody: FC<NmTbodyProps> = () => {
+export const NmTbody: FC = () => {
   const { datesWeek } = useAppSelector((state) => state.calendarList);
   return (
     <tbody className="tbodyNumber">
-      {datesWeek.map((weekData) => {
-        return <TrNum {...{ weekData }} key={Math.random()} />;
-      })}
+      {datesWeek.map((weekData) => (
+        <TrNum {...{ weekData }} key={Math.random()} />
+      ))}
     </tbody>
   );
 };

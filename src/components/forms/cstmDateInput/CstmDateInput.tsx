@@ -1,5 +1,6 @@
 import { ChangeEvent, FC, InputHTMLAttributes, useState } from "react";
 import { useFormContext } from "react-hook-form";
+import { thisDate } from "../../../helper";
 import { useError } from "../../../hooks";
 import { ErrorMessage } from "../../reusable";
 import styles from "./cstmDateInput.module.css";
@@ -9,24 +10,28 @@ interface CstmDateInputProps {
   boxClassName?: string;
   error?: string;
   defaultValue?: `${number}.${number}.${number}`;
+  errorClassName?: string;
 }
+
 export const CstmDateInput: FC<
-  CstmDateInputProps & InputHTMLAttributes<HTMLInputElement>
+  CstmDateInputProps & Omit<InputHTMLAttributes<HTMLInputElement>, "type">
 > = ({
   className = "",
   boxClassName = "",
-  defaultValue = "17.01.2023",
+  defaultValue = thisDate,
   regName,
   error,
+  errorClassName,
+  onChange,
   ...props
 }) => {
   const formMethods = useFormContext();
   const errorMessage = useError(regName, formMethods);
   const [value, setValue] = useState<string>("");
   const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    onChange?.(e);
     regName && formMethods.setValue(regName, e.target.value);
-    const v = e.target.value.split("-").reverse().join(".");
-    setValue(v);
+    setValue(e.target.value.split("-").reverse().join("."));
   };
   return (
     <div className={"flex relative w-fit " + boxClassName}>
@@ -37,7 +42,7 @@ export const CstmDateInput: FC<
         onChange={changeHandler}
       />
       <span className={styles.value}>{value || defaultValue}</span>
-      <ErrorMessage>{errorMessage}</ErrorMessage>
+      <ErrorMessage className={errorClassName}>{errorMessage}</ErrorMessage>
     </div>
   );
 };

@@ -12,10 +12,9 @@ import { CalTbody } from "./CalTbody";
 import { CalThead } from "./CalThead";
 import { ToggleMonth } from "./ToggleMonth";
 
-export const DayCont: FC = ({}) => {
+export const DayCont: FC = () => {
   const { currentDate } = useAppSelector((state) => state.calendarList);
   const dispatch = useAppDispatch();
-
   return (
     <div className={styles.mycontainer}>
       <div className={styles.heading}>
@@ -31,7 +30,7 @@ export const DayCont: FC = ({}) => {
             </div>
           </div>
           <div className={styles.filter_box}>
-            <FilterBtn className={styles.filter_btn}>
+            <FilterBtn className={styles.filter_btn} >
               Ֆիլտր
               <img src={filterImg} />
             </FilterBtn>

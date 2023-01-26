@@ -19,13 +19,20 @@ interface CustomSelectProps
     | "setValue"
     | "value"
     | "img"
+    | "errorClassName"
   > {}
 
 export const CustomSelectContext = createContext<ICustomSelect>(null!);
 
 // if you want to make select work without react-hook-form you need to pass value and setValue useState to component
 export const CustomSelect: FC<CustomSelectProps> = (props) => {
-  const { className = "", regName, setOptions, options } = props;
+  const {
+    className = "",
+    regName,
+    setOptions,
+    options,
+    errorClassName,
+  } = props;
   const [state, setState] = useState<boolean>(false);
   const formMethods = useFormContext();
   const toggleOptions = () => {
@@ -43,7 +50,7 @@ export const CustomSelect: FC<CustomSelectProps> = (props) => {
         <div className={[styles.customSelect, className].join(" ")}>
           <DefaultOption />
           {state && <Options />}
-          <ErrorMessage>{errorMessage}</ErrorMessage>
+          <ErrorMessage className={errorClassName}>{errorMessage}</ErrorMessage>
         </div>
       </div>
     </CustomSelectContext.Provider>

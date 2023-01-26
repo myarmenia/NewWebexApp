@@ -4,11 +4,11 @@ import { LessonTitle } from "../../../../components/reusable";
 import { useAppDispatch, useAppSelector } from "../../../../hooks";
 import {
   createDates,
-  createDatesWeek,
+  combineDates,
 } from "../../../../redux/reducers/calendarList";
 import { instance } from "../../../../request";
 import { DayCont } from "./calenComponents/dayCont/DayCont";
-import { TdNumCont } from "./calenComponents/tdNumCont/TdNumCont";
+import { NumCont } from "./calenComponents/numCont/NumCont";
 import { LoaderFunction } from "react-router";
 
 export const Calendar: FC = () => {
@@ -17,7 +17,7 @@ export const Calendar: FC = () => {
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(createDates());
-    dispatch(createDatesWeek());
+    dispatch(combineDates());
   }, [myCurrentDate, dispatch]);
 
   return (
@@ -25,7 +25,7 @@ export const Calendar: FC = () => {
       <LessonTitle title="Դասավանդման գրաֆիկ" />
       <div className={styles.mycontainer}>
         <div className={styles.content}>
-          <TdNumCont />
+          <NumCont />
           <div className={styles.hr} />
           <DayCont />
         </div>

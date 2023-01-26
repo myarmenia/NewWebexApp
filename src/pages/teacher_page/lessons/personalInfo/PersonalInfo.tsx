@@ -104,7 +104,7 @@ export const PersonalInfo: FC = () => {
             </div>
             <div className={styles.inputChild2}>
               <Inp3 regName="education" fieldArray={education} />
-              <Inp4 regName="languages" fieldArray={languages} />
+              <Inp4 />
               <Inp5 regName="additionaledu" fieldArray={additionaledu} />
               <Sertificat />
             </div>

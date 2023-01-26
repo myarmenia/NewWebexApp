@@ -7,7 +7,7 @@ interface TdBoxProps extends IDateDay {
 }
 
 export const TdBox: FC<TdBoxProps> = ({
-  dayNumber,
+  date,
   currentDayEvents,
   className = "",
   isCurrentMonth,
@@ -17,7 +17,7 @@ export const TdBox: FC<TdBoxProps> = ({
       <div
         className={`${styles.content} ${!isCurrentMonth ? "opacity-40" : ""}`}
       >
-        {dayNumber}
+        {date?.getDate()}
       </div>
       <div className={styles.events}>
         {currentDayEvents?.map(({ time }) => (
