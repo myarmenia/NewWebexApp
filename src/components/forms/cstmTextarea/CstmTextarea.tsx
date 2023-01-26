@@ -9,10 +9,11 @@ interface CstmTextareaProps {
   value?: string | number;
   className?: string;
   error?: string;
+  errorClassName?: string;
 }
 export const CstmTextarea: FC<
   CstmTextareaProps & TextareaHTMLAttributes<HTMLTextAreaElement>
-> = ({ regName, className = "", error, ...props }) => {
+> = ({ regName, className = "", error, errorClassName, ...props }) => {
   const formMethods = useFormContext();
   const errorMessage = useError(regName, formMethods);
   const register = regName ? formMethods?.register(regName) : null;
@@ -25,7 +26,7 @@ export const CstmTextarea: FC<
         className={`${className} scrollbar_hidden ${styles.textarea} lessonInp`}
         {...register}
       />
-      <ErrorMessage>{errorMessage}</ErrorMessage>
+      <ErrorMessage className={errorClassName}>{errorMessage}</ErrorMessage>
     </div>
   );
 };

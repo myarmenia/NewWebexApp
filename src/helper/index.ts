@@ -9,3 +9,6 @@ export {
   weekScheduleTime,
   weekSheduleEvents,
 } from "./calStore";
+export const thisDate = `${new Date().getDate()}.${
+  new Date().getMonth().toString().length <= 2 && "" + new Date().getMonth() + 1
+}.${new Date().getFullYear()}`;

@@ -25,7 +25,7 @@ interface educationYupProps {
   end: string | Date;
 }
 interface languagesYupProps {
-  languages: string;
+  language: string;
 }
 interface additionaleduYupProps {
   name: string;
@@ -83,7 +83,11 @@ export const teacherInfo_schema = Yup.object().shape({
       // ),
     })
   ),
-  languages: Yup.array().of(Yup.object().shape({ languages: Yup.string() })),
+  languages: Yup.array().of(
+    Yup.object().shape({
+      language: Yup.string().min(5, "min is 5").required("Required"),
+    })
+  ),
   additionaledu: Yup.array().of(
     Yup.object().shape({
       name: Yup.string(),

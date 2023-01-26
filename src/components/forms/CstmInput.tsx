@@ -1,4 +1,4 @@
-import React, { InputHTMLAttributes } from "react";
+import React, { FC, InputHTMLAttributes } from "react";
 import { useFormContext } from "react-hook-form";
 import { useError } from "../../hooks";
 import { ErrorMessage } from "../reusable";
@@ -9,11 +9,20 @@ interface CstmInputProps {
   className?: string;
   boxClassName?: string;
   error?: string;
+  errorClassName?: string;
 }
 
-export const CstmInput: React.FC<
+export const CstmInput: FC<
   CstmInputProps & InputHTMLAttributes<HTMLInputElement>
-> = ({ className = "", boxClassName = "", img, regName, error, ...props }) => {
+> = ({
+  className = "",
+  boxClassName = "",
+  img,
+  regName,
+  error,
+  errorClassName,
+  ...props
+}) => {
   const formMethods = useFormContext();
   const errorMessage = useError(regName, formMethods);
   const register = regName ? formMethods?.register(regName) : null;
@@ -31,7 +40,7 @@ export const CstmInput: React.FC<
         className={`lessonInp ${className} ${img ? "!pl-[30px]" : ""}`}
         {...register}
       />
-      <ErrorMessage>{errorMessage}</ErrorMessage>
+      <ErrorMessage className={errorClassName}>{errorMessage}</ErrorMessage>
     </div>
   );
 };

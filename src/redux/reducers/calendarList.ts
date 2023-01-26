@@ -39,26 +39,26 @@ const calendarList = createSlice({
           currentDate.getFullYear() === state.chosenDay.getFullYear()
         ) {
           myDates.push({
-            dayNumber: currentDate.getDate(),
             isActive: true,
             currentDayEvents: createDayEventArray(),
             isCurrentMonth:
               currentDate.getMonth() === state.currentDate.getMonth(),
+            date: new Date(currentDate),
           });
         } else {
           myDates.push({
-            dayNumber: currentDate.getDate(),
             isActive: false,
             currentDayEvents: createDayEventArray(),
             isCurrentMonth:
               currentDate.getMonth() === state.currentDate.getMonth(),
+            date: new Date(currentDate),
           });
         }
         currentDate.setDate(currentDate.getDate() + 1);
       }
       if (
-        myDates[myDates.length - 1].dayNumber > 7 &&
-        myDates[myDates.length - 1].dayNumber !==
+        myDates[myDates.length - 1].date.getDate() > 7 &&
+        myDates[myDates.length - 1].date.getDate() !==
           new Date(
             state.currentDate.getFullYear(),
             state.currentDate.getMonth() + 1,
@@ -72,19 +72,19 @@ const calendarList = createSlice({
             currentDate.getFullYear() === state.chosenDay.getFullYear()
           ) {
             myDates.push({
-              dayNumber: currentDate.getDate(),
               isActive: true,
               currentDayEvents: createDayEventArray(),
               isCurrentMonth:
                 currentDate.getMonth() === state.currentDate.getMonth(),
+              date: new Date(currentDate),
             });
           } else {
             myDates.push({
-              dayNumber: currentDate.getDate(),
               isActive: false,
               currentDayEvents: createDayEventArray(),
               isCurrentMonth:
                 currentDate.getMonth() === state.currentDate.getMonth(),
+              date: new Date(currentDate),
             });
           }
           currentDate.setDate(currentDate.getDate() + 1);
@@ -92,7 +92,7 @@ const calendarList = createSlice({
       }
       state.dates = myDates;
     },
-    createDatesWeek: (state) => {
+    combineDates: (state) => {
       let myDatesWeek: IDateDay[][] = [];
       let weeksInMonth = state.dates.length / 7;
       let vari = 0;
@@ -111,7 +111,7 @@ const calendarList = createSlice({
       myDatesWeek.map((el) =>
         el.map((elem) => {
           if (payload.isCurrentMonth) {
-            if (elem.dayNumber === payload.id) {
+            if (elem.date.getDate() === payload.id) {
               state.chosenDay = new Date(state.currentDate);
               state.chosenDay.setDate(payload.id);
               payload.navigate("week_schedule");
@@ -145,7 +145,7 @@ const calendarList = createSlice({
 
 export const {
   createDates,
-  createDatesWeek,
+  combineDates,
   chooseDay,
   toPrevMonth,
   toNextMonth,

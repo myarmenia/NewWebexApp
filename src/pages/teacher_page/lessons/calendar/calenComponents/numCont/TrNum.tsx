@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { IDateDay } from "../../../../../../models/interfaces";
 import { TdNum } from "./tdNum/TdNum";
 
@@ -8,9 +8,9 @@ interface TrNumProps {
 export const TrNum: FC<TrNumProps> = ({ weekData }) => {
   return (
     <tr>
-      {weekData.map((day) => {
-        return <TdNum {...day} key={Math.random()} />;
-      })}
+      {weekData.map((day) => (
+        <TdNum {...day} key={Math.random()} />
+      ))}
     </tr>
   );
 };

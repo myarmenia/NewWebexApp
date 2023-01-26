@@ -15,6 +15,7 @@ export interface ICustomSelect {
   setValue?: Dispatch<SetStateAction<string>>;
   value?: string;
   img?: string;
+  errorClassName?: string;
 }
 
 export interface IHeaderDropDownOption {
@@ -84,13 +85,13 @@ export interface IPaginationItem {
   isCompleted: boolean;
 }
 export interface IDateDay {
-  dayNumber: number;
   isActive?: boolean;
   isCurrentMonth: boolean;
   currentDayEvents?: {
     evName?: string;
     time: string;
   }[];
+  date: Date;
 }
 export interface IWeekEvent {
   title: string;

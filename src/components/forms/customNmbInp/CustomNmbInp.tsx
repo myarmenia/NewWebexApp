@@ -10,6 +10,7 @@ interface CustomNmbInpProps {
   regName?: string;
   setValue?: Dispatch<SetStateAction<number>>;
   value?: number;
+  errorClassName?: string;
   fnIncrease?: () => void;
   fnDecrease?: () => void;
 }
@@ -19,6 +20,7 @@ export const CustomNmbInp: React.FC<CustomNmbInpProps> = ({
   regName,
   setValue,
   value,
+  errorClassName,
   fnIncrease,
   fnDecrease,
 }) => {
@@ -70,7 +72,7 @@ export const CustomNmbInp: React.FC<CustomNmbInpProps> = ({
           onClick={increase}
         />
       </div>
-      <ErrorMessage>{errorMessage}</ErrorMessage>
+      <ErrorMessage className={errorClassName}>{errorMessage}</ErrorMessage>
     </div>
   );
 };

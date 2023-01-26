@@ -7,17 +7,12 @@ import styles from "./tdNum.module.css";
 
 interface TdNumProps extends IDateDay {}
 
-export const TdNum: FC<TdNumProps> = ({
-  dayNumber,
-  isActive,
-  isCurrentMonth,
-}) => {
+export const TdNum: FC<TdNumProps> = ({ date, isActive, isCurrentMonth }) => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const chooseWeekDay = () => {
-    dispatch(chooseDay({ id: dayNumber, navigate, isCurrentMonth }));
+    dispatch(chooseDay({ id: date.getDate(), navigate, isCurrentMonth }));
   };
-
   return (
     <td
       className={`${styles.tdNum} ${
@@ -26,7 +21,7 @@ export const TdNum: FC<TdNumProps> = ({
       onClick={chooseWeekDay}
     >
       <div className={isActive ? styles.activeDay : styles.tdNumeric}>
-        <span>{dayNumber}</span>
+        <span>{date.getDate()}</span>
       </div>
     </td>
   );

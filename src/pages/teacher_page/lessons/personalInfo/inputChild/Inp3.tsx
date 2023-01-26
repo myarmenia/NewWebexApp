@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useFormContext } from "react-hook-form";
 import buttonImg from "../../../../../assets/teacher_images/createGraffic/buttonimg.svg";
 import {
@@ -17,6 +17,9 @@ export const Inp3: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
     register,
     formState: { errors },
   } = useFormContext<PersonalSubmitForm>();
+
+  const [value, setValue] = useState<string | Date>("");
+  console.log(value);
 
   return (
     <div className={styles.inputChild}>
@@ -61,7 +64,8 @@ export const Inp3: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
                   {...register(`education.${index}.end`)}
                 /> */}
                 <CstmDateInput
-                  regName={`additionaledu.${index}.start`}
+                  // regName={`additionaledu.${index}.start`}
+                  onChange={(e) => setValue(e.target.value)}
                   defaultValue={"01.01.2023"}
                 />
                 <div className="w-2 h-[1px] bg-[#CCCCCC]" />

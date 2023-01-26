@@ -1,11 +1,9 @@
-import React, { FC } from "react";
-import styles from "./tdNumCont.module.css";
+import { FC } from "react";
 import { NmTbody } from "./NmTbody";
 import { NmThead } from "./NmThead";
+import styles from "./numCont.module.css";
 
-interface TdNumContProps {}
-
-export const TdNumCont: FC<TdNumContProps> = ({}) => {
+export const NumCont: FC = () => {
   return (
     <div className={styles.mycontainer}>
       <div className={styles.content}>

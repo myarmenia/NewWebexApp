@@ -6,7 +6,7 @@
   @apply h-auto flex flex-col gap-[20px];
 }
 .inputChild3 {
-  @apply h-auto flex  gap-[20px];
+  @apply h-auto flex items-center gap-[20px];
 }
 .deleteImg {
   @apply w-[19px] h-[19px] cursor-pointer;
