@@ -58,23 +58,15 @@ export const StudentData: FC = () => {
             <div className={styles.studentDataChild}>
               <div className={styles.studentDataTitle}>Անձնական տվյալներ</div>
               {personalInfo.fields.map(({ id }, index) => {
-                const adressError =
-                  errors.personalInfo &&
-                  errors.personalInfo[index]?.adress?.message;
-                const phoneNumError =
-                  errors.personalInfo &&
-                  errors.personalInfo[index]?.phoneNum?.message;
                 return (
                   <div key={id} className={styles.studentDataInp}>
                     <CstmInput
                       placeholder="Հասցե"
                       regName={`personalInfo.${index}.adress`}
-                      error={adressError}
                     />
                     <CstmInput
                       placeholder="Հեռախոս"
                       regName={`personalInfo.${index}.phoneNum`}
-                      error={phoneNumError}
                     />
                   </div>
                 );
@@ -99,15 +91,12 @@ export const StudentData: FC = () => {
             <div className={styles.studentDataChild}>
               <div className={styles.studentDataTitle}>Լեզուներ</div>
               {language.fields.map(({ id }, index) => {
-                const languageError =
-                  errors.language && errors.language[index]?.name?.message;
                 return (
                   <div className={styles.studentDataInp2} key={id}>
                     <CstmInput
                       className={styles.studentDataInp2}
                       placeholder="Հայերեն"
                       regName={`language.${index}.name`}
-                      error={languageError}
                     />
                     <img
                       src={deleteImg}

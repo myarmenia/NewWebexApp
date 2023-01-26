@@ -17,29 +17,19 @@ export const Inp5: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
     <div className={styles.inputChild}>
       <div className="font-semibold text-gray text-sm">Հավելյալ կրթություն</div>
       {fieldArray.fields.map(({ id }, index) => {
-        const additionaleduError =
-          errors.additionaledu && errors.additionaledu[index]?.name?.message;
-        const companyError =
-          errors.additionaledu && errors.additionaledu[index]?.company?.message;
-        const proffesionError =
-          errors.additionaledu &&
-          errors.additionaledu[index]?.profession?.message;
         return (
           <div className={styles.inputChild2} key={id}>
             <CstmInput
               placeholder="Դասընթացի անվանումը"
               regName={`${regName}.${index}.name`}
-              error={additionaleduError}
             />
             <CstmInput
               placeholder="Դասընթացն անցկացնող կազմակերպություն"
               regName={`${regName}.${index}.company`}
-              error={companyError}
             />
             <CstmInput
               regName={`${regName}.${index}.profession`}
               placeholder="Մասնագիտություն"
-              error={proffesionError}
             />
 
             <div className={styles.dateValidation}>

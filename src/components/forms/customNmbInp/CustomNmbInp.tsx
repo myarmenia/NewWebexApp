@@ -1,27 +1,26 @@
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
-import { UseFieldArrayReturn, useFormContext } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 import arrow from "../../../assets/teacher_images/newLesson/Polygon 3.svg";
 import { useError } from "../../../hooks";
-import { TeacherSubmitForm } from "../../../validations/newLesson_schema";
 import { ErrorMessage } from "../../reusable";
 import styles from "./customNmbInp.module.css";
 
 interface CustomNmbInpProps {
   defaultValue?: number;
   regName?: string;
-  error?: string;
-  fieldArray?: UseFieldArrayReturn<TeacherSubmitForm, "stages", "id">;
   setValue?: Dispatch<SetStateAction<number>>;
   value?: number;
+  fnIncrease?: () => void;
+  fnDecrease?: () => void;
 }
 
 export const CustomNmbInp: React.FC<CustomNmbInpProps> = ({
   defaultValue = 1,
   regName,
-  error,
-  fieldArray,
   setValue,
   value,
+  fnIncrease,
+  fnDecrease,
 }) => {
   const formMethods = useFormContext();
   const register = regName ? formMethods?.register(regName) : null;
@@ -30,17 +29,13 @@ export const CustomNmbInp: React.FC<CustomNmbInpProps> = ({
   const increase = () => {
     if (age >= 1) {
       setAge((prev) => prev + 1);
-      fieldArray?.append?.({
-        stage: formMethods?.watch("stagesCount"),
-        count: 2,
-        stageDescription: "",
-      });
+      fnIncrease?.();
     }
   };
   const decrease = () => {
     if (age > 1) {
       setAge((prev) => prev - 1);
-      fieldArray?.remove?.(formMethods?.watch("stagesCount") - 1);
+      fnDecrease?.();
     }
   };
   useEffect(() => {
@@ -48,7 +43,7 @@ export const CustomNmbInp: React.FC<CustomNmbInpProps> = ({
     regName && formMethods?.setValue(regName, age);
   }, [age]);
 
-  const errorMessage = useError(error, regName, formMethods);
+  const errorMessage = useError(regName, formMethods);
 
   return (
     <div className="relative">

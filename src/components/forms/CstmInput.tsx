@@ -15,7 +15,7 @@ export const CstmInput: React.FC<
   CstmInputProps & InputHTMLAttributes<HTMLInputElement>
 > = ({ className = "", boxClassName = "", img, regName, error, ...props }) => {
   const formMethods = useFormContext();
-  const errorMessage = useError(error, regName, formMethods);
+  const errorMessage = useError(regName, formMethods);
   const register = regName ? formMethods?.register(regName) : null;
   return (
     <div className={"flex w-full relative " + boxClassName}>
@@ -27,8 +27,8 @@ export const CstmInput: React.FC<
         />
       )}
       <input
-        className={`lessonInp ${className} ${img ? "!pl-[30px]" : ""}`}
         {...props}
+        className={`lessonInp ${className} ${img ? "!pl-[30px]" : ""}`}
         {...register}
       />
       <ErrorMessage>{errorMessage}</ErrorMessage>

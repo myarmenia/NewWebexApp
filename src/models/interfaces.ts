@@ -8,10 +8,7 @@ export interface ICustomSelect {
   placeholder: string;
   regName?: string;
   error?: string;
-  isMutable?: {
-    setOptions: Dispatch<SetStateAction<string[]>>;
-    isInput: boolean;
-  };
+  setOptions?: Dispatch<SetStateAction<string[]>>; // for mutable select
   toggleOptions: () => void;
   removeOption?: (currentId: number) => void;
   className?: string;

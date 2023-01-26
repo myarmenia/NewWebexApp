@@ -15,8 +15,8 @@ export const CustomCheckbox: FC<
   return (
     <div className={"flex gap-2 pl-[1px] " + boxClassName}>
       <input
-        type="checkbox"
         {...props}
+        type="checkbox"
         className={[styles.myCheckbox, className].join(" ")}
         {...register}
       />

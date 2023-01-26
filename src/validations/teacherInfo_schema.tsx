@@ -54,8 +54,8 @@ export const teacherInfo_schema = Yup.object().shape({
   aboutme: Yup.string(),
   workattempt: Yup.array().of(
     Yup.object().shape({
-      select: Yup.string(),
-      company: Yup.string(),
+      select: Yup.string().required("Required"),
+      company: Yup.string().required("Required"),
       position: Yup.string(),
       acceptTerms: Yup.bool().oneOf([true], "Պայմաններ ընդունելը  պարտադիր է"),
       start: Yup.date().max(new Date(), "Future date not allowed"),
@@ -75,7 +75,7 @@ export const teacherInfo_schema = Yup.object().shape({
       faculty: Yup.string(),
       profession: Yup.string(),
       start: Yup.date(),
-      end: Yup.date()
+      end: Yup.date(),
       // .when(
       //   "start",
       //   (start, Yup) =>
@@ -90,7 +90,7 @@ export const teacherInfo_schema = Yup.object().shape({
       company: Yup.string(),
       profession: Yup.string(),
       start: Yup.date(),
-      end: Yup.date()
+      end: Yup.date(),
       // .when(
       //   "start",
       //   (start, Yup) =>

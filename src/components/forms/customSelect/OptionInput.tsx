@@ -5,7 +5,7 @@ import styles from "./customSelect.module.css";
 
 export const OptionInput: FC = () => {
   const inpRef = useRef<HTMLInputElement>(null);
-  const { options, isMutable } = useSelectContext();
+  const { options, setOptions } = useSelectContext();
   return (
     <div className="relative m-3 mt-2">
       <input
@@ -18,7 +18,7 @@ export const OptionInput: FC = () => {
         src={acceptImg}
         alt=""
         onClick={() => {
-          isMutable?.setOptions?.([...options, inpRef.current!.value]);
+          setOptions?.([...options, inpRef.current!.value]);
           inpRef.current!.value = "";
           inpRef.current!.focus();
         }}

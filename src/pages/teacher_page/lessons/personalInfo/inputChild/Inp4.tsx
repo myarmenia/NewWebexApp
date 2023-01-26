@@ -18,15 +18,12 @@ export const Inp4: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
     <div className={styles.inputChild}>
       <div className="font-semibold text-gray text-sm">Լեզուներ</div>
       {fieldArray.fields.map(({ id }, index) => {
-        const languagesError =
-          errors.languages && errors.languages[index]?.languages?.message;
         return (
           <div key={id} className={styles.inputChild3}>
             <CstmInput
               className={styles.name}
               placeholder="Հայերեն"
               regName={`${regName}.${index}.language`}
-              error={languagesError}
             />
             <img
               src={deleteImg}

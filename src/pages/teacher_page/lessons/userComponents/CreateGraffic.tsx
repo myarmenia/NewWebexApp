@@ -1,7 +1,6 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FC } from "react";
-import { FormProvider, useFieldArray, useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { FormProvider, useForm } from "react-hook-form";
 import * as Yup from "yup";
 import { CustomBtn } from "../../../../components/forms";
 import { LessonTitle } from "../../../../components/reusable/lessonTitle/LessonTitle";
@@ -61,35 +60,7 @@ export const CreateGraffic: FC = () => {
       // sunday: [{ start: new Date(), end: new Date() }],
     },
   });
-  const { handleSubmit, control, watch } = methods;
-  const monday = useFieldArray({
-    control,
-    name: "monday",
-  });
-  const tuesday = useFieldArray({
-    control,
-    name: "tuesday",
-  });
-  const wednesday = useFieldArray({
-    control,
-    name: "wednesday",
-  });
-  // const thursday = useFieldArray({
-  //   control,
-  //   name: "thursday",
-  // });
-  // const friday = useFieldArray({
-  //   control,
-  //   name: "friday",
-  // });
-  // const saturday = useFieldArray({
-  //   control,
-  //   name: "saturday",
-  // });
-  // const sunday = useFieldArray({
-  //   control,
-  //   name: "sunday",
-  // });;
+  const { handleSubmit } = methods;
   const onSubmit = (data: UserSubmitForm2) => console.log(data, "data");
 
   return (
@@ -101,27 +72,9 @@ export const CreateGraffic: FC = () => {
           onSubmit={handleSubmit(onSubmit)}
           action=""
         >
-          <InputTime
-            day="Երկուշաբթի"
-            regName="monday"
-            // fieldArray={monday}
-            {...monday}
-            count={watch("monday")?.length || 1}
-          />
-          <InputTime
-            day="Երեքշաբթի"
-            regName="tuesday"
-            // fieldArray={tuesday}
-            {...tuesday}
-            count={watch("tuesday")?.length || 1}
-          />
-          <InputTime
-            day="Չորեքշաբթի"
-            regName="wednesday"
-            // fieldArray={wednesday}
-            {...wednesday}
-            count={watch("wednesday")?.length || 1}
-          />
+          <InputTime day="Երկուշաբթի" name="monday" />
+          <InputTime day="Երեքշաբթի" name="tuesday" />
+          <InputTime day="Չորեքշաբթի" name="wednesday" />
           {/*  <InputTime
             day="Հինգշաբթի"
             regName="thursday"
