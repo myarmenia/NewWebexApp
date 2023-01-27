@@ -1,9 +1,9 @@
-import React, { useEffect, useRef } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { FC } from "react";
+import { useNavigate } from "react-router-dom";
 import { CustomBtn } from "../../../../components/forms";
 import styles from "./addLesson.module.css";
 
-export const AddLesson: React.FC = () => {
+export const AddLesson: FC = () => {
   const navigate = useNavigate();
   return (
     <div className={styles.box}>

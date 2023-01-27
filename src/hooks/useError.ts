@@ -10,8 +10,9 @@ export const useError = (
   const thisError =
     splitedName && formMethods.formState.errors?.[splitedName[0]];
   const errorMessage = useMemo(() => {
-    if (error) return error;
-    if (regName) {
+    if (error) {
+      return error;
+    } else if (regName) {
       if (regName.includes(".")) {
         if (Boolean(formMethods.formState.errors[regName.split(".")[0]])) {
           if (
@@ -32,6 +33,7 @@ export const useError = (
       } else return;
     }
   }, [
+    error,
     regName && formMethods?.formState?.errors[regName],
     Boolean(thisError) &&
       Array.isArray(thisError) &&

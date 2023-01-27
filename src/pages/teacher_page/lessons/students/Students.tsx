@@ -59,6 +59,7 @@ export const Students: FC = () => {
             {
               name: "Հայտի ամսաթիվը",
               render: ({ lessons }: any) => <TdDate {...{ lessons }} />,
+              tdClassName: "text-center",
             },
             {
               name: "Տալ հասանելիություն դասերին",
@@ -68,6 +69,7 @@ export const Students: FC = () => {
                   className="!py-2 !min-w-[152px]"
                 />
               ),
+              tdClassName: "text-center",
             },
             {
               name: "",
@@ -114,6 +116,7 @@ export const Students: FC = () => {
               {
                 name: "Ուսուցման ամսաթիվը",
                 render: ({ lessons }: any) => <TdDate {...{ lessons }} />,
+                tdClassName: "text-center",
               },
               {
                 name: "Առաջընթացը",

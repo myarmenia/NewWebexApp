@@ -1,34 +1,31 @@
-import styles from "./walletCont.module.css";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { FC, useState } from "react";
-import { FormProvider, useForm } from "react-hook-form";
-import * as Yup from "yup";
+import { FC, useCallback, useState } from "react";
 import editPenImg from "../../../../../../assets/teacher_images/userLessons/editGray.svg";
 import { CustomBtn, CustomSelect } from "../../../../../../components/forms";
 import { ModalContainer } from "../../../../../../components/modalContainer/ModalContainer";
 import { Table } from "../../../../../../components/reusable";
 import { generateArray } from "../../../../../../helper";
+import styles from "./walletCont.module.css";
 
-// ---------- validation ----------
-const walletModalFormSchema = Yup.object().shape({
-  planSelect: Yup.string(),
-});
-export interface IWalletModalForm {
-  planSelect: string;
-}
-// ===============================================
-
-interface WalletContProps {
-  balance: number;
-}
-export const WalletCont: FC<WalletContProps> = ({ balance }) => {
+export const WalletCont: FC = () => {
   const [transactionHistory, setTransactionHistory] = useState<boolean>(true);
   const [isModalOpened, setIsModalOpen] = useState<boolean>(false);
   const [tarifPlanName, setTarifPlanState] = useState<string>();
+  const [selectValue, setSelectValue] = useState<string>("");
+  const [selectError, setSelectError] = useState<string>("");
 
-  const methods = useForm<IWalletModalForm>({
-    resolver: yupResolver(walletModalFormSchema),
-  });
+  const selectHandler = useCallback(() => {
+    if (selectValue.length < 5) {
+      setSelectError("Required");
+    } else {
+      setSelectError("");
+      console.log(selectValue);
+    }
+  }, [selectValue]);
+  const closeModalHandler = () => {
+    setIsModalOpen(true);
+    setSelectError("");
+    setSelectValue("");
+  };
   return (
     <>
       <div className={styles.walletCont}>
@@ -55,7 +52,7 @@ export const WalletCont: FC<WalletContProps> = ({ balance }) => {
               <div className="flex items-center gap-4">
                 <p className="font-semibold text-sm mb-1">Սակագնային պլան</p>
                 <img
-                  onClick={() => setIsModalOpen(true)}
+                  onClick={closeModalHandler}
                   src={editPenImg}
                   alt=""
                   className="cursor-pointer"
@@ -145,31 +142,29 @@ export const WalletCont: FC<WalletContProps> = ({ balance }) => {
             <div className="absolute top-0 left-0 w-full pb-4  border-b border-[#BEBFE4] text-[#7A64FA]">
               Սակագնային պլան
             </div>
-            <FormProvider {...methods}>
-              <form
-                onSubmit={methods.handleSubmit((data) => console.log(data))}
-                className="w-[75%] flex flex-col gap-12"
-              >
-                <div className="flex flex-col gap-4">
-                  <span className="text-gray text-sm font-semibold">
-                    Ընտրել սակագնային պլանը
-                  </span>
-                  <CustomSelect
-                    options={["Սակագնային պլանի անվանումը", "asdfghjkl"]}
-                    regName="planSelect"
-                    placeholder="Սակագնային պլանի անվանումը"
-                  />
-                </div>
-                <div className="flex items-center justify-between">
-                  <CustomBtn
-                    type="submit"
-                    title="Չեղարկել"
-                    className={styles.payBtn}
-                  />
-                  <CustomBtn type="submit" title="Հաստատել" />
-                </div>
-              </form>
-            </FormProvider>
+
+            <div className="w-[75%] flex flex-col gap-12">
+              <div className="flex flex-col gap-4">
+                <span className="text-gray text-sm font-semibold">
+                  Ընտրել սակագնային պլանը
+                </span>
+                <CustomSelect
+                  options={["Սակագնային պլանի անվանումը", "asdfghjkl"]}
+                  placeholder="Սակագնային պլանի անվանումը"
+                  value={selectValue}
+                  setValue={setSelectValue}
+                  error={selectError}
+                />
+              </div>
+              <div className="flex items-center justify-between">
+                <CustomBtn
+                  type="submit"
+                  title="Չեղարկել"
+                  className={styles.payBtn}
+                />
+                <CustomBtn onClick={selectHandler} title="Հաստատել" />
+              </div>
+            </div>
           </div>
         </ModalContainer>
       )}

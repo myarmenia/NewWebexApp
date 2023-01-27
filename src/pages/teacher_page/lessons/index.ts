@@ -1,6 +1,6 @@
 export { AddLesson } from "./addLesson/AddLesson";
 export { Calendar, calendarLoader } from "./calendar/Calendar";
-export { WeekSchedule } from "./calendar/weekSchedule/WeekSchedule";
+export { WeekSchedule } from "./weekSchedule/WeekSchedule";
 export { ControlPanel } from "./controlPanel/ControlPanel";
 export { Discount } from "./discount/Discount";
 export { Exam } from "./exam/Exam";

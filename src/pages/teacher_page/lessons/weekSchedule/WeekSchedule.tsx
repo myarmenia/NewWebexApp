@@ -1,8 +1,8 @@
 import { FC } from "react";
 import styles from "./weekSchedule.module.css";
-import { LessonTitle } from "../../../../../components/reusable";
-import { getCurrentWeekStartToEnd } from "../../../../../helper";
-import { useAppSelector } from "../../../../../hooks";
+import { LessonTitle } from "../../../../components/reusable";
+import { getCurrentWeekStartToEnd } from "../../../../helper";
+import { useAppSelector } from "../../../../hooks";
 import { WkTbody } from "./WkTbody";
 import { WkThead } from "./WkThead";
 
