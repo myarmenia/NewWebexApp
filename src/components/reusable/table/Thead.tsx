@@ -1,6 +1,6 @@
 import { TableProps } from "./Table";
 
-export const Thead = <T extends any>({ rows }: Pick<TableProps<T>, "rows">) => {
+export function Thead<T>({ rows }: Pick<TableProps<T>, "rows">) {
   return (
     <thead>
       <tr>
@@ -12,4 +12,4 @@ export const Thead = <T extends any>({ rows }: Pick<TableProps<T>, "rows">) => {
       </tr>
     </thead>
   );
-};
+}

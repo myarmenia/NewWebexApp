@@ -22,6 +22,7 @@ interface UserSubmitForm {
   teacherStudentId: string;
   select: string[];
   name: string;
+  surName: string;
   email: string;
   password: string;
   repeatPassowrd: string;
@@ -51,7 +52,7 @@ const Regsitration = () => {
   } = methods;
   const onSubmit = (data: UserSubmitForm) => {
     console.log(data);
-    fetchData(data);
+    // fetchData(data);
   };
 
   return (
@@ -97,10 +98,16 @@ const Regsitration = () => {
               )}
 
               <CstmInput
-                regName="name"
+                regName="surName"
                 boxClassName={styles["form-group"]}
                 img={userIcon}
                 placeholder="Անուն"
+              />
+              <CstmInput
+                regName="name"
+                boxClassName={styles["form-group"]}
+                img={userIcon}
+                placeholder="Ազգանուն"
               />
               <CstmInput
                 regName="email"

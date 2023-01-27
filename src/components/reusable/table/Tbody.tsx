@@ -2,7 +2,7 @@ import { TableProps } from "./Table";
 
 interface TbodyProps<T> extends TableProps<T> {}
 
-export const Tbody = <T extends any>({ rows, data }: TbodyProps<T>) => {
+export function Tbody<T>({ rows, data }: TbodyProps<T>) {
   return (
     <tbody>
       {data?.map((el, index) => (
@@ -16,4 +16,4 @@ export const Tbody = <T extends any>({ rows, data }: TbodyProps<T>) => {
       ))}
     </tbody>
   );
-};
+}

@@ -10,6 +10,10 @@ export const registration_schema = Yup.object().shape({
     .required("Անունը պարտադիր է")
     .min(4, "Անունը պետք է լինի առնվազն 4 նիշ")
     .max(20, "Անունը չպետք է գերազանցի 20 նիշը"),
+  surName: Yup.string()
+    .required("Անունը պարտադիր է")
+    .min(4, "Անունը պետք է լինի առնվազն 4 նիշ")
+    .max(20, "Անունը չպետք է գերազանցի 20 նիշը"),
   email: Yup.string()
     .required("Էլ․ հասցեն պարտադիր է")
     .email("Էլ․ հասցեն անվավեր է"),

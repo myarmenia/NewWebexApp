@@ -67,7 +67,7 @@ export const LessonCntBody: React.FC = () => {
     }
     if (data.isAgeLimit) {
       delete data.minAgeLimit;
-      delete data.maxAgeLimit;
+      // delete data.maxAgeLimit;
       values = { ...data };
     } else {
       values = data;

@@ -13,11 +13,7 @@ export interface TableProps<T> {
   className?: string;
 }
 
-export const Table = <T extends any>({
-  rows,
-  data,
-  className = "",
-}: TableProps<T>) => {
+export function Table<T>({ rows, data, className = "" }: TableProps<T>) {
   return (
     <div className={`${className} overflow-x-auto custom_table`}>
       <table>
@@ -26,4 +22,4 @@ export const Table = <T extends any>({
       </table>
     </div>
   );
-};
+}

@@ -7,20 +7,9 @@ import deleteImg from "../../../../assets/teacher_images/discount/delete.svg";
 import { CstmInput, CustomBtn } from "../../../../components/forms";
 import { LessonTitle } from "../../../../components/reusable";
 import AddImg from "../../../../components/teacherComponents/sherid/addImg/AddImg";
-import { studentData_schema } from "../../../../validations/studentData_schema";
+import { IStudentData, studentData_schema } from "../../../../validations/studentData_schema";
 
-interface IPersonalInfoProps {
-  adress: string;
-  phoneNum: string;
-}
-interface ILanguageProps {
-  name: string;
-}
-interface IStudentData {
-  imgSrc: string;
-  personalInfo: IPersonalInfoProps[];
-  language: ILanguageProps[];
-}
+
 export const StudentData: FC = () => {
   const methods = useForm<IStudentData>({
     resolver: yupResolver(studentData_schema),
@@ -34,10 +23,10 @@ export const StudentData: FC = () => {
     control,
     formState: { errors },
   } = methods;
-  const personalInfo = useFieldArray({
-    control,
-    name: "personalInfo",
-  });
+  // const personalInfo = useFieldArray({
+  //   control,
+  //   name: "personalInfo",
+  // });
   const language = useFieldArray({
     control,
     name: "language",
@@ -57,7 +46,7 @@ export const StudentData: FC = () => {
           <div className={styles.studentDataFormChild}>
             <div className={styles.studentDataChild}>
               <div className={styles.studentDataTitle}>Անձնական տվյալներ</div>
-              {personalInfo.fields.map(({ id }, index) => {
+              {/* {personalInfo.fields.map(({ id }, index) => {
                 return (
                   <div key={id} className={styles.studentDataInp}>
                     <CstmInput
@@ -70,8 +59,12 @@ export const StudentData: FC = () => {
                     />
                   </div>
                 );
-              })}
-              <div className={styles.buttonContainer}>
+              })} */}
+              <div className={styles.studentDataInp}>
+                <CstmInput placeholder="Հասցե" regName="adress" />
+                <CstmInput placeholder="Հեռախոս" regName="phoneNum" />
+              </div>
+              {/* <div className={styles.buttonContainer}>
                 <button
                   type="button"
                   // className="add"
@@ -85,7 +78,7 @@ export const StudentData: FC = () => {
                   <img src={buttonImg} />
                 </button>
                 <div className={styles.addText}>Ավելացնել</div>
-              </div>
+              </div> */}
             </div>
 
             <div className={styles.studentDataChild}>
