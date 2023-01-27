@@ -57,22 +57,7 @@ export const PersonalInfo: FC = () => {
     },
   });
   const { handleSubmit, control } = methods;
-  const workattempt = useFieldArray({
-    control,
-    name: "workattempt",
-  });
-  const education = useFieldArray({
-    control,
-    name: "education",
-  });
-  // const languages = useFieldArray({
-  //   control,
-  //   name: "languages",
-  // });
-  const additionaledu = useFieldArray({
-    control,
-    name: "additionaledu",
-  });
+
   const onSubmit = (data: PersonalSubmitForm) => {
     console.log(data);
   };
@@ -100,12 +85,12 @@ export const PersonalInfo: FC = () => {
                   regName="aboutme"
                 />
               </div>
-              <Inp2 regName="workattempt" fieldArray={workattempt} />
+              <Inp2 />
             </div>
             <div className={styles.inputChild2}>
-              <Inp3 regName="education" fieldArray={education} />
+              <Inp3 />
               <Inp4 />
-              <Inp5 regName="additionaledu" fieldArray={additionaledu} />
+              <Inp5 />
               <Sertificat />
             </div>
           </div>

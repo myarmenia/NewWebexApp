@@ -1,19 +1,19 @@
-import React from "react";
+import { FC } from "react";
+import { IStartEnd } from "./EditGraffic";
 import styles from "./editGraffic.module.css";
 interface GrafficChild {
   weekDay: string;
-  times: React.DetailedHTMLProps<
-    React.HTMLAttributes<HTMLDivElement>,
-    HTMLDivElement
-  >[];
+  times: IStartEnd[];
 }
 
-const GrafficChild: React.FC<GrafficChild> = ({ weekDay, times }) => {
+const GrafficChild: FC<GrafficChild> = ({ times, weekDay }) => {
   return (
     <div className={styles.grafficContainer}>
       <p className={styles.day}>{weekDay}</p>
       <div className={styles.editTime}>
-        <>{times}</>
+        {times?.map((el, index) => {
+          return <div key={index}>{`${el.start} - ${el.end}`}</div>;
+        })}
       </div>
     </div>
   );

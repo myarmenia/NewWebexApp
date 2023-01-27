@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useFormContext } from "react-hook-form";
+import React, { useState, FC } from "react";
+import { useFieldArray, useFormContext } from "react-hook-form";
 import buttonImg from "../../../../../assets/teacher_images/createGraffic/buttonimg.svg";
 import {
   CstmDateInput,
@@ -12,11 +12,17 @@ import {
 } from "../../../../../validations/teacherInfo_schema";
 import styles from "./inputChild.module.css";
 
-export const Inp3: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
+export const Inp3: FC<inputChildProps> = () => {
   const {
     register,
+    control,
     formState: { errors },
   } = useFormContext<PersonalSubmitForm>();
+
+  const { append, fields, remove } = useFieldArray({
+    control,
+    name: "education",
+  });
 
   const [value, setValue] = useState<string | Date>("");
   console.log(value);
@@ -24,26 +30,26 @@ export const Inp3: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
   return (
     <div className={styles.inputChild}>
       <div className="font-semibold text-gray text-sm">Կրթություն</div>
-      {fieldArray.fields.map(({ id }, index) => {
+      {fields.map(({ id }, index) => {
         return (
           <div className={styles.inputChild2} key={id}>
             <CustomSelect
               placeholder="adsfdsf"
-              regName={`${regName}.${index}.select2`}
+              regName={`education.${index}.select2`}
               className="registration_select"
               options={["asas", "sadd", "asd", "klka"]}
             />
             <CstmInput
               placeholder="Ուսումնական հաստատություն"
-              regName={`${regName}.${index}.statement`}
+              regName={`education.${index}.statement`}
             />
             <CstmInput
               placeholder="Ֆակուլտետ"
-              regName={`${regName}.${index}.faculty`}
+              regName={`education.${index}.faculty`}
             />
             <CstmInput
               placeholder="Մասնագիտություն"
-              regName={`${regName}.${index}.profession`}
+              regName={`education.${index}.profession`}
             />
             <div className={styles.dateValidation}>
               <div className={styles.checkbox}>
@@ -80,7 +86,7 @@ export const Inp3: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
           // className="add"
           type="button"
           onClick={() => {
-            fieldArray.append({
+            append({
               select2: "",
               statement: "",
               faculty: "",

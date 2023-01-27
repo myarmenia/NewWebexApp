@@ -13,8 +13,8 @@ export interface IInputTimeProps {
 }
 export interface UserSubmitForm2 {
   monday?: IInputTimeProps[];
-  tuesday?: IInputTimeProps[];
-  wednesday?: IInputTimeProps[];
+  // tuesday?: IInputTimeProps[];
+  // wednesday?: IInputTimeProps[];
   // thursday?: IInputTimeProps[];
   // friday?: IInputTimeProps[];
   // saturday?: IInputTimeProps[];
@@ -39,8 +39,8 @@ const SchemaChild = Yup.array()
   .required("error");
 const Schema = Yup.object().shape({
   monday: SchemaChild,
-  tuesday: SchemaChild,
-  wednesday: SchemaChild,
+  // tuesday: SchemaChild,
+  // wednesday: SchemaChild,
   // thursday: SchemaChild,
   // friday: SchemaChild,
   // saturday: SchemaChild,
@@ -51,8 +51,8 @@ export const CreateGraffic: FC = () => {
     resolver: yupResolver(Schema),
     defaultValues: {
       monday: [{ start: "", end: "" }],
-      tuesday: [{ start: "", end: "" }],
-      wednesday: [{ start: "", end: "" }],
+      // tuesday: [{ start: "", end: "" }],
+      // wednesday: [{ start: "", end: "" }],
       // wednesday: [{ start: new Date(), end: new Date() }],
       // thursday: [{ start: new Date(), end: new Date() }],
       // friday: [{ start: new Date(), end: new Date() }],
@@ -73,8 +73,8 @@ export const CreateGraffic: FC = () => {
           action=""
         >
           <InputTime day="Երկուշաբթի" name="monday" />
-          <InputTime day="Երեքշաբթի" name="tuesday" />
-          <InputTime day="Չորեքշաբթի" name="wednesday" />
+          {/* <InputTime day="Երեքշաբթի" name="tuesday" />
+          <InputTime day="Չորեքշաբթի" name="wednesday" /> */}
           {/*  <InputTime
             day="Հինգշաբթի"
             regName="thursday"

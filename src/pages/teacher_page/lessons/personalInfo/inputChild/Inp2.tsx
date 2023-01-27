@@ -1,5 +1,5 @@
-import React from "react";
-import { useFormContext } from "react-hook-form";
+import React,{FC} from "react";
+import { useFieldArray, useFormContext } from "react-hook-form";
 import buttonImg from "../../../../../assets/teacher_images/createGraffic/buttonimg.svg";
 import {
   CstmDateInput,
@@ -13,30 +13,35 @@ import {
   PersonalSubmitForm,
 } from "../../../../../validations/teacherInfo_schema";
 import styles from "./inputChild.module.css";
-export const Inp2: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
+export const Inp2: FC<inputChildProps> = () => {
   const {
+    control,
     formState: { errors },
   } = useFormContext<PersonalSubmitForm>();
 
+  const { append, fields, remove } = useFieldArray({
+    control,
+    name: "workattempt",
+  });
   return (
     <div className={styles.inputChild}>
       <div className="font-semibold text-gray text-sm">Աշխատանքային փորձ</div>
-      {fieldArray.fields.map(({ id }, index) => {
+      {fields.map(({ id }, index) => {
         return (
           <div className={styles.inputChild2} key={id}>
             <CstmInput
               placeholder="Կազմակերպություն"
-              regName={`${regName}.${index}.company`}
+              regName={`workattempt.${index}.company`}
             />
             <CustomSelect
               placeholder="adfsd"
-              regName={`${regName}.${index}.select`}
+              regName={`workattempt.${index}.select`}
               options={["chka", "sadd", "asd", "klka"]}
             />
             <CstmInput
               className={styles.name}
               placeholder="Պաշտոն"
-              regName={`${regName}.${index}.position`}
+              regName={`workattempt.${index}.position`}
             />
             <div className={styles.dateValidation}>
               <div className={styles.checkbox}>
@@ -84,7 +89,7 @@ export const Inp2: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
         <button
           type="button"
           onClick={() => {
-            fieldArray.append({
+            append({
               select: "",
               company: "",
               position: "",

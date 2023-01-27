@@ -4,8 +4,6 @@ export interface inputChildProps {
   isActive?: boolean;
   option?: any;
   selectName?: string;
-  regName: string;
-  fieldArray: UseFieldArrayReturn<PersonalSubmitForm, any, "id">;
 }
 interface workAttemptYupProps {
   select: string;
