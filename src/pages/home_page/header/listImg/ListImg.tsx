@@ -1,5 +1,5 @@
 import React from "react";
-import listImg from "../../../images/Header/list.svg";
+import listImg from "../../../../assets/home_images/header/list.svg";
 import './listImg.css'
 
 interface ListImgProps {

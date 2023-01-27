@@ -1,18 +1,22 @@
-import { FC } from "react";
 import { useFieldArray, useFormContext } from "react-hook-form";
 import buttonImg from "../../../../assets/teacher_images/createGraffic/buttonimg.svg";
 import deleteIcon from "../../../../assets/teacher_images/createGraffic/delete.svg";
+import { UserSubmitForm2 } from "./CreateGraffic";
 import styles from "./createGraffic.module.css";
-interface InputProps {
+interface InputProps<T> {
   day: string;
   className?: string;
   placholder?: string;
-  name: string;
+  name: T;
 }
 
-export const InputTime: FC<InputProps> = ({ day, placholder, name }) => {
+export function InputTime<T extends keyof UserSubmitForm2>({
+  day,
+  placholder,
+  name,
+}: InputProps<T>) {
   const { register, control } = useFormContext();
-  const { append, fields, remove } = useFieldArray({
+  const { append, fields, remove } = useFieldArray<UserSubmitForm2>({
     name,
     control,
   });
@@ -78,6 +82,6 @@ export const InputTime: FC<InputProps> = ({ day, placholder, name }) => {
       </div>
     </div>
   );
-};
+}
 
 // export default InputTime;

@@ -1,26 +1,16 @@
-import React, { useState } from "react";
-import { useFormContext } from "react-hook-form";
+import React from "react";
 import buttonImg from "../../../../../assets/teacher_images/createGraffic/buttonimg.svg";
 import {
   CstmDateInput,
   CstmInput,
-  CustomSelect,
+  CustomSelect
 } from "../../../../../components/forms";
 import {
-  inputChildProps,
-  PersonalSubmitForm,
+  inputChildProps
 } from "../../../../../validations/teacherInfo_schema";
 import styles from "./inputChild.module.css";
 
 export const Inp3: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
-  const {
-    register,
-    formState: { errors },
-  } = useFormContext<PersonalSubmitForm>();
-
-  const [value, setValue] = useState<string | Date>("");
-  console.log(value);
-
   return (
     <div className={styles.inputChild}>
       <div className="font-semibold text-gray text-sm">Կրթություն</div>
@@ -52,22 +42,7 @@ export const Inp3: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
                 </div>
               </div>
               <div className={styles.date}>
-                {/* <input
-                  type="date"
-                  className={styles.dateInp}
-                  {...register(`education.${index}.start`)}
-                />
-                <div className={styles.gic}></div>
-                <input
-                  type="date"
-                  className={styles.dateInp}
-                  {...register(`education.${index}.end`)}
-                /> */}
-                <CstmDateInput
-                  // regName={`additionaledu.${index}.start`}
-                  onChange={(e) => setValue(e.target.value)}
-                  defaultValue={"01.01.2023"}
-                />
+                <CstmDateInput regName={`additionaledu.${index}.start`} />
                 <div className="w-2 h-[1px] bg-[#CCCCCC]" />
                 <CstmDateInput regName={`additionaledu.${index}.end`} />
               </div>

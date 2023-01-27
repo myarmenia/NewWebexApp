@@ -54,6 +54,7 @@ import { MainRoute } from "./MainRoute";
 import Regsitration from "../pages/registration/Regsitration";
 import Entry from "../pages/registration/entry/Entry";
 import { UserHeader } from "../components/screenComponents/userHeader/UserHeader";
+import { Header } from "../pages/home_page/header/Header";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -62,7 +63,8 @@ export const router = createBrowserRouter(
         path="registration"
         element={
           <>
-            <UserHeader />
+            {/* <UserHeader /> */}
+            <Header />
             <Regsitration />
           </>
         }
@@ -71,7 +73,8 @@ export const router = createBrowserRouter(
         path="login"
         element={
           <>
-            <UserHeader />
+            {/* <UserHeader /> */}
+            <Header />
             <Entry />
           </>
         }
