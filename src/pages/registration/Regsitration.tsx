@@ -11,7 +11,7 @@ import {
   CustomBtn,
   CustomCheckbox,
   CustomRadio,
-  CustomSelect
+  CustomSelect,
 } from "../../components/forms";
 import { ErrorMessage } from "../../components/reusable";
 import { instance } from "../../request";
@@ -120,6 +120,7 @@ const Regsitration = () => {
                 regName="password"
                 img={passwordIcon}
                 type="password"
+                autoComplete="on"
                 boxClassName={styles["form-group"]}
                 placeholder="Գաղտնաբառ"
               />
@@ -127,25 +128,23 @@ const Regsitration = () => {
                 regName="repeatPassowrd"
                 img={passwordIcon}
                 type="password"
+                autoComplete="on"
                 boxClassName={styles["form-group"]}
                 placeholder="Կրկնել գաղտնաբառը"
               />
               <div className={styles["form-group-checkbox2"]}>
                 <div className={styles["form-group-checkboxChild2"]}>
                   <CustomCheckbox regName="acceptTerms" />
-                  <label
-                    htmlFor="acceptTerms"
-                    // className="form-check-label"
-                  >
-                    Ես համաձայն եմ &nbsp;
+                  <p className={styles.acceptTerms_label}>
+                    <span>Ես համաձայն եմ &nbsp;</span>
                     <a
                       className="textPurple textUnderline after:bottom-[0.3px]"
                       href="#"
                     >
                       Օգտագործման համաձայնագրի
                     </a>
-                    &nbsp; հետ
-                  </label>
+                    <span>&nbsp; հետ</span>
+                  </p>
                 </div>
                 {/* <div
                 // className="invalid-feedback"

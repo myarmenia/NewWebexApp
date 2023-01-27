@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import "./header.css";
+import { FC, useEffect, useState } from "react";
 import { Navbar } from "../../../components/teacherComponents/navbar/Navbar";
-import { SmallMenu } from "./smallMenu/SmallMenu";
-import { ListImg } from "./listImg/ListImg";
+import "./header.css";
 import { headerStore } from "./HeaderStore";
+import { ListImg } from "./listImg/ListImg";
+import { SmallMenu } from "./smallMenu/SmallMenu";
 
-export const Header: React.FC = () => {
+export const Header: FC = () => {
   const [mediaState, setMediaState] = useState<boolean>(false);
   const [dropMenuActive, setDropMenuActive] = useState<boolean>(false);
   const [dropMenu, setDropMenu] = useState<boolean>(false);
@@ -31,6 +31,7 @@ export const Header: React.FC = () => {
           ) : (
             <div className="flex items-center">
               {/* <Navbar navbarItems={headerStore} /> */}
+              <Navbar navbarItems={headerStore}/>
             </div>
           )}
         </div>
