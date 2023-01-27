@@ -64,6 +64,7 @@ const Entry = () => {
               boxClassName={styles["form-group"]}
               img={passwordIcon}
               type="password"
+              autoComplete="on"
               placeholder="Գաղտնաբառ"
             />
             <div className={styles.recover}>

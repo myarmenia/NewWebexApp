@@ -17,7 +17,7 @@ export const UserHeaderStore: INavItemsContent[] = [
     dropDownTitle: "Ընկերություն",
     options: [
       { title: "student", path: "/student/perosnal_info" },
-      { title: "no path" },
+      { title: "login", path: "/login" },
       { title: "teacher", path: "/teacher" },
     ],
     className: "text-gray",

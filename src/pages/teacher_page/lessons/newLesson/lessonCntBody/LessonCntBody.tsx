@@ -1,5 +1,5 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { FormProvider, useFieldArray, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import downloadImg from "../../../../../assets/teacher_images/newLesson/download.svg";
@@ -43,7 +43,13 @@ export const LessonCntBody: React.FC = () => {
       requiredKnowledges: [],
     },
   });
-  const { register, handleSubmit, control, watch } = methods;
+  const {
+    register,
+    handleSubmit,
+    control,
+    watch,
+    formState: { errors },
+  } = methods;
   const fieldArray = useFieldArray({
     control,
     name: "stages",
@@ -73,10 +79,14 @@ export const LessonCntBody: React.FC = () => {
       values = data;
     }
     console.log(values, "porc");
-    if (values) {
-      navigate("lesson_graffic");
-    }
+    // if (values) {
+    //   navigate("lesson_graffic");
+    // }
   }, []);
+
+  useEffect(() => {
+    console.log(errors);
+  }, [errors]);
 
   return (
     <FormProvider {...methods}>

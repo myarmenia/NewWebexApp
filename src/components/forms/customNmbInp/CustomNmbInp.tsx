@@ -34,6 +34,12 @@ export const CustomNmbInp: React.FC<CustomNmbInpProps> = ({
       fnIncrease?.();
     }
   };
+  // const increase = () => {
+  //   if (age && setAge && age >= 1) {
+  //     setAge((prev) => prev + 1);
+  //     fnIncrease?.();
+  //   }
+  // };
   const decrease = () => {
     if (age > 1) {
       setAge((prev) => prev - 1);
@@ -42,7 +48,7 @@ export const CustomNmbInp: React.FC<CustomNmbInpProps> = ({
   };
   useEffect(() => {
     setValue?.(age);
-    regName && formMethods?.setValue(regName, age);
+    regName && formMethods.setValue(regName, age);
   }, [age]);
 
   const errorMessage = useError(regName, formMethods);

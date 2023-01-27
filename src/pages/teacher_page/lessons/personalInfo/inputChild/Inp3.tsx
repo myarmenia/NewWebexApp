@@ -58,22 +58,7 @@ export const Inp3: FC<inputChildProps> = () => {
                 </div>
               </div>
               <div className={styles.date}>
-                {/* <input
-                  type="date"
-                  className={styles.dateInp}
-                  {...register(`education.${index}.start`)}
-                />
-                <div className={styles.gic}></div>
-                <input
-                  type="date"
-                  className={styles.dateInp}
-                  {...register(`education.${index}.end`)}
-                /> */}
-                <CstmDateInput
-                  // regName={`additionaledu.${index}.start`}
-                  onChange={(e) => setValue(e.target.value)}
-                  defaultValue={"01.01.2023"}
-                />
+                <CstmDateInput regName={`additionaledu.${index}.start`} />
                 <div className="w-2 h-[1px] bg-[#CCCCCC]" />
                 <CstmDateInput regName={`additionaledu.${index}.end`} />
               </div>

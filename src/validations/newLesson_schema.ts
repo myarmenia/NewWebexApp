@@ -16,10 +16,8 @@ export const newLesson_schema = Yup.object().shape({
   isAgeLimit: Yup.bool(),
   minAgeLimit: Yup.number()
     .positive()
-    .typeError("must be 'number'")
     .moreThan(16, "minimum 16")
-    .lessThan(99, "maximum 99")
-    .default(16),
+    .lessThan(99, "maximum 99"),
   // maxAgeLimit: Yup.number()
   //   .positive()
   //   .typeError("must be 'number'")
@@ -53,7 +51,7 @@ export const newLesson_schema = Yup.object().shape({
       stageDescription: Yup.string()
         .min(4, "some aafdsadf")
         .required("required"),
-      count: Yup.number(),
+      count: Yup.number().required("Required"),
       stage: Yup.number(),
     })
   ),

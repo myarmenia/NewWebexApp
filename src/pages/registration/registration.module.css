@@ -69,6 +69,9 @@ label {
   @apply w-[55%] mb-5;
   position: relative;
 }
+.acceptTerms_label {
+  @apply flex items-center;
+}
 /* ================================= */
 
 @media (max-width: 1410px) {
@@ -140,9 +143,6 @@ label {
   .form-group2 {
     @apply h-[50px];
   }
-  .btn {
-    @apply h-[34px] w-[190px];
-  }
   .registration {
     @apply mt-[30px];
     height: calc(100vh - 30px);
@@ -157,5 +157,8 @@ label {
   }
   .form-group-checkbox2 {
     @apply w-[100%];
+  }
+  .acceptTerms_label {
+    @apply flex-col;
   }
 }
