@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { weekDays_long } from "../../../../../helper";
+import { weekDays_long } from "../../../../helper";
 import styles from "./weekSchedule.module.css";
 
 export const WkThead: FC = () => {

@@ -1,7 +1,8 @@
-import React, { FC } from "react";
-import cardImg from "../../../../../assets/teacher_images/discount/discountCard.svg";
+import { FC } from "react";
 import deleteImg from "../../../../../assets/teacher_images/discount/delete.svg";
+import cardImg from "../../../../../assets/teacher_images/discount/discountCard.svg";
 import styles from "./discountModal.module.css";
+
 const ModalCard: FC = () => {
   return (
     <div className={styles.modalCardChild}>
@@ -14,9 +15,7 @@ const ModalCard: FC = () => {
       </div>
       <div className={styles.secondCardSection}>
         <div>65 000դրամ</div>
-        {/* <button type="button"> */}
         <img src={deleteImg} />
-        {/* </button> */}
       </div>
     </div>
   );

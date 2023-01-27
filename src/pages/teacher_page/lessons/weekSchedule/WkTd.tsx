@@ -1,5 +1,5 @@
 import { FC, ReactNode } from "react";
-import { IWeekEvent } from "../../../../../models/interfaces";
+import { IWeekEvent } from "../../../../models/interfaces";
 import styles from "./weekSchedule.module.css";
 
 interface WkTdProps {

@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { weekScheduleTime, weekSheduleEvents } from "../../../../../helper";
+import { weekScheduleTime, weekSheduleEvents } from "../../../../helper";
 import { WkTd } from "./WkTd";
 
 const strOrNumber = (e: string | number): number =>
@@ -11,7 +11,7 @@ export const WkTbody: FC = () => {
       {weekScheduleTime.map((el, col) => (
         <tr key={Math.random()}>
           <WkTd>{el}</WkTd>
-          {Array.from({ length: 7 }).map((item, row) => {
+          {Array.from({ length: 7 }).map((_, row) => {
             for (let event of weekSheduleEvents) {
               if (
                 event.weekday! - 1 === row &&

@@ -58,6 +58,14 @@
     @apply w-auto;
   }
 }
+@media (max-width: 620px) {
+  .heading_body {
+    @apply static flex-col h-auto;
+  }
+  .filter_box {
+    @apply static translate-y-0;
+  }
+}
 @media (max-width: 420px) {
   .heading {
     @apply flex flex-wrap gap-[15px] items-center justify-center h-20;
