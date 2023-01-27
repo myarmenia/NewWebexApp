@@ -1,34 +1,40 @@
-import React from "react";
+import React,{FC} from "react";
 import styles from "./inputChild.module.css";
 import buttonImg from "../../../../../assets/teacher_images/createGraffic/buttonimg.svg";
-import { useFormContext } from "react-hook-form";
+import { useFieldArray, useFormContext } from "react-hook-form";
 import {
   inputChildProps,
   PersonalSubmitForm,
 } from "../../../../../validations/teacherInfo_schema";
 import { CstmDateInput, CstmInput } from "../../../../../components/forms";
 
-export const Inp5: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
+export const Inp5: FC<inputChildProps> = () => {
   const {
     register,
+    control,
     formState: { errors },
   } = useFormContext<PersonalSubmitForm>();
+
+  const { append, fields, remove } = useFieldArray({
+    control,
+    name: "additionaledu",
+  });
   return (
     <div className={styles.inputChild}>
       <div className="font-semibold text-gray text-sm">Հավելյալ կրթություն</div>
-      {fieldArray.fields.map(({ id }, index) => {
+      {fields.map(({ id }, index) => {
         return (
           <div className={styles.inputChild2} key={id}>
             <CstmInput
               placeholder="Դասընթացի անվանումը"
-              regName={`${regName}.${index}.name`}
+              regName={`additionaledu.${index}.name`}
             />
             <CstmInput
               placeholder="Դասընթացն անցկացնող կազմակերպություն"
-              regName={`${regName}.${index}.company`}
+              regName={`additionaledu.${index}.company`}
             />
             <CstmInput
-              regName={`${regName}.${index}.profession`}
+              regName={`additionaledu.${index}.profession`}
               placeholder="Մասնագիտություն"
             />
 
@@ -66,7 +72,7 @@ export const Inp5: React.FC<inputChildProps> = ({ regName, fieldArray }) => {
           // className="add"
 
           onClick={() => {
-            fieldArray.append({
+            append({
               name: "",
               company: "",
               profession: "",
