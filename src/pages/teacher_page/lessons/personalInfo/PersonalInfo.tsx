@@ -65,10 +65,10 @@ export const PersonalInfo: FC = () => {
     control,
     name: "education",
   });
-  const languages = useFieldArray({
-    control,
-    name: "languages",
-  });
+  // const languages = useFieldArray({
+  //   control,
+  //   name: "languages",
+  // });
   const additionaledu = useFieldArray({
     control,
     name: "additionaledu",

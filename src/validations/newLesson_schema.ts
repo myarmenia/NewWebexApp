@@ -20,12 +20,12 @@ export const newLesson_schema = Yup.object().shape({
     .moreThan(16, "minimum 16")
     .lessThan(99, "maximum 99")
     .default(16),
-  maxAgeLimit: Yup.number()
-    .positive()
-    .typeError("must be 'number'")
-    .moreThan(16, "minimum 16")
-    .lessThan(99, "maximum 99")
-    .default(99),
+  // maxAgeLimit: Yup.number()
+  //   .positive()
+  //   .typeError("must be 'number'")
+  //   .moreThan(16, "minimum 16")
+  //   .lessThan(99, "maximum 99")
+  //   .default(99),
   areStagesDifferent: Yup.bool(),
   stagesCount: Yup.number()
     .positive()
