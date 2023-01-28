@@ -14,10 +14,8 @@ export const newLesson_schema = Yup.object().shape({
     .typeError("must be 'number' and this option is required")
     .required("cost is required"),
   isAgeLimit: Yup.bool(),
-  minAgeLimit: Yup.number()
-    .positive()
-    .moreThan(16, "minimum 16")
-    .lessThan(99, "maximum 99"),
+  minAgeLimit: Yup.number().moreThan(2, "min is 2").lessThan(5, "max is 5"),
+  // .moreThan(99, "maximum 99"),
   // maxAgeLimit: Yup.number()
   //   .positive()
   //   .typeError("must be 'number'")
@@ -25,18 +23,13 @@ export const newLesson_schema = Yup.object().shape({
   //   .lessThan(99, "maximum 99")
   //   .default(99),
   areStagesDifferent: Yup.bool(),
-  stagesCount: Yup.number()
-    .positive()
-    .typeError("must be 'number'")
-    .moreThan(0, "minimum 1")
-    .lessThan(99, "maximum 99")
-    .default(3),
-  stageLessons: Yup.number()
-    .positive()
-    .typeError("must be 'number'")
-    .moreThan(1, "minimum 1")
-    .lessThan(99, "maximum 99")
-    .default(3),
+  stagesCount: Yup.number(),
+  // .positive()
+  // .typeError("must be 'number'")
+  // .moreThan(0, "minimum 1")
+  // .lessThan(99, "maximum 99")
+  // .default(3),
+  stageLessons: Yup.number(),
   lessonTime: Yup.string().default("02:00:00"),
   isExam: Yup.string()
     .oneOf(["Այո", "Ոչ"])
@@ -68,7 +61,7 @@ export interface TeacherSubmitForm {
   cost: number;
   isAgeLimit: boolean;
   minAgeLimit?: number;
-  maxAgeLimit?: number;
+  // maxAgeLimit?: number;
   stagesCount: number;
   areStagesDifferent: boolean;
   stageLessons?: number;

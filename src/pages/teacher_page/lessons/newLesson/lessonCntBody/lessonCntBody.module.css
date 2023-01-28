@@ -32,7 +32,7 @@
   @apply flex justify-between rounded-[20px] py-4 relative overflow-y-hidden;
 }
 .stageBox_closed {
-  @apply w-[279px];
+  @apply w-[279px] overflow-x-hidden;
 }
 .stageBox_opened {
   @apply w-[497px];
