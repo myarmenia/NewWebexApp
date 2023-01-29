@@ -13,3 +13,6 @@
     @apply bg-gradientPurple rounded-[5px] w-[95%] p-[3px] font-bold text-[8px] text-white flex justify-around cursor-pointer;
   }
 }
+.box div:first-child {
+  @apply text-ellipsis overflow-x-hidden whitespace-nowrap max-w-[5vw];
+}

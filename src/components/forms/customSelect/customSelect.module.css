@@ -1,20 +1,20 @@
 @tailwind components;
 .customSelect {
-  @apply relative min-w-[143px] flex flex-col gap-1 w-full cursor-pointer;
+  @apply relative min-w-[143px] flex flex-col gap-1 w-full;
 }
 @layer components {
   .options {
-    @apply shadow-light backdrop-blur-md bg-[rgba(255,255,255,0.4)] w-full absolute top-11 rounded-2xl overflow-hidden z-[2];
+    @apply z-[1001] shadow-light backdrop-blur-md bg-[rgba(255,255,255,0.4)] w-full absolute top-11 rounded-2xl overflow-hidden;
   }
 }
 .optionsContainer {
   @apply max-h-[200px] overflow-y-auto bg-[#ffffff69];
 }
 .defaultOption {
-  @apply shadow-light relative w-full flex gap-1 items-center border-[1px] border-white text-ellipsis overflow-hidden py-3 px-[17px] bg-white rounded-2xl;
+  @apply shadow-light relative w-full flex gap-1 items-center border-[1px] border-white text-ellipsis overflow-hidden py-3 px-[17px] bg-white rounded-2xl cursor-pointer;
 }
 .title {
-  @apply w-full border-none bg-inherit text-base placeholder:text-[#9C9C9C] placeholder:text-xs;
+  @apply cursor-pointer w-full border-none bg-inherit text-base placeholder:text-[#9C9C9C] placeholder:text-xs;
 }
 .optionBox {
   @apply flex justify-between items-center hover:bg-slate-200 
@@ -28,11 +28,10 @@
   @apply w-full px-4 py-3 border-[#CCCCCC] border rounded-2xl outline-none h-10;
 }
 .addImg {
-  @apply absolute top-[53%] left-auto right-[13px];
-  transform: translate(0, -50%);
+  @apply absolute top-[53%] left-auto right-[13px] cursor-pointer -translate-y-1/2;
 }
 .backDiv {
-  @apply fixed top-0 left-0 bottom-0 right-0;
+  @apply fixed top-0 left-0 bottom-0 right-0 z-[1000];
 }
 @media (max-width: 800px) {
   .customSelect,

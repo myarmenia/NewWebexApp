@@ -16,7 +16,7 @@
     @apply justify-start gap-5;
   }
   .noAgeLimit {
-    @apply flex-row gap-4
+    @apply flex-row gap-4;
   }
   .ageDiv {
     @apply flex-col items-start gap-2;

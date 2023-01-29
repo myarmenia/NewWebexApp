@@ -18,6 +18,7 @@ import {
   teacherInfo_schema,
   PersonalSubmitForm,
 } from "../../../../validations/teacherInfo_schema";
+import { AttachFile } from "../../../../components/reusable/attachFile/AttachFile";
 
 export const PersonalInfo: FC = () => {
   const methods = useForm<PersonalSubmitForm>({
@@ -91,7 +92,12 @@ export const PersonalInfo: FC = () => {
               <Inp3 />
               <Inp4 />
               <Inp5 />
-              <Sertificat />
+              <AttachFile
+                regName="sertificat"
+                title="Սերտիֆիկատ"
+                titleClName="!text-sm"
+                label="Բեռնել ֆայլը"
+              />
             </div>
           </div>
           <div className={styles.buttonSave}>

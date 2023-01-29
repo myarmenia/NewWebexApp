@@ -8,7 +8,7 @@ import {
 } from "react-hook-form";
 import { IExamSchema } from "../../../../../validations/exam_schema";
 import { ResVariant } from "./ResVariant";
-import { LoadImage } from "../../../../../components/teacherComponents/loadImage/LoadImage";
+import { LoadImage } from "../../../../../components/reusable/loadImage/LoadImage";
 import { CstmTextarea } from "../../../../../components/forms";
 
 interface QuestionBoxProps {

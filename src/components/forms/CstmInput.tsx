@@ -24,7 +24,7 @@ export const CstmInput: FC<
   ...props
 }) => {
   const formMethods = useFormContext();
-  const errorMessage = useError(regName, formMethods);
+  const errorMessage = useError(regName, formMethods, error);
   const register = regName ? formMethods?.register(regName) : null;
   return (
     <div className={"flex w-full relative " + boxClassName}>

@@ -1,4 +1,12 @@
-import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
+import {
+  Dispatch,
+  FC,
+  InputHTMLAttributes,
+  SetStateAction,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 import { useFormContext } from "react-hook-form";
 import arrow from "../../../assets/teacher_images/newLesson/Polygon 3.svg";
 import { useError } from "../../../hooks";
@@ -6,64 +14,64 @@ import { ErrorMessage } from "../../reusable";
 import styles from "./customNmbInp.module.css";
 
 interface CustomNmbInpProps {
-  defaultValue?: number;
   regName?: string;
+  condition?: boolean;
+  minValue?: number;
+  maxValue?: number;
   setValue?: Dispatch<SetStateAction<number>>;
   value?: number;
+  error?: string;
   errorClassName?: string;
   fnIncrease?: () => void;
   fnDecrease?: () => void;
 }
 
-export const CustomNmbInp: React.FC<CustomNmbInpProps> = ({
-  defaultValue = 1,
+export const CustomNmbInp: FC<
+  CustomNmbInpProps &
+    Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "defaultValue">
+> = ({
   regName,
+  condition,
   setValue,
   value,
+  error,
   errorClassName,
   fnIncrease,
   fnDecrease,
+  minValue,
+  maxValue,
+  ...props
 }) => {
   const formMethods = useFormContext();
-  const register = regName ? formMethods?.register(regName) : null;
-
-  const [age, setAge] = useState<number>(defaultValue);
+  const register = regName ? formMethods.register(regName) : null;
+  const errorMessage = useError(regName, formMethods, error);
+  const [age, setAge] = useState<number>(value || 1);
   const increase = () => {
-    if (age >= 1) {
+    if ((condition ?? true) && (maxValue ? maxValue > age : true)) {
+      if (maxValue === age) return;
       setAge((prev) => prev + 1);
       fnIncrease?.();
     }
   };
-  // const increase = () => {
-  //   if (age && setAge && age >= 1) {
-  //     setAge((prev) => prev + 1);
-  //     fnIncrease?.();
-  //   }
-  // };
   const decrease = () => {
-    if (age > 1) {
+    if ((condition ?? true) && (minValue ? minValue < age : true)) {
+      if (minValue === age) return;
       setAge((prev) => prev - 1);
       fnDecrease?.();
     }
   };
+
   useEffect(() => {
     setValue?.(age);
     regName && formMethods.setValue(regName, age);
+    if (!(age === value || age === 1)) formMethods.trigger(regName);
   }, [age]);
-
-  const errorMessage = useError(regName, formMethods);
 
   return (
     <div className="relative">
       <div className={styles.mycontainer}>
         <div className={`lessonInp ${styles.input_box}`}>
-          <input
-            type="number"
-            disabled
-            defaultValue={age}
-            value={value}
-            {...register}
-          />
+          <input {...props} type="number" disabled value={age} {...register} />
         </div>
         <img
           src={arrow}

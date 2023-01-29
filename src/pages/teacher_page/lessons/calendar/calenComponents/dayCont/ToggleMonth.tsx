@@ -1,8 +1,8 @@
-import { FC } from "react";
+import { FC, MouseEventHandler } from "react";
 import arrowImg from "../../../../../../assets/teacher_images/calendar/arrowLeft.svg";
 
 interface ToggleMonthProps {
-  toggleMonth: () => void;
+  toggleMonth: MouseEventHandler<HTMLImageElement>;
   className?: string;
 }
 

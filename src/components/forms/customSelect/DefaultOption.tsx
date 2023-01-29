@@ -19,7 +19,9 @@ export const DefaultOption: FC = () => {
         />
       )}
       <div
-        className={`flex text-gray w-full text-xs ${img ? "!pl-[13px]" : ""}`}
+        className={`flex text-gray w-full text-xs cursor-pointer ${
+          img ? "!pl-[13px]" : ""
+        }`}
       >
         <input
           type="text"

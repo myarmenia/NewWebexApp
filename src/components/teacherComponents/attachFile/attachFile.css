@@ -1,9 +1,0 @@
-::-webkit-file-upload-button {
-  visibility: hidden;
-}
-.attachFile {
-  @apply text-gray flex flex-col gap-2 cursor-pointer;
-}
-.attachFileTitle {
-  @apply text-[10px];
-}
