@@ -1,8 +1,7 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import React, { useCallback, useState } from "react";
+import { FC, useCallback, useState } from "react";
 import { FormProvider, useFieldArray, useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import downloadImg from "../../../../../assets/teacher_images/newLesson/download.svg";
 import {
   CstmInput,
   CstmTextarea,
@@ -11,6 +10,7 @@ import {
   CustomNmbInp,
   CustomSelect,
 } from "../../../../../components/forms";
+import { AttachFile } from "../../../../../components/reusable/attachFile/AttachFile";
 import {
   newLesson_schema,
   TeacherSubmitForm,
@@ -23,15 +23,14 @@ import styles from "./lessonCntBody.module.css";
 import { Phases } from "./phases/Phases";
 import { TxtWinput } from "./txtWinput/TxtWinput";
 
-export const LessonCntBody: React.FC = () => {
-  const navigate = useNavigate();
+export const LessonCntBody: FC = () => {
+  const [areDifferent, setAreDifferent] = useState<boolean>(false);
   const [selectOptions, setOptions] = useState<string[]>([
     "aaa",
     "bbbb",
     "cccc",
   ]);
-  const [isDifferent, setIsDifferent] = useState<boolean>(false);
-
+  const navigate = useNavigate();
   const methods = useForm<TeacherSubmitForm>({
     resolver: yupResolver(newLesson_schema),
     defaultValues: {
@@ -51,9 +50,9 @@ export const LessonCntBody: React.FC = () => {
   const { fields } = fieldArray;
 
   const onSubmit = useCallback((data: TeacherSubmitForm) => {
-    let values;
+    let values: TeacherSubmitForm;
     if (!data.areStagesDifferent) {
-      let myStages = data.stages.map((el) => {
+      let myStages = data?.stages?.map((el) => {
           delete el.count;
           return el;
         }),
@@ -77,7 +76,6 @@ export const LessonCntBody: React.FC = () => {
       navigate("lesson_graffic");
     }
   }, []);
-
   return (
     <FormProvider {...methods}>
       <div className={styles.mycontainer}>
@@ -113,13 +111,7 @@ export const LessonCntBody: React.FC = () => {
                 />
                 <span className="text-gray text-xs">Դրամ</span>
               </div>
-              <button
-                className="flex gap-[13px] items-center w-fit"
-                type="button"
-              >
-                <img src={downloadImg} alt="" />
-                <span className="text-gray text-xs">Բեռնել շապիկի նկարը</span>
-              </button>
+              <AttachFile label="Բեռնել շապիկի նկարը" regName="coverImage" />
             </div>
             <div className={styles.hr} />
             <div className={[styles.box_lg, styles.box].join(" ")}>
@@ -127,8 +119,10 @@ export const LessonCntBody: React.FC = () => {
                 <TxtWinput text="Դասընթացի փուլերի քանակը">
                   <CustomNmbInp
                     regName="stagesCount"
+                    minValue={1}
+                    value={3}
                     fnDecrease={() => {
-                      fieldArray?.remove?.(watch("stagesCount") - 1);
+                      fieldArray?.remove?.(watch("stagesCount")! - 1);
                     }}
                     fnIncrease={() => {
                       fieldArray?.append?.({
@@ -141,7 +135,7 @@ export const LessonCntBody: React.FC = () => {
                 </TxtWinput>
                 <div
                   className={`${styles.stage_box} ${
-                    isDifferent
+                    areDifferent
                       ? styles.stageBox_opened
                       : styles.stageBox_closed
                   }`}
@@ -152,12 +146,12 @@ export const LessonCntBody: React.FC = () => {
                     </span>
                     <CustomCheckbox
                       regName="areStagesDifferent"
-                      onClick={() => setIsDifferent(!isDifferent)}
+                      onClick={() => setAreDifferent(!areDifferent)}
                       label="Փուլերը տարբերվում են"
                     />
                   </div>
 
-                  {isDifferent ? (
+                  {areDifferent ? (
                     <DifferentCourses {...{ fields }} />
                   ) : (
                     <CustomNmbInp regName={"stageLessons"} />
@@ -178,6 +172,7 @@ export const LessonCntBody: React.FC = () => {
           </div>
           <div className={styles.btn_box}>
             <CustomBtn title="Առաջ" type="submit" />
+            {/* <CustomBtn title="Watch" onClick={() => console.log(watch())} /> */}
           </div>
         </form>
       </div>

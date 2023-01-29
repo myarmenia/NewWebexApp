@@ -1,7 +1,10 @@
 import * as Yup from "yup";
+import type { InferType, AnySchema, AnyObjectSchema } from "yup";
+import { RequiredStringSchema } from "yup/lib/string";
+import { ObjectShape } from "yup/lib/object";
 
 // Yup
-export const newLesson_schema = Yup.object().shape({
+export const newLesson_schema = Yup.object().shape<Shape<TeacherSubmitForm>>({
   title: Yup.string()
     .min(4, "վերնագիրը պետք է լինի առնվազն 4 նիշ")
     .max(20, "վերնագիրը չպետք է գերազանցի 20 նիշը")
@@ -14,22 +17,21 @@ export const newLesson_schema = Yup.object().shape({
     .typeError("must be 'number' and this option is required")
     .required("cost is required"),
   isAgeLimit: Yup.bool(),
-  minAgeLimit: Yup.number().moreThan(2, "min is 2").lessThan(5, "max is 5"),
-  // .moreThan(99, "maximum 99"),
-  // maxAgeLimit: Yup.number()
-  //   .positive()
-  //   .typeError("must be 'number'")
-  //   .moreThan(16, "minimum 16")
-  //   .lessThan(99, "maximum 99")
-  //   .default(99),
+  minAgeLimit: Yup.number().when("isAgeLimit", {
+    is: false,
+    then: Yup.number()
+      .moreThan(5, "min is 5")
+      .lessThan(7, "max is 7")
+      .required("Required"),
+  }),
+  coverImage: Yup.string(),
   areStagesDifferent: Yup.bool(),
-  stagesCount: Yup.number(),
-  // .positive()
-  // .typeError("must be 'number'")
-  // .moreThan(0, "minimum 1")
-  // .lessThan(99, "maximum 99")
-  // .default(3),
-  stageLessons: Yup.number(),
+  stagesCount: Yup.number()
+    .moreThan(0, "min is 1")
+    .lessThan(999, "max is 1000"),
+  stageLessons: Yup.number()
+    .moreThan(0, "min is 1")
+    .lessThan(999, "max is 1000"),
   lessonTime: Yup.string().default("02:00:00"),
   isExam: Yup.string()
     .oneOf(["Այո", "Ոչ"])
@@ -44,7 +46,7 @@ export const newLesson_schema = Yup.object().shape({
       stageDescription: Yup.string()
         .min(4, "some aafdsadf")
         .required("required"),
-      count: Yup.number().required("Required"),
+      count: Yup.number().moreThan(0, "min is 1").lessThan(999, "max is 1000"),
       stage: Yup.number(),
     })
   ),
@@ -52,6 +54,24 @@ export const newLesson_schema = Yup.object().shape({
 });
 
 // ==============================
+
+type ObjectShapeValues = ObjectShape extends Record<string, infer V>
+  ? V
+  : never;
+type Shape<T extends Record<string, any>> = Partial<
+  Record<keyof T, ObjectShapeValues>
+>;
+
+export type RemoveIndex<T> = {
+  [K in keyof T as string extends K
+    ? never
+    : number extends K
+    ? never
+    : K]: T[K];
+};
+
+// export interface TeacherSubmitForm
+//   extends RemoveIndex<InferType<typeof newLesson_schema>> {}
 
 export interface TeacherSubmitForm {
   title: string;
@@ -62,6 +82,7 @@ export interface TeacherSubmitForm {
   isAgeLimit: boolean;
   minAgeLimit?: number;
   // maxAgeLimit?: number;
+  coverImage: string;
   stagesCount: number;
   areStagesDifferent: boolean;
   stageLessons?: number;

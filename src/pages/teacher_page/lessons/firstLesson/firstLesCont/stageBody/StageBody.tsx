@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./stageBody.module.css";
 import { BoxTitle } from "../BoxTitle";
 import { SaveDataDiv } from "../SaveDataDiv";
 import { CstmInput } from "../../../../../../components/forms";
-import { AttachFile } from "../../../../../../components/teacherComponents/attachFile/AttachFile";
-import { LoadImage } from "../../../../../../components/teacherComponents/loadImage/LoadImage";
+import { AttachFile } from "../../../../../../components/reusable/attachFile/AttachFile";
+import { LoadImage } from "../../../../../../components/reusable/loadImage/LoadImage";
 import { CstmTextarea } from "../../../../../../components/forms";
 
 export const StageBody: React.FC = () => {
@@ -31,7 +31,11 @@ export const StageBody: React.FC = () => {
               className="lessonInp"
             />
             <div className="flex justify-between gap-3 med-450:flex-col">
-              <AttachFile regName="lessonFile" title="Հավելյալ նյութերը" />
+              <AttachFile
+                regName="lessonFile"
+                label="Կցել ֆայլ (.pptx, .docx, .jpg, png)"
+                title="Հավելյալ նյութերը"
+              />
               <LoadImage regName="lessonImage_url" />
             </div>
           </div>
@@ -57,6 +61,7 @@ export const StageBody: React.FC = () => {
               <AttachFile
                 regName="homeworkFile"
                 title="Տնային աշխատանքի նյութերը"
+                label="Կցել ֆայլ (.pptx, .docx, .jpg, png)"
               />
               <LoadImage regName="homeworkImage_url" />
             </div>

@@ -66,6 +66,8 @@
 /* modalCard */
 .modalCard {
   @apply w-full h-auto flex gap-[15px] flex-col mt-[30px];
+  max-height: 40vh;
+  overflow-x: auto;
 }
 .modalCardChild {
   @apply h-[59.39px] rounded-[10px] py-[12px] px-[12px] flex;

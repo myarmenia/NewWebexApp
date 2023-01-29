@@ -12,9 +12,9 @@ export const CustomBtn: FC<
 > = ({ title, type = "button", className = "", ...props }) => {
   return (
     <button
-      className={`${styles.addLessonBtn} ${className}`}
-      {...{ type }}
       {...props}
+      className={`${styles.button} ${className}`}
+      {...{ type }}
     >
       {title}
     </button>

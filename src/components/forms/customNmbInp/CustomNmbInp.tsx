@@ -4,6 +4,7 @@ import {
   InputHTMLAttributes,
   SetStateAction,
   useEffect,
+  useMemo,
   useState,
 } from "react";
 import { useFormContext } from "react-hook-form";
@@ -42,9 +43,9 @@ export const CustomNmbInp: FC<
   ...props
 }) => {
   const formMethods = useFormContext();
-  const register = regName ? formMethods?.register(regName) : null;
+  const register = regName ? formMethods.register(regName) : null;
+  const errorMessage = useError(regName, formMethods, error);
   const [age, setAge] = useState<number>(value || 1);
-
   const increase = () => {
     if ((condition ?? true) && (maxValue ? maxValue > age : true)) {
       if (maxValue === age) return;
@@ -59,11 +60,12 @@ export const CustomNmbInp: FC<
       fnDecrease?.();
     }
   };
+
   useEffect(() => {
     setValue?.(age);
     regName && formMethods.setValue(regName, age);
+    if (!(age === value || age === 1)) formMethods.trigger(regName);
   }, [age]);
-  const errorMessage = useError(regName, formMethods, error);
 
   return (
     <div className="relative">

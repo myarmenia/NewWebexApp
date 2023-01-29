@@ -1,5 +1,5 @@
 import { FC, MouseEventHandler, ReactNode } from "react";
-import "./modalContainer.css";
+import styles from "./modalContainer.module.css";
 
 interface ModalContainerProps {
   children: ReactNode;
@@ -16,9 +16,14 @@ export const ModalContainer: FC<ModalContainerProps> = ({
   className = { container: "", modal: "" },
 }) => {
   return (
-    <div className={"modalContainer " + className?.container}>
-      <div className="w-full h-screen bg-[#090e249e]" onClick={onClick} />
-      <div className={"modal " + className?.modal}>{children}</div>
+    <div className={[styles.modalContainer, className?.container].join(" ")}>
+      <div
+        className="top-0 left-0 bottom-0 right-0 absolute bg-[#090e249e]"
+        onClick={onClick}
+      />
+      <div className={[styles.modal, className?.modal].join(" ")}>
+        {children}
+      </div>
     </div>
   );
 };

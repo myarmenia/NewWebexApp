@@ -1,0 +1,12 @@
+.mycontainer {
+  @apply bg-[#bebfe48f] w-[117px] h-[87px] relative bg-cover bg-no-repeat bg-center rounded-md pb-[15px] px-7 pt-[21px];
+}
+.box {
+  @apply flex flex-col gap-2 justify-center items-center;
+}
+.input {
+  @apply w-6 cursor-pointer bg-no-repeat bg-cover;
+}
+.image {
+  @apply absolute top-0 left-0 bottom-0 right-0 h-full w-full rounded-md;
+}
