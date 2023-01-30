@@ -1,11 +1,11 @@
 import { useMemo } from "react";
-import { FieldValues, UseFormReturn } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 
 export const useError = (
   regName: string | undefined,
-  formMethods: UseFormReturn<FieldValues, any>,
   error?: string | undefined
 ): string | undefined => {
+  const formMethods = useFormContext();
   const splitedName = regName?.split(".");
   const thisError =
     splitedName && formMethods.formState.errors?.[splitedName[0]];
@@ -43,20 +43,3 @@ export const useError = (
 
   return errorMessage;
 };
-
-// export const useError = (
-//   error: string | undefined,
-//   regName: string | undefined,
-//   formMethods: UseFormReturn<FieldValues, any>
-// ) => {
-//   const errorMessage = useMemo(() => {
-//     return (
-//       error ||
-//       (regName &&
-//         formMethods?.formState?.errors[regName] &&
-//         formMethods?.formState?.errors[regName]?.message!.toString())
-//     );
-//   }, [error, regName && formMethods?.formState?.errors[regName]]);
-
-//   return errorMessage;
-// };

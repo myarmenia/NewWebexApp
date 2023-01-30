@@ -4,3 +4,5 @@ export { Table } from "./table/Table";
 export { CustomDropdown } from "./customDropdown/CustomDropdown";
 export { LessonTitle } from "./lessonTitle/LessonTitle";
 export { ErrorMessage } from "./ErrorMessage";
+export { AttachFile } from "./attachFile/AttachFile";
+export { LoadImage } from "./loadImage/LoadImage";

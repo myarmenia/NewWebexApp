@@ -1,24 +1,23 @@
-import styles from "./personalInfo.module.css";
-import { FC } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { FormProvider, useFieldArray, useForm } from "react-hook-form";
+import { FC } from "react";
+import { FormProvider, useForm } from "react-hook-form";
 import {
   CstmInput,
   CstmTextarea,
   CustomBtn,
 } from "../../../../components/forms";
 import { LessonTitle } from "../../../../components/reusable";
-import AddImg from "../../../../components/teacherComponents/sherid/addImg/AddImg";
+import { AttachFile } from "../../../../components/reusable/attachFile/AttachFile";
+import { ImagePicker } from "../../../../components/reusable/imagePicker/ImagePicker";
+import {
+  PersonalSubmitForm,
+  teacherInfo_schema,
+} from "../../../../validations/teacherInfo_schema";
 import { Inp2 } from "./inputChild/Inp2";
 import { Inp3 } from "./inputChild/Inp3";
 import { Inp4 } from "./inputChild/Inp4";
 import { Inp5 } from "./inputChild/Inp5";
-import { Sertificat } from "./inputChild/Sertificat";
-import {
-  teacherInfo_schema,
-  PersonalSubmitForm,
-} from "../../../../validations/teacherInfo_schema";
-import { AttachFile } from "../../../../components/reusable/attachFile/AttachFile";
+import styles from "./personalInfo.module.css";
 
 export const PersonalInfo: FC = () => {
   const methods = useForm<PersonalSubmitForm>({
@@ -57,7 +56,7 @@ export const PersonalInfo: FC = () => {
       ],
     },
   });
-  const { handleSubmit, control } = methods;
+  const { handleSubmit } = methods;
 
   const onSubmit = (data: PersonalSubmitForm) => {
     console.log(data);
@@ -68,7 +67,7 @@ export const PersonalInfo: FC = () => {
       <LessonTitle title="Անձնական տվյալներ" />
       <FormProvider {...methods}>
         <form onSubmit={handleSubmit(onSubmit)} className={styles.personalInfo}>
-          <AddImg />
+          <ImagePicker />
           <div className={styles.personalInfoChild}>
             <div className={styles.inputChild}>
               <div className={styles.inputChild2}>

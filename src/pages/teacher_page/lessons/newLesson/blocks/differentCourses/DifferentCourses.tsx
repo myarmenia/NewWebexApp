@@ -1,4 +1,4 @@
-import React from "react";
+import { FC } from "react";
 import { FieldArrayWithId } from "react-hook-form";
 import { CustomNmbInp } from "../../../../../../components/forms";
 import { TeacherSubmitForm } from "../../../../../../validations/newLesson_schema";
@@ -8,9 +8,7 @@ interface DifferentCoursesProps {
   fields: FieldArrayWithId<TeacherSubmitForm, "stages", "id">[];
 }
 
-export const DifferentCourses: React.FC<DifferentCoursesProps> = ({
-  fields,
-}) => {
+export const DifferentCourses: FC<DifferentCoursesProps> = ({ fields }) => {
   return (
     <div className={styles.mycontainer}>
       {fields.map((field, index) => (

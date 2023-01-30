@@ -1,13 +1,14 @@
 import { FC, InputHTMLAttributes } from "react";
-import { useFormContext } from "react-hook-form";
+import { useError, useFormRegister } from "../../../hooks";
+import { MyInputProps } from "../../../models/forms";
+import { ErrorMessage } from "../../reusable";
 import styles from "./customRadio.module.css";
-interface CustomRadioProps {
-  regName?: string;
+
+interface CustomRadioProps extends MyInputProps {
   label?: string;
-  className?: string;
-  boxClassName?: string;
   labelClassName?: string;
 }
+
 export const CustomRadio: FC<
   CustomRadioProps & InputHTMLAttributes<HTMLInputElement>
 > = ({
@@ -16,10 +17,12 @@ export const CustomRadio: FC<
   labelClassName = "",
   className = "",
   label,
+  error,
+  errorClassName,
   ...props
 }) => {
-  const formMethods = useFormContext();
-  const register = regName ? formMethods?.register(regName) : null;
+  const errorMessage = useError(regName, error);
+  const register = useFormRegister(regName);
   return (
     <div className={[styles.box, boxClassName].join(" ")}>
       <input
@@ -31,6 +34,7 @@ export const CustomRadio: FC<
       {label && (
         <span className={[styles.span, labelClassName].join(" ")}>{label}</span>
       )}
+      <ErrorMessage className={errorClassName}>{errorMessage}</ErrorMessage>
     </div>
   );
 };

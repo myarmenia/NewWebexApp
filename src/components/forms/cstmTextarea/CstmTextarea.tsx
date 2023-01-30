@@ -1,23 +1,16 @@
 import { FC, TextareaHTMLAttributes } from "react";
-import { useFormContext } from "react-hook-form";
-import { useError } from "../../../hooks";
+import { useError, useFormRegister } from "../../../hooks";
+import { MyInputProps } from "../../../models/forms";
 import { ErrorMessage } from "../../reusable";
 import styles from "./cstmTextarea.module.css";
 
-interface CstmTextareaProps {
-  regName?: string;
-  value?: string | number;
-  className?: string;
-  error?: string;
-  errorClassName?: string;
-}
+interface CstmTextareaProps extends MyInputProps {}
+
 export const CstmTextarea: FC<
   CstmTextareaProps & TextareaHTMLAttributes<HTMLTextAreaElement>
 > = ({ regName, className = "", error, errorClassName, ...props }) => {
-  const formMethods = useFormContext();
-  const errorMessage = useError(regName, formMethods);
-  const register = regName ? formMethods?.register(regName) : null;
-
+  const errorMessage = useError(regName, error);
+  const register = useFormRegister(regName);
   return (
     <div className="flex flex-col relative w-full">
       <textarea

@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from "react";
-import { Navbar } from "../../../components/teacherComponents/navbar/Navbar";
+import { Navbar } from "../../../components/reusable/navbar/Navbar";
 import "./header.css";
 import { headerStore } from "./HeaderStore";
 import { ListImg } from "./listImg/ListImg";
@@ -30,8 +30,7 @@ export const Header: FC = () => {
             />
           ) : (
             <div className="flex items-center">
-              {/* <Navbar navbarItems={headerStore} /> */}
-              <Navbar navbarItems={headerStore}/>
+              <Navbar navbarItems={headerStore} />
             </div>
           )}
         </div>

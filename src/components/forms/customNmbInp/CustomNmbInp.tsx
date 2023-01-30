@@ -4,24 +4,21 @@ import {
   InputHTMLAttributes,
   SetStateAction,
   useEffect,
-  useMemo,
-  useState,
+  useState
 } from "react";
 import { useFormContext } from "react-hook-form";
 import arrow from "../../../assets/teacher_images/newLesson/Polygon 3.svg";
-import { useError } from "../../../hooks";
+import { useError, useFormRegister } from "../../../hooks";
+import { MyInputProps } from "../../../models/forms";
 import { ErrorMessage } from "../../reusable";
 import styles from "./customNmbInp.module.css";
 
-interface CustomNmbInpProps {
-  regName?: string;
+interface CustomNmbInpProps extends MyInputProps {
   condition?: boolean;
   minValue?: number;
   maxValue?: number;
   setValue?: Dispatch<SetStateAction<number>>;
   value?: number;
-  error?: string;
-  errorClassName?: string;
   fnIncrease?: () => void;
   fnDecrease?: () => void;
 }
@@ -43,8 +40,9 @@ export const CustomNmbInp: FC<
   ...props
 }) => {
   const formMethods = useFormContext();
-  const register = regName ? formMethods.register(regName) : null;
-  const errorMessage = useError(regName, formMethods, error);
+  const errorMessage = useError(regName, error);
+  const register = useFormRegister(regName);
+
   const [age, setAge] = useState<number>(value || 1);
   const increase = () => {
     if ((condition ?? true) && (maxValue ? maxValue > age : true)) {

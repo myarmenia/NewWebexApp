@@ -1,7 +1,6 @@
-import { ChangeEventHandler, FC, useEffect, useState } from "react";
+import { ChangeEventHandler, FC, useEffect } from "react";
 import { useFormContext } from "react-hook-form";
-import { useError } from "../../../hooks";
-import { useFileUploader } from "../../../hooks/useFileUploader";
+import { useError, useFileUploader, useFormRegister } from "../../../hooks";
 import { ErrorMessage } from "../ErrorMessage";
 import styles from "./attachFile.module.css";
 
@@ -25,10 +24,9 @@ export const AttachFile: FC<AttachFileProps> = ({
   errorClassName,
 }) => {
   const formMethods = useFormContext();
-  const register = regName ? formMethods?.register(regName) : null;
-  const errorMessage = useError(regName, formMethods, error);
-  const [file, setFile] = useState<File>(null!);
-  const onFileUpload = useFileUploader(setFile, onChange);
+  const register = useFormRegister(regName);
+  const errorMessage = useError(regName, error);
+  const [file, onFileUpload] = useFileUploader(onChange);
   useEffect(() => {
     if (file && regName) {
       // formMethods.setValue(regName, file);

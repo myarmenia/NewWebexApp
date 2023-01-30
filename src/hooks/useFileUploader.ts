@@ -1,19 +1,16 @@
-import {
-  ChangeEvent,
-  ChangeEventHandler,
-  Dispatch,
-  SetStateAction,
-} from "react";
+import { ChangeEvent, ChangeEventHandler, useState } from "react";
 
 export const useFileUploader = (
-  setFile: Dispatch<SetStateAction<File>>,
   onChange?: ChangeEventHandler<HTMLInputElement> | undefined
 ) => {
+  const [file, setFile] = useState<File>(null!);
   const onFileUpload = (event: ChangeEvent<HTMLInputElement>) => {
     const { files } = event.target;
     const selectedFiles = files as FileList;
-    setFile(selectedFiles?.[0]);
-    onChange?.(event);
+    if (!!selectedFiles?.[0]) {
+      setFile(selectedFiles?.[0]);
+      onChange?.(event);
+    }
   };
-  return onFileUpload;
+  return [file, onFileUpload, setFile] as const;
 };
