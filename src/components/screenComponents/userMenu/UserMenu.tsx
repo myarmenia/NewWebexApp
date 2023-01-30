@@ -1,8 +1,8 @@
-import React, { FC } from "react";
-import "./userMenu.css";
-import { MItemsDrop } from "./mItemsDrop/MItemsDrop";
-import { MenuLi } from "./MenuLi";
+import { FC } from "react";
 import { IteacherMenu } from "../../../models/interfaces";
+import { MenuLi } from "./MenuLi";
+import { MItemsDrop } from "./mItemsDrop/MItemsDrop";
+import styles from "./userMenu.module.css";
 
 interface UserMenuProps {
   menuItems: IteacherMenu[];
@@ -10,8 +10,8 @@ interface UserMenuProps {
 
 export const UserMenu: FC<UserMenuProps> = ({ menuItems }) => {
   return (
-    <nav className="menu">
-      <ul id="menuUl">
+    <nav className={styles.menu}>
+      <ul id={styles.menuUl}>
         {menuItems.map((menuItem) => {
           if (menuItem.toSubPaths) {
             return <MItemsDrop {...menuItem} key={menuItem.id} />;

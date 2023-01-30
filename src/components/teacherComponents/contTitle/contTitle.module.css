@@ -1,7 +1,7 @@
-.contTitle {
+.title {
   @apply flex flex-col gap-[14px] mb-5;
 }
-.contTitle_text {
+.text {
   @apply text-gray text-base;
 }
 .underline {

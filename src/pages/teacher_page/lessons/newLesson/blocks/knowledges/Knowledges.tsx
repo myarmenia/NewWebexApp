@@ -10,7 +10,7 @@ export const Knowledges: FC = () => {
   const reqKnowledges = useFieldArray({
     control,
     name: "requiredKnowledges",
-  }); 
+  });
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     setVal(e.target.value);

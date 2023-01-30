@@ -1,16 +1,9 @@
-import React, { FC, InputHTMLAttributes } from "react";
-import { useFormContext } from "react-hook-form";
-import { useError } from "../../hooks";
+import { FC, InputHTMLAttributes } from "react";
+import { useError, useFormRegister } from "../../hooks";
+import { MyInputProps } from "../../models/forms";
 import { ErrorMessage } from "../reusable";
 
-interface CstmInputProps {
-  regName?: string;
-  img?: string;
-  className?: string;
-  boxClassName?: string;
-  error?: string;
-  errorClassName?: string;
-}
+interface CstmInputProps extends MyInputProps {}
 
 export const CstmInput: FC<
   CstmInputProps & InputHTMLAttributes<HTMLInputElement>
@@ -23,21 +16,20 @@ export const CstmInput: FC<
   errorClassName,
   ...props
 }) => {
-  const formMethods = useFormContext();
-  const errorMessage = useError(regName, formMethods, error);
-  const register = regName ? formMethods?.register(regName) : null;
+  const errorMessage = useError(regName, error);
+  const register = useFormRegister(regName);
   return (
     <div className={"flex w-full relative " + boxClassName}>
       {img && (
         <img
           src={img}
           alt=""
-          className="absolute -translate-y-1/2 top-1/2 left-2"
+          className="absolute -translate-y-1/2 top-1/2 left-4"
         />
       )}
       <input
         {...props}
-        className={`lessonInp ${className} ${img ? "!pl-[30px]" : ""}`}
+        className={`lessonInp ${className} ${img ? "!pl-[40px]" : ""}`}
         {...register}
       />
       <ErrorMessage className={errorClassName}>{errorMessage}</ErrorMessage>

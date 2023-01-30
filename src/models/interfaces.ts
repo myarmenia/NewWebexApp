@@ -3,20 +3,7 @@ import { Dispatch, MouseEventHandler, SetStateAction } from "react";
 export interface INavItem {
   children: string | React.ReactNode;
 }
-export interface ICustomSelect {
-  options: string[];
-  placeholder: string;
-  regName?: string;
-  error?: string;
-  setOptions?: Dispatch<SetStateAction<string[]>>; // for mutable select
-  toggleOptions: () => void;
-  removeOption?: (currentId: number) => void;
-  className?: string;
-  setValue?: Dispatch<SetStateAction<string>>;
-  value?: string;
-  img?: string;
-  errorClassName?: string;
-}
+
 
 export interface IHeaderDropDownOption {
   title?: string;

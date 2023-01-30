@@ -1,26 +1,13 @@
 import { createContext, FC, useContext, useState } from "react";
-import { useFormContext } from "react-hook-form";
 import { useError } from "../../../hooks";
-import { ICustomSelect } from "../../../models/interfaces";
+import { ICustomSelect } from "../../../models/forms";
 import { ErrorMessage } from "../../reusable";
 import styles from "./customSelect.module.css";
 import { DefaultOption } from "./DefaultOption";
 import { Options } from "./Options";
 
 interface CustomSelectProps
-  extends Pick<
-    ICustomSelect,
-    | "options"
-    | "className"
-    | "regName"
-    | "placeholder"
-    | "setOptions"
-    | "error"
-    | "errorClassName"
-    | "setValue"
-    | "value"
-    | "img"
-  > {}
+  extends Omit<ICustomSelect, "toggleOptions" | "removeOption"> {}
 
 export const CustomSelectContext = createContext<ICustomSelect>(null!);
 
@@ -36,8 +23,7 @@ export const CustomSelect: FC<CustomSelectProps> = (props) => {
     error,
   } = props;
   const [state, setState] = useState<boolean>(false);
-  const formMethods = useFormContext();
-  const errorMessage = useError(regName, formMethods, error);
+  const errorMessage = useError(regName, error);
   const toggleOptions = () => {
     setState((prev) => !prev);
   };

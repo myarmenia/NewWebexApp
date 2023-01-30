@@ -1,17 +1,16 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import { useFormContext } from "react-hook-form";
-import { useFileUploader } from "../../../../hooks/useFileUploader";
-import currentImg from "../../../../assets/teacher_images/personalInfo/plus.svg";
-import styles from "./addImg.module.css";
+import currentImg from "../../../assets/teacher_images/personalInfo/plus.svg";
+import { useFileUploader } from "../../../hooks/useFileUploader";
+import styles from "./imagePicker.module.css";
 
-interface AddImgProps {
+interface ImagePickerProps {
   defaultImage?: string;
 }
 
-const AddImg: FC<AddImgProps> = ({ defaultImage }) => {
-  const [file, setFile] = useState<File>(null!);
-  const onFileUpload = useFileUploader(setFile);
+export const ImagePicker: FC<ImagePickerProps> = ({ defaultImage }) => {
   const { register } = useFormContext();
+  const [file, onFileUpload] = useFileUploader();
   return (
     <div className={styles.addImgCustom}>
       <div className={styles.addImgChild}>
@@ -40,5 +39,3 @@ const AddImg: FC<AddImgProps> = ({ defaultImage }) => {
     </div>
   );
 };
-
-export default AddImg;

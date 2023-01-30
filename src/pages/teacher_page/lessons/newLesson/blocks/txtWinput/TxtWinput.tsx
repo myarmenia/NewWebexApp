@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import { FC, ReactNode } from "react";
 import styles from "./txtWinput.module.css";
 
 interface TxtWinputProps {
@@ -6,7 +6,7 @@ interface TxtWinputProps {
   children: ReactNode;
 }
 
-export const TxtWinput: React.FC<TxtWinputProps> = ({ text, children }) => {
+export const TxtWinput: FC<TxtWinputProps> = ({ text, children }) => {
   return (
     <div className={styles.box}>
       <span className={styles.title}>{text}</span>

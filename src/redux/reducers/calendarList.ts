@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { NavigateFunction } from "react-router";
+import { generateArray } from "../../helper";
 import { IDateDay } from "../../models/interfaces";
 
 interface IChooseDay {
@@ -9,9 +10,9 @@ interface IChooseDay {
 }
 
 const createDayEventArray = () =>
-  Array.from({ length: Math.floor(Math.random() * 8) }).map(() => ({
+  generateArray(Math.floor(Math.random() * 8), {
     time: "20:00",
-  }));
+  });
 
 const initialState = {
   currentDate: new Date() as Date,

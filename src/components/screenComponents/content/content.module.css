@@ -1,23 +1,23 @@
-.contentBody {
+.myContainer {
   @apply w-4/5 mt-20 ml-auto flex justify-center;
   min-height: calc(100vh - 80px);
 }
-.contentBodyContainer {
+.content {
   @apply w-[96.5%] h-full mt-[17px] relative;
   min-height: calc(100vh - 97px);
 }
 @media (max-width: 1300px) {
-  .contentBody {
+  .myContainer {
     width: calc(100% - 105px);
   }
 }
 @media (max-width: 1060px) {
-  .contentBody {
+  .myContainer {
     @apply w-full;
   }
 }
 @media (max-width: 650px) {
-  .contentBodyContainer {
+  .content {
     @apply w-[92.5%];
   }
 }

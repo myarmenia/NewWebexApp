@@ -1,4 +1,4 @@
-import React,{FC} from "react";
+import { FC } from "react";
 import { useFieldArray, useFormContext } from "react-hook-form";
 import buttonImg from "../../../../../assets/teacher_images/createGraffic/buttonimg.svg";
 import {
@@ -14,12 +14,8 @@ import {
 } from "../../../../../validations/teacherInfo_schema";
 import styles from "./inputChild.module.css";
 export const Inp2: FC<inputChildProps> = () => {
-  const {
-    control,
-    formState: { errors },
-  } = useFormContext<PersonalSubmitForm>();
-
-  const { append, fields, remove } = useFieldArray({
+  const { control } = useFormContext<PersonalSubmitForm>();
+  const { append, fields } = useFieldArray({
     control,
     name: "workattempt",
   });
@@ -46,36 +42,18 @@ export const Inp2: FC<inputChildProps> = () => {
             <div className={styles.dateValidation}>
               <div className={styles.checkbox}>
                 <div className={styles.checkboxText}>Ժամանակահատված</div>
-                {/* <div className={styles.checkboxChild}>
-                  <input
-                    type="checkbox"
-                    {...register(`workattempt.${index}.acceptTerms`)}
-                  />
-                  <div className={styles.clickText}>ներկայումս</div>
-                </div> */}
-                {/* Rub es ete petq chi - jnji */}
                 <CustomCheckbox
                   regName={`workattempt.${index}.acceptTerms`}
                   label="ներկայումս"
                 />
               </div>
               <div className={styles.date}>
-                {/* <input
-                  type="date"
-                  className={styles.dateInp}
-                  {...register(`workattempt.${index}.start`)}
-                /> */}
                 <CstmDateInput
                   regName={`workattempt.${index}.start`}
                   defaultValue={"01.01.2023"}
                 />
                 <div className="w-2 h-[1px] bg-[#CCCCCC]"></div>
                 <CstmDateInput regName={`workattempt.${index}.end`} />
-                {/*<input
-                  type="date"
-                  className={styles.dateInp}
-                  {...register(`workattempt.${index}.end`)}
-                /> */}
               </div>
             </div>
             <CstmTextarea

@@ -148,7 +148,7 @@ label {
     height: calc(100vh - 30px);
   }
 }
-@media (max-width: 494px) {
+@media (max-width: 550px) {
   .registration-form {
     @apply w-[95%];
   }

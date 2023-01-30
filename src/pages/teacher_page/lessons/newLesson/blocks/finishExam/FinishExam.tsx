@@ -1,15 +1,15 @@
-import React from "react";
-import styles from "./finishExam.module.css";
+import { FC } from "react";
 import { useFormContext } from "react-hook-form";
 import { CustomRadio } from "../../../../../../components/forms";
 import { ErrorMessage } from "../../../../../../components/reusable";
+import styles from "./finishExam.module.css";
 
 interface FinishExamProps {
   text: string;
   regName: string;
 }
 
-export const FinishExam: React.FC<FinishExamProps> = ({ text, regName }) => {
+export const FinishExam: FC<FinishExamProps> = ({ text, regName }) => {
   const {
     formState: { errors },
   } = useFormContext();

@@ -124,7 +124,7 @@ export const WalletCont: FC = () => {
                       tdClassName: "!py-5 !px-5 text-center",
                     },
                   ]}
-                  data={generateArray(3)}
+                  data={generateArray(3, {})}
                 />
               ) : (
                 <span className="text-xs">Դուք դեռ չունեք կատարած գործարք</span>

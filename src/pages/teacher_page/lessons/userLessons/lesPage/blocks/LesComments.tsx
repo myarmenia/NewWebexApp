@@ -41,7 +41,7 @@ export const LesComments: FC = () => {
           modules={[Autoplay, Navigation]}
           className="mySwiper"
         >
-          {Array.from({ length: 10 }).map((el, i) => (
+          {Array.from({ length: 10 }).map((_, i) => (
             <SwiperSlide key={i}>
               <div className={styles.lesPage_comment}>
                 Հակառակ ընդհանուր պատկերացմանը՝ Լորեմ Իպսումը այդքան էլ

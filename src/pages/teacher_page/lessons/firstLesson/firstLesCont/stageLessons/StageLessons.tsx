@@ -1,4 +1,5 @@
-import React from "react";
+import { FC } from "react";
+import { generateArray } from "../../../../../../helper";
 import { LessonBox } from "./lessonBox/LessonBox";
 import styles from "./stageLessons.module.css";
 
@@ -6,16 +7,11 @@ interface ILessons {
   title: string;
   id: number;
 }
-
-export const StageLessons: React.FC = () => {
-  const lessonsCount = 12;
-  const lessonsArr: ILessons[] = Array.from({ length: lessonsCount }).map(
-    (el, ind) => ({
-      title: `«Գրաֆիկ դիզայն» մասնագիտություն, մասնագիտության կարեւորությունն ու արդիականությունը`,
-      id: Math.random(),
-    })
-  );
-
+const lessonsArr = generateArray<ILessons>(12, {
+  title: `«Գրաֆիկ դիզայն» մասնագիտություն, մասնագիտության կարեւորությունն ու արդիականությունը`,
+  id: Math.random(),
+});
+export const StageLessons: FC = () => {
   return (
     <div
       className={styles.mycontainer}

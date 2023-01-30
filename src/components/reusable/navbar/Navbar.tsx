@@ -1,13 +1,13 @@
-import React from "react";
+import { FC } from "react";
 import { INavItemsContent } from "../../../models/interfaces";
-import { CustomDropdown } from "../../reusable";
+import { CustomDropdown } from "../index";
 import { NavItem } from "./navItem/NavItem";
 
 interface NavbarProps {
   navbarItems: INavItemsContent[];
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ navbarItems }) => {
+export const Navbar: FC<NavbarProps> = ({ navbarItems }) => {
   return (
     <>
       {navbarItems.map((el, index) => {
@@ -20,13 +20,3 @@ export const Navbar: React.FC<NavbarProps> = ({ navbarItems }) => {
     </>
   );
 };
-
-// return el.hasOwnProperty("dropDownTitle") ? (
-//   <CustomDropdown
-//     dropDownTitle=" "
-//     options={[{ title: "", path: "" }]}
-//     key={index}
-//   />
-// ) : (
-//   <NavItem title="" path="" key={index}></NavItem>
-// );

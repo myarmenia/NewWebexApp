@@ -1,16 +1,13 @@
 import { ChangeEvent, FC, InputHTMLAttributes, useState } from "react";
 import { useFormContext } from "react-hook-form";
 import { thisDate } from "../../../helper";
-import { useError } from "../../../hooks";
+import { useError, useFormRegister } from "../../../hooks";
+import { MyInputProps } from "../../../models/forms";
 import { ErrorMessage } from "../../reusable";
 import styles from "./cstmDateInput.module.css";
 
-interface CstmDateInputProps {
-  regName?: string;
-  boxClassName?: string;
-  error?: string;
+interface CstmDateInputProps extends MyInputProps {
   defaultValue?: `${number}.${number}.${number}`;
-  errorClassName?: string;
 }
 
 export const CstmDateInput: FC<
@@ -26,8 +23,9 @@ export const CstmDateInput: FC<
   ...props
 }) => {
   const formMethods = useFormContext();
-  const errorMessage = useError(regName, formMethods);
+  const errorMessage = useError(regName, error);
   const [value, setValue] = useState<string>("");
+  const register = useFormRegister(regName);
   const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     onChange?.(e);
     regName && formMethods.setValue(regName, e.target.value);
@@ -40,6 +38,7 @@ export const CstmDateInput: FC<
         className={`${className} ${styles.input} after:content-[${value}]`}
         type="date"
         onChange={changeHandler}
+        name={register?.name}
       />
       <span className={styles.value}>{value || defaultValue}</span>
       <ErrorMessage className={errorClassName}>{errorMessage}</ErrorMessage>

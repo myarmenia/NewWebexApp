@@ -1,9 +1,8 @@
-import React, { ChangeEventHandler, useEffect, useState } from "react";
+import React, { ChangeEventHandler, useEffect } from "react";
 import { useFormContext } from "react-hook-form";
 import { ErrorMessage } from "..";
 import currentImg from "../../../assets/teacher_images/firstLesson/loadImg.svg";
-import { useError } from "../../../hooks";
-import { useFileUploader } from "../../../hooks/useFileUploader";
+import { useError, useFileUploader, useFormRegister } from "../../../hooks";
 import styles from "./loadImage.module.css";
 
 interface LoadImageProps {
@@ -32,10 +31,9 @@ export const LoadImage: React.FC<LoadImageProps> = ({
   defaultImage,
 }) => {
   const formMethods = useFormContext();
-  const register = regName ? formMethods?.register(regName) : null;
-  const errorMessage = useError(regName, formMethods, error);
-  const [file, setFile] = useState<File>(null!);
-  const onFileUpload = useFileUploader(setFile, onChange);
+  const register = useFormRegister(regName);
+  const errorMessage = useError(regName, error);
+  const [file, onFileUpload] = useFileUploader(onChange);
   useEffect(() => {
     if (file && regName) {
       // formMethods.setValue(regName, file);

@@ -1,5 +1,5 @@
 .box {
-  @apply flex items-center gap-2;
+  @apply flex items-center gap-2 relative;
 }
 .span {
   @apply text-xs text-gray;

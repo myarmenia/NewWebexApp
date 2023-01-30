@@ -1,17 +1,13 @@
-import React, { FC } from "react";
+import { FC } from "react";
+import { StageBoxProps } from "../../../../../../components/teacherComponents/stageBox/StageBox";
+import { generateArray } from "../../../../../../helper";
 import { IStageLesson } from "../../../../../../models/interfaces";
-import {
-  StageBox,
-  StageBoxProps,
-} from "../../../../../../components/teacherComponents/stageBox/StageBox";
 import { StdStageBox } from "../stdStageBox/StdStageBox";
 
-const stageLessons: IStageLesson[] = Array.from({
-  length: 12,
-}).map(() => ({
+const stageLessons = generateArray<IStageLesson>(12, {
   title:
     "«Գրաֆիկ դիզայն» մասնագիտություն, մասնագիտության  կարեւորությունն ու արդիականությունը",
-}));
+});
 
 export const stagesArr: StageBoxProps[] = [
   { stageLessons: stageLessons },

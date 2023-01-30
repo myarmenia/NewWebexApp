@@ -15,19 +15,12 @@ import {
 } from "../../components/forms";
 import { ErrorMessage } from "../../components/reusable";
 import { instance } from "../../request";
-import { registration_schema } from "../../validations/registration_schema";
+import {
+  registration_schema,
+  UserSubmitForm,
+} from "../../validations/registration_schema";
 import styles from "./registration.module.css";
 // import { Option } from "../header/customSelect/Option";
-interface UserSubmitForm {
-  teacherStudentId: string;
-  select: string[];
-  name: string;
-  surName: string;
-  email: string;
-  password: string;
-  repeatPassowrd: string;
-  acceptTerms: boolean;
-}
 
 const fetchData = async (data: UserSubmitForm) => {
   await instance
@@ -51,7 +44,11 @@ const Regsitration = () => {
     formState: { errors },
   } = methods;
   const onSubmit = (data: UserSubmitForm) => {
-    console.log(data);
+    let values = JSON.parse(JSON.stringify(data)) as UserSubmitForm;
+    if (watch("teacherStudentId") === "Ուսանող") {
+      delete values.select;
+    }
+    console.log(values);
     // fetchData(data);
   };
 
@@ -146,11 +143,6 @@ const Regsitration = () => {
                     <span>&nbsp; հետ</span>
                   </p>
                 </div>
-                {/* <div
-                // className="invalid-feedback"
-                >
-                  {errors.acceptTerms?.message}
-                </div> */}
               </div>
               <div className={styles["form-group-button"]}>
                 <CustomBtn

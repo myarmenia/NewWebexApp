@@ -1,9 +1,8 @@
-import { ButtonHTMLAttributes, FC, MouseEventHandler } from "react";
+import { ButtonHTMLAttributes, FC } from "react";
 import styles from "./customBtn.module.css";
 
 interface SubmitBtnProps {
   title: string;
-  type?: "button" | "submit" | "reset";
   className?: string;
 }
 
