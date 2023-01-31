@@ -14,7 +14,7 @@ import {
   CustomSelect,
 } from "../../components/forms";
 import { ErrorMessage } from "../../components/reusable";
-import { instance } from "../../request";
+// import { instance } from "../../request";
 import {
   registration_schema,
   UserSubmitForm,
@@ -22,17 +22,17 @@ import {
 import styles from "./registration.module.css";
 // import { Option } from "../header/customSelect/Option";
 
-const fetchData = async (data: UserSubmitForm) => {
-  await instance
-    .post("addUser", data)
-    .then((res) => {
-      console.log(res.data);
-      return res.data;
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-};
+// const fetchData = async (data: UserSubmitForm) => {
+//   await instance
+//     .post("addUser", data)
+//     .then((res) => {
+//       console.log(res.data);
+//       return res.data;
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//     });
+// };
 
 const Regsitration = () => {
   const methods = useForm<UserSubmitForm>({
@@ -157,10 +157,10 @@ const Regsitration = () => {
             </div>
             <div className={styles.social}>
               <Link to="#">
-                <img src={facebook} />
+                <img src={facebook} alt="facebookIcon" />
               </Link>
               <Link to="#">
-                <img src={gmail} />
+                <img src={gmail} alt="gmailIcon" />
               </Link>
             </div>
           </div>
