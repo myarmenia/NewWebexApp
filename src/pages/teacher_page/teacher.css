@@ -1,4 +1,4 @@
-.content {
+/* .content {
   background: url("../../assets/teacher_images//content/vivid-blurred-colorful-background\ 1.svg")
     no-repeat center;
   min-height: calc(100vh - 80px);
@@ -6,4 +6,4 @@
 }
 .activeNavItem {
   @apply text-[red];
-}
+} */

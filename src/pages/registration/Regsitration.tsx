@@ -14,7 +14,7 @@ import {
   CustomSelect,
 } from "../../components/forms";
 import { ErrorMessage } from "../../components/reusable";
-import { instance } from "../../request";
+// import { instance } from "../../request";
 import {
   registration_schema,
   UserSubmitForm,
@@ -22,17 +22,17 @@ import {
 import styles from "./registration.module.css";
 // import { Option } from "../header/customSelect/Option";
 
-const fetchData = async (data: UserSubmitForm) => {
-  await instance
-    .post("addUser", data)
-    .then((res) => {
-      console.log(res.data);
-      return res.data;
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-};
+// const fetchData = async (data: UserSubmitForm) => {
+//   await instance
+//     .post("addUser", data)
+//     .then((res) => {
+//       console.log(res.data);
+//       return res.data;
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//     });
+// };
 
 const Regsitration = () => {
   const methods = useForm<UserSubmitForm>({
@@ -134,12 +134,12 @@ const Regsitration = () => {
                   <CustomCheckbox regName="acceptTerms" />
                   <p className={styles.acceptTerms_label}>
                     <span>Ես համաձայն եմ &nbsp;</span>
-                    <a
+                    <Link
                       className="textPurple textUnderline after:bottom-[0.3px]"
-                      href="#"
+                      to="#"
                     >
                       Օգտագործման համաձայնագրի
-                    </a>
+                    </Link>
                     <span>&nbsp; հետ</span>
                   </p>
                 </div>
@@ -156,12 +156,12 @@ const Regsitration = () => {
               <p>Արդեն գրացնվա՞ծ եք</p> <Link to="/login">Մուտք</Link>
             </div>
             <div className={styles.social}>
-              <a href="#">
-                <img src={facebook} />
-              </a>
-              <a href="#">
-                <img src={gmail} />
-              </a>
+              <Link to="#">
+                <img src={facebook} alt="facebookIcon" />
+              </Link>
+              <Link to="#">
+                <img src={gmail} alt="gmailIcon" />
+              </Link>
             </div>
           </div>
         </div>
