@@ -3,14 +3,13 @@ import {
   StageBox,
   StageBoxProps,
 } from "../../../../../../components/teacherComponents/stageBox/StageBox";
+import { generateArray } from "../../../../../../helper";
 import { IStageLesson } from "../../../../../../models/interfaces";
 
-const stageLessons: IStageLesson[] = Array.from({
-  length: 12,
-}).map(() => ({
+const stageLessons = generateArray<IStageLesson>(12, {
   title:
     "«Գրաֆիկ դիզայն» մասնագիտություն, մասնագիտության  կարեւորությունն ու արդիականությունը",
-}));
+});
 
 export const stagesArr: StageBoxProps[] = [
   { stageLessons: stageLessons },

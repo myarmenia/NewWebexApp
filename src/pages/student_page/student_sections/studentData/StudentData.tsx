@@ -6,16 +6,18 @@ import buttonImg from "../../../../assets/teacher_images/createGraffic/buttonimg
 import deleteImg from "../../../../assets/teacher_images/discount/delete.svg";
 import { CstmInput, CustomBtn } from "../../../../components/forms";
 import { LessonTitle } from "../../../../components/reusable";
-import AddImg from "../../../../components/teacherComponents/sherid/addImg/AddImg";
-import { IStudentData, studentData_schema } from "../../../../validations/studentData_schema";
-
+import {
+  IStudentData,
+  studentData_schema,
+} from "../../../../validations/studentData_schema";
+import { ImagePicker } from "../../../../components/reusable/imagePicker/ImagePicker";
 
 export const StudentData: FC = () => {
   const methods = useForm<IStudentData>({
     resolver: yupResolver(studentData_schema),
     defaultValues: {
       language: [{ name: "" }],
-      personalInfo: [{ adress: "", phoneNum: "" }],
+      // personalInfo: [{ adress: "", phoneNum: "" }],
     },
   });
   const {
@@ -38,7 +40,7 @@ export const StudentData: FC = () => {
     <FormProvider {...methods}>
       <LessonTitle title="Անձնական տվյալներ" />
       <div className={styles.studentData}>
-        <AddImg />
+        <ImagePicker />
         <form
           className={styles.studentDataForm}
           onSubmit={handleSubmit(onSubmit)}
@@ -62,7 +64,12 @@ export const StudentData: FC = () => {
               })} */}
               <div className={styles.studentDataInp}>
                 <CstmInput placeholder="Հասցե" regName="adress" />
-                <CstmInput placeholder="Հեռախոս" regName="phoneNum" />
+                <CstmInput
+                  placeholder="Հեռախոս"
+                  type="number"
+                  regName="phoneNum"
+                />
+                <CstmInput placeholder="Տարիք" type="number" regName="age" />
               </div>
               {/* <div className={styles.buttonContainer}>
                 <button

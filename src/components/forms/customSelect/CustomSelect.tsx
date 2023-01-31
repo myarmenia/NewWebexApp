@@ -1,30 +1,18 @@
 import { createContext, FC, useContext, useState } from "react";
-import { useFormContext } from "react-hook-form";
 import { useError } from "../../../hooks";
-import { ICustomSelect } from "../../../models/interfaces";
+import { ICustomSelect } from "../../../models/forms";
 import { ErrorMessage } from "../../reusable";
 import styles from "./customSelect.module.css";
 import { DefaultOption } from "./DefaultOption";
 import { Options } from "./Options";
 
 interface CustomSelectProps
-  extends Pick<
-    ICustomSelect,
-    | "options"
-    | "className"
-    | "regName"
-    | "placeholder"
-    | "setOptions"
-    | "error"
-    | "setValue"
-    | "value"
-    | "img"
-    | "errorClassName"
-  > {}
+  extends Omit<ICustomSelect, "toggleOptions" | "removeOption"> {}
 
 export const CustomSelectContext = createContext<ICustomSelect>(null!);
 
-// if you want to make select work without react-hook-form you need to pass value and setValue useState to component
+// if you want to make select work without react-hook-form you need to pass value and setValue props (these must be useState) to component
+// if you want select to be have input for creating new options you need to pass setOptions prop to component
 export const CustomSelect: FC<CustomSelectProps> = (props) => {
   const {
     className = "",
@@ -32,16 +20,16 @@ export const CustomSelect: FC<CustomSelectProps> = (props) => {
     setOptions,
     options,
     errorClassName,
+    error,
   } = props;
   const [state, setState] = useState<boolean>(false);
-  const formMethods = useFormContext();
+  const errorMessage = useError(regName, error);
   const toggleOptions = () => {
     setState((prev) => !prev);
   };
   const removeOption = (currentId: number) => {
-    setOptions?.(options.filter((option, id) => id !== currentId));
+    setOptions?.(options.filter((_, id) => id !== currentId));
   };
-  const errorMessage = useError(regName, formMethods);
   return (
     <CustomSelectContext.Provider
       value={{ ...props, toggleOptions, removeOption }}

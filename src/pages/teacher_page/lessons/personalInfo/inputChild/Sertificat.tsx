@@ -4,6 +4,8 @@ import styles from "./inputChild.module.css";
 export const Sertificat: FC = () => {
   const { register } = useFormContext();
   return (
+
+    // Rub esi petq chi
     <div className={styles.sertificat}>
       <div className="font-semibold text-gray text-sm">Սերտիֆիկատ</div>
       <div className={styles.sertificatChild}>

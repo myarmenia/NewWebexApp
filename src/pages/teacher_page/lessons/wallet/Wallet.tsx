@@ -7,7 +7,7 @@ export const Wallet: FC = () => {
   return (
     <div className={styles.wallet}>
       <LessonTitle title="Դրամապանակ" />
-      <WalletCont balance={0} />
+      <WalletCont />
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import React,{FC} from "react";
+import React, { FC } from "react";
 import styles from "./inputChild.module.css";
 import buttonImg from "../../../../../assets/teacher_images/createGraffic/buttonimg.svg";
 import { useFieldArray, useFormContext } from "react-hook-form";
@@ -9,13 +9,8 @@ import {
 import { CstmDateInput, CstmInput } from "../../../../../components/forms";
 
 export const Inp5: FC<inputChildProps> = () => {
-  const {
-    register,
-    control,
-    formState: { errors },
-  } = useFormContext<PersonalSubmitForm>();
-
-  const { append, fields, remove } = useFieldArray({
+  const { control } = useFormContext<PersonalSubmitForm>();
+  const { append, fields } = useFieldArray({
     control,
     name: "additionaledu",
   });
@@ -45,17 +40,6 @@ export const Inp5: FC<inputChildProps> = () => {
                 </div>
               </div>
               <div className={styles.date}>
-                {/* <input
-                  type="date"
-                  className={styles.dateInp}
-                  {...register(`additionaledu.${index}.start`)}
-                />
-                <div className="gic"></div>
-                <input
-                  type="date"
-                  className={styles.dateInp}
-                  {...register(`additionaledu.${index}.end`)}
-                /> */}
                 <CstmDateInput
                   regName={`additionaledu.${index}.start`}
                   defaultValue={"01.01.2023"}
@@ -69,8 +53,6 @@ export const Inp5: FC<inputChildProps> = () => {
       })}
       <div className={styles.buttonContainer}>
         <button
-          // className="add"
-
           onClick={() => {
             append({
               name: "",

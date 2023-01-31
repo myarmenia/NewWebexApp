@@ -1,4 +1,4 @@
-import React, { useState, FC } from "react";
+import { FC } from "react";
 import { useFieldArray, useFormContext } from "react-hook-form";
 import buttonImg from "../../../../../assets/teacher_images/createGraffic/buttonimg.svg";
 import {
@@ -13,20 +13,11 @@ import {
 import styles from "./inputChild.module.css";
 
 export const Inp3: FC<inputChildProps> = () => {
-  const {
-    register,
-    control,
-    formState: { errors },
-  } = useFormContext<PersonalSubmitForm>();
-
-  const { append, fields, remove } = useFieldArray({
+  const { control } = useFormContext<PersonalSubmitForm>();
+  const { append, fields } = useFieldArray({
     control,
     name: "education",
   });
-
-  const [value, setValue] = useState<string | Date>("");
-  console.log(value);
-
   return (
     <div className={styles.inputChild}>
       <div className="font-semibold text-gray text-sm">Կրթություն</div>

@@ -1,9 +1,0 @@
-.contTitle {
-  @apply flex flex-col gap-[14px] mb-5;
-}
-.contTitle_text {
-  @apply text-gray text-base;
-}
-.underline {
-  @apply bg-[#BEBFE4] w-full h-[1px] relative;
-}

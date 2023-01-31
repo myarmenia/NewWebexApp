@@ -1,6 +1,6 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FormProvider, useForm } from "react-hook-form";
-import Input from "../../../components/teacherComponents/sherid/Input";
+// import Input from "../../../components/teacherComponents/sherid/Input";
 import { login_schema } from "../../../validations/login_schema";
 import emailIcon from "../../../assets/registration_images/mail.png";
 import passwordIcon from "../../../assets/registration_images/password.png";
@@ -74,17 +74,9 @@ const Entry = () => {
               regName="acceptTerms"
               label="Հիշել"
               boxClassName={styles["form-group-checkbox2"]}
+              errorClassName="!bottom-[-6px]"
             />
-            <div
-            // className="invalid-feedback"
-            >
-              {errors.acceptTerms?.message}
-            </div>
-            <div
-            // className="form-group-button"
-            >
-              <CustomBtn title="Մուտք" type="submit" className={styles.btn} />
-            </div>
+            <CustomBtn title="Մուտք" type="submit" className={styles.btn} />
           </form>
           <div className={styles.register}>
             <p>Դեռ գրացնվա՞ծ չեք </p> <Link to="/registration">Գրանցվել</Link>

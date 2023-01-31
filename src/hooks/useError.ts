@@ -1,17 +1,18 @@
 import { useMemo } from "react";
-import { FieldValues, UseFormReturn } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 
 export const useError = (
   regName: string | undefined,
-  formMethods: UseFormReturn<FieldValues, any>,
   error?: string | undefined
 ): string | undefined => {
+  const formMethods = useFormContext();
   const splitedName = regName?.split(".");
   const thisError =
     splitedName && formMethods.formState.errors?.[splitedName[0]];
   const errorMessage = useMemo(() => {
-    if (error) return error;
-    if (regName) {
+    if (error) {
+      return error;
+    } else if (regName) {
       if (regName.includes(".")) {
         if (Boolean(formMethods.formState.errors[regName.split(".")[0]])) {
           if (
@@ -32,6 +33,7 @@ export const useError = (
       } else return;
     }
   }, [
+    error,
     regName && formMethods?.formState?.errors[regName],
     Boolean(thisError) &&
       Array.isArray(thisError) &&
@@ -41,20 +43,3 @@ export const useError = (
 
   return errorMessage;
 };
-
-// export const useError = (
-//   error: string | undefined,
-//   regName: string | undefined,
-//   formMethods: UseFormReturn<FieldValues, any>
-// ) => {
-//   const errorMessage = useMemo(() => {
-//     return (
-//       error ||
-//       (regName &&
-//         formMethods?.formState?.errors[regName] &&
-//         formMethods?.formState?.errors[regName]?.message!.toString())
-//     );
-//   }, [error, regName && formMethods?.formState?.errors[regName]]);
-
-//   return errorMessage;
-// };

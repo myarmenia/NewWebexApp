@@ -13,7 +13,7 @@ export interface IInputTimeProps {
 }
 export interface UserSubmitForm2 {
   monday?: IInputTimeProps[];
-  // tuesday?: IInputTimeProps[];
+  tuesday?: IInputTimeProps[];
   // wednesday?: IInputTimeProps[];
   // thursday?: IInputTimeProps[];
   // friday?: IInputTimeProps[];

@@ -1,15 +1,17 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FC } from "react";
 import { FormProvider, useForm } from "react-hook-form";
-import styles from "./discountModal.module.css";
-import ModalCard from "./ModalCard";
 import {
+  CstmDateInput,
   CstmInput,
+  CustomBtn,
   CustomCheckbox,
   CustomSelect,
 } from "../../../../../components/forms";
 import { ModalContainer } from "../../../../../components/modalContainer/ModalContainer";
 import { discountModal_schema } from "../../../../../validations/modalDiscount_schema";
+import styles from "./discountModal.module.css";
+import ModalCard from "./ModalCard";
 
 interface IDiscountModal {
   price: string;
@@ -27,7 +29,6 @@ export const ModalDiscount: FC<IModalDiscount> = ({ modalActive }) => {
   });
   const {
     handleSubmit,
-    register,
     formState: { errors },
   } = methods;
 
@@ -37,8 +38,6 @@ export const ModalDiscount: FC<IModalDiscount> = ({ modalActive }) => {
 
   return (
     <FormProvider {...methods}>
-      {/* <div className="modal">
-        <form className="modalChild" onSubmit={handleSubmit(onSubmit)}> */}
       <ModalContainer onClick={modalActive}>
         <form onSubmit={handleSubmit(onSubmit)} action="">
           <div className={styles.modalTitle}>Ակտիվացնել Զեղչ</div>
@@ -54,8 +53,6 @@ export const ModalDiscount: FC<IModalDiscount> = ({ modalActive }) => {
                 <CustomSelect
                   placeholder="Տեսակ"
                   regName="select"
-                  // className="registration_select"
-
                   options={["Տոկոս %", "Դրամ"]}
                 />
               </div>
@@ -75,17 +72,9 @@ export const ModalDiscount: FC<IModalDiscount> = ({ modalActive }) => {
             <div className={styles.modalInputChild2}>
               <div className={styles.modalInpTitle}>Ժամանակահատված</div>
               <div className={styles.date}>
-                <input
-                  type="date"
-                  className={styles.dateInp}
-                  {...register("date.start", { value: new Date() })}
-                />
+                <CstmDateInput regName="date.start" />
                 <div className={styles.gic}></div>
-                <input
-                  type="date"
-                  className={styles.dateInp}
-                  {...register("date.end", { value: new Date() })}
-                />
+                <CstmDateInput regName="date.end" />
               </div>
               <div className={styles.dateError}>
                 {errors.date?.end?.message}
@@ -104,11 +93,10 @@ export const ModalDiscount: FC<IModalDiscount> = ({ modalActive }) => {
             <button onClick={modalActive} type="button">
               Չեղարկել
             </button>
-            <button type="submit">Հաստատել</button>
+            <CustomBtn title="Հաստատել" type="submit" />
           </div>
         </form>
       </ModalContainer>
-      {/* </div> */}
     </FormProvider>
   );
 };

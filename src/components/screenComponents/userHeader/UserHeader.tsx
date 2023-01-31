@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import { FC, useState } from "react";
 import chevDown from "../../../assets/general_images/chevDown.svg";
 import notifImg from "../../../assets/teacher_images/header/Notification.svg";
 import teacherImg from "../../../assets/teacher_images/header/Rectangle 83.svg";
 import searchImg from "../../../assets/teacher_images/header/searchImg.svg";
 import { INavItemsContent } from "../../../models/interfaces";
-import { Navbar } from "../../teacherComponents/navbar/Navbar";
+import { Navbar } from "../../reusable/navbar/Navbar";
 import "./userHeader.css";
 import { UserPanel } from "./userPanel/UserPanel";
 
@@ -24,7 +24,7 @@ export const UserHeaderStore: INavItemsContent[] = [
   },
 ];
 
-export const UserHeader: React.FC = () => {
+export const UserHeader: FC = () => {
   const [isPanelActive, setIsPanelActive] = useState<boolean>(false);
   return (
     <header className="header">

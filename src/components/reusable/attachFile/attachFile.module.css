@@ -1,0 +1,14 @@
+::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.box {
+  @apply text-gray flex flex-col gap-2 cursor-pointer relative;
+}
+.title {
+  @apply text-[10px];
+}
+.input {
+  @apply w-[10px] h-[18px] shrink-0 bg-contain cursor-pointer;
+  background: url("../../../assets/teacher_images/firstLesson/downloadFile.svg")
+    no-repeat;
+}
