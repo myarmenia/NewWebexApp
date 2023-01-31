@@ -8,7 +8,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Navigation } from "swiper";
-import chevron from "../../images/Lessons/leftChevron.svg";
+import chevron from "../../images/blocks/leftChevron.svg";
 export const Opinion: React.FC = () => {
   return (
     <div className="opinionContainer">

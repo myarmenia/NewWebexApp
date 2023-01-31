@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 import { IHeaderDropDownOption } from "../../../models/interfaces";
-import "./customDropdown.css";
+import styles from "./customDropdown.module.css";
 import { DropdownTitle } from "./DropdownTitle";
 import { Items } from "./Items";
 
@@ -22,16 +22,10 @@ export const CustomDropdown: FC<CustomDropdownProps> = ({
       onMouseEnter={() => setState(true)}
       onMouseLeave={() => setState(false)}
     >
-      <div className={`customDropdown ${className}`}>
+      <div className={`${styles.customDropdown} ${className}`}>
         <DropdownTitle {...{ state, dropDownTitle }} />
         {state && <Items {...{ setState, options }} />}
       </div>
     </div>
   );
 };
-
-// export interface IHeaderDropDownOption {
-//   title?: string;
-//   path?: string;
-//   onClick?: () => void;
-// }

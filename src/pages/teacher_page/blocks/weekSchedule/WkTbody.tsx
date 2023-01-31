@@ -1,9 +1,10 @@
 import { FC } from "react";
-import { weekScheduleTime, weekSheduleEvents } from "../../../../helper";
+import {
+  strOrNumber,
+  weekScheduleTime,
+  weekSheduleEvents,
+} from "../../../../helper";
 import { WkTd } from "./WkTd";
-
-const strOrNumber = (e: string | number): number =>
-  typeof e === "string" ? parseInt(e) : e;
 
 export const WkTbody: FC = () => {
   return (

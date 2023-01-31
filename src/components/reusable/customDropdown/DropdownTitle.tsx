@@ -1,17 +1,18 @@
-import React from "react";
+import { FC } from "react";
 import chevDown from "../../../assets/general_images/chevDown.svg";
+import styles from "./customDropdown.module.css";
 
 interface DropdownTitleProps {
   dropDownTitle: string;
   state: boolean;
 }
 
-export const DropdownTitle: React.FC<DropdownTitleProps> = ({
+export const DropdownTitle: FC<DropdownTitleProps> = ({
   dropDownTitle,
   state,
 }) => {
   return (
-    <div className="dropdownTitle">
+    <div className={styles.dropdownTitle}>
       <div className="flex justify-center w-full">
         <span>{dropDownTitle}</span>
       </div>

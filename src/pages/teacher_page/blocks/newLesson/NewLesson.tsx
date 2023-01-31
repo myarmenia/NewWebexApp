@@ -15,6 +15,7 @@ import {
   CustomCheckbox,
   CustomNmbInp,
   CustomSelect,
+  CstmTimeInput,
 } from "../../../../components/forms";
 import {
   AgeDiv,
@@ -69,6 +70,7 @@ export const NewLesson: FC = () => {
       navigate("lesson_graffic");
     }
   }, []);
+
   return (
     <div className={styles.mycontainer}>
       <LessonTitle title="Նոր դասընթաց" />
@@ -154,13 +156,7 @@ export const NewLesson: FC = () => {
                     )}
                   </div>
                   <TxtWinput text="Մի դասի տևողությունը ">
-                    <input
-                      type="time"
-                      defaultValue={"02:00:00"}
-                      step="1"
-                      className="lessonInp timeInp"
-                      {...register("lessonTime")}
-                    />
+                    <CstmTimeInput regName="lessonTime" defaultValue="02.00" />
                   </TxtWinput>
                 </div>
                 <Phases {...{ fields }} />
@@ -168,7 +164,10 @@ export const NewLesson: FC = () => {
             </div>
             <div className={styles.btn_box}>
               <CustomBtn title="Առաջ" type="submit" />
-              {/* <CustomBtn title="Watch" onClick={() => console.log(watch())} /> */}
+              {/* <CustomBtn
+                title="Watch"
+                onClick={() => console.log(watch())}
+              /> */}
             </div>
           </form>
         </div>

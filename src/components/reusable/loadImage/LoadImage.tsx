@@ -3,9 +3,10 @@ import { useFormContext } from "react-hook-form";
 import { ErrorMessage } from "..";
 import currentImg from "../../../assets/teacher_images/firstLesson/loadImg.svg";
 import { useError, useFileUploader, useFormRegister } from "../../../hooks";
+import { MyInputProps } from "../../../models/forms";
 import styles from "./loadImage.module.css";
 
-interface LoadImageProps {
+interface LoadImageProps extends Omit<MyInputProps, "className"> {
   regName?: string;
   className?: {
     div: string;

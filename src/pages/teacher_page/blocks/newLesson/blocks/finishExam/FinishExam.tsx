@@ -17,8 +17,8 @@ export const FinishExam: FC<FinishExamProps> = ({ text, regName }) => {
     <div className={styles.mycontainer}>
       <span className="text-gray text-xs">{text}</span>
       <div className={styles.content}>
-        <CustomRadio {...{ regName }} value={"Այո"} label="Այո" />
-        <CustomRadio {...{ regName }} value={"Ոչ"} label="Ոչ" />
+        <CustomRadio {...{ regName }} value={"Այո"} label="Այո" error=" " />
+        <CustomRadio {...{ regName }} value={"Ոչ"} label="Ոչ" error=" " />
         <ErrorMessage>{errors[regName]?.message?.toString()}</ErrorMessage>
       </div>
     </div>

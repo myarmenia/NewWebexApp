@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import { LessonTitle } from "../../../../../components/reusable";
 import { weekDays_long } from "../../../../../helper";
 import styles from "./editGraffic.module.css";

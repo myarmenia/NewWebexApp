@@ -4,7 +4,7 @@ import {
   InputHTMLAttributes,
   SetStateAction,
   useEffect,
-  useState
+  useState,
 } from "react";
 import { useFormContext } from "react-hook-form";
 import arrow from "../../../assets/teacher_images/newLesson/Polygon 3.svg";
@@ -62,7 +62,9 @@ export const CustomNmbInp: FC<
   useEffect(() => {
     setValue?.(age);
     regName && formMethods.setValue(regName, age);
-    if (!(age === value || age === 1)) formMethods.trigger(regName);
+    if (!(age === value || age === 1) && formMethods.formState.isSubmitted) {
+      formMethods.trigger(regName);
+    }
   }, [age]);
 
   return (

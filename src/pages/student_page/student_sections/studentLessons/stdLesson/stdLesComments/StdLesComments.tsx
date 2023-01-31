@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useMemo, useState } from "react";
 import styles from "./stdLesComments.module.css";
-import chevron from "../../../../../../assets/home_images/lessons/leftChevron.svg";
+import chevron from "../../../../../../assets/home_images/blocks/leftChevron.svg";
 
 // Swiper
 import { Swiper, SwiperSlide } from "swiper/react";

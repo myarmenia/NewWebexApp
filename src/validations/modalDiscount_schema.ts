@@ -5,7 +5,7 @@ export const discountModal_schema = Yup.object().shape({
   select: Yup.string().required("partadir e"),
   titleSelect: Yup.string().required("partadir e"),
   date: Yup.object().shape({
-    start: Yup.date().max(new Date(), "Future date not allowed"),
+    start: Yup.date().max(() => new Date(), "Future date not allowed"),
     end: Yup.date().when(
       "start",
       (start, Yup) =>

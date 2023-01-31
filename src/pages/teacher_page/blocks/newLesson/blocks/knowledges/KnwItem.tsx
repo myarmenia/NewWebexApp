@@ -1,4 +1,4 @@
-import React from "react";
+import { FC } from "react";
 import closeImg from "../../../../../../assets/teacher_images/newLesson/X.svg";
 
 interface KnwItemProps {
@@ -6,7 +6,7 @@ interface KnwItemProps {
   onClick: () => void;
 }
 
-export const KnwItem: React.FC<KnwItemProps> = ({ knowledge, onClick }) => {
+export const KnwItem: FC<KnwItemProps> = ({ knowledge, onClick }) => {
   return (
     <div className="flex justify-between items-center gap-[10px] bg-[#7764FB] text-xs text-white opacity-80 pl-3 pr-[10px] py-[5px] rounded-[30px] min-h-[22px]">
       <span className="leading-3">{knowledge}</span>

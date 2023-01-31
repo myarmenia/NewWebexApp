@@ -2,7 +2,7 @@ import React, { FC, useState, MouseEvent } from "react";
 import styles from "./stdStageBox.module.css";
 import plusImg from "../../../../../../assets/teacher_images/userLessons/plusImg.svg";
 import minusImg from "../../../../../../assets/teacher_images/userLessons/minusImg.svg";
-import { StageLesson } from "../../../../../../pages/teacher_page/lessons/userLessons/userLesComponents/stageLesson/StageLesson";
+import { StageLesson } from "../../../../../../pages/teacher_page/blocks/userLessons/userLesComponents/stageLesson/StageLesson";
 import {
   ILessonLoaderData,
   IStageLesson,

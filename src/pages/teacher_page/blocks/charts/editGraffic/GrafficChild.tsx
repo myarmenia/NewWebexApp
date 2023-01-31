@@ -11,9 +11,9 @@ const GrafficChild: FC<GrafficChild> = ({ times, weekDay }) => {
     <div className={styles.grafficContainer}>
       <p className={styles.day}>{weekDay}</p>
       <div className={styles.editTime}>
-        {times?.map((el, index) => {
-          return <div key={index}>{`${el.start} - ${el.end}`}</div>;
-        })}
+        {times?.map((el, index) => (
+          <div key={index}>{`${el.start} - ${el.end}`}</div>
+        ))}
       </div>
     </div>
   );

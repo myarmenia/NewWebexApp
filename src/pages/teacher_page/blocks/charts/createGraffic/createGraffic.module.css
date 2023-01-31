@@ -23,12 +23,12 @@
 }
 .grafficInput {
   @apply w-full h-auto flex  flex-wrap;
-  column-gap: 15px;
+  column-gap: 40px;
   row-gap: 20px;
 }
 .grafficInputChild {
-  @apply h-[80px] flex;
-  column-gap: 15px;
+  @apply flex items-center;
+  column-gap: 8px;
 }
 .gic {
   @apply w-[8.62px] h-0 !mt-[0] border border-[#cccccc] shrink-0;

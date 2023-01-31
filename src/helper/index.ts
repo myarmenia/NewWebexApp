@@ -12,3 +12,5 @@ export {
 export const thisDate = `${new Date().getDate()}.${
   new Date().getMonth().toString().length <= 2 && "" + new Date().getMonth() + 1
 }.${new Date().getFullYear()}`;
+export const strOrNumber = (e: string | number): number =>
+  typeof e === "string" ? parseInt(e) : e;

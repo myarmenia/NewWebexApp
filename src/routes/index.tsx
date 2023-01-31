@@ -36,7 +36,7 @@ import {
   lessonPageLoader,
   lessonsLoader,
   StageLesPage,
-} from "../pages/teacher_page/lessons";
+} from "../pages/teacher_page/blocks";
 
 // Pages for STUDENT section
 import { Student } from "../pages/student_page/Student";

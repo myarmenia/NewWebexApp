@@ -2,7 +2,7 @@ import { FC } from "react";
 import { Link } from "react-router-dom";
 import editImg from "../../../assets/teacher_images/newLesson/pencil 1.svg";
 import { CustomBtn } from "../../forms";
-import "./lessonTitle.css";
+import styles from "./lessonTitle.module.css";
 
 interface LessonTitleProps {
   title: string;
@@ -23,9 +23,9 @@ export const LessonTitle: FC<LessonTitleProps> = ({
   linkForBtn,
 }) => {
   return (
-    <div className={"newLessonTitle " + classNameParent}>
+    <div className={[styles.newLessonTitle, classNameParent].join(" ")}>
       <div className={"flex gap-3 items-center " + className}>
-        <div className="lessonTitle">{title} </div>
+        <div className={styles.lessonTitle}>{title} </div>
         {editIsActive && (
           <img src={editImg} className="w-4 h-4 cursor-pointer" alt="" />
         )}
@@ -39,8 +39,8 @@ export const LessonTitle: FC<LessonTitleProps> = ({
           </Link>
         )}
       </div>
-      <div className="underline">
-        <div className="purpleUnderline" />
+      <div className={styles.underline}>
+        <div className={styles.purpleUnderline} />
       </div>
     </div>
   );
