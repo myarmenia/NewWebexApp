@@ -3,7 +3,7 @@ import { useLoaderData } from "react-router";
 import minusImg from "../../../assets/teacher_images/userLessons/minusImg.svg";
 import plusImg from "../../../assets/teacher_images/userLessons/plusImg.svg";
 import { ILessonLoaderData, IStageLesson } from "../../../models/interfaces";
-import { StageLesson } from "../../../pages/teacher_page/lessons/userLessons/userLesComponents/stageLesson/StageLesson";
+import { StageLesson } from "../../../pages/teacher_page/blocks/userLessons/userLesComponents/stageLesson/StageLesson";
 import styles from "./stageBox.module.css";
 
 export interface StageBoxProps {

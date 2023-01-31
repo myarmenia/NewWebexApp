@@ -32,7 +32,7 @@ const calendarList = createSlice({
         state.currentDate.getMonth(),
         1
       );
-      currentDate.setDate(currentDate.getDate() - currentDate.getDay());
+      currentDate.setDate(currentDate.getDate() - currentDate.getDay() + 1);
       while (myDates.length < 35) {
         if (
           currentDate.getDate() === state.chosenDay.getDate() &&

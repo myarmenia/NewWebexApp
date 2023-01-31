@@ -1,0 +1,17 @@
+.mycontainer {
+  @apply flex justify-between items-center;
+}
+.content {
+  @apply flex gap-6 items-center relative;
+}
+.box {
+  @apply flex items-center gap-2;
+}
+.box span {
+  @apply text-xs text-gray;
+}
+@media (max-width: 750px) {
+  .mycontainer {
+    @apply w-[50%] gap-4;
+  }
+}

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./lessons.css";
 import { Lesson } from "./lesson/Lesson";
 import { lessonsArr } from "./lessonsStore";
-import chevron from "../../images/Lessons/leftChevron.svg";
+import chevron from "../../images/blocks/leftChevron.svg";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/bundle";
