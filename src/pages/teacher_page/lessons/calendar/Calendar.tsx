@@ -1,5 +1,5 @@
 import { FC, useEffect } from "react";
-import styles from "./calendar.module.css";
+import { LoaderFunction } from "react-router";
 import { LessonTitle } from "../../../../components/reusable";
 import { useAppDispatch, useAppSelector } from "../../../../hooks";
 import {
@@ -9,8 +9,8 @@ import {
 import { instance } from "../../../../request";
 import { DayCont } from "./calenComponents/dayCont/DayCont";
 import { NumCont } from "./calenComponents/numCont/NumCont";
-import { LoaderFunction } from "react-router";
 
+import styles from "./calendar.module.css";
 export const Calendar: FC = () => {
   const { currentDate } = useAppSelector((state) => state.calendarList);
   const myCurrentDate = currentDate.getMonth();

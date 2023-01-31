@@ -48,14 +48,12 @@ import {
   stdLessonPageLoader,
   StdLessons,
 } from "../pages/student_page/student_sections";
-
 import HelpCenter from "../pages/student_page/help_center/HelpCenter";
-import { MainRoute } from "./MainRoute";
 import Regsitration from "../pages/registration/Regsitration";
 import Entry from "../pages/registration/entry/Entry";
 import { UserHeader } from "../components/screenComponents/userHeader/UserHeader";
 import { Header } from "../pages/home_page/header/Header";
-
+import { MainRoute } from "./MainRoute";
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<MainRoute />}>

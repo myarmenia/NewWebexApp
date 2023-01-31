@@ -52,7 +52,7 @@ const Regsitration = () => {
   } = methods;
   const onSubmit = (data: UserSubmitForm) => {
     console.log(data);
-    // fetchData(data);
+    fetchData(data);
   };
 
   return (
@@ -137,12 +137,12 @@ const Regsitration = () => {
                   <CustomCheckbox regName="acceptTerms" />
                   <p className={styles.acceptTerms_label}>
                     <span>Ես համաձայն եմ &nbsp;</span>
-                    <a
+                    <Link
                       className="textPurple textUnderline after:bottom-[0.3px]"
-                      href="#"
+                      to="#"
                     >
                       Օգտագործման համաձայնագրի
-                    </a>
+                    </Link>
                     <span>&nbsp; հետ</span>
                   </p>
                 </div>
@@ -164,12 +164,12 @@ const Regsitration = () => {
               <p>Արդեն գրացնվա՞ծ եք</p> <Link to="/login">Մուտք</Link>
             </div>
             <div className={styles.social}>
-              <a href="#">
+              <Link to="#">
                 <img src={facebook} />
-              </a>
-              <a href="#">
+              </Link>
+              <Link to="#">
                 <img src={gmail} />
-              </a>
+              </Link>
             </div>
           </div>
         </div>
