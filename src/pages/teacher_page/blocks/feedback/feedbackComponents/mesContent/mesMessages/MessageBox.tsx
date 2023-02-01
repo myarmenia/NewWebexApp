@@ -1,13 +1,12 @@
 import React, { FC } from "react";
+import { IChatMessage } from "../../../../../../../models/chat";
 import styles from "./mesMessages.module.css";
-interface MessageBoxProps {
-  text: string;
-  time: string;
+interface MessageBoxProps extends IChatMessage {
   isMessageFromStudent?: boolean;
 }
 
 export const MessageBox: FC<MessageBoxProps> = ({
-  text,
+  title,
   time,
   isMessageFromStudent,
 }) => {
@@ -19,7 +18,11 @@ export const MessageBox: FC<MessageBoxProps> = ({
           : styles.teacher_message_box
       }
     >
-      <span className="text-[#817F7F] text-xs">{time}</span>
+      <span className="text-[#817F7F] text-xs">
+        {typeof time === "string"
+          ? time
+          : `${time.getHours()}:${time.getMinutes()}`}
+      </span>
       <p
         className={`${styles.message_text} ${
           isMessageFromStudent
@@ -27,7 +30,7 @@ export const MessageBox: FC<MessageBoxProps> = ({
             : styles.teacher_message_text
         }`}
       >
-        {text}
+        {title}
       </p>
     </div>
   );

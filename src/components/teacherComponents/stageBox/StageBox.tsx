@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { CSSProperties, FC, useState } from "react";
 import { useLoaderData } from "react-router";
 import minusImg from "../../../assets/teacher_images/userLessons/minusImg.svg";
 import plusImg from "../../../assets/teacher_images/userLessons/plusImg.svg";
@@ -15,7 +15,7 @@ export const StageBox: FC<StageBoxProps> = ({ stageNumber, stageLessons }) => {
   const { lessonsObj } = useLoaderData() as ILessonLoaderData;
   const [isShown, setIsShown] = useState<boolean>(stageNumber === 2);
 
-  const animLessons = isShown
+  const animLessons: CSSProperties = isShown
     ? {
         height: `${lessonsObj.length * 43 + 21}px`,
       }

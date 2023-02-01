@@ -55,14 +55,6 @@
 .modalButton {
   @apply w-[50%] h-[100px] flex items-end gap-[15px];
 }
-.modalButton > button {
-  @apply w-[193px] h-[34px] rounded-[15px] text-[#ffffff] font-semibold text-xs;
-  background: #898bce;
-}
-.modalButton :last-child {
-  @apply bg-gradientPurple;
-  border-radius: 15px;
-}
 /* modalCard */
 .modalCard {
   @apply w-full h-auto flex gap-[15px] flex-col mt-[30px];
