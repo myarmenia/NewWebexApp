@@ -1,6 +1,7 @@
 import { ChangeEvent, FC, KeyboardEvent, useState } from "react";
 import { useFieldArray, useFormContext } from "react-hook-form";
 import { CstmInput } from "../../../../../../components/forms";
+import { enterPress } from "../../../../../../helper";
 import { TeacherSubmitForm } from "../../../../../../validations/newLesson_schema";
 import { KnwItem } from "./KnwItem";
 
@@ -15,14 +16,10 @@ export const Knowledges: FC = () => {
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     setVal(e.target.value);
   };
-  const keyDownHandler = (e: KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter" && val) {
+  const keyDownHandler = () => {
+    if (val) {
       reqKnowledges.append({ knowledge: val });
       setVal("");
-      e.preventDefault();
-    }
-    if (e.key === "Enter" && !val) {
-      e.preventDefault();
     }
   };
 
@@ -31,7 +28,7 @@ export const Knowledges: FC = () => {
       <div className="flex flex-col relative">
         <CstmInput
           value={val}
-          onKeyDown={keyDownHandler}
+          onKeyDown={(e) => enterPress(e, keyDownHandler)}
           {...{ onChange }}
           placeholder="Ավելացնել պահանջվող նախնական գիտելիքները"
         />

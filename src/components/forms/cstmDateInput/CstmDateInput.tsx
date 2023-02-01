@@ -15,6 +15,10 @@ import styles from "./cstmDateInput.module.css";
 interface CstmDateInputProps extends MyInputProps {
   defaultValue?: `${number}.${number}.${number}`;
 }
+interface IValue {
+  value: string;
+  curentValue: string;
+}
 
 export const CstmDateInput: FC<
   CstmDateInputProps & Omit<InputHTMLAttributes<HTMLInputElement>, "type">
@@ -32,17 +36,20 @@ export const CstmDateInput: FC<
   const errorMessage = useError(regName, error);
   const register = useFormRegister(regName);
 
-  const [value, setValue] = useState<string>("");
+  const [date, setDate] = useState<IValue>({ value: "", curentValue: "" });
   const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     onChange?.(e);
     regName && formMethods.setValue(regName, e.target.value);
-    setValue(e.target.value.split("-").reverse().join("."));
+    setDate({
+      value: e.target.value,
+      curentValue: e.target.value.split("-").reverse().join("."),
+    });
   };
 
   useEffect(() => {
-    if (value !== "" && formMethods.formState.isSubmitted)
+    if (date.value !== "" && formMethods.formState.isSubmitted)
       formMethods.trigger(regName);
-  }, [value]);
+  }, [date]);
 
   return (
     <div className={"flex relative w-fit " + boxClassName}>
@@ -51,9 +58,10 @@ export const CstmDateInput: FC<
         className={`${className} ${styles.input}`}
         type="date"
         onChange={changeHandler}
+        value={date.value}
         name={register?.name}
       />
-      <span className={styles.value}>{value || defaultValue}</span>
+      <span className={styles.value}>{date.curentValue || defaultValue}</span>
       <ErrorMessage className={errorClassName}>{errorMessage}</ErrorMessage>
     </div>
   );

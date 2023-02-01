@@ -1,6 +1,6 @@
 import { FC, InputHTMLAttributes, useRef } from "react";
 import sendMesssageImg from "../../../../../../assets/teacher_images/feedback/Vector.svg";
-import { addZero } from "../../../../../../helper";
+import { addZero, enterPress } from "../../../../../../helper";
 import { IChatMessage } from "../../../../../../models/chat";
 import styles from "./chatInput.module.css";
 
@@ -32,7 +32,7 @@ export const ChatInput: FC<
         ref={ref}
         className={styles.chatInput}
         placeholder="Գրել նամակ․․․․"
-        onKeyDown={(e) => e.key === "Enter" && sendMessage()}
+        onKeyDown={(e) => enterPress(e, sendMessage)}
       />
       <img
         src={sendMesssageImg}
