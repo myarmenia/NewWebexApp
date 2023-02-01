@@ -44,21 +44,21 @@ export const Students: FC = () => {
           rows={[
             {
               name: "Ուսանողի Անուն",
-              render: ({ name }: any) => <TdName {...{ name }} />,
+              render: ({ name }) => <TdName {...{ name }} />,
             },
             {
               name: "Հեռախոս",
-              render: ({ lessons, phoneNumber }: any) => (
+              render: ({ lessons, phoneNumber }) => (
                 <TdLes lessons={[{ ...lessons[0], title: phoneNumber }]} />
               ),
             },
             {
               name: "Դասընթացի անվանումը",
-              render: ({ lessons }: any) => <TdLes {...{ lessons }} />,
+              render: ({ lessons }) => <TdLes {...{ lessons }} />,
             },
             {
               name: "Հայտի ամսաթիվը",
-              render: ({ lessons }: any) => <TdDate {...{ lessons }} />,
+              render: ({ lessons }) => <TdDate {...{ lessons }} />,
               tdClassName: "text-center",
             },
             {
@@ -105,29 +105,30 @@ export const Students: FC = () => {
               },
               {
                 name: "Հեռախոս",
-                render: ({ lessons, phoneNumber }: any) => (
+                render: ({ lessons, phoneNumber }) => (
                   <TdLes lessons={[{ ...lessons[0], title: phoneNumber }]} />
                 ),
               },
               {
                 name: "Դասընթացի անվանումը",
-                render: ({ lessons }: any) => <TdLes {...{ lessons }} />,
+                render: ({ lessons }) => <TdLes {...{ lessons }} />,
               },
               {
                 name: "Ուսուցման ամսաթիվը",
-                render: ({ lessons }: any) => <TdDate {...{ lessons }} />,
+                render: ({ lessons }) => <TdDate {...{ lessons }} />,
                 tdClassName: "text-center",
               },
               {
                 name: "Առաջընթացը",
-                render: ({ lessons }: any) => <TdProgres {...{ lessons }} />,
+                render: ({ lessons }) => <TdProgres {...{ lessons }} />,
               },
               {
                 name: "Տնայիններ",
-                render: ({ lessons }: any) => <TdFeedBack {...{ lessons }} />,
+                render: ({ lessons }) => <TdFeedBack {...{ lessons }} />,
               },
             ]}
-            data={tbodyData(8)}
+            data={tbodyData(41)}
+            // paginationLength={10}
           />
         </div>
       </div>
