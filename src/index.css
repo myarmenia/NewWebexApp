@@ -116,9 +116,13 @@ textarea {
 /* ================================================================ */
 
 /* ---------- custom table styles ------------ */
-div.custom_table {
+
+/* div.custom_table {
   @apply drop-shadow-normal w-full pr-2 overflow-y-auto;
   max-height: max(500px, calc(100vh - 340px));
+} */
+div.custom_table {
+  @apply drop-shadow-normal w-full overflow-hidden;
 }
 div.custom_table table {
   @apply w-full border-spacing-y-3 border-separate;
