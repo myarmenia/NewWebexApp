@@ -2,6 +2,7 @@
   @apply py-3 px-[17px] text-xs bg-white rounded-2xl outline-none h-10
   placeholder:text-[#9C9C9C] placeholder:text-xs shadow-light relative cursor-pointer;
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.05);
+  font-size: 0;
 }
 .input::-webkit-calendar-picker-indicator {
   background: url("../../../assets/teacher_images/personalInfo/calendarIcon.svg")

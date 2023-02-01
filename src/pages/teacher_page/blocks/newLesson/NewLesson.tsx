@@ -1,30 +1,31 @@
+import { yupResolver } from "@hookform/resolvers/yup";
 import { FC, useCallback, useState } from "react";
-import styles from "./newLesson.module.css";
-import { AttachFile, LessonTitle } from "../../../../components/reusable";
-import {
-  newLesson_schema,
-  TeacherSubmitForm,
-} from "../../../../validations/newLesson_schema";
 import { FormProvider, useFieldArray, useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
-import { yupResolver } from "@hookform/resolvers/yup";
 import {
   CstmInput,
   CstmTextarea,
+  CstmTimeInput,
   CustomBtn,
   CustomCheckbox,
   CustomNmbInp,
-  CustomSelect,
-  CstmTimeInput,
+  CustomSelect
 } from "../../../../components/forms";
+import { AttachFile, LessonTitle } from "../../../../components/reusable";
+import {
+  ITeacherStages,
+  newLesson_schema,
+  TeacherSubmitForm
+} from "../../../../validations/newLesson_schema";
 import {
   AgeDiv,
   DifferentCourses,
   FinishExam,
   Knowledges,
   Phases,
-  TxtWinput,
+  TxtWinput
 } from "./blocks";
+import styles from "./newLesson.module.css";
 
 export const NewLesson: FC = () => {
   const [areDifferent, setAreDifferent] = useState<boolean>(false);
@@ -34,6 +35,11 @@ export const NewLesson: FC = () => {
     "cccc",
   ]);
   const navigate = useNavigate();
+
+  // const navigation = useNavigation();
+  // const actionData = useActionData();
+  // const submit = useSubmit();
+
   const methods = useForm<TeacherSubmitForm>({
     resolver: yupResolver(newLesson_schema),
     defaultValues: {
@@ -53,9 +59,9 @@ export const NewLesson: FC = () => {
   const { fields } = fieldArray;
 
   const onSubmit = useCallback((data: TeacherSubmitForm) => {
-    let values = JSON.parse(JSON.stringify(data)) as TeacherSubmitForm;
+    let values = JSON.parse(JSON.stringify(data));
     if (!data.areStagesDifferent) {
-      values.stages.map((el) => {
+      values.stages.map((el: ITeacherStages) => {
         delete el.count;
         return el;
       });
@@ -69,6 +75,7 @@ export const NewLesson: FC = () => {
     if (values) {
       navigate("lesson_graffic");
     }
+    // submit(values);
   }, []);
 
   return (
@@ -76,7 +83,7 @@ export const NewLesson: FC = () => {
       <LessonTitle title="Նոր դասընթաց" />
       <FormProvider {...methods}>
         <div className={styles.content}>
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form onSubmit={handleSubmit(onSubmit)} method="post">
             <div className={styles.form_content}>
               <div className={styles.box}>
                 <CstmInput placeholder="Դասընթացի վերնագիրը*" regName="title" />

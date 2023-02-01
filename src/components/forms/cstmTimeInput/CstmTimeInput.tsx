@@ -15,7 +15,6 @@ interface IValue {
   minute: number | string;
 }
 
-
 export const CstmTimeInput: FC<CstmTimeInputProps> = ({
   className = "",
   boxClassName = "",
@@ -36,7 +35,7 @@ export const CstmTimeInput: FC<CstmTimeInputProps> = ({
       minute: defaultValue!.split(".")[1],
     }) || { hour: "00", minute: "00" }
   );
-  
+
   useEffect(() => {
     regName && formMethods.setValue(regName, `${value.hour}:${value.minute}`);
     setValue?.(`${value.hour} : ${value.minute}`);
@@ -49,10 +48,11 @@ export const CstmTimeInput: FC<CstmTimeInputProps> = ({
           className={`${className} ${styles.input} timeInp`}
           type="text"
           disabled
+          value={defaultValue || `${value.hour}:${value.minute}`}
           name={register?.name}
         />
         <span className={styles.value}>
-          {`${value.hour} : ${value.minute}` || defaultValue}
+          {defaultValue || `${value.hour} : ${value.minute}`}
         </span>
       </div>
 

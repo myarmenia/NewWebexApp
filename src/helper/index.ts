@@ -1,7 +1,8 @@
+import { KeyboardEvent } from "react";
+
 export { generateArray } from "./generateArray";
 export { getCurrentWeekStartToEnd } from "./getCurrentWeekStartToEnd";
 export { getMonthAndYear } from "./getMonthAndYear";
-export { uniqueKey } from "./uniqueKey";
 export {
   months,
   weekDays_long,
@@ -14,5 +15,15 @@ export const thisDate = `${new Date().getDate()}.${
 }.${new Date().getFullYear()}`;
 export const strOrNumber = (e: string | number): number =>
   typeof e === "string" ? parseInt(e) : e;
-export const addZero = <T extends number | string>(i: T) =>
+export const addZero = (i: number | string) =>
   `${i}`.length < 2 ? `0${i}` : i;
+
+export const enterPress = (
+  e: KeyboardEvent<HTMLInputElement>,
+  callback: () => void
+): void => {
+  if (e.key === "Enter") {
+    callback();
+    e.preventDefault();
+  }
+};
