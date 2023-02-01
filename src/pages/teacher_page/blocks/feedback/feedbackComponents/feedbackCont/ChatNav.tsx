@@ -8,7 +8,7 @@ const setActive: NavLinkProps["className"] = ({ isActive }) =>
   isActive ? "border-[#7764FB] border rounded-2xl" : "";
 
 export const ChatNav: FC = () => {
-  const [hovered, setHovered] = useState<boolean>(false);
+  const [hovering, setHovering] = useState<boolean>(false);
   const location = useLocation();
   const paramsId = location.pathname.split("/")[6];
 
@@ -18,14 +18,14 @@ export const ChatNav: FC = () => {
         <FilterBtn>Տնայիններ</FilterBtn>
       </NavLink>
       <NavLink
-        onPointerEnter={() => setHovered(true)}
-        onPointerLeave={() => setHovered(false)}
+        onPointerEnter={() => setHovering(true)}
+        onPointerLeave={() => setHovering(false)}
         to={`lesson/${paramsId}/chat`}
         className={setActive}
       >
         <FilterBtn className="flex gap-2">
           <span>Չատ</span>
-          <img src={hovered ? chatImgWhite : chatImg} alt="" />
+          <img src={hovering ? chatImgWhite : chatImg} alt="" />
         </FilterBtn>
       </NavLink>
     </div>

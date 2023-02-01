@@ -1,17 +1,11 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { useLoaderData } from "react-router";
 import { Link } from "react-router-dom";
 import { IOtherLessonLoaderData } from "../../../../../../models/interfaces";
 import styles from "./usersMessages.module.css";
 
 export const UsersMessages: FC = () => {
-  // ----- Loader data ------
   const { students } = useLoaderData() as IOtherLessonLoaderData;
-
-  // const {
-  //   feedbackArr: { students },
-  // } = useSelector(lessonsSelectorFN);
-
   return (
     <div className={styles.feedbackMessages}>
       {students.map(({ id, name, username }) => {

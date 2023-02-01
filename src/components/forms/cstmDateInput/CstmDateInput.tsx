@@ -1,4 +1,10 @@
-import { ChangeEvent, FC, InputHTMLAttributes, useState } from "react";
+import {
+  ChangeEvent,
+  FC,
+  InputHTMLAttributes,
+  useEffect,
+  useState,
+} from "react";
 import { useFormContext } from "react-hook-form";
 import { thisDate } from "../../../helper";
 import { useError, useFormRegister } from "../../../hooks";
@@ -24,18 +30,25 @@ export const CstmDateInput: FC<
 }) => {
   const formMethods = useFormContext();
   const errorMessage = useError(regName, error);
-  const [value, setValue] = useState<string>("");
   const register = useFormRegister(regName);
+
+  const [value, setValue] = useState<string>("");
   const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     onChange?.(e);
     regName && formMethods.setValue(regName, e.target.value);
     setValue(e.target.value.split("-").reverse().join("."));
   };
+
+  useEffect(() => {
+    if (value !== "" && formMethods.formState.isSubmitted)
+      formMethods.trigger(regName);
+  }, [value]);
+
   return (
     <div className={"flex relative w-fit " + boxClassName}>
       <input
         {...props}
-        className={`${className} ${styles.input} after:content-[${value}]`}
+        className={`${className} ${styles.input}`}
         type="date"
         onChange={changeHandler}
         name={register?.name}

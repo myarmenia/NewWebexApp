@@ -1,6 +1,6 @@
 import { Dispatch, FC, SetStateAction, useEffect, useState } from "react";
 import { useFormContext } from "react-hook-form";
-import { generateArray } from "../../../helper";
+import { addZero, generateArray } from "../../../helper";
 import { useError, useFormRegister } from "../../../hooks";
 import { MyInputProps } from "../../../models/forms";
 import { ErrorMessage } from "../../reusable";
@@ -15,8 +15,6 @@ interface IValue {
   minute: number | string;
 }
 
-const addZero = <T extends number | string>(i: T) =>
-  `${i}`.length < 2 ? `0${i}` : i;
 
 export const CstmTimeInput: FC<CstmTimeInputProps> = ({
   className = "",

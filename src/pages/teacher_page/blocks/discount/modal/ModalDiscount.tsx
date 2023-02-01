@@ -1,5 +1,5 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import { FC } from "react";
+import { FC, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import {
   CstmDateInput,
@@ -9,17 +9,14 @@ import {
   CustomSelect,
 } from "../../../../../components/forms";
 import { ModalContainer } from "../../../../../components/modalContainer/ModalContainer";
-import { discountModal_schema } from "../../../../../validations/modalDiscount_schema";
+import { generateArray } from "../../../../../helper";
+import {
+  discountModal_schema,
+  IDiscountModal,
+} from "../../../../../validations/modalDiscount_schema";
 import styles from "./discountModal.module.css";
 import ModalCard from "./ModalCard";
 
-interface IDiscountModal {
-  price: string;
-  select: string;
-  titleSelect: string;
-  date: { start: Date | string; end: Date | string };
-  timeCheck: boolean;
-}
 interface IModalDiscount {
   modalActive: () => void;
 }
@@ -27,13 +24,18 @@ export const ModalDiscount: FC<IModalDiscount> = ({ modalActive }) => {
   const methods = useForm<IDiscountModal>({
     resolver: yupResolver(discountModal_schema),
   });
-  const {
-    handleSubmit,
-    formState: { errors },
-  } = methods;
+  const { handleSubmit } = methods;
+  const [arr, setArr] = useState<{}[]>(generateArray(4, {}));
+  const removeCard = (myId: number) => {
+    setArr((prev) => prev.filter((_, id) => id !== myId));
+  };
 
   const onSubmit = (data: IDiscountModal) => {
-    console.log(data);
+    let values = JSON.parse(JSON.stringify(data)) as IDiscountModal;
+    if (values.isTimeLimit) {
+      delete values.date;
+    }
+    console.log(values, "data");
   };
 
   return (
@@ -73,26 +75,24 @@ export const ModalDiscount: FC<IModalDiscount> = ({ modalActive }) => {
               <div className={styles.modalInpTitle}>Ժամանակահատված</div>
               <div className={styles.date}>
                 <CstmDateInput regName="date.start" />
-                <div className={styles.gic}></div>
+                <div className={styles.gic} />
                 <CstmDateInput regName="date.end" />
               </div>
-              <div className={styles.dateError}>
-                {errors.date?.end?.message}
-              </div>
-              <CustomCheckbox regName="timeCheck" label="Անժամկետ" />
+              <CustomCheckbox regName="isTimeLimit" label="Անժամկետ" />
             </div>
           </div>
           <div className={styles.modalCard}>
-            <ModalCard />
-            <ModalCard />
-            <ModalCard />
-            <ModalCard />
+            {arr.map((_, id) => {
+              return <ModalCard key={id} removeCard={() => removeCard(id)} />;
+            })}
           </div>
 
           <div className={styles.modalButton}>
-            <button onClick={modalActive} type="button">
-              Չեղարկել
-            </button>
+            <CustomBtn
+              title="Չեղարկել"
+              className="gray"
+              onClick={modalActive}
+            />
             <CustomBtn title="Հաստատել" type="submit" />
           </div>
         </form>

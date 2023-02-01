@@ -14,3 +14,5 @@ export const thisDate = `${new Date().getDate()}.${
 }.${new Date().getFullYear()}`;
 export const strOrNumber = (e: string | number): number =>
   typeof e === "string" ? parseInt(e) : e;
+export const addZero = <T extends number | string>(i: T) =>
+  `${i}`.length < 2 ? `0${i}` : i;

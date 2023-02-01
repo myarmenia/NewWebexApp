@@ -21,3 +21,7 @@
   transform: scale(1, 1);
   transform-origin: top left;
 }
+
+.grayBtn {
+  @apply !bg-[#898bce] !bg-none;
+}
