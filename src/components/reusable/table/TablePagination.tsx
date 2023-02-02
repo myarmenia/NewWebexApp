@@ -64,7 +64,11 @@ export function TablePagination<T>({
   }
   return (
     <div className="mt-4 flex items-center gap-3 justify-end">
-      <Btn onClick={prev} className="!opacity-100" isSymbol>
+      <Btn
+        onClick={prev}
+        className={limit.on === 0 ? "opacity-50" : "opacity-100"}
+        isSymbol
+      >
         &#8249;
       </Btn>
       <div className="flex items-center gap-1">
@@ -79,7 +83,7 @@ export function TablePagination<T>({
                     on: i,
                   });
                 }}
-                className={i === limit.on ? "!opacity-100" : ""}
+                className={i === limit.on ? "opacity-100" : "opacity-50"}
                 key={i}
               >
                 {i + 1}
@@ -88,7 +92,15 @@ export function TablePagination<T>({
           }
         )}
       </div>
-      <Btn onClick={next} className="!opacity-100" isSymbol>
+      <Btn
+        onClick={next}
+        className={
+          Math.ceil(data.length / (paginationLength + 1)) === limit.on + 1
+            ? "opacity-50"
+            : "opacity-100"
+        }
+        isSymbol
+      >
         &#8250;
       </Btn>
     </div>
@@ -104,7 +116,7 @@ const Btn: FC<
     type="button"
     className={
       className +
-      " w-[30px] relative h-[30px] rounded-[7px] bg-[#898bce] opacity-50 text-white"
+      " w-[30px] relative h-[30px] rounded-[7px] bg-[#898bce] text-white"
     }
   >
     <span

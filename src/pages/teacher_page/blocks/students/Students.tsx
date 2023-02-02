@@ -128,7 +128,7 @@ export const Students: FC = () => {
               },
             ]}
             data={tbodyData(41)}
-            // paginationLength={10}
+            paginationLength={10}
           />
         </div>
       </div>

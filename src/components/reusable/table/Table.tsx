@@ -32,6 +32,8 @@ export function Table<T>({
   paginationLength = 5,
 }: TableProps<T>) {
   const [arr, setArr] = useState<T[]>([]);
+  console.log(data);
+
   return (
     <div className={`${className} overflow-x-auto custom_table`}>
       <table>
