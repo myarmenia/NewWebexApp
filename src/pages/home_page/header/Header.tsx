@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from "react";
-import { Navbar } from "../../../components/reusable/navbar/Navbar";
+import { Navbar } from "../../../components/reusable";
 import "./header.css";
 import { headerStore } from "./HeaderStore";
 import { ListImg } from "./listImg/ListImg";

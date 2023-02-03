@@ -6,9 +6,11 @@ import {
   CstmTextarea,
   CustomBtn,
 } from "../../../../components/forms";
-import { LessonTitle } from "../../../../components/reusable";
-import { AttachFile } from "../../../../components/reusable/attachFile/AttachFile";
-import { ImagePicker } from "../../../../components/reusable/imagePicker/ImagePicker";
+import {
+  LessonTitle,
+  AttachFile,
+  ImagePicker,
+} from "../../../../components/reusable";
 import {
   PersonalSubmitForm,
   teacherInfo_schema,

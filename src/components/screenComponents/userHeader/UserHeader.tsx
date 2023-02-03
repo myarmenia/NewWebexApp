@@ -4,7 +4,7 @@ import notifImg from "../../../assets/teacher_images/header/Notification.svg";
 import teacherImg from "../../../assets/teacher_images/header/Rectangle 83.svg";
 import searchImg from "../../../assets/teacher_images/header/searchImg.svg";
 import { INavItemsContent } from "../../../models/interfaces";
-import { Navbar } from "../../reusable/navbar/Navbar";
+import { Navbar } from "../../reusable";
 import "./userHeader.css";
 import { UserPanel } from "./userPanel/UserPanel";
 

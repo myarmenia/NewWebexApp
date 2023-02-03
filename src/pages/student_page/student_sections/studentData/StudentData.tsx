@@ -5,12 +5,11 @@ import { FormProvider, useFieldArray, useForm } from "react-hook-form";
 import buttonImg from "../../../../assets/teacher_images/createGraffic/buttonimg.svg";
 import deleteImg from "../../../../assets/teacher_images/discount/delete.svg";
 import { CstmInput, CustomBtn } from "../../../../components/forms";
-import { LessonTitle } from "../../../../components/reusable";
+import { LessonTitle, ImagePicker } from "../../../../components/reusable";
 import {
   IStudentData,
   studentData_schema,
 } from "../../../../validations/studentData_schema";
-import { ImagePicker } from "../../../../components/reusable/imagePicker/ImagePicker";
 
 export const StudentData: FC = () => {
   const methods = useForm<IStudentData>({

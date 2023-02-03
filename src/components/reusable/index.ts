@@ -6,3 +6,5 @@ export { LessonTitle } from "./lessonTitle/LessonTitle";
 export { ErrorMessage } from "./ErrorMessage";
 export { AttachFile } from "./attachFile/AttachFile";
 export { LoadImage } from "./loadImage/LoadImage";
+export { ImagePicker } from "./imagePicker/ImagePicker";
+export { Navbar } from "./navbar/Navbar";

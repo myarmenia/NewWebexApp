@@ -22,27 +22,24 @@ export interface TableProps<T> {
   }[];
   data: T[];
   className?: string;
-  paginationLength?: number;
+  pagMaxLength?: number;
 }
 
 export function Table<T>({
   rows,
   data,
   className = "",
-  paginationLength = 5,
+  pagMaxLength,
 }: TableProps<T>) {
   const [arr, setArr] = useState<T[]>([]);
-  console.log(data);
-
   return (
     <div className={`${className} overflow-x-auto custom_table`}>
       <table>
         <Thead {...{ rows }} />
         <Tbody {...{ rows, data: arr }} />
+        {/* <Tbody {...{ rows, data }} /> */}
       </table>
-      <TablePagination
-        {...{ data, setArr, paginationLength: paginationLength - 1 }}
-      />
+      <TablePagination {...{ data, setArr, pagMaxLength }} />
     </div>
   );
 }

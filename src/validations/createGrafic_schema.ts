@@ -3,20 +3,37 @@ import * as Yup from "yup";
 const SchemaChild = Yup.array()
   .of(
     Yup.object().shape({
-      start: Yup.string(),
+      start: Yup.string().test(
+        "min",
+        "start must be sooner than end!!!",
+        (start, { parent: { end } }) => {
+          const startHour = +start!.split(":")[0];
+          const startMinute = +start!.split(":")[1];
+          const endHour = +end.split(":")[0];
+          const endMinute = +end.split(":")[1];
+
+          if (startHour === endHour && startMinute < endMinute) {
+            return true;
+          } else if (startHour < endHour) {
+            return true;
+          }
+          return false;
+        }
+      ),
       end: Yup.string().test(
         "max",
         "end must be greater than start!!!",
-        (end, context) => {
-          const startHour = +context.parent.start.split(":")[0];
-          const startMinute = +context.parent.start.split(":")[1];
+        (end, { parent: { start } }) => {
+          const startHour = +start.split(":")[0];
+          const startMinute = +start.split(":")[1];
           const endHour = +end!.split(":")[0];
           const endMinute = +end!.split(":")[1];
-
-          return (
-            (startHour === endHour && startMinute < endMinute) ||
-            startHour < endHour
-          );
+          if (startHour === endHour && startMinute < endMinute) {
+            return true;
+          } else if (startHour < endHour) {
+            return true;
+          }
+          return false;
         }
       ),
     })
