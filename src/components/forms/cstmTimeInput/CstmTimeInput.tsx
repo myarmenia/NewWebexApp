@@ -28,17 +28,21 @@ export const CstmTimeInput: FC<CstmTimeInputProps> = ({
   const errorMessage = useError(regName, error);
   const register = useFormRegister(regName);
 
+  const defValue: IValue = (Boolean(defaultValue) && {
+    hour: defaultValue!.split(".")[0],
+    minute: defaultValue!.split(".")[1],
+  }) || { hour: "00", minute: "00" };
+
   const [show, setShow] = useState<boolean>(false);
-  const [value, setTimeValue] = useState<IValue>(
-    (Boolean(defaultValue) && {
-      hour: defaultValue!.split(".")[0],
-      minute: defaultValue!.split(".")[1],
-    }) || { hour: "00", minute: "00" }
-  );
+  const [value, setTimeValue] = useState<IValue>(defValue);
 
   useEffect(() => {
     regName && formMethods.setValue(regName, `${value.hour}:${value.minute}`);
     setValue?.(`${value.hour} : ${value.minute}`);
+
+    if (value !== defValue) {
+      formMethods.trigger(regName);
+    }
   }, [value]);
 
   return (

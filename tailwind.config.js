@@ -4,6 +4,7 @@ module.exports = {
   theme: {
     extend: {
       screens: {
+        "med-360": { raw: "(max-width: 360px)" },
         "med-450": { raw: "(max-width: 450px)" },
         "med-480": { raw: "(max-width: 480px)" },
         "med-750": { raw: "(max-width: 750px)" },

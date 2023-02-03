@@ -53,7 +53,8 @@ interface InputsBoxProps extends Pick<InputProps, "name"> {
 }
 
 const InputsBox: FC<InputsBoxProps> = ({ name, remove, index }) => {
-  const error = useError(`${name}.${index}.end`);
+  const error_end = useError(`${name}.${index}.end`);
+  const error_start = useError(`${name}.${index}.start`);
   return (
     <div className="relative">
       <div className={styles.grafficInputChild}>
@@ -66,7 +67,9 @@ const InputsBox: FC<InputsBoxProps> = ({ name, remove, index }) => {
           onClick={() => remove(index)}
         />
       </div>
-      <ErrorMessage className="!bottom-[-14px]">{error}</ErrorMessage>
+      <ErrorMessage className="!bottom-[-14px]">
+        {error_start || error_end}
+      </ErrorMessage>
     </div>
   );
 };

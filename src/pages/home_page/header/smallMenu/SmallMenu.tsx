@@ -1,7 +1,7 @@
 import React from "react";
 import "./smallMenu.css";
 import { headerStore } from "../HeaderStore";
-import { Navbar } from "../../../../components/reusable/navbar/Navbar";
+import { Navbar } from "../../../../components/reusable";
 
 interface SmallMEnuProps {
   animActive: boolean;

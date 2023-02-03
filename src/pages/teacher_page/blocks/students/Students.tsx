@@ -82,7 +82,7 @@ export const Students: FC = () => {
               ),
             },
           ]}
-          data={tbodyData(2)}
+          data={tbodyData(4)}
         />
       </div>
       <div>
@@ -127,8 +127,8 @@ export const Students: FC = () => {
                 render: ({ lessons }) => <TdFeedBack {...{ lessons }} />,
               },
             ]}
-            data={tbodyData(41)}
-            paginationLength={10}
+            data={tbodyData(62)}
+            pagMaxLength={4}
           />
         </div>
       </div>
