@@ -1,7 +1,8 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FC, useCallback, useState } from "react";
 import { FormProvider, useFieldArray, useForm } from "react-hook-form";
-import { useNavigate } from "react-router";
+import { ActionFunction, useNavigate } from "react-router";
+import { Form, useSubmit } from "react-router-dom";
 import {
   CstmInput,
   CstmTextarea,
@@ -9,13 +10,13 @@ import {
   CustomBtn,
   CustomCheckbox,
   CustomNmbInp,
-  CustomSelect
+  CustomSelect,
 } from "../../../../components/forms";
 import { AttachFile, LessonTitle } from "../../../../components/reusable";
 import {
   ITeacherStages,
   newLesson_schema,
-  TeacherSubmitForm
+  TeacherSubmitForm,
 } from "../../../../validations/newLesson_schema";
 import {
   AgeDiv,
@@ -23,7 +24,7 @@ import {
   FinishExam,
   Knowledges,
   Phases,
-  TxtWinput
+  TxtWinput,
 } from "./blocks";
 import styles from "./newLesson.module.css";
 
@@ -38,7 +39,7 @@ export const NewLesson: FC = () => {
 
   // const navigation = useNavigation();
   // const actionData = useActionData();
-  // const submit = useSubmit();
+  const submit = useSubmit();
 
   const methods = useForm<TeacherSubmitForm>({
     resolver: yupResolver(newLesson_schema),
@@ -73,9 +74,9 @@ export const NewLesson: FC = () => {
     }
     console.log(values, "porc");
     if (values) {
-      navigate("lesson_graffic");
+      submit(values);
+      // navigate("lesson_graffic");
     }
-    // submit(values);
   }, []);
 
   return (
@@ -83,7 +84,7 @@ export const NewLesson: FC = () => {
       <LessonTitle title="Նոր դասընթաց" />
       <FormProvider {...methods}>
         <div className={styles.content}>
-          <form onSubmit={handleSubmit(onSubmit)} method="post">
+          <Form onSubmit={handleSubmit(onSubmit)} method="post">
             <div className={styles.form_content}>
               <div className={styles.box}>
                 <CstmInput placeholder="Դասընթացի վերնագիրը*" regName="title" />
@@ -163,7 +164,7 @@ export const NewLesson: FC = () => {
                     )}
                   </div>
                   <TxtWinput text="Մի դասի տևողությունը ">
-                    <CstmTimeInput regName="lessonTime" defaultValue="02.00" />
+                    <CstmTimeInput regName="lessonTime" defaultValue="02:00" />
                   </TxtWinput>
                 </div>
                 <Phases {...{ fields }} />
@@ -176,9 +177,14 @@ export const NewLesson: FC = () => {
                 onClick={() => console.log(watch())}
               /> */}
             </div>
-          </form>
+          </Form>
         </div>
       </FormProvider>
     </div>
   );
+};
+
+export const action: ActionFunction = async ({ request }) => {
+  const formData = await request.formData();
+  console.log(formData);
 };

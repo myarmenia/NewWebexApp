@@ -19,7 +19,7 @@ export const Lessons: FC = () => {
           title="Չհրապարակված դասընթացներ"
           className="w-full justify-between"
           linkForBtn={{
-            to: "/new_lesson",
+            to: "../new_lesson",
             title: "+ Ավելացնել դասընթաց",
           }}
         />

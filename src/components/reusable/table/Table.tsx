@@ -1,14 +1,4 @@
-import {
-  ButtonHTMLAttributes,
-  FC,
-  PropsWithChildren,
-  ReactNode,
-  useEffect,
-  useMemo,
-  useState,
-} from "react";
-import { generateArray } from "../../../helper";
-import { CustomBtn } from "../../forms";
+import { ReactNode, useState } from "react";
 import { TablePagination } from "./TablePagination";
 import { Tbody } from "./Tbody";
 import { Thead } from "./Thead";
@@ -23,6 +13,7 @@ export interface TableProps<T> {
   data: T[];
   className?: string;
   pagMaxLength?: number;
+  pagItemsLength?: number;
 }
 
 export function Table<T>({
@@ -30,6 +21,7 @@ export function Table<T>({
   data,
   className = "",
   pagMaxLength,
+  pagItemsLength,
 }: TableProps<T>) {
   const [arr, setArr] = useState<T[]>([]);
   return (
@@ -39,7 +31,7 @@ export function Table<T>({
         <Tbody {...{ rows, data: arr }} />
         {/* <Tbody {...{ rows, data }} /> */}
       </table>
-      <TablePagination {...{ data, setArr, pagMaxLength }} />
+      <TablePagination {...{ data, setArr, pagMaxLength, pagItemsLength }} />
     </div>
   );
 }
