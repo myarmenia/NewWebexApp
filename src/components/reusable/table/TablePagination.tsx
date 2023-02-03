@@ -11,12 +11,24 @@ interface IValue {
   isPrev?: boolean;
 }
 
+const changeFstAndLastElems = (arr: IValue[], max: number) =>
+  arr.map((elem, i) => {
+    if (i === max) {
+      return { ...elem, isPrev: false };
+    }
+    if (i === 0) {
+      return { ...elem, isPrev: true };
+    }
+    return elem;
+  });
+
 const toggleClass = (bool: boolean) =>
   bool ? "opacity-50 cursor-not-allowed" : "opacity-100";
 
 export function TablePagination<T>({
   data,
   pagMaxLength = 5,
+  pagItemsLength = 7,
   setArr,
 }: TablePaginationProps<T>) {
   const paginationLength = useMemo(
@@ -27,7 +39,7 @@ export function TablePagination<T>({
     (_, i) => ({ number: i })
   );
   const [pagArr, setPagArr] = useState<IValue[]>( // array containing current data's positions
-    fakeData.filter((_, i) => i < 7)
+    fakeData.filter((_, i) => i < pagItemsLength)
   );
   const [limit, setLimit] = useState<number>(0); // variable for data
   const [pagLimit, setPagLimit] = useState<number>(0); // variable for this pagination length
@@ -35,7 +47,7 @@ export function TablePagination<T>({
   const next = () => {
     if (limit < paginationLength - 1) {
       setLimit((prev) => prev + 1);
-      if (pagLimit < 6) {
+      if (pagLimit < pagItemsLength - 1) {
         setPagLimit((prev) => prev + 1);
       }
     }
@@ -43,7 +55,9 @@ export function TablePagination<T>({
   const prev = () => {
     if (limit > 0) {
       setLimit((prev) => prev - 1);
-      setPagLimit((prev) => prev - 1);
+      if (pagLimit > 0) {
+        setPagLimit((prev) => prev - 1);
+      }
     }
   };
 
@@ -63,46 +77,37 @@ export function TablePagination<T>({
       limit < data.length
     ) {
       setPagArr((prev) =>
-        fakeData
-          .filter((_, i) => {
+        changeFstAndLastElems(
+          fakeData.filter((_, i) => {
             if (i < paginationLength) {
-              if (!prev[pagLimit].isPrev && i >= limit - 5 && i <= limit + 1) {
+              if (
+                !prev[pagLimit].isPrev &&
+                i >= limit - (pagItemsLength - 2) &&
+                i <= limit + 1
+              ) {
                 return true;
               } else if (
                 !prev[pagLimit].isPrev &&
                 limit === paginationLength - 1 &&
-                i >= limit - 6
+                i >= limit - (pagItemsLength - 1)
               ) {
                 return true;
               }
-              if (prev[pagLimit].isPrev && i >= limit - 1 && i <= limit + 5) {
+              if (
+                prev[pagLimit].isPrev &&
+                i >= limit - 1 &&
+                i <= limit + (pagItemsLength - 2)
+              ) {
                 return true;
               }
             }
             return false;
-          })
-          .map((elem, i) => {
-            if (i === 6) {
-              return { ...elem, isPrev: false };
-            }
-            if (i === 0) {
-              return { ...elem, isPrev: true };
-            }
-            return elem;
-          })
+          }),
+          pagItemsLength - 1
+        )
       );
     } else {
-      setPagArr((prev) =>
-        prev.map((elem, i) => {
-          if (i === 6) {
-            return { ...elem, isPrev: false };
-          }
-          if (i === 0) {
-            return { ...elem, isPrev: true };
-          }
-          return elem;
-        })
-      );
+      setPagArr((prev) => changeFstAndLastElems(prev, pagItemsLength - 1));
     }
   }, [limit, pagLimit]);
 
