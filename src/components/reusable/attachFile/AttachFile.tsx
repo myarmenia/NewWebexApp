@@ -29,8 +29,7 @@ export const AttachFile: FC<AttachFileProps> = ({
   const [file, onFileUpload] = useFileUploader(onChange);
   useEffect(() => {
     if (file && regName) {
-      // formMethods.setValue(regName, file);
-      formMethods.setValue(regName, URL.createObjectURL(file));
+      formMethods.setValue(regName, file);
     }
   }, [file]);
   return (
@@ -45,6 +44,7 @@ export const AttachFile: FC<AttachFileProps> = ({
           accept=".pptx, .docx, .jpg, .png"
           onChange={onFileUpload}
           name={register?.name}
+          formEncType="multipart/form-data"
           // {...register}
         />
         {label && <p className="text-xs">{label}</p>}

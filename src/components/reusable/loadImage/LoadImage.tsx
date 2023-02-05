@@ -37,8 +37,7 @@ export const LoadImage: React.FC<LoadImageProps> = ({
   const [file, onFileUpload] = useFileUploader(onChange);
   useEffect(() => {
     if (file && regName) {
-      // formMethods.setValue(regName, file);
-      formMethods.setValue(regName, URL.createObjectURL(file));
+      formMethods.setValue(regName, file);
     }
   }, [file]);
   return (

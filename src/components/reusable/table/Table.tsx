@@ -12,7 +12,7 @@ export interface TableProps<T> {
   }[];
   data: T[];
   className?: string;
-  pagMaxLength?: number;
+  maxTrs?: number;
   pagItemsLength?: number;
 }
 
@@ -20,7 +20,7 @@ export function Table<T>({
   rows,
   data,
   className = "",
-  pagMaxLength,
+  maxTrs,
   pagItemsLength,
 }: TableProps<T>) {
   const [arr, setArr] = useState<T[]>([]);
@@ -31,7 +31,7 @@ export function Table<T>({
         <Tbody {...{ rows, data: arr }} />
         {/* <Tbody {...{ rows, data }} /> */}
       </table>
-      <TablePagination {...{ data, setArr, pagMaxLength, pagItemsLength }} />
+      <TablePagination {...{ data, setArr, maxTrs, pagItemsLength }} />
     </div>
   );
 }

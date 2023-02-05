@@ -9,6 +9,8 @@ export { generateArray } from "./generateArray";
 export { getCurrentWeekStartToEnd } from "./getCurrentWeekStartToEnd";
 export { getMonthAndYear } from "./getMonthAndYear";
 export { enterPress } from "./enterPress";
+export { toFormData, toObject } from "./formData_funcs";
+
 export const thisDate = `${new Date().getDate()}.${
   new Date().getMonth().toString().length <= 2 && "" + new Date().getMonth() + 1
 }.${new Date().getFullYear()}`;

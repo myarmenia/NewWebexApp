@@ -54,7 +54,10 @@ import Entry from "../pages/registration/entry/Entry";
 import { UserHeader } from "../components/screenComponents/userHeader/UserHeader";
 import { Header } from "../pages/home_page/header/Header";
 import { MainRoute } from "./MainRoute";
-import { action as newLessonAction } from "../pages/teacher_page/blocks/newLesson/NewLesson";
+import {
+  action,
+  loader as newLessonLoader,
+} from "../pages/teacher_page/blocks/newLesson/NewLesson";
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<MainRoute />}>
@@ -82,7 +85,12 @@ export const router = createBrowserRouter(
         {/* <Route index element={<Exam />} /> */}
         <Route index element={<AddLesson />} />
         <Route path="new_lesson/*">
-          <Route index element={<NewLesson />} action={newLessonAction} />
+          <Route
+            index
+            element={<NewLesson />}
+            loader={newLessonLoader}
+            action={action}
+          />
           <Route path="lesson_graffic/*" element={<FirstLesson />} />
         </Route>
         <Route path="my_lesson" element={<UserLessons />}>

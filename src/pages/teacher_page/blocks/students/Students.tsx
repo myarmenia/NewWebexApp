@@ -128,8 +128,8 @@ export const Students: FC = () => {
               },
             ]}
             data={tbodyData(102)}
-            pagMaxLength={4}
-            pagItemsLength={10}
+            // maxTrs={4}
+            // pagItemsLength={10}
           />
         </div>
       </div>
