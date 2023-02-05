@@ -24,7 +24,7 @@ export const newLesson_schema = Yup.object().shape<Shape<TeacherSubmitForm>>({
       .lessThan(7, "max is 7")
       .required("Required"),
   }),
-  coverImage: Yup.string(),
+  coverImage: Yup.mixed<File>(),
   areStagesDifferent: Yup.bool(),
   stagesCount: Yup.number()
     .moreThan(0, "min is 1")

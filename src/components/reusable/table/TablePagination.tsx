@@ -27,46 +27,36 @@ const toggleClass = (bool: boolean) =>
 
 export function TablePagination<T>({
   data,
-  pagMaxLength = 5,
+  maxTrs = 5,
   pagItemsLength = 7,
   setArr,
 }: TablePaginationProps<T>) {
   const paginationLength = useMemo(
-    () => Math.ceil(data.length / pagMaxLength),
-    [data, pagMaxLength]
+    () => Math.ceil(data.length / maxTrs),
+    [data, maxTrs]
   );
-  const fakeData: IValue[] = Array.from({ length: paginationLength }).map(
+  const dataIndexes: IValue[] = Array.from({ length: paginationLength }).map(
     (_, i) => ({ number: i })
   );
-  const [pagArr, setPagArr] = useState<IValue[]>( // array containing current data's positions
-    fakeData.filter((_, i) => i < pagItemsLength)
+  const [pagArr, setPagArr] = useState<IValue[]>( // array containing data's current positions
+    dataIndexes.filter((_, i) => i < pagItemsLength)
   );
-  const [limit, setLimit] = useState<number>(0); // variable for data
-  const [pagLimit, setPagLimit] = useState<number>(0); // variable for this pagination length
+  const [limit, setLimit] = useState<number>(0); // variable for data length (index)
+  const [pagLimit, setPagLimit] = useState<number>(0); // variable for this pagination length (index)
 
   const next = () => {
-    if (limit < paginationLength - 1) {
-      setLimit((prev) => prev + 1);
-      if (pagLimit < pagItemsLength - 1) {
-        setPagLimit((prev) => prev + 1);
-      }
-    }
+    if (limit < paginationLength - 1) setLimit((prev) => prev + 1);
+    if (pagLimit < pagItemsLength - 1) setPagLimit((prev) => prev + 1);
   };
   const prev = () => {
-    if (limit > 0) {
-      setLimit((prev) => prev - 1);
-      if (pagLimit > 0) {
-        setPagLimit((prev) => prev - 1);
-      }
-    }
+    if (limit > 0) setLimit((prev) => prev - 1);
+    if (pagLimit > 0) setPagLimit((prev) => prev - 1);
   };
 
   useEffect(() => {
     setArr(
       data.filter(
-        (_, i) =>
-          i >= limit * pagMaxLength &&
-          i <= (limit + 1) * (pagMaxLength - 1) + limit
+        (_, i) => i >= limit * maxTrs && i <= (limit + 1) * (maxTrs - 1) + limit
       )
     );
 
@@ -78,7 +68,7 @@ export function TablePagination<T>({
     ) {
       setPagArr((prev) =>
         changeFstAndLastElems(
-          fakeData.filter((_, i) => {
+          dataIndexes.filter((_, i) => {
             if (i < paginationLength) {
               if (
                 !prev[pagLimit].isPrev &&
@@ -111,7 +101,7 @@ export function TablePagination<T>({
     }
   }, [limit, pagLimit]);
 
-  if (data.length <= pagMaxLength) {
+  if (data.length <= maxTrs) {
     return null;
   }
   return (

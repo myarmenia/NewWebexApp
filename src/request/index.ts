@@ -8,4 +8,5 @@ export const instance = axios.create({
   // headers: {
   //   Authorization: `Bearer ${token}`,
   // },
+  headers: { "Content-Type": "multipart/form-data" },
 });
