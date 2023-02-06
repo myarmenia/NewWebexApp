@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./panelChild.module.css";
-import lessons from "../../../../images/controlPanel/lessons.svg";
 interface FirstPanelProps {
   url?: string;
   num?: string;
@@ -16,7 +15,7 @@ export const FirstPanel: React.FC<FirstPanelProps> = ({
   return (
     <div className={styles.firstPanel}>
       <div className={styles.firstPanelChild}>
-        <img src={url} className={styles.firstPanelImg} />
+        <img src={url} className={styles.firstPanelImg} alt="" />
         <div className={styles.number}>{num}</div>
       </div>
       <div className={styles.firstPanelChild2}>

@@ -1,14 +1,14 @@
-import React, { FC, useEffect, useMemo, useState } from "react";
-import styles from "./stdLesComments.module.css";
+import { FC, useMemo } from "react";
 import chevron from "../../../../../../assets/home_images/blocks/leftChevron.svg";
+import styles from "./stdLesComments.module.css";
 
 // Swiper
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css/bundle";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
 import { Autoplay, Navigation } from "swiper";
+import "swiper/css";
+import "swiper/css/bundle";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 export const StdLesComments: FC = () => {
   const slidesPerView = useMemo<number>(

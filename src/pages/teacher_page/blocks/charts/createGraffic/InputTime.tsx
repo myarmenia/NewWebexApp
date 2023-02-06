@@ -39,7 +39,7 @@ export const InputTime: FC<InputProps> = ({ day, name }) => {
             append({ start: "", end: "" });
           }}
         >
-          <img src={buttonImg} />
+          <img src={buttonImg} alt="buttonImg" />
         </button>
         <div className={styles.addText}>ավելացնել տարբերակ</div>
       </div>
@@ -65,6 +65,7 @@ const InputsBox: FC<InputsBoxProps> = ({ name, remove, index }) => {
           src={deleteIcon}
           className="shrink-0 cursor-pointer w-5 h-10 ml-2"
           onClick={() => remove(index)}
+          alt="deleteIcon"
         />
       </div>
       <ErrorMessage className="!bottom-[-14px]">

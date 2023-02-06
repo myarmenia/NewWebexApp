@@ -21,11 +21,7 @@ const Entry = () => {
   const methods = useForm<EntryForm>({
     resolver: yupResolver(login_schema),
   });
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = methods;
+  const { handleSubmit } = methods;
 
   const onSubmit = (data: EntryForm) => {
     console.log(data);
@@ -68,7 +64,7 @@ const Entry = () => {
               placeholder="Գաղտնաբառ"
             />
             <div className={styles.recover}>
-              <a href="">Վերականգնել գաղտնաբառը</a>
+              <Link to="">Վերականգնել գաղտնաբառը</Link>
             </div>
             <CustomCheckbox
               regName="acceptTerms"

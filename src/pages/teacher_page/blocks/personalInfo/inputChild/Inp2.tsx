@@ -78,7 +78,7 @@ export const Inp2: FC<inputChildProps> = () => {
             });
           }}
         >
-          <img src={buttonImg} />
+          <img src={buttonImg} alt="" />
         </button>
         <div className={styles.addText}>Ավելացնել</div>
       </div>

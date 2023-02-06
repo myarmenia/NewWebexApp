@@ -1,10 +1,10 @@
-import React, { FC, ReactNode, useEffect } from "react";
-import styles from "./feedbackCont.module.css";
-import { UsersMessages } from "../usersMessages/UsersMessages";
+import { FC, ReactNode } from "react";
+import { useLoaderData, useLocation } from "react-router";
 import { IOtherLessonLoaderData } from "../../../../../../models/interfaces";
 import { MessToLesson } from "../messToLesson/MessToLesson";
-import { useLoaderData, useLocation, useParams } from "react-router";
+import { UsersMessages } from "../usersMessages/UsersMessages";
 import { ChatNav } from "./ChatNav";
+import styles from "./feedbackCont.module.css";
 
 export const FeedbackCont: FC<{ children?: ReactNode }> = ({ children }) => {
   // ----- Loader data ------

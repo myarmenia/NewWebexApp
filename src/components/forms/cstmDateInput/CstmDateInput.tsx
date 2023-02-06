@@ -45,12 +45,10 @@ export const CstmDateInput: FC<
       curentValue: e.target.value.split("-").reverse().join("."),
     });
   };
-
   useEffect(() => {
     if (date.value !== "" && formMethods.formState.isSubmitted)
       formMethods.trigger(regName);
   }, [date]);
-
   return (
     <div className={"flex relative w-fit " + boxClassName}>
       <input
