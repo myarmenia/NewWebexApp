@@ -1,13 +1,12 @@
-import React, { FC, useState, MouseEvent } from "react";
-import styles from "./stdStageBox.module.css";
-import plusImg from "../../../../../../assets/teacher_images/userLessons/plusImg.svg";
+import { FC, MouseEvent, useState } from "react";
+import { useLoaderData } from "react-router";
 import minusImg from "../../../../../../assets/teacher_images/userLessons/minusImg.svg";
-import { StageLesson } from "../../../../../../pages/teacher_page/blocks/userLessons/userLesComponents/stageLesson/StageLesson";
+import plusImg from "../../../../../../assets/teacher_images/userLessons/plusImg.svg";
 import {
   ILessonLoaderData,
-  IStageLesson,
+  IStageLesson
 } from "../../../../../../models/interfaces";
-import { useLoaderData } from "react-router";
+import styles from "./stdStageBox.module.css";
 import { StdStageLesson } from "./stdStageLesson/StdStageLesson";
 
 export interface StageBoxProps {

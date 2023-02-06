@@ -16,7 +16,7 @@ export const DiscountCard: React.FC<DiscountCardProps> = ({ isActive }) => {
       {modalActive && <ModalDiscount modalActive={modalActiveClick} />}
       <div className={styles.discountCard}>
         <div className={styles.discountCardChild}>
-          <img src={isActive ? discount : promo} />
+          <img src={isActive ? discount : promo} alt="" />
         </div>
         <div className={styles.discountCardChild2}>
           <div className={styles.discountHeader}>

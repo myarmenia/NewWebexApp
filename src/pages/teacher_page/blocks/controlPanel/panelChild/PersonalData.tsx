@@ -11,13 +11,13 @@ const PersonalData: React.FC<PanelDataProps> = ({ title }) => {
     <div className={styles.panelContainer}>
       <div className={styles.title}>{title}</div>
       <div className={styles.panelData}>
-        <img src={user} className={styles.panelDataImg} />
+        <img src={user} className={styles.panelDataImg} alt="" />
         <div className={styles.stars}>
-          <img src={star} className={styles.star} />
-          <img src={star} className={styles.star} />
-          <img src={star} className={styles.star} />
-          <img src={star} className={styles.star} />
-          <img src={star} className={styles.star} />
+          <img src={star} className={styles.star} alt="" />
+          <img src={star} className={styles.star} alt="" />
+          <img src={star} className={styles.star} alt="" />
+          <img src={star} className={styles.star} alt="" />
+          <img src={star} className={styles.star} alt="" />
           <div className={styles.count}>(25)</div>
         </div>
       </div>

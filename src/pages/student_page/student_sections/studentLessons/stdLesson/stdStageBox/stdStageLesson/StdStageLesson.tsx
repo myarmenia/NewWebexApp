@@ -31,7 +31,9 @@ export const StdStageLesson: FC<StdStageLessonProps> = ({
         >
           {title}
         </p>
-        {isLessonCompleted && <img src={lessonCompletedImg} className="" />}
+        {isLessonCompleted && (
+          <img src={lessonCompletedImg} alt="" className="" />
+        )}
       </Link>
     </div>
   );

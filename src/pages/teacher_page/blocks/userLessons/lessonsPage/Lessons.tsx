@@ -1,13 +1,12 @@
-import { FC, Fragment } from "react";
-import styles from "./lessons.module.css";
+import { FC } from "react";
 import { LoaderFunction, useLoaderData } from "react-router";
 import { LessonTitle } from "../../../../../components/reusable";
 import {
-  ILessonLoaderData,
-  ILessonLoaderObj,
+  ILessonLoaderObj
 } from "../../../../../models/interfaces";
 import { instance } from "../../../../../request";
 import { LesBox } from "../userLesComponents/lesBox/LesBox";
+import styles from "./lessons.module.css";
 
 export const Lessons: FC = () => {
   const lessonsArr = useLoaderData() as ILessonLoaderObj[];
@@ -76,7 +75,7 @@ export const Lessons: FC = () => {
             ))}
           </div>
         ) : (
-          <p className="text-base text-gray">
+          <p className="text-base text-gray">1
             Դուք դեռ չունեք հրապարակված դասընթաց, ավելացրեք նորը
           </p>
         )}

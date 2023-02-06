@@ -1,12 +1,12 @@
 import { FC } from "react";
 import { IStartEnd } from "./EditGraffic";
 import styles from "./editGraffic.module.css";
-interface GrafficChild {
+interface IGrafficChild {
   weekDay: string;
   times: IStartEnd[];
 }
 
-const GrafficChild: FC<GrafficChild> = ({ times, weekDay }) => {
+const GrafficChild: FC<IGrafficChild> = ({ times, weekDay }) => {
   return (
     <div className={styles.grafficContainer}>
       <p className={styles.day}>{weekDay}</p>

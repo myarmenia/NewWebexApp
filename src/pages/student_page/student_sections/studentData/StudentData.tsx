@@ -19,11 +19,7 @@ export const StudentData: FC = () => {
       // personalInfo: [{ adress: "", phoneNum: "" }],
     },
   });
-  const {
-    handleSubmit,
-    control,
-    formState: { errors },
-  } = methods;
+  const { handleSubmit, control } = methods;
   // const personalInfo = useFieldArray({
   //   control,
   //   name: "personalInfo",
@@ -99,6 +95,7 @@ export const StudentData: FC = () => {
                     />
                     <img
                       src={deleteImg}
+                      alt=""
                       // className="deleteImg"
                       onClick={() => language.remove(index)}
                     />
@@ -115,7 +112,7 @@ export const StudentData: FC = () => {
                     });
                   }}
                 >
-                  <img src={buttonImg} />
+                  <img src={buttonImg} alt="" />
                 </button>
                 <div className={styles.addText}>Ավելացնել</div>
               </div>
