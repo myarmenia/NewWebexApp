@@ -1,31 +1,30 @@
-import React, { FC } from "react";
+import { FC } from "react";
+import { addZero } from "../../../../../../../helper";
 import { IChatMessage } from "../../../../../../../models/chat";
 import styles from "./mesMessages.module.css";
 interface MessageBoxProps extends IChatMessage {
-  isMessageFromStudent?: boolean;
+  fromStudent?: boolean;
 }
 
 export const MessageBox: FC<MessageBoxProps> = ({
   title,
   time,
-  isMessageFromStudent,
+  fromStudent,
 }) => {
   return (
     <div
       className={
-        isMessageFromStudent
-          ? styles.student_message_box
-          : styles.teacher_message_box
+        fromStudent ? styles.student_message_box : styles.teacher_message_box
       }
     >
       <span className="text-[#817F7F] text-xs">
         {typeof time === "string"
           ? time
-          : `${time.getHours()}:${time.getMinutes()}`}
+          : `${addZero(time.getHours())}:${addZero(time.getMinutes())}`}
       </span>
       <p
         className={`${styles.message_text} ${
-          isMessageFromStudent
+          fromStudent
             ? styles.student_message_text
             : styles.teacher_message_text
         }`}

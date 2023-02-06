@@ -13,10 +13,7 @@ const lessonsArr = generateArray<ILessons>(12, {
 });
 export const StageLessons: FC = () => {
   return (
-    <div
-      className={styles.mycontainer}
-      //   style={{ height: 85 * Math.round(lessonsCount / 2) + "px" }}
-    >
+    <div className={styles.mycontainer}>
       {lessonsArr.map((el, index) => {
         return <LessonBox {...el} lessonNumber={index + 1} key={el.id} />;
       })}

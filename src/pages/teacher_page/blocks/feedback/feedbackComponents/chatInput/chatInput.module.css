@@ -1,13 +1,15 @@
 @tailwind components;
 @layer components {
-  .chatInputDiv {
-    @apply shadow-light relative rounded-[15px];
+  .box {
+    @apply shadow-light relative rounded-[15px] h-10;
   }
-  .chatInput {
-    @apply shadow-light rounded-[15px] h-10 w-full px-5 py-2 outline-none;
+  .textarea {
+    @apply shadow-light rounded-[15px] h-full w-full px-5 py-2 outline-none resize-none;
   }
 }
-.chatInput_img {
-  @apply right-2 top-1/2 absolute cursor-pointer;
-  transform: translate(0, -50%);
+.textarea::-webkit-scrollbar {
+  display: none;
+}
+.img {
+  @apply right-2 top-1/2 absolute cursor-pointer -translate-y-1/2;
 }

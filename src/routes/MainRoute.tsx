@@ -11,5 +11,6 @@ export const MainRoute: FC = () => {
       navigate("login");
     }
   }, []);
+
   return <Outlet />;
 };

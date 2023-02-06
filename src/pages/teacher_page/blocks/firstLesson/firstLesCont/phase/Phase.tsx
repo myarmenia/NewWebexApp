@@ -1,25 +1,27 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FC } from "react";
 import { FormProvider, useForm } from "react-hook-form";
-import { CstmInput, CstmTextarea } from "../../../../../../components/forms";
+import acceptImg from "../../../../../../assets/teacher_images/newLesson/acceptPurple.svg";
+import {
+  CstmInput,
+  CstmTextarea
+} from "../../../../../../components/forms";
 import { AttachFile, LoadImage } from "../../../../../../components/reusable";
 import {
   firstLesson_schema,
-  IFirstLessonSchema,
+  IFirstLessonSchema
 } from "../../../../../../validations/firstLesson_schema";
-import { BoxTitle } from "../BoxTitle";
-import { SaveDataDiv } from "../SaveDataDiv";
-import styles from "./stageBody.module.css";
+import styles from "./phase.module.css";
 
-const onSubmit = (data: IFirstLessonSchema) => {
-  console.log(data);
-};
-
-export const StageBody: FC = () => {
+export const Phase: FC = () => {
   const methods = useForm<IFirstLessonSchema>({
     resolver: yupResolver(firstLesson_schema),
   });
   const { handleSubmit } = methods;
+
+  const onSubmit = (data: IFirstLessonSchema) => {
+    console.log(data, "data");
+  };
 
   return (
     <FormProvider {...methods}>
@@ -86,5 +88,22 @@ export const StageBody: FC = () => {
         </div>
       </form>
     </FormProvider>
+  );
+};
+
+interface BoxTitleProps {
+  title: string;
+}
+
+const BoxTitle: FC<BoxTitleProps> = ({ title }) => {
+  return <div className="text-gray text-base mb-3">{title}</div>;
+};
+
+const SaveDataDiv: FC = () => {
+  return (
+    <div className="flex gap-1">
+      <img src={acceptImg} alt="" />
+      <span className="textPurple textUnderline">Պահպանել</span>
+    </div>
   );
 };

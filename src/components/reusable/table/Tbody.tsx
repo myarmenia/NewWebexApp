@@ -6,7 +6,7 @@ export function Tbody<T>({ rows, data }: TbodyProps<T>) {
   return (
     <tbody>
       {data.length ? (
-        data?.map((el, index) => (
+        data.map((el, index) => (
           <tr key={index}>
             {rows.map(({ render, tdClassName = "" }, i) => (
               <td className={tdClassName} key={i}>

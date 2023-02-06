@@ -17,7 +17,6 @@ import {
   CreateGraffic,
   EditGraffic,
   EditMyLessons,
-  Feedback,
   FirstLesson,
   NewLesson,
   PersonalInfo,
@@ -26,8 +25,6 @@ import {
   extItems,
   Wallet,
   calendarLoader,
-  feedbackLessonLoader,
-  feedback_studentsLoader,
   LesPage,
   LesTask,
   Lessons,
@@ -36,6 +33,7 @@ import {
   lessonPageLoader,
   lessonsLoader,
   StageLesPage,
+  Feedback,
 } from "../pages/teacher_page/blocks";
 
 // Pages for STUDENT section
@@ -54,10 +52,9 @@ import Entry from "../pages/registration/entry/Entry";
 import { UserHeader } from "../components/screenComponents/userHeader/UserHeader";
 import { Header } from "../pages/home_page/header/Header";
 import { MainRoute } from "./MainRoute";
-import {
-  action,
-  loader as newLessonLoader,
-} from "../pages/teacher_page/blocks/newLesson/NewLesson";
+import { Phase } from "../pages/teacher_page/blocks/firstLesson/firstLesCont/phase/Phase";
+import { StageLessons } from "../pages/teacher_page/blocks/firstLesson/firstLesCont/stageLessons/StageLessons";
+
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<MainRoute />}>
@@ -84,14 +81,17 @@ export const router = createBrowserRouter(
       <Route path="teacher" element={<Teacher />}>
         {/* <Route index element={<Exam />} /> */}
         <Route index element={<AddLesson />} />
-        <Route path="new_lesson/*">
+        <Route path="new_lesson">
           <Route
             index
             element={<NewLesson />}
-            loader={newLessonLoader}
-            action={action}
+            loader={NewLesson.loader}
+            action={NewLesson.action}
           />
-          <Route path="lesson_graffic/*" element={<FirstLesson />} />
+          <Route path="lesson_graffic" element={<FirstLesson />}>
+            <Route index element={<Phase />} />
+            <Route path="phase_lessons" element={<StageLessons />} />
+          </Route>
         </Route>
         <Route path="my_lesson" element={<UserLessons />}>
           <Route index element={<Lessons />} loader={lessonsLoader} />
@@ -157,24 +157,13 @@ export const router = createBrowserRouter(
           <Route
             path="student/:stdId"
             element={<Feedback />}
-            loader={feedback_studentsLoader}
+            loader={Feedback.loader}
+            id="student-feedback"
           >
-            <Route path="lesson/:id" loader={feedbackLessonLoader}>
-              <Route
-                path="task"
-                element={<LesTask />}
-                loader={feedbackLessonLoader}
-              />
-              <Route
-                path="homework"
-                element={<MesHomeWork />}
-                loader={feedbackLessonLoader}
-              />
-              <Route
-                path="chat"
-                element={<MesMessages />}
-                loader={feedbackLessonLoader}
-              />
+            <Route path="lesson/:id">
+              <Route path="task" element={<LesTask />} />
+              <Route path="homework" element={<MesHomeWork />} />
+              <Route path="chat" element={<MesMessages />} />
             </Route>
           </Route>
         </Route>
@@ -212,24 +201,12 @@ export const router = createBrowserRouter(
           <Route
             path="student/:stdId"
             element={<Feedback />}
-            loader={feedback_studentsLoader}
+            loader={Feedback.loader}
           >
-            <Route path="lesson/:id" loader={feedbackLessonLoader}>
-              <Route
-                path="task"
-                element={<LesTask />}
-                loader={feedbackLessonLoader}
-              />
-              <Route
-                path="homework"
-                element={<MesHomeWork />}
-                loader={feedbackLessonLoader}
-              />
-              <Route
-                path="chat"
-                element={<MesMessages />}
-                loader={feedbackLessonLoader}
-              />
+            <Route path="lesson/:id">
+              <Route path="task" element={<LesTask />} />
+              <Route path="homework" element={<MesHomeWork />} />
+              <Route path="chat" element={<MesMessages />} />
             </Route>
           </Route>
         </Route>
