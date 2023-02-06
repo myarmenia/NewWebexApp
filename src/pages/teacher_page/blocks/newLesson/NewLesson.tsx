@@ -216,7 +216,7 @@ const action: ActionFunction = async ({ request }) => {
   const data = await request.formData();
   const formData = toObject(data);
   console.log(formData);
-
+console.log(data,'data3312')
   return redirect("/teacher/new_lesson");
 };
 

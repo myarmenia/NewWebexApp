@@ -28,6 +28,7 @@ export const Inp4: FC = () => {
             <img
               src={deleteImg}
               className={styles.deleteImg}
+              alt="" 
               onClick={() => remove(index)}
             />
           </div>
@@ -37,6 +38,7 @@ export const Inp4: FC = () => {
         <button type="button">
           <img
             src={buttonImg}
+            alt="" 
             onClick={() => {
               append({ language: "" });
             }}

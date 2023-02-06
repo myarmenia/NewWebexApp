@@ -11,7 +11,7 @@ const ModalCard: FC<ModalCardProps> = ({ removeCard }) => {
   return (
     <div className={styles.modalCardChild}>
       <div className={styles.firstCardSection}>
-        <img src={cardImg} />
+        <img src={cardImg} alt="" />
         <div className={styles.firstCardText}>
           <div>Դասընթացի վերնագիրը կարող է լինել 2 տողով</div>
           <div>Գրաֆիկ դիզայնի դասընթաց սկսնակների համար</div>
@@ -19,7 +19,7 @@ const ModalCard: FC<ModalCardProps> = ({ removeCard }) => {
       </div>
       <div className={styles.secondCardSection}>
         <div>65 000դրամ</div>
-        <img src={deleteImg} onClick={removeCard} className="cursor-pointer" />
+        <img src={deleteImg} onClick={removeCard} className="cursor-pointer" alt="" />
       </div>
     </div>
   );

@@ -64,7 +64,7 @@ export const Inp5: FC<inputChildProps> = () => {
           }}
           type="button"
         >
-          <img src={buttonImg} />
+          <img src={buttonImg} alt="" />
         </button>
         <div className={styles.addText}>Ավելացնել</div>
       </div>

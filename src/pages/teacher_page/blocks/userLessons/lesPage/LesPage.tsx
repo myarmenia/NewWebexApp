@@ -68,9 +68,7 @@ export const LesPage: FC<LesPageProps> = ({
   );
 };
 
-export const lessonPageLoader: LoaderFunction = async ({
-  params,
-}: LoaderFunctionArgs) => {
+export const lessonPageLoader: LoaderFunction = async ({ params }) => {
   const res = await instance.get(`/posts/${params.id}?userId=1`);
   const lessons = await instance.get("/posts?userId=1");
   const paramsId = params.id;
