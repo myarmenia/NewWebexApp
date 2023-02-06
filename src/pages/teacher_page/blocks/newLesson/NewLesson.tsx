@@ -1,7 +1,15 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import { FC, useCallback, useState } from "react";
+import { FC, useCallback, useEffect, useState } from "react";
 import { FormProvider, useFieldArray, useForm } from "react-hook-form";
-import { useNavigate } from "react-router";
+import {
+  ActionFunction,
+  LoaderFunction,
+  redirect,
+  useLoaderData,
+  useNavigate,
+  useNavigation,
+} from "react-router";
+import { Form, useFetcher, useFormAction, useSubmit } from "react-router-dom";
 import {
   CstmInput,
   CstmTextarea,
@@ -9,13 +17,14 @@ import {
   CustomBtn,
   CustomCheckbox,
   CustomNmbInp,
-  CustomSelect
+  CustomSelect,
 } from "../../../../components/forms";
 import { AttachFile, LessonTitle } from "../../../../components/reusable";
+import { toFormData, toObject } from "../../../../helper";
 import {
   ITeacherStages,
   newLesson_schema,
-  TeacherSubmitForm
+  TeacherSubmitForm,
 } from "../../../../validations/newLesson_schema";
 import {
   AgeDiv,
@@ -23,7 +32,7 @@ import {
   FinishExam,
   Knowledges,
   Phases,
-  TxtWinput
+  TxtWinput,
 } from "./blocks";
 import styles from "./newLesson.module.css";
 
@@ -36,9 +45,16 @@ export const NewLesson: FC = () => {
   ]);
   const navigate = useNavigate();
 
-  // const navigation = useNavigation();
+  const navigation = useNavigation();
   // const actionData = useActionData();
-  // const submit = useSubmit();
+  const submit = useSubmit();
+  const fetcher = useFetcher();
+  const loaderData = useLoaderData();
+  let action = useFormAction();
+
+  // useEffect(() => {
+  //   console.log(navigation.state === "loading");
+  // }, [navigation]);
 
   const methods = useForm<TeacherSubmitForm>({
     resolver: yupResolver(newLesson_schema),
@@ -51,7 +67,7 @@ export const NewLesson: FC = () => {
       requiredKnowledges: [],
     },
   });
-  const { register, handleSubmit, control, watch } = methods;
+  const { handleSubmit, control, watch } = methods;
   const fieldArray = useFieldArray({
     control,
     name: "stages",
@@ -59,7 +75,7 @@ export const NewLesson: FC = () => {
   const { fields } = fieldArray;
 
   const onSubmit = useCallback((data: TeacherSubmitForm) => {
-    let values = JSON.parse(JSON.stringify(data));
+    let values = JSON.parse(JSON.stringify(data)) as TeacherSubmitForm;
     if (!data.areStagesDifferent) {
       values.stages.map((el: ITeacherStages) => {
         delete el.count;
@@ -71,11 +87,19 @@ export const NewLesson: FC = () => {
     if (data.isAgeLimit) {
       delete values.minAgeLimit;
     }
-    console.log(values, "porc");
-    if (values) {
-      navigate("lesson_graffic");
+    if (watch("coverImage")) {
+      const file = watch("coverImage");
+      values.coverImage = file;
     }
-    // submit(values);
+
+    if (values) {
+      const formData = toFormData(values);
+      submit(formData, {
+        action: "/teacher/new_lesson?index",
+        method: "post",
+        encType: "multipart/form-data",
+      });
+    }
   }, []);
 
   return (
@@ -83,10 +107,22 @@ export const NewLesson: FC = () => {
       <LessonTitle title="Նոր դասընթաց" />
       <FormProvider {...methods}>
         <div className={styles.content}>
-          <form onSubmit={handleSubmit(onSubmit)} method="post">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            encType="multipart/form-data"
+            action=""
+          >
             <div className={styles.form_content}>
               <div className={styles.box}>
-                <CstmInput placeholder="Դասընթացի վերնագիրը*" regName="title" />
+                {navigation.state === "loading" ? (
+                  <p>Loading...</p>
+                ) : (
+                  <CstmInput
+                    placeholder="Դասընթացի վերնագիրը*"
+                    onChange={(e) => console.log(e.currentTarget.form)}
+                    regName="title"
+                  />
+                )}
                 <CustomSelect
                   placeholder="Ընտրել կատեգորիան*"
                   options={selectOptions}
@@ -163,7 +199,7 @@ export const NewLesson: FC = () => {
                     )}
                   </div>
                   <TxtWinput text="Մի դասի տևողությունը ">
-                    <CstmTimeInput regName="lessonTime" defaultValue="02.00" />
+                    <CstmTimeInput regName="lessonTime" defaultValue="02:00" />
                   </TxtWinput>
                 </div>
                 <Phases {...{ fields }} />
@@ -171,14 +207,26 @@ export const NewLesson: FC = () => {
             </div>
             <div className={styles.btn_box}>
               <CustomBtn title="Առաջ" type="submit" />
-              {/* <CustomBtn
-                title="Watch"
-                onClick={() => console.log(watch())}
-              /> */}
+              <CustomBtn title="Watch" onClick={() => console.log(watch())} />
             </div>
           </form>
         </div>
       </FormProvider>
     </div>
   );
+};
+
+export const action: ActionFunction = async ({ request }) => {
+  const data = await request.formData();
+  const formData = toObject(data);
+
+  console.log(formData);
+
+  return redirect("/teacher/new_lesson");
+};
+
+export const loader: LoaderFunction = async ({ request }) => {
+  let url = new URL(request.url);
+  let title = url.searchParams.get("title");
+  return { title };
 };

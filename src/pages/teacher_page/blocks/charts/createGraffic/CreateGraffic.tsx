@@ -24,8 +24,12 @@ export const CreateGraffic: FC = () => {
       sunday: [{ start: "", end: "" }],
     },
   });
-  const { handleSubmit } = methods;
+  const {
+    handleSubmit,
+    formState: { errors },
+  } = methods;
   const onSubmit = (data: CreateGraficForm) => console.log(data, "data");
+  console.log(errors);
 
   return (
     <FormProvider {...methods}>

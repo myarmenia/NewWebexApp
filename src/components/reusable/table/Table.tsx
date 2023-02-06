@@ -1,14 +1,4 @@
-import {
-  ButtonHTMLAttributes,
-  FC,
-  PropsWithChildren,
-  ReactNode,
-  useEffect,
-  useMemo,
-  useState,
-} from "react";
-import { generateArray } from "../../../helper";
-import { CustomBtn } from "../../forms";
+import { ReactNode, useState } from "react";
 import { TablePagination } from "./TablePagination";
 import { Tbody } from "./Tbody";
 import { Thead } from "./Thead";
@@ -22,27 +12,26 @@ export interface TableProps<T> {
   }[];
   data: T[];
   className?: string;
-  paginationLength?: number;
+  maxTrs?: number;
+  pagItemsLength?: number;
 }
 
 export function Table<T>({
   rows,
   data,
   className = "",
-  paginationLength = 5,
+  maxTrs,
+  pagItemsLength,
 }: TableProps<T>) {
   const [arr, setArr] = useState<T[]>([]);
-  console.log(data);
-
   return (
     <div className={`${className} overflow-x-auto custom_table`}>
       <table>
         <Thead {...{ rows }} />
         <Tbody {...{ rows, data: arr }} />
+        {/* <Tbody {...{ rows, data }} /> */}
       </table>
-      <TablePagination
-        {...{ data, setArr, paginationLength: paginationLength - 1 }}
-      />
+      <TablePagination {...{ data, setArr, maxTrs, pagItemsLength }} />
     </div>
   );
 }

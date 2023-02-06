@@ -7,7 +7,7 @@ import { ErrorMessage } from "../../reusable";
 import styles from "./cstmTimeInput.module.css";
 
 interface CstmTimeInputProps extends MyInputProps {
-  defaultValue?: `${number}.${number}`;
+  defaultValue?: `${number}:${number}`;
   setValue?: Dispatch<SetStateAction<string>>;
 }
 interface IValue {
@@ -28,17 +28,21 @@ export const CstmTimeInput: FC<CstmTimeInputProps> = ({
   const errorMessage = useError(regName, error);
   const register = useFormRegister(regName);
 
+  const defValue: IValue = (Boolean(defaultValue) && {
+    hour: defaultValue!.split(":")[0],
+    minute: defaultValue!.split(":")[1],
+  }) || { hour: "00", minute: "00" };
+
   const [show, setShow] = useState<boolean>(false);
-  const [value, setTimeValue] = useState<IValue>(
-    (Boolean(defaultValue) && {
-      hour: defaultValue!.split(".")[0],
-      minute: defaultValue!.split(".")[1],
-    }) || { hour: "00", minute: "00" }
-  );
+  const [value, setTimeValue] = useState<IValue>(defValue);
 
   useEffect(() => {
     regName && formMethods.setValue(regName, `${value.hour}:${value.minute}`);
-    setValue?.(`${value.hour} : ${value.minute}`);
+    setValue?.(`${value.hour}:${value.minute}`);
+
+    if (value !== defValue) {
+      formMethods.trigger(regName);
+    }
   }, [value]);
 
   return (
@@ -48,11 +52,11 @@ export const CstmTimeInput: FC<CstmTimeInputProps> = ({
           className={`${className} ${styles.input} timeInp`}
           type="text"
           disabled
-          value={defaultValue || `${value.hour}:${value.minute}`}
+          value={`${value.hour}:${value.minute}`}
           name={register?.name}
         />
         <span className={styles.value}>
-          {defaultValue || `${value.hour} : ${value.minute}`}
+          {`${value.hour} : ${value.minute}`}
         </span>
       </div>
 

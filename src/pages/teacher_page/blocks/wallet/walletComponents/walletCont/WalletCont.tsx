@@ -8,7 +8,7 @@ import styles from "./walletCont.module.css";
 
 export const WalletCont: FC = () => {
   const [transactionHistory, setTransactionHistory] = useState<boolean>(true);
-  const [isModalOpened, setIsModalOpen] = useState<boolean>(false);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [tarifPlanName, setTarifPlanState] = useState<string>();
   const [selectValue, setSelectValue] = useState<string>("");
   const [selectError, setSelectError] = useState<string>("");
@@ -124,7 +124,7 @@ export const WalletCont: FC = () => {
                       tdClassName: "!py-5 !px-5 text-center",
                     },
                   ]}
-                  data={generateArray(3, {})}
+                  data={generateArray(4, {})}
                 />
               ) : (
                 <span className="text-xs">Դուք դեռ չունեք կատարած գործարք</span>
@@ -133,7 +133,7 @@ export const WalletCont: FC = () => {
           </div>
         </div>
       </div>
-      {isModalOpened && (
+      {isModalOpen && (
         <ModalContainer
           onClick={() => setIsModalOpen(false)}
           className={{ modal: "!pt-[14px] !h-[390px] !w-[600px] !px-5" }}
