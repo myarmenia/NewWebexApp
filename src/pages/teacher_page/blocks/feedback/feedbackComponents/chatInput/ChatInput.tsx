@@ -1,4 +1,4 @@
-import { FC, InputHTMLAttributes, useRef } from "react";
+import { FC, TextareaHTMLAttributes, useRef } from "react";
 import sendMesssageImg from "../../../../../../assets/teacher_images/feedback/Vector.svg";
 import { addZero, enterPress } from "../../../../../../helper";
 import { IChatMessage } from "../../../../../../models/chat";
@@ -9,9 +9,9 @@ interface ChatInputProps {
 }
 
 export const ChatInput: FC<
-  InputHTMLAttributes<HTMLInputElement> & ChatInputProps
+  TextareaHTMLAttributes<HTMLTextAreaElement> & ChatInputProps
 > = ({ clickHandler, ...props }) => {
-  const ref = useRef<HTMLInputElement>(null);
+  const ref = useRef<HTMLTextAreaElement>(null);
   const sendMessage = () => {
     if (ref.current?.value) {
       clickHandler({
@@ -21,23 +21,22 @@ export const ChatInput: FC<
         )}`,
       });
       ref.current!.value = "";
-      ref.current!.focus();
+      ref.current!.focus(); 
     }
   };
   return (
-    <div className={styles.chatInputDiv}>
-      <input
+    <div className={styles.box}>
+      <textarea
         {...props}
-        type="text"
         ref={ref}
-        className={styles.chatInput}
+        className={styles.textarea}
         placeholder="Գրել նամակ․․․․"
         onKeyDown={(e) => enterPress(e, sendMessage)}
       />
       <img
         src={sendMesssageImg}
         alt=""
-        className={styles.chatInput_img}
+        className={styles.img}
         onClick={sendMessage}
       />
     </div>

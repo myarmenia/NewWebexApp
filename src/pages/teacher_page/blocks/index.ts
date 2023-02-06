@@ -4,11 +4,6 @@ export { WeekSchedule } from "./weekSchedule/WeekSchedule";
 export { ControlPanel } from "./controlPanel/ControlPanel";
 export { Discount } from "./discount/Discount";
 export { Exam } from "./exam/Exam";
-export {
-  Feedback,
-  feedbackLessonLoader,
-  feedback_studentsLoader,
-} from "./feedback/Feedback";
 export { FirstLesson } from "./firstLesson/FirstLesson";
 export { NewLesson } from "./newLesson/NewLesson";
 export { PersonalInfo } from "./personalInfo/PersonalInfo";
@@ -18,6 +13,7 @@ export { EditGraffic } from "./charts/editGraffic/EditGraffic";
 export { UserLessons, extItems } from "./userLessons/UserLessons";
 export { EditMyLessons } from "./userLessons/editMyLessons/EditMyLessons";
 export { Wallet } from "./wallet/Wallet";
+export { Feedback } from "./feedback/Feedback";
 export { LesTask } from "./feedback/feedbackComponents/mesContent/lesTask/LesTask";
 export { MesHomeWork } from "./feedback/feedbackComponents/mesContent/mesHomeWork/MesHomeWork";
 export { MesMessages } from "./feedback/feedbackComponents/mesContent/mesMessages/MesMessages";

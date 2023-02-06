@@ -4,12 +4,16 @@ import * as Yup from "yup";
 export const firstLesson_schema = Yup.object().shape({
   lessonTitle: Yup.string()
     .min(4, "min is 4")
-    .max(24, "max is 24")
-    .required("title is required"),
-  videoInp: Yup.string().required("fill the input"),
-  contents: Yup.string().required("asdfafsaf"),
-  videoInpHomework: Yup.string().required("fill the input"),
-  contentsHomework: Yup.string().required("asdfafsaf"),
+    .max(24, "max is 24"),
+    // .required("title is required"),
+  videoInp: Yup.string(),
+  // .required("fill the input"),
+  contents: Yup.string(),
+  // .required("asdfafsaf"),
+  videoInpHomework: Yup.string(),
+  // .required("fill the input"),
+  contentsHomework: Yup.string(),
+  // .required("asdfafsaf"),
   lessonFile: Yup.string(),
   homeworkFile: Yup.string(),
   lessonImage_url: Yup.string(),

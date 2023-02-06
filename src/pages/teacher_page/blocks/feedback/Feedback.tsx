@@ -5,28 +5,26 @@ import { instance } from "../../../../request";
 import styles from "./feedback.module.css";
 import { FeedbackCont } from "./feedbackComponents/feedbackCont/FeedbackCont";
 
-export const Feedback: FC = () => {
+const FeedbackComp: FC = () => {
   return (
     <div className={styles.feedback}>
       <LessonTitle title="Նամակագրություն" className="mb-0" />
-      <FeedbackCont>
-        <Outlet />
-      </FeedbackCont>
+      <FeedbackCont />
     </div>
   );
 };
 
-export const feedbackLessonLoader: LoaderFunction = async ({
-  params,
-}: LoaderFunctionArgs) => {
-  const res = await instance.get("/posts?userId=1");
-  return { data: res.data, params };
-};
+// export const feedbackLessonLoader: LoaderFunction = async ({
+//   params,
+// }: LoaderFunctionArgs) => {
+//   const res = await instance.get("/posts?userId=1");
+//   return { data: res.data, params };
+// };
 
-export const feedback_studentsLoader: LoaderFunction = async ({
-  params,
-}: LoaderFunctionArgs) => {
+const loader: LoaderFunction = async ({ params }) => {
   const res = await instance.get("/posts?userId=1");
   const res1 = await instance.get("/users");
   return { data: res.data, students: res1.data, params };
 };
+
+export const Feedback = Object.assign(FeedbackComp, { loader });

@@ -11,9 +11,9 @@ interface IValue {
   isPrev?: boolean;
 }
 
-const changeFstAndLastElems = (arr: IValue[], max: number) =>
+const changeFstAndLastElems = (arr: IValue[]) =>
   arr.map((elem, i) => {
-    if (i === max) {
+    if (i === arr.length - 1) {
       return { ...elem, isPrev: false };
     }
     if (i === 0) {
@@ -31,6 +31,7 @@ export function TablePagination<T>({
   pagItemsLength = 7,
   setArr,
 }: TablePaginationProps<T>) {
+  // ---------- variables ----------
   const paginationLength = useMemo(
     () => Math.ceil(data.length / maxTrs),
     [data, maxTrs]
@@ -42,8 +43,16 @@ export function TablePagination<T>({
     dataIndexes.filter((_, i) => i < pagItemsLength)
   );
   const [limit, setLimit] = useState<number>(0); // variable for data length (index)
-  const [pagLimit, setPagLimit] = useState<number>(0); // variable for this pagination length (index)
+  const [pagLimit, setPagLimit] = useState<number>(0); // variable for pagination length (index)
 
+  // ---------- funcions ----------
+  const filterArr = () => {
+    setArr(
+      data.filter(
+        (_, i) => i >= limit * maxTrs && i <= (limit + 1) * (maxTrs - 1) + limit
+      )
+    );
+  };
   const next = () => {
     if (limit < paginationLength - 1) setLimit((prev) => prev + 1);
     if (pagLimit < pagItemsLength - 1) setPagLimit((prev) => prev + 1);
@@ -53,53 +62,59 @@ export function TablePagination<T>({
     if (pagLimit > 0) setPagLimit((prev) => prev - 1);
   };
 
+  // ---------- useEffects ----------
   useEffect(() => {
-    setArr(
-      data.filter(
-        (_, i) => i >= limit * maxTrs && i <= (limit + 1) * (maxTrs - 1) + limit
-      )
-    );
+    if (data.length > maxTrs) {
+      filterArr();
 
-    if (
-      pagArr[pagLimit] &&
-      pagArr[pagLimit].isPrev !== undefined &&
-      limit > 0 &&
-      limit < data.length
-    ) {
-      setPagArr((prev) =>
-        changeFstAndLastElems(
-          dataIndexes.filter((_, i) => {
-            if (i < paginationLength) {
-              if (
-                !prev[pagLimit].isPrev &&
-                i >= limit - (pagItemsLength - 2) &&
-                i <= limit + 1
-              ) {
-                return true;
-              } else if (
-                !prev[pagLimit].isPrev &&
-                limit === paginationLength - 1 &&
-                i >= limit - (pagItemsLength - 1)
-              ) {
-                return true;
+      if (
+        pagArr[pagLimit] &&
+        pagArr[pagLimit].isPrev !== undefined &&
+        limit > 0 &&
+        limit < data.length
+      ) {
+        setPagArr((prev) =>
+          changeFstAndLastElems(
+            dataIndexes.filter((_, i) => {
+              if (i < paginationLength) {
+                if (
+                  !prev[pagLimit].isPrev &&
+                  i >= limit - (pagItemsLength - 2) &&
+                  i <= limit + 1
+                ) {
+                  return true;
+                } else if (
+                  !prev[pagLimit].isPrev &&
+                  limit === paginationLength - 1 &&
+                  i >= limit - (pagItemsLength - 1)
+                ) {
+                  return true;
+                }
+                if (
+                  prev[pagLimit].isPrev &&
+                  i >= limit - 1 &&
+                  i <= limit + (pagItemsLength - 2)
+                ) {
+                  return true;
+                }
               }
-              if (
-                prev[pagLimit].isPrev &&
-                i >= limit - 1 &&
-                i <= limit + (pagItemsLength - 2)
-              ) {
-                return true;
-              }
-            }
-            return false;
-          }),
-          pagItemsLength - 1
-        )
-      );
-    } else {
-      setPagArr((prev) => changeFstAndLastElems(prev, pagItemsLength - 1));
+              return false;
+            })
+          )
+        );
+      } else {
+        setPagArr((prev) => changeFstAndLastElems(prev));
+      }
     }
   }, [limit, pagLimit]);
+
+  useEffect(() => {
+    setArr(data);
+    if (data.length > maxTrs) {
+      filterArr();
+    }
+    setPagArr(prev => prev.filter((_, i) => i < pagItemsLength))
+  }, [data]);
 
   if (data.length <= maxTrs) {
     return null;

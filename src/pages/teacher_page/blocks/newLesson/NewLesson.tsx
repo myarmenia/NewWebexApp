@@ -1,5 +1,5 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import { FC, useCallback, useEffect, useState } from "react";
+import { FC, useCallback, useState } from "react";
 import { FormProvider, useFieldArray, useForm } from "react-hook-form";
 import {
   ActionFunction,
@@ -9,7 +9,7 @@ import {
   useNavigate,
   useNavigation,
 } from "react-router";
-import { Form, useFetcher, useFormAction, useSubmit } from "react-router-dom";
+import { useFetcher, useFormAction, useSubmit } from "react-router-dom";
 import {
   CstmInput,
   CstmTextarea,
@@ -36,7 +36,7 @@ import {
 } from "./blocks";
 import styles from "./newLesson.module.css";
 
-export const NewLesson: FC = () => {
+const NewLessonComp: FC = () => {
   const [areDifferent, setAreDifferent] = useState<boolean>(false);
   const [selectOptions, setOptions] = useState<string[]>([
     "aaa",
@@ -51,10 +51,6 @@ export const NewLesson: FC = () => {
   const fetcher = useFetcher();
   const loaderData = useLoaderData();
   let action = useFormAction();
-
-  // useEffect(() => {
-  //   console.log(navigation.state === "loading");
-  // }, [navigation]);
 
   const methods = useForm<TeacherSubmitForm>({
     resolver: yupResolver(newLesson_schema),
@@ -207,7 +203,7 @@ export const NewLesson: FC = () => {
             </div>
             <div className={styles.btn_box}>
               <CustomBtn title="Առաջ" type="submit" />
-              <CustomBtn title="Watch" onClick={() => console.log(watch())} />
+              {/* <CustomBtn title="Watch" onClick={() => console.log(watch())} /> */}
             </div>
           </form>
         </div>
@@ -216,17 +212,17 @@ export const NewLesson: FC = () => {
   );
 };
 
-export const action: ActionFunction = async ({ request }) => {
+const action: ActionFunction = async ({ request }) => {
   const data = await request.formData();
   const formData = toObject(data);
-
   console.log(formData);
 console.log(data,'data3312')
   return redirect("/teacher/new_lesson");
 };
 
-export const loader: LoaderFunction = async ({ request }) => {
+const loader: LoaderFunction = async ({ request }) => {
   let url = new URL(request.url);
   let title = url.searchParams.get("title");
   return { title };
 };
+export const NewLesson = Object.assign(NewLessonComp, { loader, action });

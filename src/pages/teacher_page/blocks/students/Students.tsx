@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import styles from "./students.module.css";
 import trashbinImg from "../../../../assets/teacher_images/exam/delete.svg";
 import { CustomBtn } from "../../../../components/forms";
@@ -27,12 +27,29 @@ const tbodyData = (length: number): IStudentTd[] =>
       title: "Գրաֆիկ դիզայնի դասընթաց",
       date: new Date().toLocaleDateString().replaceAll("/", "."),
       // date: "10․08․2021",
-      progres: (() => Math.floor(Math.random() * 100))(),
+      progres: (() => Math.floor(Math.random() * 101))(),
       homework: "",
     })),
   }));
 
 export const Students: FC = () => {
+  const [data, setData] = useState<IStudentTd[]>(tbodyData(110));
+
+  const showEndedLessons = () => {
+    let newData = [] as typeof data;
+    data.forEach((elem) => {
+      elem.lessons.forEach(({ progres }) => {
+        if (progres === 100) {
+          newData = [...newData, elem];
+        }
+      });
+    });
+    if (newData.length) {
+      console.log(newData);
+      setData(newData);
+    }
+  };
+
   return (
     <div className={styles.mycontainer}>
       <div>
@@ -89,7 +106,7 @@ export const Students: FC = () => {
         <LessonTitle title="Ուսանողներ" classNameParent="!mb-[14px]" />
         <div className={styles.students_container}>
           <div className={styles.filter_section}>
-            <FilterBtn>Ավարտած</FilterBtn>
+            <FilterBtn onClick={showEndedLessons}>Ավարտած</FilterBtn>
             <FilterBtn>Սովորող</FilterBtn>
             <CustomDropdown
               className={styles.filterBox}
@@ -127,9 +144,8 @@ export const Students: FC = () => {
                 render: ({ lessons }) => <TdFeedBack {...{ lessons }} />,
               },
             ]}
-            data={tbodyData(102)}
-            // maxTrs={4}
-            // pagItemsLength={10}
+            data={data}
+            maxTrs={2}
           />
         </div>
       </div>

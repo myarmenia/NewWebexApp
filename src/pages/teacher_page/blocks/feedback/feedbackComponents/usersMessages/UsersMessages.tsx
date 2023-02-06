@@ -23,12 +23,7 @@ export const UsersMessages: FC = () => {
               </div>
               <p className={styles.chatDescription2}>{username}</p>
             </div>
-            <div
-
-            // className="chatTime"
-            >
-              11:10
-            </div>
+            <div>11:10</div>
           </Link>
         );
       })}

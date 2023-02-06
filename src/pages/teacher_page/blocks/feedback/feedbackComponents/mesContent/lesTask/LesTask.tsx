@@ -1,26 +1,19 @@
-import React, { FC } from "react";
-import styles from "./lesTask.module.css";
+import { FC } from "react";
+import { Link, useRouteLoaderData } from "react-router-dom";
+import { IOtherLessonLoaderData } from "../../../../../../../models/interfaces";
 import { ExtraMaterials } from "../../../../userLessons/stageLesPage/extraMaterials/ExtraMaterials";
 import { LesContainer } from "../../../../userLessons/userLesComponents/LesContainer";
-import { Link, useLoaderData, useParams } from "react-router-dom";
-import { IOtherLessonLoaderData } from "../../../../../../../models/interfaces";
+import styles from "./lesTask.module.css";
 
 export const LesTask: FC = () => {
-  // ----- loader data ------
-  const { data, params } = useLoaderData() as IOtherLessonLoaderData;
+  const { data, params } = useRouteLoaderData(
+    "student-feedback"
+  ) as IOtherLessonLoaderData;
   const { title, body, id } = data[params.id - 1];
-
-  // const params = useParams();
-  // const {
-  //   feedbackArr: { messages },
-  // } = useSelector(lessonsSelectorFN);
-  // const currentObj = messages[+params.id! - 1];
-  // const { title, id } = currentObj;
-
   return (
     <div className={styles.messageCont_cont}>
       <div className="bg-white h-full rounded-[15px]">
-        <LesContainer 
+        <LesContainer
         // className="cont01"
         >
           <p className="border-b border-[#BEBFE4] text-[10px] font-semibold pb-4">

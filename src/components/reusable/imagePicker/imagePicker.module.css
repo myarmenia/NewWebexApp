@@ -14,7 +14,7 @@
   font-size: 0;
 }
 .imgDownload {
-  @apply w-10 h-10 inline-block rounded-[3px] pb-[10%] cursor-pointer bg-no-repeat bg-cover;
+  @apply w-10 text-[0px] h-10 inline-block rounded-[3px] pb-[10%] cursor-pointer bg-no-repeat bg-cover;
 }
 .addImgText {
   @apply text-gray  text-xs font-normal;
