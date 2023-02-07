@@ -1,16 +1,19 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FC } from "react";
 import { FormProvider, useForm } from "react-hook-form";
+import { ActionFunction, redirect } from "react-router";
 import {
   CstmInput,
   CstmTextarea,
   CustomBtn,
 } from "../../../../components/forms";
 import {
-  LessonTitle,
   AttachFile,
   ImagePicker,
+  LessonTitle,
 } from "../../../../components/reusable";
+import { toFormData, toObject } from "../../../../helper";
+import { useAppSubmit } from "../../../../hooks";
 import {
   PersonalSubmitForm,
   teacherInfo_schema,
@@ -21,7 +24,7 @@ import { Inp4 } from "./inputChild/Inp4";
 import { Inp5 } from "./inputChild/Inp5";
 import styles from "./personalInfo.module.css";
 
-export const PersonalInfo: FC = () => {
+const PersonalInfoComp: FC = () => {
   const methods = useForm<PersonalSubmitForm>({
     resolver: yupResolver(teacherInfo_schema),
     defaultValues: {
@@ -60,8 +63,15 @@ export const PersonalInfo: FC = () => {
   });
   const { handleSubmit } = methods;
 
+  // const submit = useSubmit();
+  const submit = useAppSubmit();
   const onSubmit = (data: PersonalSubmitForm) => {
     console.log(data);
+    const formData = toFormData(data);
+    submit(formData, {
+      action: "/teacher/personal_info",
+      method: "post",
+    });
   };
 
   return (
@@ -69,7 +79,7 @@ export const PersonalInfo: FC = () => {
       <LessonTitle title="Անձնական տվյալներ" />
       <FormProvider {...methods}>
         <form onSubmit={handleSubmit(onSubmit)} className={styles.personalInfo}>
-          <ImagePicker />
+          <ImagePicker regName="img" />
           <div className={styles.personalInfoChild}>
             <div className={styles.inputChild}>
               <div className={styles.inputChild2}>
@@ -109,3 +119,12 @@ export const PersonalInfo: FC = () => {
     </>
   );
 };
+
+const action: ActionFunction = async ({ request }) => {
+  const data = await request.formData();
+  const formData = toObject(data);
+  console.log(formData);
+  return redirect("/teacher/personal_info");
+};
+
+export const PersonalInfo = Object.assign(PersonalInfoComp, { action });

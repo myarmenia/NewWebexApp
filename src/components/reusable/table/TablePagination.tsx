@@ -32,15 +32,17 @@ export function TablePagination<T>({
   setArr,
 }: TablePaginationProps<T>) {
   // ---------- variables ----------
-  const paginationLength = useMemo(
-    () => Math.ceil(data.length / maxTrs),
+  const [paginationLength, dataIndexes] = useMemo(
+    (): [number, IValue[]] => [
+      Math.ceil(data.length / maxTrs),
+      Array.from({ length: Math.ceil(data.length / maxTrs) }).map((_, i) => ({
+        number: i,
+      })),
+    ],
     [data, maxTrs]
   );
-  const dataIndexes: IValue[] = Array.from({ length: paginationLength }).map(
-    (_, i) => ({ number: i })
-  );
   const [pagArr, setPagArr] = useState<IValue[]>( // array containing data's current positions
-    dataIndexes.filter((_, i) => i < pagItemsLength)
+    changeFstAndLastElems(dataIndexes.filter((_, i) => i < pagItemsLength))
   );
   const [limit, setLimit] = useState<number>(0); // variable for data length (index)
   const [pagLimit, setPagLimit] = useState<number>(0); // variable for pagination length (index)
@@ -105,15 +107,17 @@ export function TablePagination<T>({
       } else {
         setPagArr((prev) => changeFstAndLastElems(prev));
       }
-    }
+    } else setArr(data);
   }, [limit, pagLimit]);
 
   useEffect(() => {
-    setArr(data);
-    if (data.length > maxTrs) {
-      filterArr();
-    }
-    setPagArr(prev => prev.filter((_, i) => i < pagItemsLength))
+    setLimit(0);
+    setPagLimit(0);
+    filterArr();
+    // setPagArr((prev) => prev.filter((_, i) => i < paginationLength));
+    setPagArr(
+      changeFstAndLastElems(dataIndexes.filter((_, i) => i < pagItemsLength))
+    );
   }, [data]);
 
   if (data.length <= maxTrs) {

@@ -1,6 +1,6 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import fileImg from "../../../../../../../assets/teacher_images/firstLesson/loadImg.svg";
-import styles from "./mesHomeWork.module.css";
+
 interface StudentsWorkProps {
   title: string;
   file: string;

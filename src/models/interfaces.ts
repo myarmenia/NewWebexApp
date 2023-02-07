@@ -4,7 +4,6 @@ export interface INavItem {
   children: string | React.ReactNode;
 }
 
-
 export interface IHeaderDropDownOption {
   title?: string;
   path?: string;
@@ -144,10 +143,6 @@ export interface IStudentLoaderData {
 }
 export interface IOtherLessonLoaderData {
   data: ILessonLoaderObj[];
-  params: {
-    id: number;
-    stdId: number;
-  };
   students: IStudentLoaderData[];
   // lessonsObj: ILessonLoaderObj[];
   // paramsId: number;

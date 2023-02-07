@@ -9,8 +9,8 @@ import {
 import { instance } from "../../../../request";
 import { DayCont } from "./calenComponents/dayCont/DayCont";
 import { NumCont } from "./calenComponents/numCont/NumCont";
-
 import styles from "./calendar.module.css";
+
 export const Calendar: FC = () => {
   const { currentDate } = useAppSelector((state) => state.calendarList);
   const myCurrentDate = currentDate.getMonth();

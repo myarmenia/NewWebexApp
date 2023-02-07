@@ -7,9 +7,9 @@ import {
   redirect,
   useLoaderData,
   useNavigate,
-  useNavigation,
+  useNavigation
 } from "react-router";
-import { useFetcher, useFormAction, useSubmit } from "react-router-dom";
+import { useFetcher, useFormAction } from "react-router-dom";
 import {
   CstmInput,
   CstmTextarea,
@@ -17,14 +17,15 @@ import {
   CustomBtn,
   CustomCheckbox,
   CustomNmbInp,
-  CustomSelect,
+  CustomSelect
 } from "../../../../components/forms";
 import { AttachFile, LessonTitle } from "../../../../components/reusable";
 import { toFormData, toObject } from "../../../../helper";
+import { useAppSubmit } from "../../../../hooks";
 import {
   ITeacherStages,
   newLesson_schema,
-  TeacherSubmitForm,
+  TeacherSubmitForm
 } from "../../../../validations/newLesson_schema";
 import {
   AgeDiv,
@@ -32,7 +33,7 @@ import {
   FinishExam,
   Knowledges,
   Phases,
-  TxtWinput,
+  TxtWinput
 } from "./blocks";
 import styles from "./newLesson.module.css";
 
@@ -47,7 +48,8 @@ const NewLessonComp: FC = () => {
 
   const navigation = useNavigation();
   // const actionData = useActionData();
-  const submit = useSubmit();
+  // const submit = useSubmit();
+  const submit = useAppSubmit();
   const fetcher = useFetcher();
   const loaderData = useLoaderData();
   let action = useFormAction();
@@ -93,7 +95,6 @@ const NewLessonComp: FC = () => {
       submit(formData, {
         action: "/teacher/new_lesson?index",
         method: "post",
-        encType: "multipart/form-data",
       });
     }
   }, []);
@@ -216,7 +217,6 @@ const action: ActionFunction = async ({ request }) => {
   const data = await request.formData();
   const formData = toObject(data);
   console.log(formData);
-console.log(data,'data3312')
   return redirect("/teacher/new_lesson");
 };
 

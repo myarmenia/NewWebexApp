@@ -5,7 +5,7 @@ import { IStudentTd } from "../../../../../../models/interfaces";
 export const TdFeedBack: FC<Pick<IStudentTd, "lessons">> = ({ lessons }) => {
   return (
     <div className="flex items-center justify-center flex-col gap-1">
-      {lessons.map((elem, ind) => (
+      {lessons.map(() => (
         // <Link to={"somewhere"}>
         <img
           src={feedbackImg}

@@ -1,24 +1,47 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { useFormContext } from "react-hook-form";
 import currentImg from "../../../assets/teacher_images/personalInfo/plus.svg";
+import { useError, useFormRegister } from "../../../hooks";
 import { useFileUploader } from "../../../hooks/useFileUploader";
+import { MyInputProps } from "../../../models/forms";
+import { ErrorMessage } from "../ErrorMessage";
 import styles from "./imagePicker.module.css";
 
-interface ImagePickerProps {
+interface ImagePickerProps extends MyInputProps {
   defaultImage?: string;
 }
 
-export const ImagePicker: FC<ImagePickerProps> = ({ defaultImage }) => {
-  const { register } = useFormContext();
+export const ImagePicker: FC<ImagePickerProps> = ({
+  defaultImage,
+  boxClassName,
+  className,
+  error,
+  errorClassName,
+  regName,
+}) => {
+  const formMethods = useFormContext();
+  const register = useFormRegister(regName);
+  const errorMessage = useError(regName, error);
   const [file, onFileUpload] = useFileUploader();
+  useEffect(() => {
+    if (file && regName) {
+      formMethods.setValue(regName, file);
+    }
+  }, [file]);
+
   return (
-    <div className={styles.addImgCustom}>
+    <div className={[styles.addImgCustom, boxClassName].join(" ")}>
       <div className={styles.addImgChild}>
         <div className={`${styles.addImgInp} ${file && "!border-none"}`}>
           <input
             type="file"
-            className={[styles.imgDownload, file && styles.image].join(" ")}
-            {...register(`img`)}
+            className={[
+              className,
+              styles.imgDownload,
+              file && styles.image,
+            ].join(" ")}
+            name={register?.name}
+            formEncType="multipart/form-data"
             onChange={onFileUpload}
             style={{
               backgroundImage: `url(${
@@ -36,6 +59,7 @@ export const ImagePicker: FC<ImagePickerProps> = ({ defaultImage }) => {
           </div>
         </div>
       </div>
+      <ErrorMessage className={errorClassName}>{errorMessage}</ErrorMessage>
     </div>
   );
 };

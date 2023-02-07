@@ -53,6 +53,7 @@ export const LoadImage: React.FC<LoadImageProps> = ({
             })`,
           }}
           type="file"
+          formEncType="multipart/form-data"
           accept="image/png, image/jpeg, image/svg"
           onChange={onFileUpload}
           name={register?.name}

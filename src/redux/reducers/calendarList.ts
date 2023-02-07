@@ -107,15 +107,18 @@ const calendarList = createSlice({
       }
       state.datesWeek = myDatesWeek;
     },
-    chooseDay: (state, { payload }: PayloadAction<IChooseDay>) => {
+    chooseDay: (
+      state,
+      { payload: { id, isCurrentMonth, navigate } }: PayloadAction<IChooseDay>
+    ) => {
       const myDatesWeek = state.datesWeek;
       myDatesWeek.map((el) =>
         el.map((elem) => {
-          if (payload.isCurrentMonth) {
-            if (elem.date.getDate() === payload.id) {
+          if (isCurrentMonth) {
+            if (elem.date.getDate() === id) {
               state.chosenDay = new Date(state.currentDate);
-              state.chosenDay.setDate(payload.id);
-              payload.navigate("week_schedule");
+              state.chosenDay.setDate(id);
+              navigate("week_schedule");
               return (elem.isActive = true);
             }
             return (elem.isActive = false);

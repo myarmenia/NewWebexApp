@@ -5,15 +5,16 @@
   @apply text-xs text-gray;
 }
 .myRadio {
-  @apply w-[12px] h-[12px] appearance-none border-[#CCCCCC] border rounded-full relative bg-white;
+  @apply w-[12px] h-[12px] border-[#CCCCCC] border rounded-full relative bg-white;
 }
-.myRadio::after {
+/* .myRadio::after {
   @apply hidden;
-}
+}  */
 .myRadio:checked {
-  @apply border-[#7764FB];
+  accent-color: #7764FB;
+  /* @apply border-[#7764FB]; */
 }
-.myRadio:checked:after {
+/* .myRadio:checked:after {
   @apply bg-gradientPurple w-[8px] h-[8px] rounded-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 absolute inline-block visible border-none;
   content: "";
-}
+} */

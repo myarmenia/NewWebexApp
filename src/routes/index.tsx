@@ -148,7 +148,11 @@ export const router = createBrowserRouter(
           <Route index element={<Calendar />} loader={calendarLoader} />
           <Route path="week_schedule" element={<WeekSchedule />} />
         </Route>
-        <Route path="personal_info" element={<PersonalInfo />} />
+        <Route
+          path="personal_info"
+          element={<PersonalInfo />}
+          action={PersonalInfo.action}
+        />
         <Route path="students" element={<Students />} />
         <Route path="wallet" element={<Wallet />} />
         <Route path="panel" element={<ControlPanel />} />

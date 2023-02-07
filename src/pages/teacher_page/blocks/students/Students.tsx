@@ -1,5 +1,4 @@
-import { FC, useEffect, useState } from "react";
-import styles from "./students.module.css";
+import { FC, useState } from "react";
 import trashbinImg from "../../../../assets/teacher_images/exam/delete.svg";
 import { CustomBtn } from "../../../../components/forms";
 import {
@@ -8,13 +7,14 @@ import {
   LessonTitle,
   Table,
 } from "../../../../components/reusable";
+import { generateArray } from "../../../../helper";
 import { IStudentTd } from "../../../../models/interfaces";
 import { TdDate } from "./stdComponents/tds/TdDate";
 import { TdFeedBack } from "./stdComponents/tds/TdFeedBack";
 import { TdLes } from "./stdComponents/tds/TdLes";
 import { TdName } from "./stdComponents/tds/TdName";
 import { TdProgres } from "./stdComponents/tds/TdProgres";
-import { generateArray } from "../../../../helper";
+import styles from "./students.module.css";
 
 const tbodyData = (length: number): IStudentTd[] =>
   Array.from({ length }).map(() => ({
@@ -32,24 +32,25 @@ const tbodyData = (length: number): IStudentTd[] =>
     })),
   }));
 
-export const Students: FC = () => {
-  const [data, setData] = useState<IStudentTd[]>(tbodyData(110));
+const curentData = tbodyData(100);
 
-  const showEndedLessons = () => {
+export const Students: FC = () => {
+  const [data, setData] = useState<IStudentTd[]>(curentData);
+
+  const showFinishededLessons = () => {
     let newData = [] as typeof data;
-    data.forEach((elem) => {
+    curentData.forEach((elem) => {
       elem.lessons.forEach(({ progres }) => {
         if (progres === 100) {
           newData = [...newData, elem];
         }
       });
     });
-    if (newData.length) {
-      console.log(newData);
-      setData(newData);
-    }
+    setData(newData);
   };
-
+  const showSingleLessons = () => {
+    setData(curentData.filter((elem) => elem.lessons.length === 1));
+  };
   return (
     <div className={styles.mycontainer}>
       <div>
@@ -106,8 +107,8 @@ export const Students: FC = () => {
         <LessonTitle title="Ուսանողներ" classNameParent="!mb-[14px]" />
         <div className={styles.students_container}>
           <div className={styles.filter_section}>
-            <FilterBtn onClick={showEndedLessons}>Ավարտած</FilterBtn>
-            <FilterBtn>Սովորող</FilterBtn>
+            <FilterBtn onClick={showFinishededLessons}>Ավարտած</FilterBtn>
+            <FilterBtn onClick={showSingleLessons}>Սովորող</FilterBtn>
             <CustomDropdown
               className={styles.filterBox}
               dropDownTitle="Ըստ դասընթացի"
@@ -145,7 +146,8 @@ export const Students: FC = () => {
               },
             ]}
             data={data}
-            maxTrs={2}
+            pagItemsLength={4}
+            maxTrs={6}
           />
         </div>
       </div>
