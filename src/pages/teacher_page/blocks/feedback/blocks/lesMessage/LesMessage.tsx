@@ -1,7 +1,7 @@
-import React, { FC } from "react";
-import styles from "./lesMessage.module.css";
-import { IStageLesson } from "../../../../../../models/interfaces";
+import { FC } from "react";
 import { NavLink, useLocation } from "react-router-dom";
+import { IStageLesson } from "../../../../../../models/interfaces";
+import styles from "./lesMessage.module.css";
 
 export const LesMessage: FC<IStageLesson> = ({ title, lessonNumber }) => {
   const { pathname } = useLocation();
@@ -10,9 +10,11 @@ export const LesMessage: FC<IStageLesson> = ({ title, lessonNumber }) => {
       <NavLink
         to={`lesson/${lessonNumber}/task`}
         className={({ isActive }) =>
-          pathname.includes(`${lessonNumber}/chat`) || isActive
-            ? `${styles.activeLes} ${styles.lesson_message}`
-            : styles.lesson_message
+          `${styles.lesson_message} ${
+            pathname.includes(`${lessonNumber}/chat`) || isActive
+              ? styles.activeLes
+              : ""
+          }`
         }
       >
         <span className="font-normal">Դաս {lessonNumber}:</span> {title}
@@ -21,9 +23,7 @@ export const LesMessage: FC<IStageLesson> = ({ title, lessonNumber }) => {
       <NavLink
         to={`lesson/${lessonNumber}/homework`}
         className={({ isActive }) =>
-          isActive
-            ? `${styles.activeLes} ${styles.homeWorkAncor}`
-            : styles.homeWorkAncor
+          `${styles.homeWorkAncor} ${isActive ? styles.activeLes : ""}`
         }
       >
         Տնային աշխատանք

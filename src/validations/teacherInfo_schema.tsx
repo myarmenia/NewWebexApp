@@ -46,7 +46,7 @@ export interface PersonalSubmitForm {
 }
 
 export const teacherInfo_schema = Yup.object().shape({
-  img: Yup.string(),
+  img: Yup.mixed<File>(),
   address: Yup.string(),
   tel: Yup.string(),
   aboutme: Yup.string(),
@@ -100,5 +100,5 @@ export const teacherInfo_schema = Yup.object().shape({
       // ),
     })
   ),
-  sertificat: Yup.string(),
+  sertificat: Yup.mixed<File>(),
 });

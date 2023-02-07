@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import { useRouteLoaderData } from "react-router";
+import { useParams, useRouteLoaderData } from "react-router";
 import { CstmInput, CustomBtn } from "../../../../../../../components/forms";
 import { IOtherLessonLoaderData } from "../../../../../../../models/interfaces";
 import { ExtraMaterials } from "../../../../userLessons/stageLesPage/extraMaterials/ExtraMaterials";
@@ -10,10 +10,11 @@ import { StudentsWork } from "./StudentsWork";
 export const MesHomeWork: FC = () => {
   const [isHomeWorkAccepted, setIsHomeWorkAccepted] = useState(false);
   const [inpValue, setInpValue] = useState<string>("");
-  const { data, params } = useRouteLoaderData(
+  const { data } = useRouteLoaderData(
     "student-feedback"
   ) as IOtherLessonLoaderData;
-  const { body } = data[params.id - 1];
+  const { id } = useParams();
+  const { body } = data[+id! - 1];
 
   return (
     <div

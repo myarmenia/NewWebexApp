@@ -1,21 +1,20 @@
 import { FC } from "react";
-import { Link, useRouteLoaderData } from "react-router-dom";
+import { Link, useParams, useRouteLoaderData } from "react-router-dom";
 import { IOtherLessonLoaderData } from "../../../../../../../models/interfaces";
 import { ExtraMaterials } from "../../../../userLessons/stageLesPage/extraMaterials/ExtraMaterials";
 import { LesContainer } from "../../../../userLessons/userLesComponents/LesContainer";
 import styles from "./lesTask.module.css";
 
 export const LesTask: FC = () => {
-  const { data, params } = useRouteLoaderData(
+  const { data } = useRouteLoaderData(
     "student-feedback"
   ) as IOtherLessonLoaderData;
-  const { title, body, id } = data[params.id - 1];
+  const params = useParams();
+  const { title, body, id } = data[+params.id! - 1];
   return (
     <div className={styles.messageCont_cont}>
       <div className="bg-white h-full rounded-[15px]">
-        <LesContainer
-        // className="cont01"
-        >
+        <LesContainer>
           <p className="border-b border-[#BEBFE4] text-[10px] font-semibold pb-4">
             <span className="font-normal">Դաս {id}։</span>
             {title}

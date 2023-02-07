@@ -64,7 +64,7 @@ export const Pagination: React.FC<PaginationProps> = ({ currentitems }) => {
 // }, [count]);
 
 // JSX
-{
+
   /* <button
 className="addLessonBtn"
 onClick={() => {
@@ -83,5 +83,5 @@ onClick={() => {
 >
 go to previous
 </button> */
-}
+
 // =======================

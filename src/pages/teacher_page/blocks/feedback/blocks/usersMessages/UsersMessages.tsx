@@ -1,17 +1,19 @@
 import { FC } from "react";
-import { useLoaderData } from "react-router";
+import { useLoaderData, useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { IOtherLessonLoaderData } from "../../../../../../models/interfaces";
 import styles from "./usersMessages.module.css";
 
 export const UsersMessages: FC = () => {
-  const { students } = useLoaderData() as IOtherLessonLoaderData;
+  const { students } =
+    useLoaderData() as IOtherLessonLoaderData;
+    const params = useParams()
   return (
     <div className={styles.feedbackMessages}>
       {students.map(({ id, name, username }) => {
         return (
           <Link
-            to={`../student/${id}/lesson/1/task`}
+            to={`../student/${id}/lesson/${params.id}/task`}
             className={styles.chatContainer}
             key={id}
           >
