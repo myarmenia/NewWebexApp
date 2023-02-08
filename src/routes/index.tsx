@@ -46,9 +46,9 @@ import {
   stdLessonPageLoader,
   StdLessons,
 } from "../pages/student_page/student_sections";
-import HelpCenter from "../pages/student_page/help_center/HelpCenter";
-import Regsitration from "../pages/registration/Regsitration";
-import Entry from "../pages/registration/entry/Entry";
+import { HelpCenter } from "../pages/help_center/HelpCenter";
+import { Regsitration } from "../pages/registration/Regsitration";
+import { Entry } from "../pages/registration/entry/Entry";
 import { UserHeader } from "../components/screenComponents/userHeader/UserHeader";
 import { Header } from "../pages/home_page/header/Header";
 import { MainRoute } from "./MainRoute";
@@ -67,6 +67,7 @@ export const router = createBrowserRouter(
             <Regsitration />
           </>
         }
+        action={Regsitration.action}
       />
       <Route
         path="login"
@@ -77,6 +78,7 @@ export const router = createBrowserRouter(
             <Entry />
           </>
         }
+        action={Entry.action}
       />
       <Route path="teacher" element={<Teacher />}>
         {/* <Route index element={<Exam />} /> */}
@@ -171,12 +173,20 @@ export const router = createBrowserRouter(
             </Route>
           </Route>
         </Route>
-        <Route path="help_center" element={<HelpCenter />} />
+        <Route
+          path="help_center"
+          element={<HelpCenter />}
+          action={HelpCenter.action}
+        />
       </Route>
       <Route path="student" element={<Student />}>
         <Route path="perosnal_info" element={<StudentData />} />
         <Route path="my_lesson" element={<StudentLessons />} />
-        <Route path="help_center" element={<HelpCenter />} />
+        <Route
+          path="help_center"
+          element={<HelpCenter />}
+          action={HelpCenter.action}
+        />
         <Route path="my_lesson" element={<StudentLessons />}>
           <Route index element={<StdLessons />} />
           <Route

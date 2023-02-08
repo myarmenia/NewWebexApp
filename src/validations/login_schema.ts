@@ -8,5 +8,6 @@ export const login_schema = Yup.object().shape({
     .required("Գաղտնաբառը պարտադիր է")
     .min(8, "Գաղտնաբառը պետք է լինի առնվազն 8 նիշ")
     .max(15, "Գաղտնաբառը չպետք է գերազանցի 15 նիշը"),
-  acceptTerms: Yup.bool().oneOf([true], "Պայմաններ ընդունելը  պարտադիր է"),
+  acceptTerms: Yup.bool()
+  // .oneOf([true], "Պայմաններ ընդունելը  պարտադիր է"),
 });
