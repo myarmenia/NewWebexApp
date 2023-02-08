@@ -1,7 +1,7 @@
 export const toFormData = <T extends Object>(arg: T): FormData => {
   const formData = new FormData();
   Object.entries(arg).forEach(([key, value]) => {
-    if (Array.isArray(value)) {
+    if (Array.isArray(value) || typeof value === "boolean") {
       formData.append(key, JSON.stringify(value));
     }
     if (value instanceof File) {
@@ -10,7 +10,7 @@ export const toFormData = <T extends Object>(arg: T): FormData => {
     if (typeof value === "string") {
       formData.append(key, value);
     }
-    if (!value) {
+    if (value === undefined) {
       formData.append(key, "");
     }
   });
@@ -21,16 +21,18 @@ export const toObject = (arg: FormData) => {
   const newObj = Object.fromEntries(arg);
 
   Object.entries(newObj).forEach(([key, value]: [string, string | File]) => {
-    if (value instanceof File) {
-    }
     if (typeof value === "string") {
-      if (value.includes("[{") && Array.isArray(JSON.parse(value as string))) {
+      if (
+        (value.includes("[{") && Array.isArray(JSON.parse(value as string))) ||
+        value === "true" ||
+        value === "false"
+      ) {
         newObj[key] = JSON.parse(value as string);
       } else {
         newObj[key] = value;
       }
     }
-    if (!value) {
+    if (value === undefined) {
       newObj[key] = "";
     }
   });

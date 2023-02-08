@@ -1,6 +1,5 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FormProvider, useForm } from "react-hook-form";
-// import Input from "../../../components/teacherComponents/sherid/Input";
 import { login_schema } from "../../../validations/login_schema";
 import emailIcon from "../../../assets/registration_images/mail.png";
 import passwordIcon from "../../../assets/registration_images/password.png";
@@ -10,21 +9,32 @@ import {
   CustomBtn,
   CustomCheckbox,
 } from "../../../components/forms";
-import { Link } from "react-router-dom";
+import { ActionFunction, Link } from "react-router-dom";
+import { toFormData, toObject } from "../../../helper";
+import { useAppSubmit } from "../../../hooks";
+
 interface EntryForm {
   email: string;
   password: string;
   acceptTerms: boolean;
 }
 
-const Entry = () => {
+const EntryComp = () => {
+  const submit = useAppSubmit();
   const methods = useForm<EntryForm>({
     resolver: yupResolver(login_schema),
   });
   const { handleSubmit } = methods;
 
   const onSubmit = (data: EntryForm) => {
-    console.log(data);
+    let values = JSON.parse(JSON.stringify(data));
+    if (values) {
+      const formData = toFormData(values);
+      submit(formData, {
+        action: "/login",
+        method: "post",
+      });
+    }
   };
   return (
     <FormProvider {...methods}>
@@ -35,19 +45,6 @@ const Entry = () => {
             onSubmit={handleSubmit(onSubmit)}
             className={styles["entry-form"]}
           >
-            {/* <Input
-            register={{ ...register("email") }}
-            type="email"
-            url={emailIcon}
-            placeholder="Էլ․ փոստ"
-          />
-          <Input
-            register={{ ...register("password") }}
-            type="password"
-            url={passwordIcon}
-            placeholder="Գաղտնաբառ"
-          /> */}
-
             <CstmInput
               regName="email"
               boxClassName={styles["form-group"]}
@@ -83,4 +80,12 @@ const Entry = () => {
   );
 };
 
-export default Entry;
+const action: ActionFunction = async ({ request }) => {
+  const formData = await request.formData();
+  const data = toObject(formData);
+  console.log(data);
+
+  return "logged in";
+};
+
+export const Entry = Object.assign(EntryComp, { action });

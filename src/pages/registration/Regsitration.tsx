@@ -1,6 +1,7 @@
 import { yupResolver } from "@hookform/resolvers/yup";
+import { FC } from "react";
 import { FormProvider, useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { ActionFunction, Link } from "react-router-dom";
 import facebook from "../../assets/registration_images/facebook.png";
 import gmail from "../../assets/registration_images/gmail.png";
 import emailIcon from "../../assets/registration_images/mail.png";
@@ -14,6 +15,8 @@ import {
   CustomSelect,
 } from "../../components/forms";
 import { ErrorMessage } from "../../components/reusable";
+import { toFormData, toObject } from "../../helper";
+import { useAppSubmit } from "../../hooks";
 // import { instance } from "../../request";
 import {
   registration_schema,
@@ -34,7 +37,8 @@ import styles from "./registration.module.css";
 //     });
 // };
 
-const Regsitration = () => {
+const RegsitrationComp: FC = () => {
+  const submit = useAppSubmit();
   const methods = useForm<UserSubmitForm>({
     resolver: yupResolver(registration_schema),
   });
@@ -44,11 +48,18 @@ const Regsitration = () => {
     formState: { errors },
   } = methods;
   const onSubmit = (data: UserSubmitForm) => {
-    let values = JSON.parse(JSON.stringify(data)) as UserSubmitForm;
+    let values = JSON.parse(JSON.stringify(data));
     if (watch("teacherStudentId") === "Ուսանող") {
       delete values.select;
     }
     console.log(values);
+    if (values) {
+      const formData = toFormData(values);
+      submit(formData, {
+        action: "/registration",
+        method: "post",
+      });
+    }
     // fetchData(data);
   };
 
@@ -170,4 +181,12 @@ const Regsitration = () => {
   );
 };
 
-export default Regsitration;
+const action: ActionFunction = async ({ request }) => {
+  const formData = await request.formData();
+  const data = toObject(formData);
+  console.log(data);
+
+  return "registered";
+};
+
+export const Regsitration = Object.assign(RegsitrationComp, { action });
