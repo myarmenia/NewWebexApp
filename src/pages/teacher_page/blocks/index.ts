@@ -1,3 +1,5 @@
+export { StageLessons } from "./firstLesson/firstLesCont/stageLessons/StageLessons";
+export { Phase } from "./firstLesson/firstLesCont/phase/Phase";
 export { AddLesson } from "./addLesson/AddLesson";
 export { Calendar, calendarLoader } from "./calendar/Calendar";
 export { WeekSchedule } from "./weekSchedule/WeekSchedule";

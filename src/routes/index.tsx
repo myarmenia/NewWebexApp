@@ -34,6 +34,8 @@ import {
   lessonsLoader,
   StageLesPage,
   Feedback,
+  Phase,
+  StageLessons,
 } from "../pages/teacher_page/blocks";
 
 // Pages for STUDENT section
@@ -46,18 +48,21 @@ import {
   stdLessonPageLoader,
   StdLessons,
 } from "../pages/student_page/student_sections";
+
 import { HelpCenter } from "../pages/help_center/HelpCenter";
+
 import { Regsitration } from "../pages/registration/Regsitration";
 import { Entry } from "../pages/registration/entry/Entry";
+
 import { UserHeader } from "../components/screenComponents/userHeader/UserHeader";
 import { Header } from "../pages/home_page/header/Header";
+
 import { MainRoute } from "./MainRoute";
-import { Phase } from "../pages/teacher_page/blocks/firstLesson/firstLesCont/phase/Phase";
-import { StageLessons } from "../pages/teacher_page/blocks/firstLesson/firstLesCont/stageLessons/StageLessons";
+import { ErrorElement } from "../components/ErrorElement";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<MainRoute />}>
+    <Route path="/" element={<MainRoute />} errorElement={<ErrorElement />}>
       <Route
         path="registration"
         element={
