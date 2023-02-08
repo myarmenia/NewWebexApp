@@ -1,5 +1,7 @@
-import { FC } from "react";
+import { FC, Suspense } from "react";
 import {
+  Await,
+  defer,
   LoaderFunction,
   Outlet,
   useLocation,
@@ -13,13 +15,14 @@ import styles from "./feedback.module.css";
 import { ChatNav } from "./blocks/ChatNav";
 import { MessToLesson } from "./blocks/messToLesson/MessToLesson";
 import { UsersMessages } from "./blocks/usersMessages/UsersMessages";
+import { RootSpinner } from "../../../../components/rootSpinner/RootSpinner";
 
 const FeedbackComp: FC = () => {
-  const { students } = useRouteLoaderData(
+  const loaderData = useRouteLoaderData(
     "student-feedback"
   ) as IOtherLessonLoaderData;
   const { stdId } = useParams();
-  const currentObj = students[+stdId! - 1];
+  const currentObj = loaderData.students[+stdId! - 1];
 
   const { pathname } = useLocation();
   const isNavBarShown: boolean =
@@ -28,20 +31,23 @@ const FeedbackComp: FC = () => {
   return (
     <div className={styles.feedback}>
       <LessonTitle title="Նամակագրություն" className="mb-0" />
-
-      <div className={styles.feedbackCont}>
-        <UsersMessages />
-        <div className={styles.messageSection}>
-          <div className={styles.messageCont_title}>
-            <p>{currentObj.name}</p>
-            {isNavBarShown && <ChatNav />}
+      <Suspense fallback={<RootSpinner />}>
+        <Await resolve={loaderData}>
+          <div className={styles.feedbackCont}>
+            <UsersMessages />
+            <div className={styles.messageSection}>
+              <div className={styles.messageCont_title}>
+                <p>{currentObj.name}</p>
+                {isNavBarShown && <ChatNav />}
+              </div>
+              <div className={styles.messageCont}>
+                <Outlet />
+                <MessToLesson />
+              </div>
+            </div>
           </div>
-          <div className={styles.messageCont}>
-            <Outlet />
-            <MessToLesson />
-          </div>
-        </div>
-      </div>
+        </Await>
+      </Suspense>
     </div>
   );
 };
@@ -49,7 +55,7 @@ const FeedbackComp: FC = () => {
 const loader: LoaderFunction = async () => {
   const res = await instance.get("/posts?userId=1");
   const res1 = await instance.get("/users");
-  return { data: res.data, students: res1.data };
+  return defer({ data: res.data, students: res1.data });
 };
 
 export const Feedback = Object.assign(FeedbackComp, { loader });

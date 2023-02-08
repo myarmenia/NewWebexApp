@@ -3,7 +3,6 @@ import { RootSpinner } from "./components/rootSpinner/RootSpinner";
 import { router } from "./routes";
 function App() {
   return <RouterProvider router={router} fallbackElement={<RootSpinner />} />;
-  // return <RootSpinner />;
 }
 
 export default App;
