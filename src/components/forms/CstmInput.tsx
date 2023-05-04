@@ -1,4 +1,4 @@
-import { FC, InputHTMLAttributes } from "react";
+import { FC, InputHTMLAttributes, ReactNode } from "react";
 import { useError, useFormRegister } from "../../hooks";
 import { MyInputProps } from "../../models/forms";
 import { ErrorMessage } from "../reusable";
@@ -35,4 +35,12 @@ export const CstmInput: FC<
       <ErrorMessage className={errorClassName}>{errorMessage}</ErrorMessage>
     </div>
   );
+};
+
+interface Props {
+  title?: string | number;
+}
+
+const Box = ({ title }: Props) => {
+  return <div>{title}</div>;
 };

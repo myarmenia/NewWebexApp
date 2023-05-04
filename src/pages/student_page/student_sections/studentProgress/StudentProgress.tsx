@@ -30,7 +30,7 @@ export const StudentProgress: FC = () => {
         rows={[
           {
             name: "Դասընթացի անվանում",
-            render: () => (
+            render: ({}) => (
               <div className="flex items-center gap-2 w-fit mx-auto">
                 <span>Գրաֆիկ դիզայնի դասընթաց</span>
                 <img
@@ -62,7 +62,7 @@ export const StudentProgress: FC = () => {
             tdClassName: "!text-center",
           },
         ]}
-        data={generateArray(9, {})}
+        data={[{}, {}, {}, {}]}
       />
     </div>
   );

@@ -79,7 +79,7 @@ export const StdLesPage: FC<LesPageProps> = ({
                   type="button"
                   title="Ուղարկել"
                   className="!w-[254px]"
-                  onClick={() => logOpinionData()}
+                  onClick={logOpinionData}
                 />
               </div>
             </div>

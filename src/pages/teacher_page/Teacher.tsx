@@ -16,3 +16,4 @@ export const Teacher: FC = () => {
     </div>
   );
 };
+

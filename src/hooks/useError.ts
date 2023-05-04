@@ -20,7 +20,7 @@ export const useError = (
               formMethods.formState.errors[regName!.split(".")[0]]![
                 regName!.split(
                   "."
-                )[1] as keyof typeof formMethods.formState.errors[string]
+                )[1] as keyof (typeof formMethods.formState.errors)[string]
               ];
             return (
               formMethods.formState.errors[regName!.split(".")[0]] &&
@@ -61,7 +61,7 @@ export const useError = (
       formMethods.formState.errors[regName.split(".")[0]]![
         regName.split(
           "."
-        )[1] as keyof typeof formMethods.formState.errors[string]
+        )[1] as keyof (typeof formMethods.formState.errors)[string]
       ],
   ]);
 
