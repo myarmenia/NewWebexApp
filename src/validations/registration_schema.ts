@@ -1,33 +1,33 @@
-import * as Yup from "yup";
+import * as yup from "yup";
 
-export const registration_schema = Yup.object().shape({
-  teacherStudentId: Yup.string()
+export const registration_schema = yup.object().shape({
+  teacherStudentId: yup.string()
     .oneOf(["Դասավանդող", "Ուսանող"])
     .required("Նշելը պարտադիր է")
     .nullable(),
-  select: Yup.string().when("teacherStudentId", {
+  select: yup.string().when("teacherStudentId", {
     is: "Դասավանդող",
-    then: Yup.string().required("Required"),
+    then: yup.string().required("Required"),
   }),
-  name: Yup.string()
+  name: yup.string()
     .required("Անունը պարտադիր է")
     .min(4, "Անունը պետք է լինի առնվազն 4 նիշ")
     .max(20, "Անունը չպետք է գերազանցի 20 նիշը"),
-  surName: Yup.string()
+  surName: yup.string()
     .required("Անունը պարտադիր է")
     .min(4, "Անունը պետք է լինի առնվազն 4 նիշ")
     .max(20, "Անունը չպետք է գերազանցի 20 նիշը"),
-  email: Yup.string()
+  email: yup.string()
     .required("Էլ․ հասցեն պարտադիր է")
     .email("Էլ․ հասցեն անվավեր է"),
-  password: Yup.string()
+  password: yup.string()
     .required("Գաղտնաբառը պարտադիր է")
     .min(8, "Գաղտնաբառը պետք է լինի առնվազն 8 նիշ")
     .max(15, "Գաղտնաբառը չպետք է գերազանցի 15 նիշը"),
-  acceptTerms: Yup.bool().oneOf([true], "Պայմաններ ընդունելը  պարտադիր է"),
-  repeatPassowrd: Yup.string()
+  acceptTerms: yup.bool().oneOf([true], "Պայմաններ ընդունելը  պարտադիր է"),
+  repeatPassowrd: yup.string()
     .required("Գաղտնաբառ հաստատելը պարտադիր է")
-    .oneOf([Yup.ref("password"), null], "Հաստատված գաղտնաբառը սխալ է"),
+    .oneOf([yup.ref("password"), null], "Հաստատված գաղտնաբառը սխալ է"),
 });
 
 export interface UserSubmitForm {

@@ -37,6 +37,7 @@ export const CstmDateInput: FC<
   const register = useFormRegister(regName);
 
   const [date, setDate] = useState<IValue>({ value: "", curentValue: "" });
+
   const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     onChange?.(e);
     regName && formMethods.setValue(regName, e.target.value);
@@ -45,6 +46,7 @@ export const CstmDateInput: FC<
       curentValue: e.target.value.split("-").reverse().join("."),
     });
   };
+
   useEffect(() => {
     if (date.value !== "" && formMethods.formState.isSubmitted)
       formMethods.trigger(regName);

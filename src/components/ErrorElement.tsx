@@ -1,5 +1,6 @@
 import { FC, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router";
+import { CstmInput } from "./forms";
 
 export const ErrorElement: FC = () => {
   const { pathname } = useLocation();

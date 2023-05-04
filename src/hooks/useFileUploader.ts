@@ -2,7 +2,11 @@ import { ChangeEvent, ChangeEventHandler, useState } from "react";
 
 export const useFileUploader = (
   onChange?: ChangeEventHandler<HTMLInputElement> | undefined
-) => {
+): [
+  File,
+  (event: ChangeEvent<HTMLInputElement>) => void,
+  React.Dispatch<React.SetStateAction<File>>
+] => {
   const [file, setFile] = useState<File>(null!);
   const onFileUpload = (event: ChangeEvent<HTMLInputElement>) => {
     const { files } = event.target;
@@ -12,5 +16,6 @@ export const useFileUploader = (
       onChange?.(event);
     }
   };
-  return [file, onFileUpload, setFile] as const;
+  return [file, onFileUpload, setFile];
 };
+

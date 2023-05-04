@@ -9,7 +9,7 @@ import { Options } from "./Options";
 interface CustomSelectProps
   extends Omit<ICustomSelect, "toggleOptions" | "removeOption"> {}
 
-export const CustomSelectContext = createContext<ICustomSelect>(null!);
+export const CustomSelectContext = createContext<ICustomSelect>({} as ICustomSelect);
 
 // if you want to make select work without react-hook-form you need to pass value and setValue props (these must be useState) to component
 // if you want select to be have input for creating new options you need to pass setOptions prop to component

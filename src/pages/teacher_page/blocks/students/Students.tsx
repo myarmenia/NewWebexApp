@@ -51,6 +51,7 @@ export const Students: FC = () => {
   const showSingleLessons = () => {
     setData(curentData.filter((elem) => elem.lessons.length === 1));
   };
+
   return (
     <div className={styles.mycontainer}>
       <div>
@@ -146,8 +147,8 @@ export const Students: FC = () => {
               },
             ]}
             data={data}
-            pagItemsLength={4}
-            maxTrs={6}
+            pagItemsLength={7}
+            maxTrs={10}
           />
         </div>
       </div>
