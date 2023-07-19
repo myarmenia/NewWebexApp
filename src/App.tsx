@@ -1,6 +1,7 @@
 import { RouterProvider } from "react-router-dom";
 import { RootSpinner } from "./components/rootSpinner/RootSpinner";
 import { router } from "./routes";
+ 
 function App() {
   return <RouterProvider router={router} fallbackElement={<RootSpinner />} />;
 }

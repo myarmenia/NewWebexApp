@@ -1,0 +1,11 @@
+.header {
+  @apply flex justify-between items-center w-full;
+}
+
+.trash {
+  @apply cursor-pointer;
+}
+
+.users {
+  @apply flex flex-col gap-5 
+}

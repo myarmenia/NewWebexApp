@@ -1,12 +1,10 @@
-import { FC } from "react";
-import { LoaderFunction, useLoaderData } from "react-router";
-import { LessonTitle } from "../../../../../components/reusable";
-import {
-  ILessonLoaderObj
-} from "../../../../../models/interfaces";
-import { instance } from "../../../../../request";
-import { LesBox } from "../userLesComponents/lesBox/LesBox";
-import styles from "./lessons.module.css";
+import { FC } from 'react';
+import { LoaderFunction, useLoaderData } from 'react-router';
+import { LessonTitle } from '../../../../../components/reusable';
+import { ILessonLoaderObj } from '../../../../../models/interfaces';
+import { instance } from '../../../../../request';
+import { LesBox } from '../userLesComponents/lesBox/LesBox';
+import styles from './lessons.module.css';
 
 export const Lessons: FC = () => {
   const lessonsArr = useLoaderData() as ILessonLoaderObj[];
@@ -22,18 +20,19 @@ export const Lessons: FC = () => {
             title: "+ Ավելացնել դասընթաց",
           }}
         />
+
         {lessonsArr.length ? (
           <div className={styles.container_unpublished}>
             {lessonsArr.map(({ title, body, id }) => (
               <LesBox
                 {...{ title, id }}
                 keys={[
-                  "Արվեստ և դիզայն",
-                  "Սկսնակների համար",
-                  "Հավաստագիր",
-                  "16+",
-                  "Ավարտական քննություն",
-                  "165 ժամ",
+                  'Արվեստ և դիզայն',
+                  'Սկսնակների համար',
+                  'Հավաստագիր',
+                  '16+',
+                  'Ավարտական քննություն',
+                  '165 ժամ',
                 ]}
                 price="65 000"
                 description={body}
@@ -57,12 +56,12 @@ export const Lessons: FC = () => {
               <LesBox
                 {...{ title, id }}
                 keys={[
-                  "Արվեստ և դիզայն",
-                  "Սկսնակների համար",
-                  "Հավաստագիր",
-                  "16+",
-                  "Ավարտական քննություն",
-                  "165 ժամ",
+                  'Արվեստ և դիզայն',
+                  'Սկսնակների համար',
+                  'Հավաստագիր',
+                  '16+',
+                  'Ավարտական քննություն',
+                  '165 ժամ',
                 ]}
                 price="65 000"
                 description={body}
@@ -75,8 +74,8 @@ export const Lessons: FC = () => {
             ))}
           </div>
         ) : (
-          <p className="text-base text-gray">1
-            Դուք դեռ չունեք հրապարակված դասընթաց, ավելացրեք նորը
+          <p className="text-base text-gray">
+            1 Դուք դեռ չունեք հրապարակված դասընթաց, ավելացրեք նորը
           </p>
         )}
       </div>
@@ -85,6 +84,6 @@ export const Lessons: FC = () => {
 };
 
 export const lessonsLoader: LoaderFunction = async () => {
-  const res = await instance.get("posts?userId=1");
+  const res = await instance.get('posts?userId=1');
   return res.data;
 };

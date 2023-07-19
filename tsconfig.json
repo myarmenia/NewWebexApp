@@ -16,8 +16,12 @@
     "noEmit": false,
     "jsx": "react-jsx",
     "rootDir": "",
-    "plugins": [{ "name": "typescript-plugin-css-modules" }]
+    "plugins": [{ "name": "typescript-plugin-css-modules" }],
+    // "baseUrl": "src"
+    // "baseUrl": "./src",
+    
   },
+  
   "include": ["src", "src/components", "src/custom.d.ts"],
   "exclude": ["node_modules"]
 }

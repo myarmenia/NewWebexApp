@@ -1,11 +1,12 @@
-import { FC } from "react";
-import editImg from "../../../../../../assets/teacher_images/userLessons/editGray.svg";
-import starImg from "../../../../../../assets/teacher_images/userLessons/starImg.svg";
-import trashbinImg from "../../../../../../assets/teacher_images/userLessons/trashbin_2linesIN.svg";
-import styles from "./lesBox.module.css";
-import { Link } from "react-router-dom";
-import { CustomBtn } from "../../../../../../components/forms";
-import { LessonProps } from "../../../../../../models/interfaces";
+import { FC } from 'react';
+import editImg from '../../../../../../assets/teacher_images/userLessons/editGray.svg';
+import starImg from '../../../../../../assets/teacher_images/userLessons/starImg.svg';
+import trashbinImg from '../../../../../../assets/teacher_images/userLessons/trashbin_2linesIN.svg';
+import styles from './lesBox.module.css';
+import { Link } from 'react-router-dom';
+import { CstmInput, CustomBtn } from '../../../../../../components/forms';
+import { LessonProps } from '../../../../../../models/interfaces';
+// import userIcon from '../../../../../../assets/registration_images/user.png';
 
 export interface LesBoxProps extends LessonProps {
   studentsCount?: number;
@@ -37,7 +38,8 @@ export const LesBox: FC<LesBoxProps> = ({
         allowFullScreen
       ></iframe>  */}
       </div>
-      <p className={styles.title + "overflow-hidden"}>{title}</p>
+
+      <p className={styles.title + 'overflow-hidden'}>{title}</p>
       <div className={styles.keys}>
         {keys.map((key, index) => (
           <div className={styles.key} key={index}>
@@ -46,12 +48,11 @@ export const LesBox: FC<LesBoxProps> = ({
         ))}
       </div>
       <p className={styles.description}>{description}</p>
+
       {studentsCount && (
         <div className="flex justify-between items-center">
           <span className={styles.studentsCount}>{studentsCount} ուսանող</span>
-          <span className={styles.studentsCount}>
-            Կարծիքներ ({commentsCount})
-          </span>
+          <span className={styles.studentsCount}>Կարծիքներ ({commentsCount})</span>
         </div>
       )}
       <div className="flex flex-col gap-5">
