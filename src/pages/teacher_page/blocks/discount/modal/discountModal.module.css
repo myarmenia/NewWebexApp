@@ -1,7 +1,7 @@
 @tailwind components;
-.modal {
+/* .modal {
   @apply z-10 w-full h-[100vh] top-0 left-0 fixed bg-[#090e249e];
-}
+} */
 .modalChild {
   @apply absolute bg-[#ffffffe0] w-[50%] h-auto rounded-[15px] top-[100%] left-1/2 py-[25px] px-[30px];
   transform: translate(-50%, -50%);

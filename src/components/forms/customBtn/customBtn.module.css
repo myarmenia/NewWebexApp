@@ -9,7 +9,7 @@
   }
 }
 .button::after {
-  content: "";
+  content: '';
   @apply absolute top-0 left-0 h-full w-full bg-white -z-[1] rounded-2xl;
   transition: 0.1s ease all;
   transform: scale(0, 1);
@@ -24,4 +24,26 @@
 
 .grayBtn {
   @apply !bg-[#898bce] !bg-none;
+}
+
+.transparent {
+  position: relative;
+  background: transparent !important;
+  color: #0026aa;
+  /* border: 1px solid; */
+  /* border-image: linear-gradient(180deg, #0026aa 0%, #30cfff 100%); */
+  /* border-radius: 30px; */
+  width: fit-content;
+  min-width: fit-content;
+}
+.transparent::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 30px;
+  padding: 1px;
+  background: linear-gradient(180deg, #7D64FB 0%, #EB64F4 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
 }

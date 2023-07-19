@@ -37,10 +37,4 @@ export const CstmInput: FC<
   );
 };
 
-interface Props {
-  title?: string | number;
-}
 
-const Box = ({ title }: Props) => {
-  return <div>{title}</div>;
-};

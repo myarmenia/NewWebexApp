@@ -1,13 +1,8 @@
 // react-router-dom
-import {
-  createBrowserRouter,
-  createRoutesFromElements,
-  Route,
-  Routes,
-} from "react-router-dom";
+import { createBrowserRouter, createRoutesFromElements, Route, Routes } from 'react-router-dom';
 
 // Pages for TEACHER section
-import { Teacher } from "../pages/teacher_page/Teacher";
+import { Teacher } from '../pages/teacher_page/Teacher';
 import {
   AddLesson,
   WeekSchedule,
@@ -37,10 +32,10 @@ import {
   Feedback,
   Phase,
   StageLessons,
-} from "../pages/teacher_page/blocks";
+} from '../pages/teacher_page/blocks';
 
 // Pages for STUDENT section
-import { Student } from "../pages/student_page/Student";
+import { Student } from '../pages/student_page/Student';
 import {
   StudentLessons,
   StudentData,
@@ -48,18 +43,21 @@ import {
   StdLesPage,
   stdLessonPageLoader,
   StdLessons,
-} from "../pages/student_page/student_sections";
+} from '../pages/student_page/student_sections';
 
-import { HelpCenter } from "../pages/help_center/HelpCenter";
+import { HelpCenter } from '../pages/help_center/HelpCenter';
 
-import { Regsitration } from "../pages/registration/Regsitration";
-import { Entry } from "../pages/registration/entry/Entry";
+import { Regsitration } from '../pages/registration/Regsitration';
+import { Entry } from '../pages/registration/entry/Entry';
 
-import { UserHeader } from "../components/screenComponents/userHeader/UserHeader";
-import { Header } from "../pages/home_page/header/Header";
+import { UserHeader } from '../components/screenComponents/userHeader/UserHeader';
+import { Header } from '../pages/home_page/header/Header';
 
-import { MainRoute } from "./MainRoute";
-import { ErrorElement } from "../components/ErrorElement";
+import { MainRoute } from './MainRoute';
+import { ErrorElement } from '../components/ErrorElement';
+import { RegisterTeacher } from '../pages/company_page/blocks/register_teacher/Register_teacher';
+import Company from '../pages/company_page/Company';
+import { ProfilesTeacher } from '../pages/company_page/blocks/profiles_teacher/Profiles_teacher';
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -69,7 +67,7 @@ export const router = createBrowserRouter(
         element={
           <>
             {/* <UserHeader /> */}
-            <Header />
+            {/* <Header /> */}
             <Regsitration />
           </>
         }
@@ -80,7 +78,7 @@ export const router = createBrowserRouter(
         element={
           <>
             {/* <UserHeader /> */}
-            <Header />
+            {/* <Header /> */}
             <Entry />
           </>
         }
@@ -113,23 +111,14 @@ export const router = createBrowserRouter(
                   stageLessons={12}
                   lessonTime={2}
                   studentsCount={3}
-                  keys={[
-                    "Արվեստ և դիզայն",
-                    "Սկսնակների համար",
-                    "Հավաստագիր",
-                    "16+",
-                  ]}
+                  keys={['Արվեստ և դիզայն', 'Սկսնակների համար', 'Հավաստագիր', '16+']}
                   price="65 000"
                 />
               }
               loader={lessonPageLoader}
             />
             <Route path="lesson/:les">
-              <Route
-                index
-                element={<StageLesPage />}
-                loader={lessonPageLoader}
-              />
+              <Route index element={<StageLesPage />} loader={lessonPageLoader} />
               <Route
                 path="edit"
                 element={
@@ -156,11 +145,7 @@ export const router = createBrowserRouter(
           <Route index element={<Calendar />} loader={calendarLoader} />
           <Route path="week_schedule" element={<WeekSchedule />} />
         </Route>
-        <Route
-          path="personal_info"
-          element={<PersonalInfo />}
-          action={PersonalInfo.action}
-        />
+        <Route path="personal_info" element={<PersonalInfo />} action={PersonalInfo.action} />
         <Route path="students" element={<Students />} />
         <Route path="wallet" element={<Wallet />} />
         <Route path="panel" element={<ControlPanel />} />
@@ -170,8 +155,7 @@ export const router = createBrowserRouter(
             path="student/:stdId"
             element={<Feedback />}
             loader={Feedback.loader}
-            id="student-feedback"
-          >
+            id="student-feedback">
             <Route path="lesson/:id">
               <Route path="task" element={<LesTask />} />
               <Route path="homework" element={<MesHomeWork />} />
@@ -179,20 +163,12 @@ export const router = createBrowserRouter(
             </Route>
           </Route>
         </Route>
-        <Route
-          path="help_center"
-          element={<HelpCenter />}
-          action={HelpCenter.action}
-        />
+        <Route path="help_center" element={<HelpCenter />} action={HelpCenter.action} />
       </Route>
       <Route path="student" element={<Student />}>
         <Route path="perosnal_info" element={<StudentData />} />
         <Route path="my_lesson" element={<StudentLessons />} />
-        <Route
-          path="help_center"
-          element={<HelpCenter />}
-          action={HelpCenter.action}
-        />
+        <Route path="help_center" element={<HelpCenter />} action={HelpCenter.action} />
         <Route path="my_lesson" element={<StudentLessons />}>
           <Route index element={<StdLessons />} />
           <Route
@@ -205,12 +181,7 @@ export const router = createBrowserRouter(
                 stageLessons={12}
                 lessonTime={2}
                 studentsCount={3}
-                keys={[
-                  "Արվեստ և դիզայն",
-                  "Սկսնակների համար",
-                  "Հավաստագիր",
-                  "16+",
-                ]}
+                keys={['Արվեստ և դիզայն', 'Սկսնակների համար', 'Հավաստագիր', '16+']}
                 price="65 000"
               />
             }
@@ -218,11 +189,7 @@ export const router = createBrowserRouter(
           />
         </Route>
         <Route path="feedback">
-          <Route
-            path="student/:stdId"
-            element={<Feedback />}
-            loader={Feedback.loader}
-          >
+          <Route path="student/:stdId" element={<Feedback />} loader={Feedback.loader}>
             <Route path="lesson/:id">
               <Route path="task" element={<LesTask />} />
               <Route path="homework" element={<MesHomeWork />} />
@@ -232,6 +199,13 @@ export const router = createBrowserRouter(
         </Route>
         <Route path="progress" element={<StudentProgress />} />
       </Route>
-    </Route>
-  )
+      <Route path="company" element={<Company />}>
+        <Route
+          path="register-teacher"
+          element={<RegisterTeacher />}
+          action={RegisterTeacher.action}/>
+        <Route path="teachers" element={<ProfilesTeacher/>}/>
+      </Route>
+    </Route>,
+  ),
 );

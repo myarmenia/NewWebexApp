@@ -16,7 +16,7 @@ export const Student: FC = () => {
   }, [pathname]);
   return (
     <div className={styles.content}>
-      <UserHeader />
+      {/* <UserHeader /> */}
       <UserMenu {...{ menuItems }} />
       <Content>
         <Outlet />

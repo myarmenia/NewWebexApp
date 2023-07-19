@@ -8,7 +8,7 @@ import { menuItems } from "./teacher_store/menuItems";
 export const Teacher: FC = () => {
   return (
     <div className="content">
-      <UserHeader />
+      {/* <UserHeader /> */}
       <UserMenu {...{ menuItems }} />
       <Content>
         <Outlet />
